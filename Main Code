@@ -2,7 +2,7 @@ settings
 {
 	main
 	{
-		Description: "♥ A Friendly Server To Meet New Friends ♥\nlast updated (July 09 2023)\n\n   » » » MASSIVE UPDATE RELEASED « « «\n (including UNO, non-mod menu and\n      hero specific features!)\n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss.\n   Based on the work of: TbyCoLive.\n Maintained with ♡ by: LƐafa.\n   Community Managers: MOOOUSH, RUBY & KWALLY.\n\n Thank you for hanging out!"
+		Description: "♥ A Friendly Server To Meet New Friends ♥\nlast updated (July 09 2023)\n\n   » » » MASSIVE UPDATE RELEASED « « «\n (including UNO, non-mod menu and\n      hero specific features!)\n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss.\n   Based on the work of: TbyCoLive.\n Maintained with ♡ by: LƐafa.\n   Community Managers: MOOOUSH, RUBY & KWALLY.\n\n  Have fun!"
 		Mode Name: " ♥ Friendly ♥ No Kill!"
 	}
 
@@ -7807,7 +7807,7 @@ rule("Extra_19: Florenzio Bandaid")
 	conditions
 	{
 
-		Is True For Any(All Players(Team Of(Event Player)), Current Array Element.Full_Protection &&
+		Is True For Any(All Players(All Teams), Current Array Element.Full_Protection &&
 			Distance Between(Current Array Element, Event Player) <= 31 && Current Array Element != Event Player) == True;
 	}
 
@@ -7816,7 +7816,7 @@ rule("Extra_19: Florenzio Bandaid")
 		Set Ability 1 Enabled(Event Player, False);
 		Set Ability 2 Enabled(Event Player, False);
 		Set Secondary Fire Enabled(Event Player, False);
-		Wait Until(Not(Is True For Any(All Players(Team Of(Event Player)), Current Array Element.Full_Protection &&
+		Wait Until(Not(Is True For Any(All Players(All Teams), Current Array Element.Full_Protection &&
 			Distance Between(Current Array Element, Event Player) <= 31 && Current Array Element != Event Player))
 			|| Not(Hero Of(Event Player) == Hero(Lifeweaver)), 9999);
 		Set Ability 1 Enabled(Event Player, True);
@@ -7918,7 +7918,7 @@ rule("Tp effects per Map")
 
 		Wait(20, Ignore Condition);
 		Wait(3, Ignore Condition);
-		If(String Length(Global.Credits[0])!=61 || String Length(Global.Credits[1])!=62 || 
+		If(String Length(Global.Credits[0])!=61 || String Length(Global.Credits[1])!=69 || 
 			Custom String("E{1}t{2}em{0}", Char In String(Global.Credits[0], 49), Char In String(Global.Credits[0], 30), Char In String(Global.Credits[0], 18)) != Custom String("Extremo") ||
 			Custom String("OVE{2}W{0}E{1}MING", Char In String(Global.Credits[1], 54), Char In String(Global.Credits[1], 21), Char In String(Global.Credits[1], 58)) != Custom String("OVERWHELMING"));
 			For Global Variable(Drawing_Obj_Storage, 0, 128, 1);
