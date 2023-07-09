@@ -95,6 +95,6 @@ rule("Listed_Player")
 			Custom String("RamsKitten"), Custom String("GrimRanger"), Custom String("AlphaWolfRob"), Custom String("Snow"), Custom String("Boyka619"), Custom String("Flaccid"),
 			Custom String("T4TPharah"), Custom String("Bobble"), Custom String("ReaperRadio"), Custom String("Gerike27"), Custom String("ACCELERANDO"), Custom String("BOB"),
 			Custom String("Mnotna"), Custom String("TIGERmanly"), Custom String("FloorBread"), Custom String("ZORO"), Custom String("S3od"), Custom String("NAF"), 
-			Custom String("WaffleEater"), Custom String("Chad"), Custom String("UnL0v3d"), Custom String("yozora"));
+			Custom String("WaffleEater"), Custom String("Chad"), Custom String("UnL0v3d"), Custom String("yozora"), Custom String("KadenLee25"), Custom String("rhyǃ"));
 	}
 }
