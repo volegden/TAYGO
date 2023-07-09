@@ -160,6 +160,8 @@ settings
 
 			Lifeweaver
 			{
+				Life Grip: Off
+				Petal Platform Cooldown Time: 200%
 				Ultimate Generation - Combat Tree of Life: 50%
 				Ultimate Generation - Passive Tree of Life: 75%
 			}
@@ -171,8 +173,8 @@ settings
 
 			Mei
 			{
-				Cryo-Freeze Cooldown Time: 500%
-				Ice Wall Cooldown Time: 500%
+				Cryo-Freeze: Off
+				Ice Wall: Off
 			}
 
 			Mercy
@@ -1481,7 +1483,7 @@ rule("Listed_Player")
 			Custom String("AMATERASU"), Custom String("かなかけ"), Custom String("Tedz"), Custom String("Lunarion"),
 			Custom String("Asta"), Custom String("PŏŏkiƐ"), Custom String("Yohakzu"), Custom String("Ðårk"), Custom String("Kiƚƚua"),
 			Custom String("Nickyunited7"), Custom String("Kazuma"), Custom String("Kazumi"), Custom String("PaulineP"), Custom String("Dehya"),
-			Custom String("Jermuseppo"));
+			Custom String("Jermuseppo"), Custom String("FactAttend"));
 			
 		
 		"Demoted"
@@ -1512,7 +1514,7 @@ rule("Listed_Player")
 			Custom String("ngolokante"), Custom String("TsGvTitans"), Custom String("C920HDPRO"), Custom String("gayassniqqa"), Custom String("montymoops42"), Custom String("Oxy106"),
 			Custom String("RamsKitten"), Custom String("GrimRanger"), Custom String("AlphaWolfRob"), Custom String("Snow"), Custom String("Boyka619"), Custom String("Flaccid"),
 			Custom String("T4TPharah"), Custom String("Bobble"), Custom String("ReaperRadio"), Custom String("Gerike27"), Custom String("ACCELERANDO"), Custom String("BOB"),
-			Custom String("Mnotna"), Custom String("TIGERmanly"), Custom String("FloorBread"), CUstom String("ZORO"), Custom String("S3od"), Custom String("NAF"), 
+			Custom String("Mnotna"), Custom String("TIGERmanly"), Custom String("FloorBread"), Custom String("ZORO"), Custom String("S3od"), Custom String("NAF"), 
 			Custom String("WaffleEater"), Custom String("Chad"), Custom String("UnL0v3d"), Custom String("yozora"));
 	}
 }
@@ -3370,6 +3372,7 @@ rule("Mode_04 - Protection")
 				Event Player.Full_Protection = True;
 			End;
 		Else If(Is Button Held(Event Player, Button(Ability 2)));
+			Abort If(Event Player.Promoted_Rank);
 			If (Event Player.No_CD);
 				Event Player.No_CD = False;
 			Else;
@@ -5507,7 +5510,11 @@ rule("Mode_26 - Slowmotion_&_Slow_Projectile")
 		Else If(Is Button Held(Event Player, Button(Ultimate)));
 			If(Event Player.Slow_Projectile == False);
 				Event Player.Slow_Projectile = True;
-				Set Projectile Speed(Event Player, 1);
+				If(Event Player.High_Rank || Event Player.Mod_Rank);
+					Set Projectile Speed(Event Player, 1);
+				Else;
+					Set Projectile Speed(Event Player, 50);
+				End;
 				Set Projectile Gravity(Event Player, 0);
 				Play Effect(All Players(All Teams), Good Pickup Effect, Color(Blue), Event Player, 1);
 			Else If(Event Player.Slow_Projectile);
@@ -7354,7 +7361,6 @@ rule("Extra_3 - Short Hop")
 
 	actions
 	{
-		Abort If(Filtered Array(All Players(All Teams), Current Array Element.Target_Lock == Event Player));
 		Cancel Primary Action(Event Player);
 		Play Effect(Event Player, Good Explosion, Global.Rainbow_Color, Position Of(Event Player), 0.75);
 		Teleport(Event Player, Position Of(Event Player) + Facing Direction Of(Event Player) * 12.500);
@@ -7814,14 +7820,11 @@ rule("Extra_19: Florenzio Bandaid")
 	actions
 	{
 		Set Ability 1 Enabled(Event Player, False);
-		Set Ability 2 Enabled(Event Player, False);
-		Set Secondary Fire Enabled(Event Player, False);
 		Wait Until(Not(Is True For Any(All Players(All Teams), Current Array Element.Full_Protection &&
 			Distance Between(Current Array Element, Event Player) <= 31 && Current Array Element != Event Player))
 			|| Not(Hero Of(Event Player) == Hero(Lifeweaver)), 9999);
+		Wait Until(Hero Of(Event Player) != Hero(Mei), 9999);
 		Set Ability 1 Enabled(Event Player, True);
-		Set Ability 2 Enabled(Event Player, True);
-		Set Secondary Fire Enabled(Event Player, True);
 	}
 }
 
@@ -7844,6 +7847,23 @@ rule("Extra_20: Sombra sneaky sneaky")
 		Event Player.Is_Invisible = True;
 		Wait Until(Not(Is Using Ability 1(Event Player) || Hero Of(Event Player) != Hero(Sombra)), 9999);
 		Event Player.Is_Invisible = False;
+	}
+}
+
+rule("Extra_21: Screw Mei")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Mei;
+	}
+
+	actions
+	{
+		Set Ability 1 Enabled(Event Player, False);
+		Wait Until(Hero Of(Event Player) != Hero(Mei), 9999);
+		Set Ability 1 Enabled(Event Player, True);
 	}
 }
 
