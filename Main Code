@@ -978,8 +978,7 @@ rule ("Data")
 			Array(Custom String("AndrewKnoll"), Color(Rose)),
 			Array(Custom String("Metalgy"), Color(Red)),
 			Array(Custom String("Nutzee"), Color(SkyBlue)),
-			Array(Custom String("RUBY"), Color(Red)),
-			Array(Custom String("Lostshadow"), Custom String("Rainbow"))
+			Array(Custom String("RUBY"), Color(Red))
 		);
 	}
 
