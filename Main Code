@@ -2,7 +2,7 @@ settings
 {
 	main
 	{
-		Description: "♥ A Friendly Server To Meet New Friends ♥\nlast updated (July 09 2023)\n\n   » » » MASSIVE UPDATE RELEASED « « «\n (including UNO, non-mod menu and\n      hero specific features!)\n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss.\n   Based on the work of: TbyCoLive.\n Maintained with ♡ by: LƐafa.\n   Community Managers:\n     MOOOUSH, RUBY & kwally."
+		Description: "♥ A Friendly Server To Meet New Friends ♥\nlast updated (July 11 2023)\n\n   » » » MASSIVE UPDATE RELEASED « « «\n (including UNO, non-mod menu and\n      hero specific features!)\n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss.\n   Based on the work of: TbyCoLive.\n Maintained with ♡ by: LƐafa.\n   Community Managers:\n     MOOOUSH, RUBY & kwally."
 		Mode Name: " ♥ Friendly ♥ No Kill!"
 	}
 
@@ -397,7 +397,7 @@ variables
 		80: Extra12_Timer
 		81: Full_Protection
 		82: Extra10_ID
-		83: Extra22_Player
+		83: Extra10_Player
 		84: Extra14_ID
 		85: Comms_Target
 		86: Bot_Aggro
@@ -7559,37 +7559,37 @@ rule("Extra_10: Doom Hug")
 
 	actions
 	{
-		Event Player.Extra22_Player = Closest Player To(Event Player, All Teams);
-		Abort If((Event Player.Extra22_Player.Full_Protection && Not(Is Dummy Bot(Event Player.Extra22_Player))) 
-			|| Has Status(Event Player.Extra22_Player, Knocked Down));
-		Abort If(Distance Between(Event Player,Event Player.Extra22_Player) >= 1.5 || Not(Is In View Angle(Event Player, Event Player.Extra22_Player, 120)));
-		Attach Players(Event Player.Extra22_Player, Event Player, Vector(0,0.3,0.6));
-		If(Event Player.Extra22_Player.Protection);
-			Clear Status(Event Player.Extra22_Player, Phased Out);
+		Event Player.Extra10_Player = Closest Player To(Event Player, All Teams);
+		Abort If((Event Player.Extra10_Player.Full_Protection && Not(Is Dummy Bot(Event Player.Extra10_Player))) 
+			|| Has Status(Event Player.Extra10_Player, Knocked Down));
+		Abort If(Distance Between(Event Player,Event Player.Extra10_Player) >= 1.5 || Not(Is In View Angle(Event Player, Event Player.Extra10_Player, 120)));
+		Attach Players(Event Player.Extra10_Player, Event Player, Vector(0,0.3,0.6));
+		If(Event Player.Extra10_Player.Protection);
+			Clear Status(Event Player.Extra10_Player, Phased Out);
 		End;
-		Set Status(Event Player.Extra22_Player, Event Player, Stunned, 10);
-		If(Event Player.Extra22_Player.Protection);
-			Set Status(Event Player.Extra22_Player, Null, Phased Out, 9999);
+		Set Status(Event Player.Extra10_Player, Event Player, Stunned, 10);
+		If(Event Player.Extra10_Player.Protection);
+			Set Status(Event Player.Extra10_Player, Null, Phased Out, 9999);
 		End;
 		Wait(0.01, Ignore Condition);
-		Set Facing(Event Player.Extra22_Player, Direction Towards(Eye Position(Event Player.Extra22_Player), Eye Position(Event Player)), To World);
-		Disallow Button(Event Player.Extra22_Player, Button(Ultimate));
+		Set Facing(Event Player.Extra10_Player, Direction Towards(Eye Position(Event Player.Extra10_Player), Eye Position(Event Player)), To World);
+		Disallow Button(Event Player.Extra10_Player, Button(Ultimate));
 		Wait Until(Not(Is Using Ability 2(Event Player)), 4);
 		If(Is Using Ability 1(Event Player));
 			Wait Until(Not(Is Using Ability 1(Event Player)), 9999);
-			Clear Status(Event Player.Extra22_Player, Stunned);
+			Clear Status(Event Player.Extra10_Player, Stunned);
 			Wait(0.01, Ignore Condition);
-			If(Event Player.Extra22_Player.Protection);
-				Clear Status(Event Player.Extra22_Player, Phased Out);
+			If(Event Player.Extra10_Player.Protection);
+				Clear Status(Event Player.Extra10_Player, Phased Out);
 			End;
-			Set Status(Event Player.Extra22_Player, Event Player, Knocked Down, 2.6);
-			If(Event Player.Extra22_Player.Protection);
-				Set Status(Event Player.Extra22_Player, Null, Phased Out, 9999);
+			Set Status(Event Player.Extra10_Player, Event Player, Knocked Down, 2.6);
+			If(Event Player.Extra10_Player.Protection);
+				Set Status(Event Player.Extra10_Player, Null, Phased Out, 9999);
 			End;
 		End;
-		Detach Players(Event Player.Extra22_Player);
-		Allow Button(Event Player.Extra22_Player, Button(Ultimate));
-		Clear Status(Event Player.Extra22_Player, Stunned);
+		Detach Players(Event Player.Extra10_Player);
+		Allow Button(Event Player.Extra10_Player, Button(Ultimate));
+		Clear Status(Event Player.Extra10_Player, Stunned);
 	}
 }
 
@@ -7887,7 +7887,7 @@ rule("Tp effects per Map")
 			Create Effect(All Players(All Teams), Ring, Color(Rose), Global.Map_Teleport_Locations[0], 1.300, Visible To Position and Radius);
 			Create Effect(All Players(All Teams), Ring, Color(Rose), Global.Map_Teleport_Locations[1], 1.300, Visible To Position and Radius);
 			Create Effect(All Players(All Teams), Ring, Color(Rose), Global.Map_Teleport_Locations[3], 1.300, Visible To Position and Radius);
-		Else If(Current Map == Map(Lijiang Tower));
+		Else If(Current Map == Map(Lijiang Tower) || Current Map == Map(Lijiang Tower Lunar New Year));
 			Global.Map_Teleport_Locations = Array(Vector(2.7, 94, 187.8), Vector(-2.7, 94, 187.8), Vector(5, 0, -14),
 				Vector(5.7, 267.17, 290));
 			Create Effect(All Players(All Teams), Ring, Color(Rose), Global.Map_Teleport_Locations[0], 1.300, Visible To Position and Radius);
@@ -7958,7 +7958,7 @@ rule("Teleports Lijiang")
 
 	conditions
 	{
-		Current Map == Map(Lijiang Tower);
+		(Current Map == Map(Lijiang Tower) || Current Map == Map(Lijiang Tower Lunar New Year)) == True;
 		(Distance Between(Global.Map_Teleport_Locations[0], Event Player) <= 1.300 || Distance Between(Global.Map_Teleport_Locations[1], Event Player)
 			<= 1.300 || Distance Between(Global.Map_Teleport_Locations[2], Event Player) <= 1.300 || Distance Between(Global.Map_Teleport_Locations[3], Event Player) <= 1.300) == True;
 	}
@@ -8351,10 +8351,10 @@ rule("Moe-Bot Behavior")
 		If(Current Map == Map(Kanezaka));
 			Global.Moe_Position = Vector(6.5, 6, 14);
 			Start Forcing Player Position(Event Player, Global.Moe_Position, False);
-		Else If(Current Map == Map(Hanamura Winter));
+		Else If(Current Map == Map(Hanamura) || Current Map == Map(Hanamura Winter));
 			Global.Moe_Position = Vector(49.4, -1, -0.2);
 			Start Forcing Player Position(Event Player, Global.Moe_Position, False);
-		Else If(Current Map == Map(King's Row Winter));
+		Else If(Current Map == Map(King's Row) || Current Map == Map(King's Row Winter));
 			Global.Moe_Position = Vector(-76.8, 0.5, -37);
 			Start Forcing Player Position(Event Player, Global.Moe_Position, False);
 		Else If(Current Map == Map(Dorado));
@@ -8363,15 +8363,30 @@ rule("Moe-Bot Behavior")
 		Else If(Current Map == Map(Nepal));
 			Global.Moe_Position = Vector(72.2, 84, -11.26);
 			Start Forcing Player Position(Event Player, Global.Moe_Position, False);
+		Else If(Current Map == Map(Nepal Sanctum));
+			Global.Moe_Position = Vector(89.9, 132.91, -45);
+			Start Forcing Player Position(Event Player, Global.Moe_Position, False);
+		Else If(Current Map == Map(Nepal Shrine));
+			Global.Moe_Position = Vector(-18.35, 13, 0);
+			Teleport(Event Player, Global.Moe_Position);
+		Else If(Current Map == Map(Nepal Village));
+			Global.Moe_Position = Vector(-211.55, -88, -2.4);
+			Teleport(Event Player, Global.Moe_Position);
 		Else If(Current Map == Map(Paris));
 			Global.Moe_Position = Vector(-36.9, 11.99, 26.2);
 			Teleport(Event Player, Global.Moe_Position);
-		Else If(Current Map == Map(Blizzard World Winter));
+		Else If(Current Map == Map(Blizzard World) || Current Map == Map(Blizzard World Winter));
 			Global.Moe_Position = Vector(-131.34, 1.74, 107.87);
 			Teleport(Event Player, Global.Moe_Position);
 		Else If(Current Map == Map(Busan));
 			Global.Moe_Position = Vector(223.5, 10, 211.5);
 			Start Forcing Player Position(Event Player, Global.Moe_Position, False);
+		Else If(Current Map == Map(Busan Downtown Lunar New Year));
+			Global.Moe_Position = Vector(51.9, 21.4, -127.3);
+			Teleport(Event Player, Global.Moe_Position);
+		Else If(Current Map == Map(Busan Sanctuary Lunar New Year));
+			Global.Moe_Position = Vector(-328.9, 8.07, 179.33);
+			Teleport(Event Player, Global.Moe_Position);
 		Else If(Current Map == Map(Numbani));
 			Global.Moe_Position = Vector(19.95, 0.25, 4.4);
 			Start Forcing Player Position(Event Player, Vector(19.95, 0.25, 4.4), False);
@@ -8386,10 +8401,10 @@ rule("Moe-Bot Behavior")
 		Else If(Current Map == Map(Esperança));
 			Global.Moe_Position = Vector(0, 0, 19.65);
 			Teleport(Event Player, Global.Moe_Position);
-		Else If(Current Map == Map(Château Guillard Halloween));
+		Else If(Current Map == Map(Château Guillard) || Current Map == Map(Château Guillard Halloween));
 			Global.Moe_Position = Vector(206.5, 0.6, 89.7);
 			Teleport(Event Player, Global.Moe_Position);
-		Else If(Current Map == Map(Black Forest));
+		Else If(Current Map == Map(Black Forest) || Current Map == Map(Black Forest Winter));
 			Global.Moe_Position = Vector(3.7, 15.56, -10.07);
 			Teleport(Event Player, Global.Moe_Position);
 		Else If(Current Map == Map(Castillo));
@@ -8398,7 +8413,7 @@ rule("Moe-Bot Behavior")
 		Else If(Current Map == Map(Watchpoint: Gibraltar));
 			Global.Moe_Position = Vector(57.87, 9.44, -117.95);
 			Teleport(Event Player, Global.Moe_Position);
-		Else If(Current Map == Map(Ecopoint: Antarctica Winter));
+		Else If(Current Map == Map(Ecopoint: Antarctica) || Current Map == Map(Ecopoint: Antarctica Winter));
 			Global.Moe_Position = Vector(26, 9.25, 0);
 			Start Forcing Player Position(Event Player, Global.Moe_Position, False);
 		Else If(Current Map == Map(Malevento));
@@ -8417,24 +8432,39 @@ rule("Moe-Bot Behavior")
 			Disable Movement Collision With Environment(Event Player, False);
 			Global.Moe_Position = Vector(-58, 3.95, -29.44);
 			Teleport(Event Player, Global.Moe_Position);
+		Else If(Current Map == Map(Hollywood));
+			Global.Moe_Position = Vector(-11.1, 0.01, 41);
+			Teleport(Event Player, Global.Moe_Position);
 		Else If(Current Map == Map(Hollywood Halloween));
 			Global.Moe_Position = Vector(0.4, 6.4, -104.92);
 			Start Forcing Player Position(Event Player, Global.Moe_Position, False);
-		Else If(Current Map == Map(Eichenwalde Halloween));
+		Else If(Current Map == Map(Eichenwalde) || Current Map == Map(Eichenwalde Halloween));
 			Global.Moe_Position = Vector(125.6, 14.73, -18.6);
 			Teleport(Event Player, Global.Moe_Position);
 		Else If(Current Map == Map(Horizon Lunar Colony));
 			Global.Moe_Position = Vector(86.3, 6.62, -60.85);
 			Start Forcing Player Position(Event Player, Global.Moe_Position, False);
-		Else If(Current Map == Map(Ilios));
+		Else If(Current Map == Map(Ilios) || Current Map == Map(Ilios Lighthouse));
 			Global.Moe_Position = Vector(358.48, 23.41, -51.67);
+			Teleport(Event Player, Global.Moe_Position);
+		Else If(Current Map == Map(Ilios Ruins));
+			Global.Moe_Position = Vector(41.6, 69, -163.7);
+			Teleport(Event Player, Global.Moe_Position);
+		Else If(Current Map == Map(Ilios Well));
+			Global.Moe_Position = Vector(-184.3, 1, -22.65);
 			Teleport(Event Player, Global.Moe_Position);
 		Else If(Current Map == Map(Junkertown));
 			Global.Moe_Position = Vector(-22.87, 4.76, -53.75);
 			Start Forcing Player Position(Event Player, Global.Moe_Position, False);
-		Else If(Current Map == Map(Oasis));
+		Else If(Current Map == Map(Oasis) || Current Map == Map(Oasis University));
 			Global.Moe_Position = Vector(-128, 11.1, 0);
 			Start Forcing Player Position(Event Player, Global.Moe_Position, False);
+		Else If(Current Map == Map(Oasis City Center));
+			Global.Moe_Position = Vector(114.04, 0.8, 218.04);
+			Teleport(Event Player, Global.Moe_Position);
+		Else If(Current Map == Map(Oasis Gardens));
+			Global.Moe_Position = Vector(129.9, 15.3, -236.15);
+			Teleport(Event Player, Global.Moe_Position);
 		Else If(Current Map == Map(Rialto));
 			Disable Movement Collision With Environment(Event Player, True);
 			Global.Moe_Position = Vector(10.95, -0.45, -85.87);
@@ -8451,8 +8481,12 @@ rule("Moe-Bot Behavior")
 		Else If(Current Map == Map(Midtown));
 			Global.Moe_Position = Vector(62, 8.11, 13.9);
 			Teleport(Event Player, Global.Moe_Position);
-		Else If(Current Map == Map(Lijiang Tower));
+		Else If(Current Map == Map(Lijiang Tower) || Current Map == Map(Lijiang Control Center) 
+			|| Current Map == Map(Lijiang Tower Lunar New Year) || Current Map == Map(Lijiang Control Center Lunar New Year));
 			Global.Moe_Position = Vector(-17.3, 270, 330.7);
+			Teleport(Event Player, Global.Moe_Position);
+		Else If(Current Map == Map(Lijiang Night Market) || Current Map == Map(Lijiang Night Market Lunar New Year));
+			Global.Moe_Position = Vector(0, 95.3, 129.8);
 			Teleport(Event Player, Global.Moe_Position);
 		Else If(Current Map == Map(Ayutthaya));
 			Global.Moe_Position = Vector( 16, 1, 50.64);
