@@ -1921,7 +1921,7 @@ rule ("Subroutine: Give_Custom_Outline")
 			Loop;
 		Else;
 			Start Forcing Player Outlines(Event Player, All Players(All Teams), True, Event Player.Player_Title_And_Outline[1], Always);
-			Wait(10, Ignore Condition);
+			Wait(5, Ignore Condition);
 			Loop;
 		End;
     }
