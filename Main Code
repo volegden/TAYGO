@@ -1018,12 +1018,12 @@ rule ("Custom nameplates list")
                 	), 
 			Array(Custom String("LƐafa"), 
                 		Custom String("Fading"), 
-                		255,104,149, 255,200,137,
+                		255,0,120, 3,103,43,
                 		Custom String("{0} Cherry Blossom {0}", Ability Icon String(Hero(Lifeweaver), Button(Primaryfire)))
 				),
 			Array(Custom String("ORCHȊD"), 
                 		Custom String("Fading"), 
-                		255,104,149, 255,200,137,
+                		255,0,120, 3,103,43,
                 		Custom String("{0} Cherry Blossom {0}", Ability Icon String(Hero(Lifeweaver), Button(Primaryfire)))
 				),
 			Array(Custom String("Gregi"), 
@@ -1084,14 +1084,6 @@ rule ("Custom nameplates list")
                 		Color(Black),
                 		Custom String("• PROTECTOR • ")
                 		), 
-			Array(Custom String("ArtOfSorrow"), 
-                		Color(Yellow),
-                		Custom String("★ ♥ Edgerunner Art ♥ ★")
-                		),
-			Array(Custom String("DrMonti"), 
-                		Color(White),
-                		Custom String("★♪★BANDANA★♪★")
-                		), 
 			Array(Custom String("Boney"), 
                 		Custom String("Rainbow"),
                 		Custom String("{0} BonBon {0}", Ability Icon String(Hero(Kiriko), Button(Ultimate)))
@@ -1148,10 +1140,6 @@ rule ("Custom nameplates list")
                 		Custom String("Supernova"), 
                 		Custom String("Xena"), 
                 		Custom String("Rattenkönigin")
-                		), 
-			Array(Custom String("DerBomber"), 
-                		Custom Color(109, 0, 255, 255),
-                		Custom String("Are you piece of cake?")
                 		), 
 			Array(Custom String("Nightfire"), 
                 		Custom String("Rainbow"),
@@ -1392,6 +1380,10 @@ rule ("Custom nameplates list")
 				Custom String("♡ Mercy Main ♡"), 
 				Custom String("⁂BACONEGGNCHEESE⁂")
 				),
+			Array(Custom String("TURBOMURO"),
+				Color(Blue),
+				Custom String("highspeed")
+				),
 			Array(Custom String("DȈŦǾ"), 
 				Custom String("Rainbow"),
 				Custom String("♡ DORITO DITO ♡"), 
@@ -1401,7 +1393,6 @@ rule ("Custom nameplates list")
 			Array(Custom String("LeMix"), 
 				Color(Yellow),
 				Custom String("♡ Discord Kitten ♡"), 
-				Custom String("⁂ Your friendly terror1st ⁂"), 
 				Custom String("♣ OUR MOON ♣")
 				),
 			Array(Custom String("Netbrex"), 
@@ -1497,7 +1488,8 @@ rule ("Custom nameplates list")
 				Custom String("♥ Zax ♥")
 				), 
 			Array(Custom String("PapaRomeo"), 
-				Custom Color(45, 130, 70, 255),
+				Custom String("Fading"),
+				255,0,120, 3,103,43,
 				Custom String("{0} Matcha Tea {0}", Ability Icon String(Hero(Ana), Button(Ability 2)))
 				), 
 			Array(Custom String("MopuD"), 
@@ -1539,10 +1531,6 @@ rule ("Custom nameplates list")
 				Custom Color(175, 216, 255, 255),
 				Custom String("♡★baby cow★♡")
 				), 
-			Array(Custom String("J0K3R"), 
-				Custom Color(255, 174, 229, 255),
-				Custom String("♥ JOKER ♥")
-				),
             		Array(Custom String("YeastBeast"), 
 				Custom String("Rainbow"),
 				Custom String("{0} †ＨＩＧＨＬＹ ＩＮＦＥＣＴＩＯＵＳ† {0}", Ability Icon String(Hero(Sombra), Button(Ultimate))), 
@@ -1574,7 +1562,8 @@ rule ("Custom nameplates list")
 				Custom String("Silly Willy")
 				), 
 			Array(Custom String("AndrewKnoll"), 
-				Color(Rose),
+				Custom String("Fading"),
+				222,11,27, 169,37,207,
 				Custom String("⁂ COOKIE ANDREW ⁂"), 
                 		Custom String("Rindfleischetikettierungsüberwachungsaufgabenübertragungsgesetzussy")
 				),
@@ -1615,11 +1604,6 @@ rule ("Custom nameplates list")
 				Custom Color(56, 149, 251, 255),
 				Custom String("• A L E •")
 				),
-			Array(Custom String("Mikasa"), 
-				Custom Color(89, 61, 93, 255),
-				Custom String("♥ Mikasa ♥"), 
-				Custom String("♥ Maleb00b enjoyer ♥")
-				), 
 			Array(Custom String("Leestick"), 
 				Color(Green),
 				Custom String("LeafLover"), 
@@ -1627,7 +1611,7 @@ rule ("Custom nameplates list")
 				), 
 			Array(Custom String("RUBY"), 
 				Custom String("Fading"), 
-				232,21,85, 5,0,2,
+				0,0,0, 152,195,243,
 				Custom String("☆ RUBYX CUBE ☆"), 
 				Custom String("HAS SLEEP PARALYSIS")			
 				),
@@ -1639,7 +1623,7 @@ rule ("Custom nameplates list")
 				),
 			Array(Custom String("Dashy"), 
 				Custom Color(245, 4, 4, 255),
-				Custom String("♡ GIRL QUEEN PU$$Y BOSS ♡")
+				Custom String("♡ KWEEN ♡")
 				), 
 			Array(Custom String("ThatAspect"), 
 				Color(Purple),
@@ -1776,12 +1760,12 @@ rule ("Custom nameplates list")
 				Custom String("{0}  ★ ♥ PlayGround Bride ♥ ★ {0}", Ability Icon String(Hero(Ramattra), Button(Ultimate)))
 				),
 			Array(Custom String("Triin1ty"), 
-				Color(Blue),
+				Custom String("Rainbow"),
 				Custom String("♥ Cutie Patootie ♥"), 
 				Custom String("{0} ♡ Naiad ♡ {0}", Ability Icon String(Hero(Mercy), Button(Ultimate)))
 				),
 			Array(Custom String("LȄAƑIƐ"), 
-				Custom Color(18, 201, 180, 255), 
+				Custom Color(206, 204, 255, 255), 
 				Custom String("葉"), Custom String("☆☆☆ rain makes leaves wet ☆☆☆"), 
                			Custom String("{0}  MISS LEAFIE ME ALONE  {0}", Ability Icon String(Hero(Lifeweaver), Button(Primary Fire))), 
                 		Custom String("{0}  ♥ ur moms favourite uwu ♥  {0}", Ability Icon String(Hero(Mercy), Button(Ability 1)))
