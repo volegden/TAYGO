@@ -189,7 +189,7 @@ rule ("Custom nameplates list")
 			Array(Custom String("Kysp"), 
                 		Custom String("Fading"), 
                 		28,33,54, 189,192,203,
-				Custom String("."),
+				Custom String(" . ")
                 		),
 			Array(Custom String("PHEINU"), 
                 		Color(Black),
