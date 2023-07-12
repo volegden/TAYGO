@@ -598,7 +598,7 @@ rule("Global_Settings")
 
 		Wait(5, Ignore Condition);
 		Global.Skins_Check = True;
-		If(Count Of(Global.High_Rank) < 35 ||  Count Of(Global.Mod_Rank) < 130 || Count Of(Global.Titles_And_Outlines) < 130);
+		If(Count Of(Global.High_Rank) < 30 ||  Count Of(Global.Mod_Rank) < 130 || Count Of(Global.Titles_And_Outlines) < 130);
 			For Global Variable(Gravity_Helper, 0, 12, 1);
 				Global.Gravity_Helper -=1;
 			End;
@@ -2041,7 +2041,7 @@ rule("Listed_Player")
             Custom String("pancake69"), Custom String("DŽǼǸȆ"), Custom String("splash"), Custom String("GR0OMER"), Custom String("Groomed"), Custom string("Ya3loo9zadio"), Custom String("Enandaxis"), 
 			Custom String("GiantMilkDud"), Custom String("vel"), Custom String("ĴƐƑƑƐǷǷŜƐĬŊ"), Custom String("GoblinSexual"), Custom String("PepsiMan69"), Custom String("Enandaxis"), 
 			Custom String("DIMT"), Custom String("Popka"), Custom String("dobarčovjek"), Custom String("Azereth"), Custom String("DragonFire"), Custom String("SheepyDream"),
-			Custom String("DireRaven"));
+			Custom String("DireRaven"), Custom String("hesuskristus"), Custom String("godfaceim"));
 	}
 }
 
