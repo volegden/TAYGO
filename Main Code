@@ -6318,7 +6318,7 @@ rule("Mode_28 - Kick_&_Ban")
 		Event Player.Target_Lock = Player Closest To Reticle(Event Player, All Teams);
 		Abort If(Event Player.Target_Lock == Null);
 		Abort If(Not(Event Player.High_Rank || Event Player == Host Player));
-		If(Array Contains(Global.High_Rank, Custom String("{0}", Event Player.Target_Lock)) || (Event Player.High_Rank && Not(Event Player.Heaven_Strike_ID[2])) ||
+		If(Array Contains(Global.High_Rank, Custom String("{0}", Event Player.Target_Lock)) || (Event Player.High_Rank && Not(Event Player.Heaven_Strike_ID[2]) && Event Player != Host Player) ||
 			(Event Player == Host Player && Array Contains(Global.Mod_Rank, Custom String("{0}", Event Player.Target_Lock)) && Event Player.Promoted_Rank && 
 			Not(Event Player.Target_Lock.Promoted_Rank)));
 			Small Message(Event Player, Custom String("   You lack authorization to kick/ban this target."));
