@@ -1,3 +1,64 @@
+rule ("Subroutine: Give_Custom_Outline")
+{
+    event 
+	{
+		Subroutine;
+		Give_Custom_Outline;
+    }
+
+    actions 
+	{
+		Abort If Condition Is False;
+		Event Player.Is_Title_Given = True;
+		If(Event Player.Player_Title_And_Outline[1] == Custom String("Rainbow"));
+			Start Forcing Player Outlines(Event Player, All Players(All Teams), True, Global.Rainbow_Color, Always);
+			Wait(0.2, Ignore Condition);
+			Loop;
+		End;
+		If(Event Player.Player_Title_And_Outline[1] == Custom String("Fading"));
+			Start Forcing Player Outlines(Event Player, All Players(All Teams), True, 
+				Custom Color(
+					Round To Integer((Event Player.Player_Title_And_Outline[2][0] + Event Player.Player_Title_And_Outline[3][0]) / 2 + Sine From Radians(Global.Main_Chaser) * 
+						((Event Player.Player_Title_And_Outline[2][0] - Event Player.Player_Title_And_Outline[3][0]) / 2), Down), 
+					Round To Integer((Event Player.Player_Title_And_Outline[2][1] + Event Player.Player_Title_And_Outline[3][1]) / 2 + Sine From Radians(Global.Main_Chaser) * 
+						((Event Player.Player_Title_And_Outline[2][1] - Event Player.Player_Title_And_Outline[3][1]) / 2), Down),
+					Round To Integer((Event Player.Player_Title_And_Outline[2][2] + Event Player.Player_Title_And_Outline[3][2]) / 2 + Sine From Radians(Global.Main_Chaser) * 
+						((Event Player.Player_Title_And_Outline[2][2] - Event Player.Player_Title_And_Outline[3][2]) / 2), Down), 
+					255), Always);
+			Wait(0.2, Ignore Condition);
+			Loop;
+		Else;
+			Start Forcing Player Outlines(Event Player, All Players(All Teams), True, Event Player.Player_Title_And_Outline[1], Always);
+			Wait(5, Ignore Condition);
+			Loop;
+		End;
+    }
+}
+
+rule("Re-evaluate nameplates (name covers title hardcode fix)")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		(Event Player.Is_Title_Given || Event Player.Regular_Player_Has_Title) == True;
+		Has Spawned(Event Player) == True;
+		Event Player.Is_Invisible == False;
+	}
+
+	actions
+	{
+		Disable Nameplates(Event Player, All Players(All Teams));
+		Wait(30, Ignore Condition);
+		Loop If Condition Is True;
+	}
+}
+
 rule("Listed_Player")
 {
 	event
@@ -52,7 +113,7 @@ rule("Listed_Player")
 			Custom String("Sinnie"), Custom String("TazE"), Custom String("A1IZEN"), 
 			Custom String("Triin1ty"), Custom String("LȄAƑIƐ"), Custom String("Aki"), Custom String("MsHeartBreak"), 
 			Custom String("Eskay"), Custom String("aisuh"), Custom String("Lannaanna"), Custom String("fishy"),
-			Custom String("Fære"), Custom String("LeMix"), Custom String("Netbrex"), Custom String("minori"), Custom String("YėsNø"), 
+			Custom String("Fære"), Custom String("Netbrex"), Custom String("minori"), Custom String("YėsNø"), 
 			Custom String("woof"), Custom String("yohan"), Custom String("karlybarly"), Custom String("Reapersimp"), Custom String("Deira"), 
 			Custom String("Riwa"), Custom String("현대적인쌍봉낙타"), Custom String("Colestar24"), Custom String("YunaOnFire"),
 			Custom String("FrostSlvt"), Custom String("Dubbie7"), Custom String("NotForYou"), Custom String("fenmorre"), 
@@ -66,7 +127,7 @@ rule("Listed_Player")
 		"Demoted"
 		Global.Demoted = Array(Custom String("Eggman"), Custom String("Fragoso"), Custom String("Joĸer"), Custom String("Nef"), Custom String("Kêñ"), Custom String("Snow"), 
                 Custom String("Boyka619"), Custom String("White"), Custom String("Mikasa"), Custom String("avocados"), Custom String("godfaceim"), Custom String("Snaiy"), 
-				Custom String("SHINIxMIZU"));
+				Custom String("Anos"), Custom String("Hinata"), Custom String("Mohamed"), Custom String("LeMix"));
 		
 		"Automatic Ban"
 		Global.Perma_Banned = Array(
@@ -90,6 +151,7 @@ rule("Listed_Player")
 			Custom String("GiantMilkDud"), Custom String("vel"), Custom String("ĴƐƑƑƐǷǷŜƐĬŊ"), Custom String("GoblinSexual"), Custom String("PepsiMan69"), Custom String("Enandaxis"), 
 			Custom String("DIMT"), Custom String("Popka"), Custom String("dobarčovjek"), Custom String("Azereth"), Custom String("DragonFire"), Custom String("SheepyDream"),
 			Custom String("DireRaven"), Custom String("hesuskristus"), Custom String("LeãoLivre"), Custom String("NANA"), Custom String("soleil"), 
-			Custom String("GoldSeal"), Custom String("Parkkis"), Custom String("miro22"), Custom String("lilslvt"));
+			Custom String("GoldSeal"), Custom String("Parkkis"), Custom String("miro22"), Custom String("lilslvt"), CUstom String("takumi"), Custom String("Hercules"), 
+            Custom String("Kisuke"), CUstom String("Dãrk"), Custom String("MESH3L"), Custom String("n1renn"), Custom String("SHINIxMIZU"));
 	}
 }
