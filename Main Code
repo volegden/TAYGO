@@ -8126,7 +8126,7 @@ rule("Extra_8 - Ana Target Reset")
 	}
 }
 
-rule("Extra_9 - Ramattra Pet")
+rule("Extra_9 - GIVE PETS")
 {
 	event
 	{
@@ -8137,15 +8137,17 @@ rule("Extra_9 - Ramattra Pet")
 
 	conditions
 	{
-		(Hero Of(Event Player) == Hero (Ramattra) || Hero Of(Event Player) == Hero (Sombra) || Hero Of(Event Player) == Hero (Sigma)) == True;
+		(Hero Of(Event Player) == Hero (Ramattra) || Hero Of(Event Player) == Hero (Sombra) || Hero Of(Event Player) == Hero (Sigma) || 
+			Hero Of(Event Player) == Hero(Moira)) == True;
 		Is Firing Secondary(Event Player) == True;
 		Is In Alternate Form(Event Player) == False;
 	}
 
 	actions
 	{
-		Create Icon(All Players(All Teams), Update Every Frame(Eye Position(Event Player) + World Vector Of(Vector(0.180, -0.250, 0),
-			Event Player, Rotation) + Event Player.Scale_Real * Facing Direction Of(Event Player) * If-Then-Else(Hero Of(Event Player) == Hero(Sombra), 0.6, 1)), 
+		Create Icon(All Players(All Teams), Update Every Frame(Eye Position(Event Player) + World Vector Of(
+			Vector(If-Then-Else(Hero Of(Event Player) == Hero(Moira), -0.08, 0.18), If-Then-Else(Hero Of(Event Player) == Hero(Moira), -0.4, -0.25), 0), Event Player, Rotation) + 
+			Event Player.Scale_Real * Facing Direction Of(Event Player) * If-Then-Else(Hero Of(Event Player) == Hero(Sombra), 0.6, 1)), 
 			Heart, Visible To and Position, Color(Red), False);
 		Event Player.Extra10_ID = Last Created Entity;
 		Wait Until(!Is Firing Secondary(Event Player) || Is In Alternate Form(Event Player), 9999);
