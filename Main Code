@@ -6675,13 +6675,14 @@ rule("Mode_31 - Special_Camera")
 		Else If(Is Button Held(Event Player, Button(Ultimate)));
 			Wait Until(Not(Is Button Held(Event Player, Button(Ultimate))), 1);
 			If(Is Button Held(Event Player, Button(Ultimate)));
-				Event Player.Camera_Position = Eye Position(Event Player) + 0.05 * Facing Direction Of(Event Player) * -1;
+				Event Player.Camera_Position = Eye Position(Event Player) + 0.05 * Facing Direction Of(Event Player) * -1 + Vector(0,0.5,0);
+				Event Player.Camera_Info_Array[6] = Eye Position(Event Player) + Vector(0,0.5,0);
 			Else;
 				Event Player.Camera_Position = Subtract(Ray Cast Hit Position(Eye Position(Event Player), 
 					Eye Position(Event Player) + 20 * Event Player.Scale_Real * Facing Direction Of(Event Player), 
 					Null, Event Player, True),  Multiply(Vector(0.3, 0.3, 0.3), Event Player.Scale_Real * Facing Direction Of(Event Player)));
+				Event Player.Camera_Info_Array[6] = Eye Position(Event Player);
 			End;
-			Event Player.Camera_Info_Array[6] = Eye Position(Event Player);
 			Start Camera(Event Player, Event Player.Camera_Position, Event Player.Camera_Info_Array[6], 200);
 			
 			Create In-World Text(Filtered Array(All Players(All Teams), Current Array Element != Event Player), Custom String("Static Cam of {0}\r\n", Event Player), Event Player.Camera_Position, 0.1, 
