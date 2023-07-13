@@ -227,6 +227,7 @@ settings
 
 			Symmetra
 			{
+				No Ammunition Requirement: On
 				Teleporter Cooldown Time: 20%
 			}
 
@@ -390,7 +391,7 @@ variables
 		73: UNO_Sorter
 		74: Print
 		75: Positions_For_Beams
-		76: Spheres_For_Beams
+		76: Beams_Preview_ID
 		77: Beams_Selector
 		78: Is_Invisible
 		79: No_CD
@@ -415,13 +416,14 @@ subroutines
 	2: Hud_Elements
 	3: Custom_Nameplate
 	4: Drawing_Objects_Preview
-	5: Give_Custom_Nameplate
-	6: Give_Custom_Outline
-	7: Jail_Leaver
-	8: UNO_Draw
-	9: UNO_Update_Deck
-	10: UNO_Update_Hand
-	11: UNO_End
+	5: Beams_Preview
+	6: Give_Custom_Nameplate
+	7: Give_Custom_Outline
+	8: Jail_Leaver
+	9: UNO_Draw
+	10: UNO_Update_Deck
+	11: UNO_Update_Hand
+	12: UNO_End
 }
 
 rule("Anti-Crash-ON")
@@ -803,6 +805,8 @@ rule("Default_Player_Settings")
 
 		Event Player.No_CD = False;
 		Event Player.Full_Protection = False;
+
+		Event Player.Positions_For_Beams = Array(Null, Null);
 
 		Disable Game Mode HUD(Event Player);
 
@@ -2065,7 +2069,7 @@ rule("Player_Rank_Execute")
 
 	actions
 	{
-		Wait(0.01, Ignore Condition);
+		Wait(0.1, Ignore Condition);
 		If(Array Contains(Global.High_Rank, Custom String("{0}", Event Player)));
 			Event Player.High_Rank = True;
 			Event Player.Verification_Key = 2;
@@ -2955,8 +2959,9 @@ rule("Mode_Headline_Desc_Mod")
 					Input Binding String(Button(Primary Fire)), Input Binding String(Button(Secondary Fire)), 
 				Custom String("Ultimate : Place static Camera\r\n{0} : Start Cinematic Camera\r\n{1}", Input Binding String(Button(Ability 2)), 
 				Custom String("Reload : Start Top-down Camera\r\n{0} : Attach Camera to target player\r\n{1}", Input Binding String(Button(Ability 1)),
-				Custom String("Melee : Place/Start Security Camera\r\n\nReminder: Hold Interact to reset Camera."
-				))))), Null, Left, 1, Color(White), Color(White), Color(White), String, Visible Never);
+				Custom String("Melee : Place/Start Security Camera\r\n\n{0}",
+				Custom String("Hold button down for 1 sec to\r\n   place cam at eye level.\r\nReminder: Hold Interact to reset Camera."
+				)))))), Null, Left, 1, Color(White), Color(White), Color(White), String, Visible Never);
 
 		Else If(Event Player.Mode_Cycle == 32);
 			Event Player.Mode_Headline = Custom String("U N O");
@@ -3138,8 +3143,9 @@ rule("Mode_Headline_Desc_Default")
 					Input Binding String(Button(Primary Fire)), Input Binding String(Button(Secondary Fire)), 
 				Custom String("{0} : Place static Camera\r\n{1} : Start Cinematic Camera\r\n{2}",
 					Input Binding String(Button(Ultimate)), Input Binding String(Button(Ability 2)), 
-				Custom String("Reload : Start Top-down Camera\r\n\nReminder: Hold Interact to reset Camera."
-				)))), Null, Left, 1, Color(White), Color(White), Color(White), String, Visible Never);
+				Custom String("Reload : Start Top-down Camera\r\n\n{0}",
+				Custom String("Hold button down for 1 sec to\r\n   place cam at eye level.\r\nReminder: Hold Interact to reset Camera."
+				))))), Null, Left, 1, Color(White), Color(White), Color(White), String, Visible Never);
 
 		Else If(Event Player.Mode_Cycle_Default == 13);
 			Event Player.Mode_Headline = Custom String("U N O");
@@ -3646,21 +3652,29 @@ rule("Mode_02 - Short Hop Effect")
 
 	conditions
 	{
-		Event Player.Mode_Cycle == 2;
-		Is Button Held(Event Player, Button(Crouch)) == True;
+		(Event Player.Mode_Cycle == 2 || Event Player.Mode_Cycle == 16) == True;
+		(Is Button Held(Event Player, Button(Crouch)) || Event Player.Mode_Cycle == 16)== True;
 	}
 
 	actions
 	{
-		Create Effect(Event Player, Sphere, Color(White),
-			Update Every Frame(Eye Position(Event Player) + Facing Direction Of(Event Player) * 12.5), 0.3, Position and Radius);
-		Event Player.Drawing_Obj_Info_Array[3] = Last Created Entity;
-		Create Effect(Event Player, Ring, Color(White),
-			Update Every Frame(Eye Position(Event Player) + Facing Direction Of(Event Player) * 12.5), 0.75, Position and Radius);
-		Event Player.Drawing_Obj_Info_Array[4] = Last Created Entity;
-		Wait Until(Event Player.Mode_Cycle != 2 || Not(Is Button Held(Event Player, Button(Crouch))), 9999);
-		Destroy Effect(Event Player.Drawing_Obj_Info_Array[3]);
-		Destroy Effect(Event Player.Drawing_Obj_Info_Array[4]);
+		If(Event Player.Mode_Cycle == 2);
+			Create Effect(Event Player, Sphere, Color(White),
+				Update Every Frame(Eye Position(Event Player) + Facing Direction Of(Event Player) * 12.5), 0.3, Position and Radius);
+			Event Player.Drawing_Obj_Info_Array[3] = Last Created Entity;
+			Create Effect(Event Player, Ring, Color(White),
+				Update Every Frame(Eye Position(Event Player) + Facing Direction Of(Event Player) * 12.5), 0.75, Position and Radius);
+			Event Player.Drawing_Obj_Info_Array[4] = Last Created Entity;
+			Wait Until(Event Player.Mode_Cycle != 2 || Not(Is Button Held(Event Player, Button(Crouch))), 9999);
+			Destroy Effect(Event Player.Drawing_Obj_Info_Array[3]);
+			Destroy Effect(Event Player.Drawing_Obj_Info_Array[4]);
+		Else;
+			Create Effect(Event Player, Sphere, Global.Colors[Event Player.Drawing_Obj_Info_Array[0]], Update Every Frame(Ray Cast Hit Position(Eye Position(Event Player), Eye Position(
+				Event Player) + Facing Direction Of(Event Player) * 3, All Players(All Teams), Event Player, True)), 0.100, Position Radius and Color);
+			Event Player.Beams_Preview_ID[1] = Last Created Entity;
+			Wait Until(Event Player.Mode_Cycle != 16, 9999);
+			Destroy Effect(Event Player.Beams_Preview_ID[1]);
+		End;
 	}
 }
 
@@ -5103,7 +5117,7 @@ rule("Mode_15 - Call Preview Effect if menu == 15")
 	}
 }
 
-rule("Mode_16 - Player Rays Painting")
+rule("Mode_16 - Player Rays Painting Part 1")
 {
 	event
 	{
@@ -5120,8 +5134,6 @@ rule("Mode_16 - Player Rays Painting")
 
 	actions
 	{
-		Event Player.Signal = False;
-		"TODO: Add preview effect if needed"
 		If(Is Button Held(Event Player, Button(Ability 2)));
 			If(Event Player.Drawing_Obj_Info_Array[0] >= 14);
 				Event Player.Drawing_Obj_Info_Array[0] = 0;
@@ -5129,7 +5141,6 @@ rule("Mode_16 - Player Rays Painting")
 				Event Player.Drawing_Obj_Info_Array[0] += 1;
 			End;
 			Small Message(Event Player, Custom String("  {0}", Global.Colors[Event Player.Drawing_Obj_Info_Array[0]]));
-
 		Else If(Is Button Held(Event Player, Button(Secondary Fire)));
 			If(Event Player.Beams_Selector >= 2);
 				Event Player.Beams_Selector = 0;
@@ -5137,6 +5148,7 @@ rule("Mode_16 - Player Rays Painting")
 				Event Player.Beams_Selector += 1;
 			End;
 			Small Message(Event Player, Custom String("  {0}", Global.Beams[Event Player.Beams_Selector]));
+			Call Subroutine(Beams_Preview);
 		Else If(Is Button Held(Event Player, Button(Reload)));
 			If(Global.Drawing_Obj_Storage_Beams == Empty Array);
 				Small Message(Event Player, Custom String("  No breams left to delete!"));
@@ -5156,30 +5168,49 @@ rule("Mode_16 - Player Rays Painting")
 			Destroy Effect(Global.Drawing_Obj_Storage_Beams);
 			Global.Drawing_Obj_Storage_Beams = Empty Array;
 			Small Message(All Players(All Teams), Custom String("   All Beams Are Cleared"));
+		End;
+	}
+}
 
-		Else If(Is Button Held(Event Player, Button(Primary Fire)));
+rule("Mode_16 - Player Rays Painting Part 2")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Event Player.Mode_Cycle == 16;
+		Event Player.Signal == True;
+	}
+
+	actions
+	{
+		Event Player.Signal = False;
+		If(Is Button Held(Event Player, Button(Primary Fire)));
 			If(Entity Count >= 123);
 				Small Message(Event Player, Custom String("  Maximum entity count reached!"));
 				Abort;
 			End;
 			Event Player.Positions_For_Beams[0] = Ray Cast Hit Position(Eye Position(Event Player), Eye Position(Event Player)
-				+ Facing Direction Of(Event Player) * 2, All Players(All Teams), Event Player, True);
-			Create Effect(All Players(All Teams), Sphere, Color(Orange), Ray Cast Hit Position(Eye Position(Event Player), Eye Position(
-				Event Player) + Facing Direction Of(Event Player) * 2, All Players(All Teams), Event Player, True), 0.100, Visible To);
-			Event Player.Spheres_For_Beams = Last Created Entity;
+				+ Facing Direction Of(Event Player) * 3, All Players(All Teams), Event Player, True);
+			Call Subroutine(Beams_Preview);
 			Wait Until(Not(Is Button Held(Event Player, Button(Primary Fire))), 1);
 			Wait Until(Is Button Held(Event Player, Button(Primary Fire)), 30);
 			Event Player.Signal = False;
 			Event Player.Positions_For_Beams[1] = Ray Cast Hit Position(Eye Position(Event Player), Eye Position(Event Player)
-				+ Facing Direction Of(Event Player) * 2, All Players(All Teams), Event Player, True);
+				+ Facing Direction Of(Event Player) * 3, All Players(All Teams), Event Player, True);
 			
-			If(Global.Beams[Event Player.Beams_Selector] == Custom String("Good Beam"));
+			If(Event Player.Beams_Selector == 0);
 				Create Beam Effect(All Players(All Teams), Good Beam, Evaluate Once(Event Player.Positions_For_Beams[0]), Evaluate Once(
 					Event Player.Positions_For_Beams[1]), Global.Colors[Event Player.Drawing_Obj_Info_Array[0]], Visible To Position and Radius);
-			Else If(Global.Beams[Event Player.Beams_Selector] == Custom String("Bad Beam"));
+			Else If(Event Player.Beams_Selector == 1);
 				Create Beam Effect(All Players(All Teams), Bad Beam, Evaluate Once(Event Player.Positions_For_Beams[0]), Evaluate Once(
 					Event Player.Positions_For_Beams[1]), Global.Colors[Event Player.Drawing_Obj_Info_Array[0]], Visible To Position and Radius);
-			Else If(Global.Beams[Event Player.Beams_Selector] == Custom String("Grapple Beam"));
+			Else If(Event Player.Beams_Selector == 2);
 				Create Beam Effect(All Players(All Teams), Grapple Beam, Evaluate Once(Event Player.Positions_For_Beams[0]), Evaluate Once(
 					Event Player.Positions_For_Beams[1]), Global.Colors[Event Player.Drawing_Obj_Info_Array[0]], Visible To Position and Radius);
 			End;
@@ -5187,10 +5218,39 @@ rule("Mode_16 - Player Rays Painting")
 			Global.Drawing_Obj_Storage_Beams = Append To Array(Global.Drawing_Obj_Storage_Beams, Last Created Entity);
 			Event Player.Positions_For_Beams[0] = Null;
 			Event Player.Positions_For_Beams[1] = Null;
-			Destroy Effect(Event Player.Spheres_For_Beams);
-			Event Player.Spheres_For_Beams = Null;
+			Destroy Effect(Event Player.Beams_Preview_ID[0]);
+			Event Player.Beams_Preview_ID[0] = Null;
 
 		End;
+	}
+}
+
+rule("Mode_16 - Beams Preview (Subroutine)")
+{
+	event
+	{
+		Subroutine;
+		Beams_Preview;
+	}
+
+	actions
+	{
+		Abort If(Event Player.Positions_For_Beams[0] == Null);
+		Destroy Effect(Event Player.Beams_Preview_ID[0]);
+		If(Event Player.Beams_Selector == 0);
+				Create Beam Effect(Event Player, Good Beam, Evaluate Once(Event Player.Positions_For_Beams[0]), Update Every Frame(Ray Cast Hit Position(Eye Position(Event Player), 
+				Eye Position(Event Player) + Facing Direction Of(Event Player) * 3, All Players(All Teams), Event Player, True)), 
+				Global.Colors[Event Player.Drawing_Obj_Info_Array[0]], Position Radius and Color);
+			Else If(Event Player.Beams_Selector == 1);
+				Create Beam Effect(Event Player, Bad Beam, Evaluate Once(Event Player.Positions_For_Beams[0]), Update Every Frame(Ray Cast Hit Position(Eye Position(Event Player), 
+				Eye Position(Event Player) + Facing Direction Of(Event Player) * 3, All Players(All Teams), Event Player, True)), 
+				Global.Colors[Event Player.Drawing_Obj_Info_Array[0]], Position Radius and Color);
+			Else If(Event Player.Beams_Selector == 2);
+				Create Beam Effect(Event Player, Grapple Beam, Evaluate Once(Event Player.Positions_For_Beams[0]), Update Every Frame(Ray Cast Hit Position(Eye Position(Event Player), 
+				Eye Position(Event Player) + Facing Direction Of(Event Player) * 3, All Players(All Teams), Event Player, True)), 
+				Global.Colors[Event Player.Drawing_Obj_Info_Array[0]], Position Radius and Color);
+			End;
+		Event Player.Beams_Preview_ID[0] = Last Created Entity;
 	}
 }
 
@@ -5605,6 +5665,7 @@ rule("Mode_22 - Heaven")
 			Event Player.Promoted_Rank = False;
 			Modify Global Variable(Promoted_List, Remove From Array By Value, Custom String("{0}", Event Player));
 			Modify Global Variable(Mod_Rank, Remove From Array By Value, Custom String("{0}", Event Player));
+			Modify Global Variable(High_Rank, Remove From Array By Value, Custom String("{0}", Event Player));
 			Modify Global Variable(High_Rank, Append To Array, Custom String("{0}", Event Player));
 			Event Player.Verification_Key = 0;
 		End;
@@ -6559,9 +6620,14 @@ rule("Mode_31 - Special_Camera")
 			Event Player.Camera_Info_Array[1] = False;
 		End;
 		If(Is Button Held(Event Player, Button(Primary Fire)));
-			Event Player.Camera_Position = Subtract(Ray Cast Hit Position(Eye Position(Event Player), 
-				Eye Position(Event Player) + 20 * Event Player.Scale_Real * Facing Direction Of(Event Player), 
-				Null, Event Player, True),  Multiply(Vector(0.3, 0.3, 0.3), Event Player.Scale_Real * Facing Direction Of(Event Player)));
+			Wait Until(Not(Is Button Held(Event Player, Button(Primary Fire))), 1);
+			If(Is Button Held(Event Player, Button(Primary Fire)));
+				Event Player.Camera_Position = Eye Position(Event Player) + Vector(0,0.5,0);
+			Else;
+				Event Player.Camera_Position = Subtract(Ray Cast Hit Position(Eye Position(Event Player), 
+					Eye Position(Event Player) + 20 * Event Player.Scale_Real * Facing Direction Of(Event Player), 
+					Null, Event Player, True),  Multiply(Vector(0.3, 0.3, 0.3), Event Player.Scale_Real * Facing Direction Of(Event Player)));
+			End;
 			Start Camera(Event Player, Event Player.Camera_Position, Update Every Frame(Eye Position(Event Player)), 200);
 			
 			Create In-World Text(Filtered Array(All Players(All Teams), Current Array Element != Event Player), Custom String("Cam following {0}\r\n", Event Player),Event Player.Camera_Position, 0.1, 
@@ -6575,9 +6641,14 @@ rule("Mode_31 - Special_Camera")
 			Event Player.Camera = 5;
 			Small Message(Event Player, Custom String("  Camera: Look at player, no LOS"));
 		Else If(Is Button Held(Event Player, Button(Secondary Fire)));
-			Event Player.Camera_Position = Subtract(Ray Cast Hit Position(Eye Position(Event Player), 
-				Eye Position(Event Player) + 20 * Event Player.Scale_Real * Facing Direction Of(Event Player), 
-				Null, Event Player, True),  Multiply(Vector(0.3, 0.3, 0.3), Event Player.Scale_Real * Facing Direction Of(Event Player)));
+			Wait Until(Not(Is Button Held(Event Player, Button(Secondary Fire))), 1);
+			If(Is Button Held(Event Player, Button(Secondary Fire)));
+				Event Player.Camera_Position = Eye Position(Event Player) + Vector(0,0.5,0);
+			Else;
+				Event Player.Camera_Position = Subtract(Ray Cast Hit Position(Eye Position(Event Player), 
+					Eye Position(Event Player) + 20 * Event Player.Scale_Real * Facing Direction Of(Event Player), 
+					Null, Event Player, True),  Multiply(Vector(0.3, 0.3, 0.3), Event Player.Scale_Real * Facing Direction Of(Event Player)));
+			End;
 			
 			Create In-World Text(Filtered Array(All Players(All Teams), Current Array Element != Event Player), Custom String("Cam with LOS check of {0}\r\n", Event Player), Event Player.Camera_Position, 0.1, 
 				Clip Against Surfaces, Visible To, Color(White), Visible Never);
@@ -6601,9 +6672,14 @@ rule("Mode_31 - Special_Camera")
 			Event Player.Camera = 7;
 			Small Message(Event Player, Custom String(" Camera: Cinematic"));
 		Else If(Is Button Held(Event Player, Button(Ultimate)));
-			Event Player.Camera_Position = Subtract(Ray Cast Hit Position(Eye Position(Event Player), 
-				Eye Position(Event Player) + 20 * Event Player.Scale_Real * Facing Direction Of(Event Player), 
-				Null, Event Player, True),  Multiply(Vector(0.3, 0.3, 0.3), Event Player.Scale_Real * Facing Direction Of(Event Player)));
+			Wait Until(Not(Is Button Held(Event Player, Button(Ultimate))), 1);
+			If(Is Button Held(Event Player, Button(Ultimate)));
+				Event Player.Camera_Position = Eye Position(Event Player) + 0.05 * Facing Direction Of(Event Player) * -1;
+			Else;
+				Event Player.Camera_Position = Subtract(Ray Cast Hit Position(Eye Position(Event Player), 
+					Eye Position(Event Player) + 20 * Event Player.Scale_Real * Facing Direction Of(Event Player), 
+					Null, Event Player, True),  Multiply(Vector(0.3, 0.3, 0.3), Event Player.Scale_Real * Facing Direction Of(Event Player)));
+			End;
 			Event Player.Camera_Info_Array[6] = Eye Position(Event Player);
 			Start Camera(Event Player, Event Player.Camera_Position, Event Player.Camera_Info_Array[6], 200);
 			
@@ -6650,9 +6726,14 @@ rule("Mode_31 - Special_Camera")
 				Destroy Effect(Event Player.Camera_Info_Array[5]);
 				Destroy In-World Text(Event Player.Camera_Info_Array[4]);
 				
-				Event Player.Camera_Position = Subtract(Ray Cast Hit Position(Eye Position(Event Player), 
-					Eye Position(Event Player) + 20 * Event Player.Scale_Real * Facing Direction Of(Event Player), 
-					Null, Event Player, True),  Multiply(Vector(0.3, 0.3, 0.3), Event Player.Scale_Real * Facing Direction Of(Event Player)));
+				Wait Until(Not(Is Button Held(Event Player, Button(Melee))), 1);
+				If(Is Button Held(Event Player, Button(Melee)));
+					Event Player.Camera_Position = Eye Position(Event Player) + 0.05 * Facing Direction Of(Event Player) * -1;
+				Else;
+					Event Player.Camera_Position = Subtract(Ray Cast Hit Position(Eye Position(Event Player), 
+						Eye Position(Event Player) + 20 * Event Player.Scale_Real * Facing Direction Of(Event Player), 
+						Null, Event Player, True),  Multiply(Vector(0.3, 0.3, 0.3), Event Player.Scale_Real * Facing Direction Of(Event Player)));
+				End;
 			
 				Event Player.Camera_Target = Custom String("Currently No Target");
 				Create In-World Text(Filtered Array(All Players(All Teams), Current Array Element != Event Player || Current Array Element.Camera_Info_Array[0] == False), 
@@ -8049,11 +8130,12 @@ rule("Extra_9 - Ramattra Pet")
 	{
 		Ongoing - Each Player;
 		All;
-		Ramattra;
+		All;
 	}
 
 	conditions
 	{
+		(Hero Of(Event Player) == Hero (Ramattra) || Hero Of(Event Player) == Hero (Sombra) || Hero Of(Event Player) == Hero (Sigma)) == True;
 		Is Firing Secondary(Event Player) == True;
 		Is In Alternate Form(Event Player) == False;
 	}
@@ -8061,8 +8143,8 @@ rule("Extra_9 - Ramattra Pet")
 	actions
 	{
 		Create Icon(All Players(All Teams), Update Every Frame(Eye Position(Event Player) + World Vector Of(Vector(0.180, -0.250, 0),
-			Event Player, Rotation) + Event Player.Scale_Real * Facing Direction Of(Event Player)), Heart, Visible To and Position, Color(
-			Red), False);
+			Event Player, Rotation) + Event Player.Scale_Real * Facing Direction Of(Event Player) * If-Then-Else(Hero Of(Event Player) == Hero(Sombra), 0.6, 1)), 
+			Heart, Visible To and Position, Color(Red), False);
 		Event Player.Extra10_ID = Last Created Entity;
 		Wait Until(!Is Firing Secondary(Event Player) || Is In Alternate Form(Event Player), 9999);
 		Destroy Icon(Event Player.Extra10_ID);
