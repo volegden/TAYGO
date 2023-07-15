@@ -138,6 +138,7 @@ settings
 			{
 				Deflect Cooldown Time: 20%
 				Swift Strike Cooldown Time: 20%
+				No Ammunition Requirement: On
 			}
 
 			Hanzo
@@ -180,6 +181,7 @@ settings
 			Mercy
 			{
 				Guardian Angel Cooldown Time: 10%
+				No Ammunition Requirement: On
 			}
 
 			Moira
@@ -198,6 +200,11 @@ settings
 				Jump Jet Cooldown Time: 0%
 			}
 
+			Ramattra
+			{
+				No Ammunition Requirement: On
+			}	
+			
 			Reaper
 			{
 				Shadow Step Cooldown Time: 10%
@@ -218,6 +225,7 @@ settings
 			Soldier: 76
 			{
 				Biotic Field Cooldown Time: 10%
+				No Ammunition Requirement: On
 			}
 
 			Sombra
@@ -239,6 +247,7 @@ settings
 
 			Widowmaker
 			{
+				No Ammunition Requirement: On
 				Grappling Hook Cooldown Time: 0%
 			}
 
@@ -246,6 +255,11 @@ settings
 			{
 				Ultimate Generation - Combat Graviton Surge: 50%
 				Ultimate Generation - Passive Graviton Surge: 75%
+			}
+
+			Zenyatta
+			{
+				No Ammunition Requirement: On
 			}
 		}
 	}
@@ -2031,7 +2045,7 @@ rule("Listed_Player")
 			Custom String("MoHui"), Custom String("ÉDP445"), Custom String("ST1NKY"), Custom String("ĄŁÜ"), Custom String("UltiMatt"), 
             Custom String("Monsoon"), Custom String("gunk"),Custom String("D0M1N0S"), Custom String("Dvasonlyfans"), 
            	Custom String("MØØNLȊGHT"), Custom String("starluvs"), Custom String("DarthUnivers"), Custom String("MelTrini"), Custom String("Oskillz"), 
-            Custom String("pancake69"), Custom String("DŽǼǸȆ"), Custom String("splash"), Custom String("GR00MER"), Custom String("GRÖÖMED"), Custom string("Ya3loo9zadio"),  
+            Custom String("pancake69"), Custom String("DŽǼǸȆ"), Custom String("splash"), Custom String("GR00MER"), Custom String("GRØØMED"), Custom string("Ya3loo9zadio"),  
 			Custom String("GiantMilkDud"), Custom String("vel"), Custom String("ĴƐƑƑƐǷǷŜƐĬŊ"), Custom String("GoblinSexual"), Custom String("PepsiMan69"), Custom String("Enandaxis"), 
 			Custom String("DIMT"), Custom String("Popka"), Custom String("dobarčovjek"), Custom String("DragonFire"), Custom String("SheepyDream"),
 			Custom String("DireRaven"), Custom String("hesuskristus"), Custom String("LeãoLivre"), Custom String("CaptainRex"), Custom String("NANA"), Custom String("soleil"), Custom String("Dãrk"),
