@@ -30,13 +30,11 @@ rule ("Custom nameplates list")
 				Custom String("¡Hola! ¿Qué onda? {0}", Hero Icon String(Hero(Sombra)))
                 	), 
 			Array(Custom String("LƐafa"), 
-                		Custom String("Fading"), 
-                		255,0,120, 3,103,43,
+                		Color(rose), 
                 		Custom String("{0} Cherry Blossom {0}", Ability Icon String(Hero(Lifeweaver), Button(Primaryfire)))
 				),
 			Array(Custom String("ORCHȊD"), 
-                		Custom String("Fading"), 
-                		255,0,120, 3,103,43,
+                		Color(rose),
                 		Custom String("{0} Cherry Blossom {0}", Ability Icon String(Hero(Lifeweaver), Button(Primaryfire)))
 				),
 			Array(Custom String("Gregi"), 
@@ -499,8 +497,7 @@ rule ("Custom nameplates list")
 				Custom String("♥ Zax ♥")
 				), 
 			Array(Custom String("PapaRomeo"), 
-				Custom String("Fading"),
-				255,0,120, 3,103,43,
+				Custom Color(43, 146, 14, 255),
 				Custom String("{0} Matcha Tea {0}", Ability Icon String(Hero(Ana), Button(Ability 2)))
 				), 
 			Array(Custom String("MopuD"), 
