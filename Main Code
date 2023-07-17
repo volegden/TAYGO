@@ -990,7 +990,6 @@ rule ("Data")
 
 		"Moooush Effect"
 		Global.Moooush_Effect = Array(
-			Array(Custom String("TbyCoLive"), Custom String("Rainbow")),
 			Array(Custom String("MOOOUSH"), Custom Color(194, 151, 194, 255)),
 			Array(Custom String("PapaRomeo"), Color(Green)),
 			Array(Custom String("ORCHȊD"), Color(Rose)),
