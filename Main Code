@@ -1282,7 +1282,7 @@ rule ("Custom nameplates list")
 			Array(Custom String("Rylu"), 
                 		Custom String("Rainbow"),
                 		Custom String("is that a geometry dash reference?!"),
-                        Custom String("Custom String("ΔΔΔ")")
+                        Custom String("ΔΔΔ")
                 		),
 			Array(Custom String("Frikadelle"),
                 		Custom Color(245, 198, 215, 255),
