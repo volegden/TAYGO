@@ -2,7 +2,7 @@ settings
 {
 	main
 	{
-		Description: "♥ A Friendly Server To Meet New Friends ♥\nlast updated (July 15 2023)\n\n   » » » MASSIVE UPDATE RELEASED « « «\n (including UNO, non-mod menu and\n      hero specific features!)\n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss.\n   Based on the work of: TbyCoLive.\n Maintained with ♡ by: LƐafa.\n   Community Managers:\n     MOOOUSH, RUBY & kwally."
+		Description: "♥ A Friendly Server To Meet New Friends ♥\nlast updated (July 17 2023)\n\n   » » » MASSIVE UPDATE RELEASED « « «\n (including UNO, non-mod menu and\n      hero specific features!)\n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss.\n   Based on the work of: TbyCoLive.\n Maintained with ♡ by: LƐafa.\n   Community Managers:\n     MOOOUSH, RUBY & kwally."
 		Mode Name: " ♥ Friendly ♥ No Kill!"
 	}
 
@@ -91,7 +91,6 @@ settings
 		General
 		{
 			Ability Cooldown Time: 20%
-			No Ammunition Requirement: Off
 			Ultimate Duration: 250%
 			Ultimate Generation: 200%
 			Ultimate Generation - Passive: 500%
@@ -138,6 +137,7 @@ settings
 			{
 				Deflect Cooldown Time: 20%
 				Swift Strike Cooldown Time: 20%
+				No Ammunition Requirement: On
 			}
 
 			Hanzo
@@ -180,6 +180,7 @@ settings
 			Mercy
 			{
 				Guardian Angel Cooldown Time: 10%
+				No Ammunition Requirement: On
 			}
 
 			Moira
@@ -196,6 +197,11 @@ settings
 			{
 				Hover Jets Unlimited Fuel: On
 				Jump Jet Cooldown Time: 0%
+			}
+
+			Ramattra
+			{
+				No Ammunition Requirement: On
 			}
 
 			Reaper
@@ -218,6 +224,7 @@ settings
 			Soldier: 76
 			{
 				Biotic Field Cooldown Time: 10%
+				No Ammunition Requirement: On
 			}
 
 			Sombra
@@ -227,8 +234,8 @@ settings
 
 			Symmetra
 			{
-				No Ammunition Requirement: On
 				Teleporter Cooldown Time: 20%
+				No Ammunition Requirement: On
 			}
 
 			Tracer
@@ -240,12 +247,18 @@ settings
 			Widowmaker
 			{
 				Grappling Hook Cooldown Time: 0%
+				No Ammunition Requirement: On
 			}
 
 			Zarya
 			{
 				Ultimate Generation - Combat Graviton Surge: 50%
 				Ultimate Generation - Passive Graviton Surge: 75%
+			}
+
+			Zenyatta
+			{
+				No Ammunition Requirement: On
 			}
 		}
 	}
@@ -980,6 +993,7 @@ rule ("Data")
 			Array(Custom String("TbyCoLive"), Custom String("Rainbow")),
 			Array(Custom String("MOOOUSH"), Custom Color(194, 151, 194, 255)),
 			Array(Custom String("PapaRomeo"), Color(Green)),
+			Array(Custom String("ORCHȊD"), Color(Rose)),
 			Array(Custom String("AndrewKnoll"), Color(Rose)),
 			Array(Custom String("Metalgy"), Color(Red)),
 			Array(Custom String("Nutzee"), Color(SkyBlue)),
