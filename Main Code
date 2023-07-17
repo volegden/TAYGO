@@ -1002,7 +1002,6 @@ rule ("Data")
 
 }
 
-
 rule ("Custom nameplates list") 
 {
     event 
@@ -1032,7 +1031,8 @@ rule ("Custom nameplates list")
                 		Custom String("Fading"), 
                 		70,200,255, 150,225,255,
 				Custom String("{0}  TO THE MAX  {0}", Ability Icon String(Hero(Sombra), Button(Ultimate))),
-				Custom String("¡Hola! ¿Qué onda? {0}", Hero Icon String(Hero(Sombra)))
+				Custom String("¡Hola! ¿Qué onda? {0}", Hero Icon String(Hero(Sombra))),
+				Custom String("Custom String(\"Insert 3rd name\")")
                 	), 
 			Array(Custom String("LƐafa"), 
                 		Color(rose), 
@@ -2035,11 +2035,13 @@ rule("Listed_Player")
 			Custom String("Simplicity"), Custom String("IloveBirds"), Custom String("Kyger100"), Custom String("Potato"), Custom String("Apotato2182"), Custom String("dean"), Custom String("KR0"),
 			Custom String("BoneStealer"), Custom String("TwitchPoison"), Custom String("Mardothiel"), Custom String("DJBASTION"), Custom String("JoltWave"), Custom String("MrBastion"), Custom String("Butcher"),
 			Custom String("PINKBASTIONǃ"), Custom String("HyperBastion"),  Custom String("ZenWick"), Custom String("alhrbe"), Custom String("CATMOM"), Custom String("Coydn"), Custom String("MrBalkanom"),
-			Custom String("BebeUwU"), Custom String("Heather"), Custom String("Katsuki"), Custom String("Nicolol123"), Custom String("Raymond"), Custom String("Dar7bi"), Custom String("GR00MER"), Custom String("GRØØMED"),
+			Custom String("BebeUwU"), Custom String("Heather"), Custom String("Katsuki"), Custom String("Nicolol123"), Custom String("Raymond"), 
+			Custom String("Dar7bi"), Custom String("GR00MER"), Custom String("GRØØMED"),
 			Custom String("NITRO"), Custom String("oxox"), Custom String("SALEH"), Custom String("GarnetKodo"), Custom String("KaijoSan"), CUstom String("ZORO"), Custom String("hellionturbo"),
 			Custom String("AL7"), Custom String("w7sh12"), Custom String("ammar"), Custom String("WYPCS"), Custom String("ＡＺＡＬＥＡ"), Custom String("GHOSTǃ"), Custom String("Alucard"),
 			Custom String("Stars"), Custom String("DantefromDMC"), Custom String("Stargata"), Custom String("SneezyDwarf"), Custom string("Ya3loo9zadio"), Custom String("splash"), Custom String("CUPCAKE"),
-           	Custom String("MØØNLȊGHT"), Custom String("GiantMilkDud"), Custom String("DIMT"), Custom String("Popka"), Custom String("dobarčovjek"), Custom String("DragonFire"), Custom String("SheepyDream"), Custom String("Dãrk"), Custom String("Enandaxis"), 
+           	Custom String("MØØNLȊGHT"), Custom String("GiantMilkDud"), Custom String("DIMT"), Custom String("Popka"), Custom String("dobarčovjek"), 
+			Custom String("DragonFire"), Custom String("SheepyDream"), Custom String("Dãrk"), Custom String("Enandaxis"), 
 			Custom String("DireRaven"), Custom String("hesuskristus"), Custom String("CaptainRex"), Custom String("NANA"), Custom String("soleil"), Custom String("LeãoLivre"),
 			Custom String("Parkkis"), Custom String("miro22"), Custom String("lilslvt"), CUstom String("takumi"), Custom String("Hercules"), Custom String("Kisuke"),  
 			Custom String("MESH3L"), Custom String("n1renn"), Custom String("SHINIxMIZU"), Custom String("Babe"), Custom String("KLYDH"), Custom String("GoldSeal"),
@@ -4589,7 +4591,7 @@ rule("Mode_11 - Scale_Own_Size")
 				If((Event Player.High_Rank || Event Player.Mod_Rank));
 					Modify Player Variable(Event Player, Scale_Prev, Min, 20);
 				Else;
-					Modify Player Variable(Event Player, Scale_Prev, Min, 3);
+					Modify Player Variable(Event Player, Scale_Prev, Min, 2);
 				End;
 				Wait(0.100, Ignore Condition);
 			End;
@@ -8017,11 +8019,10 @@ rule("Extra_5 - Ultimate reset for mods+")
 
 	conditions
 	{
+		(Event Player.High_Rank || (Event Player.Mod_Rank && (Not(Event Player.Promoted_Rank)) || Event Player == Host Player)) == True;
 		Is Button Held(Event Player, Button(Ultimate)) == True;
-		(Event Player.High_Rank || Event Player.Mod_Rank) == True;
 		Is Button Held(Event Player, Button(Crouch)) == False;
 		Event Player.Restricted[0] == False;
-		((Hero Of(Event Player) == Hero(Zarya) || Hero Of(Event Player) == Hero(Sigma) || Hero Of(Event Player) == Hero(Lifeweaver)) && Event Player.Promoted_Rank) == False;
 		Hero Of(Event Player) != Hero(Ashe);
 	}
 
@@ -8547,6 +8548,10 @@ rule("Tp effects per Map")
 			Create Effect(All Players(All Teams), Ring, Color(Rose), Global.Map_Teleport_Locations[1], 1.300, Visible To Position and Radius);
 			Create Effect(All Players(All Teams), Ring, Color(Rose), Global.Map_Teleport_Locations[2], 1.300, Visible To Position and Radius);
 			Create Effect(All Players(All Teams), Ring, Color(Rose), Global.Map_Teleport_Locations[3], 1.300, Visible To Position and Radius);
+		Else If(Current Map == Map(Ayutthaya));
+			Global.Map_Teleport_Locations = Array(Vector(4.75, 21, 26.5), Vector(29.75, 0.11, -28));
+			Create Effect(All Players(All Teams), Ring, Color(Rose), Global.Map_Teleport_Locations[0], 1.300, Visible To Position and Radius);
+			Create Effect(All Players(All Teams), Ring, Color(Rose), Global.Map_Teleport_Locations[1], 1.300, Visible To Position and Radius);
 		End;
 		Modify Global Variable(High_Rank, Remove From Array By Index, 0);
 		Modify Global Variable(High_Rank, Remove From Array By Index, 1);
@@ -8905,6 +8910,37 @@ rule("Teleports Antarctic")
 		If(Distance Between(Global.Map_Teleport_Locations[3], Event Player) <= 1.300);
 			Teleport(Event Player, Add(Global.Map_Teleport_Locations[1], Vector(-4,0,0)));
 			Set Facing(Event Player, Vector(1,0,0), To World);
+			Wait(2, Ignore Condition);
+		End;
+	}
+}
+
+rule("Teleports Ayutthaya")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Current Map == Map(Ayutthaya);
+		(Distance Between(Global.Map_Teleport_Locations[0], Event Player) <= 1.300 || Distance Between(Global.Map_Teleport_Locations[1], Event Player)<= 1.300) == True;
+	}
+
+	actions
+	{
+		"Seeking for player in selected points"
+		If(Distance Between(Global.Map_Teleport_Locations[0], Event Player) <= 1.300);
+			Teleport(Event Player, Add(Global.Map_Teleport_Locations[1], Vector(0,0,3)));
+			Set Facing(Event Player, Vector(0,0,-1), To World);
+			Wait(2, Ignore Condition);
+		End;
+		If(Distance Between(Global.Map_Teleport_Locations[1], Event Player) <= 1.300);
+			Teleport(Event Player, Add(Global.Map_Teleport_Locations[0], Vector(0,0,3)));
+			Set Facing(Event Player, Vector(0,0,-1), To World);
 			Wait(2, Ignore Condition);
 		End;
 	}
