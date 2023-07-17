@@ -1281,7 +1281,8 @@ rule ("Custom nameplates list")
                 		),
 			Array(Custom String("Rylu"), 
                 		Custom String("Rainbow"),
-                		Custom String("★ onlyfans.com/rylu ★")
+                		Custom String("is that a geometry dash reference?!"),
+                        Custom String("Custom String("ΔΔΔ")")
                 		),
 			Array(Custom String("Frikadelle"),
                 		Custom Color(245, 198, 215, 255),
@@ -1447,7 +1448,6 @@ rule ("Custom nameplates list")
 				    ),
 			Array(Custom String("DJSmolfry"), 
 				Custom Color(0, 255, 255, 255),
-				Custom String("{0}  ☆ D Θ Μ Μ Ψ  Μ Θ Μ Μ Ψ ☆  {0}", Ability Icon String(Hero(Symmetra), Button(Ultimate))), 
 				Custom String("{0}  ☆ Ѕ Μ Θ L R Δ D I Θ ☆  {0}", Ability Icon String(Hero(Symmetra), Button(Ability 1))), 
 				Custom String("{0}  ☆ Ѕ L Δ F ' Ѕ  Ƥ Θ C Ƙ Σ Ƭ ☆   {0}", Ability Icon String(Hero(Symmetra), Button(Ability 2)))
 				),
@@ -2050,7 +2050,7 @@ rule("Listed_Player")
 			Custom String("Golgotha"), Custom String("Petrolsn1ffr"), Custom String("userx"), Custom String("euphorictwnk"), Custom String("Dingusmcbutt"), 
 			Custom String("MachoMan"), Custom String("SirKek"), Custom String("Friendboat"), CUstom String("Revaldo"), Custom String("NormalHuman"), Custom String("trunksǃ"), 
 			Custom String("Abdul1Jafar"), Custom String("AIJapBot"), Custom String("SexiestBeast"), Custom String("Dingus"), Custom String("TheCheese"), CUstom String("FemboyMercy"),
-			Custom String("IsoBeatDown"), Custom String("InkyCrane"), Custom String("Duckydude01"), Custom String("ＯＰＰＡＩ"), CUstom String("boyboy14"));
+			Custom String("IsoBeatDown"), Custom String("InkyCrane"), Custom String("Duckydude01"), Custom String("ＯＰＰＡＩ"), CUstom String("boyboy14"), Custom string("ЧЋАДжПҨТъЮѶъ"));
 	}
 }
 
