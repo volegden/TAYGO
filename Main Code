@@ -2,7 +2,7 @@ settings
 {
 	main
 	{
-		Description: "♥ A Friendly Server To Meet New Friends ♥\nlast updated (July 11 2023)\n\n   » » » MASSIVE UPDATE RELEASED « « «\n (including UNO, non-mod menu and\n      hero specific features!)\n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss.\n   Based on the work of: TbyCoLive.\n Maintained with ♡ by: LƐafa.\n   Community Managers:\n     MOOOUSH, RUBY & kwally."
+		Description: "♥ A Friendly Server To Meet New Friends ♥\nlast updated (July 15 2023)\n\n   » » » MASSIVE UPDATE RELEASED « « «\n (including UNO, non-mod menu and\n      hero specific features!)\n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss.\n   Based on the work of: TbyCoLive.\n Maintained with ♡ by: LƐafa.\n   Community Managers:\n     MOOOUSH, RUBY & kwally."
 		Mode Name: " ♥ Friendly ♥ No Kill!"
 	}
 
@@ -138,7 +138,6 @@ settings
 			{
 				Deflect Cooldown Time: 20%
 				Swift Strike Cooldown Time: 20%
-				No Ammunition Requirement: On
 			}
 
 			Hanzo
@@ -181,7 +180,6 @@ settings
 			Mercy
 			{
 				Guardian Angel Cooldown Time: 10%
-				No Ammunition Requirement: On
 			}
 
 			Moira
@@ -200,11 +198,6 @@ settings
 				Jump Jet Cooldown Time: 0%
 			}
 
-			Ramattra
-			{
-				No Ammunition Requirement: On
-			}	
-			
 			Reaper
 			{
 				Shadow Step Cooldown Time: 10%
@@ -225,7 +218,6 @@ settings
 			Soldier: 76
 			{
 				Biotic Field Cooldown Time: 10%
-				No Ammunition Requirement: On
 			}
 
 			Sombra
@@ -247,7 +239,6 @@ settings
 
 			Widowmaker
 			{
-				No Ammunition Requirement: On
 				Grappling Hook Cooldown Time: 0%
 			}
 
@@ -255,11 +246,6 @@ settings
 			{
 				Ultimate Generation - Combat Graviton Surge: 50%
 				Ultimate Generation - Passive Graviton Surge: 75%
-			}
-
-			Zenyatta
-			{
-				No Ammunition Requirement: On
 			}
 		}
 	}
@@ -566,6 +552,7 @@ rule("Global_Settings")
 
 	actions
 	{
+		Global.Current_Host = Null;
 		Global.Player_Joined_Queue = Empty Array;
 		"Dev Tools"
 		Disable Inspector Recording;
@@ -990,9 +977,9 @@ rule ("Data")
 
 		"Moooush Effect"
 		Global.Moooush_Effect = Array(
+			Array(Custom String("TbyCoLive"), Custom String("Rainbow")),
 			Array(Custom String("MOOOUSH"), Custom Color(194, 151, 194, 255)),
 			Array(Custom String("PapaRomeo"), Color(Green)),
-			Array(Custom String("ORCHȊD"), Color(Rose)),
 			Array(Custom String("AndrewKnoll"), Color(Rose)),
 			Array(Custom String("Metalgy"), Color(Red)),
 			Array(Custom String("Nutzee"), Color(SkyBlue)),
@@ -2027,7 +2014,7 @@ rule("Listed_Player")
 				Custom String("Anos"), Custom String("Hinata"), Custom String("Mohamed"), Custom String("LeMix"), Custom String("Jeanne"), Custom String("KadenLee25"), Custom String("starluvs"),
 				Custom String("Reyes"), Custom String("SALEH"), Custom String("godfaceiem"), Custom String("duckisunmu"), Custom String("toxicwqst1"), Custom String("Senpai55"),
 				Custom String("Azereth"), Custom String("axozale"), Custom String("kvf"), Custom String("wev"), Custom String("huh"), Custom String("RainThePain2"), Custom String("negligeble"),
-				Custom String("Filipe"));
+				Custom String("Filipe"), Custom String("Santykpoooo"));
 		
 		"Automatic Ban"
 		Global.Perma_Banned = Array(
@@ -2038,10 +2025,8 @@ rule("Listed_Player")
 			Custom String("BebeUwU"), Custom String("Heather"), Custom String("Katsuki"), Custom String("Nicolol123"), Custom String("Raymond"), Custom String("Dar7bi"), Custom String("GR00MER"), Custom String("GRØØMED"),
 			Custom String("NITRO"), Custom String("oxox"), Custom String("SALEH"), Custom String("GarnetKodo"), Custom String("KaijoSan"), CUstom String("ZORO"), Custom String("hellionturbo"),
 			Custom String("AL7"), Custom String("w7sh12"), Custom String("ammar"), Custom String("WYPCS"), Custom String("ＡＺＡＬＥＡ"), Custom String("GHOSTǃ"), Custom String("Alucard"),
-			Custom String("Stars"), Custom String("DantefromDMC"), Custom String("Stargata"), Custom String("SneezyDwarf"), Custom string("Ya3loo9zadio"), Custom String("splash"),
-           	Custom String("MØØNLȊGHT"), Custom String("DarthUnivers"), Custom String("MelTrini"), Custom String("Oskillz"), Custom String("pancake69"), Custom String("DŽǼǸȆ"), 
-			Custom String("GiantMilkDud"), Custom String("vel"), Custom String("ĴƐƑƑƐǷǷŜƐĬŊ"), Custom String("GoblinSexual"), Custom String("PepsiMan69"), Custom String("Enandaxis"), 
-			Custom String("DIMT"), Custom String("Popka"), Custom String("dobarčovjek"), Custom String("DragonFire"), Custom String("SheepyDream"), Custom String("Dãrk"),
+			Custom String("Stars"), Custom String("DantefromDMC"), Custom String("Stargata"), Custom String("SneezyDwarf"), Custom string("Ya3loo9zadio"), Custom String("splash"), Custom String("CUPCAKE"),
+           	Custom String("MØØNLȊGHT"), Custom String("GiantMilkDud"), Custom String("DIMT"), Custom String("Popka"), Custom String("dobarčovjek"), Custom String("DragonFire"), Custom String("SheepyDream"), Custom String("Dãrk"), Custom String("Enandaxis"), 
 			Custom String("DireRaven"), Custom String("hesuskristus"), Custom String("CaptainRex"), Custom String("NANA"), Custom String("soleil"), Custom String("LeãoLivre"),
 			Custom String("Parkkis"), Custom String("miro22"), Custom String("lilslvt"), CUstom String("takumi"), Custom String("Hercules"), Custom String("Kisuke"),  
 			Custom String("MESH3L"), Custom String("n1renn"), Custom String("SHINIxMIZU"), Custom String("Babe"), Custom String("KLYDH"), Custom String("GoldSeal"),
@@ -2051,7 +2036,8 @@ rule("Listed_Player")
 			Custom String("WhiteBoyCarl"), Custom String("RevertHog"), Custom String("Mayaǃ"), Custom String("Devil"), Custom String("kzumoX7"), Custom String("ŦǍŶĿǾȒ0ǨǍŦŜ"),
 			Custom String("Golgotha"), Custom String("Petrolsn1ffr"), Custom String("userx"), Custom String("euphorictwnk"), Custom String("Dingusmcbutt"), 
 			Custom String("MachoMan"), Custom String("SirKek"), Custom String("Friendboat"), CUstom String("Revaldo"), Custom String("NormalHuman"), Custom String("trunksǃ"), 
-			Custom String("Abdul1Jafar"));
+			Custom String("Abdul1Jafar"), Custom String("AIJapBot"), Custom String("SexiestBeast"), Custom String("Dingus"), Custom String("TheCheese"), CUstom String("FemboyMercy"),
+			Custom String("IsoBeatDown"), Custom String("InkyCrane"), Custom String("Duckydude01"); Custom String("ＯＰＰＡＩ"), CUstom String("boyboy14"));
 	}
 }
 
@@ -2075,7 +2061,7 @@ rule("Player_Rank_Execute")
 
 	actions
 	{
-		Wait(0.1, Ignore Condition);
+		Wait(0.01, Ignore Condition);
 		If(Array Contains(Global.High_Rank, Custom String("{0}", Event Player)));
 			Event Player.High_Rank = True;
 			Event Player.Verification_Key = 2;
@@ -2328,6 +2314,7 @@ rule("Hud_Elements (Subroutine)")
 
 	actions
 	{
+		Destroy HUD Text(Event Player.Mod_Name_ID[0]);
 		If(Entity Exists(Event Player));
 			Create HUD Text(All Players(All Teams), Null, Null, Custom String("{0} {1} {2}",
 				Hero Icon String(Hero Of(Event Player)), Event Player, If-Then-Else(Event Player.Promoted_Rank, Custom String(""), 
