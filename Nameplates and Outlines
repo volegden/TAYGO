@@ -27,7 +27,8 @@ rule ("Custom nameplates list")
                 		Custom String("Fading"), 
                 		70,200,255, 150,225,255,
 				Custom String("{0}  TO THE MAX  {0}", Ability Icon String(Hero(Sombra), Button(Ultimate))),
-				Custom String("¡Hola! ¿Qué onda? {0}", Hero Icon String(Hero(Sombra)))
+				Custom String("¡Hola! ¿Qué onda? {0}", Hero Icon String(Hero(Sombra))),
+				Custom String("Custom String(\"Insert 3rd name\")")
                 	), 
 			Array(Custom String("LƐafa"), 
                 		Color(rose), 
