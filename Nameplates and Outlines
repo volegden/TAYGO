@@ -276,7 +276,8 @@ rule ("Custom nameplates list")
                 		),
 			Array(Custom String("Rylu"), 
                 		Custom String("Rainbow"),
-                		Custom String("★ onlyfans.com/rylu ★")
+                		Custom String("is that a geometry dash reference?!"),
+                        Custom String("Custom String("ΔΔΔ")")
                 		),
 			Array(Custom String("Frikadelle"),
                 		Custom Color(245, 198, 215, 255),
@@ -442,7 +443,6 @@ rule ("Custom nameplates list")
 				    ),
 			Array(Custom String("DJSmolfry"), 
 				Custom Color(0, 255, 255, 255),
-				Custom String("{0}  ☆ D Θ Μ Μ Ψ  Μ Θ Μ Μ Ψ ☆  {0}", Ability Icon String(Hero(Symmetra), Button(Ultimate))), 
 				Custom String("{0}  ☆ Ѕ Μ Θ L R Δ D I Θ ☆  {0}", Ability Icon String(Hero(Symmetra), Button(Ability 1))), 
 				Custom String("{0}  ☆ Ѕ L Δ F ' Ѕ  Ƥ Θ C Ƙ Σ Ƭ ☆   {0}", Ability Icon String(Hero(Symmetra), Button(Ability 2)))
 				),
