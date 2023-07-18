@@ -6486,7 +6486,7 @@ rule("Mode_29 - Promote/Demote_And_Teamswap")
 			Play Effect(All Players(All Teams), Bad Pickup Effect, Color(Red), Player Closest To Reticle(Event Player, All Teams), 1);
 		Else If(Is Button Held(Event Player, Button(Ultimate)));
 			If(Team Of(Event Player) == Team 1);
-				If(Number of Players(Team 2) <= 5);
+				If(Count Of(Filtered Array(All Players(Team 2), Not(Is Dummy Bot(Current Array Element)))) <= 5);
 					Move Player to Team(Event Player, Host Player, -1);
 					Wait(0.250, Ignore Condition);
 					Move Player to Team(Event Player, Team 2, -1);
@@ -6495,7 +6495,7 @@ rule("Mode_29 - Promote/Demote_And_Teamswap")
 					Abort;
 				End;
 			Else If(Team Of(Event Player) == Team 2);
-				If(Number of Players(Team 1) <= 5);
+				If(Count Of(Filtered Array(All Players(Team 1), Not(Is Dummy Bot(Current Array Element)))) <= 5);
 					Move Player to Team(Event Player, Host Player, -1);
 					Wait(0.250, Ignore Condition);
 					Move Player to Team(Event Player, Team 1, -1);
