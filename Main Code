@@ -2,7 +2,7 @@ settings
 {
 	main
 	{
-		Description: "♥ A Friendly Server To Meet New Friends ♥\nlast updated (July 17 2023)\n\n   » » » MASSIVE UPDATE RELEASED « « «\n (including UNO, non-mod menu and\n      hero specific features!)\n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss.\n   Based on the work of: TbyCoLive.\n Maintained with ♡ by: LƐafa.\n   Community Managers:\n     MOOOUSH, RUBY & kwally."
+		Description: "♥ A Friendly Server To Meet New Friends ♥\nlast updated (July 18 2023)\n\n   » » » MASSIVE UPDATE RELEASED « « «\n (including UNO, non-mod menu and\n      hero specific features!)\n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss.\n   Based on the work of: TbyCoLive.\n Maintained with ♡ by: LƐafa.\n   Community Managers:\n     MOOOUSH, RUBY & kwally."
 		Mode Name: " ♥ Friendly ♥ No Kill!"
 	}
 
@@ -90,9 +90,9 @@ settings
 	{
 		General
 		{
-			Ability Cooldown Time: 20%
+			Ability Cooldown Time: 30%
 			Ultimate Duration: 250%
-			Ultimate Generation: 200%
+			Ultimate Generation: 150%
 			Ultimate Generation - Passive: 500%
 
 			Ana
@@ -163,7 +163,7 @@ settings
 				Life Grip: Off
 				Petal Platform Cooldown Time: 200%
 				Ultimate Generation - Combat Tree of Life: 50%
-				Ultimate Generation - Passive Tree of Life: 75%
+				Ultimate Generation - Passive Tree of Life: 55%
 			}
 
 			Lúcio
@@ -408,7 +408,7 @@ variables
 		77: Beams_Selector
 		78: Is_Invisible
 		79: No_CD
-		80: Extra12_Timer
+		80: Extra8_Timer
 		81: Full_Protection
 		82: Extra10_ID
 		83: Extra10_Player
@@ -706,6 +706,7 @@ rule("Default_Player_Settings")
 		
 		If(Is Dummy Bot(Event Player));
 			Event Player.Player_Modification = Array(100, 100, 100, 100, 100);
+			Event Player.Voice_Pitch = 1;
 			Wait(0.2, Ignore Condition);
 			Modify Global Variable(Player_Joined_Queue, Remove From Array By Value, Null);
 			Modify Global Variable(Player_Joined_Queue, Remove From Array By Value, Event Player);
@@ -777,7 +778,7 @@ rule("Default_Player_Settings")
 		Event Player.Progress_Stop = False;
 		Event Player.Is_Crouch_On = False;
 
-		Event Player.Modification_Mode_Selector = 0;
+		Event Player.Modification_Mode_Selector = 1;
 		Event Player.Modification_Scalar_Selector = 2;
 
 		Event Player.Icon_ID = Empty Array;
@@ -2105,6 +2106,7 @@ rule("Player_Rank_Execute")
 
 		Event Player.Mode_Cycle = 0;
 		Event Player.Mode_Cycle_Default = -1;
+		Event Player.Modification_Mode_Selector = 0;
 
 		Destroy HUD Text(Event Player.Mode_Description);
 		Destroy HUD Text(Event Player.Mode_Hud_ID);
@@ -2218,6 +2220,9 @@ rule("Player_Rank_Revoke")
 			Event Player.Is_Flying = False;
 			Set Gravity(Event Player, Event Player.Player_Modification[3]);
 		End;
+		Event Player.Modification_Mode_Selector = 1;
+		Event Player.Player_Modification[0] = 100;
+		Set Damage Dealt(Event Player, Event Player.Player_Modification[0]);
 
 		Destroy HUD Text(Event Player.Mode_Description);
 		Destroy HUD Text(Event Player.Mode_Hud_ID);
@@ -3070,13 +3075,13 @@ rule("Mode_Headline_Desc_Default")
 				))), Null, Left, 1, Color(White), Color(White), Color(White), String, Visible Never);
 
 		Else If(Event Player.Mode_Cycle_Default == 4);
-			Event Player.Mode_Headline = Custom String("DMG | Speed | Knockback | Gravity");
+			Event Player.Mode_Headline = Custom String("Speed | Knockback | Gravity");
 			Create HUD Text(Event Player, Null, Custom String("| Press Crouch + Interact/Jump to change pages |\nPlayer Menu: Press Crouch + input for action\n{0}",
 				Custom String("{0} : Increase by {1}%\r\n{2}", 
 					Input Binding String(Button(Primary Fire)), Raise To Power(10, Event Player.Modification_Scalar_Selector), 
 				Custom String("{0} : Decrease by {1}%\r\n{2}", 
 					Input Binding String(Button(Secondary Fire)), Raise To Power(10, Event Player.Modification_Scalar_Selector),
-				Custom String("{0} : Cycle Mode [DMG, Speed, KB, Gravity]\r\n{1}", 
+				Custom String("{0} : Cycle Mode [Speed, KB, Gravity]\r\n{1}", 
 					Input Binding String(Button(Ultimate)),
 				Custom String("{0} : Cycle Amount [1%, 10%, 100%, 1000%]\r\n{1}", 
 					Input Binding String(Button(Ability 2)), 
@@ -4335,10 +4340,6 @@ rule("Mode_08 - Damage_Speed_KB_Gravity_Self")
 		Event Player.Signal = False;
 		"TODO: Bugtest new grav"
 		If(Is Button Held(Event Player, Button(Primary Fire)));
-			If((Event Player.Modification_Mode_Selector == 0) && (Event Player.Protection) && Not(Event Player.High_Rank || Event Player.Mod_Rank));
-				Small Message(Event Player, Custom String("   Cannot modify damage while protected"));
-				Abort;
-			End;
 			Event Player.Player_Modification[Event Player.Modification_Mode_Selector] += Raise To Power(10, Event Player.Modification_Scalar_Selector);
 			If(Event Player.Player_Modification[0] > 5000);
 				Event Player.Player_Modification[0] = 5000;
@@ -4368,7 +4369,11 @@ rule("Mode_08 - Damage_Speed_KB_Gravity_Self")
 			End;
 		Else If(Is Button Held(Event Player, Button(Ultimate)));
 			If(Event Player.Modification_Mode_Selector >=3);
-				Event Player.Modification_Mode_Selector = 0;
+				If(Event Player.High_Rank || Event Player.Mod_Rank);
+					Event Player.Modification_Mode_Selector = 0;
+				Else;
+					Event Player.Modification_Mode_Selector = 1;
+				End;
 			Else;
 				Event Player.Modification_Mode_Selector += 1;
 			End;
@@ -4388,9 +4393,7 @@ rule("Mode_08 - Damage_Speed_KB_Gravity_Self")
 				Event Player));
 		End;
 		
-		If(Not((Event Player.Modification_Mode_Selector == 0) && (Event Player.Protection) && Not(Event Player.High_Rank || Event Player.Mod_Rank)));
-			Set Damage Dealt(Event Player, Event Player.Player_Modification[0]);
-		End;
+		Set Damage Dealt(Event Player, Event Player.Player_Modification[0]);
 		Set Move Speed(Event Player, Event Player.Player_Modification[1]);
 		Set Knockback Dealt(Event Player, Event Player.Player_Modification[2]);
 		If(Global.Gravity_Toggle == False);
@@ -8053,10 +8056,10 @@ rule("Extra_6 - Mercy Movement Collision")
 
 	actions
 	{
-		Set Move Speed(Event Player, 150);
+		Set Move Speed(Event Player, Event Player.Player_Modification[1] + 50);
 		Disable Movement Collision With Environment(Event Player, True);
 		Wait Until(Not(Is Using Ultimate(Event Player)) || (Hero Of(Event Player) != Hero (Mercy)), 9999);
-		Set Move Speed(Event Player, 100);
+		Set Move Speed(Event Player, Event Player.Player_Modification[1]);
 		Enable Movement Collision With Environment(Event Player);
 	}
 }
@@ -8105,10 +8108,10 @@ rule("Extra_8 - Ana Nano")
 
 	actions
 	{
-		Stop Chasing Player Variable(Healee, Extra12_Timer);
-		Healee.Extra12_Timer = 20;
-		Chase Player Variable Over Time(Healee, Extra12_Timer, 0, 10, None);
-		Start Modifying Hero Voice Lines(Healee, (Sine From Radians(Healee.Extra12_Timer))/1.7 + 1, true);
+		Stop Chasing Player Variable(Healee, Extra8_Timer);
+		Healee.Extra8_Timer = 20;
+		Chase Player Variable Over Time(Healee, Extra8_Timer, 0, 10, None);
+		Start Modifying Hero Voice Lines(Healee, (Sine From Radians(Healee.Extra8_Timer))/1.7 + 1, true);
 	}
 }
 
@@ -8123,14 +8126,17 @@ rule("Extra_8 - Ana Target Reset")
 
 	conditions
 	{
-		Event Player.Extra12_Timer == 0;
+		Event Player.Extra8_Timer == 0;
 	}
 
 	actions
 	{
-		Stop Chasing Player Variable(Event Player, Extra12_Timer);
+		Stop Chasing Player Variable(Event Player, Extra8_Timer);
 		Stop Modifying Hero Voice Lines(Event Player);
-		Event Player.Extra12_Timer = -1;
+		If(Event Player.Voice_Pitch != 1);
+			Start Modifying Hero Voice Lines(Event Player, Event Player.Voice_Pitch, False);
+		End;
+		Event Player.Extra8_Timer = -1;
 	}
 }
 
@@ -9001,7 +9007,6 @@ rule("Moe-Bot Behavior")
 		Global.Moe_Position = Vector(0,100,0);
 		Abort If(Not(Custom String("{0}", Event Player) == Custom String("Moe Szyslak")));
 		Event Player.Full_Protection = True;
-		"TODO: Autorespawn OFF or ON?"
 		Event Player.Auto_Respawn = False;
 		Wait(0.1, Ignore Condition);
 		If(Current Map == Map(Kanezaka));
