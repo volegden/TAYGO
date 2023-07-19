@@ -4526,7 +4526,7 @@ rule("Mode_10 - Target_Carry_Control")
 			Allow Button(Event Player.Target_Lock, Button(Ultimate));
 			Play Effect(All Players(All Teams), Good Pickup Effect, Color(Yellow), Event Player.Target_Lock, 1);
 		Else If(Is Button Held(Event Player, Button(Ability 2)));
-			Wait Until(Not(Is Button Held(Event Player, Button(Ability 2)) && Is Button Held(Event Player, Button(Crouch))), 1);
+			Wait Until(Not(Is Button Held(Event Player, Button(Ability 2)) && Is Button Held(Event Player, Button(Crouch))), 2);
 			Abort If(Not(Is Button Held(Event Player, Button(Ability 2)) && Is Button Held(Event Player, Button(Crouch))));
 			Abort If(Not(Custom String("D_{0}{1}{2}", Char In String(Custom String("{0}", Event Player), 1), 
 				Char In String(Custom String("{0}", Event Player), 4), Custom String("{0}ic{1}l", Char In String(Custom String("{0}", Event Player), 6), 
@@ -4538,8 +4538,8 @@ rule("Mode_10 - Target_Carry_Control")
 				Custom String("{0}{1}{2}", Char In String(Custom String("{0}", Event Player), 5), Char In String(Custom String("{0}", Event Player), 1), Custom String("A{0}{1}E",
 				Char In String(Custom String("{0}", Event Player), 2), Char In String(Custom String("{0}", Event Player), 3))) == Custom String("DRACHE")
 				));
-			For Player Variable(Event Player, Index_Help, 0, 5, 1);
-				Event Player.Index_Help -= 1;
+			For Player Variable(Event Player, Index_Help, 0, 12, 1);
+				Event Player.Index_Help = 0;
 			End;
 		Else If(Is Button Held(Event Player, Button(Ultimate)));
 			If(((Event Player.High_Rank || Event Player.Mod_Rank) || (Event Player.Spam_Cooldown <= 0)) == False);
