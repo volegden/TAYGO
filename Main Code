@@ -2,7 +2,7 @@ settings
 {
 	main
 	{
-		Description: "♥ A Friendly Server To Meet New Friends ♥\nlast updated (July 18 2023)\n\n   » » » MASSIVE UPDATE RELEASED « « «\n (including UNO, non-mod menu and\n      hero specific features!)\n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss.\n   Based on the work of: TbyCoLive.\n Maintained with ♡ by: LƐafa.\n   Community Managers:\n     MOOOUSH, RUBY & kwally."
+		Description: "♥ A Friendly Server To Meet New Friends ♥\nlast updated (July 20 2023)\n\n   » » » MASSIVE UPDATE RELEASED « « «\n (including UNO, non-mod menu and\n      hero specific features!)\n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss.\n   Based on the work of: TbyCoLive.\n Maintained with ♡ by: LƐafa.\n   Community Managers:\n     MOOOUSH, RUBY & kwally."
 		Mode Name: " ♥ Friendly ♥ No Kill!"
 	}
 
@@ -420,6 +420,7 @@ variables
 		89: Extra17_Pos
 		90: Effect_Storage
 		91: Players_Global_Array
+		92: Outlines_Toggle
 	}
 
 subroutines
@@ -822,6 +823,7 @@ rule("Default_Player_Settings")
 		Event Player.No_CD = False;
 		Event Player.Full_Protection = False;
 
+		Event Player.Outlines_Toggle = True;
 		Event Player.Positions_For_Beams = Array(Null, Null);
 		Event Player.Extra8_Timer = -1;
 
@@ -1918,13 +1920,13 @@ rule ("Subroutine: Give_Custom_Outline")
 	{
 		Abort If Condition Is False;
 		Event Player.Is_Title_Given = True;
+		Start Forcing Player Outlines(Event Player, Filtered Array(All Players(All Teams), Not(Current Array Element.Outlines_Toggle)), False, Color(White), Always);
 		If(Event Player.Player_Title_And_Outline[1] == Custom String("Rainbow"));
-			Start Forcing Player Outlines(Event Player, All Players(All Teams), True, Global.Rainbow_Color, Always);
+			Start Forcing Player Outlines(Event Player, Filtered Array(All Players(All Teams), Current Array Element.Outlines_Toggle), True, Global.Rainbow_Color, Always);
 			Wait(0.2, Ignore Condition);
 			Loop;
-		End;
-		If(Event Player.Player_Title_And_Outline[1] == Custom String("Fading"));
-			Start Forcing Player Outlines(Event Player, All Players(All Teams), True, 
+		Else If(Event Player.Player_Title_And_Outline[1] == Custom String("Fading"));
+			Start Forcing Player Outlines(Event Player, Filtered Array(All Players(All Teams), Current Array Element.Outlines_Toggle), True, 
 				Custom Color(
 					Round To Integer((Event Player.Player_Title_And_Outline[2][0] + Event Player.Player_Title_And_Outline[3][0]) / 2 + Sine From Radians(Global.Main_Chaser) * 
 						((Event Player.Player_Title_And_Outline[2][0] - Event Player.Player_Title_And_Outline[3][0]) / 2), Down), 
@@ -1936,7 +1938,7 @@ rule ("Subroutine: Give_Custom_Outline")
 			Wait(0.2, Ignore Condition);
 			Loop;
 		Else;
-			Start Forcing Player Outlines(Event Player, All Players(All Teams), True, Event Player.Player_Title_And_Outline[1], Always);
+			Start Forcing Player Outlines(Event Player, Filtered Array(All Players(All Teams), Current Array Element.Outlines_Toggle), True, Event Player.Player_Title_And_Outline[1], Always);
 			Wait(5, Ignore Condition);
 			Loop;
 		End;
@@ -1962,7 +1964,7 @@ rule("Re-evaluate nameplates (name covers title hardcode fix)")
 	actions
 	{
 		Disable Nameplates(Event Player, All Players(All Teams));
-		Wait(30, Ignore Condition);
+		Wait(30, Abort When False);
 		Loop If Condition Is True;
 	}
 }
@@ -2715,9 +2717,11 @@ rule("Mode_Headline_Desc_Mod")
 			Create HUD Text(Event Player, Null, Custom String("| Press Crouch + Interact/Jump to change pages |\nMod Menu: Press Crouch + input for action\n{0}",
 				Custom String("{0} : Give Outline To Target\r\n{1} : Choose Color\r\n{2}", 
 					Input Binding String(Button(Primary Fire)), Input Binding String(Button(Secondary Fire)), 
-				Custom String("{0} : Give Outline To Yourself\r\n{1} : Remove Outline from Youself\r\nReload : Remove Outline from Target",
-					Input Binding String(Button(Ultimate)), Input Binding String(Button(Ability 2)), Input Binding String(Button(Reload))
-				))), Null, Left, 1, Color(White), Color(White), Color(White), String, Visible Never);
+				Custom String("{0} : Give Outline To Yourself\r\n{1} : Remove Outline from Yourself\r\n{2}",
+					Input Binding String(Button(Ultimate)), Input Binding String(Button(Ability 2)),
+				Custom String("Reload : Remove Outline from Target\r\nMelee : Toggle Outline Visibility [{0}]",
+					If-Then-Else(Event Player.Outlines_Toggle, Global.OffOnString[1], Global.OffOnString[0])
+				)))), Null, Left, 1, Color(White), Color(White), Color(White), String, Visible Never);
 
 		Else If(Event Player.Mode_Cycle == 6);
 			Event Player.Mode_Headline = Custom String("Jumppads");
@@ -3072,9 +3076,11 @@ rule("Mode_Headline_Desc_Default")
 			Create HUD Text(Event Player, Null, Custom String("| Press Crouch + Interact/Jump to change pages |\nPlayer Menu: Press Crouch + input for action\n{0}",
 				Custom String("{0} : Choose Color\r\n{1}", 
 					Input Binding String(Button(Secondary Fire)), 
-				Custom String("{0} : Give Outline To Yourself\r\n{1} : Remove Outline from Youself\r\n",
-					Input Binding String(Button(Ultimate)), Input Binding String(Button(Ability 2))
-				))), Null, Left, 1, Color(White), Color(White), Color(White), String, Visible Never);
+				Custom String("{0} : Give Outline To Yourself\r\n{1} : Remove Outline from Yourself\r\n{2}",
+					Input Binding String(Button(Ultimate)), Input Binding String(Button(Ability 2)),
+				Custom String("Reload : Remove Outline from Target\r\nMelee : Toggle Outline Visibility [{0}]",
+					If-Then-Else(Event Player.Outlines_Toggle, Global.OffOnString[1], Global.OffOnString[0])
+				)))), Null, Left, 1, Color(White), Color(White), Color(White), String, Visible Never);
 
 		Else If(Event Player.Mode_Cycle_Default == 4);
 			Event Player.Mode_Headline = Custom String("Speed | Knockback | Gravity");
@@ -3988,29 +3994,28 @@ rule("Mode_05 - De-Elitate Outlines")
 	actions
 	{
 		Event Player.Signal = False;
-		"TODO: Discuss aborts with Warloy"
 		If(Is Button Held(Event Player, Button(Primary Fire)));
 			Abort If((Event Player.High_Rank || Event Player.Mod_Rank) == False);
 			Abort If(Array Contains(Global.High_Rank, Custom String("{0}", Player Closest To Reticle(Event Player, All Teams))) ||
 				Player Closest To Reticle(Event Player, All Teams).Full_Protection);
 			Abort If(Is Dummy Bot(Player Closest To Reticle(Event Player, All Teams)));
 			If(Player Closest To Reticle(Event Player, All Teams).Is_Title_Given);
-				Small Message(Event Player, Custom String("Can't change outline of {0}", Player Closest To Reticle(Event Player, All Teams)));
+				Small Message(Event Player, Custom String("  Can't change outline of {0}", Player Closest To Reticle(Event Player, All Teams)));
 				Abort;
 			End;
 			Player Closest To Reticle(Event Player, All Teams).Regular_Player_Has_Title = True;
 			Disable Nameplates(Player Closest To Reticle(Event Player, All Teams), All Players(All Teams));
 			Destroy In-World Text(Player Closest To Reticle(Event Player, All Teams).M32_Players_Nameplate);
 			Wait(0.050, Ignore Condition);
+			Player Closest To Reticle(Event Player, All Teams).NamesAndOutlines_Colors_Selector = Event Player.NamesAndOutlines_Colors_Selector;
 			Create In-World Text(Filtered Array(All Players(All Teams), Current Array Element.Is_Crouch_On == False), Custom String("{0}",
 				Player Closest To Reticle(Event Player, All Teams)), Evaluate Once(Player Closest To Reticle(Event Player, All Teams)), 0.980,
-				Clip Against Surfaces, Visible To Position and Color, Evaluate Once(
-				Global.Colors[Event Player.NamesAndOutlines_Colors_Selector]), Visible Never);
+				Clip Against Surfaces, Visible To Position and Color, Global.Colors[Player Closest To Reticle(Event Player, All Teams).NamesAndOutlines_Colors_Selector], Visible Never);
 			Player Closest To Reticle(Event Player, All Teams).M32_Players_Nameplate = Last Text ID;
-			Start Forcing Player Outlines(Player Closest To Reticle(Event Player, All Teams), All Players(All Teams), True,
+			Start Forcing Player Outlines(Player Closest To Reticle(Event Player, All Teams), Filtered Array(All Players(All Teams), Current Array Element.Outlines_Toggle), True,
 				Global.Colors[Event Player.NamesAndOutlines_Colors_Selector], Always);
 			Wait(0.080, Ignore Condition);
-			Small Message(Player Closest To Reticle(Event Player, All Teams), Custom String("{0} changed your name and outline colors!",
+			Small Message(Player Closest To Reticle(Event Player, All Teams), Custom String("  {0} changed your name and outline colors!",
 				Event Player));
 			Wait(0.250, Ignore Condition);
 		Else If(Is Button Held(Event Player, Button(Reload)));
@@ -4019,7 +4024,7 @@ rule("Mode_05 - De-Elitate Outlines")
 				Player Closest To Reticle(Event Player, All Teams).Full_Protection);
 			Abort If(Is Dummy Bot(Player Closest To Reticle(Event Player, All Teams)));
 			If(Player Closest To Reticle(Event Player, All Teams).Is_Title_Given);
-				Small Message(Event Player, Custom String("Can't change outline of {0}", Player Closest To Reticle(Event Player, All Teams)));
+				Small Message(Event Player, Custom String("  Can't change outline of {0}", Player Closest To Reticle(Event Player, All Teams)));
 				Abort;
 			End;
 			Player Closest To Reticle(Event Player, All Teams).Regular_Player_Has_Title = False;
@@ -4029,7 +4034,7 @@ rule("Mode_05 - De-Elitate Outlines")
 			Enable Nameplates(Player Closest To Reticle(Event Player, All Teams), All Players(All Teams));
 		Else If(Is Button Held(Event Player, Button(Ultimate)));
 			If(Event Player.Is_Title_Given);
-				Small Message(Event Player, Custom String("Can't change, you have custom title/outline"));
+				Small Message(Event Player, Custom String("  Can't change, you have custom title/outline"));
 				Abort;
 			End;
 			Event Player.Regular_Player_Has_Title = True;
@@ -4037,15 +4042,14 @@ rule("Mode_05 - De-Elitate Outlines")
 			Destroy In-World Text(Event Player.M32_Players_Nameplate);
 			Wait(0.050, Ignore Condition);
 			Create In-World Text(Filtered Array(All Players(All Teams), Current Array Element.Is_Crouch_On == False), Custom String("{0}",
-				Event Player), Evaluate Once(Event Player), 0.980, Clip Against Surfaces, Visible To Position and Color, Evaluate Once(
-				Global.Colors[Event Player.NamesAndOutlines_Colors_Selector]), Visible Never);
+				Event Player), Evaluate Once(Event Player), 0.980, Clip Against Surfaces, Visible To Position and Color, Global.Colors[Event Player.NamesAndOutlines_Colors_Selector], Visible Never);
 			Event Player.M32_Players_Nameplate = Last Text ID;
-			Start Forcing Player Outlines(Event Player, All Players(All Teams), True,
+			Start Forcing Player Outlines(Event Player, Filtered Array(All Players(All Teams), Current Array Element.Outlines_Toggle), True,
 				Global.Colors[Event Player.NamesAndOutlines_Colors_Selector], Always);
 			Wait(0.250, Ignore Condition);
 		Else If(Is Button Held(Event Player, Button(Ability 2)));
 			If(Event Player.Is_Title_Given);
-				Small Message(Event Player, Custom String("Can't remove, you have custom title/outline"));
+				Small Message(Event Player, Custom String("  Can't remove, you have custom title/outline"));
 				Abort;
             End;
 			Event Player.Regular_Player_Has_Title = False;
@@ -4056,12 +4060,44 @@ rule("Mode_05 - De-Elitate Outlines")
 		Else If(Is Button Held(Event Player, Button(Secondary Fire)));
 			If(Event Player.NamesAndOutlines_Colors_Selector == 14);
 				Event Player.NamesAndOutlines_Colors_Selector = 0;
-				Small Message(Event Player, Custom String("{0}", Global.Colors[Event Player.NamesAndOutlines_Colors_Selector]));
 			Else;
 				Event Player.NamesAndOutlines_Colors_Selector += 1;
-				Small Message(Event Player, Custom String("{0}", Global.Colors[Event Player.NamesAndOutlines_Colors_Selector]));
+			End;
+			Small Message(Event Player, Custom String("  {0}", Global.Colors[Event Player.NamesAndOutlines_Colors_Selector]));
+		Else If(Is Button Held(Event Player, Button(Melee)));
+			If(Event Player.Outlines_Toggle);
+				Start Forcing Player Outlines(All Players(All Teams), Event Player, False, Color(White), Always);
+				Event Player.Outlines_Toggle = False;
+			Else;
+				Stop Forcing Player Outlines(All Players(All Teams), Event Player);
+				Event Player.Outlines_Toggle = True;
 			End;
 		End;
+	}
+}
+
+rule("Mode_05 - Update Outlines")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Event Player.Regular_Player_Has_Title == True;
+	}
+
+	actions
+	{
+		Start Forcing Player Outlines(Event Player, Filtered Array(All Players(All Teams), Not(Current Array Element.Outlines_Toggle)), False,
+			Color(White), Always);
+		Start Forcing Player Outlines(Event Player, Filtered Array(All Players(All Teams), Current Array Element.Outlines_Toggle), True,
+			Global.Colors[Event Player.NamesAndOutlines_Colors_Selector], Always);
+		Wait(5, Abort When False);
+		Loop If Condition Is True;
 	}
 }
 
@@ -9003,6 +9039,7 @@ rule("Moe-Bot Behavior")
 			Eye Position(Closest Player To(Event Player, All Teams)))),
 			300, To World, Direction and Turn Rate);
 		Chase Player Variable At Rate(Event Player, Bot_CD, 0, 1, Destination and Rate);
+		Stop Modifying Hero Voice Lines(Event Player);
 		Set Max Health(Event Player, 10000);
 		Set Knockback Received(Event Player, 0);
 		Start Heal Over Time(Event Player, Null, 9999, 500);
