@@ -2004,7 +2004,7 @@ rule("Listed_Player")
 			Custom String("Ciri"), Custom String("ŜǓƘǓŊǍ"), Custom String("Fuji"), Custom String("AsyCorn"), 
 			Custom String("Sadness"), Custom String("SpedySpedBoy"), Custom String("Alex"), Custom String("Frikadelle"), 
 			Custom String("Kiwizzlee"), Custom String("Cinderhardt"), Custom String("BStray"), Custom String("InMoonlight"),
-			Custom String("Boney"), Custom String("tsunde"), Custom String("sonwukong"), Custom String("solevaya"), Custom String("LeMix"), 
+			Custom String("Boney"), Custom String("tsunde"), Custom String("sonwukong"), Custom String("solevaya"), 
 			Custom String("AvatarGod"), Custom String("rin"), Custom String("kosmos"), Custom String("AŊÍKÍ"), Custom String("EvilKitten"),
 			Custom String("HYUA"), Custom String("fa89"), Custom String("Lunar"), Custom String("ThatAspect"), Custom String("PaulineP"), 
 			Custom String("DȈŦǾ"), Custom String("GhostPunch"), Custom String("Atlas"), Custom String("Vigil"), Custom String("Dehya"),
@@ -2028,7 +2028,7 @@ rule("Listed_Player")
 		Global.Demoted = Array(Custom String("Eggman"), Custom String("Nef"), Custom String("Kêñ"), Custom String("Mikasa"), Custom String("godfaceim"), Custom String("Snaiy"), 
 				Custom String("Hinata"), Custom String("KadenLee25"), Custom String("starluvs"), Custom String("negligeble"), Custom String("Darling"), Custom String("Riwa"),
 				Custom String("Reyes"), Custom String("SALEH"), Custom String("duckisunmu"), Custom String("toxicwqst1"), Custom String("Senpai55"), Custom String("SouperNova"),
-				Custom String("Azereth"), Custom String("axozale"), Custom String("kvf"), Custom String("wev"), Custom String("huh"), Custom String("RainThePain2"), 
+				Custom String("Azereth"), Custom String("axozale"), Custom String("kvf"), Custom String("wev"), Custom String("huh"), Custom String("RainThePain2"), Custom String("LeMix"), 
 				Custom String("Filipe"), Custom String("Santykpoooo"), Custom String("Nicolol123"), Custom String("Kān"), Custom String("MetalCrusheR"), Custom String("Фрейя"), 
 				Custom String("Daisy"), Custom String("Daniel"), Custom String("Bob"), Custom String("Aris"));
 		
@@ -2056,7 +2056,8 @@ rule("Listed_Player")
             Custom String("Yamamura"), Custom String("Sanjuice30YT"), Custom String("Patman"), Custom String("Fearless"), Custom String("Strawberry"), Custom String("asaakira"), 
 			Custom String("chi1ldtouch"), Custom String("SQ1"), Custom String("FloorBread"), Custom String("ScRaPyx"), Custom String("MohammendSis"), Custom String("SageSquid"),
 			Custom String("Reinkampff"), Custom String("WalterBlack"), Custom String("kaxhukio"), Custom String("nozomi"), Custom String("ownerhat"), Custom String("DEADshot"), 
-			Custom String("FlameYeti"), Custom String("zax"), Custom String("Doomboy81"), Custom String("applecutting"));
+			Custom String("FlameYeti"), Custom String("zax"), Custom String("Doomboy81"), Custom String("applecutting"), Custom String("Odyssex"), Custom String("Mrbeta8"),
+            Custom String("skyra"), Custom String("badfella"));
 	}
 }
 
