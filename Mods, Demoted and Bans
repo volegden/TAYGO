@@ -86,6 +86,7 @@ rule("Listed_Player")
             Custom String("Ɨce"), Custom String("grape"), Custom String("gucciGodSwag"), CUstom String("wiseguy"), Custom String("Amdalalalbit"), Custom String("MKROH"), 
             Custom String("Yamamura"), Custom String("Sanjuice30YT"), Custom String("Patman"), Custom String("Fearless"), Custom String("Strawberry"), Custom String("asaakira"), 
 			Custom String("chi1ldtouch"), Custom String("SQ1"), Custom String("FloorBread"), Custom String("ScRaPyx"), Custom String("MohammendSis"), Custom String("SageSquid"),
-			Custom String("Reinkampff"), Custom String("WalterBlack"), Custom String("kaxhukio"), Custom String("nozomi"), Custom String("ownerhat"));
+			Custom String("Reinkampff"), Custom String("WalterBlack"), Custom String("kaxhukio"), Custom String("nozomi"), Custom String("ownerhat"), Custom String("DEADshot"), 
+			Custom String("FlameYeti"), Custom String("zax"), Custom String("Doomboy81"), Custom String("applecutting"));
 	}
 }
