@@ -707,6 +707,7 @@ rule("Default_Player_Settings")
 		If(Is Dummy Bot(Event Player));
 			Event Player.Player_Modification = Array(100, 100, 100, 100, 100);
 			Event Player.Voice_Pitch = 1;
+			Event Player.Extra8_Timer = -1;
 			Wait(0.2, Ignore Condition);
 			Modify Global Variable(Player_Joined_Queue, Remove From Array By Value, Null);
 			Modify Global Variable(Player_Joined_Queue, Remove From Array By Value, Event Player);
@@ -822,6 +823,7 @@ rule("Default_Player_Settings")
 		Event Player.Full_Protection = False;
 
 		Event Player.Positions_For_Beams = Array(Null, Null);
+		Event Player.Extra8_Timer = -1;
 
 		Disable Game Mode HUD(Event Player);
 
@@ -5879,7 +5881,7 @@ rule("Mode_24 - Icon_Tag_Target")
 		Event Player.Signal = False;
 		If(Is Button Held(Event Player, Button(Primary Fire)));
 			"Simple validator for icons, if player has > 2 icons: abort"
-			Abort If(Player Closest To Reticle(Event Player, All Teams).Full_Protection);
+			Abort If(Player Closest To Reticle(Event Player, All Teams).Full_Protection && Not(Is Dummy Bot(Player Closest To Reticle(Event Player, All Teams))));
 			If(Player Closest To Reticle(Event Player, All Teams).Icon_ID[1] != Null);
 				Small Message(Event Player, Custom String("  Remove Icons from player and try again (limit reached: 2)"));
 				Abort;
@@ -5958,7 +5960,7 @@ rule("Mode_24 - Icon_Tag_Target")
 			End;
 			Small Message(Event Player, Custom String("  {0}", Global.Icons_Colors_List[Event Player.Icons_Colors_Selector]));
 		Else If(Is Button Held(Event Player, Button(Ability 2)));
-			Abort If(Player Closest To Reticle(Event Player, All Teams).Full_Protection);
+			Abort If(Player Closest To Reticle(Event Player, All Teams).Full_Protection && Not(Is Dummy Bot(Player Closest To Reticle(Event Player, All Teams))));
 			If(Player Closest To Reticle(Event Player, All Teams).Icon_ID[1] != Null);
 				Small Message(Event Player, Custom String("  Remove Icons from player and try again (limit reached: 2)"));
 				Abort;
@@ -5971,7 +5973,7 @@ rule("Mode_24 - Icon_Tag_Target")
 				All Teams)));
 			Wait(0.300, Ignore Condition);
 		Else If(Is Button Held(Event Player, Button(Melee)));
-			Abort If(Player Closest To Reticle(Event Player, All Teams).Full_Protection);
+			Abort If(Player Closest To Reticle(Event Player, All Teams).Full_Protection && Not(Is Dummy Bot(Player Closest To Reticle(Event Player, All Teams))));
 			If(Player Closest To Reticle(Event Player, All Teams).Icon_ID[1] != Null);
 				Small Message(Event Player, Custom String("  Remove Icons from player and try again (limit reached: 2)"));
 				Abort;
@@ -5984,7 +5986,7 @@ rule("Mode_24 - Icon_Tag_Target")
 				All Teams)));
 			Wait(0.300, Ignore Condition);
 		Else If(Is Button Held(Event Player, Button(Reload)));
-			Abort If(Player Closest To Reticle(Event Player, All Teams).Full_Protection);
+			Abort If(Player Closest To Reticle(Event Player, All Teams).Full_Protection && Not(Is Dummy Bot(Player Closest To Reticle(Event Player, All Teams))));
 			"Remove first icons from player"
 			Destroy Icon(Player Closest To Reticle(Event Player, All Teams).Icon_ID[0]);
 			Destroy Icon(Player Closest To Reticle(Event Player, All Teams).Icon_ID[1]);
