@@ -10,8 +10,8 @@ rule("Listed_Player")
 		"Automatic High Rank"
 		Global.High_Rank = Array(
 			Custom String("Warloy"), Custom String("xMaxuss"), Custom String("LƐafa"), Custom String("ORCHȊD"),
-			Custom String("Moe Szyslak"), Custom String("Hoxy"), Custom String("xSKIJ"), Custom String("Titanaboa"), Custom String("Toguro"), Custom String("kwally"),  
-			Custom String("MOOOUSH"), Custom String("BlueSky"), Custom String("PHEINU"), Custom String("Kysp"), Custom String("wheyfuwu"), 
+			Custom String("Moe Szyslak"), Custom String("Hoxy"), Custom String("Titanaboa"), Custom String("Kysp"), Custom String("Toguro"), Custom String("kwally"),  
+			Custom String("MOOOUSH"), Custom String("BlueSky"), Custom String("PHEINU"), Custom String("wheyfuwu"), 
 			Custom String("Xenolysith"), Custom String("squid"), Custom String("AndrewKnoll"), Custom String("Leestick"), Custom String("Nutzee"), 
 			Custom String("Metalgy"), Custom String("PapaRomeo"), Custom String("RUBY"), Custom String("Miowell"), Custom String("Mettlis"), 
 			Custom String("Brat"), Custom String("CyberSentai"), Custom String("Mustika"), Custom String("xMumu"), Custom String("Shampoo"), 
@@ -57,7 +57,7 @@ rule("Listed_Player")
 		"Demoted"
 		Global.Demoted = Array(Custom String("Eggman"), Custom String("Nef"), Custom String("Kêñ"), Custom String("LeMix"), Custom String("Mikasa"), Custom String("godfaceim"), Custom String("Riwa"),  
 				Custom String("Reyes"), Custom String("Hinata"), Custom String("KadenLee25"), Custom String("starluvs"), Custom String("Darling"), Custom String("Nicolol123"), Custom String("Daisy"),
-				Custom String("Snaiy"), Custom String("SALEH"), Custom String("SouperNova"), Custom String("Azereth"), Custom String("FemboyMercy"), Custom String("Santykpoooo"),  
+				Custom String("Snaiy"), Custom String("SALEH"), Custom String("SouperNova"), Custom String("Azereth"), Custom String("FemboyMercy"), Custom String("Santykpoooo"), Custom String("xSKIJ"), 
                 Custom String("Kān"), Custom String("MetalCrusheR"), Custom String("Фрейя"), Custom String("Daniel"), Custom String("Bob"), Custom String("Aris"), Custom String("bicolormoth"), 
                 Custom String("LeãoLivre"), Custom String("SHINIxMIZU"), Custom String("FlameYeti"), Custom String("zax"));
 		
