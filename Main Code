@@ -2,7 +2,7 @@ settings
 {
 	main
 	{
-		Description: "♥ A Friendly Server To Meet New Friends ♥\nlast updated (July 20 2023)\n\n   » » » MASSIVE UPDATE RELEASED « « «\n (including UNO, non-mod menu and\n      hero specific features!)\n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss.\n   Based on the work of: TbyCoLive.\n Maintained with ♡ by: LƐafa.\n   Community Managers:\n     MOOOUSH, RUBY & kwally."
+		Description: "♥ A Friendly Server To Meet New Friends ♥\nlast updated (July 18 2023)\n\n   » » » MASSIVE UPDATE RELEASED « « «\n (including UNO, non-mod menu and\n      hero specific features!)\n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss.\n   Based on the work of: TbyCoLive.\n Maintained with ♡ by: LƐafa.\n   Community Managers:\n     MOOOUSH, RUBY & kwally."
 		Mode Name: " ♥ Friendly ♥ No Kill!"
 	}
 
@@ -374,53 +374,54 @@ variables
 		43: Modification_Scalar_Selector
 		44: Target_Shortcut
 		45: Auto_Respawn
-		46: Icons_Selector
-		47: Icons_Colors_Selector
-		48: Regular_Player_Has_Title
-		49: M32_Players_Nameplate
-		50: NamesAndOutlines_Colors_Selector
-		51: Is_Menu_Active
-		52: Status_Selector
-		53: Jumppad_Helper
-		54: Jumppad_Entry
-		55: Jumppad_Loop
-		56: Jumppad_Info_Array
-		57: Jumppad_Preview
-		58: Camera_Info_Array
-		59: Camera_Helper
-		60: Camera_Position
-		61: Camera_Smooth
-		62: Camera_Loop
-		63: Camera_LOS
-		64: Camera_Target
-		65: Signal
-		66: Mode_Cycle_Default
-		67: Spam_Cooldown
-		68: UNO_Info_Array
-		69: UNO_Hand
-		70: UNO_Helper
-		71: UNO_Ingame
-		72: UNO_Loop
-		73: UNO_Sorter
-		74: Print
-		75: Positions_For_Beams
-		76: Beams_Preview_ID
-		77: Beams_Selector
-		78: Is_Invisible
-		79: No_CD
-		80: Extra8_Timer
-		81: Full_Protection
-		82: Extra10_ID
-		83: Extra10_Player
-		84: Extra14_ID
-		85: Comms_Target
-		86: Bot_Aggro
-		87: Bot_No
-		88: Bot_CD
-		89: Extra17_Pos
-		90: Effect_Storage
-		91: Players_Global_Array
-		92: Outlines_Toggle
+		46: Icons_Info_Array
+		47: Icons_Info_Copy
+		48: Icons_Signal
+		49: Regular_Player_Has_Title
+		50: M32_Players_Nameplate
+		51: NamesAndOutlines_Colors_Selector
+		52: Is_Menu_Active
+		53: Status_Selector
+		54: Jumppad_Helper
+		55: Jumppad_Entry
+		56: Jumppad_Loop
+		57: Jumppad_Info_Array
+		58: Jumppad_Preview
+		59: Camera_Info_Array
+		60: Camera_Helper
+		61: Camera_Position
+		62: Camera_Smooth
+		63: Camera_Loop
+		64: Camera_LOS
+		65: Camera_Target
+		66: Signal
+		67: Mode_Cycle_Default
+		68: Spam_Cooldown
+		69: UNO_Info_Array
+		70: UNO_Hand
+		71: UNO_Helper
+		72: UNO_Ingame
+		73: UNO_Loop
+		74: UNO_Sorter
+		75: Print
+		76: Positions_For_Beams
+		77: Beams_Preview_ID
+		78: Beams_Selector
+		79: Is_Invisible
+		80: No_CD
+		81: Extra8_Timer
+		82: Full_Protection
+		83: Extra10_ID
+		84: Extra10_Player
+		85: Extra14_ID
+		86: Comms_Target
+		87: Bot_Aggro
+		88: Bot_No
+		89: Bot_CD
+		90: Extra17_Pos
+		91: Effect_Storage
+		92: Players_Global_Array
+		93: Outlines_Toggle
 	}
 
 subroutines
@@ -784,8 +785,9 @@ rule("Default_Player_Settings")
 		Event Player.Modification_Scalar_Selector = 2;
 
 		Event Player.Icon_ID = Empty Array;
-		Event Player.Icons_Selector = 0;
-		Event Player.Icons_Colors_Selector = 0;
+		"Array: Icons_Selector, Icons_Colors_Selector, Icons_Operation"
+		Event Player.Icons_Info_Array = Array(0, 0, 0);
+		Event Player.Icons_Info_Copy = Array(0, 0, 0);
 		Event Player.Status_Selector = 0;
 
 		Event Player.Jumppad_Helper = 0;
@@ -2020,7 +2022,6 @@ rule("Listed_Player")
 			Custom String("Asta"), Custom String("PŏŏkiƐ"), Custom String("Yohakzu"), Custom String("Ðårk"), Custom String("FactAttend"), 
 			Custom String("Nickyunited7"), Custom String("Kazuma"), Custom String("Kazumi"), Custom String("Jermuseppo"), Custom String("Redacted"));
 			
-		
 		"Demoted"
 		Global.Demoted = Array(Custom String("Eggman"), Custom String("Nef"), Custom String("Kêñ"), Custom String("LeMix"), Custom String("Mikasa"), Custom String("godfaceim"), Custom String("Riwa"),  
 				Custom String("Reyes"), Custom String("Hinata"), Custom String("KadenLee25"), Custom String("starluvs"), Custom String("Darling"), Custom String("Nicolol123"), Custom String("Daisy"),
@@ -4000,7 +4001,7 @@ rule("Mode_05 - De-Elitate Outlines")
 			Player Closest To Reticle(Event Player, All Teams).NamesAndOutlines_Colors_Selector = Event Player.NamesAndOutlines_Colors_Selector;
 			Create In-World Text(Filtered Array(All Players(All Teams), Current Array Element.Is_Crouch_On == False), Custom String("{0}",
 				Player Closest To Reticle(Event Player, All Teams)), Evaluate Once(Player Closest To Reticle(Event Player, All Teams)), 0.980,
-				Clip Against Surfaces, Visible To Position and Color, Global.Colors[Player Closest To Reticle(Event Player, All Teams).NamesAndOutlines_Colors_Selector], Visible Never);
+				Clip Against Surfaces, Visible To and Position, Global.Colors[Player Closest To Reticle(Event Player, All Teams).NamesAndOutlines_Colors_Selector], Visible Never);
 			Player Closest To Reticle(Event Player, All Teams).M32_Players_Nameplate = Last Text ID;
 			Start Forcing Player Outlines(Player Closest To Reticle(Event Player, All Teams), Filtered Array(All Players(All Teams), Current Array Element.Outlines_Toggle), True,
 				Global.Colors[Event Player.NamesAndOutlines_Colors_Selector], Always);
@@ -5785,94 +5786,41 @@ rule("Mode_23 - Icon_Tag_Self")
 				Small Message(Event Player, Custom String("  Remove Icons and try again (limit reached: 2)"));
 				Abort;
 			End;
-			If(Global.Icons_List[Event Player.Icons_Selector] == Custom String("Bolt"));
-				Create Icon(Filtered Array(All Players(All Teams), !(Current Array Element.Is_Crouch_On || Event Player.Is_Invisible)), Event Player, Bolt, Visible To,
-					Global.Icons_Colors_List[Event Player.Icons_Colors_Selector], False);
-			Else If(Global.Icons_List[Event Player.Icons_Selector] == Custom String("Happy"));
-				Create Icon(Filtered Array(All Players(All Teams), !(Current Array Element.Is_Crouch_On || Event Player.Is_Invisible)), Event Player, Happy, Visible To,
-					Global.Icons_Colors_List[Event Player.Icons_Colors_Selector], False);
-			Else If(Global.Icons_List[Event Player.Icons_Selector] == Custom String("Moon"));
-				Create Icon(Filtered Array(All Players(All Teams), !(Current Array Element.Is_Crouch_On || Event Player.Is_Invisible)), Event Player, Moon, Visible To,
-					Global.Icons_Colors_List[Event Player.Icons_Colors_Selector], False);
-			Else If(Global.Icons_List[Event Player.Icons_Selector] == Custom String("Halo"));
-				Create Icon(Filtered Array(All Players(All Teams), !(Current Array Element.Is_Crouch_On || Event Player.Is_Invisible)), Event Player, Halo, Visible To,
-					Global.Icons_Colors_List[Event Player.Icons_Colors_Selector], False);
-			Else If(Global.Icons_List[Event Player.Icons_Selector] == Custom String("Trashcan"));
-				Create Icon(Filtered Array(All Players(All Teams), !(Current Array Element.Is_Crouch_On || Event Player.Is_Invisible)), Event Player, Trashcan,
-					Visible To, Global.Icons_Colors_List[Event Player.Icons_Colors_Selector], False);
-			Else If(Global.Icons_List[Event Player.Icons_Selector] == Custom String("Dizzy"));
-				Create Icon(Filtered Array(All Players(All Teams), !(Current Array Element.Is_Crouch_On || Event Player.Is_Invisible)), Event Player, Dizzy, Visible To,
-					Global.Icons_Colors_List[Event Player.Icons_Colors_Selector], False);
-			Else If(Global.Icons_List[Event Player.Icons_Selector] == Custom String("Radioactive"));
-				Create Icon(Filtered Array(All Players(All Teams), !(Current Array Element.Is_Crouch_On || Event Player.Is_Invisible)), Event Player, Radioactive,
-					Visible To, Global.Icons_Colors_List[Event Player.Icons_Colors_Selector], False);
-			Else If(Global.Icons_List[Event Player.Icons_Selector] == Custom String("Poison"));
-				Create Icon(Filtered Array(All Players(All Teams), !(Current Array Element.Is_Crouch_On || Event Player.Is_Invisible)), Event Player, Poison 2,
-					Visible To, Global.Icons_Colors_List[Event Player.Icons_Colors_Selector], False);
-			Else If(Global.Icons_List[Event Player.Icons_Selector] == Custom String("Warning"));
-				Create Icon(Filtered Array(All Players(All Teams), !(Current Array Element.Is_Crouch_On || Event Player.Is_Invisible)), Event Player, Warning, Visible To,
-					Global.Icons_Colors_List[Event Player.Icons_Colors_Selector], False);
-			Else If(Global.Icons_List[Event Player.Icons_Selector] == Custom String("Stop"));
-				Create Icon(Filtered Array(All Players(All Teams), !(Current Array Element.Is_Crouch_On || Event Player.Is_Invisible)), Event Player, Stop, Visible To,
-					Global.Icons_Colors_List[Event Player.Icons_Colors_Selector], False);
-			Else If(Global.Icons_List[Event Player.Icons_Selector] == Custom String("Spiral"));
-				Create Icon(Filtered Array(All Players(All Teams), !(Current Array Element.Is_Crouch_On || Event Player.Is_Invisible)), Event Player, Spiral, Visible To,
-					Global.Icons_Colors_List[Event Player.Icons_Colors_Selector], False);
-			Else If(Global.Icons_List[Event Player.Icons_Selector] == Custom String("Sad"));
-				Create Icon(Filtered Array(All Players(All Teams), !(Current Array Element.Is_Crouch_On || Event Player.Is_Invisible)), Event Player, Sad, Visible To,
-					Global.Icons_Colors_List[Event Player.Icons_Colors_Selector], False);
-			Else If(Global.Icons_List[Event Player.Icons_Selector] == Custom String("Skull"));
-				Create Icon(Filtered Array(All Players(All Teams), !(Current Array Element.Is_Crouch_On || Event Player.Is_Invisible)), Event Player, Skull, Visible To,
-					Global.Icons_Colors_List[Event Player.Icons_Colors_Selector], False);
-			Else If(Global.Icons_List[Event Player.Icons_Selector] == Custom String("Recycle"));
-				Create Icon(Filtered Array(All Players(All Teams), !(Current Array Element.Is_Crouch_On || Event Player.Is_Invisible)), Event Player, Recycle, Visible To,
-					Global.Icons_Colors_List[Event Player.Icons_Colors_Selector], False);
-			Else If(Global.Icons_List[Event Player.Icons_Selector] == Custom String("No"));
-				Create Icon(Filtered Array(All Players(All Teams), !(Current Array Element.Is_Crouch_On || Event Player.Is_Invisible)), Event Player, No, Visible To,
-					Global.Icons_Colors_List[Event Player.Icons_Colors_Selector], False);
-			Else If(Global.Icons_List[Event Player.Icons_Selector] == Custom String("Eye"));
-				Create Icon(Filtered Array(All Players(All Teams), !(Current Array Element.Is_Crouch_On || Event Player.Is_Invisible)), Event Player, Eye, Visible To,
-					Global.Icons_Colors_List[Event Player.Icons_Colors_Selector], False);
-			Else If(Global.Icons_List[Event Player.Icons_Selector] == Custom String("Asterisk"));
-				Create Icon(Filtered Array(All Players(All Teams), !(Current Array Element.Is_Crouch_On || Event Player.Is_Invisible)), Event Player, Asterisk,
-					Visible To, Global.Icons_Colors_List[Event Player.Icons_Colors_Selector], False);
-			End;
-			Event Player.Icon_ID = Append To Array(Event Player.Icon_ID, Last Created Entity);
-			Small Message(Event Player, Custom String("You gave yourself an icon: {0}", Global.Icons_List_For_Menu[Event Player.Icons_Selector]));
-		Else If(Is Button Held(Event Player, Button(Ultimate)));
-			"Simple selectors, same as drawing, from 0 to endpoint"
-			If(Event Player.Icons_Selector == 16);
-				Event Player.Icons_Selector = 0;
-			Else;
-				Event Player.Icons_Selector += 1;
-			End;
-			Small Message(Event Player, Custom String("  {0}, {1}", Global.Icons_List_For_Menu[Event Player.Icons_Selector],
-					Global.Icons_Colors_List[Event Player.Icons_Colors_Selector]));
-		Else If(Is Button Held(Event Player, Button(Secondary Fire)));
-			If(Event Player.Icons_Colors_Selector == 14);
-				Event Player.Icons_Colors_Selector = 0;
-			Else;
-				Event Player.Icons_Colors_Selector += 1;
-			End;
-			Small Message(Event Player, Custom String(" {0}", Global.Icons_Colors_List[Event Player.Icons_Colors_Selector]));
+			Event Player.Icons_Info_Array[2] = 0;
+			Event Player.Icons_Signal = True;
+			Small Message(Event Player, Custom String("  You gave yourself an icon: {0}", Global.Icons_List_For_Menu[Event Player.Icons_Info_Array[0]]));
 		Else If(Is Button Held(Event Player, Button(Ability 2)));
 			If(Event Player.Icon_ID[1] != Null);
 				Small Message(Event Player, Custom String("  Remove Icons and try again (limit reached: 2)"));
 				Abort;
 			End;
-			Create Icon(Filtered Array(All Players(All Teams), !(Current Array Element.Is_Crouch_On || Event Player.Is_Invisible)), Event Player, Heart, Visible To,
-				Global.Icons_Colors_List[Event Player.Icons_Colors_Selector], False);
-			Event Player.Icon_ID = Append To Array(Event Player.Icon_ID, Last Created Entity);
+			Event Player.Icons_Info_Array[2] = 1;
+			Event Player.Icons_Signal = True;
 			Small Message(Event Player, Custom String("You gave yourself an icon: {0}", Icon String(Heart)));
 		Else If(Is Button Held(Event Player, Button(Melee)));
 			If(Event Player.Icon_ID[1] != Null);
 				Small Message(Event Player, Custom String("  Remove Icons and try again (limit reached: 2)"));
 				Abort;
 			End;
-			Create Icon(Filtered Array(All Players(All Teams), !(Current Array Element.Is_Crouch_On || Event Player.Is_Invisible)), Event Player, Fire, Visible To,
-				Global.Icons_Colors_List[Event Player.Icons_Colors_Selector], False);
-			Event Player.Icon_ID = Append To Array(Event Player.Icon_ID, Last Created Entity);
+			Event Player.Icons_Info_Array[2] = 2;
+			Event Player.Icons_Signal = True;
 			Small Message(Event Player, Custom String("You gave yourself an icon: {0}", Icon String(Fire)));
+		Else If(Is Button Held(Event Player, Button(Ultimate)));
+			"Simple selectors, same as drawing, from 0 to endpoint"
+			If(Event Player.Icons_Info_Array[0] == 16);
+				Event Player.Icons_Info_Array[0] = 0;
+			Else;
+				Event Player.Icons_Info_Array[0] += 1;
+			End;
+			Small Message(Event Player, Custom String("  {0}, {1}", Global.Icons_List_For_Menu[Event Player.Icons_Info_Array[0]],
+					Global.Icons_Colors_List[Event Player.Icons_Info_Array[1]]));
+		Else If(Is Button Held(Event Player, Button(Secondary Fire)));
+			If(Event Player.Icons_Info_Array[1] == 14);
+				Event Player.Icons_Info_Array[1] = 0;
+			Else;
+				Event Player.Icons_Info_Array[1] += 1;
+			End;
+			Small Message(Event Player, Custom String(" {0}", Global.Icons_Colors_List[Event Player.Icons_Info_Array[1]]));
 		Else If(Is Button Held(Event Player, Button(Reload)));
 			"Remove icons from player"
 			Destroy Icon(Event Player.Icon_ID[0]);
@@ -5913,89 +5861,29 @@ rule("Mode_24 - Icon_Tag_Target")
 				Small Message(Event Player, Custom String("  Remove Icons from player and try again (limit reached: 2)"));
 				Abort;
 			End;
-			If(Global.Icons_List[Event Player.Icons_Selector] == Custom String("Bolt"));
-				Create Icon(Filtered Array(All Players(All Teams), !(Current Array Element.Is_Crouch_On || Event Player.Is_Invisible)), Player Closest To Reticle(
-					Event Player, All Teams), Bolt, Visible To, Global.Icons_Colors_List[Event Player.Icons_Colors_Selector], False);
-			Else If(Global.Icons_List[Event Player.Icons_Selector] == Custom String("Happy"));
-				Create Icon(Filtered Array(All Players(All Teams), !(Current Array Element.Is_Crouch_On || Event Player.Is_Invisible)), Player Closest To Reticle(
-					Event Player, All Teams), Happy, Visible To, Global.Icons_Colors_List[Event Player.Icons_Colors_Selector], False);
-			Else If(Global.Icons_List[Event Player.Icons_Selector] == Custom String("Moon"));
-				Create Icon(Filtered Array(All Players(All Teams), !(Current Array Element.Is_Crouch_On || Event Player.Is_Invisible)), Player Closest To Reticle(
-					Event Player, All Teams), Moon, Visible To, Global.Icons_Colors_List[Event Player.Icons_Colors_Selector], False);
-			Else If(Global.Icons_List[Event Player.Icons_Selector] == Custom String("Halo"));
-				Create Icon(Filtered Array(All Players(All Teams), !(Current Array Element.Is_Crouch_On || Event Player.Is_Invisible)), Player Closest To Reticle(
-					Event Player, All Teams), Halo, Visible To, Global.Icons_Colors_List[Event Player.Icons_Colors_Selector], False);
-			Else If(Global.Icons_List[Event Player.Icons_Selector] == Custom String("Trashcan"));
-				Create Icon(Filtered Array(All Players(All Teams), !(Current Array Element.Is_Crouch_On || Event Player.Is_Invisible)), Player Closest To Reticle(
-					Event Player, All Teams), Trashcan, Visible To, Global.Icons_Colors_List[Event Player.Icons_Colors_Selector], False);
-			Else If(Global.Icons_List[Event Player.Icons_Selector] == Custom String("Dizzy"));
-				Create Icon(Filtered Array(All Players(All Teams), !(Current Array Element.Is_Crouch_On || Event Player.Is_Invisible)), Player Closest To Reticle(
-					Event Player, All Teams), Dizzy, Visible To, Global.Icons_Colors_List[Event Player.Icons_Colors_Selector], False);
-			Else If(Global.Icons_List[Event Player.Icons_Selector] == Custom String("Radioactive"));
-				Create Icon(Filtered Array(All Players(All Teams), !(Current Array Element.Is_Crouch_On || Event Player.Is_Invisible)), Player Closest To Reticle(
-					Event Player, All Teams), Radioactive, Visible To, Global.Icons_Colors_List[Event Player.Icons_Colors_Selector], False);
-			Else If(Global.Icons_List[Event Player.Icons_Selector] == Custom String("Poison"));
-				Create Icon(Filtered Array(All Players(All Teams), !(Current Array Element.Is_Crouch_On || Event Player.Is_Invisible)), Player Closest To Reticle(
-					Event Player, All Teams), Poison 2, Visible To, Global.Icons_Colors_List[Event Player.Icons_Colors_Selector], False);
-			Else If(Global.Icons_List[Event Player.Icons_Selector] == Custom String("Warning"));
-				Create Icon(Filtered Array(All Players(All Teams), !(Current Array Element.Is_Crouch_On || Event Player.Is_Invisible)), Player Closest To Reticle(
-					Event Player, All Teams), Warning, Visible To, Global.Icons_Colors_List[Event Player.Icons_Colors_Selector], False);
-			Else If(Global.Icons_List[Event Player.Icons_Selector] == Custom String("Stop"));
-				Create Icon(Filtered Array(All Players(All Teams), !(Current Array Element.Is_Crouch_On || Event Player.Is_Invisible)), Player Closest To Reticle(
-					Event Player, All Teams), Stop, Visible To, Global.Icons_Colors_List[Event Player.Icons_Colors_Selector], False);
-			Else If(Global.Icons_List[Event Player.Icons_Selector] == Custom String("Spiral"));
-				Create Icon(Filtered Array(All Players(All Teams), !(Current Array Element.Is_Crouch_On || Event Player.Is_Invisible)), Player Closest To Reticle(
-					Event Player, All Teams), Spiral, Visible To, Global.Icons_Colors_List[Event Player.Icons_Colors_Selector], False);
-			Else If(Global.Icons_List[Event Player.Icons_Selector] == Custom String("Sad"));
-				Create Icon(Filtered Array(All Players(All Teams), !(Current Array Element.Is_Crouch_On || Event Player.Is_Invisible)), Player Closest To Reticle(
-					Event Player, All Teams), Sad, Visible To, Global.Icons_Colors_List[Event Player.Icons_Colors_Selector], False);
-			Else If(Global.Icons_List[Event Player.Icons_Selector] == Custom String("Skull"));
-				Create Icon(Filtered Array(All Players(All Teams), !(Current Array Element.Is_Crouch_On || Event Player.Is_Invisible)), Player Closest To Reticle(
-					Event Player, All Teams), Skull, Visible To, Global.Icons_Colors_List[Event Player.Icons_Colors_Selector], False);
-			Else If(Global.Icons_List[Event Player.Icons_Selector] == Custom String("Recycle"));
-				Create Icon(Filtered Array(All Players(All Teams), !(Current Array Element.Is_Crouch_On || Event Player.Is_Invisible)), Player Closest To Reticle(
-					Event Player, All Teams), Recycle, Visible To, Global.Icons_Colors_List[Event Player.Icons_Colors_Selector], False);
-			Else If(Global.Icons_List[Event Player.Icons_Selector] == Custom String("No"));
-				Create Icon(Filtered Array(All Players(All Teams), !(Current Array Element.Is_Crouch_On || Event Player.Is_Invisible)), Player Closest To Reticle(
-					Event Player, All Teams), No, Visible To, Global.Icons_Colors_List[Event Player.Icons_Colors_Selector], False);
-			Else If(Global.Icons_List[Event Player.Icons_Selector] == Custom String("Eye"));
-				Create Icon(Filtered Array(All Players(All Teams), !(Current Array Element.Is_Crouch_On || Event Player.Is_Invisible)), Player Closest To Reticle(
-					Event Player, All Teams), Eye, Visible To, Global.Icons_Colors_List[Event Player.Icons_Colors_Selector], False);
-			Else If(Global.Icons_List[Event Player.Icons_Selector] == Custom String("Asterisk"));
-				Create Icon(Filtered Array(All Players(All Teams), !(Current Array Element.Is_Crouch_On || Event Player.Is_Invisible)), Player Closest To Reticle(
-					Event Player, All Teams), Asterisk, Visible To, Global.Icons_Colors_List[Event Player.Icons_Colors_Selector], False);
-			End;
-			Player Closest To Reticle(Event Player, All Teams).Icon_ID = Append To Array(Player Closest To Reticle(Event Player, All Teams)
-					.Icon_ID, Last Created Entity);
+			Event Player.Icons_Info_Copy = Player Closest To Reticle(Event Player, All Teams).Icons_Info_Array;
+			Player Closest To Reticle(Event Player, All Teams).Icons_Info_Array = Event Player.Icons_Info_Array;
+			Player Closest To Reticle(Event Player, All Teams).Icons_Info_Array[2] = 0;
+			Player Closest To Reticle(Event Player, All Teams).Icons_Signal = True;
+			Wait(0.01, Ignore Condition);
+			Player Closest To Reticle(Event Player, All Teams).Icons_Info_Array = Event Player.Icons_Info_Copy;
+			Event Player.Icons_Info_Copy = Array(0, 0, 0);
 			Small Message(All Players(All Teams), Custom String("  {0} gave {1} to {2}", Event Player,
-				Global.Icons_List_For_Menu[Event Player.Icons_Selector], Player Closest To Reticle(Event Player, All Teams)));
+				Global.Icons_List_For_Menu[Event Player.Icons_Info_Array[0]], Player Closest To Reticle(Event Player, All Teams)));
 			Wait(0.300, Ignore Condition);
-		Else If(Is Button Held(Event Player, Button(Ultimate)));
-			"Simple selectors, same as drawing, from 0 to endpoint"
-			If(Event Player.Icons_Selector == 16);
-				Event Player.Icons_Selector = 0;
-			Else;
-				Event Player.Icons_Selector += 1;
-			End;
-			Small Message(Event Player, Custom String("  {0}, {1}", Global.Icons_List_For_Menu[Event Player.Icons_Selector],
-					Global.Icons_Colors_List[Event Player.Icons_Colors_Selector]));
-		Else If(Is Button Held(Event Player, Button(Secondary Fire)));
-			If(Event Player.Icons_Colors_Selector == 14);
-				Event Player.Icons_Colors_Selector = 0;
-			Else;
-				Event Player.Icons_Colors_Selector += 1;
-			End;
-			Small Message(Event Player, Custom String("  {0}", Global.Icons_Colors_List[Event Player.Icons_Colors_Selector]));
 		Else If(Is Button Held(Event Player, Button(Ability 2)));
 			Abort If(Player Closest To Reticle(Event Player, All Teams).Full_Protection && Not(Is Dummy Bot(Player Closest To Reticle(Event Player, All Teams))));
 			If(Player Closest To Reticle(Event Player, All Teams).Icon_ID[1] != Null);
 				Small Message(Event Player, Custom String("  Remove Icons from player and try again (limit reached: 2)"));
 				Abort;
 			End;
-			Create Icon(Filtered Array(All Players(All Teams), !(Current Array Element.Is_Crouch_On || Event Player.Is_Invisible)), Player Closest To Reticle(
-				Event Player, All Teams), Heart, Visible To, Global.Icons_Colors_List[Event Player.Icons_Colors_Selector], False);
-			Player Closest To Reticle(Event Player, All Teams).Icon_ID = Append To Array(Player Closest To Reticle(Event Player, All Teams)
-				.Icon_ID, Last Created Entity);
+			Event Player.Icons_Info_Copy = Player Closest To Reticle(Event Player, All Teams).Icons_Info_Array;
+			Player Closest To Reticle(Event Player, All Teams).Icons_Info_Array = Event Player.Icons_Info_Array;
+			Player Closest To Reticle(Event Player, All Teams).Icons_Info_Array[2] = 1;
+			Player Closest To Reticle(Event Player, All Teams).Icons_Signal = True;
+			Wait(0.01, Ignore Condition);
+			Player Closest To Reticle(Event Player, All Teams).Icons_Info_Array = Event Player.Icons_Info_Copy;
+			Event Player.Icons_Info_Copy = Array(0, 0, 0);
 			Small Message(All Players (All Teams), Custom String("  {0} gave {1} to {2}", Event Player, Icon String(Heart), Player Closest To Reticle(Event Player,
 				All Teams)));
 			Wait(0.300, Ignore Condition);
@@ -6005,13 +5893,32 @@ rule("Mode_24 - Icon_Tag_Target")
 				Small Message(Event Player, Custom String("  Remove Icons from player and try again (limit reached: 2)"));
 				Abort;
 			End;
-			Create Icon(Filtered Array(All Players(All Teams), !(Current Array Element.Is_Crouch_On || Event Player.Is_Invisible)), Player Closest To Reticle(
-				Event Player, All Teams), Fire, Visible To, Global.Icons_Colors_List[Event Player.Icons_Colors_Selector], False);
-			Player Closest To Reticle(Event Player, All Teams).Icon_ID = Append To Array(Player Closest To Reticle(Event Player, All Teams)
-				.Icon_ID, Last Created Entity);
+			Event Player.Icons_Info_Copy = Player Closest To Reticle(Event Player, All Teams).Icons_Info_Array;
+			Player Closest To Reticle(Event Player, All Teams).Icons_Info_Array = Event Player.Icons_Info_Array;
+			Player Closest To Reticle(Event Player, All Teams).Icons_Info_Array[2] = 2;
+			Player Closest To Reticle(Event Player, All Teams).Icons_Signal = True;
+			Wait(0.01, Ignore Condition);
+			Player Closest To Reticle(Event Player, All Teams).Icons_Info_Array = Event Player.Icons_Info_Copy;
+			Event Player.Icons_Info_Copy = Array(0, 0, 0);
 			Small Message(All Players (All Teams), Custom String("  {0} gave {1} to {2}", Event Player, Icon String(Fire), Player Closest To Reticle(Event Player,
 				All Teams)));
 			Wait(0.300, Ignore Condition);
+		Else If(Is Button Held(Event Player, Button(Ultimate)));
+			"Simple selectors, same as drawing, from 0 to endpoint"
+			If(Event Player.Icons_Info_Array[0] == 16);
+				Event Player.Icons_Info_Array[0] = 0;
+			Else;
+				Event Player.Icons_Info_Array[0] += 1;
+			End;
+			Small Message(Event Player, Custom String("  {0}, {1}", Global.Icons_List_For_Menu[Event Player.Icons_Info_Array[0]],
+					Global.Icons_Colors_List[Event Player.Icons_Info_Array[1]]));
+		Else If(Is Button Held(Event Player, Button(Secondary Fire)));
+			If(Event Player.Icons_Info_Array[1] == 14);
+				Event Player.Icons_Info_Array[1] = 0;
+			Else;
+				Event Player.Icons_Info_Array[1] += 1;
+			End;
+			Small Message(Event Player, Custom String("  {0}", Global.Icons_Colors_List[Event Player.Icons_Info_Array[1]]));
 		Else If(Is Button Held(Event Player, Button(Reload)));
 			Abort If(Player Closest To Reticle(Event Player, All Teams).Full_Protection && Not(Is Dummy Bot(Player Closest To Reticle(Event Player, All Teams))));
 			"Remove first icons from player"
@@ -6027,6 +5934,87 @@ rule("Mode_24 - Icon_Tag_Target")
 			Small Message(Player Closest To Reticle(Event Player, All Teams), Custom String("  {0} removed icons from you", Event Player));
 			Wait(0.300, Ignore Condition);
 		End;
+	}
+}
+
+rule("Mode_23_24 - Icon Giving")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Event Player.Icons_Signal == True;
+	}
+
+	actions
+	{
+		If(Event Player.Icons_Info_Array[2] == 0);
+			If(Event Player.Icons_Info_Array[0] == 0);
+				Create Icon(Filtered Array(All Players(All Teams), !(Current Array Element.Is_Crouch_On || Event Player.Is_Invisible)), Event Player, Bolt, 
+					Visible To, Global.Icons_Colors_List[Event Player.Icons_Info_Array[1]], False);
+			Else If(Event Player.Icons_Info_Array[0] == 1);
+				Create Icon(Filtered Array(All Players(All Teams), !(Current Array Element.Is_Crouch_On || Event Player.Is_Invisible)), Event Player, Happy, 
+					Visible To, Global.Icons_Colors_List[Event Player.Icons_Info_Array[1]], False);
+			Else If(Event Player.Icons_Info_Array[0] == 2);
+				Create Icon(Filtered Array(All Players(All Teams), !(Current Array Element.Is_Crouch_On || Event Player.Is_Invisible)), Event Player, Moon, 
+					Visible To, Global.Icons_Colors_List[Event Player.Icons_Info_Array[1]], False);
+			Else If(Event Player.Icons_Info_Array[0] == 3);
+				Create Icon(Filtered Array(All Players(All Teams), !(Current Array Element.Is_Crouch_On || Event Player.Is_Invisible)), Event Player, Halo, 
+					Visible To, Global.Icons_Colors_List[Event Player.Icons_Info_Array[1]], False);
+			Else If(Event Player.Icons_Info_Array[0] == 4);
+				Create Icon(Filtered Array(All Players(All Teams), !(Current Array Element.Is_Crouch_On || Event Player.Is_Invisible)), Event Player, Trashcan,
+					Visible To, Global.Icons_Colors_List[Event Player.Icons_Info_Array[1]], False);
+			Else If(Event Player.Icons_Info_Array[0] == 5);
+				Create Icon(Filtered Array(All Players(All Teams), !(Current Array Element.Is_Crouch_On || Event Player.Is_Invisible)), Event Player, Dizzy, 
+					Visible To, Global.Icons_Colors_List[Event Player.Icons_Info_Array[1]], False);
+			Else If(Event Player.Icons_Info_Array[0] == 6);
+				Create Icon(Filtered Array(All Players(All Teams), !(Current Array Element.Is_Crouch_On || Event Player.Is_Invisible)), Event Player, Sad,
+					Visible To, Global.Icons_Colors_List[Event Player.Icons_Info_Array[1]], False);
+			Else If(Event Player.Icons_Info_Array[0] == 7);
+				Create Icon(Filtered Array(All Players(All Teams), !(Current Array Element.Is_Crouch_On || Event Player.Is_Invisible)), Event Player, Poison 2,
+					Visible To, Global.Icons_Colors_List[Event Player.Icons_Info_Array[1]], False);
+			Else If(Event Player.Icons_Info_Array[0] == 8);
+				Create Icon(Filtered Array(All Players(All Teams), !(Current Array Element.Is_Crouch_On || Event Player.Is_Invisible)), Event Player, Warning, 
+					Visible To, Global.Icons_Colors_List[Event Player.Icons_Info_Array[1]], False);
+			Else If(Event Player.Icons_Info_Array[0] == 9);
+				Create Icon(Filtered Array(All Players(All Teams), !(Current Array Element.Is_Crouch_On || Event Player.Is_Invisible)), Event Player, Stop, 
+					Visible To, Global.Icons_Colors_List[Event Player.Icons_Info_Array[1]], False);
+			Else If(Event Player.Icons_Info_Array[0] == 10);
+				Create Icon(Filtered Array(All Players(All Teams), !(Current Array Element.Is_Crouch_On || Event Player.Is_Invisible)), Event Player, Spiral, 
+					Visible To, Global.Icons_Colors_List[Event Player.Icons_Info_Array[1]], False);
+			Else If(Event Player.Icons_Info_Array[0] == 11);
+				Create Icon(Filtered Array(All Players(All Teams), !(Current Array Element.Is_Crouch_On || Event Player.Is_Invisible)), Event Player, Radioactive, 
+					Visible To, Global.Icons_Colors_List[Event Player.Icons_Info_Array[1]], False);
+			Else If(Event Player.Icons_Info_Array[0] == 12);
+				Create Icon(Filtered Array(All Players(All Teams), !(Current Array Element.Is_Crouch_On || Event Player.Is_Invisible)), Event Player, Skull, 
+					Visible To, Global.Icons_Colors_List[Event Player.Icons_Info_Array[1]], False);
+			Else If(Event Player.Icons_Info_Array[0] == 13);
+				Create Icon(Filtered Array(All Players(All Teams), !(Current Array Element.Is_Crouch_On || Event Player.Is_Invisible)), Event Player, Recycle, 
+					Visible To, Global.Icons_Colors_List[Event Player.Icons_Info_Array[1]], False);
+			Else If(Event Player.Icons_Info_Array[0] == 14);
+				Create Icon(Filtered Array(All Players(All Teams), !(Current Array Element.Is_Crouch_On || Event Player.Is_Invisible)), Event Player, No, 
+					Visible To, Global.Icons_Colors_List[Event Player.Icons_Info_Array[1]], False);
+			Else If(Event Player.Icons_Info_Array[0] == 15);
+				Create Icon(Filtered Array(All Players(All Teams), !(Current Array Element.Is_Crouch_On || Event Player.Is_Invisible)), Event Player, Eye, 
+					Visible To, Global.Icons_Colors_List[Event Player.Icons_Info_Array[1]], False);
+			Else If(Event Player.Icons_Info_Array[0] == 16);
+				Create Icon(Filtered Array(All Players(All Teams), !(Current Array Element.Is_Crouch_On || Event Player.Is_Invisible)), Event Player, Asterisk,
+					Visible To, Global.Icons_Colors_List[Event Player.Icons_Info_Array[1]], False);
+			End;
+		Else If(Event Player.Icons_Info_Array[2] == 1);
+			Create Icon(Filtered Array(All Players(All Teams), !(Current Array Element.Is_Crouch_On || Event Player.Is_Invisible)), Event Player, Heart, Visible To,
+				Global.Icons_Colors_List[Event Player.Icons_Info_Array[1]], False);
+		Else;
+			Create Icon(Filtered Array(All Players(All Teams), !(Current Array Element.Is_Crouch_On || Event Player.Is_Invisible)), Event Player, Fire, Visible To,
+				Global.Icons_Colors_List[Event Player.Icons_Info_Array[1]], False);
+		End;
+		Event Player.Icon_ID = Append To Array(Event Player.Icon_ID, Last Created Entity);
+		Event Player.Icons_Signal = False;
 	}
 }
 
@@ -6048,8 +6036,8 @@ rule("Mode_23_24 - Show message with selected Icon")
 
 	actions
 	{
-		Small Message(Event Player, Custom String("{0}, {1}", Global.Icons_List_For_Menu[Event Player.Icons_Selector],
-			Global.Icons_Colors_List[Event Player.Icons_Colors_Selector]));
+		Small Message(Event Player, Custom String("{0}, {1}", Global.Icons_List_For_Menu[Event Player.Icons_Info_Array[0]],
+			Global.Icons_Colors_List[Event Player.Icons_Info_Array[1]]));
 	}
 }
 
