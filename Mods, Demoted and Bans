@@ -82,6 +82,7 @@ rule("Listed_Player")
             Custom String("SQ1"), Custom String("FloorBread"), Custom String("ScRaPyx"), Custom String("MohammendSis"), Custom String("Reinkampff"), Custom String("WalterBlack"), 
             Custom String("kaxhukio"), Custom String("nozomi"), Custom String("ownerhat"), Custom String("Doomboy81"), Custom String("Odyssex"), Custom String("Mrbeta8"), 
             Custom String("skyra"), Custom String("badfella"), Custom String("VeganeWurst"), Custom String("A7MD"), Custom String("pkdd"), Custom String("destroy"), 
-            Custom String("ĈŖǾĊȌĎĨĿĔ"), Custom String("rule34444"), Custom String("KittyUwu"), Custom String("Moon"), Custom String("MrBBC"), Custom String("microwave"));
+            Custom String("ĈŖǾĊȌĎĨĿĔ"), Custom String("rule34444"), Custom String("KittyUwu"), Custom String("Moon"), Custom String("MrBBC"), Custom String("microwave"), 
+            Custom String("GhostDog"));
 	}
 }
