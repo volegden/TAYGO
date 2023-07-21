@@ -59,14 +59,14 @@ rule("Listed_Player")
 				Custom String("Reyes"), Custom String("Hinata"), Custom String("KadenLee25"), Custom String("starluvs"), Custom String("Darling"), Custom String("Nicolol123"), Custom String("Daisy"),
 				Custom String("Snaiy"), Custom String("SALEH"), Custom String("SouperNova"), Custom String("Azereth"), Custom String("FemboyMercy"), Custom String("Santykpoooo"), Custom String("xSKIJ"), 
                 Custom String("Kān"), Custom String("MetalCrusheR"), Custom String("Фрейя"), Custom String("Daniel"), Custom String("Bob"), Custom String("Aris"), Custom String("bicolormoth"), 
-                Custom String("LeãoLivre"), Custom String("SHINIxMIZU"), Custom String("FlameYeti"), Custom String("zax"));
+                Custom String("LeãoLivre"), Custom String("SHINIxMIZU"), Custom String("FlameYeti"), Custom String("zax"), Custom String("HerrBob"));
 		
 		"Automatic Ban"
 		Global.Perma_Banned = Array(
 			Custom String("Theta"), Custom String("ThetaV"), Custom String("blueberry!"), Custom String("Heretic"), Custom String("BoneStealer"), Custom String("Simplicity"), 
 			Custom String("IloveBirds"), Custom String("Kyger100"), Custom String("Potato"), Custom String("Apotato2182"), Custom String("KR0"), Custom String("Mardothiel"), 
 			Custom String("TwitchPoison"), Custom String("DJBASTION"), Custom String("JoltWave"), Custom String("MrBastion"), Custom String("PINKBASTIONǃ"), Custom String("HyperBastion"),  
-			Custom String("BebeUwU"), Custom String("Heather"), Custom String("Katsuki"), Custom String("Dar7bi"), Custom String("GR00MER"), Custom String("GRØØMED"), Custom String("vel"),
+			Custom String("BebeUwU"), Custom String("Fluttershy"), Custom String("Katsuki"), Custom String("Dar7bi"), Custom String("GR00MER"), Custom String("GRØØMED"), Custom String("vel"),
             Custom String("ZenWick"), Custom String("alhrbe"), Custom String("CATMOM"), Custom String("Coydn"), Custom String("GarnetKodo"), Custom String("KaijoSan"), Custom String("ZORO"), 
 			Custom String("NITRO"), Custom String("oxox"), Custom String("SALEH"), Custom String("hellionturbo"), Custom String("Libertot"), Custom String("Stars"), Custom String("Gn0mie"), 
 			Custom String("w7sh12"), Custom String("ammar"), Custom String("WYPCS"), Custom String("ＡＺＡＬＥＡ"), Custom String("Alucard"), Custom String("MrBalkanom"), Custom String("Pathos"),
@@ -82,6 +82,6 @@ rule("Listed_Player")
             Custom String("SQ1"), Custom String("FloorBread"), Custom String("ScRaPyx"), Custom String("MohammendSis"), Custom String("Reinkampff"), Custom String("WalterBlack"), 
             Custom String("kaxhukio"), Custom String("nozomi"), Custom String("ownerhat"), Custom String("Doomboy81"), Custom String("Odyssex"), Custom String("Mrbeta8"), 
             Custom String("skyra"), Custom String("badfella"), Custom String("VeganeWurst"), Custom String("A7MD"), Custom String("pkdd"), Custom String("destroy"), 
-            Custom String("ĈŖǾĊȌĎĨĿĔ"), Custom String("rule34444"), Custom String("KittyUwu"), Custom String("Moon"));
+            Custom String("ĈŖǾĊȌĎĨĿĔ"), Custom String("rule34444"), Custom String("KittyUwu"), Custom String("Moon"), Custom String("MrBBC"), Custom String("microwave"));
 	}
 }
