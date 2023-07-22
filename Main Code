@@ -4118,13 +4118,13 @@ rule("Mode_06 - Jumppad_Create_Custom")
 			Event Player.Jumppad_Entry[0] = Event Player.Jumppad_Helper;
 			
 			Create Effect(All Players(All Teams), Ring, Global.Colors[Event Player.Jumppad_Info_Array[1]], 
-				Event Player.Jumppad_Helper, Global.Jumppad_Radius[Event Player.Jumppad_Info_Array[2]], None);
+				Event Player.Jumppad_Helper, Global.Jumppad_Radius[Event Player.Jumppad_Info_Array[2]], Visible To);
 			Event Player.Jumppad_Entry[1] = Last Created Entity;
 			
 			Create Effect(All Players(All Teams), Ring, Global.Colors[Event Player.Jumppad_Info_Array[0]], 
 				Evaluate Once(Event Player.Jumppad_Helper), Update Every Frame(Evaluate Once(Global.Jumppad_Radius[Event Player.Jumppad_Info_Array[2]] / 3 * 2) 
 				+ (Evaluate Once(Global.Jumppad_Radius[Event Player.Jumppad_Info_Array[2]] - Global.Jumppad_Radius[Event Player.Jumppad_Info_Array[2]] / 3 * 2)) 
-				* Sine From Radians(Global.Main_Chaser * 4)), Position and Radius);
+				* Sine From Radians(Global.Main_Chaser * 4)), Visible To Position and Radius);
 			Event Player.Jumppad_Entry[2] = Last Created Entity;
 
 			Event Player.Jumppad_Entry[3] = (Event Player.Jumppad_Info_Array[3] + 1) * 5;
