@@ -2,7 +2,7 @@ settings
 {
 	main
 	{
-		Description: "♥ A Friendly Server To Meet New Friends ♥\nlast updated (July 22 2023)\n\n   » » » MASSIVE UPDATE RELEASED « « «\n (including UNO, non-mod menu and\n      hero specific features!)\n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss.\n   Based on the work of: TbyCoLive.\n Maintained with ♡ by: LƐafa.\n   Community Managers:\n     MOOOUSH, RUBY & kwally."
+		Description: "♥ A Friendly Server To Meet New Friends ♥\nlast updated (July 23 2023)\n\n   » » » MASSIVE UPDATE RELEASED « « «\n (including UNO, non-mod menu and\n      hero specific features!)\n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss.\n   Based on the work of: TbyCoLive.\n Maintained with ♡ by: LƐafa.\n   Community Managers:\n     MOOOUSH, RUBY & kwally."
 		Mode Name: " ♥ Friendly ♥ No Kill!"
 	}
 
@@ -160,7 +160,6 @@ settings
 
 			Lifeweaver
 			{
-				Life Grip: Off
 				Petal Platform Cooldown Time: 200%
 				Ultimate Generation - Combat Tree of Life: 50%
 				Ultimate Generation - Passive Tree of Life: 55%
@@ -2051,7 +2050,6 @@ rule("Listed_Player")
             Custom String("GhostDog"));
 	}
 }
-
 rule("Player_Rank_Execute")
 {
 	event
@@ -8442,19 +8440,18 @@ rule("Extra_19: Florenzio Bandaid")
 
 	conditions
 	{
-
-		Is True For Any(All Players(All Teams), Current Array Element.Full_Protection &&
-			Distance Between(Current Array Element, Event Player) <= 31 && Current Array Element != Event Player) == True;
+		(Event Player.High_Rank || (Event Player.Mod_Rank && (Not(Event Player.Promoted_Rank)) || Event Player == Host Player)) == False;
 	}
 
 	actions
 	{
 		Set Ability 1 Enabled(Event Player, False);
-		Wait Until(Not(Is True For Any(All Players(All Teams), Current Array Element.Full_Protection &&
-			Distance Between(Current Array Element, Event Player) <= 31 && Current Array Element != Event Player))
-			|| Not(Hero Of(Event Player) == Hero(Lifeweaver)), 9999);
+		Set Ability 2 Enabled(Event Player, False);
+		Wait Until(Hero Of(Event Player) != Hero(Lifeweaver) || 
+			(Event Player.High_Rank || (Event Player.Mod_Rank && (Not(Event Player.Promoted_Rank)) || Event Player == Host Player)), 9999);
 		Wait Until(Hero Of(Event Player) != Hero(Mei), 9999);
 		Set Ability 1 Enabled(Event Player, True);
+		Set Ability 2 Enabled(Event Player, True);
 	}
 }
 
@@ -8489,11 +8486,19 @@ rule("Extra_21: Screw Mei")
 		Mei;
 	}
 
+	conditions
+	{
+		(Event Player.High_Rank || (Event Player.Mod_Rank && (Not(Event Player.Promoted_Rank)) || Event Player == Host Player)) == False;
+	}
+
+
 	actions
 	{
 		Set Ability 1 Enabled(Event Player, False);
+		Set Ability 2 Enabled(Event Player, False);
 		Wait Until(Hero Of(Event Player) != Hero(Mei), 9999);
 		Set Ability 1 Enabled(Event Player, True);
+		Set Ability 2 Enabled(Event Player, True);
 	}
 }
 
