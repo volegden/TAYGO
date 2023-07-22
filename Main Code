@@ -2,7 +2,7 @@ settings
 {
 	main
 	{
-		Description: "♥ A Friendly Server To Meet New Friends ♥\nlast updated (July 21 2023)\n\n   » » » MASSIVE UPDATE RELEASED « « «\n (including UNO, non-mod menu and\n      hero specific features!)\n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss.\n   Based on the work of: TbyCoLive.\n Maintained with ♡ by: LƐafa.\n   Community Managers:\n     MOOOUSH, RUBY & kwally."
+		Description: "♥ A Friendly Server To Meet New Friends ♥\nlast updated (July 22 2023)\n\n   » » » MASSIVE UPDATE RELEASED « « «\n (including UNO, non-mod menu and\n      hero specific features!)\n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss.\n   Based on the work of: TbyCoLive.\n Maintained with ♡ by: LƐafa.\n   Community Managers:\n     MOOOUSH, RUBY & kwally."
 		Mode Name: " ♥ Friendly ♥ No Kill!"
 	}
 
@@ -292,40 +292,39 @@ variables
 		22: Drawing_Obj_Effects
 		23: Modification_Mode_String
 		24: Modification_Target_String
-		25: Icons_Colors_List
-		26: Icons_List
-		27: Icons_List_For_Menu
-		28: Colors
-		29: Status_String
-		30: Jumppad_Storage
-		31: Jumppad_Radius
-		32: Kanezaka_Teleports
-		33: UNO_Random
-		34: Card_Colors
-		35: UNO_Players
-		36: UNO_Deck
-		37: UNO_Help
-		38: UNO_Started
-		39: UNO_Looper
-		40: UNO_Colorblind
-		41: UNO_Inworld
-		42: UNO_Info
-		43: UNO_Timer
-		44: Beams
-		45: Drawing_Obj_Storage_Beams
-		46: Skins_Check
-		47: Player_Joined_Queue
-		48: Game_Timer
-		49: Game_Timer_Helper
-		50: Main_Chaser
-		51: Moe_Position
-		52: Moooush_Effect
-		53: Demoted
-		54: OffOnString
-		55: Rank_Icon
-		56: Game_Description
-		57: Promoted_List
-		58: Credits
+		25: Icons_List
+		26: Icons_List_For_Menu
+		27: Colors
+		28: Status_String
+		29: Jumppad_Storage
+		30: Jumppad_Radius
+		31: Kanezaka_Teleports
+		32: UNO_Random
+		33: Card_Colors
+		34: UNO_Players
+		35: UNO_Deck
+		36: UNO_Help
+		37: UNO_Started
+		38: UNO_Looper
+		39: UNO_Colorblind
+		40: UNO_Inworld
+		41: UNO_Info
+		42: UNO_Timer
+		43: Beams
+		44: Drawing_Obj_Storage_Beams
+		45: Skins_Check
+		46: Player_Joined_Queue
+		47: Game_Timer
+		48: Game_Timer_Helper
+		49: Main_Chaser
+		50: Moe_Position
+		51: Moooush_Effect
+		52: Demoted
+		53: OffOnString
+		54: Rank_Icon
+		55: Game_Description
+		56: Promoted_List
+		57: Credits
 
 	player:
 		0: High_Rank
@@ -786,15 +785,15 @@ rule("Default_Player_Settings")
 
 		Event Player.Icon_ID = Empty Array;
 		"Array: Icons_Selector, Icons_Colors_Selector, Icons_Operation"
-		Event Player.Icons_Info_Array = Array(0, 0, 0);
-		Event Player.Icons_Info_Copy = Array(0, 0, 0);
+		Event Player.Icons_Info_Array = Array(0, 11, 0);
+		Event Player.Icons_Info_Copy = Array(0, 11, 0);
 		Event Player.Status_Selector = 0;
 
 		Event Player.Jumppad_Helper = 0;
 		Event Player.Jumppad_Entry = Array(Null, Null, Null, Null, Null);
 		Event Player.Jumppad_Loop = 0;
 		"Array: Inside_Color_Selector, Outside_Color_Selector, Radius_Selector, Strength_Selector"
-		Event Player.Jumppad_Info_Array = Array(6, 5, 1, 3);
+		Event Player.Jumppad_Info_Array = Array(8, 7, 1, 3);
 		Event Player.Jumppad_Preview = Array(Null, Null);
 
 		"Array: Color_Selector, Size_Selector, Effect_Selector, Effect_ID, Effect_ID2"
@@ -890,6 +889,7 @@ rule("Default_Player_Settings")
 		Event Player.Auto_Respawn = True;
 		
 		"Jail handler finds escaped prisoner"
+		Wait(0.01, Ignore Condition);
 		If(Event Player.Restricted[0]);
 			Big Message(All Players(All Teams), Custom String("{0} tried to escape the jail LMAO", Event Player));
 			Call Subroutine(Jail_Leaver);
@@ -967,9 +967,6 @@ rule ("Data")
 		Global.Drawing_Obj_Effects = Array(Custom String("Sphere"), Custom String("Sparkles"), Custom String("Light Shaft"),
 			Custom String("Orb"), Custom String("Ring"), Custom String("Cloud"), Custom String("Good Aura"), Custom String("Bad Aura"));
 		Global.Drawing_Obj_Size = Array(0.050, 0.070, 0.150, 0.400, 0.700, 1, 1.700, 2, 3, 4, 6, 8, 10);
-		Global.Icons_Colors_List = Array(Color(Red), Color(Orange), Color(Black), Color(Blue), Color(Gray), Color(Green), Color(
-			Lime Green), Color(Aqua), Color(Purple), Color(White), Color(Rose), Color(Sky Blue), Color(Turquoise), Color(Violet), Color(
-			Yellow));
 		Global.Icons_List = Array(Custom String("Bolt"), Custom String("Happy"), Custom String("Moon"), Custom String("Halo"), Custom String("Trashcan"),
 			Custom String("Dizzy"), Custom String("Sad"), Custom String("Poison"), Custom String("Warning"), Custom String("Stop"),
 			Custom String("Spiral"), Custom String("Radioactive"), Custom String("Skull"), Custom String("Recycle"), Custom String("No"),
@@ -978,9 +975,8 @@ rule ("Data")
 			Dizzy), Icon String(Sad), Icon String(Poison 2), Icon String(Warning), Icon String(Stop), Icon String(Spiral), Icon String(
 			Radioactive), Icon String(Skull), Icon String(Recycle), Icon String(No), Icon String(Eye), Icon String(Asterisk));
 		
-		Global.Colors = Array(Color(White), Color(Aqua), Color(Black), Color(Blue), Color(Gray), Color(Green),
-			Color(Lime Green), Color(Orange), Color(Purple), Color(Red), Color(Rose), Color(Sky Blue), Color(Turquoise), Color(Violet),
-			Color(Yellow));
+		Global.Colors = Array(Color(White), Color(Black), Color(Gray), Color(Blue), Color(Sky Blue), Color(Turquoise), Color(Aqua), Color(Green),
+			Color(Lime Green), Color(Yellow), Color(Orange), Color(Red), Color(Rose), Color(Purple), Color(Violet), Custom Color(139, 69, 19, 255));
 
 		Global.Status_String = Array(Custom String("Knocked Down"), Custom String("Stunned"), Custom String("Frozen"), Custom String("Burning"), Custom String("Hacked"));
 
@@ -4051,12 +4047,13 @@ rule("Mode_05 - De-Elitate Outlines")
 			Event Player.M32_Players_Nameplate = Null;
 			Enable Nameplates(Event Player, All Players(All Teams));
 		Else If(Is Button Held(Event Player, Button(Secondary Fire)));
-			If(Event Player.NamesAndOutlines_Colors_Selector == 14);
+			If(Event Player.NamesAndOutlines_Colors_Selector >= 15);
 				Event Player.NamesAndOutlines_Colors_Selector = 0;
 			Else;
 				Event Player.NamesAndOutlines_Colors_Selector += 1;
 			End;
-			Small Message(Event Player, Custom String("  {0}", Global.Colors[Event Player.NamesAndOutlines_Colors_Selector]));
+			Small Message(Event Player, Custom String("  {0}", 
+				If-Then-Else(Event Player.NamesAndOutlines_Colors_Selector == 15, Custom String("Brown"), Global.Colors[Event Player.NamesAndOutlines_Colors_Selector])));
 		Else If(Is Button Held(Event Player, Button(Melee)));
 			If(Event Player.Outlines_Toggle);
 				Start Forcing Player Outlines(All Players(All Teams), Event Player, False, Color(White), Always);
@@ -4190,7 +4187,7 @@ rule("Mode_06 - Jumppad_Create_Custom")
 	}
 }
 
-rule("Mode_06 - Jumppad_Preview_Create")
+rule("Mode_06 - Jumppad_Preview")
 {
 	event
 	{
@@ -4215,25 +4212,7 @@ rule("Mode_06 - Jumppad_Preview_Create")
 			+ (Global.Jumppad_Radius[Event Player.Jumppad_Info_Array[2]] - Global.Jumppad_Radius[Event Player.Jumppad_Info_Array[2]] / 3 * 2) 
 			* Sine From Radians(Global.Main_Chaser * 4)), Position Radius and Color);
 		Event Player.Jumppad_Preview[1] = Last Created Entity;
-	}
-}
-
-rule("Mode_06 - Jumppad_Preview_Remove")
-{
-	event
-	{
-		Ongoing - Each Player;
-		All;
-		All;
-	}
-
-	conditions
-	{
-		Event Player.Mode_Cycle != 6;
-	}
-
-	actions
-	{
+		Wait Until(Event Player.Mode_Cycle != 6, 9999);
 		Destroy Effect(Event Player.Jumppad_Preview[0]);
 		Destroy Effect(Event Player.Jumppad_Preview[1]);
 	}
@@ -4250,7 +4229,7 @@ rule("Mode_06 - Jumppad_Logic")
 
 	conditions
 	{
-		(Is True For Any(Global.Jumppad_Storage, Distance Between(Current Array Element[0], Event Player) <= Current Array Element[4] + 0.2) == True);
+		Is True For Any(Global.Jumppad_Storage, Distance Between(Current Array Element[0], Event Player) <= Current Array Element[4] + 0.2) == True;
 		Is On Ground(Event Player) == True;
 		Event Player.Is_Crouch_On == False;
 		Event Player.Full_Protection == False;
@@ -5809,20 +5788,21 @@ rule("Mode_23 - Icon_Tag_Self")
 			Small Message(Event Player, Custom String("You gave yourself an icon: {0}", Icon String(Fire)));
 		Else If(Is Button Held(Event Player, Button(Ultimate)));
 			"Simple selectors, same as drawing, from 0 to endpoint"
-			If(Event Player.Icons_Info_Array[0] == 16);
+			If(Event Player.Icons_Info_Array[0] >= 16);
 				Event Player.Icons_Info_Array[0] = 0;
 			Else;
 				Event Player.Icons_Info_Array[0] += 1;
 			End;
 			Small Message(Event Player, Custom String("  {0}, {1}", Global.Icons_List_For_Menu[Event Player.Icons_Info_Array[0]],
-					Global.Icons_Colors_List[Event Player.Icons_Info_Array[1]]));
+				If-Then-Else(Event Player.Icons_Info_Array[1] == 15, Custom String("Brown"), Global.Colors[Event Player.Icons_Info_Array[1]])));
 		Else If(Is Button Held(Event Player, Button(Secondary Fire)));
-			If(Event Player.Icons_Info_Array[1] == 14);
+			If(Event Player.Icons_Info_Array[1] >= 15);
 				Event Player.Icons_Info_Array[1] = 0;
 			Else;
 				Event Player.Icons_Info_Array[1] += 1;
 			End;
-			Small Message(Event Player, Custom String(" {0}", Global.Icons_Colors_List[Event Player.Icons_Info_Array[1]]));
+			Small Message(Event Player, Custom String("  {0}", 
+				If-Then-Else(Event Player.Icons_Info_Array[1] == 15, Custom String("Brown"), Global.Colors[Event Player.Icons_Info_Array[1]])));
 		Else If(Is Button Held(Event Player, Button(Reload)));
 			"Remove icons from player"
 			Destroy Icon(Event Player.Icon_ID[0]);
@@ -5907,20 +5887,21 @@ rule("Mode_24 - Icon_Tag_Target")
 			Wait(0.300, Ignore Condition);
 		Else If(Is Button Held(Event Player, Button(Ultimate)));
 			"Simple selectors, same as drawing, from 0 to endpoint"
-			If(Event Player.Icons_Info_Array[0] == 16);
+			If(Event Player.Icons_Info_Array[0] >= 16);
 				Event Player.Icons_Info_Array[0] = 0;
 			Else;
 				Event Player.Icons_Info_Array[0] += 1;
 			End;
 			Small Message(Event Player, Custom String("  {0}, {1}", Global.Icons_List_For_Menu[Event Player.Icons_Info_Array[0]],
-					Global.Icons_Colors_List[Event Player.Icons_Info_Array[1]]));
+				If-Then-Else(Event Player.Icons_Info_Array[1] == 15, Custom String("Brown"), Global.Colors[Event Player.Icons_Info_Array[1]])));
 		Else If(Is Button Held(Event Player, Button(Secondary Fire)));
-			If(Event Player.Icons_Info_Array[1] == 14);
+			If(Event Player.Icons_Info_Array[1] >= 15);
 				Event Player.Icons_Info_Array[1] = 0;
 			Else;
 				Event Player.Icons_Info_Array[1] += 1;
 			End;
-			Small Message(Event Player, Custom String("  {0}", Global.Icons_Colors_List[Event Player.Icons_Info_Array[1]]));
+			Small Message(Event Player, Custom String("  {0}", 
+				If-Then-Else(Event Player.Icons_Info_Array[1] == 15, Custom String("Brown"), Global.Colors[Event Player.Icons_Info_Array[1]])));
 		Else If(Is Button Held(Event Player, Button(Reload)));
 			Abort If(Player Closest To Reticle(Event Player, All Teams).Full_Protection && Not(Is Dummy Bot(Player Closest To Reticle(Event Player, All Teams))));
 			"Remove first icons from player"
@@ -5958,62 +5939,62 @@ rule("Mode_23_24 - Icon Giving")
 		If(Event Player.Icons_Info_Array[2] == 0);
 			If(Event Player.Icons_Info_Array[0] == 0);
 				Create Icon(Filtered Array(All Players(All Teams), !(Current Array Element.Is_Crouch_On || Event Player.Is_Invisible)), Event Player, Bolt, 
-					Visible To, Global.Icons_Colors_List[Event Player.Icons_Info_Array[1]], False);
+					Visible To, Global.Colors[Event Player.Icons_Info_Array[1]], False);
 			Else If(Event Player.Icons_Info_Array[0] == 1);
 				Create Icon(Filtered Array(All Players(All Teams), !(Current Array Element.Is_Crouch_On || Event Player.Is_Invisible)), Event Player, Happy, 
-					Visible To, Global.Icons_Colors_List[Event Player.Icons_Info_Array[1]], False);
+					Visible To, Global.Colors[Event Player.Icons_Info_Array[1]], False);
 			Else If(Event Player.Icons_Info_Array[0] == 2);
 				Create Icon(Filtered Array(All Players(All Teams), !(Current Array Element.Is_Crouch_On || Event Player.Is_Invisible)), Event Player, Moon, 
-					Visible To, Global.Icons_Colors_List[Event Player.Icons_Info_Array[1]], False);
+					Visible To, Global.Colors[Event Player.Icons_Info_Array[1]], False);
 			Else If(Event Player.Icons_Info_Array[0] == 3);
 				Create Icon(Filtered Array(All Players(All Teams), !(Current Array Element.Is_Crouch_On || Event Player.Is_Invisible)), Event Player, Halo, 
-					Visible To, Global.Icons_Colors_List[Event Player.Icons_Info_Array[1]], False);
+					Visible To, Global.Colors[Event Player.Icons_Info_Array[1]], False);
 			Else If(Event Player.Icons_Info_Array[0] == 4);
 				Create Icon(Filtered Array(All Players(All Teams), !(Current Array Element.Is_Crouch_On || Event Player.Is_Invisible)), Event Player, Trashcan,
-					Visible To, Global.Icons_Colors_List[Event Player.Icons_Info_Array[1]], False);
+					Visible To, Global.Colors[Event Player.Icons_Info_Array[1]], False);
 			Else If(Event Player.Icons_Info_Array[0] == 5);
 				Create Icon(Filtered Array(All Players(All Teams), !(Current Array Element.Is_Crouch_On || Event Player.Is_Invisible)), Event Player, Dizzy, 
-					Visible To, Global.Icons_Colors_List[Event Player.Icons_Info_Array[1]], False);
+					Visible To, Global.Colors[Event Player.Icons_Info_Array[1]], False);
 			Else If(Event Player.Icons_Info_Array[0] == 6);
 				Create Icon(Filtered Array(All Players(All Teams), !(Current Array Element.Is_Crouch_On || Event Player.Is_Invisible)), Event Player, Sad,
-					Visible To, Global.Icons_Colors_List[Event Player.Icons_Info_Array[1]], False);
+					Visible To, Global.Colors[Event Player.Icons_Info_Array[1]], False);
 			Else If(Event Player.Icons_Info_Array[0] == 7);
 				Create Icon(Filtered Array(All Players(All Teams), !(Current Array Element.Is_Crouch_On || Event Player.Is_Invisible)), Event Player, Poison 2,
-					Visible To, Global.Icons_Colors_List[Event Player.Icons_Info_Array[1]], False);
+					Visible To, Global.Colors[Event Player.Icons_Info_Array[1]], False);
 			Else If(Event Player.Icons_Info_Array[0] == 8);
 				Create Icon(Filtered Array(All Players(All Teams), !(Current Array Element.Is_Crouch_On || Event Player.Is_Invisible)), Event Player, Warning, 
-					Visible To, Global.Icons_Colors_List[Event Player.Icons_Info_Array[1]], False);
+					Visible To, Global.Colors[Event Player.Icons_Info_Array[1]], False);
 			Else If(Event Player.Icons_Info_Array[0] == 9);
 				Create Icon(Filtered Array(All Players(All Teams), !(Current Array Element.Is_Crouch_On || Event Player.Is_Invisible)), Event Player, Stop, 
-					Visible To, Global.Icons_Colors_List[Event Player.Icons_Info_Array[1]], False);
+					Visible To, Global.Colors[Event Player.Icons_Info_Array[1]], False);
 			Else If(Event Player.Icons_Info_Array[0] == 10);
 				Create Icon(Filtered Array(All Players(All Teams), !(Current Array Element.Is_Crouch_On || Event Player.Is_Invisible)), Event Player, Spiral, 
-					Visible To, Global.Icons_Colors_List[Event Player.Icons_Info_Array[1]], False);
+					Visible To, Global.Colors[Event Player.Icons_Info_Array[1]], False);
 			Else If(Event Player.Icons_Info_Array[0] == 11);
 				Create Icon(Filtered Array(All Players(All Teams), !(Current Array Element.Is_Crouch_On || Event Player.Is_Invisible)), Event Player, Radioactive, 
-					Visible To, Global.Icons_Colors_List[Event Player.Icons_Info_Array[1]], False);
+					Visible To, Global.Colors[Event Player.Icons_Info_Array[1]], False);
 			Else If(Event Player.Icons_Info_Array[0] == 12);
 				Create Icon(Filtered Array(All Players(All Teams), !(Current Array Element.Is_Crouch_On || Event Player.Is_Invisible)), Event Player, Skull, 
-					Visible To, Global.Icons_Colors_List[Event Player.Icons_Info_Array[1]], False);
+					Visible To, Global.Colors[Event Player.Icons_Info_Array[1]], False);
 			Else If(Event Player.Icons_Info_Array[0] == 13);
 				Create Icon(Filtered Array(All Players(All Teams), !(Current Array Element.Is_Crouch_On || Event Player.Is_Invisible)), Event Player, Recycle, 
-					Visible To, Global.Icons_Colors_List[Event Player.Icons_Info_Array[1]], False);
+					Visible To, Global.Colors[Event Player.Icons_Info_Array[1]], False);
 			Else If(Event Player.Icons_Info_Array[0] == 14);
 				Create Icon(Filtered Array(All Players(All Teams), !(Current Array Element.Is_Crouch_On || Event Player.Is_Invisible)), Event Player, No, 
-					Visible To, Global.Icons_Colors_List[Event Player.Icons_Info_Array[1]], False);
+					Visible To, Global.Colors[Event Player.Icons_Info_Array[1]], False);
 			Else If(Event Player.Icons_Info_Array[0] == 15);
 				Create Icon(Filtered Array(All Players(All Teams), !(Current Array Element.Is_Crouch_On || Event Player.Is_Invisible)), Event Player, Eye, 
-					Visible To, Global.Icons_Colors_List[Event Player.Icons_Info_Array[1]], False);
+					Visible To, Global.Colors[Event Player.Icons_Info_Array[1]], False);
 			Else If(Event Player.Icons_Info_Array[0] == 16);
 				Create Icon(Filtered Array(All Players(All Teams), !(Current Array Element.Is_Crouch_On || Event Player.Is_Invisible)), Event Player, Asterisk,
-					Visible To, Global.Icons_Colors_List[Event Player.Icons_Info_Array[1]], False);
+					Visible To, Global.Colors[Event Player.Icons_Info_Array[1]], False);
 			End;
 		Else If(Event Player.Icons_Info_Array[2] == 1);
 			Create Icon(Filtered Array(All Players(All Teams), !(Current Array Element.Is_Crouch_On || Event Player.Is_Invisible)), Event Player, Heart, Visible To,
-				Global.Icons_Colors_List[Event Player.Icons_Info_Array[1]], False);
+				Global.Colors[Event Player.Icons_Info_Array[1]], False);
 		Else;
 			Create Icon(Filtered Array(All Players(All Teams), !(Current Array Element.Is_Crouch_On || Event Player.Is_Invisible)), Event Player, Fire, Visible To,
-				Global.Icons_Colors_List[Event Player.Icons_Info_Array[1]], False);
+				Global.Colors[Event Player.Icons_Info_Array[1]], False);
 		End;
 		Event Player.Icon_ID = Append To Array(Event Player.Icon_ID, Last Created Entity);
 		Event Player.Icons_Signal = False;
@@ -6039,7 +6020,7 @@ rule("Mode_23_24 - Show message with selected Icon")
 	actions
 	{
 		Small Message(Event Player, Custom String("{0}, {1}", Global.Icons_List_For_Menu[Event Player.Icons_Info_Array[0]],
-			Global.Icons_Colors_List[Event Player.Icons_Info_Array[1]]));
+			Global.Colors[Event Player.Icons_Info_Array[1]]));
 	}
 }
 
