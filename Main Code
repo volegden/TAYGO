@@ -8255,7 +8255,6 @@ rule("Extra_12: Ashe Low Bob")
 	{
 		Is Button Held(Event Player, Button(Ultimate)) == True;
 		Event Player.Is_Crouch_On == False;
-		Is Dummy Bot(Event Player) == False;
 	}
 
 	actions
@@ -8268,7 +8267,11 @@ rule("Extra_12: Ashe Low Bob")
 		Set Ultimate Charge(Event Player, 100);
 		Wait(0.01, Ignore Condition);
 		Press Button(Event Player, Button(Ultimate));
-		Set Max Health(Event Player, Event Player.Player_Modification[4]);
+		If(Is Dummy Bot(Event Player));
+			Set Max Health(Event Player, 10000);
+		Else;
+			Set Max Health(Event Player, Event Player.Player_Modification[4]);
+		End;
 		Wait(0.01, Ignore Condition);
 		Heal(Event Player, Null, 10000);
 	}
