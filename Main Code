@@ -8003,6 +8003,7 @@ rule("Extra_4 - Mercy sleep darts")
 	{
 		(Event Player.High_Rank || Event Player.Mod_Rank) == True;
 		Event Ability == Button(Primary Fire);
+		Is Dummy Bot(Event Player) == False;
 	}
 
 	actions
@@ -9000,6 +9001,7 @@ rule("Moe-Bot Behavior")
 	actions
 	{
 		Wait(0.1, Ignore Condition);
+		Abort If(Not(Custom String("{0}", Event Player) == Custom String("Moe Szyslak")));
 		Start Facing(Event Player, Update Every Frame(Direction Towards(Eye Position(Event Player), 
 			Eye Position(Closest Player To(Event Player, All Teams)))),
 			300, To World, Direction and Turn Rate);
@@ -9009,7 +9011,6 @@ rule("Moe-Bot Behavior")
 		Set Knockback Received(Event Player, 0);
 		Start Heal Over Time(Event Player, Null, 9999, 500);
 		Global.Moe_Position = Vector(0,100,0);
-		Abort If(Not(Custom String("{0}", Event Player) == Custom String("Moe Szyslak")));
 		Event Player.Full_Protection = True;
 		Event Player.Auto_Respawn = False;
 		Wait(0.1, Ignore Condition);
@@ -9219,6 +9220,7 @@ rule("Moe-Bot Aggro")
 			Set Ultimate Charge(Event Player, 100);
 			Press Button(Event Player, Button(Ultimate));
 			Press Button(Event Player, Button(Primary Fire));
+			Set Weapon(Event Player, 2);
 			Wait(0.01, Ignore Condition);
 			Start Holding Button(Event Player, Button(Primary Fire));
 			While(Is Using Ultimate(Event Player));
