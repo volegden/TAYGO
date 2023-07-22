@@ -8255,6 +8255,7 @@ rule("Extra_12: Ashe Low Bob")
 	{
 		Is Button Held(Event Player, Button(Ultimate)) == True;
 		Event Player.Is_Crouch_On == False;
+		Is Dummy Bot(Event Player) == False;
 	}
 
 	actions
