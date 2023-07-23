@@ -1229,7 +1229,8 @@ rule ("Custom nameplates list")
                 		),
 			Array(Custom String("Moistra"), 
                 		Custom String("Rainbow"),
-                		Custom String("{0}  Requiem 不   {0}", Ability Icon String(Hero(Reaper), Button(Ultimate))),
+						Custom String("{0}  Moistra 不  {0}", Ability Icon String(Hero(Moira), Button(Ultimate))),
+                		Custom String("{0}  Requiem 不  {0}", Ability Icon String(Hero(Reaper), Button(Ultimate))),
 						Custom String("{0}  Mysterious 不  {0}", Ability Icon String(Hero(Lifeweaver), Button(Ultimate)))
                 		),
 			Array(Custom String("wheyfuwu"), 
@@ -1342,7 +1343,7 @@ rule ("Custom nameplates list")
 				),
 			Array(Custom String("Lunar"), 
 			 	Custom Color(255, 148, 250, 255),
-				Custom String("{0} Speedy's huggable Mercy {0}", Ability Icon String(Hero(Mercy), Button(Ultimate))), 
+				Custom String("{0} Goddess Hylia {0}", Ability Icon String(Hero(Mercy), Button(Ultimate))), 
 				Custom String("{0} Princess of Harmony {0}", Ability Icon String(Hero(Mercy), Button(Ability 2))), 
 				Custom String("{0} queen of the butterfly {0}", Ability Icon String(Hero(Mercy), Button(Ultimate)))
 				),
@@ -1370,6 +1371,7 @@ rule ("Custom nameplates list")
 			Array(Custom String("Brat"), 
 			 	Custom String("Rainbow"),
 				Custom String("⁂ LƐafa's biggest fan ⁂"), 
+				Custom String("{0} Ｃｈａｒｉｓｍａｔｉｃａｌｌｙ    Ｄｅｐｒｅｓｓｅｄ  {0}", Icon String(Moon)),  
 				Custom String("♡ Sad E-Kitten ♡")
 				), 
 			Array(Custom String("ShellBebop"), 
@@ -1448,9 +1450,10 @@ rule ("Custom nameplates list")
 				Custom String("{0} Ѕ Μ Θ L F R Ψ ' Ѕ  C Δ R R Ψ {0}", Ability Icon String(Hero(Pharah), Button(Ultimate)))
 				    ),
 			Array(Custom String("DJSmolfry"), 
-				Custom Color(0, 255, 255, 255),
-				Custom String("{0}  ☆ Ѕ Μ Θ L R Δ D I Θ ☆  {0}", Ability Icon String(Hero(Symmetra), Button(Ability 1))), 
-				Custom String("{0}  ☆ Ѕ L Δ F ' Ѕ  Ƥ Θ C Ƙ Σ Ƭ ☆   {0}", Ability Icon String(Hero(Symmetra), Button(Ability 2)))
+				Custom String("Rainbow"),
+				Custom String("{0}  ƐÏ3 Ѕ Μ Θ L R Δ D I Θ  ƐÏ3 {0}", Hero Icon String(Hero(Lúcio))),
+				Custom String("{0}  † Ѕ L Δ F ' Ѕ  Ƥ Θ C Ƙ Σ Ƭ †  {0}", Hero Icon String(Hero(Mercy))),
+				Custom String("{0}  ☆  Ѕ Ψ Μ Μ Σ Ƭ R Δ  Ѕ Ψ Μ Ƥ ☆  {0}", Hero Icon String(Hero(Symmetra)))
 				),
 			Array(Custom String("Reapersimp"), 
 				Custom Color(255, 255, 178, 255),
@@ -1657,12 +1660,12 @@ rule ("Custom nameplates list")
 				),
 			Array(Custom String("Dubbie7"), 
 				Custom String("Rainbow"),
-				Custom String("{0}☆  D u b s t a r  ☆{0}", Ability Icon String(Hero(Kiriko), Button(Ultimate))),
+				Custom String("{0} ☆  D u b s t a r  ☆ {0}", Ability Icon String(Hero(Kiriko), Button(Ultimate))),
 				Custom String("{0}  Dubbie the dummie  {0}", Ability Icon String(Hero(Roadhog), Button(Ultimate)))
 				), 
 			Array(Custom String("MOOOUSH"), 
 				Custom Color(194, 151, 194, 255),
-				Custom String("{0} (っ--)っ {0}", Ability Icon String(Hero(Mercy), Button(Jump))), 
+				Custom String("{0} (っ--)っ {0}", Icon String (Moon)), 
 				Custom String("{0} ＴＯＰ ５００ ＢＲＯＮＺＥ {0}", Ability Icon String(Hero(Genji), Button(Primary Fire)))
 				),
 			Array(Custom String("Zxtyi"), 
@@ -1694,7 +1697,7 @@ rule ("Custom nameplates list")
 				),
 			Array(Custom String("fenmorre"), 
 				Custom Color(255, 39, 12, 255),
-				Custom String("{0} ♡ #1 QUEST'S DISCORD KITTEN ♡ {0}", Ability Icon String(Hero(Mercy), Button(Ultimate))), 
+				Custom String("{0} ♡ LightMist / Maple Kisser ♡ {0}", Ability Icon String(Hero(Mercy), Button(Ultimate))), 
 				Custom String("{0}  Alexithymic Heart {0} ", Ability Icon String(Hero(Widowmaker), Button(Ability 2))), 
 				Custom String("{0} Chronically Ill Artist, Writer & Hater {0}", Ability Icon String(Hero(Reaper), Button(Ultimate)))
 				),
@@ -1711,7 +1714,7 @@ rule ("Custom nameplates list")
 				Custom String("{0} Pumpkin {0}", Ability Icon String(Hero(Cassidy), Button(Ultimate)))
 				),
 			Array(Custom String("PŏŏkiƐ"),
-				Custom Color(97, 207, 126, 255), 
+				Custom Color(255, 171, 128, 255), 
 				Custom String("{0} The Cowboy Held Hostage {0}", Ability Icon String(Hero(Hanzo), Button(Primaryfire))), 
 				Custom String("{0} . ˚ · (ㅅ´ ˘ `)  ˚ . {0}", Ability Icon String(Hero(Lifeweaver), Button(Primaryfire))), 
 				Custom String("{0} Cupid's Arrow {0}", Ability Icon String(Hero(Cassidy), Button(Ultimate)))
@@ -1723,7 +1726,8 @@ rule ("Custom nameplates list")
 				),
 			Array(Custom String("Colestar24"), 
 				Custom String("Rainbow"),
-				Custom String("{0}  P U P P Y  {0}", Ability Icon String(Hero(Cassidy), Button(Ultimate)))
+				Custom String("{0}  P U P P Y  {0}", Ability Icon String(Hero(Cassidy), Button(Ultimate))),
+				Custom String("{0} (U・ᴥ・U) {0}", Ability Icon String(Hero(Reaper), Button(Ability 1)))
 				),
 			Array(Custom String("YėsNø"), 
 				Custom String("Rainbow"),
@@ -1740,7 +1744,7 @@ rule ("Custom nameplates list")
 				Custom String("{0} セイバー ♡  {0}", Ability Icon String(Hero(Mercy), Button(Jump)))
 				),
 			Array(Custom String("sushiii"), 
-				Custom Color( 255, 233, 250, 255),
+				Custom Color(255, 233, 250, 255),
 				Custom String("{0} sushiii wooshiii {0}", Ability Icon String(Hero(Genji), Button(Ultimate))),
 				Custom String("{0} 鮨 {0}", Ability Icon String(Hero(Ramattra), Button(Ultimate))),
 				Custom String("{0}  ☆ M e r c y  E n j o y e r ☆ {0}", Ability Icon String(Hero(Mercy), Button(Ultimate)))
@@ -1750,6 +1754,12 @@ rule ("Custom nameplates list")
 				Custom String(" ☆ skogaholmslimpa enjoyer ☆ "), 
 				Custom String("{0} ♥ PERSONAL PIKACHU ♥ {0}", Ability Icon String(Hero(D.Va), Button(Ultimate))), 
 				Custom String("{0} If lost, please return to Yohakzu {0}", Ability Icon String(Hero(Lifeweaver), Button(Primaryfire)))
+				),
+			Array(Custom String("Yohakzu"), 
+				Custom Color(90, 0, 140, 255),
+				Custom String(" ☆ WoW lore nerd ☆ "), 
+				Custom String("{0} Yoda Milk {0}", Ability Icon String(Hero(Lúcio), Button(Ultimate))), 
+				Custom String("♣ If lost, please return to Yeraei ♣")
 				),
 			Array(Custom String("MissImmortal"), 
 				Color(Red),
@@ -2053,7 +2063,7 @@ rule("Listed_Player")
 			Custom String("pkdd"), Custom String("destroy"), Custom String("ĈŖǾĊȌĎĨĿĔ"), Custom String("rule34444"), Custom String("Moon"), Custom String("RvL"), Custom String("MrBBC"), 
 			Custom String("microwave"), Custom String("GhostDog"), Custom String("Yaoiforever"), CUstom String("MaxAttack"), Custom String("Hercules"), Custom String("Tiggles145"), 
 			Custom String("yVexyy"), Custom String("Dreamsexual"), Custom String("pumpedherass"), Custom String("Monke"), Custom String("Icéy"), Custom String("Cheeseman270"),
-			Custom String("Lixr"), Custom String("SloppyChops"), Custom String("IHateŃ1ggęrs"), Custom String("Randomm"));
+			Custom String("Lixr"), Custom String("SloppyChops"), Custom String("IHateŃ1ggęrs"), Custom String("Randomm"), Custom String("angel"), Custom String("M7DR"));
 	}
 }
 
