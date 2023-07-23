@@ -249,6 +249,12 @@ settings
 				No Ammunition Requirement: On
 			}
 
+			Wrecking Ball
+			{
+				Adaptive Shield Cooldown Time: 20%
+				Grappling Claw Cooldown Time: 10%
+			}
+
 			Zarya
 			{
 				Ultimate Generation - Combat Graviton Surge: 50%
@@ -8516,6 +8522,29 @@ rule("Extra_21: Screw Mei")
 		Wait Until(Hero Of(Event Player) != Hero(Mei), 9999);
 		Set Ability 1 Enabled(Event Player, True);
 		Set Ability 2 Enabled(Event Player, True);
+	}
+}
+
+rule("Extra_22: Ball Bounce")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Wrecking Ball;
+	}
+
+	conditions
+	{
+		(Event Player.High_Rank || Event Player.Mod_Rank) == True;
+		Is Using Ability 2(Event Player) == True;
+		Is In Alternate Form(Event Player) == True;
+		Is On Ground(Event Player) == True;
+	}
+
+	actions
+	{
+		Apply Impulse(Event Player, Vector(0, 1, 0), 20, To World, Incorporate Contrary Motion);
 	}
 }
 
