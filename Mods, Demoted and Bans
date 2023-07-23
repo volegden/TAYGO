@@ -38,7 +38,7 @@ rule("Listed_Player")
 			Custom String("AvatarGod"), Custom String("rin"), Custom String("kosmos"), Custom String("AŊÍKÍ"), Custom String("EvilKitten"),
 			Custom String("HYUA"), Custom String("fa89"), Custom String("Lunar"), Custom String("ThatAspect"), Custom String("PaulineP"), 
 			Custom String("DȈŦǾ"), Custom String("GhostPunch"), Custom String("Atlas"), Custom String("Vigil"), Custom String("Dehya"),
-			Custom String("lana"), Custom String("mourne"), Custom String("Erin"), Custom String("BoraGone"), Custom String("FaLLz"), Custom String("ugh"), 
+			Custom String("lana"), Custom String("mourne"), Custom String("Erin"), Custom String("BoraGone"), Custom String("ugh"), 
 			Custom String("Akaza"), Custom String("Catgirl"), Custom String("x7eVeN"), Custom String("BƑG"), Custom String("MopuD"), Custom String("ori6072"), 
 			Custom String("OperativeLyn"), Custom String("froggygutz"), Custom String("Ghøst"), Custom String("TURBOMURO"), Custom String("Mxth"), 
 			Custom String("Dashy"), Custom String("Núgget"), Custom String("Blueberrycow"), Custom String("bbĸ"), Custom String("lostsektor"),
