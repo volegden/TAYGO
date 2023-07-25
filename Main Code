@@ -32,6 +32,8 @@ settings
 		Hybrid
 		{
 			Game Mode Start: Manual
+			Capture Speed Modifier: 500%
+			Payload Speed Modifier: 250%
 
 			enabled maps
 			{
