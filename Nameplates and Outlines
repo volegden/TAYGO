@@ -368,7 +368,7 @@ rule ("Custom nameplates list")
 				),
 			Array(Custom String("Fære"), 
 				Custom Color(246, 195, 247, 255),
-				Custom String("♥︎ Fairy ♥︎"), 
+				Custom String("{0} If Karma doesn't come after you, I will {0}", Ability Icon String(Hero(Widowmaker), Button(Ability 2))),
 				Custom String("☆ 8 ☆"), 
 				Custom String("{0} Spirit Blossom  {0}", Ability Icon String(Hero(Lifeweaver), Button(Primaryfire)))
 				),
@@ -426,8 +426,9 @@ rule ("Custom nameplates list")
 				Custom String("• Eat Nugs Not Drugs •")
 				),
 			Array(Custom String("Akaza"), 
-				Color(SkyBlue),
-				Custom String("♥☆ AKAZA ☆♥")
+				Custom Color(140, 49, 230, 255),
+				Custom String("♥☆ AKAZA ☆♥"),
+				Custom String("{0} Use code 'Artist' in Rec Room! {0}", Ability Icon String(Hero(Hanzo), Button(Ultimate)))
 				), 
 			Array(Custom String("Catgirl"), 
 				Custom Color(242, 135, 190, 255),
@@ -515,7 +516,7 @@ rule ("Custom nameplates list")
 				Custom String("♥ Zax ♥")
 				), 
 			Array(Custom String("PapaRomeo"), 
-				Custom Color(43, 146, 14, 255),
+				Custom Color(1, 173, 71, 255),
 				Custom String("{0} Ｍａｔｃｈａ　Ｔｅａ {0}", Ability Icon String(Hero(Ana), Button(Ability 2)))
 				), 
 			Array(Custom String("MopuD"), 
@@ -687,7 +688,8 @@ rule ("Custom nameplates list")
 				),
 			Array(Custom String("Żmij"), 
 				Custom Color(128, 0, 0, 255),
-				Custom String("< Viper that doesn't bite >")
+				Custom String("< Viper that doesn't bite >"),
+                Custom String("† Darth Maul Simp †")
 				),
 			Array(Custom String("NotForYou"), 
 				Custom Color(222, 159, 269, 255),
@@ -791,8 +793,9 @@ rule ("Custom nameplates list")
 				Custom String("{0} Sigma Enjoyer {0}", Ability Icon String(Hero(Sigma), Button(Ultimate)))
 				), 
 			Array(Custom String("Bendude1000"), 
-				Color(Purple),
-				Custom String(" R A T ")
+				Color(Black),
+				Custom String(" R A T "),
+				Custom String("Dungeon Master")
 				),
 			Array(Custom String("Aki"), 
 				Custom Color(255, 0, 0, 255),
