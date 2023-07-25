@@ -32,7 +32,7 @@ rule("Listed_Player")
 			Custom String("ǀƑIREǀ"), Custom String("Larfleeze"), Custom String("ItsRui"), Custom String("TEAMEPǃC"), 
 			Custom String("Minee"), Custom String("CatToast"), Custom String("Joyy"), Custom String("TbyCoLive"), 
 			Custom String("Ciri"), Custom String("Fuji"), Custom String("AsyCorn"), Custom String("DaisyMoo"),
-			Custom String("Sadness"), Custom String("SpedySpedBoy"), Custom String("Alex"), Custom String("Frikadelle"), 
+			Custom String("Sadness"),  Custom String("Alex"), Custom String("Frikadelle"), 
 			Custom String("Kiwizzlee"), Custom String("Cinderhardt"), Custom String("BStray"), Custom String("InMoonlight"),
 			Custom String("Boney"), Custom String("tsunde"), Custom String("sonwukong"), Custom String("solevaya"), 
 			Custom String("AvatarGod"), Custom String("rin"), Custom String("kosmos"), Custom String("AŊÍKÍ"), Custom String("EvilKitten"),
@@ -50,7 +50,7 @@ rule("Listed_Player")
 			Custom String("RiwaChan"), Custom String("현대적인쌍봉낙타"), Custom String("Colestar24"), Custom String("YunaOnFire"),
 			Custom String("FrostSlvt"), Custom String("NotForYou"), Custom String("fenmorre"), Custom String("Edeeeeen"), Custom String("Eosia"), 
 			Custom String("Hestia"), Custom String("sushiii"), Custom String("AMATERASU"), Custom String("かなかけ"), Custom String("Tedz"), Custom String("Lunarion"),
-			Custom String("Asta"), Custom String("PŏŏkiƐ"), Custom String("Yohakzu"), Custom String("Ðårk"), Custom String("FactAttend"), 
+			Custom String("Asta"), Custom String("PŏŏkiƐ"), Custom String("Yohakzu"), Custom String("Ðårk"), Custom String("FactAttend"), Custom String("SpƐdy"),
 			Custom String("Nickyunited7"), Custom String("Kazuma"), Custom String("Kazumi"), Custom String("Jermuseppo"), Custom String("Redacted"));
 			
 		
@@ -59,7 +59,7 @@ rule("Listed_Player")
 				Custom String("SHINIxMIZU"), Custom String("Snaiy"), Custom String("KadenLee25"), Custom String("Darling"), Custom String("Nicolol123"), Custom String("CATMOM"), 
 				Custom String("Daisy"), Custom String("UKGamer001"), Custom String("Daniel"), Custom String("Фрейя"), Custom String("HerrBob"), Custom String("AKA"), Custom String("KQOP"), 
 				Custom String("Sazane"), Custom String("ZN1G"), Custom String("Xendosin"), Custom String("B6re8"), Custom String("Maki "), Custom String("DojaCat"), Custom String("naym"), 
-				Custom String("Yaoiforever"), Custom String("Snowylina"), Custom String("Prehtzel"), Custom String("ItzBeckyy"), Custom String("vale"));
+				Custom String("Yaoiforever"), Custom String("Snowylina"), Custom String("Prehtzel"), Custom String("ItzBeckyy"), Custom String("vale"), Custom String("SpedySpedBoy"));
 		
 		"Automatic Ban"
 		Global.Perma_Banned = Array(
