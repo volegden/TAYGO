@@ -339,7 +339,7 @@ rule ("Custom nameplates list")
 				Custom String("{0} 仮面ライダー {0} ", Ability Icon String(Hero(Kiriko), Button(Ultimate))), 
         		Custom String("{0} Guacamole Gamer Fart Enjoyer {0}", Ability Icon String(Hero(Ramattra), Button(Ability1)))
 				),
-			Array(Custom String("Lunar"), 
+			Array(Custom String("Lünår"), 
 			 	Custom Color(255, 148, 250, 255),
 				Custom String("{0} Goddess Hylia {0}", Ability Icon String(Hero(Mercy), Button(Ultimate))), 
 				Custom String("{0} Princess of Harmony {0}", Ability Icon String(Hero(Mercy), Button(Ability 2))), 
@@ -420,10 +420,10 @@ rule ("Custom nameplates list")
 				Custom String("•  LOBBY HOPPER  •"), 
 				Custom String("☆  WAVE + SPRAY  ☆")
 				),
-			Array(Custom String("Nugget"), 
-				Color(Orange),
-				Custom String("• Nugs And Kisses •"), 
-				Custom String("• Eat Nugs Not Drugs •")
+			Array(Custom String("Núgget"), 
+				Custom Color(255, 130, 0, 255),
+				Custom String("• Núgs And Kisses •"), 
+				Custom String("• Eat Núgs Not Drugs •")
 				),
 			Array(Custom String("Akaza"), 
 				Custom Color(140, 49, 230, 255),
@@ -446,12 +446,6 @@ rule ("Custom nameplates list")
 				Custom String("{0} Meow {0}", Ability Icon String(Hero(Mercy), Button(Ultimate))), 
 				Custom String("{0} Piplup on fire {0}", Ability Icon String(Hero(Pharah), Button(Ability 1)))
 				),
-        	Array(Custom String("YunaOnFire"), 
-				Custom String("Rainbow"),
-				Custom String("{0} † Gwen Stacy †   {0}", Ability Icon String(Hero(Lifeweaver), Button(Primary Fire))), 
-            			Custom String("{0} 猫好き {0}", Ability Icon String(Hero(Lifeweaver), Button(Primaryfire))),
-                		Custom String("{0} • D A N C E R  SP O N S O R E D  B Y  R E D B U L L •  {0}", Ability Icon String(Hero(D.Va), Button(Ultimate)))
-				), 
 			Array(Custom String("Slafii"), 
 				        Custom String("Fading"), 
                 	    0,0,0, 136,0,0,
@@ -758,7 +752,7 @@ rule ("Custom nameplates list")
 				),
 			Array(Custom String("CyberSentai"), 
 				Custom String("Rainbow"),
-       			Custom String("{0} CERTIFIED ANKLE BITER  {0}", Icon String(Warning)), 
+       			Custom String("{0} ♡ Ɛ r o s Ƒ a i r y ♡  {0}", Ability Icon String(Hero(Mercy), Button(Ability 1))),
 				Custom String("{0} Ｃｈａｒｉｓｍａｔｉｃａｌｌｙ    Ｄｅｐｒｅｓｓｅｄ  {0}", Icon String(Moon)),  
 				Custom String("{0} セイバー ♡  {0}", Ability Icon String(Hero(Mercy), Button(Jump)))
 				),
@@ -793,7 +787,7 @@ rule ("Custom nameplates list")
 				Custom String("{0} Sigma Enjoyer {0}", Ability Icon String(Hero(Sigma), Button(Ultimate)))
 				), 
 			Array(Custom String("Bendude1000"), 
-				Color(Black),
+				Custom Color(195, 177, 225, 255),
 				Custom String(" R A T "),
 				Custom String("Dungeon Master")
 				),
