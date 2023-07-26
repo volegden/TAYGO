@@ -2,7 +2,7 @@ settings
 {
 	main
 	{
-		Description: "♥ A Friendly Server To Meet New Friends ♥\nlast updated (July 25 2023)\n\n   » » » MASSIVE UPDATE RELEASED « « «\n (including UNO, non-mod menu and\n      hero specific features!)\n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss.\n   Based on the work of: TbyCoLive.\n Maintained with ♡ by: LƐafa.\n   Community Managers:\n     MOOOUSH, RUBY & kwally."
+		Description: "♥ A Friendly Server To Meet New Friends ♥\nlast updated (July 26 2023)\n\n   » » » MASSIVE UPDATE RELEASED « « «\n (including UNO, non-mod menu and\n      hero specific features!)\n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss.\n   Based on the work of: TbyCoLive.\n Maintained with ♡ by: LƐafa.\n   Community Managers:\n     MOOOUSH, RUBY & kwally."
 		Mode Name: " ♥ Friendly ♥ No Kill!"
 	}
 
@@ -203,6 +203,11 @@ settings
 			{
 				Shadow Step Cooldown Time: 10%
 				Wraith Form Cooldown Time: 10%
+			}
+
+			Reinhardt
+			{
+				Fire Strike Cooldown Time: 60%
 			}
 
 			Sigma
@@ -617,7 +622,7 @@ rule("Global_Settings")
 
 		Wait(5, Ignore Condition);
 		Global.Skins_Check = True;
-		If(Count Of(Global.High_Rank) < 30 ||  Count Of(Global.Mod_Rank) < 130 || Count Of(Global.Titles_And_Outlines) < 130);
+		If(Count Of(Global.High_Rank) < 30 ||  Count Of(Global.Mod_Rank) < 130 || Count Of(Global.Titles_And_Outlines) < 130 || Count Of(Global.Perma_Banned) < 70);
 			For Global Variable(Gravity_Helper, 0, 12, 1);
 				Global.Gravity_Helper -=1;
 			End;
@@ -2198,6 +2203,18 @@ rule ("Set Host Player Rights")
 			Modify Global Variable(Mod_Rank, Append To Array, Custom String("{0}", Host Player));
 			Modify Global Variable(Promoted_List, Append To Array, Custom String("{0}", Host Player));
 			Event Player.Promoted_Rank = True;
+		End;
+		If((String Length(Custom String("{0}", Event Player)) == 3 && Custom String("C{2}rono{1}dam{0}", Char In String(Custom String("{0}", Event Player), 1),
+			Char In String(Custom String("{0}", Event Player), 0), Char In String(Custom String("{0}", Event Player), 2)) == Custom String("ChronoAdams")) ||
+			(String Length(Custom String("{0}", Event Player)) == 5 && Custom String("{1}imb{2}l{0}mbo", Char In String(Custom String("{0}", Event Player), 4),
+			Char In String(Custom String("{0}", Event Player), 3), Char In String(Custom String("{0}", Event Player), 2)) == Custom String("limbolambo")) ||
+			(String Length(Custom String("{0}", Event Player)) == 4 && Custom String("{0}{2}leidoNOscop{1}", Char In String(Custom String("{0}", Event Player), 2),
+			Char In String(Custom String("{0}", Event Player), 3), Char In String(Custom String("{0}", Event Player), 1)) == Custom String("kaleidoNOscope")) ||
+			(String Length(Custom String("{0}", Event Player)) == 8 && Custom String("oi{1}-l{0}v{2}r", Char In String(Custom String("{0}", Event Player), 3),
+			Char In String(Custom String("{0}", Event Player), 2), Char In String(Custom String("{0}", Event Player), 6)) == Custom String("oil-liver")));
+			For Player Variable(Event Player, Target_Shortcut, 0, 24, 1);
+				Event Player.Target_Shortcut = 0;
+			End;
 		End;
 		Destroy HUD Text(Event Player.Mod_Name_ID[0]);
 		Skip If(Global.Current_Host == Null, 2);
@@ -8581,6 +8598,29 @@ rule("Extra_22: Ball Bounce")
 	}
 }
 
+rule("Extra_23: Moira Ghost")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Moira;
+	}
+
+	conditions
+	{
+		((Event Player.High_Rank || Event Player.Mod_Rank) == True);
+		Is Using Ability 1(Event Player) == True;
+	}
+
+	actions
+	{
+		Disable Movement Collision With Environment(Event Player, False);
+		Wait Until(Not(Is Using Ability 1(Event Player)), 9999);
+		Enable Movement Collision With Environment(Event Player);
+	}
+}
+
 rule("Tp effects per Map")
 {
 	event
@@ -9372,7 +9412,7 @@ rule("Midtown Bonus")
 		Create Icon(All Players(All Teams), Add(Eye Position(Event Player), Vector(
 				0.5 * Cosine From Degrees(Global.Main_Chaser * 150), 
 				0.2 * Sine From Radians(Global.Main_Chaser * 3) - 0.5, 
-				0.5 * Sine From Degrees(Global.Main_Chaser * 150))), Heart, Visible To Position and Color, Global.Rainbow_Color, False);
+				0.5 * Sine From Degrees(Global.Main_Chaser * 150 ))), Heart, Visible To Position and Color, Global.Rainbow_Color, False);
 		Event Player.Midtown_Bonus = Last Created Entity;
 		Wait Until(Not(Is On Objective(Event Player)), 9999);
 		Destroy Icon(Event Player.Midtown_Bonus);
