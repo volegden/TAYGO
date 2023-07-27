@@ -29,15 +29,7 @@ rule ("Custom nameplates list")
 				Custom String("{0}  TO THE MAX  {0}", Ability Icon String(Hero(Sombra), Button(Ultimate))),
 				Custom String("¡Hola! ¿Qué onda? {0}", Hero Icon String(Hero(Sombra))),
 				Custom String("Custom String(\"Insert 3rd name\")")
-                	), 
-			Array(Custom String("LƐafa"), 
-                		Custom Color(255, 63, 122, 255),
-                		Custom String("{0} Ｃｈｅｒｒｙ　Ｂｌｏｓｓｏｍ {0}", Ability Icon String(Hero(Lifeweaver), Button(Primaryfire)))
-				),
-			Array(Custom String("ORCHȊD"), 
-                		Custom Color(255, 63, 122, 255),
-                		Custom String("{0} Ｃｈｅｒｒｙ　Ｂｌｏｓｓｏｍ {0}", Ability Icon String(Hero(Lifeweaver), Button(Primaryfire)))
-				),
+                	),
 			Array(Custom String("Gregi"), 
                 		Custom String("Rainbow"),
                 		Custom String("♥ ★ Baby D.va ★ ♥")
@@ -660,9 +652,10 @@ rule ("Custom nameplates list")
 				Custom String("♥ Wrathful One ♥")
 				),
 			Array(Custom String("현대적인쌍봉낙타"), 
-				Custom String("Rainbow"),
-				Custom String("{0}  ファウスト  {0}", Ability Icon String(Hero(Mercy), Button(Ultimate))),
-				Custom String("{0}  INTP  {0}", Ability Icon String(Hero(Mercy), Button(Ultimate)))
+				Custom Color(243, 214, 223, 255),
+				Custom String("{0}  ファウスト  {0}", Ability Icon String(Hero(Kiriko), Button(Ability 1))),
+				Custom String("† INTP †"),
+				Custom String("{0}  憂鬱  {0}", Ability Icon String(Hero(Ramattra), Button(Ultimate)))
 				),
 			Array(Custom String("Dubbie7"), 
 				Custom String("Rainbow"),
@@ -675,9 +668,9 @@ rule ("Custom nameplates list")
 				Custom String("{0} ＴＯＰ ５００ ＢＲＯＮＺＥ {0}", Ability Icon String(Hero(Genji), Button(Primary Fire)))
 				),
 			Array(Custom String("Zxtyi"), 
-				Custom String("Rainbow"),
+				Color(Black),
+				Custom String("{0} マルチェロ {0}", Ability Icon String(Hero(Sombra), Button(Ability 1))), 
 				Custom String("{0} CYBER, IM NOT A FEM BOY {0}", Ability Icon String(Hero(Genji), Button(Ultimate))), 
-				Custom String(" Z X T Y I "), 
 				Custom String("{0} Ｃｈａｒｉｓｍａｔｉｃａｌｌｙ    Ｄｅｐｒｅｓｓｅｄ {0}", Icon String(Spade))
 				),
 			Array(Custom String("Żmij"), 
@@ -752,7 +745,7 @@ rule ("Custom nameplates list")
 				),
 			Array(Custom String("CyberSentai"), 
 				Custom String("Rainbow"),
-       			Custom String("{0} ♡ Ɛ r o s Ƒ a i r y ♡  {0}", Ability Icon String(Hero(Mercy), Button(Ability 1))),
+       			Custom String("{0} ♡ Ɛ r o s   Ƒ a i r y ♡  {0}", Ability Icon String(Hero(Mercy), Button(Ultimate))),
 				Custom String("{0} Ｃｈａｒｉｓｍａｔｉｃａｌｌｙ    Ｄｅｐｒｅｓｓｅｄ  {0}", Icon String(Moon)),  
 				Custom String("{0} セイバー ♡  {0}", Ability Icon String(Hero(Mercy), Button(Jump)))
 				),
@@ -808,7 +801,8 @@ rule ("Custom nameplates list")
 			Array(Custom String("xMumu"), 
 				Color(Rose),
 				Custom String("{0}  ♥ A1IZEN ENJOYER ♥   {0}", Ability Icon String(Hero(Ramattra), Button(Ultimate))), 
-				Custom String("{0}  ★ ♥ PlayGround Bride ♥ ★ {0}", Ability Icon String(Hero(Ramattra), Button(Ultimate)))
+				Custom String("{0}  ★ ♥ PlayGround Bride ♥ ★ {0}", Ability Icon String(Hero(Ramattra), Button(Ultimate))),
+                Custom String("♬ tahtahtahtahtahtahtahtahtahtahtahtahtahtahtahtahtah ♬")
 				),
 			Array(Custom String("Triin1ty"), 
 				Custom String("Rainbow"),
