@@ -56,7 +56,7 @@ rule("Listed_Player")
 		
 		"Demoted"
 		Global.Demoted = Array(Custom String("Eggman"), Custom String("Nef"), Custom String("Kêñ"), Custom String("LeMix"), Custom String("Mikasa"), Custom String("godfaceim"), 
-				Custom String("SHINIxMIZU"), Custom String("Snaiy"), Custom String("KadenLee25"), Custom String("Darling"), Custom String("Nicolol123"), Custom String("CATMOM"), 
+				Custom String("SHINIxMIZU"), Custom String("Snaiy"), Custom String("KadenLee25"), Custom String("BabyDarl"), Custom String("Nicolol123"), Custom String("CATMOM"), 
 				Custom String("Daisy"), Custom String("UKGamer001"), Custom String("Daniel"), Custom String("ZN1G"), Custom String("Xendosin"), Custom String("B6re8"), Custom String("Maki"), 
 				Custom String("DojaCat"), Custom String("angel"), Custom String("Yaoiforever"), Custom String("Snowylina"), Custom String("Prehtzel"), Custom String("ItzBeckyy"), 
 				Custom String("vale"), Custom String("Genrusty"), Custom String("Bunnyǃ"), Custom String("Jeanne"), Custom String("Devil"), Custom String("Rey"));
