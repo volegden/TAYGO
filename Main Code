@@ -22,6 +22,10 @@ settings
 	{
 		Capture the Flag
 		{
+			Flag Carrier Abilities: All
+			Flag Dropped Lock Time: 5.0
+			Flag Return Time: 4.0
+			Flag Score Respawn Time: 20.0
 
 			enabled maps
 			{
@@ -133,6 +137,7 @@ settings
 			Echo
 			{
 				Flight Cooldown Time: 0%
+				Focusing Beam Cooldown Time: 15%
 			}
 
 			Genji
@@ -416,7 +421,7 @@ variables
 		80: No_CD
 		81: Extra8_Timer
 		82: Full_Protection
-		83: Extra10_ID
+		83: ExtraHeart_ID
 		84: Extra10_Player
 		85: Extra14_ID
 		86: Comms_Target
@@ -4055,43 +4060,45 @@ rule("Mode_05 - De-Elitate Outlines")
 	{
 		Event Player.Signal = False;
 		If(Is Button Held(Event Player, Button(Primary Fire)));
+			Event Player.Target_Shortcut = Player Closest To Reticle(Event Player, All Teams);
 			Abort If((Event Player.High_Rank || Event Player.Mod_Rank) == False);
-			Abort If(Array Contains(Global.High_Rank, Custom String("{0}", Player Closest To Reticle(Event Player, All Teams))) ||
-				Player Closest To Reticle(Event Player, All Teams).Full_Protection);
-			Abort If(Is Dummy Bot(Player Closest To Reticle(Event Player, All Teams)));
-			If(Player Closest To Reticle(Event Player, All Teams).Is_Title_Given);
-				Small Message(Event Player, Custom String("  Can't change outline of {0}", Player Closest To Reticle(Event Player, All Teams)));
+			Abort If(Array Contains(Global.High_Rank, Custom String("{0}", Event Player.Target_Shortcut)) ||
+				Event Player.Target_Shortcut.Full_Protection);
+			Abort If(Is Dummy Bot(Event Player.Target_Shortcut));
+			If(Event Player.Target_Shortcut.Is_Title_Given);
+				Small Message(Event Player, Custom String("  Can't change outline of {0}", Event Player.Target_Shortcut));
 				Abort;
 			End;
-			Player Closest To Reticle(Event Player, All Teams).Regular_Player_Has_Title = True;
-			Disable Nameplates(Player Closest To Reticle(Event Player, All Teams), All Players(All Teams));
-			Destroy In-World Text(Player Closest To Reticle(Event Player, All Teams).M32_Players_Nameplate);
+			Event Player.Target_Shortcut.Regular_Player_Has_Title = True;
+			Disable Nameplates(Event Player.Target_Shortcut, All Players(All Teams));
+			Destroy In-World Text(Event Player.Target_Shortcut.M32_Players_Nameplate);
 			Wait(0.050, Ignore Condition);
-			Player Closest To Reticle(Event Player, All Teams).NamesAndOutlines_Colors_Selector = Event Player.NamesAndOutlines_Colors_Selector;
+			Event Player.Target_Shortcut.NamesAndOutlines_Colors_Selector = Event Player.NamesAndOutlines_Colors_Selector;
 			Create In-World Text(Filtered Array(All Players(All Teams), Current Array Element.Is_Crouch_On == False), Custom String("{0}",
-				Player Closest To Reticle(Event Player, All Teams)), Evaluate Once(Player Closest To Reticle(Event Player, All Teams)), 0.980,
-				Clip Against Surfaces, Visible To and Position, Global.Colors[Player Closest To Reticle(Event Player, All Teams).NamesAndOutlines_Colors_Selector], Visible Never);
-			Player Closest To Reticle(Event Player, All Teams).M32_Players_Nameplate = Last Text ID;
-			Start Forcing Player Outlines(Player Closest To Reticle(Event Player, All Teams), Filtered Array(All Players(All Teams), Current Array Element.Outlines_Toggle), True,
+				Event Player.Target_Shortcut), Evaluate Once(Event Player.Target_Shortcut), 0.980,
+				Clip Against Surfaces, Visible To and Position, Global.Colors[Event Player.Target_Shortcut.NamesAndOutlines_Colors_Selector], Visible Never);
+			Event Player.Target_Shortcut.M32_Players_Nameplate = Last Text ID;
+			Start Forcing Player Outlines(Event Player.Target_Shortcut, Filtered Array(All Players(All Teams), Current Array Element.Outlines_Toggle), True,
 				Global.Colors[Event Player.NamesAndOutlines_Colors_Selector], Always);
 			Wait(0.080, Ignore Condition);
-			Small Message(Player Closest To Reticle(Event Player, All Teams), Custom String("  {0} changed your name and outline colors!",
+			Small Message(Event Player.Target_Shortcut, Custom String("  {0} changed your name and outline colors!",
 				Event Player));
 			Wait(0.250, Ignore Condition);
 		Else If(Is Button Held(Event Player, Button(Reload)));
+			Event Player.Target_Shortcut = Player Closest To Reticle(Event Player, All Teams);
 			Abort If((Event Player.High_Rank || Event Player.Mod_Rank) == False);
-			Abort If(Array Contains(Global.High_Rank, Custom String("{0}", Player Closest To Reticle(Event Player, All Teams))) ||
-				Player Closest To Reticle(Event Player, All Teams).Full_Protection);
-			Abort If(Is Dummy Bot(Player Closest To Reticle(Event Player, All Teams)));
-			If(Player Closest To Reticle(Event Player, All Teams).Is_Title_Given);
-				Small Message(Event Player, Custom String("  Can't change outline of {0}", Player Closest To Reticle(Event Player, All Teams)));
+			Abort If(Array Contains(Global.High_Rank, Custom String("{0}", Event Player.Target_Shortcut)) ||
+				Event Player.Target_Shortcut.Full_Protection);
+			Abort If(Is Dummy Bot(Event Player.Target_Shortcut));
+			If(Event Player.Target_Shortcut.Is_Title_Given);
+				Small Message(Event Player, Custom String("  Can't change outline of {0}", Event Player.Target_Shortcut));
 				Abort;
 			End;
-			Player Closest To Reticle(Event Player, All Teams).Regular_Player_Has_Title = False;
-			Stop Forcing Player Outlines(Player Closest To Reticle(Event Player, All Teams), All Players(All Teams));
-			Destroy In-World Text(Player Closest To Reticle(Event Player, All Teams).M32_Players_Nameplate);
-			Player Closest To Reticle(Event Player, All Teams).M32_Players_Nameplate = Null;
-			Enable Nameplates(Player Closest To Reticle(Event Player, All Teams), All Players(All Teams));
+			Event Player.Target_Shortcut.Regular_Player_Has_Title = False;
+			Stop Forcing Player Outlines(Event Player.Target_Shortcut, All Players(All Teams));
+			Destroy In-World Text(Event Player.Target_Shortcut.M32_Players_Nameplate);
+			Event Player.Target_Shortcut.M32_Players_Nameplate = Null;
+			Enable Nameplates(Event Player.Target_Shortcut, All Players(All Teams));
 		Else If(Is Button Held(Event Player, Button(Ultimate)));
 			If(Event Player.Is_Title_Given);
 				Small Message(Event Player, Custom String("  Can't change, you have custom title/outline"));
@@ -5641,13 +5648,13 @@ rule("Mode_20 - Voice_Pitch_Moan_Spam")
 	{
 		Event Player.Signal = False;
 		If(Is Button Held(Event Player, Button(Ultimate)));
-			Abort If(Event Player.Voice_Pitch == 1.500);
+			Abort If(Event Player.Voice_Pitch >= 1.500);
 			Event Player.Voice_Pitch += 0.250;
 			Modify Player Variable(Event Player, Voice_Pitch, Min, 1.500);
 			Start Modifying Hero Voice Lines(Event Player, Event Player.Voice_Pitch, False);
 			Play Effect(All Players(All Teams), Good Pickup Effect, Color(Blue), Event Player, 1);
 		Else If(Is Button Held(Event Player, Button(Ability 2)));
-			Abort If(Event Player.Voice_Pitch == 0.500);
+			Abort If(Event Player.Voice_Pitch <= 0.500);
 			Event Player.Voice_Pitch -= 0.250;
 			Modify Player Variable(Event Player, Voice_Pitch, Max, 0.500);
 			Start Modifying Hero Voice Lines(Event Player, Event Player.Voice_Pitch, False);
@@ -8204,7 +8211,7 @@ rule("Extra_8 - Ana Target Reset")
 	{
 		Stop Chasing Player Variable(Event Player, Extra8_Timer);
 		Stop Modifying Hero Voice Lines(Event Player);
-		If(Event Player.Voice_Pitch != 1);
+		If(Event Player.Voice_Pitch != 1 && Event Player.Voice_Pitch >= 0.5);
 			Start Modifying Hero Voice Lines(Event Player, Event Player.Voice_Pitch, False);
 		End;
 		Event Player.Extra8_Timer = -1;
@@ -8234,9 +8241,9 @@ rule("Extra_9 - GIVE PETS")
 			Vector(If-Then-Else(Hero Of(Event Player) == Hero(Moira), -0.08, 0.18), If-Then-Else(Hero Of(Event Player) == Hero(Moira), -0.4, -0.25), 0), Event Player, Rotation) + 
 			Event Player.Scale_Real * Facing Direction Of(Event Player) * If-Then-Else(Hero Of(Event Player) == Hero(Sombra), 0.6, 1)), 
 			Heart, Visible To and Position, Color(Red), False);
-		Event Player.Extra10_ID = Last Created Entity;
+		Event Player.ExtraHeart_ID = Last Created Entity;
 		Wait Until(!Is Firing Secondary(Event Player) || Is In Alternate Form(Event Player), 9999);
-		Destroy Icon(Event Player.Extra10_ID);
+		Destroy Icon(Event Player.ExtraHeart_ID);
 	}
 }
 
@@ -8618,6 +8625,35 @@ rule("Extra_23: Moira Ghost")
 		Disable Movement Collision With Environment(Event Player, False);
 		Wait Until(Not(Is Using Ability 1(Event Player)), 9999);
 		Enable Movement Collision With Environment(Event Player);
+	}
+}
+
+rule("Extra_25: Echo Heart")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Echo;
+	}
+
+	conditions
+	{
+		Is Using Ability 2(Event Player) == True;
+	}
+
+	actions
+	{
+		Create Icon(All Players(All Teams), Update Every Frame(Add(Eye Position(Event Player), 
+			Event Player.Scale_Real * Facing Direction Of(Event Player) *
+			Modulo(Global.Main_Chaser * Distance Between(Ray Cast Hit Position(Eye Position(Event Player), Eye Position(Event Player) + Facing Direction Of(Event Player) * 16 * Event Player.Scale_Real, 
+				All Players(All Teams), Event Player, True), Eye Position(Event Player)) * 5, 
+				Distance Between(Ray Cast Hit Position(Eye Position(Event Player), Eye Position(Event Player) + Facing Direction Of(Event Player) * 16 * Event Player.Scale_Real, 
+				All Players(All Teams), Event Player, True), Eye Position(Event Player))))), 
+				Heart, Visible To and Position, Color(Red), False);
+		Event Player.ExtraHeart_ID = Last Created Entity;
+		Wait Until(Not(Is Using Ability 2(Event Player)), 9999);
+		Destroy Icon(Event Player.ExtraHeart_ID);
 	}
 }
 
