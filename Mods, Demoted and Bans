@@ -75,7 +75,7 @@ rule("Listed_Player")
 			Custom String("Zer0"), Custom String("GenjiCum"), Custom String("Greyacolyte"), Custom String("miro22"), Custom String("Parkkis"), Custom String("TheCheeseMan"), Custom String("Reinkampff"),
 			Custom String("SexiestBeast"), Custom String("GoblinSexual"), Custom String("FloorBread"), Custom String("Fearless"), Custom String("pkdd"), Custom String("destroy"), Custom String("dobarčovjek"),
 			Custom String("Hercules"), Custom String("Tiggles145"), Custom String("yVexyy"), Custom String("Overpowering"), Custom String("PrimeTime"), Custom String("Aris"), Custom String("최후의금빛위습"), 
-			Custom String("RUOSTEINEN"), Custom String("saturn"), Custom String("StarLight"), Custom String("Ash"), Custom String("Politoed"), Custom String("Alola"), Custom String("Minato"), Custom String("Reyes"),
+			Custom String("RUOSTEINEN"), Custom String("saturn"), Custom String("StarLight"), Custom String("Politoed"), Custom String("Alola"), Custom String("Minato"), Custom String("Reyes"),
 			Custom String("redx4ever"), Custom String("His16YrOld"), Custom String("Her21YrOld"), Custom String("Gone"), Custom String("Player"), Custom String("FlameYeti"), Custom String("Kirikou"), 
 			Custom String("naym"), Custom String("iHaT3KurDs"), Custom String("TeemantQ"), Custom String("Evelia"), Custom String("Robotmaster7"), Custom String("DEADshot"), Custom String("MeMyselfPIE"),
 			Custom String("westlux"), Custom String("BOSS"), Custom String("SweetWolf15"), Custom String("Map"));
