@@ -2,7 +2,7 @@ settings
 {
 	main
 	{
-		Description: "♥ A Friendly Server To Meet New Friends ♥\nlast updated (July 26 2023)\n\n   » » » MASSIVE UPDATE RELEASED « « «\n (including UNO, non-mod menu and\n      hero specific features!)\n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss.\n   Based on the work of: TbyCoLive.\n Maintained with ♡ by: LƐafa.\n   Community Managers:\n     MOOOUSH, RUBY & kwally."
+		Description: "♥ A Friendly Server To Meet New Friends ♥\nlast updated (July 28 2023)\n\n   » » » MASSIVE UPDATE RELEASED « « «\n (including UNO, non-mod menu and\n      hero specific features!)\n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss.\n   Based on the work of: TbyCoLive.\n Maintained with ♡ by: LƐafa.\n   Community Managers:\n     MOOOUSH, RUBY & kwally."
 		Mode Name: " ♥ Friendly ♥ No Kill!"
 	}
 
@@ -433,6 +433,7 @@ variables
 		92: Players_Global_Array
 		93: Outlines_Toggle
 		94: Midtown_Bonus
+		95: DEBUG
 	}
 
 subroutines
@@ -440,16 +441,15 @@ subroutines
 	0: Protection
 	1: Scale_Progress
 	2: Hud_Elements
-	3: Custom_Nameplate
-	4: Drawing_Objects_Preview
-	5: Beams_Preview
-	6: Give_Custom_Nameplate
-	7: Give_Custom_Outline
-	8: Jail_Leaver
-	9: UNO_Draw
-	10: UNO_Update_Deck
-	11: UNO_Update_Hand
-	12: UNO_End
+	3: Drawing_Objects_Preview
+	4: Beams_Preview
+	5: Give_Custom_Nameplate
+	6: Give_Custom_Outline
+	7: Jail_Leaver
+	8: UNO_Draw
+	9: UNO_Update_Deck
+	10: UNO_Update_Hand
+	11: UNO_End
 }
 
 rule("Anti-Crash-ON")
@@ -728,7 +728,6 @@ rule("Default_Player_Settings")
 			Create In-World Text(Filtered Array(All Players(All Teams), Current Array Element.Is_Crouch_On), Custom String("Talk with me"),
 				Event Player, 1, Do Not Clip, Visible To Position String and Color, Global.Rainbow_Color, Default Visibility);
 			Event Player.Target_Tag_ID = Last Text ID;
-			Call Subroutine(Custom_Nameplate);
 			Abort;
 		End;
 
@@ -891,9 +890,6 @@ rule("Default_Player_Settings")
 		
 		"Sequence Completed"
 		Wait Until(Has Spawned(Event Player), 99999);
-		
-		"Ask for nameplates"
-		Call Subroutine(Custom_Nameplate);
 
 		"Set protection on player by default"
 		Event Player.Protection = True;
@@ -1014,7 +1010,6 @@ rule ("Data")
 			Array(Custom String("RUBY"), Color(Red))
 		);
 	}
-
 }
 
 rule ("Custom nameplates list") 
@@ -1582,9 +1577,8 @@ rule ("Custom nameplates list")
 				Custom String("ヴィ")
 				), 
 			Array(Custom String("Mettlis"),
-				Custom Color(255, 186, 186, 255),
-				Custom String("♡ METTLIS ♡"),
-				Custom String("{0} 木漏れ日 {0}", Ability Icon String(Hero(Kiriko), Button(Ultimate)))
+				Custom Color(245, 4, 4, 255),
+				Custom String("♡ METTLIS ♡")
 				), 
 			Array(Custom String("ori6072"), 
 				Color(Black),
@@ -1673,15 +1667,14 @@ rule ("Custom nameplates list")
 				),
 			Array(Custom String("현대적인쌍봉낙타"), 
 				Custom Color(243, 214, 223, 255),
-				Custom String("{0}  ファウスト  {0}", Ability Icon String(Hero(Kiriko), Button(Primaryfire))),
+				Custom String("{0}  ファウスト  {0}", Ability Icon String(Hero(Kiriko), Button(Ability 1))),
 				Custom String("† INTP †"),
 				Custom String("{0}  憂鬱  {0}", Ability Icon String(Hero(Ramattra), Button(Ultimate)))
 				),
 			Array(Custom String("Dubbie7"), 
 				Custom String("Rainbow"),
 				Custom String("{0} ☆  D u b s t a r  ☆ {0}", Ability Icon String(Hero(Kiriko), Button(Ultimate))),
-				Custom String("{0}  Dubbie the dummie  {0}", Ability Icon String(Hero(Roadhog), Button(Ultimate))),
-				Custom String("† Dubiko - Kirikult †")
+				Custom String("{0}  Dubbie the dummie  {0}", Ability Icon String(Hero(Roadhog), Button(Ultimate)))
 				), 
 			Array(Custom String("MOOOUSH"), 
 				Custom Color(194, 151, 194, 255),
@@ -1902,6 +1895,7 @@ rule("Search for players in custom nameplates list and call subroutines")
 				End;
 				Start Rule(Give_Custom_Nameplate, Do Nothing);
 				Start Rule(Give_Custom_Outline, Do Nothing);
+				Event Player.Is_Title_Given = True;
 				Abort;
 			End;
 			Wait(0.020, Ignore Condition);
@@ -1967,7 +1961,6 @@ rule ("Subroutine: Give_Custom_Outline")
     actions 
 	{
 		Abort If Condition Is False;
-		Event Player.Is_Title_Given = True;
 		Start Forcing Player Outlines(Event Player, Filtered Array(All Players(All Teams), Not(Current Array Element.Outlines_Toggle)), False, Color(White), Always);
 		If(Event Player.Player_Title_And_Outline[1] == Custom String("Rainbow"));
 			Start Forcing Player Outlines(Event Player, Filtered Array(All Players(All Teams), Current Array Element.Outlines_Toggle), True, Global.Rainbow_Color, Always);
@@ -3783,50 +3776,36 @@ rule("Mode_03 - Apply Status")
 			Abort If(Player Closest To Reticle(Event Player, All Teams).UNO_Ingame);
 			Abort If(Player Closest To Reticle(Event Player, All Teams).Full_Protection);
 			
-			If(Player Closest To Reticle(Event Player, All Teams).Protection);
-				Clear Status(Player Closest To Reticle(Event Player, All Teams), Phased Out);
-			End;
-			
 			If(Event Player.Status_Selector == 0);
-				If(Has Status(Player Closest To Reticle(Event Player, All Teams), Knocked Down));
-					If(Player Closest To Reticle(Event Player, All Teams).Protection);
-						Set Status(Player Closest To Reticle(Event Player, All Teams), Null, Phased Out, 9999);
-					End;
-					Abort;
+				Abort If(Has Status(Player Closest To Reticle(Event Player, All Teams), Knocked Down));
+				If(Player Closest To Reticle(Event Player, All Teams).Protection);
+					Clear Status(Player Closest To Reticle(Event Player, All Teams), Phased Out);
 				End;
 				Set Status(Player Closest To Reticle(Event Player, All Teams), Null, Knocked Down, 9999);
 			Else If(Event Player.Status_Selector == 1);
-				If(Has Status(Player Closest To Reticle(Event Player, All Teams), Stunned));
-					If(Player Closest To Reticle(Event Player, All Teams).Protection);
-						Set Status(Player Closest To Reticle(Event Player, All Teams), Null, Phased Out, 9999);
-					End;
-					Abort;
+				Abort If(Has Status(Player Closest To Reticle(Event Player, All Teams), Stunned));
+				If(Player Closest To Reticle(Event Player, All Teams).Protection);
+					Clear Status(Player Closest To Reticle(Event Player, All Teams), Phased Out);
 				End;
 				Set Status(Player Closest To Reticle(Event Player, All Teams), Null, Stunned, 9999);
 			Else If(Event Player.Status_Selector == 2);
-				If(Has Status(Player Closest To Reticle(Event Player, All Teams), Frozen));
-					If(Player Closest To Reticle(Event Player, All Teams).Protection);
-						Set Status(Player Closest To Reticle(Event Player, All Teams), Null, Phased Out, 9999);
-					End;
-					Abort;
+				Abort If(Has Status(Player Closest To Reticle(Event Player, All Teams), Frozen));
+				If(Player Closest To Reticle(Event Player, All Teams).Protection);
+					Clear Status(Player Closest To Reticle(Event Player, All Teams), Phased Out);
 				End;
 				Set Status(Player Closest To Reticle(Event Player, All Teams), Null, Frozen, 9999);
 			Else If(Event Player.Status_Selector == 3);
-				If(Has Status(Player Closest To Reticle(Event Player, All Teams), Burning));
-					If(Player Closest To Reticle(Event Player, All Teams).Protection);
-						Set Status(Player Closest To Reticle(Event Player, All Teams), Null, Phased Out, 9999);
-					End;
-					Abort;
+				Abort If(Has Status(Player Closest To Reticle(Event Player, All Teams), Burning));
+				If(Player Closest To Reticle(Event Player, All Teams).Protection);
+					Clear Status(Player Closest To Reticle(Event Player, All Teams), Phased Out);
 				End;
 				Set Status(Player Closest To Reticle(Event Player, All Teams), Null, Burning, 9999);
 				Start Damage Over Time(Player Closest To Reticle(Event Player, All Teams), Null, 9999, 20);
 				Player Closest To Reticle(Event Player, All Teams).DMG_Time = Last Damage Over Time ID;
 			Else If(Event Player.Status_Selector == 4);
-				If(Has Status(Player Closest To Reticle(Event Player, All Teams), Hacked));
-					If(Player Closest To Reticle(Event Player, All Teams).Protection);
-						Set Status(Player Closest To Reticle(Event Player, All Teams), Null, Phased Out, 9999);
-					End;
-					Abort;
+				Abort If(Has Status(Player Closest To Reticle(Event Player, All Teams), Hacked));
+				If(Player Closest To Reticle(Event Player, All Teams).Protection);
+					Clear Status(Player Closest To Reticle(Event Player, All Teams), Phased Out);
 				End;
 				Set Status(Player Closest To Reticle(Event Player, All Teams), Null, Hacked, 9999);
 			End;
@@ -3835,6 +3814,7 @@ rule("Mode_03 - Apply Status")
 			If(Player Closest To Reticle(Event Player, All Teams).Protection);
 				Set Status(Player Closest To Reticle(Event Player, All Teams), Null, Phased Out, 9999);
 			End;
+			Wait(0.1, Ignore Condition);
 		
 		Else If(Is Button Held(Event Player, Button(Secondary Fire)));
 			Abort If((Event Player.High_Rank || Event Player.Mod_Rank) == False);
@@ -3863,6 +3843,7 @@ rule("Mode_03 - Apply Status")
 			If(Player Closest To Reticle(Event Player, All Teams).Protection);
 				Set Status(Player Closest To Reticle(Event Player, All Teams), Null, Phased Out, 9999);
 			End;
+			Wait(0.1, Ignore Condition);
 		
 		Else If(Is Button Held(Event Player, Button(Ability 2)));
 			If(((Event Player.High_Rank || Event Player.Mod_Rank) || (Event Player.Spam_Cooldown <= 0)) == False);
@@ -4103,7 +4084,7 @@ rule("Mode_05 - De-Elitate Outlines")
 			Destroy In-World Text(Event Player.M32_Players_Nameplate);
 			Wait(0.050, Ignore Condition);
 			Create In-World Text(Filtered Array(All Players(All Teams), Current Array Element.Is_Crouch_On == False), Custom String("{0}",
-				Event Player), Evaluate Once(Event Player), 0.980, Clip Against Surfaces, Visible To Position and Color, Global.Colors[Event Player.NamesAndOutlines_Colors_Selector], Visible Never);
+				Event Player), Event Player, 0.980, Clip Against Surfaces, Visible To Position and Color, Global.Colors[Event Player.NamesAndOutlines_Colors_Selector], Visible Never);
 			Event Player.M32_Players_Nameplate = Last Text ID;
 			Start Forcing Player Outlines(Event Player, Filtered Array(All Players(All Teams), Current Array Element.Outlines_Toggle), True,
 				Global.Colors[Event Player.NamesAndOutlines_Colors_Selector], Always);
@@ -4124,16 +4105,24 @@ rule("Mode_05 - De-Elitate Outlines")
 			Else;
 				Event Player.NamesAndOutlines_Colors_Selector += 1;
 			End;
+			Skip If(Not(Event Player.Regular_Player_Has_Title), 3);
+			Event Player.Regular_Player_Has_Title = False;
+			Wait(0.01, Ignore Condition);
+			Event Player.Regular_Player_Has_Title = True;
 			Small Message(Event Player, Custom String("  {0}", 
 				If-Then-Else(Event Player.NamesAndOutlines_Colors_Selector == 15, Custom String("Brown"), Global.Colors[Event Player.NamesAndOutlines_Colors_Selector])));
+			Wait(0.1, Ignore Condition);
 		Else If(Is Button Held(Event Player, Button(Melee)));
 			If(Event Player.Outlines_Toggle);
 				Start Forcing Player Outlines(All Players(All Teams), Event Player, False, Color(White), Always);
 				Event Player.Outlines_Toggle = False;
+				Small Message(Event Player, Custom String("  Outlines: OFF"));
 			Else;
 				Stop Forcing Player Outlines(All Players(All Teams), Event Player);
 				Event Player.Outlines_Toggle = True;
+				Small Message(Event Player, Custom String("  Outlines: On. this takes up to 5 sec"));
 			End;
+			Wait(0.5, Ignore Condition);
 		End;
 	}
 }
@@ -4271,7 +4260,6 @@ rule("Mode_06 - Jumppad_Preview")
 	conditions
 	{
 		Event Player.Mode_Cycle == 6;
-		Event Player.Is_Menu_Active == True;
 	}
 
 	actions
@@ -4383,7 +4371,6 @@ rule("Mode_07 - Flying_Controls")
 	conditions
 	{
 		Event Player.Is_Flying == True;
-		Event Player.Is_Menu_Active == True;
 		(Is Button Held(Event Player, Button(Crouch)) || Is Button Held(Event Player, Button(Jump))) == True;
 	}
 
@@ -4834,7 +4821,6 @@ rule("Mode_12 - Abort_Scaling")
 		Event Player.Mode_Cycle == 12;
 		Event Player.Signal == True;
 		Player Closest To Reticle(Event Player, All Teams).Progress_Lock == True;
-		Event Player.Is_Menu_Active == True;
 	}
 
 	actions
@@ -6086,7 +6072,6 @@ rule("Mode_23_24 - Show message with selected Icon")
 	{
 		((Event Player.Mode_Cycle == 23 || Event Player.Mode_Cycle == 24) ||
 		Event Player.Mode_Cycle_Default == 9) == True;
-		Event Player.Is_Menu_Active == True;
 	}
 
 	actions
@@ -6869,7 +6854,6 @@ rule("Mode_31 - Cam_Preview_On")
 	{
 		(Event Player.Mode_Cycle == 31 || Event Player.Mode_Cycle_Default == 12) == True;
 		Event Player.Camera <= 4;
-		Event Player.Is_Menu_Active == True;
 	}
 
 	actions
@@ -6894,7 +6878,6 @@ rule("Mode_31 - Cam_Preview_Off")
 	{
 		Event Player.Mode_Cycle != 31;
 		Event Player.Mode_Cycle_Default != 12;
-		Event Player.Is_Menu_Active == True;
 	}
 
 	actions
@@ -8612,6 +8595,7 @@ rule("Extra_23: Moira Ghost")
 	{
 		((Event Player.High_Rank || Event Player.Mod_Rank) == True);
 		Is Using Ability 1(Event Player) == True;
+		Event Player.Full_Protection == False;
 	}
 
 	actions
@@ -8622,7 +8606,7 @@ rule("Extra_23: Moira Ghost")
 	}
 }
 
-rule("Extra_25: Echo Heart")
+rule("Extra_24: Echo Heart")
 {
 	event
 	{
@@ -8638,16 +8622,48 @@ rule("Extra_25: Echo Heart")
 
 	actions
 	{
-		Create Icon(All Players(All Teams), Update Every Frame(Add(Eye Position(Event Player), 
+		Create Icon(All Players(All Teams), Update Every Frame(Eye Position(Event Player) - Vector(0,0.5,0) +
 			Event Player.Scale_Real * Facing Direction Of(Event Player) *
 			Modulo(Global.Main_Chaser * Distance Between(Ray Cast Hit Position(Eye Position(Event Player), Eye Position(Event Player) + Facing Direction Of(Event Player) * 16 * Event Player.Scale_Real, 
 				All Players(All Teams), Event Player, True), Eye Position(Event Player)) * 5, 
 				Distance Between(Ray Cast Hit Position(Eye Position(Event Player), Eye Position(Event Player) + Facing Direction Of(Event Player) * 16 * Event Player.Scale_Real, 
-				All Players(All Teams), Event Player, True), Eye Position(Event Player))))), 
+				All Players(All Teams), Event Player, True), Eye Position(Event Player)))), 
 				Heart, Visible To and Position, Color(Red), False);
 		Event Player.ExtraHeart_ID = Last Created Entity;
 		Wait Until(Not(Is Using Ability 2(Event Player)), 9999);
 		Destroy Icon(Event Player.ExtraHeart_ID);
+	}
+}
+
+rule("Extra_25: Soldier Heart")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Soldier: 76;
+	}
+
+	conditions
+	{
+		Is Using Ultimate(Event Player) == True;
+		Is Firing Primary(Event Player) == True;
+	}
+
+
+	actions
+	{
+		Event Player.Spam_Cooldown = 1;
+		Create Icon(All Players(All Teams), Update Every Frame(Eye Position(Event Player) - Vector(0,0.5,0) +
+			Event Player.Scale_Real * If-Then-Else(Is In View Angle(Event Player, Player Closest To Reticle(Event Player, All Teams), 25) 
+			&& Eye Position(Player Closest To Reticle(Event Player, All Teams)) != Null, 
+			Direction Towards(Eye Position(Event Player), Eye Position(Player Closest To Reticle(Event Player, All Teams)) - Vector(0,0.5,0)), Facing Direction Of(Event Player)) *
+			(-1 * (Event Player.Spam_Cooldown - 1)) * 50), 
+				Heart, Visible To and Position, Color(Red), False);
+		Event Player.ExtraHeart_ID = Last Created Entity;
+		Wait(0.25, Ignore Condition);
+		Destroy Icon(Event Player.ExtraHeart_ID);
+		Loop If Condition Is True;
 	}
 }
 
