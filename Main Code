@@ -1577,8 +1577,9 @@ rule ("Custom nameplates list")
 				Custom String("ヴィ")
 				), 
 			Array(Custom String("Mettlis"),
-				Custom Color(245, 4, 4, 255),
-				Custom String("♡ METTLIS ♡")
+				Custom Color(255, 186, 186, 255),
+				Custom String("♡ METTLIS ♡"),
+				Custom String("{0} 木漏れ日 {0}", Ability Icon String(Hero(Kiriko), Button(Ultimate)))
 				), 
 			Array(Custom String("ori6072"), 
 				Color(Black),
@@ -1667,14 +1668,15 @@ rule ("Custom nameplates list")
 				),
 			Array(Custom String("현대적인쌍봉낙타"), 
 				Custom Color(243, 214, 223, 255),
-				Custom String("{0}  ファウスト  {0}", Ability Icon String(Hero(Kiriko), Button(Ability 1))),
+				Custom String("{0}  ファウスト  {0}", Ability Icon String(Hero(Kiriko), Button(Primaryfire))),
 				Custom String("† INTP †"),
 				Custom String("{0}  憂鬱  {0}", Ability Icon String(Hero(Ramattra), Button(Ultimate)))
 				),
 			Array(Custom String("Dubbie7"), 
 				Custom String("Rainbow"),
 				Custom String("{0} ☆  D u b s t a r  ☆ {0}", Ability Icon String(Hero(Kiriko), Button(Ultimate))),
-				Custom String("{0}  Dubbie the dummie  {0}", Ability Icon String(Hero(Roadhog), Button(Ultimate)))
+				Custom String("{0}  Dubbie the dummie  {0}", Ability Icon String(Hero(Roadhog), Button(Ultimate))),
+				Custom String("† Dubiko - Kirikult †")
 				), 
 			Array(Custom String("MOOOUSH"), 
 				Custom Color(194, 151, 194, 255),
@@ -2069,8 +2071,8 @@ rule("Listed_Player")
 		"Demoted"
 		Global.Demoted = Array(Custom String("Eggman"), Custom String("Nef"), Custom String("Kêñ"), Custom String("LeMix"), Custom String("Mikasa"), Custom String("godfaceim"), 
 				Custom String("SHINIxMIZU"), Custom String("Snaiy"), Custom String("KadenLee25"), Custom String("BabyDarl"), Custom String("Nicolol123"), Custom String("CATMOM"), 
-				Custom String("Daisy"), Custom String("UKGamer001"), Custom String("Daniel"), Custom String("ZN1G"), Custom String("Xendosin"), 
-				Custom String("RedDjo"), Custom String("Genrusty"), Custom String("Bunnyǃ"), Custom String("Jeanne"), Custom String("Devil"), Custom String("Rey"));
+				Custom String("Daisy"), Custom String("UKGamer001"), Custom String("Daniel"), Custom String("ZN1G"), Custom String("Xendosin"), Custom String("RedDjo"), 
+                Custom String("Genrusty"), Custom String("Bunnyǃ"), Custom String("Jeanne"), Custom String("Devil"), Custom String("Rey"));
 		
 		"Automatic Ban"
 		Global.Perma_Banned = Array(
@@ -2090,7 +2092,8 @@ rule("Listed_Player")
 			Custom String("redx4ever"), Custom String("His16YrOld"), Custom String("Her21YrOld"), Custom String("Gone"), Custom String("Player"), Custom String("FlameYeti"), Custom String("Kirikou"), 
 			Custom String("naym"), Custom String("iHaT3KurDs"), Custom String("TeemantQ"), Custom String("Evelia"), Custom String("Robotmaster7"), Custom String("DEADshot"), Custom String("MeMyselfPIE"),
 			Custom String("westlux"), Custom String("BOSS"), Custom String("SweetWolf15"), Custom String("Map"), Custom String("UvaldeVictim"), CUstom String("ActiveShootr"), Custom String("Deadshot"),
-			Custom string("Enandaxis"), Custom String("Cat"), Custom String("oxr4500"), Custom String("Strawberry"), Custom String("Abdul1Jafar"), Custom String("LAB"), Custom String("ilovetumadre"));
+			Custom string("Enandaxis"), Custom String("Cat"), Custom String("oxr4500"), Custom String("Strawberry"), Custom String("Abdul1Jafar"), Custom String("LAB"), Custom String("ilovetumadre"),
+			Custom String("Woogie"), Custom String("knight"), Custom String("DeaMonFox"));
 	}
 }
 
