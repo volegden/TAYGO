@@ -433,7 +433,6 @@ variables
 		92: Players_Global_Array
 		93: Outlines_Toggle
 		94: Midtown_Bonus
-		95: DEBUG
 	}
 
 subroutines
@@ -721,6 +720,8 @@ rule("Default_Player_Settings")
 			Event Player.Player_Modification = Array(100, 100, 100, 100, 100);
 			Event Player.Voice_Pitch = 1;
 			Event Player.Extra8_Timer = -1;
+			Event Player.Spam_Cooldown = 3;
+			Chase Player Variable At Rate(Event Player, Spam_Cooldown, 0, 1, None);
 			Wait(0.2, Ignore Condition);
 			Modify Global Variable(Player_Joined_Queue, Remove From Array By Value, Null);
 			Modify Global Variable(Player_Joined_Queue, Remove From Array By Value, Event Player);
@@ -2096,7 +2097,6 @@ rule("Listed_Player")
 			Custom String("Woogie"), Custom String("knight"), Custom String("DeaMonFox"));
 	}
 }
-
 rule("Player_Rank_Execute")
 {
 	event
@@ -2987,17 +2987,17 @@ rule("Mode_Headline_Desc_Mod")
 				))), Null, Left, 1, Color(White), Color(White), Color(White), String, Visible Never);
 
 		Else If(Event Player.Mode_Cycle == 27);
-			Event Player.Mode_Headline = Custom String("Lock Up In Jail");
-			Create HUD Text(Event Player, Null, Custom String("| Press Crouch + Interact/Jump to change pages |\nMod Menu: Press Crouch + input for action\n{0}",
-				Custom String("{0} : Lock target - Chat & Skills Disabled\r\n{1} : Unlock target - Chat & Skills Enabled\r\n{2} : Lock / Unlock Yourself",
-					Input Binding String(Button(Primary Fire)), Input Binding String(Button(Secondary Fire)), Input Binding String(Button(Ultimate))
-				)), Null, Left, 1, Color(White), Color(White), Color(White), String, Visible Never);
-
-		Else If(Event Player.Mode_Cycle == 28);
 			Event Player.Mode_Headline = Custom String("Kick/Ban (Only Owner)");
 			Create HUD Text(Event Player, Null, Custom String("| Press Crouch + Interact/Jump to change pages |\nMod Menu: Press Crouch + input for action\n{0}",
 				Custom String("{0} : Kick Target \r\n{1} : Ban Target Temporarily", 
 					Input Binding String(Button(Primary Fire)), Input Binding String(Button(Secondary Fire))
+				)), Null, Left, 1, Color(White), Color(White), Color(White), String, Visible Never);
+
+		Else If(Event Player.Mode_Cycle == 28);
+			Event Player.Mode_Headline = Custom String("Lock Up In Jail");
+			Create HUD Text(Event Player, Null, Custom String("| Press Crouch + Interact/Jump to change pages |\nMod Menu: Press Crouch + input for action\n{0}",
+				Custom String("{0} : Lock target - Chat & Skills Disabled\r\n{1} : Unlock target - Chat & Skills Enabled\r\n{2} : Lock / Unlock Yourself",
+					Input Binding String(Button(Primary Fire)), Input Binding String(Button(Secondary Fire)), Input Binding String(Button(Ultimate))
 				)), Null, Left, 1, Color(White), Color(White), Color(White), String, Visible Never);
 
 		Else If(Event Player.Mode_Cycle == 29);
@@ -6197,7 +6197,7 @@ rule("Mode_26 - Slowmotion_&_Slow_Projectile")
 	}
 }
 
-rule("Mode_27 - Mute")
+rule("Mode_27 - Kick_&_Ban")
 {
 	event
 	{
@@ -6209,6 +6209,52 @@ rule("Mode_27 - Mute")
 	conditions
 	{
 		Event Player.Mode_Cycle == 27;
+		Event Player.Signal == True;
+	}
+
+	actions
+	{
+		Event Player.Signal = False;
+		Abort If((Is Button Held(Event Player, Button(Primary Fire)) || Is Button Held(Event Player, Button(Secondary Fire))) == False);
+		"Permission Check"
+		Event Player.Target_Lock = Player Closest To Reticle(Event Player, All Teams);
+		Abort If(Event Player.Target_Lock == Null);
+		Abort If(Not(Event Player.High_Rank || Event Player == Host Player));
+		If(Array Contains(Global.High_Rank, Custom String("{0}", Event Player.Target_Lock)) || (Event Player.High_Rank && Not(Event Player.Heaven_Strike_ID[2]) && Event Player != Host Player) ||
+			(Event Player == Host Player && Array Contains(Global.Mod_Rank, Custom String("{0}", Event Player.Target_Lock)) && Event Player.Promoted_Rank && 
+			Not(Event Player.Target_Lock.Promoted_Rank)));
+			Small Message(Event Player, Custom String("   You lack authorization to kick/ban this target."));
+			Small Message(Player Closest To Reticle(Event Player, All Teams), Custom String("{0} {1} - tried to kick/ban you {0}", Icon String(Exclamation Mark), Event Player));
+			Abort;
+		End;
+		"Authorization Accepted"
+		If(Is Button Held(Event Player, Button(Primary Fire)));
+			Play Effect(All Players(All Teams), Bad Pickup Effect, Color(Red), Event Player.Target_Lock, 1);
+			Small Message(All Players(All Teams), Custom String("{0} is kicked by {1}", Event Player.Target_Lock, Event Player));
+			Wait(0.5, Ignore Condition);
+			Remove Player(Event Player.Target_Lock);
+		Else If(Is Button Held(Event Player, Button(Secondary Fire)));
+			Play Effect(All Players(All Teams), Bad Pickup Effect, Color(Red), Player Closest To Reticle(Event Player, All Teams), 1);
+			Small Message(All Players(All Teams), Custom String("{0} is banned by {1}", Event Player.Target_Lock, Event Player));
+			Modify Global Variable(Temp_Banned, Append To Array, Custom String("{0}", Event Player.Target_Lock));
+		End;
+		Wait(1, Ignore Condition);
+		Event Player.Target_Lock = Custom String("--- No Target ---");
+	}
+}
+
+rule("Mode_28 - Mute")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Event Player.Mode_Cycle == 28;
 		Event Player.Signal == True;
 	}
 
@@ -6337,7 +6383,7 @@ rule("Mode_27 - Mute")
 	}
 }
 
-rule("Mode_27 - Cage")
+rule("Mode_28 - Cage")
 {
 	event
 	{
@@ -6367,7 +6413,7 @@ rule("Mode_27 - Cage")
 	}
 }
 
-rule("Mode_27 - Jail_List_Update")
+rule("Mode_28 - Jail_List_Update")
 {
 	event
 	{
@@ -6425,52 +6471,6 @@ rule ("Subroutine: Jail_Leaver")
 		Set Secondary Fire Enabled(Event Player, False);
 		Set Ultimate Ability Enabled(Event Player, False);
 		Event Player.Last_Position_Facing[0] = Position Of(Event Player);
-	}
-}
-
-rule("Mode_28 - Kick_&_Ban")
-{
-	event
-	{
-		Ongoing - Each Player;
-		All;
-		All;
-	}
-
-	conditions
-	{
-		Event Player.Mode_Cycle == 28;
-		Event Player.Signal == True;
-	}
-
-	actions
-	{
-		Event Player.Signal = False;
-		Abort If((Is Button Held(Event Player, Button(Primary Fire)) || Is Button Held(Event Player, Button(Secondary Fire))) == False);
-		"Permission Check"
-		Event Player.Target_Lock = Player Closest To Reticle(Event Player, All Teams);
-		Abort If(Event Player.Target_Lock == Null);
-		Abort If(Not(Event Player.High_Rank || Event Player == Host Player));
-		If(Array Contains(Global.High_Rank, Custom String("{0}", Event Player.Target_Lock)) || (Event Player.High_Rank && Not(Event Player.Heaven_Strike_ID[2]) && Event Player != Host Player) ||
-			(Event Player == Host Player && Array Contains(Global.Mod_Rank, Custom String("{0}", Event Player.Target_Lock)) && Event Player.Promoted_Rank && 
-			Not(Event Player.Target_Lock.Promoted_Rank)));
-			Small Message(Event Player, Custom String("   You lack authorization to kick/ban this target."));
-			Small Message(Player Closest To Reticle(Event Player, All Teams), Custom String("{0} {1} - tried to kick/ban you {0}", Icon String(Exclamation Mark), Event Player));
-			Abort;
-		End;
-		"Authorization Accepted"
-		If(Is Button Held(Event Player, Button(Primary Fire)));
-			Play Effect(All Players(All Teams), Bad Pickup Effect, Color(Red), Event Player.Target_Lock, 1);
-			Small Message(All Players(All Teams), Custom String("{0} is kicked by {1}", Event Player.Target_Lock, Event Player));
-			Wait(0.5, Ignore Condition);
-			Remove Player(Event Player.Target_Lock);
-		Else If(Is Button Held(Event Player, Button(Secondary Fire)));
-			Play Effect(All Players(All Teams), Bad Pickup Effect, Color(Red), Player Closest To Reticle(Event Player, All Teams), 1);
-			Small Message(All Players(All Teams), Custom String("{0} is banned by {1}", Event Player.Target_Lock, Event Player));
-			Modify Global Variable(Temp_Banned, Append To Array, Custom String("{0}", Event Player.Target_Lock));
-		End;
-		Wait(1, Ignore Condition);
-		Event Player.Target_Lock = Custom String("--- No Target ---");
 	}
 }
 
