@@ -3309,7 +3309,7 @@ rule("Set match time to 1800s")
 	}
 }
 
-disabled rule("Declare draw if match time == 0")
+rule("Declare draw if match time == 0")
 {
 	event
 	{
@@ -3331,7 +3331,7 @@ disabled rule("Declare draw if match time == 0")
 	}
 }
 
-disabled rule("Disable Assemble Stage")
+rule("Disable Assemble Stage")
 {
 	event
 	{
@@ -3350,7 +3350,7 @@ disabled rule("Disable Assemble Stage")
 	}
 }
 
-disabled rule("Disable Preparation Stage")
+rule("Disable Preparation Stage")
 {
 	event
 	{
