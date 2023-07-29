@@ -6501,50 +6501,54 @@ rule("Mode_29 - Promote/Demote_And_Teamswap")
 				Small Message(Event Player, Custom String("  Available only to Host or Angels."));
 				Abort;
 			End;
-			If(Array Contains(Global.Demoted, Custom String("{0}", Player Closest To Reticle(Event Player, All Teams))));
+			Event Player.Target_Shortcut = Player Closest To Reticle(Event Player, All Teams);
+			Abort If(Event Player.Target_Shortcut == Null);
+			If(Array Contains(Global.Demoted, Custom String("{0}", Event Player.Target_Shortcut)));
 				Small Message(Event Player, Custom String("  Can't promote {0}, please contact team for support.", 
-					Player Closest To Reticle(Event Player, All Teams))); 
+					Event Player.Target_Shortcut)); 
 				Abort;
 			End;
-			Abort If(Player Closest To Reticle(Event Player, All Teams).UNO_Ingame);
-			If(Array Contains(Global.High_Rank, Custom String("{0}", Player Closest To Reticle(Event Player, All Teams))) ||
-				(Array Contains(Global.Mod_Rank, Custom String("{0}", Player Closest To Reticle(Event Player, All Teams))) &&
-				Not(Player Closest To Reticle(Event Player, All Teams).Promoted_Rank) && Not(Event Player.Heaven_Strike_ID[2])) ||
-				((Player Closest To Reticle(Event Player, All Teams) == Host Player) && Not(Event Player.Heaven_Strike_ID[2])) ||
-				Player Closest To Reticle(Event Player, All Teams).Promoted_Rank);
-				Small Message(Event Player, Custom String("  {0} is already promoted.", Player Closest To Reticle(Event Player, All Teams)));
+			Abort If(Event Player.Target_Shortcut.UNO_Ingame);
+			If(Array Contains(Global.High_Rank, Custom String("{0}", Event Player.Target_Shortcut)) ||
+				(Array Contains(Global.Mod_Rank, Custom String("{0}", Event Player.Target_Shortcut)) &&
+				Not(Event Player.Target_Shortcut.Promoted_Rank) && Not(Event Player.Heaven_Strike_ID[2])) ||
+				((Event Player.Target_Shortcut == Host Player) && Not(Event Player.Heaven_Strike_ID[2])) ||
+				Event Player.Target_Shortcut.Promoted_Rank);
+				Small Message(Event Player, Custom String("  {0} is already promoted.", Event Player.Target_Shortcut));
 				Abort;
 			End;
-			Player Closest To Reticle(Event Player, All Teams).Promoted_Rank = True;
-			Modify Global Variable(Promoted_List, Append To Array, Custom String("{0}", Player Closest To Reticle(Event Player, All Teams)));
-			Modify Global Variable(Mod_Rank, Append To Array, Custom String("{0}", Player Closest To Reticle(Event Player, All Teams)));
-			Play Effect(All Players(All Teams), Good Pickup Effect, Color(Blue), Player Closest To Reticle(Event Player, All Teams), 1);
+			Event Player.Target_Shortcut.Promoted_Rank = True;
+			Modify Global Variable(Promoted_List, Append To Array, Custom String("{0}", Event Player.Target_Shortcut));
+			Modify Global Variable(Mod_Rank, Append To Array, Custom String("{0}", Event Player.Target_Shortcut));
+			Play Effect(All Players(All Teams), Good Pickup Effect, Color(Blue), Event Player.Target_Shortcut, 1);
 		Else If(Is Button Held(Event Player, Button(Secondary Fire)));
 			If(Not(Event Player.High_Rank || (Event Player == Host Player) || (Event Player.Mod_Rank && 
 				Not(Event Player.Promoted_Rank))));
 				Small Message(Event Player, Custom String("  Available only to Host or Angels."));
 				Abort;
 			End;
-			Abort If(Player Closest To Reticle(Event Player, All Teams).UNO_Ingame);
-			If(Array Contains(Global.High_Rank, Custom String("{0}", Player Closest To Reticle(Event Player, All Teams))) ||
-				(Array Contains(Global.Mod_Rank, Custom String("{0}", Player Closest To Reticle(Event Player, All Teams))) &&
-				Not(Player Closest To Reticle(Event Player, All Teams).Promoted_Rank) && Not(Event Player.Heaven_Strike_ID[2])) ||
-				((Player Closest To Reticle(Event Player, All Teams) == Host Player) && Not(Event Player.Heaven_Strike_ID[2])));
-				Small Message(Event Player, Custom String("  Cannot demote {0}.", Player Closest To Reticle(Event Player, All Teams)));
-				Small Message(Player Closest To Reticle(Event Player, All Teams), Custom String(" Note: {0} tried to demote you.", Event Player));
+			Event Player.Target_Shortcut = Player Closest To Reticle(Event Player, All Teams);
+			Abort If(Event Player.Target_Shortcut == Null);
+			Abort If(Event Player.Target_Shortcut.UNO_Ingame);
+			If(Array Contains(Global.High_Rank, Custom String("{0}", Event Player.Target_Shortcut)) ||
+				(Array Contains(Global.Mod_Rank, Custom String("{0}", Event Player.Target_Shortcut)) &&
+				Not(Event Player.Target_Shortcut.Promoted_Rank) && Not(Event Player.Heaven_Strike_ID[2])) ||
+				((Event Player.Target_Shortcut == Host Player) && Not(Event Player.Heaven_Strike_ID[2])));
+				Small Message(Event Player, Custom String("  Cannot demote {0}.", Event Player.Target_Shortcut));
+				Small Message(Event Player.Target_Shortcut, Custom String(" Note: {0} tried to demote you.", Event Player));
 				Abort;
 			End;
-			Player Closest To Reticle(Event Player, All Teams).Promoted_Rank = False;
-			Modify Global Variable(Promoted_List, Remove From Array By Value, Custom String("{0}", Player Closest To Reticle(Event Player, All Teams)));
-			Modify Global Variable(Mod_Rank, Remove From Array By Value, Custom String("{0}", Player Closest To Reticle(Event Player, All Teams)));
-			Destroy In-World Text(Player Closest To Reticle(Event Player, All Teams).Protection_ID);
+			Event Player.Target_Shortcut.Promoted_Rank = False;
+			Modify Global Variable(Promoted_List, Remove From Array By Value, Custom String("{0}", Event Player.Target_Shortcut));
+			Modify Global Variable(Mod_Rank, Remove From Array By Value, Custom String("{0}", Event Player.Target_Shortcut));
+			Destroy In-World Text(Event Player.Target_Shortcut.Protection_ID);
 			Create In-World Text(Filtered Array(All Players(All Teams), !(Current Array Element.Is_Crouch_On || 
-				Evaluate Once(Player Closest To Reticle(Event Player, All Teams)).Is_Invisible)), 
+				Evaluate Once(Event Player.Target_Shortcut).Is_Invisible)), 
 				Custom String("{0}\r\n\r\n", Ability Icon String(Hero(Baptiste), Button(Ability 2))),
-				Evaluate Once(Player Closest To Reticle(Event Player, All Teams)), 0.8, Clip Against Surfaces, Visible To and Position, Color(Blue), Default Visibility);
-			Player Closest To Reticle(Event Player, All Teams).Protection_ID = Last Text ID;
-			Player Closest To Reticle(Event Player, All Teams).Full_Protection = False;
-			Play Effect(All Players(All Teams), Bad Pickup Effect, Color(Red), Player Closest To Reticle(Event Player, All Teams), 1);
+				Evaluate Once(Event Player.Target_Shortcut), 0.8, Clip Against Surfaces, Visible To and Position, Color(Blue), Default Visibility);
+			Event Player.Target_Shortcut.Protection_ID = Last Text ID;
+			Event Player.Target_Shortcut.Full_Protection = False;
+			Play Effect(All Players(All Teams), Bad Pickup Effect, Color(Red), Event Player.Target_Shortcut, 1);
 		Else If(Is Button Held(Event Player, Button(Ultimate)));
 			If(Team Of(Event Player) == Team 1);
 				If(Count Of(Filtered Array(All Players(Team 2), Not(Is Dummy Bot(Current Array Element)))) <= 5);
@@ -6566,34 +6570,34 @@ rule("Mode_29 - Promote/Demote_And_Teamswap")
 				End;
 			End;
 		Else If(Is Button Held(Event Player, Button(Ability 2)));
-			Event Player.Target_Lock = Player Closest To Reticle(Event Player, All Teams);
-			Abort If(Event Player.Target_Lock == Null);
+			Event Player.Target_Shortcut = Player Closest To Reticle(Event Player, All Teams);
+			Abort If(Event Player.Target_Shortcut == Null);
 			If(Not(Event Player.High_Rank || (Event Player == Host Player) || (Event Player.Mod_Rank && 
 				Not(Event Player.Promoted_Rank))));
 				Small Message(Event Player, Custom String("  Available only to Host or Angels."));
 				Abort;
 			End;
-			Abort If(Event Player.Target_Lock.UNO_Ingame);
-			If(Array Contains(Global.High_Rank, Custom String("{0}", Event Player.Target_Lock)) ||
-				(Array Contains(Global.Mod_Rank, Custom String("{0}", Event Player.Target_Lock)) &&
-				Not(Event Player.Target_Lock.Promoted_Rank) && Not(Event Player.Heaven_Strike_ID[2])) ||
-				((Event Player.Target_Lock == Host Player) && Not(Event Player.Heaven_Strike_ID[2])));
-				Small Message(Event Player, Custom String("  Cannot Switch Team of {0}.", Event Player.Target_Lock));
+			Abort If(Event Player.Target_Shortcut.UNO_Ingame);
+			If(Array Contains(Global.High_Rank, Custom String("{0}", Event Player.Target_Shortcut)) ||
+				(Array Contains(Global.Mod_Rank, Custom String("{0}", Event Player.Target_Shortcut)) &&
+				Not(Event Player.Target_Shortcut.Promoted_Rank) && Not(Event Player.Heaven_Strike_ID[2])) ||
+				((Event Player.Target_Shortcut == Host Player) && Not(Event Player.Heaven_Strike_ID[2])));
+				Small Message(Event Player, Custom String("  Cannot Switch Team of {0}.", Event Player.Target_Shortcut));
 				Abort;
 			End;
-			If(Team Of(Event Player.Target_Lock) == Team 1);
+			If(Team Of(Event Player.Target_Shortcut) == Team 1);
 				If(Number of Players(Team 2) <= 5);
-					Move Player to Team(Event Player.Target_Lock, Host Player, -1);
+					Move Player to Team(Event Player.Target_Shortcut, Host Player, -1);
 					Wait(0.250, Ignore Condition);
-					Move Player to Team(Event Player.Target_Lock, Team 2, -1);
+					Move Player to Team(Event Player.Target_Shortcut, Team 2, -1);
 				Else;
 					Small Message(Event Player, Custom String("  Other team is full!"));
 				End;
-			Else If(Team Of(Event Player.Target_Lock) == Team 2);
+			Else If(Team Of(Event Player.Target_Shortcut) == Team 2);
 				If(Number of Players(Team 1) <= 5);
-					Move Player to Team(Event Player.Target_Lock, Host Player, -1);
+					Move Player to Team(Event Player.Target_Shortcut, Host Player, -1);
 					Wait(0.250, Ignore Condition);
-					Move Player to Team(Event Player.Target_Lock, Team 1, -1);
+					Move Player to Team(Event Player.Target_Shortcut, Team 1, -1);
 				Else;
 					Small Message(Event Player, Custom String("  Other team is full!"));
 				End;
@@ -6602,7 +6606,6 @@ rule("Mode_29 - Promote/Demote_And_Teamswap")
 			Abort If((Event Player.High_Rank || Event Player.Mod_Rank) == False);
 			Move Player to Team(Event Player, Host Player, -1);
 		End;
-		Event Player.Target_Lock = Custom String("--- No Target ---");
 	}
 }
 
