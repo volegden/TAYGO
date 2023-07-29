@@ -33,7 +33,9 @@ rule ("Custom nameplates list")
             Array(Custom String("LƐafa"), 
                 		Custom String("Fading"), 
                 		130, 0, 0, 0, 33, 97,
-				Custom String(":з")
+				Custom String(":з"),
+				Custom String(" ( 〃▽〃) "),
+				Custom String(">:з")
                 	),
 			Array(Custom String("Gregi"), 
                 		Custom String("Rainbow"),
@@ -95,7 +97,9 @@ rule ("Custom nameplates list")
                 		),
 			Array(Custom String("Sadness"), 
                 		Color(Black),
-                		Custom String("• PROTECTOR • ")
+                		Custom String("{0} Protector {0}", Ability Icon String(Hero(Reaper), Button(Ability 1))),
+						Custom String("{0} Madness? Sadness? Only Fun! {0}", Ability Icon String(Hero(Junkrat), Button(Ability 1))),
+						Custom String("{0} Remember The Balance {0}", Ability Icon String(Hero(Zenyatta), Button(Ability 2)))
                 		), 
 			Array(Custom String("Boney"), 
                 		Custom String("Rainbow"),
