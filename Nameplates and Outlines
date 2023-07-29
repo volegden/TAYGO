@@ -654,7 +654,7 @@ rule ("Custom nameplates list")
 				),
 			Array(Custom String("현대적인쌍봉낙타"), 
 				Custom Color(243, 214, 223, 255),
-				Custom String("{0}  ファウスト  {0}", Ability Icon String(Hero(Kiriko), Button(Primaryfire))),
+				Custom String("{0}  ファウスト  {0}", Ability Icon String(Hero(Kiriko), Button(Secondaryfire))),
 				Custom String("† INTP †"),
 				Custom String("{0}  憂鬱  {0}", Ability Icon String(Hero(Ramattra), Button(Ultimate)))
 				),
