@@ -9,13 +9,12 @@ rule("Listed_Player")
 	{
 		"Automatic High Rank"
 		Global.High_Rank = Array(
-			Custom String("Warloy"), Custom String("xMaxuss"), Custom String("LƐafa"), Custom String("ORCHȊD"),
+			Custom String("Warloy"), Custom String("xMaxuss"), Custom String("LƐafa"), Custom String("AndrewKnoll"),
 			Custom String("Moe Szyslak"), Custom String("Titanaboa"), Custom String("xskĳ"), Custom String("Kysp"), Custom String("Toguro"), Custom String("kwally"),  
-			Custom String("MOOOUSH"), Custom String("BlueSky"), Custom String("PHEINU"), Custom String("wheyfuwu"), 
-			Custom String("Xenolysith"), Custom String("squid"), Custom String("AndrewKnoll"), Custom String("Leestick"), Custom String("Nutzee"), 
-			Custom String("Metalgy"), Custom String("PapaRomeo"), Custom String("RUBY"), Custom String("Miowell"), Custom String("Mettlis"), 
-			Custom String("Brat"), Custom String("CyberSentai"), Custom String("Mustika"), Custom String("xMumu"), Custom String("Shampoo"), 
-			Custom String("xCleo"), Custom String("YeastBeast"), Custom String("ShellBebop"), Custom String("Dubbie7"), Custom String("MissImmortal"), 
+			Custom String("MOOOUSH"), Custom String("BlueSky"), Custom String("PHEINU"), Custom String("wheyfuwu"), Custom String("Xenolysith"), Custom String("squid"),  
+            Custom String("Leestick"), Custom String("Nutzee"), Custom String("Metalgy"), Custom String("PapaRomeo"), Custom String("RUBY"), Custom String("Miowell"),  
+			Custom String("Brat"), Custom String("CyberSentai"), Custom String("Mustika"), Custom String("xMumu"), Custom String("Shampoo"), Custom String("Mettlis"),
+			Custom String("xCleo"), Custom String("WIĿĿOW"), Custom String("YeastBeast"), Custom String("ShellBebop"), Custom String("Dubbie7"), Custom String("MissImmortal"), 
 			Custom String("Zxtyi"), Custom String("Bendude1000"), Custom String("Lostshadow"));
 			
 		"Automatic Mod"
@@ -77,6 +76,7 @@ rule("Listed_Player")
             Custom String("Gone"), Custom String("Player"), Custom String("FlameYeti"), Custom String("Kirikou"), Custom String("naym"), Custom String("iHaT3KurDs"), Custom String("TeemantQ"), Custom String("Evelia"), 
             Custom String("Robotmaster7"), Custom String("DEADshot"), Custom String("MeMyselfPIE"), Custom String("westlux"), Custom String("BOSS"), Custom String("SweetWolf15"), Custom String("Map"), 
             Custom String("UvaldeVictim"), CUstom String("ActiveShootr"), Custom String("Deadshot"), Custom string("Enandaxis"), Custom String("Cat"), Custom String("oxr4500"), Custom String("Strawberry"), 
-            Custom String("Abdul1Jafar"), Custom String("LAB"), Custom String("ilovetumadre"), Custom String("Woogie"), Custom String("knight"), Custom String("DeaMonFox"), Custom String("BigB0llocks"));
+            Custom String("Abdul1Jafar"), Custom String("LAB"), Custom String("ilovetumadre"), Custom String("Woogie"), Custom String("knight"), Custom String("DeaMonFox"), Custom String("BigB0llocks"),
+            Custom String("Cute"), Custom String("AlphaStark"));
 	}
 }
