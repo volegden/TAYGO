@@ -30,6 +30,11 @@ rule ("Custom nameplates list")
 				Custom String("¡Hola! ¿Qué onda? {0}", Hero Icon String(Hero(Sombra))),
 				Custom String("Custom String(\"Insert 3rd name\")")
                 	),
+            Array(Custom String("LƐafa"), 
+                		Custom String("Fading"), 
+                		130, 0, 0, 0, 33, 97,
+				Custom String(":з")
+                	),
 			Array(Custom String("Gregi"), 
                 		Custom String("Rainbow"),
                 		Custom String("♥ ★ Baby D.va ★ ♥")
@@ -502,8 +507,8 @@ rule ("Custom nameplates list")
 				Custom String("♥ Zax ♥")
 				), 
 			Array(Custom String("PapaRomeo"), 
-				Custom Color(1, 173, 71, 255),
-				Custom String("{0} Ｍａｔｃｈａ　Ｔｅａ {0}", Ability Icon String(Hero(Ana), Button(Ability 2)))
+				Custom Color(89, 31, 167, 255),
+				Custom String("{0} The Saint {0}", Icon String(Halo))
 				), 
 			Array(Custom String("MopuD"), 
 				Custom Color(4, 40, 143, 255),
@@ -581,6 +586,10 @@ rule ("Custom nameplates list")
 				Custom Color(245, 14, 10, 255),
 				Custom String("⁂ COOKIE ANDREW ⁂"), 
                 		Custom String("Rindfleischetikettierungsüberwachungsaufgabenübertragungsgesetzussy")
+				),
+            Array(Custom String("WIĿĿOW"), 
+				Custom Color(208, 139, 88, 255),
+				    Custom String("{0} The Phoenix {0}", Ability Icon String(Hero(Mercy), Button(Ultimate)))
 				),
 			Array(Custom String("AŊÍKÍ"),
 				Color(White),
