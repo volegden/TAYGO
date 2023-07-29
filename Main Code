@@ -720,8 +720,6 @@ rule("Default_Player_Settings")
 			Event Player.Player_Modification = Array(100, 100, 100, 100, 100);
 			Event Player.Voice_Pitch = 1;
 			Event Player.Extra8_Timer = -1;
-			Event Player.Spam_Cooldown = 3;
-			Chase Player Variable At Rate(Event Player, Spam_Cooldown, 0, 1, None);
 			Wait(0.2, Ignore Condition);
 			Modify Global Variable(Player_Joined_Queue, Remove From Array By Value, Null);
 			Modify Global Variable(Player_Joined_Queue, Remove From Array By Value, Event Player);
@@ -6263,53 +6261,56 @@ rule("Mode_28 - Mute")
 	{
 		Event Player.Signal = False;
 		If(Is Button Held(Event Player, Button(Primary Fire)));
-			Abort If(Player Closest To Reticle(Event Player, All Teams).Restricted[0]);
-			Abort If(Array Contains(Global.High_Rank, Custom String("{0}", Player Closest To Reticle(Event Player, All Teams))));
-			Abort If(Player Closest To Reticle(Event Player, All Teams).UNO_Ingame);
-			Abort If(Player Closest To Reticle(Event Player, All Teams) == Host Player && Event Player.Mod_Rank);
-			Abort If(Player Closest To Reticle(Event Player, All Teams).Mod_Rank && Event Player.Mod_Rank &&
-				Not(Player Closest To Reticle(Event Player, All Teams).Promoted_Rank));
-			Abort If(Is Dummy Bot(Player Closest To Reticle(Event Player, All Teams)));
-			Player Closest To Reticle(Event Player, All Teams).Restricted[0] = True;
-			Player Closest To Reticle(Event Player, All Teams).Restricted[1] = True;
-			If(Player Closest To Reticle(Event Player, All Teams).Protection);
-				Clear Status(Player Closest To Reticle(Event Player, All Teams), Phased Out);
+			Event Player.Target_Shortcut = Player Closest To Reticle(Event Player, All Teams);
+			Abort If(Event Player.Target_Shortcut == Null);
+			Abort If(Event Player.Target_Shortcut.Restricted[0]);
+			Abort If(Array Contains(Global.High_Rank, Custom String("{0}", Event Player.Target_Shortcut)));
+			Abort If(Event Player.Target_Shortcut.UNO_Ingame);
+			Abort If(Event Player.Target_Shortcut == Host Player && Event Player.Mod_Rank);
+			Abort If(Event Player.Target_Shortcut.Mod_Rank && Event Player.Mod_Rank &&
+				Not(Event Player.Target_Shortcut.Promoted_Rank));
+			Abort If(Is Dummy Bot(Event Player.Target_Shortcut));
+			Event Player.Target_Shortcut.Restricted[0] = True;
+			Event Player.Target_Shortcut.Restricted[1] = True;
+			If(Event Player.Target_Shortcut.Protection);
+				Clear Status(Event Player.Target_Shortcut, Phased Out);
 			End;
-			Play Effect(All Players(All Teams), Bad Pickup Effect, Color(Red), Player Closest To Reticle(Event Player, All Teams), 1);
-			Create Effect(All Players(All Teams), Sphere, Color(Black), Position Of(Player Closest To Reticle(Event Player, All Teams)),
+			Play Effect(All Players(All Teams), Bad Pickup Effect, Color(Red), Event Player.Target_Shortcut, 1);
+			Create Effect(All Players(All Teams), Sphere, Color(Black), Position Of(Event Player.Target_Shortcut),
 				3.500, Visible To);
 			
-			Global.Jail_List[0] = Append To Array(Global.Jail_List[0], Custom String("{0}", Player Closest To Reticle(Event Player, All Teams)));
+			Global.Jail_List[0] = Append To Array(Global.Jail_List[0], Custom String("{0}", Event Player.Target_Shortcut));
 			Global.Jail_List[1] = Append To Array(Global.Jail_List[1], Last Created Entity);
-			Global.Jail_List[2] = Append To Array(Global.Jail_List[2], Position Of(Player Closest To Reticle(Event Player, All Teams)));
+			Global.Jail_List[2] = Append To Array(Global.Jail_List[2], Position Of(Event Player.Target_Shortcut));
 			Global.Jail_List[3] = Append To Array(Global.Jail_List[3], True);
 			"Disable text and voice chats"
-			Disable Text Chat(Player Closest To Reticle(Event Player, All Teams));
-			Disable Voice Chat(Player Closest To Reticle(Event Player, All Teams), True, True, True);
+			Disable Text Chat(Event Player.Target_Shortcut);
+			Disable Voice Chat(Event Player.Target_Shortcut, True, True, True);
 			"Disable all skills and meele"
-			Set Ability 1 Enabled(Player Closest To Reticle(Event Player, All Teams), False);
-			Set Ability 2 Enabled(Player Closest To Reticle(Event Player, All Teams), False);
+			Set Ability 1 Enabled(Event Player.Target_Shortcut, False);
+			Set Ability 2 Enabled(Event Player.Target_Shortcut, False);
 
-			Set Melee Enabled(Player Closest To Reticle(Event Player, All Teams), False);
-			Set Primary Fire Enabled(Player Closest To Reticle(Event Player, All Teams), False);
-			Set Secondary Fire Enabled(Player Closest To Reticle(Event Player, All Teams), False);
-			Set Ultimate Ability Enabled(Player Closest To Reticle(Event Player, All Teams), False);
-			Player Closest To Reticle(Event Player, All Teams).Last_Position_Facing[0] = Position Of(Player Closest To Reticle(Event Player,
-				All Teams));
+			Set Melee Enabled(Event Player.Target_Shortcut, False);
+			Set Primary Fire Enabled(Event Player.Target_Shortcut, False);
+			Set Secondary Fire Enabled(Event Player.Target_Shortcut, False);
+			Set Ultimate Ability Enabled(Event Player.Target_Shortcut, False);
+			Event Player.Target_Shortcut.Last_Position_Facing[0] = Position Of(Event Player.Target_Shortcut);
 		Else If(Is Button Held(Event Player, Button(Secondary Fire)));
-			Abort If(Player Closest To Reticle(Event Player, All Teams).Restricted[0] == False);
-			Abort If(Array Contains(Global.High_Rank, Custom String("{0}", Player Closest To Reticle(Event Player, All Teams))));
-			Abort If(Player Closest To Reticle(Event Player, All Teams) == Host Player && Event Player.Mod_Rank);
-			Abort If(Player Closest To Reticle(Event Player, All Teams).Mod_Rank && Event Player.Mod_Rank &&
-				Not(Player Closest To Reticle(Event Player, All Teams).Promoted_Rank));
-			Player Closest To Reticle(Event Player, All Teams).Restricted[0] = False;
-			Player Closest To Reticle(Event Player, All Teams).Restricted[1] = False;
-			If(Player Closest To Reticle(Event Player, All Teams).Protection);
-				Set Status(Player Closest To Reticle(Event Player, All Teams), Null, Phased Out, 9999);
+			Event Player.Target_Shortcut = Player Closest To Reticle(Event Player, All Teams);
+			Abort If(Event Player.Target_Shortcut == Null);
+			Abort If(Event Player.Target_Shortcut.Restricted[0] == False);
+			Abort If(Array Contains(Global.High_Rank, Custom String("{0}", Event Player.Target_Shortcut)));
+			Abort If(Event Player.Target_Shortcut == Host Player && Event Player.Mod_Rank);
+			Abort If(Event Player.Target_Shortcut.Mod_Rank && Event Player.Mod_Rank &&
+				Not(Event Player.Target_Shortcut.Promoted_Rank));
+			Event Player.Target_Shortcut.Restricted[0] = False;
+			Event Player.Target_Shortcut.Restricted[1] = False;
+			If(Event Player.Target_Shortcut.Protection);
+				Set Status(Event Player.Target_Shortcut, Null, Phased Out, 9999);
 			End;
-			Play Effect(All Players(All Teams), Good Pickup Effect, Color(Blue), Player Closest To Reticle(Event Player, All Teams), 1);
+			Play Effect(All Players(All Teams), Good Pickup Effect, Color(Blue), Event Player.Target_Shortcut, 1);
 			
-			Event Player.Index_Help = Index Of Array Value(Global.Jail_List[0], Custom String("{0}", Player Closest To Reticle(Event Player, All Teams)));
+			Event Player.Index_Help = Index Of Array Value(Global.Jail_List[0], Custom String("{0}", Event Player.Target_Shortcut));
 			Destroy Effect(Global.Jail_List[1][Event Player.Index_Help]);
 			Global.Jail_List[0] = Filtered Array(Global.Jail_List[0], Current Array Index != Event Player.Index_Help);
 			Global.Jail_List[1] = Filtered Array(Global.Jail_List[1], Current Array Index != Event Player.Index_Help);
@@ -6317,16 +6318,16 @@ rule("Mode_28 - Mute")
 			Global.Jail_List[3] = Filtered Array(Global.Jail_List[3], Current Array Index != Event Player.Index_Help);
 
 			"Enable text and voice chats"
-			Enable Text Chat(Player Closest To Reticle(Event Player, All Teams));
-			Enable Voice Chat(Player Closest To Reticle(Event Player, All Teams));
+			Enable Text Chat(Event Player.Target_Shortcut);
+			Enable Voice Chat(Event Player.Target_Shortcut);
 			"Enable skills and meele"
-			Set Ability 1 Enabled(Player Closest To Reticle(Event Player, All Teams), True);
-			Set Ability 2 Enabled(Player Closest To Reticle(Event Player, All Teams), True);
-			Set Melee Enabled(Player Closest To Reticle(Event Player, All Teams), True);
-			Set Primary Fire Enabled(Player Closest To Reticle(Event Player, All Teams), True);
-			Set Secondary Fire Enabled(Player Closest To Reticle(Event Player, All Teams), True);
-			Set Ultimate Ability Enabled(Player Closest To Reticle(Event Player, All Teams), True);
-			Player Closest To Reticle(Event Player, All Teams).Last_Position_Facing[0] = Null;
+			Set Ability 1 Enabled(Event Player.Target_Shortcut, True);
+			Set Ability 2 Enabled(Event Player.Target_Shortcut, True);
+			Set Melee Enabled(Event Player.Target_Shortcut, True);
+			Set Primary Fire Enabled(Event Player.Target_Shortcut, True);
+			Set Secondary Fire Enabled(Event Player.Target_Shortcut, True);
+			Set Ultimate Ability Enabled(Event Player.Target_Shortcut, True);
+			Event Player.Target_Shortcut.Last_Position_Facing[0] = Null;
 		Else If(Is Button Held(Event Player, Button(Ultimate)));
 			If(Event Player.Restricted[0] == False);
 				Event Player.Restricted[0] = True;
@@ -9178,6 +9179,8 @@ rule("Moe-Bot Behavior")
 		Start Facing(Event Player, Update Every Frame(Direction Towards(Eye Position(Event Player), 
 			Eye Position(Closest Player To(Event Player, All Teams)))),
 			300, To World, Direction and Turn Rate);
+		Event Player.Scale_Real = 1;
+		Chase Player Variable At Rate(Event Player, Spam_Cooldown, 0, 1, None);
 		Chase Player Variable At Rate(Event Player, Bot_CD, 0, 1, Destination and Rate);
 		Stop Modifying Hero Voice Lines(Event Player);
 		Set Max Health(Event Player, 10000);
