@@ -1461,8 +1461,8 @@ rule ("Custom nameplates list")
 				        Custom String("Fading"), 
                 	    0,0,0, 136,0,0,
 				Custom String("{0}  P r i n c e  O f  H a r m o n y  {0}", Ability Icon String(Hero(Mercy), Button(Ability 2))), 
-				Custom String(" † Slafiiko - Kirikult † "), 
-				Custom String("{0} Ѕ Μ Θ L F R Ψ ' Ѕ  C Δ R R Ψ {0}", Ability Icon String(Hero(Pharah), Button(Ultimate)))
+				Custom String("{0}  I  H Δ R D  Ɓ Σ G  Ѕ Μ Θ L F R Ψ  F Θ R  Δ  Ƥ Θ C Ƙ Σ Ƭ  {0}", Ability Icon String(Hero(Mercy), Button(Ultimate))), 
+				Custom String(" † Slafiiko - Kirikult † ")
 				    ),
 			Array(Custom String("DJSmolfry"), 
 				Custom String("Rainbow"),
