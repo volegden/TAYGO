@@ -56,12 +56,13 @@ rule("Listed_Player")
 		"Demoted"
 		Global.Demoted = Array(Custom String("Eggman"), Custom String("Nef"), Custom String("Kêñ"), Custom String("LeMix"), Custom String("Mikasa"), Custom String("godfaceim"), 
 				Custom String("SHINIxMIZU"), Custom String("Snaiy"), Custom String("KadenLee25"), Custom String("BabyDarl"), Custom String("Nicolol123"), Custom String("CATMOM"), 
-				Custom String("Daisy"), Custom String("UKGamer001"), Custom String("Daniel"), Custom String("Devil"), Custom String("Rey"), 
-				Custom String("gavinsup"), Custom String("hjnk"), Custom String("BattleLogan"), Custom String("Aris"), Custom String("yurination"), Custom String("boingJOING"));
+				Custom String("Daisy"), Custom String("UKGamer001"), Custom String("Daniel"), Custom String("abolfazl1234"), Custom String("Rey"), Custom String("OppenHeimer"),
+				Custom String("naym"), Custom String("gavinsup"), Custom String("hjnk"), Custom String("BattleLogan"), Custom String("Aris"), Custom String("yurination"), 
+				Custom String("boingJOING"), Custom String("RayJr"), Custom String("Cristiano"), Custom String("charmander"));
 		
 		"Automatic Ban"
 		Global.Perma_Banned = Array(
-			Custom String("blueberry!"), Custom String("Heretic"), Custom String("BoneStealer"), Custom String("Simplicity"), 
+			Custom String("blueberry!"), Custom String("Heretic"), Custom String("BoneStealer"), Custom String("Simplicity"), Custom String("xqno"), Custom String("M7MD"), Custom String("MajedGA"),
 			Custom String("IloveBirds"), Custom String("Kyger100"), Custom String("Potato"), Custom String("Apotato2182"), Custom String("KR0"), Custom String("Mardothiel"), 
 			Custom String("TwitchPoison"), Custom String("Bastion"), Custom String("JoltWave"), Custom String("MrBastion"), Custom String("PINKBASTIONǃ"), Custom String("HyperBastion"),  
 			Custom String("BebeUwU"), Custom String("Fluttershy"), Custom String("Katsuki"), Custom String("Dar7bi"), Custom String("vel"), Custom String("KaijoSan"), Custom String("BigObeseMan"),
@@ -71,13 +72,14 @@ rule("Listed_Player")
 			Custom String("DantefromDMC"), Custom String("SneezyDwarf"), Custom String("Mint"), Custom String("hesuskristus"), Custom String("BigBadBosses"), Custom String("YOURSELF"), Custom String("MauveBat"),
            	Custom String("euphorictwnk"), Custom String("Butcher"), Custom String("Homelander"), Custom String("EugenePorter"), Custom String("KILL"), Custom String("BrownRaven"), Custom String("His16YrOld"),
 			Custom String("Zer0"), Custom String("GenjiCum"), Custom String("Greyacolyte"), Custom String("miro22"), Custom String("Parkkis"), Custom String("TheCheeseMan"), Custom String("Reinkampff"),
-			Custom String("SexiestBeast"), Custom String("GoblinSexual"), Custom String("FloorBread"), Custom String("Fearless"), Custom String("pkdd"), Custom String("dobarčovjek"),
-			Custom String("Hercules"), Custom String("최후의금빛위습"), Custom String("Reyes"), Custom String("Her21YrOld"), Custom String("Player"), Custom String("FlameYeti"), Custom String("naym"), 
+			Custom String("GoblinSexual"), Custom String("FloorBread"), Custom String("Fearless"), Custom String("pkdd"), Custom String("dobarčovjek"), Custom string("Enandaxis"), Custom String("S233"),
+			Custom String("Hercules"), Custom String("최후의금빛위습"), Custom String("Reyes"), Custom String("Her21YrOld"), Custom String("FlameYeti"), Custom String("Abdul1Jafar"),
 			Custom String("TeemantQ"), Custom String("Evelia"), Custom String("Robotmaster7"), Custom String("DEADshot"), Custom String("MeMyselfPIE"), Custom String("westlux"), Custom String("BOSS"), 
-			Custom String("SweetWolf15"), Custom String("Map"), Custom String("UvaldeVictim"), CUstom String("ActiveShootr"), Custom String("Deadshot"), Custom string("Enandaxis"), Custom String("Cat"), 
-			Custom String("oxr4500"), Custom String("Strawberry"), Custom String("Abdul1Jafar"), Custom String("LAB"), Custom String("ilovetumadre"), Custom String("Woogie"), Custom String("knight"), 
-			Custom String("DeaMonFox"), Custom String("BigB0llocks"), Custom String("Cute"), Custom String("AlphaStark"), Custom String("nijeturčin"), Custom String("Slurp"), Custom String("ioven"), 
-			Custom String("Haise"), Custom String("anakor"), Custom String("m14"), Custom String("Idote"), Custom String("Haise"), Custom String("Chuu"), Custom String("TOKYOsensei"), Custom String("ZzZz"), 
-			Custom String("LiquorSeller"), Custom String("ImNotAHealer"), Custom String("Jeanne"));
+			Custom String("UvaldeVictim"), CUstom String("ActiveShootr"), Custom String("Deadshot"), Custom String("oxr4500"), Custom String("Strawberry"), Custom String("LAB"), 
+			Custom String("ilovetumadre"), Custom String("Woogie"), Custom String("knight"), Custom String("DeaMonFox"), Custom String("BigB0llocks"), Custom String("Cute"), Custom String("AlphaStark"), 
+			Custom String("nijeturčin"), Custom String("Slurp"), Custom String("ioven"), Custom String("Haise"), Custom String("anakor"), Custom String("m14"), Custom String("Idote"), Custom String("Haise"), 
+			Custom String("Chuu"), Custom String("TOKYOsensei"), Custom String("ZzZz"), Custom String("LiquorSeller"), Custom String("ImNotAHealer"), Custom String("Jeanne"), Custom String("NITXQ"), 
+			Custom String("zxoo"), Custom String("Rei"), Custom String("Oops"), Custom String("LadyMacabre"), Custom String("Redguysimp"), Custom String("BigDraco"), Custom String("BORA"),
+			Custom String("mewzory"), Custom String("Zewzeilor"), Custom String("slusƕ"), Custom String("Beastmyster"));
 	}
 }
