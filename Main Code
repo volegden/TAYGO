@@ -1004,7 +1004,7 @@ rule ("Data")
 		"Moooush Effect"
 		Global.Moooush_Effect = Array(
 			Array(Custom String("MOOOUSH"), Custom Color(194, 151, 194, 255)),
-			Array(Custom String("PapaRomeo"), Color(Green)),
+			Array(Custom String("PapaRomeo"), Color(Orange)),
 			Array(Custom String("AndrewKnoll"), Color(Rose)),
 			Array(Custom String("Metalgy"), Color(Red)),
 			Array(Custom String("Nutzee"), Color(SkyBlue)),
