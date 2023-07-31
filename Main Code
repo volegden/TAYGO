@@ -2,7 +2,7 @@ settings
 {
 	main
 	{
-		Description: "♥ A Friendly Server To Meet New Friends ♥\nlast updated (July 29 2023)\n\n   » » » MASSIVE UPDATE RELEASED « « «\n (including UNO, non-mod menu and\n      hero specific features!)\n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss.\n   Based on the work of: TbyCoLive.\n Maintained with ♡ by: LƐafa.\n   Community Managers:\n     RUBY & kwally."
+		Description: "♥ A Friendly Server To Meet New Friends ♥\nlast updated (July 29 2023)\n\n   » » » MASSIVE UPDATE RELEASED « « «\n (including UNO, non-mod menu and\n      hero specific features!)\n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss.\n   Based on the work of: TbyCoLive.\n Maintained with ♡ by: LƐafa.\n   Community Managers: RUBY & kwally."
 		Mode Name: " ♥ Friendly ♥ No Kill!"
 	}
 
@@ -362,7 +362,7 @@ variables
 		21: Scale_Hud_ID
 		22: Progress_Lock
 		23: Remote_Scale
-		24: Grap_Line
+		24: Leash_Line
 		25: Mode_Description
 		26: Last_Position_Facing
 		27: Restricted
@@ -433,6 +433,7 @@ variables
 		92: Players_Global_Array
 		93: Outlines_Toggle
 		94: Midtown_Bonus
+		95: Leash_List
 	}
 
 subroutines
@@ -777,7 +778,7 @@ rule("Default_Player_Settings")
 		Event Player.Scale_Hud_ID = Null;
 		Event Player.Progress_Lock = False;
 		Event Player.Remote_Scale = False;
-		Event Player.Grap_Line = Array(Null, Null, False);
+		Event Player.Leash_Line = Array(Null, Null);
 		Event Player.Mode_Description = Null;
 		Event Player.Last_Position_Facing = Array(Null, Null);
 		Event Player.Savezone_Access = False;
@@ -833,6 +834,7 @@ rule("Default_Player_Settings")
 
 		Event Player.No_CD = False;
 		Event Player.Full_Protection = False;
+		Event Player.Leash_List = Empty Array;
 
 		Event Player.Outlines_Toggle = True;
 		Event Player.Positions_For_Beams = Array(Null, Null);
@@ -1002,7 +1004,7 @@ rule ("Data")
 		"Moooush Effect"
 		Global.Moooush_Effect = Array(
 			Array(Custom String("MOOOUSH"), Custom Color(194, 151, 194, 255)),
-			Array(Custom String("PapaRomeo"), Color(Orange)),
+			Array(Custom String("PapaRomeo"), Color(Green)),
 			Array(Custom String("AndrewKnoll"), Color(Rose)),
 			Array(Custom String("Metalgy"), Color(Red)),
 			Array(Custom String("Nutzee"), Color(SkyBlue)),
@@ -3267,11 +3269,12 @@ rule("Remove_AFK_Player")
 	actions
 	{
 		Abort If(Array Contains(Global.High_Rank, Custom String("{0}", Event Player)) || Array Contains(Global.Mod_Rank, Custom String("{0}", Event Player)) 
-			|| Host Player == Event Player);
+			|| (Host Player == Event Player && Array Contains(Global.Promoted_List, Custom String("{0}", Event Player))));
 		Abort If(Custom String("{0}", Event Player) == Custom String("Warloy") || Custom String("{0}", Event Player) == Custom String("LƐafa") || 
 			Custom String("{0}", Event Player) == Custom String("WIĿĿOW") || Custom String("{0}", Event Player) == Custom String("kwally"));
 		Wait(600, Abort When False);
 		Big Message(All Players(All Teams), Custom String("{0} Was \"AFK\" Too Long Without Choosing A Hero.", Event Player));
+		Wait(0.1, Ignore Condition);
 		Remove Player(Event Player);
 	}
 }
@@ -4906,27 +4909,27 @@ rule("Mode_14 - Grapple_Line")
 	{
 		Event Player.Signal = False;
 		"TODO: Add anti colission to target"
+		Event Player.Target_Shortcut = Player Closest To Reticle(Event Player, All Teams);
+		Abort If(Event Player.Target_Shortcut == Null);
 		If(Is Button Held(Event Player, Button(Primary Fire)));
-			Abort If(Event Player.Grap_Line[2]);
-			Abort If(Player Closest To Reticle(Event Player, All Teams).Full_Protection);
-			Play Effect(All Players(All Teams), Bad Pickup Effect, Color(Red), Player Closest To Reticle(Event Player, All Teams), 1);
-			Event Player.Grap_Line[0] = Player Closest To Reticle(Event Player, All Teams);
-			Player Closest To Reticle(Event Player, All Teams).Grap_Line[0] = Event Player;
-			Wait(0.250, Ignore Condition);
-			Create Beam Effect(All Players(All Teams), Good Beam, Event Player.Grap_Line[0], Event Player, Color(Rose),
+			Abort If(Event Player.Target_Shortcut.Full_Protection);
+			Abort If(Array Contains(Event Player.Leash_List, Event Player.Target_Shortcut));
+			Abort If(Event Player.Target_Shortcut.Leash_Line[0] != Null);
+			Play Effect(All Players(All Teams), Bad Pickup Effect, Color(Red), Event Player.Target_Shortcut, 1);
+			Create Beam Effect(All Players(All Teams), Good Beam, Evaluate Once(Event Player.Target_Shortcut), Event Player, Color(Rose),
 				Visible To Position and Radius);
-			Event Player.Grap_Line[1] = Last Created Entity;
-			Event Player.Grap_Line[2] = True;
+			Event Player.Target_Shortcut.Leash_Line[1] = Last Created Entity;
+			Modify Player Variable(Event Player, Leash_List, Append To Array, Event Player.Target_Shortcut);
+			Event Player.Target_Shortcut.Leash_Line[0] = Event Player;
 		Else If(Is Button Held(Event Player, Button(Secondary Fire)));
-			Play Effect(All Players(All Teams), Good Pickup Effect, Color(Blue), Position Of(Event Player.Grap_Line[0]), 1);
-			Destroy Effect(Player Closest To Reticle(Event Player, All Teams).Grap_Line[1]);
-			Destroy Effect(Event Player.Grap_Line[1]);
-			Event Player.Grap_Line[1] = Null;
-			Event Player.Grap_Line[2] = False;
-			Wait(0.250, Ignore Condition);
-			Event Player.Grap_Line[0] = Null;
-			Player Closest To Reticle(Event Player, All Teams).Grap_Line[0] = Null;
+			Abort If(Not(Array Contains(Event Player.Leash_List, Event Player.Target_Shortcut)));
+			Play Effect(All Players(All Teams), Good Pickup Effect, Color(Blue), Event Player.Target_Shortcut, 1);
+			Destroy Effect(Event Player.Target_Shortcut.Leash_Line[1]);
+			Modify Player Variable(Event Player, Leash_List, Remove From Array By Value, Event Player.Target_Shortcut);
+			Wait(0.01, Ignore Condition);
+			Event Player.Target_Shortcut.Leash_Line = Array(Null, Null);
 		End;
+		Wait(0.1, Ignore Condition);
 	}
 }
 
@@ -4941,17 +4944,16 @@ rule("Mode_14 - Grapple_Line_Protection_Abort")
 
 	conditions
 	{
-		Event Player.Grap_Line[2] == True;
-		Event Player.Grap_Line[0].Full_Protection == True;
+		Event Player.Leash_Line[0] != Null;
+		Event Player.Full_Protection == True;
 	}
 
 	actions
 	{
-		Destroy Effect(Event Player.Grap_Line[1]);
-		Event Player.Grap_Line[1] = Null;
-		Event Player.Grap_Line[2] = False;
-		Wait(0.250, Ignore Condition);
-		Event Player.Grap_Line[0] = Null;
+		Destroy Effect(Event Player.Leash_Line[1]);
+		Modify Player Variable(Event Player.Leash_Line[0], Leash_List, Remove From Array By Value, Event Player);
+		Wait(0.1, Ignore Condition);
+		Event Player.Leash_Line = Array(Null, Null);
 	}
 }
 
@@ -4966,18 +4968,19 @@ rule("Mode_14 - Grapple_Line_Pullback")
 
 	conditions
 	{
-		Event Player.Grap_Line[2] == True;
-		Distance Between(Event Player, Position Of(Event Player.Grap_Line[0])) >= 4;
+		Event Player.Leash_Line[0] != Null;
+		Distance Between(Event Player, Position Of(Event Player.Leash_Line[0])) >= 4;
 	}
 
 	actions
 	{
-		Apply Impulse(Event Player.Grap_Line[0], Direction Towards(Position Of(Event Player.Grap_Line[0]), Event Player), 20, To World,
+		Apply Impulse(Event Player, Direction Towards(Event Player, Position Of(Event Player.Leash_Line[0])), 20, To World,
 			Cancel Contrary Motion);
 		Wait(0.100, Ignore Condition);
 		Loop If Condition Is True;
 	}
 }
+
 
 rule("Mode_15 - Painting_NEW")
 {
@@ -9421,11 +9424,10 @@ rule("individual effect: kwally (is moving)")
 
 	actions
 	{
-		If(Custom String("{0}", Event Player) == Custom String("kwally"));
-			Play Effect(All Players(All Teams), Ring Explosion, Color(Blue), Position Of(Event Player) + Vector(X Component Of(
-				Event Player), 0.022, Z Component Of(Event Player)), 1.3);
-			Wait(0.050, Ignore Condition);
-		End;
+		Abort If(Custom String("{0}", Event Player) != Custom String("kwally"));
+		Play Effect(All Players(All Teams), Ring Explosion, Color(Blue), Position Of(Event Player) + Vector(X Component Of(
+			Event Player), 0.022, Z Component Of(Event Player)), 1.3);
+		Wait(0.050, Ignore Condition);
 		Loop If Condition Is True;
 	}
 }
