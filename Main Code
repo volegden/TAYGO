@@ -1745,7 +1745,7 @@ rule ("Custom nameplates list")
 				),
 			Array(Custom String("yohan"),
 				Custom Color(97, 207, 126, 255), 
-				Custom String("{0}    Selling Tickets For The Magic Mushroom Quest    {0}", Ability Icon String(Hero(Cassidy), Button(Ability 1))), 
+				Custom String("{0}    Selling Tickets For The Magic Mushroom Quest    {0}", Icon String(Exclamation Mark)),
 				Custom String("{0}  Currently Has A Cowboy Hostage  {0}", Ability Icon String(Hero(Cassidy), Button(Primaryfire))), 
 				Custom String("{0} Pumpkin {0}", Ability Icon String(Hero(Cassidy), Button(Ultimate)))
 				),
