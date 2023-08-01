@@ -6283,6 +6283,7 @@ rule("Mode_28 - Mute")
 		Event Player.Signal = False;
 		If(Is Button Held(Event Player, Button(Primary Fire)));
 			Event Player.Target_Shortcut = Player Closest To Reticle(Event Player, All Teams);
+			Abort If(Not(Has Spawned(Event Player.Target_Shortcut)) || Is Dead(Event Player.Target_Shortcut));
 			Abort If(Event Player.Target_Shortcut == Null);
 			Abort If(Event Player.Target_Shortcut.Restricted[0]);
 			Abort If(Array Contains(Global.High_Rank, Custom String("{0}", Event Player.Target_Shortcut)));
@@ -6318,6 +6319,7 @@ rule("Mode_28 - Mute")
 			Event Player.Target_Shortcut.Last_Position_Facing[0] = Position Of(Event Player.Target_Shortcut);
 		Else If(Is Button Held(Event Player, Button(Secondary Fire)));
 			Event Player.Target_Shortcut = Player Closest To Reticle(Event Player, All Teams);
+			Abort If(Not(Has Spawned(Event Player.Target_Shortcut)) || Is Dead(Event Player.Target_Shortcut));
 			Abort If(Event Player.Target_Shortcut == Null);
 			Abort If(Event Player.Target_Shortcut.Restricted[0] == False);
 			Abort If(Array Contains(Global.High_Rank, Custom String("{0}", Event Player.Target_Shortcut)));
@@ -6403,6 +6405,7 @@ rule("Mode_28 - Mute")
 				Event Player.Last_Position_Facing[0] = Null;
 			End;
 		End;
+		Wait(0.1, Ignore Condition);
 	}
 }
 
