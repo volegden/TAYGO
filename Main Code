@@ -8380,7 +8380,8 @@ rule("Extra_13: Widow Laserpointer")
 	{
 		Destroy Effect(Event Player.Extra14_ID);
 		Wait(0.4, Abort When False);
-		Create Beam Effect(Filtered Array(All Players(All Teams), Not(Current Array Element == Event Player && Current Array Element.Camera == 0)), 
+		Create Beam Effect(Filtered Array(All Players(All Teams), Not(Current Array Element == Event Player && Current Array Element.Camera == 0) &&
+			(Hero Of(Current Array Element) != Hero(Widowmaker) || Current Array Element == Event Player)), 
 			Good Beam, Update Every Frame(Update Every Frame(Eye Position(Event Player)) 
 			+ 0.4 * Event Player.Scale_Real * Update Every Frame(Facing Direction Of(Event Player))), 
 			Update Every Frame(Ray Cast Hit Position(Eye Position(Event Player), Eye Position(Event Player) + 150 * Event Player.Scale_Real * Facing Direction Of(Event Player), 
