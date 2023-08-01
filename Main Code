@@ -1146,8 +1146,7 @@ rule ("Custom nameplates list")
                 		Custom String("Black Cat")
                 		),
 			Array(Custom String("HYUA"), 
-                		Custom String("Fading"),
-                		156,20,5, 255,255,255,
+                		Custom Color(156, 20, 5, 255),
                 		Custom String("Cat"), 
                 		Custom String("I swear it was a catcident!	  。゜゜(´Ｏ`) ゜゜。"),
                 		Custom String("boobsponge")
@@ -1178,7 +1177,8 @@ rule ("Custom nameplates list")
                 		),
 			Array(Custom String("xCleo"), 
                 		Custom Color(247, 187, 229, 255),
-                		Custom String("{0} ♡ Cutie  Cleo ♡ {0}", Ability Icon String(Hero(D.va), Button(Ultimate)))
+                		Custom String("{0} ♡ Cutie  Cleo ♡ {0}", Ability Icon String(Hero(D.va), Button(Ultimate))),
+						Custom String("{0} Mod Abuser {0}", Icon String(Heart))
                 		), 
 			Array(Custom String("DONUT"), 
                 		Color(Red),
@@ -1226,8 +1226,7 @@ rule ("Custom nameplates list")
 						Custom String("{0}   I am in your walls   {0}", Icon String(Radioactive))
                 		), 
 			Array(Custom String("squid"),
-                		Custom String("Fading"), 
-                		37,103,148, 139,152,252,
+                		Custom Color(37, 103, 148, 255),
 				Custom String("Squidward"), 
 				Custom String("swuiddy"),
 				Custom String("squiddo")
@@ -1407,7 +1406,7 @@ rule ("Custom nameplates list")
 			Array(Custom String("Shampoo"), 
 				Custom String("Rainbow"),
 				Custom String("♡ FAAFO ♡"), 
-				Custom String("♡ Mercy Main ♡"), 
+				Custom String("{0}    ＣＩＡ　ＫＩＴＴＥＮ　ＳＱＵＡＤ    {0} ", Ability Icon String(Hero(Cassidy), Button(Primaryfire))),
 				Custom String("⁂BACONEGGNCHEESE⁂")
 				),
 			Array(Custom String("Lunarion"), 
@@ -1733,7 +1732,7 @@ rule ("Custom nameplates list")
 				),
 			Array(Custom String("fenmorre"), 
 				Custom Color(255, 39, 12, 255),
-				Custom String("{0} ♡ LightMist / Maple Kisser ♡ {0}", Ability Icon String(Hero(Mercy), Button(Ultimate))), 
+				Custom String("{0} ♡ Silly Little Donut ♡ {0}", Ability Icon String(Hero(Mercy), Button(Ultimate))), 
 				Custom String("{0}  Alexithymic Heart {0} ", Ability Icon String(Hero(Widowmaker), Button(Ability 2))), 
 				Custom String("{0} Chronically Ill Artist, Writer & Hater {0}", Ability Icon String(Hero(Reaper), Button(Ultimate)))
 				),
@@ -1745,20 +1744,21 @@ rule ("Custom nameplates list")
 				),
 			Array(Custom String("yohan"),
 				Custom Color(97, 207, 126, 255), 
+				Custom String("{0}  Currently Has A Cowboy Hostage  {0}", Ability Icon String(Hero(Cassidy), Button(Primaryfire))),
 				Custom String("{0}    Selling Tickets For The Magic Mushroom Quest    {0}", Icon String(Exclamation Mark)),
-				Custom String("{0}  Currently Has A Cowboy Hostage  {0}", Ability Icon String(Hero(Cassidy), Button(Primaryfire))), 
 				Custom String("{0} Pumpkin {0}", Ability Icon String(Hero(Cassidy), Button(Ultimate)))
 				),
 			Array(Custom String("PŏŏkiƐ"),
 				Custom Color(255, 171, 128, 255), 
-				Custom String("{0}    Selling Tickets For The Magic Mushroom Quest    {0}", Icon String(Exclamation Mark)),
+				Custom String("{0} The Cowboy Held Hostage {0}", Ability Icon String(Hero(Hanzo), Button(Primaryfire))), 
 				Custom String("{0} . ˚ · (ㅅ´ ˘ `)  ˚ . {0}", Ability Icon String(Hero(Lifeweaver), Button(Primaryfire))), 
 				Custom String("{0} Cupid's Arrow {0}", Ability Icon String(Hero(Cassidy), Button(Ultimate)))
 				),
 			Array(Custom String("AMATERASU"), 
 				Custom String("Rainbow"),
 				Custom String("{0} ☆ 天照大御神 ☆ {0}", Ability Icon String(Hero(Kiriko), Button(Secondary Fire))), 
-				Custom String("{0} ☆ P S Y C H O ☆ {0}", Ability Icon String(Hero(Cassidy), Button(Ultimate)))
+				Custom String("{0} ☆ P S Y C H O ☆ {0}", Ability Icon String(Hero(Cassidy), Button(Ultimate))),
+				Custom String("{0} D I V I N I T Y {0}", Icon String(Moon))
 				),
 			Array(Custom String("Colestar24"), 
 				Custom String("Rainbow"),
@@ -2092,7 +2092,7 @@ rule("Listed_Player")
 		"Automatic Ban"
 		Global.Perma_Banned = Array(
 			Custom String("blueberry!"), Custom String("Heretic"), Custom String("BoneStealer"), Custom String("Simplicity"), Custom String("xqno"), Custom String("M7MD"), Custom String("MajedGA"),
-			Custom String("IloveBirds"), Custom String("Kyger100"), Custom String("Potato"), Custom String("Apotato2182"), Custom String("KR0"), Custom String("Mardothiel"), 
+			Custom String("IloveBirds"), Custom String("Kyger100"), Custom String("Potato"), Custom String("Apotato2182"), Custom String("KR0"), Custom String("Mardothiel"), Custom String("weraven"),
 			Custom String("TwitchPoison"), Custom String("Bastion"), Custom String("JoltWave"), Custom String("MrBastion"), Custom String("PINKBASTIONǃ"), Custom String("HyperBastion"),  
 			Custom String("BebeUwU"), Custom String("Fluttershy"), Custom String("Katsuki"), Custom String("Dar7bi"), Custom String("vel"), Custom String("KaijoSan"), Custom String("BigObeseMan"),
             Custom String("ZenWick"), Custom String("alhrbe"), Custom String("Coydn"), Custom String("GarnetKodo"), Custom String("Pastor"), Custom String("AlterGirl"), Custom String("ZORO"), 
@@ -2110,7 +2110,7 @@ rule("Listed_Player")
 			Custom String("ImNotAHealer"), Custom String("Jeanne"), Custom String("NITXQ"), Custom String("zxoo"), Custom String("Rei"), Custom String("Oops"), Custom String("LadyMacabre"), 
 			Custom String("Redguysimp"), Custom String("BigDraco"), Custom String("BORA"), Custom String("mewzory"), Custom String("Zewzeilor"), Custom String("slusƕ"), Custom String("Beastmyster"), 
 			Custom String("Joker"), Custom String("Hate"), Custom String("AboZben"), Custom String("OliveBear"), Custom String("ǀǀǀǀǀǀǀǀǀǀ"), Custom String("DOOM"), Custom String("MrFriendly"),
-			Custom String("TTTTTTTTTTTT"));
+			Custom String("TTTTTTTTTTTT"), Custom String("BEAST77"), Custom String("MIG21"), Custom String("AmirTramont0"), Custom String("King"));
 	}
 }
 
