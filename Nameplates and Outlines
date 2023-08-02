@@ -256,8 +256,9 @@ rule ("Custom nameplates list")
                 		),
 			Array(Custom String("FactAttend"), 
                 		Custom Color(96, 10, 113, 255),
-                		Custom String("☆ Avenged 7Fact ☆"), 
-                		Custom String("♤ Unholy Confessions ♤")
+                		Custom String("{0}  ♪♬ Ｔｈａｔ Ｗａｓ Ａ Ｃｒａｚｙ Ｇａｍｅ Ｏｆ Ｐｏｋｅｒ ♬♪  {0}", Ability Icon String(Hero(Brigitte), Button(Ultimate))),
+                		Custom String("{0}  ♥ Ｖｅｒｇｉｆｔｅｔｅ  Ｇｎａｄｅ ♥  {0}", Ability Icon String(Hero(Sombra), Button(Ultimate))),
+            			Custom String("{0} 実†際 {0}", Hero Icon String(Hero(Pharah)))
                 		), 
 			Array(Custom String("Dehya"), 
                 		Color(Red),
@@ -273,8 +274,7 @@ rule ("Custom nameplates list")
                 		Custom String("《 Kitty!! 》")
                 		),
 			Array(Custom String("lana"), 
-                		Custom String("Fading"), 
-                		0,64,255, 46,189,255,
+                		Custom Color(46, 189, 255, 255),
                 		Custom String("spongeboob")
                 		),
 			Array(Custom String("Cattanklol"), 
@@ -447,8 +447,7 @@ rule ("Custom nameplates list")
 				Custom String("{0} Piplup on fire {0}", Ability Icon String(Hero(Pharah), Button(Ability 1)))
 				),
 			Array(Custom String("Slafii"), 
-				        Custom String("Fading"), 
-                	    0,0,0, 136,0,0,
+				        Custom Color(136, 0, 0, 255),
 				Custom String("{0}  P r i n c e  O f  H a r m o n y  {0}", Ability Icon String(Hero(Mercy), Button(Ability 2))), 
 				Custom String("{0}  I  H Δ R D  Ɓ Σ G  Ѕ Μ Θ L F R Ψ  F Θ R  Δ  Ƥ Θ C Ƙ Σ Ƭ  {0}", Ability Icon String(Hero(Mercy), Button(Ultimate))), 
 				Custom String(" † Slafiiko - Kirikult † ")
@@ -461,7 +460,7 @@ rule ("Custom nameplates list")
 				),
 			Array(Custom String("Reapersimp"), 
 				Custom Color(255, 255, 178, 255),
-				Custom String("{0}  ♡ Young Sailor ♡  {0}", Ability Icon String(Hero(D.va), Button(Ultimate))), 
+				Custom String("{0}   Wanheda   {0}",  Ability Icon String(Hero(Junkerqueen), Button(Secondaryfire))),
 				Custom String("{0}  ⁂ Bretzel ⁂  {0}", Ability Icon String(Hero(D.va), Button(Ultimate)))
 				),
 			Array(Custom String("Mxth"), 
@@ -583,12 +582,13 @@ rule ("Custom nameplates list")
 				Custom Color(245, 14, 10, 255),
 				Custom String("♥ Metal Tea ♥"), 
 				Custom String("♥ Trans King ♥"), 
-				Custom String("Silly Willy")
+				Custom String("Spicy Potato Chip")
 				), 
 			Array(Custom String("AndrewKnoll"), 
 				Custom Color(245, 14, 10, 255),
 				Custom String("⁂ COOKIE ANDREW ⁂"), 
-                		Custom String("Rindfleischetikettierungsüberwachungsaufgabenübertragungsgesetzussy")
+                		Custom String("Rindfleischetikettierungsüberwachungsaufgabenübertragungsgesetzussy"),
+						Custom String("Sweet Potato Chip")
 				),
             Array(Custom String("WIĿĿOW"), 
 				Custom Color(208, 139, 88, 255),
@@ -761,7 +761,7 @@ rule ("Custom nameplates list")
 				),
 			Array(Custom String("CyberSentai"), 
 				Custom String("Rainbow"),
-       			Custom String("{0}    ＣＩＡ　ＫＩＴＴＥＮ　ＳＱＵＡＤ    {0} ", Icon String(Moon)), 
+       			Custom String("{0}  ♡ 戦隊司令官 ♡  {0}", Ability Icon String(Hero(D.va), Button(Ultimate))),
 				Custom String("{0} セイバー ♡  {0}", Ability Icon String(Hero(Mercy), Button(Jump))),
 				Custom String("{0} Ｃｈａｒｉｓｍａｔｉｃａｌｌｙ    Ｄｅｐｒｅｓｓｅｄ  {0}", Icon String(Moon))
 				),
