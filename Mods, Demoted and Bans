@@ -81,6 +81,7 @@ rule("Listed_Player")
 			Custom String("King"), CUstom String("Vorlon"), Custom String("DingTea"), Custom String("UAE"), Custom String("ComWorks5"), Custom String("SHINIxMIZU"), Custom String("Necro"), Custom String("MIZU"),
 			Custom String("GoldSeal"), Custom String("Mlegy"), Custom String("BurntToasty"), Custom String("farto"), Custom String("daniel"), Custom String("XximissherxX"), Custom String("dean"), 
 			Custom String("SilentStorm"), Custom String("TrickyHunter"), Custom String("Cake"), Custom String("Dingus"), Custom String("R7OM"), Custom String("Karagor"), Custom String("Faelysong"),
-			Custom String("Lucasstem"), Custom String("Mia"), Custom String("ToddTheToad"), Custom String("mrhexagon"), Custom String("alfredo"), Custom String("Kr0"), Custom String("Kromazome"));
+			Custom String("Lucasstem"), Custom String("Mia"), Custom String("ToddTheToad"), Custom String("mrhexagon"), Custom String("alfredo"), Custom String("Kr0"), Custom String("Kromazome"),
+			Custom String("proverwatch9"), Custom String("Goomy"));
 	}
 }
