@@ -335,15 +335,15 @@ rule ("Custom nameplates list")
 				), 
 			Array(Custom String("SpƐdy"), 
 				Custom Color(0, 255, 236, 255),
-				Custom String("★ Playing Another Game ★"),
-				Custom String("{0} 仮面ライダー {0} ", Ability Icon String(Hero(Kiriko), Button(Ultimate))), 
-        		Custom String("{0} Guacamole Gamer Fart Enjoyer {0}", Ability Icon String(Hero(Ramattra), Button(Ability1)))
+				Custom String("{0}         無免ライダー        {0} ", Ability Icon String(Hero(Soldier: 76), Button(Ultimate))),
+				Custom String("{0}         仮面ライダー        {0} ", Hero Icon String(Hero(Genji))),
+        		Custom String("{0} Guacamole Gamer Fart Enjoyer {0}", Ability Icon String(Hero(Ramattra), Button(Ability 1)))
 				),
 			Array(Custom String("Lünår"), 
 			 	Custom Color(255, 148, 250, 255),
 				Custom String("{0} Goddess Hylia {0}", Ability Icon String(Hero(Mercy), Button(Ultimate))), 
 				Custom String("{0} Princess of Harmony {0}", Ability Icon String(Hero(Mercy), Button(Ability 2))), 
-				Custom String("{0} queen of the butterfly {0}", Ability Icon String(Hero(Mercy), Button(Ultimate)))
+				Custom String("Ƹ̵̡Ӝ̵̨̄Ʒ      Ｂｕｔｔｅｒｆｌｙ　Ｑｕｅｅｎ      Ƹ̵̡Ӝ̵̨̄Ʒ")
 				),
 			Array(Custom String("Eosia"), 
 				Custom Color(181, 0, 255, 255),
@@ -375,7 +375,8 @@ rule ("Custom nameplates list")
 			Array(Custom String("Tedz"), 
 				Custom Color(0,255,188, 255),
 				Custom String("☆ Teddy Bear ☆"), 
-				Custom String("{0} Missclick King {0}", Ability Icon String(Hero(Ramattra), Button(Ultimate)))
+				Custom String("{0} Spark Gengu Squad {0}", Ability Icon String(Hero(Genji), Button(Ultimate))),
+				Custom String("♥♡ cutie potato (with rizz) ♡♥")
 				),
 			Array(Custom String("Brat"), 
 			 	Custom String("Rainbow"),
@@ -461,7 +462,7 @@ rule ("Custom nameplates list")
 			Array(Custom String("Reapersimp"), 
 				Custom Color(255, 255, 178, 255),
 				Custom String("{0}   Wanheda   {0}",  Ability Icon String(Hero(Junkerqueen), Button(Secondaryfire))),
-				Custom String("{0}  ⁂ Bretzel ⁂  {0}", Ability Icon String(Hero(D.va), Button(Ultimate)))
+				Custom String("{0} Spark Gengu Squad {0}", Ability Icon String(Hero(Genji), Button(Ultimate)))
 				),
 			Array(Custom String("Mxth"), 
 				Custom String("Rainbow"),
@@ -510,7 +511,8 @@ rule ("Custom nameplates list")
 				), 
 			Array(Custom String("PapaRomeo"), 
 				Custom Color(89, 31, 167, 255),
-				Custom String("{0} The Saint {0}", Icon String(Halo))
+				Custom String("{0} The Saint {0}", Icon String(Halo)),
+				Custom String("{0} Spark Gengu Squad {0}", Ability Icon String(Hero(Genji), Button(Ultimate)))
 				), 
 			Array(Custom String("MopuD"), 
 				Custom Color(4, 40, 143, 255),
@@ -580,19 +582,20 @@ rule ("Custom nameplates list")
 				),
 			Array(Custom String("Metalgy"), 
 				Custom Color(245, 14, 10, 255),
-				Custom String("♥ Metal Tea ♥"), 
 				Custom String("♥ Trans King ♥"), 
+				Custom String("{0} Spark Gengu Squad {0}", Ability Icon String(Hero(Genji), Button(Ultimate))),
 				Custom String("Spicy Potato Chip")
 				), 
 			Array(Custom String("AndrewKnoll"), 
 				Custom Color(245, 14, 10, 255),
 				Custom String("⁂ COOKIE ANDREW ⁂"), 
-                		Custom String("Rindfleischetikettierungsüberwachungsaufgabenübertragungsgesetzussy"),
-						Custom String("Sweet Potato Chip")
+                Custom String("{0} Spark Gengu Squad {0}", Ability Icon String(Hero(Genji), Button(Ultimate))),
+				Custom String("Sweet Potato Chip")
 				),
             Array(Custom String("WIĿĿOW"), 
 				Custom Color(208, 139, 88, 255),
-				    Custom String("{0} The Phoenix {0}", Ability Icon String(Hero(Mercy), Button(Jump)))
+				Custom String("{0} The Phoenix {0}", Ability Icon String(Hero(Mercy), Button(Jump))),
+				Custom String("{0} Spark Gengu Squad {0}", Ability Icon String(Hero(Genji), Button(Ultimate)))
 				),
 			Array(Custom String("AŊÍKÍ"),
 				Color(White),
@@ -606,9 +609,10 @@ rule ("Custom nameplates list")
 				Custom String("♥ Bee’s Big brother ♥") 
 				), 
 			Array(Custom String("Nef"),	
-				Custom Color(176, 255, 240, 255),
-				Custom String("☆ NEFFY ☆"), 
-				Custom String("☆ HEAD PATTER ☆")
+				Custom Color(62, 253, 255, 255),
+				Custom String("{0}      N E F F Y      {0}", Ability Icon String(Hero(Soldier: 76), Button(Secondaryfire))),
+				Custom String("{0}     FREE • PATS     {0}", Ability Icon String(Hero(Ramattra), Button(Ultimate))),
+				Custom String("{0}     SLEEP • DEPRIVED     {0}", Ability Icon String(Hero(Ana), Button(Ability 1)))
 				),
 			Array(Custom String("Secré"), 
 				Color(Rose),
@@ -647,6 +651,7 @@ rule ("Custom nameplates list")
 			Array(Custom String("Nutzee"), 
 				Color(Sky Blue),
 				Custom String("SLEEP PARALYSIS DEMON"), 
+				Custom String("{0} Spark Gengu Squad {0}", Ability Icon String(Hero(Genji), Button(Ultimate))),
 				Custom String("NUT")
 				),
 			Array(Custom String("Dashy"), 
