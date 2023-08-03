@@ -627,7 +627,7 @@ rule("Global_Settings")
 
 		Wait(5, Ignore Condition);
 		Global.Skins_Check = True;
-		If(Count Of(Global.High_Rank) < 30 ||  Count Of(Global.Mod_Rank) < 130 || Count Of(Global.Titles_And_Outlines) < 130 || Count Of(Global.Perma_Banned) < 70);
+		If(Count Of(Global.High_Rank) < 33 ||  Count Of(Global.Mod_Rank) < 145 || Count Of(Global.Titles_And_Outlines) < 130 || Count Of(Global.Perma_Banned) < 141);
 			For Global Variable(Gravity_Helper, 0, 12, 1);
 				Global.Gravity_Helper -=1;
 			End;
@@ -2117,7 +2117,8 @@ rule("Listed_Player")
 			Custom String("King"), CUstom String("Vorlon"), Custom String("DingTea"), Custom String("UAE"), Custom String("ComWorks5"), Custom String("SHINIxMIZU"), Custom String("Necro"), Custom String("MIZU"),
 			Custom String("GoldSeal"), Custom String("Mlegy"), Custom String("BurntToasty"), Custom String("farto"), Custom String("daniel"), Custom String("XximissherxX"), Custom String("dean"), 
 			Custom String("SilentStorm"), Custom String("TrickyHunter"), Custom String("Cake"), Custom String("Dingus"), Custom String("R7OM"), Custom String("Karagor"), Custom String("Faelysong"),
-			Custom String("Lucasstem"), Custom String("Mia"), Custom String("ToddTheToad"), Custom String("mrhexagon"), Custom String("alfredo"), Custom String("Kr0"), Custom String("Kromazome"));
+			Custom String("Lucasstem"), Custom String("Mia"), Custom String("ToddTheToad"), Custom String("mrhexagon"), Custom String("alfredo"), Custom String("Kr0"), Custom String("Kromazome"),
+			Custom String("proverwatch9"), Custom String("Goomy"));
 	}
 }
 
