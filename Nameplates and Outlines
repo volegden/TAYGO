@@ -10,22 +10,19 @@ rule ("Custom nameplates list")
 		"31619 -> 31205"
 		Global.Titles_And_Outlines = Array(
 			Array(Custom String("Warloy"), 
-                		Custom String("Fading"),
-                		0,15,80, 0,15,255,
+                		Custom Color(220, 100, 143, 255),
 				Custom String("Notakichiōnā"), 
 				Custom String("Loy Loy"), 
 				Custom String("Ilo Be Zou")
                 	), 
 			Array(Custom String("kwally"),
-                		Custom String("Fading"),
-                		0,15,80, 0,15,255,
+                		Custom Color(220, 100, 143, 255),
 				Custom String("notakichi"), 
 				Custom String("Kwa Kwa"), 
 				Custom String("ї ∂นҫӄїภғ Һαҭѡ ұσน")
                 	),
 			Array(Custom String("xMaxuss"), 
-                		Custom String("Fading"), 
-                		70,200,255, 150,225,255,
+                		Custom Color(70, 220, 255, 255),
 				Custom String("{0} TO THE MAX {0}", Ability Icon String(Hero(Sombra), Button(Ultimate))),
 				Custom String("¡Hola! ¿Qué onda? {0}", Hero Icon String(Hero(Sombra))),
 				Custom String("Custom String(\"Insert 3rd name\")")
