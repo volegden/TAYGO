@@ -2199,7 +2199,8 @@ rule ("Set Host Player Rights")
 			End;
 		End;
 		Destroy HUD Text(Event Player.Mod_Name_ID[0]);
-		Skip If(Global.Current_Host == Null || Array Contains(Global.Demoted_List, Custom String("{0}", Event Player)) || Array Contains(Global.Muted_List, Custom String("{0}", Event Player)), 2);
+		Skip If(Global.Current_Host == Null || Array Contains(Global.Demoted_List, Custom String("{0}", Global.Current_Host)) || 
+			Array Contains(Global.Muted_List, Custom String("{0}", Global.Current_Host)), 2);
 		Global.Current_Host.Mod_Name_ID[1] = True;
 		Wait(0.01, Ignore Condition);
 		Global.Current_Host = Event Player;
