@@ -52,16 +52,18 @@ rule("Listed_Player")
 			Custom String("Asta"), Custom String("PŏŏkiƐ"), Custom String("Yohakzu"), Custom String("Ðårk"), Custom String("FactAttend"), Custom String("SpƐdy"),
 			Custom String("Nickyunited7"), Custom String("Kazuma"), Custom String("Kazumi"), Custom String("Jermuseppo"), Custom String("Redacted"));
 			
-		
+		"Muted (anyone on this list is muted AND demoted, no need to have them in both lists)"
+		Global.Muted_List = Array(Custom String("Your Mum"));
+
 		"Demoted"
-		Global.Demoted = Array(Custom String("Eggman"),  Custom String("LeMix"), Custom String("Mikasa"),
+		Global.Demoted_List = Array(Custom String("Eggman"),  Custom String("LeMix"), Custom String("Mikasa"),
 				Custom String("Snaiy"), Custom String("KadenLee25"), Custom String("BabyDarl"), Custom String("Daisy"), 
 				Custom String("UKGamer001"), Custom String("ÐƁxŁüśţ"), Custom String("boingJOING"), Custom String("RayJr"), Custom String("Cristiano"), Custom String("charmander"), 
 				Custom String("Gremory"), Custom String("rogerlowk"), Custom String("Damian"), Custom String("Nyxx"), Custom String("blackw0lfx"), Custom String("whoshotcupid"),
 				Custom String("Katarina"), Custom String("Ronin"));
 		
 		"Automatic Ban"
-		Global.Perma_Banned = Array(
+		Global.Banned_List = Array(
 			Custom String("blueberry!"), Custom String("Heretic"), Custom String("BoneStealer"), Custom String("Simplicity"), Custom String("xqno"), Custom String("M7MD"), Custom String("MajedGA"),
 			Custom String("IloveBirds"), Custom String("Kyger100"), Custom String("Potato"), Custom String("Apotato2182"), Custom String("KR0"), Custom String("Mardothiel"), Custom String("weraven"),
 			Custom String("TwitchPoison"), Custom String("Bastion"), Custom String("JoltWave"), Custom String("MrBastion"), Custom String("PINKBASTIONǃ"), Custom String("HyperBastion"),  
