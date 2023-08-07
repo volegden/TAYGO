@@ -60,15 +60,14 @@ rule("Listed_Player")
                  Custom String("GlizzyButher"), Custom String("sLEOleader"), Custom String("Overpowering"), Custom String("Player"), Custom String("SexiestBeast"), Custom String("GoblinSexual"),
                  Custom String("REAPER"), Custom String("Jeanne"), Custom String("Darthkrisu"), Custom String("ARHVV"), Custom String("KidsSeeGhost"), Custom String("Luffy"), 
                  Custom String("LiquorSeller"), Custom String("Omri"), Custom String("BOO"), Custom String("D7H"), Custom String("Kaijin"), Custom String("Spectre"),
-                 Custom String("MØØN"), Custom String("ŦŌPĦ"));
+                 Custom String("MØØN"), Custom String("ŦŌPĦ"), Custom String("ImpressHer"), Custom String("ÐēŋŋŷŞēmpāī"));
 
 		"Demoted"
 		Global.Demoted_List = Array(Custom String("Eggman"),  Custom String("LeMix"), Custom String("Mikasa"), Custom String("BabyDarl"), Custom String("Snaiy"),
 				 Custom String("KadenLee25"),  Custom String("Daisy"), Custom String("Фрейя"), Custom String("UKGamer001"), Custom String("Nyxx"), Custom String("blackw0lfx"), 
                  Custom String("Katarina"), Custom String("Ronin"), Custom String("mrcepecito"), Custom String("Treco"), Custom String("Muichiro"), Custom String("KissMePlz"), 
                  Custom String("Paranoia"), CUstom String("Pierre"), Custom String("ThatKiD"), Custom String("SirBones"), Custom String("IZ7"), Custom String("fishy"), Custom String("LixClip"), 
-                 Custom String("tam"), Custom String("AnyaHaise"), Custom String("Lixclip"), Custom String("Salty76"), Custom String("Bigounce"), Custom String("Midnight"),
-                 Custom String("ImpressHer"), Custom String("ÐēŋŋŷŞēmpāī"));
+                 Custom String("tam"), Custom String("AnyaHaise"), Custom String("Lixclip"), Custom String("Salty76"), Custom String("Bigounce"), Custom String("Midnight"));
 
 		"Automatic Ban"
 		Global.Banned_List = Array(
@@ -88,7 +87,6 @@ rule("Listed_Player")
             Custom String("Reptiles246"), Custom String("DaniXx55"), Custom String("Giraffestin"), Custom String("kotomine"), Custom String("ȄĿĬǃ"), Custom String("Ca1lyn"), Custom String("Adventurer"), 
             Custom String("youtubegamer"), Custom String("angelob18"), Custom String("Bebra"), Custom String("AbuJLD"), Custom String("gxtsl4yer"), Custom String("ReinDine69"), Custom String("SamTheEevee"), 
             Custom String("Splice"), CUstom String("Kapibarapl"), Custom String("AYA"), Custom String("qingAki"), Custom String("Arthur"), Custom String("Kraniumator"), Custom String("lumi"), Custom String("rakan"),  
-            Custom String("Un1p0p"), Custom String("＞：［"), Custom String("hunter"), Custom String("zyzoll"), Custom String("M4ZX"), Custom String("PRIESTPEGGER"), Custom String("ImpressHer"),
-            Custom String("ÐēŋŋŷŞēmpāī"));
+            Custom String("Un1p0p"), Custom String("＞：［"), Custom String("hunter"), Custom String("zyzoll"), Custom String("M4ZX"), Custom String("PRIESTPEGGER"));
     }
 }
