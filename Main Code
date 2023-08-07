@@ -2,7 +2,7 @@ settings
 {
 	main
 	{
-		Description: "♥ A Friendly Server To Meet New Friends ♥\nlast updated (August 05 2023)\n\n   » » » MASSIVE UPDATE RELEASED « « «\n (including UNO, non-mod menu and\n      hero specific features!)\n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss.\n   Based on the work of: TbyCoLive.\n Maintained with ♡ by: LƐafa.\n   Community Managers: RUBY & kwally."
+		Description: "♥ A Friendly Server To Meet New Friends ♥\nlast updated (August 07 2023)\n\n   » » » MASSIVE UPDATE RELEASED « « «\n (including UNO, non-mod menu and\n      hero specific features!)\n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss.\n   Based on the work of: TbyCoLive.\n Maintained with ♡ by: LƐafa.\n   Community Managers: RUBY & kwally."
 		Mode Name: " ♥ Friendly ♥ No Kill!"
 	}
 
@@ -279,7 +279,7 @@ variables
 {
 	global:
 		0: High_Rank
-		1: Perma_Banned
+		1: Banned_List
 		2: Red
 		3: Green
 		4: Blue
@@ -324,13 +324,16 @@ variables
 		43: Game_Timer
 		44: Game_Timer_Helper
 		45: Moe_Position
-		46: Demoted
+		46: Demoted_List
 		47: OffOnString
 		48: Rank_Icon
 		49: Game_Description
 		50: Promoted_List
 		51: Credits
 		52: Angle
+		53: TP_Help
+		54: Map_Teleport_Exits
+		55: Muted_List
 
 	player:
 		0: High_Rank
@@ -435,6 +438,8 @@ variables
 		99: Savezone_Info_Array
 		100: Savezone_Index
 		101: Savezone_Helper
+		102: TP_Index
+		103: AFK_Toggle
 	}
 
 subroutines
@@ -451,6 +456,8 @@ subroutines
 	9: UNO_Update_Deck
 	10: UNO_Update_Hand
 	11: UNO_End
+	12: Info_Page_Default
+	13: Info_Page_Mod
 }
 
 rule("Anti-Crash-ON")
@@ -620,14 +627,11 @@ rule("Global_Settings")
 
 		Wait(5, Ignore Condition);
 		Global.Skins_Check = True;
-		If(Count Of(Global.High_Rank) < 33 || Count Of(Global.Mod_Rank) < 145 || Count Of(Global.Titles_And_Outlines) < 130 || Count Of(Global.Perma_Banned) < 141);
+		If(Count Of(Global.High_Rank) < 33 || Count Of(Global.Mod_Rank) < 145 || Count Of(Global.Titles_And_Outlines) < 130 || Count Of(Global.Banned_List) < 141);
 			For Global Variable(Gravity_Helper, 0, 12, 1);
 				Global.Gravity_Helper -=1;
 			End;
 		End;
-
-		Modify Global Variable(High_Rank, Append To Array, Global.Mod_Rank[4]);
-		Modify Global Variable(Mod_Rank, Remove From Array By Index, 4);
 	}
 }
 
@@ -662,7 +666,7 @@ rule("Player_Joined_Queue")
 
 	conditions
 	{
-		(Array Contains(Global.Perma_Banned, Custom String("{0}", Event Player)) || Array Contains(Global.Temp_Banned, Custom String("{0}",
+		(Array Contains(Global.Banned_List, Custom String("{0}", Event Player)) || Array Contains(Global.Temp_Banned, Custom String("{0}",
 			Event Player))) == False;
 	}
 
@@ -684,7 +688,7 @@ rule("Player_Left_Queue_Failsave")
 	conditions
 	{
 		Array Contains(Global.Player_Joined_Queue, Event Player) == True;
-		(Array Contains(Global.Perma_Banned, Custom String("{0}", Event Player)) || Array Contains(Global.Temp_Banned, Custom String("{0}",
+		(Array Contains(Global.Banned_List, Custom String("{0}", Event Player)) || Array Contains(Global.Temp_Banned, Custom String("{0}",
 			Event Player))) == False;
 	}
 
@@ -705,7 +709,7 @@ rule("Default_Player_Settings")
 
 	conditions
 	{
-		(Array Contains(Global.Perma_Banned, Custom String("{0}", Event Player)) || Array Contains(Global.Temp_Banned, Custom String("{0}",
+		(Array Contains(Global.Banned_List, Custom String("{0}", Event Player)) || Array Contains(Global.Temp_Banned, Custom String("{0}",
 			Event Player))) == False;
 	}
 
@@ -840,6 +844,9 @@ rule("Default_Player_Settings")
 		Event Player.Positions_For_Beams = Array(Null, Null);
 		Event Player.Extra8_Timer = -1;
 
+		Event Player.Effect_Storage = Null;
+		Event Player.AFK_Toggle = False;
+
 		Disable Game Mode HUD(Event Player);
 		Disable Game Mode In-World UI(Event Player);
 
@@ -852,22 +859,12 @@ rule("Default_Player_Settings")
 			Global.Rainbow_Color, Color(Yellow), Global.Rainbow_Color, Visible To String and Color, Visible Never);
 		Event Player.Mode_Hud_ID = Last Text ID;
 
-		Create HUD Text(Event Player, Null, 
-			Custom String(" • Basic Functions:\r\n-Hold {0} : Toggle Protection (Default On).\r\n-Hold {1} : Switch Camera (5 types).\r\n{2}", 
-				Input Binding String(Button(Reload)), Input Binding String(Button(Interact)), 
-			Custom String("-Hold {0} : Switch Heroes.\r\n\r\n • How to use the menu:\r\n{1}", 
-				Input Binding String(Button(Melee)),
-			Custom String("-Hold {0} and press\r\n    {1} or {2}", 
-				Input Binding String(Button(Crouch)), Input Binding String(Button(Jump)),
-			Custom String("{0} to change pages.\r\n-Hold {1} and press\r\n    the shown input for an action.\r\n{2}", 
-				Input Binding String(Button(Interact)), Input Binding String(Button(Crouch)),
-			Custom String("-Hold {0} + {1} on\r\n    this page to hide/show menu.\r\n{2}",
-				Input Binding String(Button(Crouch)), Input Binding String(Button(Melee)),
-			Custom String("Chillers have more pages/options.\r\n\r\n{0}",
-			Custom String("In these lobbies, please be careful\r\n   who you interact with and what\r\n   personal information you share."
-			))))))), Null, Left, 1, Color(White), Color(White), Color(White), String, Visible Never);
+		Call Subroutine(Info_Page_Default);
 
-		Event Player.Mode_Description = Last Text ID;
+		If(Array Contains(Global.Muted_List, Custom String("{0}", Event Player)));
+			Disable Text Chat(Event Player);
+			Disable Voice Chat(Event Player, True, True, False);
+		End;
 
 		"Jail handler"
 		Wait(0.1, Ignore Condition);
@@ -878,7 +875,7 @@ rule("Default_Player_Settings")
 			Event Player.Restricted[1] = Global.Jail_List[3][Event Player.Index_Help];
 			Small Message(All Players(All Teams), Custom String("{0}", Event Player.Restricted[1]));
 			Disable Text Chat(Event Player);
-			Disable Voice Chat(Event Player, True, True, True);
+			Disable Voice Chat(Event Player, True, True, False);
 		End;
 
 		Wait(0.2, Ignore Condition);
@@ -916,14 +913,60 @@ rule("Dynamic_Color")
 
 	actions
 	{
-		Global.Angle = Total Time Elapsed / 20 * 360;
+		Global.Angle = Total Time Elapsed / 80 * 360;
 		Global.Red = 127.5 + 127.5 * Cosine From Degrees(Global.Angle);
         Global.Green = 127.5 + 127.5 * Cosine From Degrees(Global.Angle - 120);
         Global.Blue = 127.5 + 127.5 * Cosine From Degrees(Global.Angle + 120);
         Global.Rainbow_Color = Custom Color(Global.Red, Global.Green, Global.Blue, 255);
-		Wait(0.1, Ignore Condition);
+		Wait(0.12, Ignore Condition);
 		Loop;
 	}
+}
+
+rule ("Subroutine: Call Default Info Page")
+{
+    event 
+	{
+		Subroutine;
+		Info_Page_Default;
+    }
+
+    actions 
+	{	
+		Create HUD Text(Event Player, Null, 
+			Custom String("         • Basic Functions •\r\n- Hold Reload : Toggle Protection (Default On).\r\n- Hold Interact : Switch Camera (5 types).\r\n{0}", 
+			Custom String("- Hold Melee : Switch Heroes.\r\n         • How to use the menu •\r\n{0}", 
+			Custom String("- Crouch + {0} or {1}", Input Binding String(Button(Jump)),
+			Custom String("{0} : change pages.\r\n- Crouch + shown input : perform action.\r\n         • While on this page •\r\n{1}", 
+				Input Binding String(Button(Interact)), 
+			Custom String("- Crouch + {0} : hide/show menu.\r\n{1}", Input Binding String(Button(Melee)),
+			Custom String("- Crouch + Ultimate : set yourself as afk\r\n      (deactivates when moving/crouching).\r\n{0}",
+			Custom String("Chillers have more pages/options.\r\n\r\n{0}",
+			Custom String("In these lobbies, please be careful\r\n   who you interact with and what\r\n   personal information you share."
+			)))))))), Null, Left, 1, Color(White), Color(White), Color(White), String, Visible Never);
+		Event Player.Mode_Description = Last Text ID;
+    }
+}
+
+rule ("Subroutine: Call Mod Info Page")
+{
+    event 
+	{
+		Subroutine;
+		Info_Page_Mod;
+    }
+
+    actions 
+	{	
+		Create HUD Text(Event Player, Null, 
+			Custom String("Hold {0} + {1} on\r\n    this page to hide/show menu.\r\n{2}",
+				Input Binding String(Button(Crouch)), Input Binding String(Button(Melee)),
+			Custom String("Press {0} + {1} on\r\n    this page to set yourself as afk\r\n    (deactivates when moving/crouching).\r\n\r\n{2}",
+				Input Binding String(Button(Crouch)), Input Binding String(Button(Ultimate)),
+			Custom String("In these lobbies, please be careful\r\n   who you interact with and what\r\n   personal information you share."
+			))), Null, Left, 1, Color(White), Color(White), Color(White), String, Visible Never);
+		Event Player.Mode_Description = Last Text ID;
+    }
 }
 
 rule ("Data") 
@@ -986,22 +1029,19 @@ rule ("Custom nameplates list")
 		"31619 -> 31205"
 		Global.Titles_And_Outlines = Array(
 			Array(Custom String("Warloy"), 
-                		Custom String("Fading"),
-                		0,15,80, 0,15,255,
+                		Custom Color(220, 100, 143, 255),
 				Custom String("Notakichiōnā"), 
 				Custom String("Loy Loy"), 
 				Custom String("Ilo Be Zou")
                 	), 
 			Array(Custom String("kwally"),
-                		Custom String("Fading"),
-                		0,15,80, 0,15,255,
+                		Custom Color(220, 100, 143, 255),
 				Custom String("notakichi"), 
 				Custom String("Kwa Kwa"), 
 				Custom String("ї ∂นҫӄїภғ Һαҭѡ ұσน")
                 	),
 			Array(Custom String("xMaxuss"), 
-                		Custom String("Fading"), 
-                		70,200,255, 150,225,255,
+                		Custom Color(70, 220, 255, 255),
 				Custom String("{0} TO THE MAX {0}", Ability Icon String(Hero(Sombra), Button(Ultimate))),
 				Custom String("¡Hola! ¿Qué onda? {0}", Hero Icon String(Hero(Sombra))),
 				Custom String("Custom String(\"Insert 3rd name\")")
@@ -1906,7 +1946,7 @@ rule ("Subroutine: Give_Custom_Nameplate")
 			Destroy In-World Text(Event Player.Player_Nameplates);
 			Create In-World Text(Filtered Array(All Players(All Teams), !(Current Array Element.Is_Crouch_On || Event Player.Is_Invisible)), 
 				Event Player.Player_Title_And_Outline[2][Round To Integer(Total Time Elapsed / 30, Down) % Count Of(
-				Event Player.Player_Title_And_Outline[2])], Event Player, 0.980, Clip Against Surfaces, Visible To and Position,
+				Event Player.Player_Title_And_Outline[2])], Event Player, 0.98, Clip Against Surfaces, Visible To and Position,
 				Event Player.Player_Title_And_Outline[1], Visible Never);
 		End;
 		Event Player.Player_Nameplates = Last Text Id;
@@ -2017,16 +2057,18 @@ rule("Listed_Player")
 			Custom String("Asta"), Custom String("PŏŏkiƐ"), Custom String("Yohakzu"), Custom String("Ðårk"), Custom String("FactAttend"), Custom String("SpƐdy"),
 			Custom String("Nickyunited7"), Custom String("Kazuma"), Custom String("Kazumi"), Custom String("Jermuseppo"), Custom String("Redacted"));
 			
-		
+		"Muted (anyone on this list is muted AND demoted, no need to have them in both lists)"
+		Global.Muted_List = Array(Custom String("Your Mum"));
+
 		"Demoted"
-		Global.Demoted = Array(Custom String("Eggman"),  Custom String("LeMix"), Custom String("Mikasa"),
+		Global.Demoted_List = Array(Custom String("Eggman"),  Custom String("LeMix"), Custom String("Mikasa"),
 				Custom String("Snaiy"), Custom String("KadenLee25"), Custom String("BabyDarl"), Custom String("Daisy"), 
 				Custom String("UKGamer001"), Custom String("ÐƁxŁüśţ"), Custom String("boingJOING"), Custom String("RayJr"), Custom String("Cristiano"), Custom String("charmander"), 
 				Custom String("Gremory"), Custom String("rogerlowk"), Custom String("Damian"), Custom String("Nyxx"), Custom String("blackw0lfx"), Custom String("whoshotcupid"),
 				Custom String("Katarina"), Custom String("Ronin"));
 		
 		"Automatic Ban"
-		Global.Perma_Banned = Array(
+		Global.Banned_List = Array(
 			Custom String("blueberry!"), Custom String("Heretic"), Custom String("BoneStealer"), Custom String("Simplicity"), Custom String("xqno"), Custom String("M7MD"), Custom String("MajedGA"),
 			Custom String("IloveBirds"), Custom String("Kyger100"), Custom String("Potato"), Custom String("Apotato2182"), Custom String("KR0"), Custom String("Mardothiel"), Custom String("weraven"),
 			Custom String("TwitchPoison"), Custom String("Bastion"), Custom String("JoltWave"), Custom String("MrBastion"), Custom String("PINKBASTIONǃ"), Custom String("HyperBastion"),  
@@ -2068,7 +2110,7 @@ rule("Player_Rank_Execute")
 		Has Spawned(Event Player) == True;
 		(Array Contains(Global.High_Rank, Custom String("{0}", Event Player)) || Array Contains(Global.Mod_Rank, Custom String("{0}",
 			Event Player))) == True;
-		Array Contains(Global.Demoted, Custom String("{0}", Event Player)) == False;
+		(Array Contains(Global.Demoted_List, Custom String("{0}", Event Player)) || Array Contains(Global.Muted_List, Custom String("{0}", Event Player))) == False;
 	}
 
 	actions
@@ -2112,24 +2154,10 @@ rule("Player_Rank_Execute")
 		Event Player.Mode_Hud_ID = Last Text ID;
 
 		If(Event Player.Promoted_Rank || Not(Event Player.High_Rank || Event Player.Mod_Rank));
-			Create HUD Text(Event Player, Null, 
-				Custom String(" • Basic Functions:\r\n- Hold Reload : Toggle Protection (Default On).\r\n- Hold Interact : Switch Camera (5 types).\r\n{0}", 
-				Custom String("- Hold Melee : Switch Heroes.\r\n\r\n • How to use the menu:\r\n{0}", 
-				Custom String("- Crouch and press\r\n    {0} or {1}", Input Binding String(Button(Jump)),
-				Custom String("{0} to change pages.\r\n- Crouch and press\r\n    the shown input for an action.\r\n{1}", 
-					Input Binding String(Button(Interact)), 
-				Custom String("- Crouch + {0} on\r\n    this page to hide/show menu.\r\n{1}", Input Binding String(Button(Melee)),
-				Custom String("Chillers have more pages/options.\r\n\r\n{0}",
-				Custom String("In these lobbies, please be careful\r\n   who you interact with and what\r\n   personal information you share."
-			))))))), Null, Left, 1, Color(White), Color(White), Color(White), String, Visible Never);
+			Call Subroutine(Info_Page_Default);
 		Else;
-			Create HUD Text(Event Player, Null, 
-				Custom String("Hold {0} + {1} on\r\n    this page to hide/show menu.\r\n\r\n{2}",
-					Input Binding String(Button(Crouch)), Input Binding String(Button(Melee)),
-				Custom String("In these lobbies, please be careful\r\n   who you interact with and what\r\n   personal information you share."
-				)), Null, Left, 1, Color(White), Color(White), Color(White), String, Visible Never);
+			Call Subroutine(Info_Page_Mod);
 		End;
-		Event Player.Mode_Description = Last Text ID;
 	}
 }
 
@@ -2149,8 +2177,9 @@ rule ("Set Host Player Rights")
 
     actions 
 	{
+		Abort If(Array Contains(Global.Banned_List, Custom String("{0}", Event Player)) || Array Contains(Global.Temp_Banned, Custom String("{0}",Event Player)));
 		If(Not(Array Contains(Global.High_Rank, Custom String("{0}", Event Player)) || Array Contains(Global.Mod_Rank, Custom String("{0}", Event Player))));
-			Skip If(Array Contains(Global.Demoted, Custom String("{0}", Event Player)), 3);
+			Skip If(Array Contains(Global.Demoted_List, Custom String("{0}", Event Player)) || Array Contains(Global.Muted_List, Custom String("{0}", Event Player)), 3);
 			Modify Global Variable(Mod_Rank, Append To Array, Custom String("{0}", Host Player));
 			Modify Global Variable(Promoted_List, Append To Array, Custom String("{0}", Host Player));
 			Event Player.Promoted_Rank = True;
@@ -2170,7 +2199,7 @@ rule ("Set Host Player Rights")
 			End;
 		End;
 		Destroy HUD Text(Event Player.Mod_Name_ID[0]);
-		Skip If(Global.Current_Host == Null || Array Contains(Global.Demoted, Custom String("{0}", Global.Current_Host)), 2);
+		Skip If(Global.Current_Host == Null || Array Contains(Global.Demoted_List, Custom String("{0}", Event Player)) || Array Contains(Global.Muted_List, Custom String("{0}", Event Player)), 2);
 		Global.Current_Host.Mod_Name_ID[1] = True;
 		Wait(0.01, Ignore Condition);
 		Global.Current_Host = Event Player;
@@ -2241,18 +2270,7 @@ rule("Player_Rank_Revoke")
 			Global.Rainbow_Color, Color(Yellow), Global.Rainbow_Color, String and Color, Visible Never);
 		Event Player.Mode_Hud_ID = Last Text ID;
 
-		Create HUD Text(Event Player, Null, 
-			Custom String(" • Basic Functions:\r\n- Hold Reload : Toggle Protection (Default On).\r\n- Hold Interact : Switch Camera (5 types).\r\n{0}", 
-			Custom String("- Hold Melee : Switch Heroes.\r\n\r\n • How to use the menu:\r\n{0}", 
-			Custom String("- Crouch and press\r\n    {0} or {1}", Input Binding String(Button(Jump)),
-			Custom String("{0} to change pages.\r\n- Crouch and press\r\n    the shown input for an action.\r\n{1}", 
-				Input Binding String(Button(Interact)), 
-			Custom String("- Crouch + {0} on\r\n    this page to hide/show menu.\r\n{1}", Input Binding String(Button(Melee)),
-			Custom String("Chillers have more pages/options.\r\n\r\n{0}",
-			Custom String("In these lobbies, please be careful\r\n   who you interact with and what\r\n   personal information you share."
-		))))))), Null, Left, 1, Color(White), Color(White), Color(White), String, Visible Never);
-
-		Event Player.Mode_Description = Last Text ID;
+		Call Subroutine(Info_Page_Default);
 		Destroy HUD Text(Event Player.Mod_Name_ID[0]);
 	}
 }
@@ -2312,24 +2330,10 @@ rule("Show_And_Hide_Menu")
 			End;
 			Event Player.Mode_Hud_ID = Last Text ID;
 			If(Event Player.Promoted_Rank || Not(Event Player.High_Rank || Event Player.Mod_Rank));
-				Create HUD Text(Event Player, Null, 
-					Custom String(" • Basic Functions:\r\n- Hold Reload : Toggle Protection (Default On).\r\n- Hold Interact : Switch Camera (5 types).\r\n{0}", 
-					Custom String("- Hold Melee : Switch Heroes.\r\n\r\n • How to use the menu:\r\n{0}", 
-					Custom String("- Crouch and press\r\n    {0} or {1}", Input Binding String(Button(Jump)),
-					Custom String("{0} to change pages.\r\n- Crouch and press\r\n    the shown input for an action.\r\n{1}", 
-						Input Binding String(Button(Interact)), 
-					Custom String("- Crouch + {0} on\r\n    this page to hide/show menu.\r\n{1}", Input Binding String(Button(Melee)),
-					Custom String("Chillers have more pages/options.\r\n\r\n{0}",
-					Custom String("In these lobbies, please be careful\r\n   who you interact with and what\r\n   personal information you share."
-					))))))), Null, Left, 1, Color(White), Color(White), Color(White), String, Visible Never);
+				Call Subroutine(Info_Page_Default);
 			Else;
-				Create HUD Text(Event Player, Null, 
-					Custom String("Hold {0} + {1} on\r\n    this page to hide/show menu.\r\n\r\n{2}",
-						Input Binding String(Button(Crouch)), Input Binding String(Button(Melee)),
-					Custom String("In these lobbies, please be careful\r\n   who you interact with and what\r\n   personal information you share."
-					)), Null, Left, 1, Color(White), Color(White), Color(White), String, Visible Never);
+				Call Subroutine(Info_Page_Mod);
 			End;
-			Event Player.Mode_Description = Last Text ID;
 		End;
 	}
 }
@@ -2653,22 +2657,9 @@ rule("Mode_Headline_Desc_Mod")
 		If(Event Player.Mode_Cycle == 0);
 			Event Player.Mode_Headline = Custom String("Info Page");
 			If(Event Player.Promoted_Rank);
-				Create HUD Text(Event Player, Null, 
-					Custom String(" • Basic Functions:\r\n- Hold Reload : Toggle Protection (Default On).\r\n- Hold Interact : Switch Camera (5 types).\r\n{0}", 
-					Custom String("- Hold Melee : Switch Heroes.\r\n\r\n • How to use the menu:\r\n{0}", 
-					Custom String("- Crouch and press\r\n    {0} or {1}", Input Binding String(Button(Jump)),
-					Custom String("{0} to change pages.\r\n- Crouch and press\r\n    the shown input for an action.\r\n{1}", 
-						Input Binding String(Button(Interact)), 
-					Custom String("- Crouch + {0} on\r\n    this page to hide/show menu.\r\n{1}", Input Binding String(Button(Melee)),
-					Custom String("Chillers have more pages/options.\r\n\r\n{0}",
-					Custom String("In these lobbies, please be careful\r\n   who you interact with and what\r\n   personal information you share."
-					))))))), Null, Left, 1, Color(White), Color(White), Color(White), String, Visible Never);
+				Call Subroutine(Info_Page_Default);
 			Else;
-				Create HUD Text(Event Player, Null, 
-					Custom String("Hold {0} + {1} on\r\n    this page to hide/show menu.\r\n\r\n{2}",
-						Input Binding String(Button(Crouch)), Input Binding String(Button(Melee)),
-					Custom String("In these lobbies, please be careful\r\n   who you interact with and what\r\n   personal information you share."
-					)), Null, Left, 1, Color(White), Color(White), Color(White), String, Visible Never);
+				Call Subroutine(Info_Page_Mod);
 			End;
 
 		Else If(Event Player.Mode_Cycle == 1);
@@ -3047,16 +3038,7 @@ rule("Mode_Headline_Desc_Default")
 		
 		If(Event Player.Mode_Cycle_Default == 0);
 			Event Player.Mode_Headline = Custom String("Info Page");
-			Create HUD Text(Event Player, Null, 
-				Custom String(" • Basic Functions:\r\n- Hold Reload : Toggle Protection (Default On).\r\n- Hold Interact : Switch Camera (5 types).\r\n{0}", 
-				Custom String("- Hold Melee : Switch Heroes.\r\n\r\n • How to use the menu:\r\n{0}", 
-				Custom String("- Crouch and press\r\n    {0} or {1}", Input Binding String(Button(Jump)),
-				Custom String("{0} to change pages.\r\n- Crouch and press\r\n    the shown input for an action.\r\n{1}", 
-					Input Binding String(Button(Interact)), 
-				Custom String("- Crouch + {0} on\r\n    this page to hide/show menu.\r\n{1}", Input Binding String(Button(Melee)),
-				Custom String("Chillers have more pages/options.\r\n\r\n{0}",
-				Custom String("In these lobbies, please be careful\r\n   who you interact with and what\r\n   personal information you share."
-				))))))), Null, Left, 1, Color(White), Color(White), Color(White), String, Visible Never);
+			Call Subroutine(Info_Page_Default);
 
 		Else If(Event Player.Mode_Cycle_Default == 1);
 			Event Player.Mode_Headline = Custom String("Kill | Resurrection");
@@ -3232,20 +3214,64 @@ rule("Remove_Banned_Player")
 {
 	event
 	{
-		Ongoing - Each Player;
+		Player Joined Match;
 		All;
 		All;
 	}
 
 	conditions
 	{
-		(Array Contains(Global.Perma_Banned, Custom String("{0}", Event Player)) || Array Contains(Global.Temp_Banned, Custom String("{0}",
-			Event Player))) == True;
+		Array Contains(Global.Banned_List, Custom String("{0}", Event Player)) == True;
+	}
+
+	actions
+	{
+		Disable Text Chat(Event Player);
+		Disable Voice Chat(Event Player, True, True, False);
+		Disable Game Mode HUD(Event Player);
+		Disable Game Mode In-World UI(Event Player);
+		Event Player.Full_Protection = True;
+		Event Player.Mode_Cycle = -1;
+		Event Player.Mode_Cycle_Default = -1;
+		Event Player.Is_Menu_Active = False;
+		Wait(5, Ignore Condition);
+		Create Hud Text(Event Player, Null, Custom String(" \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"), Null, Top, 5, Color(White), Color(White), Color(White), None, Visible Never);
+		Create Hud Text(Event Player,  Custom String(" You are on the banlist \r\n    and will be removed \r\n from the game shortly... "), 
+				Null, Null, Top, 10, Color(Red), Color(White), Color(White), None, Visible Never);
+		Create Hud Text(Event Player, Null, Null, Custom String(" \r\nPlease Contact kwally#21906 on Battlenet (all letters lowercase!) for further support."), 
+				Top, 10, Color(White), Color(Yellow), Color(White), None, Visible Never);
+		Start Forcing Player To Be Hero(Event Player, Hero(Roadhog));
+		Set Status(Event Player, Null, Knocked Down, 9999);
+		Set Status(Event Player, Null, Phased Out, 9999);
+		Set Invisible(Event Player, All);
+		Set Aim Speed(Event Player, 0);
+		Start Forcing Player Position(Event Player, Vector(0,50,0), False);
+		Modify Global Variable(Temp_Banned, Append To Array, Custom String("{0}", Event Player));
+		Wait(25, Ignore Condition);
+		Small Message(All Players(All Teams), Custom String("  {0} is banned.", Event Player));
+		Wait(0.5, Ignore Condition);
+		Remove Player(Event Player);
+	}
+}
+
+rule("Remove_Banned_Player")
+{
+	event
+	{
+		Player Joined Match;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Array Contains(Global.Temp_Banned, Custom String("{0}", Event Player)) == True;
 	}
 
 	actions
 	{
 		Small Message(All Players(All Teams), Custom String("{0} is banned.", Event Player));
+		Wait(0.5, Ignore Condition);
 		Remove Player(Event Player);
 	}
 }
@@ -3529,6 +3555,97 @@ rule("3rd_Camera_4_Zoom")
 	}
 }
 
+rule("Mode_00 - AFK Toggle")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		(Event Player.Mode_Cycle == 0 || Event Player.Mode_Cycle_Default == 0) == True;
+		Event Player.Signal == True;
+	}
+
+	actions
+	{
+		Event Player.Signal = False;
+		If(Is Button Held(Event Player, Button(Ultimate)));
+			If(Event Player.AFK_Toggle);
+				Small Message(Event Player, Custom String("  Already set as afk"));
+			Else;
+				Event Player.AFK_Toggle = True;
+				Small Message(Event Player, Custom String("  Set as afk"));
+			End;
+		Wait(1, Ignore Condition);
+		End;
+	}
+}
+
+rule("Mode_00 AFK ON")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Event Player.AFK_Toggle == True;
+		Is Moving(Event Player) == False;
+		Is Crouching(Event Player) == False;
+		Has Spawned(Event Player) == True;
+		Event Player.Effect_Storage == Null;
+	}
+
+	actions
+	{
+		Wait(5, Abort When False);
+		Create Progress Bar In-World Text(All Players(All Teams), Modulo(Total Time Elapsed * Evaluate Once(Random Real(2,8)), 100), 
+			If-Then-Else(Custom String("{0}", Event Player) == Custom String("xMaxuss"), Custom String("Max is coding/afk\r\n\r\n"), 
+			If-Then-Else(Custom String("{0}", Event Player) == Custom String("LƐafa") || Custom String("{0}", Event Player) == Custom String("kwally"), 
+				Custom String("{0} is unavailable/afk\r\n\r\n", Event Player), Custom String("{0} is afk\r\n\r\n", Event Player))), 
+			Event Player, 0.5, Clip Against Surfaces, 
+			If-Then-Else(Event Player.Is_Title_Given, 
+			If-Then-Else(Event Player.Player_Title_And_Outline[1] == Custom String("Rainbow") || Event Player.Player_Title_And_Outline[1] == Custom String("Fading"), 
+			Global.Rainbow_Color, Event Player.Player_Title_And_Outline[1]), 
+			If-Then-Else(Event Player.Regular_Player_Has_Title, Global.Colors[Event Player.NamesAndOutlines_Colors_Selector], 
+			Evaluate Once(Random Value In Array(Global.Colors)))), Color(White), Visible To Position Values and Color, Default Visibility);
+		Event Player.Effect_Storage = Last Text ID;
+		Small Message(Event Player, Custom String("  AFK text now active"));
+	}
+}
+
+rule("Mode_00 - AFK OFF")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Event Player.AFK_Toggle == True;
+		Event Player.Effect_Storage != Null;
+		(Is Jumping(Event Player) || Throttle Of(Event Player) != Vector(0,0,0) || Is Crouching(Event Player) || Not(Has Spawned(Event Player))) == True;
+	}
+
+	actions
+	{
+		Destroy Progress Bar In-World Text(Event Player.Effect_Storage);
+		Wait(0.1, Ignore Condition);
+		Event Player.Effect_Storage = Null;
+		Small Message(Event Player, Custom String("  No Longer afk"));
+		Event Player.AFK_Toggle = False;
+	}
+}
 
 rule("Mode_01 - Kill_Rez")
 {
@@ -6218,6 +6335,7 @@ rule("Mode_27 - Kick_&_Ban")
 			Play Effect(All Players(All Teams), Bad Pickup Effect, Color(Red), Player Closest To Reticle(Event Player, All Teams), 1);
 			Small Message(All Players(All Teams), Custom String("{0} is banned by {1}", Event Player.Target_Lock, Event Player));
 			Modify Global Variable(Temp_Banned, Append To Array, Custom String("{0}", Event Player.Target_Lock));
+			Remove Player(Event Player.Target_Lock);
 		End;
 		Wait(1, Ignore Condition);
 		Event Player.Target_Lock = Custom String("--- No Target ---");
@@ -6277,7 +6395,7 @@ rule("Mode_28 - Mute")
 			Global.Jail_List[3] = Append To Array(Global.Jail_List[3], True);
 			"Disable text and voice chats"
 			Disable Text Chat(Event Player.Target_Shortcut);
-			Disable Voice Chat(Event Player.Target_Shortcut, True, True, True);
+			Disable Voice Chat(Event Player.Target_Shortcut, True, True, False);
 			"Disable all skills and meele"
 			Set Ability 1 Enabled(Event Player.Target_Shortcut, False);
 			Set Ability 2 Enabled(Event Player.Target_Shortcut, False);
@@ -6291,7 +6409,7 @@ rule("Mode_28 - Mute")
 			"DEBUG: TEST"
 			Wait(0.01, Ignore Condition);
 			Disable Text Chat(Event Player.Target_Shortcut);
-			Disable Voice Chat(Event Player.Target_Shortcut, True, True, True);
+			Disable Voice Chat(Event Player.Target_Shortcut, True, True, False);
 		Else If(Is Button Held(Event Player, Button(Secondary Fire)));
 			Event Player.Target_Shortcut = Player Closest To Reticle(Event Player, All Teams);
 			Abort If(Event Player.Target_Shortcut == Null);
@@ -6315,6 +6433,7 @@ rule("Mode_28 - Mute")
 			Global.Jail_List[3] = Filtered Array(Global.Jail_List[3], Current Array Index != Event Player.Index_Help);
 
 			"Enable text and voice chats"
+			Skip If(Array Contains(Global.Muted_List, Custom String("{0}", Event Player.Target_Shortcut)), 2);
 			Enable Text Chat(Event Player.Target_Shortcut);
 			Enable Voice Chat(Event Player.Target_Shortcut);
 			"Enable skills and meele"
@@ -6328,6 +6447,7 @@ rule("Mode_28 - Mute")
 
 			"DEBUG: TEST"
 			Wait(0.01, Ignore Condition);
+			Skip If(Array Contains(Global.Muted_List, Custom String("{0}", Event Player.Target_Shortcut)), 2);
 			Enable Text Chat(Event Player.Target_Shortcut);
 			Enable Voice Chat(Event Player.Target_Shortcut);
 		Else If(Is Button Held(Event Player, Button(Ultimate)));
@@ -6346,7 +6466,7 @@ rule("Mode_28 - Mute")
 				Global.Jail_List[3] = Append To Array(Global.Jail_List[3], False);
 				
 				Disable Text Chat(Event Player);
-				Disable Voice Chat(Event Player, True, True, True);
+				Disable Voice Chat(Event Player, True, True, False);
 				Set Ability 1 Enabled(Event Player, False);
 				Set Ability 2 Enabled(Event Player, False);
 				Set Melee Enabled(Event Player, False);
@@ -6373,6 +6493,7 @@ rule("Mode_28 - Mute")
 				Global.Jail_List[2] = Filtered Array(Global.Jail_List[2], Current Array Index != Event Player.Index_Help);
 				Global.Jail_List[3] = Filtered Array(Global.Jail_List[3], Current Array Index != Event Player.Index_Help);
 
+				Skip If(Array Contains(Global.Muted_List, Custom String("{0}", Event Player)), 2);
 				Enable Text Chat(Event Player);
 				Enable Voice Chat(Event Player);
 				Set Ability 1 Enabled(Event Player, True);
@@ -6505,9 +6626,8 @@ rule("Mode_29 - Promote/Demote_And_Teamswap")
 			End;
 			Event Player.Target_Shortcut = Player Closest To Reticle(Event Player, All Teams);
 			Abort If(Event Player.Target_Shortcut == Null);
-			If(Array Contains(Global.Demoted, Custom String("{0}", Event Player.Target_Shortcut)));
-				Small Message(Event Player, Custom String("  Can't promote {0}, please contact team for support.", 
-					Event Player.Target_Shortcut)); 
+			If(Array Contains(Global.Demoted_List, Custom String("{0}", Event Player)) || Array Contains(Global.Muted_List, Custom String("{0}", Event Player)));
+				Small Message(Event Player, Custom String("  Can't promote {0}, please contact team for support.", Event Player.Target_Shortcut)); 
 				Abort;
 			End;
 			Abort If(Event Player.Target_Shortcut.UNO_Ingame);
@@ -8687,65 +8807,52 @@ rule("Tp effects per Map")
 
 	actions
 	{
+		Global.Map_Teleport_Locations = Empty Array;
+		Global.TP_Help = False;
 		If(Current Map == Map(Havana));
-			Global.Map_Teleport_Locations = Array(Vector(-39.470, 6, -28.170), Vector(-17.710, 5.950, -18.280), Vector(24.920, 5.950, -33.410),
-				Vector(40.780, 8, 10.420), Vector(-34.180, 5.840, -33.220));
-			Create Effect(All Players(All Teams), Ring, Color(Rose), Global.Map_Teleport_Locations[0], 1.300, Visible To Position and Radius);
-			Create Effect(All Players(All Teams), Ring, Color(Rose), Global.Map_Teleport_Locations[1], 1.300, Visible To Position and Radius);
-			Create Effect(All Players(All Teams), Ring, Color(Rose), Global.Map_Teleport_Locations[2], 1.300, Visible To Position and Radius);
+			Global.Map_Teleport_Locations = Array(Vector(-39.470, 6, -28.170), Vector(-17.710, 5.950, -18.280), Vector(24.920, 5.950, -33.410));
+			
+			Global.Map_Teleport_Exits = Array(Vector(40.780, 8, 10.420), Vector(-34.180, 5.840, -33.220), Vector(-34.180, 5.840, -33.220));
 		Else If(Current Map == Map(Rialto));
-			Global.Map_Teleport_Locations = Array(Vector(50.350, -1.250, 4.500), Vector(-11.920, -1.250, -21.900), Vector(5.420, -1.250, 20.590),
-				Vector(0.750, -1.250, 35.670), Vector(52.720, -1.250, -9.320));
-			Create Effect(All Players(All Teams), Ring, Color(Rose), Global.Map_Teleport_Locations[0], 1.300, Visible To Position and Radius);
-			Create Effect(All Players(All Teams), Ring, Color(Rose), Global.Map_Teleport_Locations[1], 1.300, Visible To Position and Radius);
-			Create Effect(All Players(All Teams), Ring, Color(Rose), Global.Map_Teleport_Locations[3], 1.300, Visible To Position and Radius);
+			Global.Map_Teleport_Locations = Array(Vector(50.350, -1.250, 4.500), Vector(-11.920, -1.250, -21.900), Vector(0.750, -1.250, 35.670), Vector(34, -1.25, 66.4), Vector(66.8, 50.45, 70.5));
+			
+			Global.Map_Teleport_Exits = Array(Vector(5.420, -1.250, 20.590), Vector(52.720, -1.250, -9.320), Vector(52.720, -1.250, -9.320), Vector(63.7, 48.75, 66), Vector(35, -1.25, 70));
 		Else If(Current Map == Map(Lijiang Tower) || Current Map == Map(Lijiang Tower Lunar New Year));
-			Global.Map_Teleport_Locations = Array(Vector(2.7, 94, 187.8), Vector(-2.7, 94, 187.8), Vector(5, 0, -14),
-				Vector(5.7, 267.17, 290));
-			Create Effect(All Players(All Teams), Ring, Color(Rose), Global.Map_Teleport_Locations[0], 1.300, Visible To Position and Radius);
-			Create Effect(All Players(All Teams), Ring, Color(Rose), Global.Map_Teleport_Locations[1], 1.300, Visible To Position and Radius);
-			Create Effect(All Players(All Teams), Ring, Color(Rose), Global.Map_Teleport_Locations[2], 1.300, Visible To Position and Radius);
-			Create Effect(All Players(All Teams), Ring, Color(Rose), Global.Map_Teleport_Locations[3], 1.300, Visible To Position and Radius);
+			Global.Map_Teleport_Locations = Array(Vector(2.7, 94, 187.8), Vector(-2.7, 94, 187.8), Vector(5, 0, -14), Vector(5.7, 267.17, 290));
+
+			Global.Map_Teleport_Exits = Array(Vector(1.1, 0, -14), Vector(5.7, 267.33, 285), Vector(2.7, 94, 184.8), Vector(-2.7, 94, 184.8));
 		Else If(Current Map == Map(Busan));
-			Global.Map_Teleport_Locations = Array(Vector(-331.9, 14.1, 176.8), Vector(-325.2, 14.1, 176.8), Vector(51.9, 6.05, -100.2),
-				Vector(208.35, 17.2, 208.8));
-			Create Effect(All Players(All Teams), Ring, Color(Rose), Global.Map_Teleport_Locations[0], 1.100, Visible To Position and Radius);
-			Create Effect(All Players(All Teams), Ring, Color(Rose), Global.Map_Teleport_Locations[1], 1.100, Visible To Position and Radius);
-			Create Effect(All Players(All Teams), Ring, Color(Rose), Global.Map_Teleport_Locations[2], 1.300, Visible To Position and Radius);
-			Create Effect(All Players(All Teams), Ring, Color(Rose), Global.Map_Teleport_Locations[3], 1.300, Visible To Position and Radius);
+			Global.Map_Teleport_Locations = Array(Vector(-331.9, 14.1, 176.8), Vector(-325.2, 14.1, 176.8), Vector(51.9, 6.05, -100.2), Vector(208.35, 17.2, 208.8));
+
+			Global.Map_Teleport_Exits = Array(Vector(51.9, 6.05, -96.2), Vector(209.85, 17.2, 212.8), Vector(-331.9, 14.1, 179.8), Vector(-325.2, 14.1, 179.8));
 		Else If(Current Map == Map(Oasis));
-			Global.Map_Teleport_Locations = Array(Vector(128.85, 2.5, -207.5), Vector(101.6, 2.5, -235.45), Vector(120.7, 1, 230.7),
-				Vector(-184.6, 9, 0));
-			Create Effect(All Players(All Teams), Ring, Color(Rose), Global.Map_Teleport_Locations[0], 1.300, Visible To Position and Radius);
-			Create Effect(All Players(All Teams), Ring, Color(Rose), Global.Map_Teleport_Locations[1], 1.300, Visible To Position and Radius);
-			Create Effect(All Players(All Teams), Ring, Color(Rose), Global.Map_Teleport_Locations[2], 1.300, Visible To Position and Radius);
-			Create Effect(All Players(All Teams), Ring, Color(Rose), Global.Map_Teleport_Locations[3], 1.300, Visible To Position and Radius);
+			Global.Map_Teleport_Locations = Array(Vector(128.85, 2.5, -207.5), Vector(101.6, 2.5, -235.45), Vector(120.7, 1, 230.7), Vector(-184.6, 9, 0));
+
+			Global.Map_Teleport_Exits = Array(Vector(118.7, 1, 232.7), Vector(-181.9, 9.1, 0), Vector(126.85, 2.5, -205.5), Vector(99.6, 2.5, -233.45));
 		Else If(Current Map == Map(Ilios));
-			Global.Map_Teleport_Locations = Array(Vector(-190, 1.05, -3.05), Vector(-195.1, 1.05, 2.05), Vector(20.1, 61.4, -142.5),
-				Vector(316.6, -23.7, -38.2));
-			Create Effect(All Players(All Teams), Ring, Color(Rose), Global.Map_Teleport_Locations[0], 1.300, Visible To Position and Radius);
-			Create Effect(All Players(All Teams), Ring, Color(Rose), Global.Map_Teleport_Locations[1], 1.300, Visible To Position and Radius);
-			Create Effect(All Players(All Teams), Ring, Color(Rose), Global.Map_Teleport_Locations[2], 1.100, Visible To Position and Radius);
-			Create Effect(All Players(All Teams), Ring, Color(Rose), Global.Map_Teleport_Locations[3], 1.300, Visible To Position and Radius);
+			Global.Map_Teleport_Locations = Array(Vector(-190, 1.05, -3.05), Vector(-195.1, 1.05, 2.05), Vector(20.1, 61.4, -142.5), Vector(316.6, -23.7, -38.2));
+
+			Global.Map_Teleport_Exits = Array(Vector(20.1, 61.4, -145.5), Vector(318.6, -23.7, -40.2), Vector(-192, 1.05, -5.05), Vector(-197.1, 1.05, 0.05));
 		Else If(Current Map == Map(Nepal));
-			Global.Map_Teleport_Locations = Array(Vector(-20, 13, -2), Vector(-20, 13, 2), Vector(90, 128, -10),
-				Vector(-209, -94.1, -16));
-			Create Effect(All Players(All Teams), Ring, Color(Rose), Global.Map_Teleport_Locations[0], 1.200, Visible To Position and Radius);
-			Create Effect(All Players(All Teams), Ring, Color(Rose), Global.Map_Teleport_Locations[1], 1.200, Visible To Position and Radius);
-			Create Effect(All Players(All Teams), Ring, Color(Rose), Global.Map_Teleport_Locations[2], 1.100, Visible To Position and Radius);
-			Create Effect(All Players(All Teams), Ring, Color(Rose), Global.Map_Teleport_Locations[3], 1.300, Visible To Position and Radius);
+			Global.Map_Teleport_Locations = Array(Vector(-20, 13, -2), Vector(-20, 13, 2), Vector(90, 128, -10), Vector(-209, -94.1, -16), Vector(79, 84, 11), Vector(68.75, 128.53, -60.77));
+
+			Global.Map_Teleport_Exits = Array(Vector(87, 128, -10), Vector(-209, -94.1, -13), Vector(-23, 13, -2), Vector(-23, 13, 2), Vector(66.05, 127.8, -62.75), Vector(79.25, 84, 11));
 		Else If(Current Map == Map(Antarctic Peninsula));
-			Global.Map_Teleport_Locations = Array(Vector(276.9, -10.95, -261), Vector(291.39, -10.95, -261), Vector(270, 41.3, 144.7),
-				Vector(-125.3, -152.5, 60));
-			Create Effect(All Players(All Teams), Ring, Color(Rose), Global.Map_Teleport_Locations[0], 1.300, Visible To Position and Radius);
-			Create Effect(All Players(All Teams), Ring, Color(Rose), Global.Map_Teleport_Locations[1], 1.300, Visible To Position and Radius);
-			Create Effect(All Players(All Teams), Ring, Color(Rose), Global.Map_Teleport_Locations[2], 1.300, Visible To Position and Radius);
-			Create Effect(All Players(All Teams), Ring, Color(Rose), Global.Map_Teleport_Locations[3], 1.300, Visible To Position and Radius);
+			Global.Map_Teleport_Locations = Array(Vector(276.9, -10.95, -261), Vector(291.39, -10.95, -261), Vector(270, 41.3, 144.7), Vector(-125.3, -152.5, 60));
+
+			Global.Map_Teleport_Exits = Array(Vector(270, 41.3, 147.7), Vector(-125.3, -152.5, 56), Vector(280.9, -10.95, -261), Vector(287.39, -10.95, -261));
 		Else If(Current Map == Map(Ayutthaya));
 			Global.Map_Teleport_Locations = Array(Vector(4.75, 21, 26.5), Vector(29.75, 0.11, -28));
-			Create Effect(All Players(All Teams), Ring, Color(Rose), Global.Map_Teleport_Locations[0], 1.300, Visible To Position and Radius);
-			Create Effect(All Players(All Teams), Ring, Color(Rose), Global.Map_Teleport_Locations[1], 1.300, Visible To Position and Radius);
+
+			Global.Map_Teleport_Exits = Array(Vector(29.75, 0.11, -25), Vector(4.75, 21, 29.5));
 		End;
+		If(Global.Map_Teleport_Locations != Empty Array);
+			For Global Variable(TP_Help, 0, Count Of(Global.Map_Teleport_Locations), 1);
+				Create Effect(All Players(All Teams), Ring, Color(Rose), Global.Map_Teleport_Locations[Global.TP_Help], 1.2, Visible To);
+			End;
+			Global.TP_Help = True;
+		End;
+
 		Modify Global Variable(High_Rank, Remove From Array By Index, 0);
 		Modify Global Variable(High_Rank, Remove From Array By Index, 1);
 		Modify Global Variable(High_Rank, Remove From Array By Index, 1);
@@ -8763,7 +8870,7 @@ rule("Tp effects per Map")
 	}
 }
 
-rule("Teleports Lijiang")
+rule("Teleports Logic")
 {
 	event
 	{
@@ -8774,367 +8881,19 @@ rule("Teleports Lijiang")
 
 	conditions
 	{
-		(Current Map == Map(Lijiang Tower) || Current Map == Map(Lijiang Tower Lunar New Year)) == True;
-		(Distance Between(Global.Map_Teleport_Locations[0], Event Player) <= 1.300 || Distance Between(Global.Map_Teleport_Locations[1], Event Player)
-			<= 1.300 || Distance Between(Global.Map_Teleport_Locations[2], Event Player) <= 1.300 || Distance Between(Global.Map_Teleport_Locations[3], Event Player) <= 1.300) == True;
+		Global.TP_Help == True;
+		Is True For Any(Global.Map_Teleport_Locations, Distance Between(Current Array Element, Event Player) <= 1.2) == True;
+		Is On Ground(Event Player) == True;
 	}
 
 	actions
 	{
-		"Seeking for player in selected points"
-		If(Distance Between(Global.Map_Teleport_Locations[0], Event Player) <= 1.300);
-			Teleport(Event Player, Add(Global.Map_Teleport_Locations[2], Vector(-3.9,0,0)));
-			Set Facing(Event Player, Vector(6,0,1), To World);
-			Wait(2, Ignore Condition);
-		End;
-		If(Distance Between(Global.Map_Teleport_Locations[1], Event Player) <= 1.300);
-			Teleport(Event Player, Add(Global.Map_Teleport_Locations[3], Vector(0,0.16,-5)));
-			Set Facing(Event Player, Vector(0,0,1), To World);
-			Wait(2, Ignore Condition);
-		End;
-		If(Distance Between(Global.Map_Teleport_Locations[2], Event Player) <= 1.300);
-			Teleport(Event Player, Add(Global.Map_Teleport_Locations[0], Vector(0,0,-3)));
-			Set Facing(Event Player, Vector(0,0,1), To World);
-			Wait(2, Ignore Condition);
-		End;
-		If(Distance Between(Global.Map_Teleport_Locations[3], Event Player) <= 1.300);
-			Teleport(Event Player, Add(Global.Map_Teleport_Locations[1], Vector(0,0,-3)));
-			Set Facing(Event Player, Vector(0,0,1), To World);
-			Wait(2, Ignore Condition);
-		End;
-	}
-}
-
-rule("Teleports Rialto")
-{
-	event
-	{
-		Ongoing - Each Player;
-		All;
-		All;
-	}
-
-	conditions
-	{
-		Current Map == Map(Rialto);
-		(Distance Between(Global.Map_Teleport_Locations[0], Event Player) <= 1.300 || Distance Between(Global.Map_Teleport_Locations[1], Event Player) <= 1.300 || 
-		Distance Between(Global.Map_Teleport_Locations[3], Event Player) <= 1.300 || Distance Between(Vector(34, -1.25, 66.4), Event Player) <= 0.5 || 
-		Distance Between(Vector(66.8, 50.45, 70.5), Event Player) <= 0.5 ) == True;
-	}
-
-	actions
-	{
-		"Seeking for player in selected points"
-		If(Distance Between(Global.Map_Teleport_Locations[0], Event Player) <= 1.300);
-			Teleport(Event Player, Global.Map_Teleport_Locations[2]);
-			Set Facing(Event Player, Vector(-0.25,0 , 0.75), To World);
-			Wait(2, Ignore Condition);
-		End;
-		If(Distance Between(Global.Map_Teleport_Locations[1], Event Player) <= 1.300);
-			Teleport(Event Player, Global.Map_Teleport_Locations[2]);
-			Set Facing(Event Player, Vector(-0.25 ,0, 0.75), To World);
-			Wait(2, Ignore Condition);
-		End;
-		If(Distance Between(Global.Map_Teleport_Locations[3], Event Player) <= 1.300);
-			Teleport(Event Player, Global.Map_Teleport_Locations[4]);
-			Set Facing(Event Player, Vector(-0.15 ,0, 0.85), To World);
-			Wait(2, Ignore Condition);
-		End;
-		If(Distance Between(Vector(34, -1.25, 66.4), Event Player) <= 0.5);
-			Teleport(Event Player, Vector(63.7, 48.75, 66));
-			Set Facing(Event Player, Vector(-0.7 ,0 ,-0.3 ), To World);
-			Wait(2, Ignore Condition);
-		End;
-		If(Distance Between(Vector(66.8, 50.45, 70.5), Event Player) <= 0.5);
-			Teleport(Event Player, Vector(35, -1.25, 70));
-			Set Facing(Event Player, Vector(-0.25 ,0 ,-0.75 ), To World);
-			Wait(2, Ignore Condition);
-		End;
-	}
-}
-
-rule("Teleports Havana")
-{
-	event
-	{
-		Ongoing - Each Player;
-		All;
-		All;
-	}
-
-	conditions
-	{
-		Current Map == Map(Havana);
-		(Distance Between(Global.Map_Teleport_Locations[0], Event Player) <= 1.300 || Distance Between(Global.Map_Teleport_Locations[1], Event Player) <= 1.300 || 
-		Distance Between(Global.Map_Teleport_Locations[2], Event Player) <= 1.300) == True;
-	}
-
-	actions
-	{
-		"Seeking for player in selected points"
-		If(Distance Between(Global.Map_Teleport_Locations[0], Event Player) <= 1.300);
-			Teleport(Event Player, Global.Map_Teleport_Locations[3]);
-			Wait(2, Ignore Condition);
-		End;
-		If(Distance Between(Global.Map_Teleport_Locations[1], Event Player) <= 1.300);
-			Teleport(Event Player, Global.Map_Teleport_Locations[4]);
-			Wait(2, Ignore Condition);
-		End;
-		If(Distance Between(Global.Map_Teleport_Locations[2], Event Player) <= 1.300);
-			Teleport(Event Player, Global.Map_Teleport_Locations[4]);
-			Wait(2, Ignore Condition);
-		End;
-	}
-}
-
-rule("Teleports Busan")
-{
-	event
-	{
-		Ongoing - Each Player;
-		All;
-		All;
-	}
-
-	conditions
-	{
-		Current Map == Map(Busan);
-		(Distance Between(Global.Map_Teleport_Locations[0], Event Player) <= 1.100 || Distance Between(Global.Map_Teleport_Locations[1], Event Player)
-			<= 1.100 || Distance Between(Global.Map_Teleport_Locations[2], Event Player) <= 1.300 || Distance Between(Global.Map_Teleport_Locations[3], Event Player) <= 1.300) == True;
-	}
-
-	actions
-	{
-		"Seeking for player in selected points"
-		If(Distance Between(Global.Map_Teleport_Locations[0], Event Player) <= 1.100);
-			Teleport(Event Player, Add(Global.Map_Teleport_Locations[2], Vector(0,0,4)));
-			Set Facing(Event Player, Vector(0,0,-1), To World);
-			Wait(2, Ignore Condition);
-		End;
-		If(Distance Between(Global.Map_Teleport_Locations[1], Event Player) <= 1.100);
-			Teleport(Event Player, Add(Global.Map_Teleport_Locations[3], Vector(1.5,0,4)));
-			Set Facing(Event Player, Vector(-0.45,0,-1), To World);
-			Wait(2, Ignore Condition);
-		End;
-		If(Distance Between(Global.Map_Teleport_Locations[2], Event Player) <= 1.300);
-			Teleport(Event Player, Add(Global.Map_Teleport_Locations[0], Vector(0,0,3)));
-			Set Facing(Event Player, Vector(0,0,-1), To World);
-			Wait(2, Ignore Condition);
-		End;
-		If(Distance Between(Global.Map_Teleport_Locations[3], Event Player) <= 1.300);
-			Teleport(Event Player, Add(Global.Map_Teleport_Locations[1], Vector(0,0,3)));
-			Set Facing(Event Player, Vector(0,0,-1), To World);
-			Wait(2, Ignore Condition);
-		End;
-	}
-}
-
-rule("Teleports Oasis")
-{
-	event
-	{
-		Ongoing - Each Player;
-		All;
-		All;
-	}
-
-	conditions
-	{
-		Current Map == Map(Oasis);
-		(Distance Between(Global.Map_Teleport_Locations[0], Event Player) <= 1.300 || Distance Between(Global.Map_Teleport_Locations[1], Event Player)
-			<= 1.300 || Distance Between(Global.Map_Teleport_Locations[2], Event Player) <= 1.300 || Distance Between(Global.Map_Teleport_Locations[3], Event Player) <= 1.300) == True;
-	}
-
-	actions
-	{
-		"Seeking for player in selected points"
-		If(Distance Between(Global.Map_Teleport_Locations[0], Event Player) <= 1.300);
-			Teleport(Event Player, Add(Global.Map_Teleport_Locations[2], Vector(-2,0,2)));
-			Set Facing(Event Player, Vector(0.5,0,-0.5), To World);
-			Wait(2, Ignore Condition);
-		End;
-		If(Distance Between(Global.Map_Teleport_Locations[1], Event Player) <= 1.300);
-			Teleport(Event Player, Add(Global.Map_Teleport_Locations[3], Vector(2.7,0.1,0)));
-			Set Facing(Event Player, Vector(-1,0,0), To World);
-			Wait(2, Ignore Condition);
-		End;
-		If(Distance Between(Global.Map_Teleport_Locations[2], Event Player) <= 1.300);
-			Teleport(Event Player, Add(Global.Map_Teleport_Locations[0], Vector(-2,0,2)));
-			Set Facing(Event Player, Vector(0.5,0,-0.5), To World);
-			Wait(2, Ignore Condition);
-		End;
-		If(Distance Between(Global.Map_Teleport_Locations[3], Event Player) <= 1.300);
-			Teleport(Event Player, Add(Global.Map_Teleport_Locations[1], Vector(-2,0,2)));
-			Set Facing(Event Player, Vector(0.5,0,-0.5), To World);
-			Wait(2, Ignore Condition);
-		End;
-	}
-}
-
-rule("Teleports Ilios")
-{
-	event
-	{
-		Ongoing - Each Player;
-		All;
-		All;
-	}
-
-	conditions
-	{
-		Current Map == Map(Ilios);
-		(Distance Between(Global.Map_Teleport_Locations[0], Event Player) <= 1.300 || Distance Between(Global.Map_Teleport_Locations[1], Event Player)
-			<= 1.300 || Distance Between(Global.Map_Teleport_Locations[2], Event Player) <= 1.100 || Distance Between(Global.Map_Teleport_Locations[3], Event Player) <= 1.300) == True;
-	}
-
-	actions
-	{
-		"Seeking for player in selected points"
-		If(Distance Between(Global.Map_Teleport_Locations[0], Event Player) <= 1.300);
-			Teleport(Event Player, Add(Global.Map_Teleport_Locations[2], Vector(0,0,-3)));
-			Set Facing(Event Player, Vector(0,0,1), To World);
-			Wait(2, Ignore Condition);
-		End;
-		If(Distance Between(Global.Map_Teleport_Locations[1], Event Player) <= 1.300);
-			Teleport(Event Player, Add(Global.Map_Teleport_Locations[3], Vector(2,0,-2)));
-			Set Facing(Event Player, Vector(-0.5,0,0.5), To World);
-			Wait(2, Ignore Condition);
-		End;
-		If(Distance Between(Global.Map_Teleport_Locations[2], Event Player) <= 1.100);
-			Teleport(Event Player, Add(Global.Map_Teleport_Locations[0], Vector(-2,0,-2)));
-			Set Facing(Event Player, Vector(0.5,0,0.5), To World);
-			Wait(2, Ignore Condition);
-		End;
-		If(Distance Between(Global.Map_Teleport_Locations[3], Event Player) <= 1.300);
-			Teleport(Event Player, Add(Global.Map_Teleport_Locations[1], Vector(-2,0,-2)));
-			Set Facing(Event Player, Vector(0.5,0,0.5), To World);
-			Wait(2, Ignore Condition);
-		End;
-	}
-}
-
-rule("Teleports Nepal")
-{
-	event
-	{
-		Ongoing - Each Player;
-		All;
-		All;
-	}
-
-	conditions
-	{
-		Current Map == Map(Nepal);
-		(Distance Between(Global.Map_Teleport_Locations[0], Event Player) <= 1.200 || Distance Between(Global.Map_Teleport_Locations[1], Event Player) <= 1.200 || 
-		Distance Between(Global.Map_Teleport_Locations[2], Event Player)  <= 1.100 || Distance Between(Global.Map_Teleport_Locations[3], Event Player) <= 1.300 ||
-		Distance Between(Vector(79, 84, 11), Event Player)  <= 0.5 || Distance Between(Vector(69.3, 128.7, -60.5), Event Player) <= 0.5) == True;
-	}
-
-	actions
-	{
-		"Seeking for player in selected points"
-		If(Distance Between(Global.Map_Teleport_Locations[0], Event Player) <= 1.200);
-			Teleport(Event Player, Add(Global.Map_Teleport_Locations[2], Vector(-3,0,0)));
-			Set Facing(Event Player, Vector(1,0,0), To World);
-			Wait(2, Ignore Condition);
-		End;
-		If(Distance Between(Global.Map_Teleport_Locations[1], Event Player) <= 1.200);
-			Teleport(Event Player, Add(Global.Map_Teleport_Locations[3], Vector(0,0,3)));
-			Set Facing(Event Player, Vector(0,0,-1), To World);
-			Wait(2, Ignore Condition);
-		End;
-		If(Distance Between(Global.Map_Teleport_Locations[2], Event Player) <= 1.100);
-			Teleport(Event Player, Add(Global.Map_Teleport_Locations[0], Vector(-3,0,0)));
-			Set Facing(Event Player, Vector(1,0,0), To World);
-			Wait(2, Ignore Condition);
-		End;
-		If(Distance Between(Global.Map_Teleport_Locations[3], Event Player) <= 1.300);
-			Teleport(Event Player, Add(Global.Map_Teleport_Locations[1], Vector(-3,0,0)));
-			Set Facing(Event Player, Vector(1,0,0), To World);
-			Wait(2, Ignore Condition);
-		End;
-		If(Distance Between(Vector(79, 84, 11), Event Player) <= 0.5);
-			Teleport(Event Player, Vector(67.3, 128.7, -62.5));
-			Set Facing(Event Player, Vector(0.5,0,0.5), To World);
-			Wait(2, Ignore Condition);
-		End;
-		If(Distance Between(Vector(69.3, 128.7, -60.5), Event Player) <= 0.5);
-			Teleport(Event Player,Vector(77, 84, 9));
-			Set Facing(Event Player, Vector(0.5,0,0.5), To World);
-			Wait(2, Ignore Condition);
-		End;
-	}
-}
-
-rule("Teleports Antarctic")
-{
-	event
-	{
-		Ongoing - Each Player;
-		All;
-		All;
-	}
-
-	conditions
-	{
-		Current Map == Map(Antarctic Peninsula);
-		(Distance Between(Global.Map_Teleport_Locations[0], Event Player) <= 1.300 || Distance Between(Global.Map_Teleport_Locations[1], Event Player)
-			<= 1.300 || Distance Between(Global.Map_Teleport_Locations[2], Event Player) <= 1.300 || Distance Between(Global.Map_Teleport_Locations[3], Event Player) <= 1.300) == True;
-	}
-
-	actions
-	{
-		"Seeking for player in selected points"
-		If(Distance Between(Global.Map_Teleport_Locations[0], Event Player) <= 1.300);
-			Teleport(Event Player, Add(Global.Map_Teleport_Locations[2], Vector(0,0,3)));
-			Set Facing(Event Player, Vector(0,0,-1), To World);
-			Wait(2, Ignore Condition);
-		End;
-		If(Distance Between(Global.Map_Teleport_Locations[1], Event Player) <= 1.300);
-			Teleport(Event Player, Add(Global.Map_Teleport_Locations[3], Vector(0,0,-4)));
-			Set Facing(Event Player, Vector(0,0,1), To World);
-			Wait(2, Ignore Condition);
-		End;
-		If(Distance Between(Global.Map_Teleport_Locations[2], Event Player) <= 1.300);
-			Teleport(Event Player, Add(Global.Map_Teleport_Locations[0], Vector(4,0,0)));
-			Set Facing(Event Player, Vector(-1,0,0), To World);
-			Wait(2, Ignore Condition);
-		End;
-		If(Distance Between(Global.Map_Teleport_Locations[3], Event Player) <= 1.300);
-			Teleport(Event Player, Add(Global.Map_Teleport_Locations[1], Vector(-4,0,0)));
-			Set Facing(Event Player, Vector(1,0,0), To World);
-			Wait(2, Ignore Condition);
-		End;
-	}
-}
-
-rule("Teleports Ayutthaya")
-{
-	event
-	{
-		Ongoing - Each Player;
-		All;
-		All;
-	}
-
-	conditions
-	{
-		Current Map == Map(Ayutthaya);
-		(Distance Between(Global.Map_Teleport_Locations[0], Event Player) <= 1.300 || Distance Between(Global.Map_Teleport_Locations[1], Event Player)<= 1.300) == True;
-	}
-
-	actions
-	{
-		"Seeking for player in selected points"
-		If(Distance Between(Global.Map_Teleport_Locations[0], Event Player) <= 1.300);
-			Teleport(Event Player, Add(Global.Map_Teleport_Locations[1], Vector(0,0,3)));
-			Set Facing(Event Player, Vector(0,0,-1), To World);
-			Wait(2, Ignore Condition);
-		End;
-		If(Distance Between(Global.Map_Teleport_Locations[1], Event Player) <= 1.300);
-			Teleport(Event Player, Add(Global.Map_Teleport_Locations[0], Vector(0,0,3)));
-			Set Facing(Event Player, Vector(0,0,-1), To World);
-			Wait(2, Ignore Condition);
+		For Player Variable(Event Player, TP_Index, 0, Count Of(Global.Map_Teleport_Locations), 1);
+			If(Distance Between(Global.Map_Teleport_Locations[Event Player.TP_Index], Event Player) <= 1.2);
+				Teleport(Event Player, Global.Map_Teleport_Exits[Event Player.TP_Index]);
+				Set Status(Event Player, Null, Rooted, 0.6);
+				Break;
+			End;
 		End;
 	}
 }
