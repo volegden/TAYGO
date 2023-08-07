@@ -940,7 +940,7 @@ rule ("Subroutine: Call Default Info Page")
 			Custom String("{0} : change pages.\r\n- Crouch + shown input : perform action.\r\n         • While on this page •\r\n{1}", 
 				Input Binding String(Button(Interact)), 
 			Custom String("- Crouch + {0} : hide/show menu.\r\n{1}", Input Binding String(Button(Melee)),
-			Custom String("- Crouch + Ultimate : set yourself as afk\r\n      (deactivates when moving/crouching).\r\n{0}",
+			Custom String("- \r\n{0}",
 			Custom String("Chillers have more pages/options.\r\n\r\n{0}",
 			Custom String("In these lobbies, please be careful\r\n   who you interact with and what\r\n   personal information you share."
 			)))))))), Null, Left, 1, Color(White), Color(White), Color(White), String, Visible Never);
@@ -961,7 +961,7 @@ rule ("Subroutine: Call Mod Info Page")
 		Create HUD Text(Event Player, Null, 
 			Custom String("Hold {0} + {1} on\r\n    this page to hide/show menu.\r\n{2}",
 				Input Binding String(Button(Crouch)), Input Binding String(Button(Melee)),
-			Custom String("Press {0} + {1} on\r\n    this page to set yourself as afk\r\n    (deactivates when moving/crouching).\r\n\r\n{2}",
+			Custom String("- \r\n\r\n{2}",
 				Input Binding String(Button(Crouch)), Input Binding String(Button(Ultimate)),
 			Custom String("In these lobbies, please be careful\r\n   who you interact with and what\r\n   personal information you share."
 			))), Null, Left, 1, Color(White), Color(White), Color(White), String, Visible Never);
@@ -2070,15 +2070,14 @@ rule("Listed_Player")
                  Custom String("GlizzyButher"), Custom String("sLEOleader"), Custom String("Overpowering"), Custom String("Player"), Custom String("SexiestBeast"), Custom String("GoblinSexual"),
                  Custom String("REAPER"), Custom String("Jeanne"), Custom String("Darthkrisu"), Custom String("ARHVV"), Custom String("KidsSeeGhost"), Custom String("Luffy"), 
                  Custom String("LiquorSeller"), Custom String("Omri"), Custom String("BOO"), Custom String("D7H"), Custom String("Kaijin"), Custom String("Spectre"),
-                 Custom String("MØØN"), Custom String("ŦŌPĦ"));
+                 Custom String("MØØN"), Custom String("ŦŌPĦ"), Custom String("ImpressHer"), Custom String("ÐēŋŋŷŞēmpāī"));
 
 		"Demoted"
 		Global.Demoted_List = Array(Custom String("Eggman"),  Custom String("LeMix"), Custom String("Mikasa"), Custom String("BabyDarl"), Custom String("Snaiy"),
 				 Custom String("KadenLee25"),  Custom String("Daisy"), Custom String("Фрейя"), Custom String("UKGamer001"), Custom String("Nyxx"), Custom String("blackw0lfx"), 
                  Custom String("Katarina"), Custom String("Ronin"), Custom String("mrcepecito"), Custom String("Treco"), Custom String("Muichiro"), Custom String("KissMePlz"), 
                  Custom String("Paranoia"), CUstom String("Pierre"), Custom String("ThatKiD"), Custom String("SirBones"), Custom String("IZ7"), Custom String("fishy"), Custom String("LixClip"), 
-                 Custom String("tam"), Custom String("AnyaHaise"), Custom String("Lixclip"), Custom String("Salty76"), Custom String("Bigounce"), Custom String("Midnight"),
-                 Custom String("ImpressHer"), Custom String("ÐēŋŋŷŞēmpāī"));
+                 Custom String("tam"), Custom String("AnyaHaise"), Custom String("Lixclip"), Custom String("Salty76"), Custom String("Bigounce"), Custom String("Midnight"));
 
 		"Automatic Ban"
 		Global.Banned_List = Array(
@@ -2098,8 +2097,7 @@ rule("Listed_Player")
             Custom String("Reptiles246"), Custom String("DaniXx55"), Custom String("Giraffestin"), Custom String("kotomine"), Custom String("ȄĿĬǃ"), Custom String("Ca1lyn"), Custom String("Adventurer"), 
             Custom String("youtubegamer"), Custom String("angelob18"), Custom String("Bebra"), Custom String("AbuJLD"), Custom String("gxtsl4yer"), Custom String("ReinDine69"), Custom String("SamTheEevee"), 
             Custom String("Splice"), CUstom String("Kapibarapl"), Custom String("AYA"), Custom String("qingAki"), Custom String("Arthur"), Custom String("Kraniumator"), Custom String("lumi"), Custom String("rakan"),  
-            Custom String("Un1p0p"), Custom String("＞：［"), Custom String("hunter"), Custom String("zyzoll"), Custom String("M4ZX"), Custom String("PRIESTPEGGER"), Custom String("ImpressHer"),
-            Custom String("ÐēŋŋŷŞēmpāī"));
+            Custom String("Un1p0p"), Custom String("＞：［"), Custom String("hunter"), Custom String("zyzoll"), Custom String("M4ZX"), Custom String("PRIESTPEGGER"));
     }
 }
 
@@ -3564,7 +3562,7 @@ rule("3rd_Camera_4_Zoom")
 	}
 }
 
-rule("Mode_00 - AFK Toggle")
+disabled rule("Mode_00 - AFK Toggle")
 {
 	event
 	{
@@ -3594,7 +3592,7 @@ rule("Mode_00 - AFK Toggle")
 	}
 }
 
-rule("Mode_00 AFK ON")
+disabled rule("Mode_00 AFK ON")
 {
 	event
 	{
@@ -3630,7 +3628,7 @@ rule("Mode_00 AFK ON")
 	}
 }
 
-rule("Mode_00 - AFK OFF")
+disabled rule("Mode_00 - AFK OFF")
 {
 	event
 	{
