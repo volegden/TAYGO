@@ -645,7 +645,7 @@ rule("Global_Text")
 	{
 		Create HUD Text(All Players(All Teams), Custom String("{0}", 
 			Hero Icon String(Hero Of(Host Player))), Custom String("Watcher"),
-			Custom String("{0} {1}", Host Player, If-Then-Else(Host Player.High_Rank, Icon String(Heart), 
+			Custom String("{0} {1}", Host Player, If-Then-Else(Host Player.High_Rank && Host Not(Player.Heaven_Strike_ID[3]), Icon String(Heart), 
 				If-Then-Else(Host Player.Mod_Rank && Not(Host Player.Promoted_Rank), Icon String(Halo), Custom String("")))), 
 			Right, -6, Global.Rainbow_Color, Global.Rainbow_Color, Global.Rainbow_Color, Visible To String and Color,
 			Default Visibility);
@@ -780,7 +780,7 @@ rule("Default_Player_Settings")
 		Event Player.Damage_Reflect = False;
 		Event Player.Voice_Pitch = 1;
 		Event Player.Heaven_Strike_Radius = Null;
-		Event Player.Heaven_Strike_ID = Array(Null, Null, False);
+		Event Player.Heaven_Strike_ID = Array(Null, Null, False, False);
 		Event Player.Ghost_Mode = False;
 		Event Player.Slow_Projectile = False;
 		Event Player.Progress_Stop = False;
