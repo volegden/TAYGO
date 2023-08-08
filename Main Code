@@ -732,7 +732,7 @@ rule("Default_Player_Settings")
 
 		"Show names and pages of players"
 		Create In-World Text(Filtered Array(All Players(All Teams), Current Array Element.Is_Crouch_On), Custom String("{0} | {1} {2}", Event Player, 
-			If-Then-Else(Event Player.Mode_Cycle != -1, Event Player.Mode_Cycle, Event Player.Mode_Cycle_Default), 
+			If-Then-Else(Event Player.Mode_Cycle != -1, If-Then-Else(Event Player.Heaven_Strike_ID[3], 0, Event Player.Mode_Cycle), Event Player.Mode_Cycle_Default), 
 			If-Then-Else(Event Player.Promoted_Rank, Icon String(Arrow: Up), Global.Rank_Icon[Event Player.Verification_Key])),
 			Event Player, 1, Do Not Clip, Visible To Position and String, Color(White), Default Visibility);
 		Event Player.Target_Tag_ID = Last Text ID;
@@ -976,7 +976,7 @@ rule ("Data")
 		Global.Credits = Array(Custom String("Coded with {0} by Warloy and xMaxuss, based on TbyCoLive's work", Icon String(Heart)), 
 			Custom String("Maintained with {0} by LƐafa, Community managers: RUBY & kwally", Icon String(Heart)));
 		
-		Global.Rank_Icon = Array(Custom String(""), Icon String(Halo), Icon String(Heart));
+		Global.Rank_Icon = Array(Custom String(""), Icon String(Halo), Icon String(Heart), Custom String(""));
 
 		Global.OffOnString = Array(Custom String("Off"), Custom String("On"));
 
@@ -2144,6 +2144,9 @@ rule("Player_Rank_Execute")
 				Big Message(All Players(All Teams), Custom String("{0} got promoted!", Event Player));
 				Call Subroutine(Hud_Elements);
 			End;
+		End;
+		If(Event Player.Heaven_Strike_ID[3]);
+			Event Player.Verification_Key = 3;
 		End;
 		Event Player.Is_Menu_Active = True;
 		If(Event Player.Is_Flying);
