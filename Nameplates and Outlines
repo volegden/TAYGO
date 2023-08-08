@@ -133,13 +133,15 @@ rule ("Custom nameplates list")
                 		Custom String("boobsponge")
                 		), 
 			Array(Custom String("Titanaboa"), 
-                		Custom Color(255, 171, 210, 255),
-                		Custom String("Skudnabe's Soundbae"),
-						Custom String("{0}     INTERNATIONAL TOURIST GUIDE     {0}", Ability Icon String(Hero(Winston), Button(Ultimate)))
+						Custom Color(255, 171, 210, 255), 
+						Custom String("Sσυη∂вαє'ѕ Sкυ∂ηαвє"), 
+						Custom String("{0}     INTERNATIONAL TOUR GUIDE     {0}", Ability Icon String(Hero(Winston), Button(Ultimate)))
                 		), 
 			Array(Custom String("S0undw4v3"), 
-                		Custom Color(199, 21, 133, 255),
-                		Custom String("Skudnabe's Soundbae")
+						Custom Color(170, 111, 229, 255), 
+						Custom String("{0}  Sкυ∂ηαвє'ѕ Sσυη∂вαє  {0}", Hero Icon String(Hero(Reaper))), 
+						Custom String ("{0}  Ｔｈｅ Ｃｙｂｅｒｔｒｏｎｉａｎ  {0}", Ability Icon String(Hero(Bastion), Button(Ultimate))), 
+						Custom String ("{0}   尸尺工从乇  丅工从乇  尺乇工几  丅工从乇   {0}", Hero Icon String(Hero(Reinhardt)))
                 		), 
 			Array(Custom String("Fuji"), 
                 		Custom String("Rainbow"),
@@ -604,10 +606,10 @@ rule ("Custom nameplates list")
 				Custom String("TheBestANIKI"), 
 				Custom String("Bunnies")
 				), 
-            		Array(Custom String("Kêñ"), 
+            Array(Custom String("Kêñ"), 
 				Color(Black),
 				Custom String("☆ E-Girl Collector ☆"), 
-				Custom String("† Ain’t yo Daddy †"), 
+				Custom String("{0}      Kwenfected     {0}", Ability Icon String(Hero(Cassidy), Button(Ultimate))),
 				Custom String("♥ Bee’s Big brother ♥") 
 				), 
 			Array(Custom String("Nef"),	
@@ -661,7 +663,7 @@ rule ("Custom nameplates list")
 			Array(Custom String("ThatAspect"), 
 				Color(Purple),
 				Custom String(" † ASPECT † "),
-				Custom String("{0} Golden Experience {0}", Ability Icon String(Hero(Zenyatta), Button(Ultimate))), 
+				Custom String(" Optimus Prime Time "),
 				Custom String("{0} Crimson Dusk {0}", Ability Icon String(Hero(Reaper), Button(Ultimate)))
 				), 
 			Array(Custom String("Vanessav"), 
@@ -682,9 +684,10 @@ rule ("Custom nameplates list")
 				Custom String("† Dubiko - Kirikult †")
 				), 
 			Array(Custom String("MOOOUSH"), 
-				Custom Color(194, 151, 194, 255),
-				Custom String("{0} (っ--)っ {0}", Icon String (Moon)), 
-				Custom String("{0} ＴＯＰ ５００ ＢＲＯＮＺＥ {0}", Ability Icon String(Hero(Genji), Button(Primary Fire)))
+				Custom Color(204, 251, 255, 255),
+				Custom String("{0} (っ--)っ {0}", Icon String(Moon)), 
+				Custom String("{0} mσσ {0}", Ability Icon String(Hero(Genji), Button(Primary Fire))), 
+				Custom String("{0} S  Ü  T {0}", Icon String(Ring Thick))
 				),
 			Array(Custom String("Zxtyi"), 
 				Color(Black),
