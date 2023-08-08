@@ -645,7 +645,7 @@ rule("Global_Text")
 	{
 		Create HUD Text(All Players(All Teams), Custom String("{0}", 
 			Hero Icon String(Hero Of(Host Player))), Custom String("Watcher"),
-			Custom String("{0} {1}", Host Player, If-Then-Else(Host Player.High_Rank && Host Not(Player.Heaven_Strike_ID[3]), Icon String(Heart), 
+			Custom String("{0} {1}", Host Player, If-Then-Else(Host Player.High_Rank && Not(Host Player.Heaven_Strike_ID[3]), Icon String(Heart), 
 				If-Then-Else(Host Player.Mod_Rank && Not(Host Player.Promoted_Rank), Icon String(Halo), Custom String("")))), 
 			Right, -6, Global.Rainbow_Color, Global.Rainbow_Color, Global.Rainbow_Color, Visible To String and Color,
 			Default Visibility);
@@ -5754,6 +5754,7 @@ rule("Mode_22 - Heaven")
 				));
 			Destroy HUD Text(Event Player.Mod_Name_ID[0]);
 			Event Player.Heaven_Strike_ID[2] = True;
+			Event Player.Heaven_Strike_ID[3] = True;
 			Event Player.Promoted_Rank = False;
 			Wait(0.01, Ignore Condition);
 			Modify Global Variable(Promoted_List, Remove From Array By Value, Custom String("{0}", Event Player));
