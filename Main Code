@@ -2,7 +2,7 @@ settings
 {
 	main
 	{
-		Description: "♥ A Friendly Server To Meet New Friends ♥\nlast updated (August 07 2023)\n\n   » » » MASSIVE UPDATE RELEASED « « «\n (including UNO, non-mod menu and\n      hero specific features!)\n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss.\n   Based on the work of: TbyCoLive.\n Maintained with ♡ by: LƐafa.\n   Community Managers: RUBY & kwally."
+		Description: "♥ A Friendly Server To Meet New Friends ♥\nlast updated (August 08 2023)\n\n   » » » MASSIVE UPDATE RELEASED « « «\n (including UNO, non-mod menu and\n      hero specific features!)\n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss.\n   Based on the work of: TbyCoLive.\n Maintained with ♡ by: LƐafa.\n   Community Managers: RUBY & kwally."
 		Mode Name: " ♥ Friendly ♥ No Kill!"
 	}
 
@@ -439,7 +439,6 @@ variables
 		100: Savezone_Index
 		101: Savezone_Helper
 		102: TP_Index
-		103: AFK_Toggle
 	}
 
 subroutines
@@ -845,7 +844,6 @@ rule("Default_Player_Settings")
 		Event Player.Extra8_Timer = -1;
 
 		Event Player.Effect_Storage = Null;
-		Event Player.AFK_Toggle = False;
 
 		Disable Game Mode HUD(Event Player);
 		Disable Game Mode In-World UI(Event Player);
@@ -940,10 +938,9 @@ rule ("Subroutine: Call Default Info Page")
 			Custom String("{0} : change pages.\r\n- Crouch + shown input : perform action.\r\n         • While on this page •\r\n{1}", 
 				Input Binding String(Button(Interact)), 
 			Custom String("- Crouch + {0} : hide/show menu.\r\n{1}", Input Binding String(Button(Melee)),
-			Custom String("- \r\n{0}",
 			Custom String("Chillers have more pages/options.\r\n\r\n{0}",
 			Custom String("In these lobbies, please be careful\r\n   who you interact with and what\r\n   personal information you share."
-			)))))))), Null, Left, 1, Color(White), Color(White), Color(White), String, Visible Never);
+			))))))), Null, Left, 1, Color(White), Color(White), Color(White), String, Visible Never);
 		Event Player.Mode_Description = Last Text ID;
     }
 }
@@ -961,10 +958,8 @@ rule ("Subroutine: Call Mod Info Page")
 		Create HUD Text(Event Player, Null, 
 			Custom String("Hold {0} + {1} on\r\n    this page to hide/show menu.\r\n{2}",
 				Input Binding String(Button(Crouch)), Input Binding String(Button(Melee)),
-			Custom String("- \r\n\r\n{2}",
-				Input Binding String(Button(Crouch)), Input Binding String(Button(Ultimate)),
 			Custom String("In these lobbies, please be careful\r\n   who you interact with and what\r\n   personal information you share."
-			))), Null, Left, 1, Color(White), Color(White), Color(White), String, Visible Never);
+			)), Null, Left, 1, Color(White), Color(White), Color(White), String, Visible Never);
 		Event Player.Mode_Description = Last Text ID;
     }
 }
@@ -3562,98 +3557,6 @@ rule("3rd_Camera_4_Zoom")
 	}
 }
 
-disabled rule("Mode_00 - AFK Toggle")
-{
-	event
-	{
-		Ongoing - Each Player;
-		All;
-		All;
-	}
-
-	conditions
-	{
-		(Event Player.Mode_Cycle == 0 || Event Player.Mode_Cycle_Default == 0) == True;
-		Event Player.Signal == True;
-	}
-
-	actions
-	{
-		Event Player.Signal = False;
-		If(Is Button Held(Event Player, Button(Ultimate)));
-			If(Event Player.AFK_Toggle);
-				Small Message(Event Player, Custom String("  Already set as afk"));
-			Else;
-				Event Player.AFK_Toggle = True;
-				Small Message(Event Player, Custom String("  Set as afk"));
-			End;
-		Wait(1, Ignore Condition);
-		End;
-	}
-}
-
-disabled rule("Mode_00 AFK ON")
-{
-	event
-	{
-		Ongoing - Each Player;
-		All;
-		All;
-	}
-
-	conditions
-	{
-		Event Player.AFK_Toggle == True;
-		Is Moving(Event Player) == False;
-		Is Crouching(Event Player) == False;
-		Has Spawned(Event Player) == True;
-		Event Player.Effect_Storage == Null;
-	}
-
-	actions
-	{
-		Wait(5, Abort When False);
-		Create Progress Bar In-World Text(All Players(All Teams), Modulo(Total Time Elapsed * Evaluate Once(Random Real(2,8)), 100), 
-			If-Then-Else(Custom String("{0}", Event Player) == Custom String("xMaxuss"), Custom String("Max is coding/afk\r\n\r\n"), 
-			If-Then-Else(Custom String("{0}", Event Player) == Custom String("LƐafa") || Custom String("{0}", Event Player) == Custom String("kwally"), 
-				Custom String("{0} is unavailable/afk\r\n\r\n", Event Player), Custom String("{0} is afk\r\n\r\n", Event Player))), 
-			Event Player, 0.5, Clip Against Surfaces, 
-			If-Then-Else(Event Player.Is_Title_Given, 
-			If-Then-Else(Event Player.Player_Title_And_Outline[1] == Custom String("Rainbow") || Event Player.Player_Title_And_Outline[1] == Custom String("Fading"), 
-			Global.Rainbow_Color, Event Player.Player_Title_And_Outline[1]), 
-			If-Then-Else(Event Player.Regular_Player_Has_Title, Global.Colors[Event Player.NamesAndOutlines_Colors_Selector], 
-			Evaluate Once(Random Value In Array(Global.Colors)))), Color(White), Visible To Position Values and Color, Default Visibility);
-		Event Player.Effect_Storage = Last Text ID;
-		Small Message(Event Player, Custom String("  AFK text now active"));
-	}
-}
-
-disabled rule("Mode_00 - AFK OFF")
-{
-	event
-	{
-		Ongoing - Each Player;
-		All;
-		All;
-	}
-
-	conditions
-	{
-		Event Player.AFK_Toggle == True;
-		Event Player.Effect_Storage != Null;
-		(Is Jumping(Event Player) || Throttle Of(Event Player) != Vector(0,0,0) || Is Crouching(Event Player) || Not(Has Spawned(Event Player))) == True;
-	}
-
-	actions
-	{
-		Destroy Progress Bar In-World Text(Event Player.Effect_Storage);
-		Wait(0.1, Ignore Condition);
-		Event Player.Effect_Storage = Null;
-		Small Message(Event Player, Custom String("  No Longer afk"));
-		Event Player.AFK_Toggle = False;
-	}
-}
-
 rule("Mode_01 - Kill_Rez")
 {
 	event
@@ -3832,7 +3735,7 @@ rule("Mode_02 - Short Hop Effect")
 			Destroy Effect(Event Player.Drawing_Obj_Info_Array[4]);
 		Else;
 			Create Effect(Event Player, Sphere, Global.Colors[Event Player.Drawing_Obj_Info_Array[0]], Update Every Frame(Ray Cast Hit Position(Eye Position(Event Player), Eye Position(
-				Event Player) + Facing Direction Of(Event Player) * 3, All Players(All Teams), Event Player, True)), 0.100, Position Radius and Color);
+				Event Player) + Facing Direction Of(Event Player) * 3, All Players(All Teams), Event Player, True)), 0.075, Position Radius and Color);
 			Event Player.Beams_Preview_ID[1] = Last Created Entity;
 			Wait Until(Event Player.Mode_Cycle != 16, 9999);
 			Destroy Effect(Event Player.Beams_Preview_ID[1]);
@@ -5126,7 +5029,7 @@ rule("Mode_15 - Painting_NEW")
 					End;
 
 					Create Effect(All Players(All Teams), Sphere, Global.Colors[Event Player.Drawing_Obj_Info_Array[0]],
-						Ray Cast Hit Position(Eye Position(Event Player), Eye Position(Event Player) + Facing Direction Of(Event Player) * 1.750,
+						Ray Cast Hit Position(Eye Position(Event Player), Eye Position(Event Player) + Facing Direction Of(Event Player) * 2,
 						All Players(All Teams), Event Player, True), Global.Drawing_Obj_Size[Event Player.Drawing_Obj_Info_Array[1]],
 						Visible To);
 					Global.Drawing_Obj_Storage = Append To Array(Global.Drawing_Obj_Storage, Last Created Entity);
@@ -5137,7 +5040,7 @@ rule("Mode_15 - Painting_NEW")
 			Else If(Global.Drawing_Obj_Effects[Event Player.Drawing_Obj_Info_Array[2]] == Custom String("Sparkles"));
 				"Sparkles"
 				Create Effect(All Players(All Teams), Sparkles, Global.Colors[Event Player.Drawing_Obj_Info_Array[0]],
-					Ray Cast Hit Position(Eye Position(Event Player), Eye Position(Event Player) + Facing Direction Of(Event Player) * 1.750,
+					Ray Cast Hit Position(Eye Position(Event Player), Eye Position(Event Player) + Facing Direction Of(Event Player) * 2,
 					All Players(All Teams), Event Player, True), Global.Drawing_Obj_Size[Event Player.Drawing_Obj_Info_Array[1]],
 					Visible To);
 			Else If(Global.Drawing_Obj_Effects[Event Player.Drawing_Obj_Info_Array[2]] == Custom String("Light Shaft"));
@@ -5149,31 +5052,31 @@ rule("Mode_15 - Painting_NEW")
 			Else If(Global.Drawing_Obj_Effects[Event Player.Drawing_Obj_Info_Array[2]] == Custom String("Orb"));
 				"Orb"
 				Create Effect(All Players(All Teams), Orb, Global.Colors[Event Player.Drawing_Obj_Info_Array[0]],
-					Ray Cast Hit Position(Eye Position(Event Player), Eye Position(Event Player) + Facing Direction Of(Event Player) * 1.750,
+					Ray Cast Hit Position(Eye Position(Event Player), Eye Position(Event Player) + Facing Direction Of(Event Player) * 2,
 					All Players(All Teams), Event Player, True), Global.Drawing_Obj_Size[Event Player.Drawing_Obj_Info_Array[1]],
 					Visible To);
 			Else If(Global.Drawing_Obj_Effects[Event Player.Drawing_Obj_Info_Array[2]] == Custom String("Ring"));
 				"Ring"
 				Create Effect(All Players(All Teams), Ring, Global.Colors[Event Player.Drawing_Obj_Info_Array[0]],
-					Ray Cast Hit Position(Eye Position(Event Player), Eye Position(Event Player) + Facing Direction Of(Event Player) * 1.750,
+					Ray Cast Hit Position(Eye Position(Event Player), Eye Position(Event Player) + Facing Direction Of(Event Player) * 2,
 					All Players(All Teams), Event Player, True), Global.Drawing_Obj_Size[Event Player.Drawing_Obj_Info_Array[1]],
 					Visible To);
 			Else If(Global.Drawing_Obj_Effects[Event Player.Drawing_Obj_Info_Array[2]] == Custom String("Cloud"));
 				"Cloud"
 				Create Effect(All Players(All Teams), Cloud, Global.Colors[Event Player.Drawing_Obj_Info_Array[0]],
-					Ray Cast Hit Position(Eye Position(Event Player), Eye Position(Event Player) + Facing Direction Of(Event Player) * 1.750,
+					Ray Cast Hit Position(Eye Position(Event Player), Eye Position(Event Player) + Facing Direction Of(Event Player) * 2,
 					All Players(All Teams), Event Player, True), Global.Drawing_Obj_Size[Event Player.Drawing_Obj_Info_Array[1]],
 					Visible To);
 			Else If(Global.Drawing_Obj_Effects[Event Player.Drawing_Obj_Info_Array[2]] == Custom String("Good Aura"));
 				"Good Aura"
 				Create Effect(All Players(All Teams), Good Aura, Global.Colors[Event Player.Drawing_Obj_Info_Array[0]],
-					Ray Cast Hit Position(Eye Position(Event Player), Eye Position(Event Player) + Facing Direction Of(Event Player) * 1.750,
+					Ray Cast Hit Position(Eye Position(Event Player), Eye Position(Event Player) + Facing Direction Of(Event Player) * 2,
 					All Players(All Teams), Event Player, True), Global.Drawing_Obj_Size[Event Player.Drawing_Obj_Info_Array[1]],
 					Visible To);
 			Else If(Global.Drawing_Obj_Effects[Event Player.Drawing_Obj_Info_Array[2]] == Custom String("Bad Aura"));
 				"Bad Aura"
 				Create Effect(All Players(All Teams), Bad Aura, Global.Colors[Event Player.Drawing_Obj_Info_Array[0]],
-					Ray Cast Hit Position(Eye Position(Event Player), Eye Position(Event Player) + Facing Direction Of(Event Player) * 1.750,
+					Ray Cast Hit Position(Eye Position(Event Player), Eye Position(Event Player) + Facing Direction Of(Event Player) * 2,
 					All Players(All Teams), Event Player, True), Global.Drawing_Obj_Size[Event Player.Drawing_Obj_Info_Array[1]],
 					Visible To);
 			End;
@@ -5233,57 +5136,48 @@ rule("Mode_15 - Drawing Objects Preview (Subroutine)")
 		Destroy Effect(Event Player.Drawing_Obj_Info_Array[3]);
 		If(Global.Drawing_Obj_Effects[Event Player.Drawing_Obj_Info_Array[2]] == Custom String("Sphere"));
 			Create Effect(Event Player, Sphere, Global.Colors[Event Player.Drawing_Obj_Info_Array[0]],
-				Update Every Frame(Ray Cast Hit Position(Update Every Frame(Eye Position(Event Player)), Update Every Frame(Eye Position(Event Player))
-				 + Update Every Frame(Facing Direction Of(Event Player)) * 1.750,
+				Update Every Frame(Ray Cast Hit Position(Eye Position(Event Player),Eye Position(Event Player)+ Facing Direction Of(Event Player) * 2,
 				All Players(All Teams), Event Player, True)), Global.Drawing_Obj_Size[Event Player.Drawing_Obj_Info_Array[1]],
 				Visible To Position and Radius);
 		Else If(Global.Drawing_Obj_Effects[Event Player.Drawing_Obj_Info_Array[2]] == Custom String("Sparkles"));
 			Create Effect(Event Player, Sparkles, Global.Colors[Event Player.Drawing_Obj_Info_Array[0]],
-				Update Every Frame(Ray Cast Hit Position(Update Every Frame(Eye Position(Event Player)), Update Every Frame(Eye Position(Event Player))
-				 + Update Every Frame(Facing Direction Of(Event Player)) * 1.750,
+				Update Every Frame(Ray Cast Hit Position(Eye Position(Event Player),Eye Position(Event Player)+ Facing Direction Of(Event Player) * 2,
 				All Players(All Teams), Event Player, True)), Global.Drawing_Obj_Size[Event Player.Drawing_Obj_Info_Array[1]],
 				Visible To Position and Radius);
 		Else If(Global.Drawing_Obj_Effects[Event Player.Drawing_Obj_Info_Array[2]] == Custom String("Light Shaft"));
 			Create Effect(Event Player, Light Shaft, Global.Colors[Event Player.Drawing_Obj_Info_Array[0]],
-				Update Every Frame(Ray Cast Hit Position(Update Every Frame(Eye Position(Event Player)), Update Every Frame(Eye Position(Event Player))
-				 + Update Every Frame(Facing Direction Of(Event Player)) * 7,
+				Update Every Frame(Ray Cast Hit Position(Eye Position(Event Player),Eye Position(Event Player)+ Facing Direction Of(Event Player) * 7,
 				All Players(All Teams), Event Player, True)), Global.Drawing_Obj_Size[Event Player.Drawing_Obj_Info_Array[1]],
 				Visible To Position and Radius);
 		Else If(Global.Drawing_Obj_Effects[Event Player.Drawing_Obj_Info_Array[2]] == Custom String("Orb"));
 			Create Effect(Event Player, Orb, Global.Colors[Event Player.Drawing_Obj_Info_Array[0]],
-				Update Every Frame(Ray Cast Hit Position(Update Every Frame(Eye Position(Event Player)), Update Every Frame(Eye Position(Event Player))
-				 + Update Every Frame(Facing Direction Of(Event Player)) * 1.750,
+				Update Every Frame(Ray Cast Hit Position(Eye Position(Event Player),Eye Position(Event Player)+ Facing Direction Of(Event Player) * 2,
 				All Players(All Teams), Event Player, True)), Global.Drawing_Obj_Size[Event Player.Drawing_Obj_Info_Array[1]],
 				Visible To Position and Radius);
 		Else If(Global.Drawing_Obj_Effects[Event Player.Drawing_Obj_Info_Array[2]] == Custom String("Ring"));
 			Create Effect(Event Player, Ring, Global.Colors[Event Player.Drawing_Obj_Info_Array[0]],
-				Update Every Frame(Ray Cast Hit Position(Update Every Frame(Eye Position(Event Player)), Update Every Frame(Eye Position(Event Player))
-				 + Update Every Frame(Facing Direction Of(Event Player)) * 1.750,
+				Update Every Frame(Ray Cast Hit Position(Eye Position(Event Player),Eye Position(Event Player)+ Facing Direction Of(Event Player) * 2,
 				All Players(All Teams), Event Player, True)), Global.Drawing_Obj_Size[Event Player.Drawing_Obj_Info_Array[1]],
 				Visible To Position and Radius);
 		Else If(Global.Drawing_Obj_Effects[Event Player.Drawing_Obj_Info_Array[2]] == Custom String("Cloud"));
 			Create Effect(Event Player, Cloud, Global.Colors[Event Player.Drawing_Obj_Info_Array[0]],
-				Update Every Frame(Ray Cast Hit Position(Update Every Frame(Eye Position(Event Player)), Update Every Frame(Eye Position(Event Player))
-				 + Update Every Frame(Facing Direction Of(Event Player)) * 1.750,
+				Update Every Frame(Ray Cast Hit Position(Eye Position(Event Player),Eye Position(Event Player)+ Facing Direction Of(Event Player) * 2,
 				All Players(All Teams), Event Player, True)), Global.Drawing_Obj_Size[Event Player.Drawing_Obj_Info_Array[1]],
 				Visible To Position and Radius);
 		Else If(Global.Drawing_Obj_Effects[Event Player.Drawing_Obj_Info_Array[2]] == Custom String("Good Aura"));
 			Create Effect(Event Player, Good Aura, Global.Colors[Event Player.Drawing_Obj_Info_Array[0]],
-				Update Every Frame(Ray Cast Hit Position(Update Every Frame(Eye Position(Event Player)), Update Every Frame(Eye Position(Event Player))
-				 + Update Every Frame(Facing Direction Of(Event Player)) * 1.750,
+				Update Every Frame(Ray Cast Hit Position(Eye Position(Event Player),Eye Position(Event Player)+ Facing Direction Of(Event Player) * 2,
 				All Players(All Teams), Event Player, True)), Global.Drawing_Obj_Size[Event Player.Drawing_Obj_Info_Array[1]],
 				Visible To Position and Radius);
 		Else If(Global.Drawing_Obj_Effects[Event Player.Drawing_Obj_Info_Array[2]] == Custom String("Bad Aura"));
 			Create Effect(Event Player, Bad Aura, Global.Colors[Event Player.Drawing_Obj_Info_Array[0]],
-				Update Every Frame(Ray Cast Hit Position(Update Every Frame(Eye Position(Event Player)), Update Every Frame(Eye Position(Event Player))
-				 + Update Every Frame(Facing Direction Of(Event Player)) * 1.750,
+				Update Every Frame(Ray Cast Hit Position(Eye Position(Event Player),Eye Position(Event Player)+ Facing Direction Of(Event Player) * 2,
 				All Players(All Teams), Event Player, True)), Global.Drawing_Obj_Size[Event Player.Drawing_Obj_Info_Array[1]],
 				Visible To Position and Radius);
 		End;
 		Event Player.Drawing_Obj_Info_Array[3] = Last Created Entity;
 	}
 }
-
 rule("Mode_15 - Remove Preview Effect if menu != 15")
 {
 	event
@@ -5403,13 +5297,13 @@ rule("Mode_16 - Player Rays Painting Part 2")
 				Abort;
 			End;
 			Event Player.Positions_For_Beams[0] = Ray Cast Hit Position(Eye Position(Event Player), Eye Position(Event Player)
-				+ Facing Direction Of(Event Player) * 3, All Players(All Teams), Event Player, True);
+				+ Facing Direction Of(Event Player) * 2, All Players(All Teams), Event Player, True);
 			Call Subroutine(Beams_Preview);
 			Wait Until(Not(Is Button Held(Event Player, Button(Primary Fire))), 1);
 			Wait Until(Is Button Held(Event Player, Button(Primary Fire)), 30);
 			Event Player.Signal = False;
 			Event Player.Positions_For_Beams[1] = Ray Cast Hit Position(Eye Position(Event Player), Eye Position(Event Player)
-				+ Facing Direction Of(Event Player) * 3, All Players(All Teams), Event Player, True);
+				+ Facing Direction Of(Event Player) * 2, All Players(All Teams), Event Player, True);
 			
 			If(Event Player.Beams_Selector == 0);
 				Create Beam Effect(All Players(All Teams), Good Beam, Evaluate Once(Event Player.Positions_For_Beams[0]), Evaluate Once(
@@ -5446,15 +5340,15 @@ rule("Mode_16 - Beams Preview (Subroutine)")
 		Destroy Effect(Event Player.Beams_Preview_ID[0]);
 		If(Event Player.Beams_Selector == 0);
 				Create Beam Effect(Event Player, Good Beam, Evaluate Once(Event Player.Positions_For_Beams[0]), Update Every Frame(Ray Cast Hit Position(Eye Position(Event Player), 
-				Eye Position(Event Player) + Facing Direction Of(Event Player) * 3, All Players(All Teams), Event Player, True)), 
+				Eye Position(Event Player) + Facing Direction Of(Event Player) * 2, All Players(All Teams), Event Player, True)), 
 				Global.Colors[Event Player.Drawing_Obj_Info_Array[0]], Position Radius and Color);
 			Else If(Event Player.Beams_Selector == 1);
 				Create Beam Effect(Event Player, Bad Beam, Evaluate Once(Event Player.Positions_For_Beams[0]), Update Every Frame(Ray Cast Hit Position(Eye Position(Event Player), 
-				Eye Position(Event Player) + Facing Direction Of(Event Player) * 3, All Players(All Teams), Event Player, True)), 
+				Eye Position(Event Player) + Facing Direction Of(Event Player) * 2, All Players(All Teams), Event Player, True)), 
 				Global.Colors[Event Player.Drawing_Obj_Info_Array[0]], Position Radius and Color);
 			Else If(Event Player.Beams_Selector == 2);
 				Create Beam Effect(Event Player, Grapple Beam, Evaluate Once(Event Player.Positions_For_Beams[0]), Update Every Frame(Ray Cast Hit Position(Eye Position(Event Player), 
-				Eye Position(Event Player) + Facing Direction Of(Event Player) * 3, All Players(All Teams), Event Player, True)), 
+				Eye Position(Event Player) + Facing Direction Of(Event Player) * 2, All Players(All Teams), Event Player, True)), 
 				Global.Colors[Event Player.Drawing_Obj_Info_Array[0]], Position Radius and Color);
 			End;
 		Event Player.Beams_Preview_ID[0] = Last Created Entity;
@@ -5864,6 +5758,7 @@ rule("Mode_22 - Heaven")
 			Modify Global Variable(High_Rank, Remove From Array By Value, Custom String("{0}", Event Player));
 			Modify Global Variable(High_Rank, Append To Array, Custom String("{0}", Event Player));
 			Event Player.Verification_Key = 0;
+			Destroy HUD Text(Event Player.Mod_Name_ID[0]);
 		End;
 		Abort If((Is Button Held(Event Player, Button(Primary Fire)) || Is Button Held(Event Player, Button(Ultimate))) == False);
 		If(Is Button Held(Event Player, Button(Primary Fire)));
@@ -8502,7 +8397,7 @@ rule("Extra_13: Widow Laserpointer")
 			Update Every Frame(Ray Cast Hit Position(Eye Position(Event Player), Eye Position(Event Player) + 150 * Event Player.Scale_Real * Facing Direction Of(Event Player), 
 			All Players(All Teams), Event Player, False)), Color(Red), Visible To Position and Radius);
 		Event Player.Extra14_ID = Last Created Entity;
-		Wait Until(Not(Is Firing Secondary(Event Player)), 9999);
+		Wait Until(Not(Is Firing Secondary(Event Player)) || Hero Of(Event Player) != Hero(Widowmaker), 9999);
 		Destroy Effect(Event Player.Extra14_ID);
 	}
 }
@@ -8775,7 +8670,7 @@ rule("Extra_24: Echo Heart")
 				All Players(All Teams), Event Player, True), Eye Position(Event Player)))), 
 				Heart, Visible To and Position, Color(Red), False);
 		Event Player.ExtraHeart_ID = Last Created Entity;
-		Wait Until(Not(Is Using Ability 2(Event Player)), 9999);
+		Wait Until(Not(Is Using Ability 2(Event Player)) || Hero Of(Event Player) != Hero(Echo), 9999);
 		Destroy Icon(Event Player.ExtraHeart_ID);
 	}
 }
