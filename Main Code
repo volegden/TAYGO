@@ -626,7 +626,7 @@ rule("Global_Settings")
 
 		Wait(5, Ignore Condition);
 		Global.Skins_Check = True;
-		If(Count Of(Global.High_Rank) < 33 || Count Of(Global.Mod_Rank) < 145 || Count Of(Global.Titles_And_Outlines) < 130 || Count Of(Global.Banned_List) < 110);
+		If(Count Of(Global.High_Rank) < 33 || Count Of(Global.Mod_Rank) < 145 || Count Of(Global.Titles_And_Outlines) < 130 || Count Of(Global.Banned_List) < 49);
 			For Global Variable(Gravity_Helper, 0, 12, 1);
 				Global.Gravity_Helper -=1;
 			End;
@@ -1344,7 +1344,7 @@ rule ("Custom nameplates list")
 			 	Custom String("Rainbow"),
 				Custom String("★ Your Shadow ★"), 
 				Custom String("Camel milk enjoyer"), 
-                		Custom String("{0} #1 pharah main {0}", Ability Icon String(Hero(Pharah), Button(Ultimate)))
+                Custom String("{0} Ｓｅｅｌｅｎｓｏｒｇｅ {0}", Icon String(Moon))
 				), 
             Array(Custom String("froggygutz"), 
 				Custom String("Rainbow"),
@@ -1425,8 +1425,8 @@ rule ("Custom nameplates list")
 			Array(Custom String("DȈŦǾ"), 
 				Custom String("Rainbow"),
 				Custom String("♡ DORITO DITO ♡"), 
-				Custom String("★ Ramattra Enjoyer ★"), 
-				Custom String("⁂BACONEGGNCHEESE⁂")
+				Custom String("★☆★ ＰＵＭＰＫＩＮ　ＳＰＩＣＥ ★☆★"), 
+				Custom String("⁂ BACONEGGNCHEESE ⁂")
 				), 
 			Array(Custom String("LeMix"), 
 				Color(Yellow),
@@ -1573,10 +1573,10 @@ rule ("Custom nameplates list")
 				Custom Color(175, 216, 255, 255),
 				Custom String("♡★baby cow★♡")
 				), 
-            		Array(Custom String("YeastBeast"), 
+            Array(Custom String("YeastBeast"), 
 				Custom String("Rainbow"),
 				Custom String("{0} †ＨＩＧＨＬＹ ＩＮＦＥＣＴＩＯＵＳ† {0}", Ability Icon String(Hero(Sombra), Button(Ultimate))), 
-                Custom String("{0} Mrs. Beast {0}", Ability Icon String(Hero(Ramattra), Button(Ultimate))), 
+                Custom String("{0} ＦＥＥＤ　ＴＨＥ　ＢＥＡＳＴ {0}", Icon String(Exclamation Mark)),
 				Custom String("{0} •ＨＥＡＤ•ＰＡＴＳ•ＰＬＥＡＳＥ• {0}", Ability Icon String(Hero(Kiriko), Button(Ability 2)))
 				),
 			Array(Custom String("fishy"), 
@@ -1813,7 +1813,7 @@ rule ("Custom nameplates list")
 				),
 			Array(Custom String("MissImmortal"), 
 				Color(Red),
-				Custom String(" 不滅の "), 
+				Custom String("{0} Ｅｎｄｌｅｓｓ　　Ｌｉｆｅ {0}", Ability Icon String(Hero(Kiriko), Button(Secondaryfire))),
 				Custom String("{0} Lord of the Sith {0}", Ability Icon String(Hero(Moira), Button(Ability 2))), 
 				Custom String("{0} Sigma Enjoyer {0}", Ability Icon String(Hero(Sigma), Button(Ultimate)))
 				), 
@@ -2038,7 +2038,7 @@ rule("Listed_Player")
 			Custom String("Gregi"), Custom String("Mars"), Custom String("Jarvis"), Custom String("BigeN"), 
 			Custom String("ǀƑIREǀ"), Custom String("Larfleeze"), Custom String("ItsRui"), Custom String("TEAMEPǃC"), 
 			Custom String("Minee"), Custom String("CatToast"), Custom String("Joyy"), Custom String("TbyCoLive"), 
-			Custom String("Ciri"), Custom String("Fuji"), Custom String("AsyCorn"), Custom String("DaisyMoo"),
+			Custom String("Fuji"), Custom String("AsyCorn"), Custom String("DaisyMoo"),
 			Custom String("Sadness"),  Custom String("Alex"), Custom String("Frikadelle"), Custom String("Mettlis"),
 			Custom String("Kiwizzlee"), Custom String("Cinderhardt"), Custom String("BStray"), Custom String("InMoonlight"),
 			Custom String("Boney"), Custom String("tsunde"), Custom String("sonwukong"), Custom String("solevaya"), 
@@ -2062,12 +2062,11 @@ rule("Listed_Player")
 			
 		"Muted (anyone on this list is muted AND demoted, no need to have them in both lists)"
 		Global.Muted_List = Array(Custom String("RUBI"), Custom String("Baraa"), Custom String("Ban"), Custom String("kyo"), Custom String("Kamal"), 
-                Custom String("Mp5r"), Custom String("buuxvc"), Custom String("EzioAuditory"), Custom String("Anacata"), Custom String("Widow"), Custom String("XAIXAIXAIXAI"), 
-                Custom String("seventeen"), Custom String("Thespeedyboe"), Custom String("kuttemo"), Custom String("DeathAngel"), Custom String("Succubus"), Custom String("Kinkyforklft"),
+                 Custom String("Mp5r"), Custom String("buuxvc"), Custom String("EzioAuditory"), Custom String("Anacata"), Custom String("Widow"), Custom String("XAIXAIXAIXAI"), 
+                 Custom String("Thespeedyboe"), Custom String("kuttemo"), Custom String("DeathAngel"), Custom String("Succubus"), Custom String("Kinkyforklft"),
                  Custom String("Abdul1Jafar"), Custom String("Strawberry"), Custom String("FyrerGood"), Custom String("Kakabone"), Custom String("BUSSYHUNTER"), Custom String("Toasti"),
                  Custom String("GlizzyButher"), Custom String("sLEOleader"), Custom String("Overpowering"), Custom String("SexiestBeast"), Custom String("GoblinSexual"),
                  Custom String("REAPER"), Custom String("Jeanne"), Custom String("Darthkrisu"), Custom String("ARHVV"), Custom String("KidsSeeGhost"), Custom String("Luffy"), 
-                 Custom String("LiquorSeller"), Custom String("Omri"), Custom String("BOO"), Custom String("D7H"), Custom String("Kaijin"), Custom String("Spectre"),
                  Custom String("MØØN"), Custom String("ŦŌPĦ"), Custom String("ImpressHer"), Custom String("ÐēŋŋŷŞēmpāī"), Custom String("fastAFboiii"), Custom String("NITXQ"),
 				 Custom String("ZXXOO"), Custom String("CONTAMINAGOR"), Custom String("alfredo"), Custom String("BigDaddyOsas"), Custom String("Squishy"), Custom String("witten"),
 				 Custom String("BobTheMinion"), Custom String("aMacTruck"), Custom String("transgenji"), Custom String("lesbiandva"), Custom String("kianakaslana"),
@@ -2075,36 +2074,42 @@ rule("Listed_Player")
 				 Custom String("Once"), Custom String("mech"), Custom String("Yarelii"), Custom String("thxnder"), Custom String("KwonEunbi"), Custom String("japsap"),
 				 Custom String("pookie"), Custom String("DrinSylo"), Custom String("RAO"), Custom String("Chalkley"), Custom String("Squ1dy"), Custom String("aphextwin"),
 				 Custom String("FFFF"), Custom String("Jor"), Custom String("Eminence"), CUstom String("SirWalter"), Custom String("ǸǮǸǺǮ"), Custom String("hunter"), Custom String("＞：［"),
-				 Custom String("GrayRaven"), Custom String("Player"));
+				 Custom String("GrayRaven"), Custom String("Player"), Custom String("Pastor"), Custom String("AlterGirl"), Custom String("JeffyEpstèin"), Custom String("IslandGirl"), 
+                 Custom String("SneezyDwarf"), Custom String("Butcher"), Custom String("Mint"), Custom String("Zer0"), Custom String("ZORO"), Custom String("Fable"), Custom String("Goomy"), 
+                 Custom String("dean"), Custom String("FlameYeti"), Custom String("GarnetKodo"), Custom String("Spectre"), Custom String("alhrbe"), Custom String("GenjiCum"), 
+                 Custom String("Homelander"), Custom String("EugenePorter"), Custom String("TrickyHunter"), Custom String("SilentStorm"), Custom String("NITRO"), Custom String("MrBalkanom"), 
+                 Custom String("DantefromDMC"), Custom String("ToddTheToad"), Custom String("mrhexagon"), Custom String("proverwatch9"), Custom String("Hercules"), Custom String("Dingus"), 
+                 Custom String("Giraffestin"), Custom String("kotomine"), Custom String("ȄĿĬǃ"), Custom String("Adventurer"), Custom String("youtubegamer"), Custom String("angelob18"), 
+                 Custom String("Bebra"), Custom String("AbuJLD"), Custom String("Ca1lyn"), Custom String("gxtsl4yer"), Custom String("ReinDine69"), Custom String("SamTheEevee"), 
+                 Custom String("Arthur"), Custom String("Kraniumator"), Custom String("Splice"), CUstom String("Kapibarapl"), Custom String("AYA"), Custom String("Abs3nz"), 
+                 Custom String("qingAki"),  Custom String("BOO"), Custom String("D7H"), Custom String("Kaijin"),  Custom String("KaijoSan"), Custom String("LiquorSeller"), 
+                 Custom String("IZ7"), Custom String("Salty76"), Custom String("Bigounce"), Custom String("Omri"), Custom String("lumi"), Custom String("rakan"), Custom String("seventeen"), 
+                 Custom String("Un1p0p"), Custom String("zyzoll"), Custom String("M4ZX"), Custom String("pluggnb"), Custom String("Shogeki"), Custom String("DefNotPhoton"), 
+                 Custom String("Cake"), Custom String("LuckyOwl"), Custom String("Turbovirgin1"), Custom String("Phoenix67"), Custom String("Trick"), Custom String("DBUZaza"), 
+                 Custom String("RackingLines"), Custom String("USER78963471"), Custom String("Obituary"), Custom String("Blackyy"), Custom String("ĿƗYĂĦǃ"), Custom String("Vaðlaheiðar"), 
+                 Custom String("Whōreified"), Custom String("n3in"), Custom String("AfternoonPoo"), Custom String("Motti"), Custom String("GreedyBanker"), Custom String("Noah"), 
+                 Custom String("RogueCat"), Custom String("ilovedilfs"), Custom String("Gothicrxse"), Custom String("ypurrr"), Custom String("Eseru"), Custom String("froggy"),
+                 Custom String("Mori"), Custom String("theBBC"), Custom String("lowammo2"), Custom String("xInfamous02"), Custom String("Ciri"), Custom String("Weebaayy"),
+                 Custom String("bordrr"), Custom String("Ashiki"), Custom String("DOMINO"), Custom String("TheGimp"), Custom String("ninjafisen"));
 
 		"Demoted"
-		Global.Demoted_List = Array(Custom String("Eggman"),  Custom String("LeMix"), Custom String("Mikasa"), Custom String("BabyDarl"), Custom String("Snaiy"),
-				 Custom String("KadenLee25"),  Custom String("Daisy"), Custom String("Фрейя"), Custom String("UKGamer001"), Custom String("Nyxx"), Custom String("blackw0lfx"), 
-                 Custom String("Katarina"), Custom String("Ronin"), Custom String("mrcepecito"), Custom String("Treco"), Custom String("Muichiro"), Custom String("KissMePlz"), 
-                 Custom String("Paranoia"), CUstom String("Pierre"), Custom String("ThatKiD"), Custom String("SirBones"), Custom String("IZ7"), Custom String("fishy"), Custom String("LixClip"), 
-                 Custom String("tam"), Custom String("AnyaHaise"), Custom String("Lixclip"), Custom String("Salty76"), Custom String("Bigounce"), Custom String("Midnight"),
-				 Custom String("Beanz"), Custom String("Hayden"), Custom String("FlameYeti"), Custom String("Rainz"), Custom String("Skykari"), Custom String("Pawss"),
-				 Custom String("TheKiller"));
+		Global.Demoted_List = Array(Custom String("Eggman"), Custom String("LeMix"), Custom String("Mikasa"), Custom String("BabyDarl"), Custom String("Snaiy"),
+				 Custom String("KadenLee25"),  Custom String("Daisy"), Custom String("Фрейя"), Custom String("UKGamer001"), Custom String("Paranoia"), CUstom String("Pierre"), 
+                 Custom String("ThatKiD"), Custom String("SirBones"), Custom String("fishy"), Custom String("LixClip"), Custom String("tam"), Custom String("AnyaHaise"), Custom String("Lixclip"), 
+                 Custom String("Midnight"), Custom String("Beanz"), Custom String("Hayden"), Custom String("Rainz"), Custom String("Skykari"), Custom String("Pawss"),
+				 Custom String("TheKiller"), Custom String("DaniXx55"), Custom String("billiebunnie"), Custom String("Albert"), Custom String("HerrBob"), Custom String("ungodly"),
+                 Custom String("BattlePants"));
 
 		"Automatic Ban"
 		Global.Banned_List = Array(
-			Custom String("blueberry!"), Custom String("Heretic"), Custom String("BoneStealer"), Custom String("Simplicity"), Custom String("xqno"), Custom String("Ikawu"), Custom String("Leon"),
-			Custom String("IloveBirds"), Custom String("Kyger100"), Custom String("Potato"), Custom String("Apotato2182"), Custom String("KR0"), Custom String("Mardothiel"), 
-			Custom String("TwitchPoison"), Custom String("Bastion"), Custom String("JoltWave"), Custom String("MrBastion"), Custom String("PINKBASTIONǃ"), Custom String("HyperBastion"), Custom String("Scythe"),
-			Custom String("BebeUwU"), Custom String("Fluttershy"), Custom String("Katsuki"), Custom String("Dar7bi"), Custom String("vel"), Custom String("KaijoSan"), Custom String("Kr0"),
-            Custom String("alhrbe"), Custom String("Coydn"), Custom String("GarnetKodo"), Custom String("ZORO"), Custom String("Fable"), Custom String("Goomy"), Custom String("Kromazome"), 
-			Custom String("NITRO"), Custom String("oxox"), Custom String("SALEH"), Custom String("hellionturbo"), Custom String("Libertot"), Custom String("Stars"), Custom String("Gn0mie"), 
-			Custom String("w7sh12"), Custom String("ammar"), Custom String("WYPCS"), Custom String("MrBalkanom"), Custom String("Pathos"), Custom String("DantefromDMC"), Custom String("Homelander"), 
-            Custom String("SneezyDwarf"), Custom String("Mint"), Custom String("hesuskristus"), Custom String("BigBadBosses"), Custom String("euphorictwnk"), Custom String("Butcher"), Custom String("JeffyEpstèin"),
-            Custom String("EugenePorter"), Custom String("Zer0"), Custom String("GenjiCum"), Custom String("miro22"), Custom String("Parkkis"), Custom String("TheCheeseMan"), Custom String("IslandGirl"), 
-			Custom string("Enandaxis"), Custom String("S233"), Custom String("Hercules"), Custom String("Cake"), Custom String("Dingus"), Custom String("Pastor"), Custom String("AlterGirl"),
-			Custom String("Reyes"), Custom String("SHINIxMIZU"), Custom String("MIZU"), Custom String("GoldSeal"), Custom String("XximissherxX"), Custom String("dean"), Custom String("SilentStorm"), 
-            Custom String("TrickyHunter"), Custom String("Mia"), Custom String("ToddTheToad"), Custom String("mrhexagon"), Custom String("proverwatch9"), Custom String("Hephaestus"), 
-            Custom String("Hundesturm"), Custom String("purple"), Custom String("TheHuntress"), Custom String("BMO"), Custom String("Avani"), Custom String("Frost"), Custom String("Carrot"), 
-            Custom String("Reptiles246"), Custom String("DaniXx55"), Custom String("Giraffestin"), Custom String("kotomine"), Custom String("ȄĿĬǃ"), Custom String("Ca1lyn"), Custom String("Adventurer"), 
-            Custom String("youtubegamer"), Custom String("angelob18"), Custom String("Bebra"), Custom String("AbuJLD"), Custom String("gxtsl4yer"), Custom String("ReinDine69"), Custom String("SamTheEevee"), 
-            Custom String("Splice"), CUstom String("Kapibarapl"), Custom String("AYA"), Custom String("qingAki"), Custom String("Arthur"), Custom String("Kraniumator"), Custom String("lumi"), Custom String("rakan"),  
-            Custom String("Un1p0p"), Custom String("zyzoll"), Custom String("M4ZX"), Custom String("PRIESTPEGGER"), Custom String("DJBASTION"));
+			Custom String("blueberry!"), Custom String("Heretic"), Custom String("BoneStealer"), Custom String("Simplicity"), Custom String("xqno"), Custom String("Leon"), Custom String("Libertot"), 
+			Custom String("IloveBirds"), Custom String("Kyger100"), Custom String("Potato"), Custom String("Apotato2182"), Custom String("KR0"), Custom String("Mardothiel"), Custom String("Scythe"),
+			Custom String("Bastion"), Custom String("JoltWave"), Custom String("MrBastion"), Custom String("PINKBASTIONǃ"), Custom String("HyperBastion"), Custom String("DJBASTION"),
+			Custom String("BebeUwU"), Custom String("Fluttershy"), Custom String("Katsuki"), Custom String("Kr0"), Custom String("Coydn"), Custom String("Kromazome"), Custom String("TwitchPoison"), 
+            Custom String("hellionturbo"), Custom String("Ikawu"), Custom String("Stars"), Custom String("Gn0mie"), Custom String("hesuskristus"), Custom String("BigBadBosses"),
+            Custom String("euphorictwnk"), Custom String("S233"), Custom String("Reyes"), Custom String("SHINIxMIZU"), Custom String("MIZU"), Custom String("Mia"), Custom String("Hephaestus"), 
+            Custom String("Hundesturm"), Custom String("purple"), Custom String("TheHuntress"), Custom String("BMO"), Custom String("Avani"), Custom String("Frost"), 
+            Custom String("Carrot"), Custom String("Reptiles246"), Custom String("PRIESTPEGGER"), Custom String("Urizen"));
     }
 }
 
