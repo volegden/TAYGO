@@ -1031,7 +1031,7 @@ rule ("Custom nameplates list")
                 	),
             Array(Custom String("LƐafa"),  
                 		Custom Color(255, 127, 80, 255),
-						Custom String("probably afk")
+						CUstom String("probably afk")
 					),
 			Array(Custom String("Gregi"), 
                 		Custom String("Rainbow"),
