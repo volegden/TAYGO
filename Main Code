@@ -2,7 +2,7 @@ settings
 {
 	main
 	{
-		Description: "♥ A Friendly Server To Meet New Friends ♥\nlast updated (August 08 2023)\n\n   » » » MASSIVE UPDATE RELEASED « « «\n (including UNO, non-mod menu and\n      hero specific features!)\n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss.\n   Based on the work of: TbyCoLive.\n Maintained with ♡ by: LƐafa.\n   Community Managers: RUBY & kwally."
+		Description: "♥ A Friendly Server To Meet New Friends ♥\nlast updated (August 11 2023)\n\n   » » » MASSIVE UPDATE RELEASED « « «\n (including UNO, non-mod menu and\n      hero specific features!)\n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss.\n   Based on the work of: TbyCoLive.\n Maintained with ♡ by: LƐafa.\n   Community Managers: RUBY & kwally."
 		Mode Name: " ♥ Friendly ♥ No Kill!"
 	}
 
@@ -141,11 +141,17 @@ settings
 				Lunge Distance Scalar: 150%
 			}
 
+			Illari
+			{
+				Outburst Cooldown Time: 15%
+			}
+
 			Junker Queen
 			{
 				Commanding Shout Cooldown Time: 20%
 				Jagged Blade Delay Before Automatic Recall: 400%
 			}
+
 
 			Kiriko
 			{
@@ -614,7 +620,7 @@ rule("Global_Settings")
 
 		Wait(5, Ignore Condition);
 		Global.Skins_Check = True;
-		If(Count Of(Global.High_Rank) < 33 || Count Of(Global.Mod_Rank) < 145 || Count Of(Global.Titles_And_Outlines) < 130 || Count Of(Global.Banned_List) < 49);
+		If(Count Of(Global.High_Rank) < 33 || Count Of(Global.Mod_Rank) < 145 || Count Of(Global.Titles_And_Outlines) < 130 || Count Of(Global.Banned_List) < 110);
 			For Global Variable(Gravity_Helper, 0, 12, 1);
 				Global.Gravity_Helper -=1;
 			End;
@@ -675,8 +681,6 @@ rule("Player_Left_Queue_Failsave")
 	conditions
 	{
 		Array Contains(Global.Player_Joined_Queue, Event Player) == True;
-		(Array Contains(Global.Banned_List, Custom String("{0}", Event Player)) || Array Contains(Global.Temp_Banned, Custom String("{0}",
-			Event Player))) == False;
 	}
 
 	actions
@@ -694,14 +698,9 @@ rule("Default_Player_Settings")
 		All;
 	}
 
-	conditions
-	{
-		(Array Contains(Global.Banned_List, Custom String("{0}", Event Player)) || Array Contains(Global.Temp_Banned, Custom String("{0}",
-			Event Player))) == False;
-	}
-
 	actions
 	{
+		Abort If(Array Contains(Global.Banned_List, Custom String("{0}", Event Player)) || Array Contains(Global.Temp_Banned, Custom String("{0}", Event Player)));
 		Wait Until(First Of(Global.Player_Joined_Queue) == Event Player, 9999);
 		
 		If(Is Dummy Bot(Event Player));
@@ -1031,7 +1030,7 @@ rule ("Custom nameplates list")
                 	),
             Array(Custom String("LƐafa"),  
                 		Custom Color(255, 127, 80, 255),
-						CUstom String("probably afk")
+						Custom String("probably afk")
 					),
 			Array(Custom String("Gregi"), 
                 		Custom String("Rainbow"),
@@ -2118,7 +2117,6 @@ rule("Player_Rank_Execute")
 		Has Spawned(Event Player) == True;
 		(Array Contains(Global.High_Rank, Custom String("{0}", Event Player)) || Array Contains(Global.Mod_Rank, Custom String("{0}",
 			Event Player))) == True;
-		(Array Contains(Global.Demoted_List, Custom String("{0}", Event Player)) || Array Contains(Global.Muted_List, Custom String("{0}", Event Player))) == False;
 	}
 
 	actions
@@ -2139,6 +2137,9 @@ rule("Player_Rank_Execute")
 				Big Message(All Players(All Teams), Custom String("{0} got promoted!", Event Player));
 				Call Subroutine(Hud_Elements);
 			End;
+		End;
+		If(Array Contains(Global.Promoted_List, Custom String("{0}", Event Player)));
+			Event Player.Promoted_Rank = True;
 		End;
 		If(Event Player.Heaven_Strike_ID[3]);
 			Event Player.Verification_Key = 3;
@@ -3012,7 +3013,7 @@ rule("Mode_Headline_Desc_Mod")
 				)), Null, Left, 1, Color(White), Color(White), Color(White), String, Visible Never);
 
 		Else If(Event Player.Mode_Cycle == 34);
-			Event Player.Mode_Headline = Custom String("Talk with Moe");
+			Event Player.Mode_Headline = Custom String("Broken after patch...");
 			Create HUD Text(Event Player, Null, Custom String("| Press Crouch + Interact/Jump to change pages |\nMod Menu: Press Crouch + input for action\n{0}",
 				Custom String("Say to Moe:\r\n{0} : Hello!\n{1} : Goodbye.\r\n{2}", 
 					Input Binding String(Button(Primary Fire)), Input Binding String(Button(Secondary Fire)),
@@ -3182,7 +3183,7 @@ rule("Mode_Headline_Desc_Default")
 				)))), Null, Left, 1, Color(White), Color(White), Color(White), String, Visible Never);
 
 		Else If(Event Player.Mode_Cycle_Default == 14);
-			Event Player.Mode_Headline = Custom String("Talk with Moe");
+			Event Player.Mode_Headline = Custom String("Broken after patch...");
 			Create HUD Text(Event Player, Null, Custom String("| Press Crouch + Interact/Jump to change pages |\nPlayer Menu: Press Crouch + input for action\n{0}",
 				Custom String("Say to Moe:\r\n{0} : Hello!\n{1} : Goodbye.\r\n{2}", 
 					Input Binding String(Button(Primary Fire)), Input Binding String(Button(Secondary Fire)),
@@ -4623,6 +4624,15 @@ rule("Mode_10 - Target_Carry_Control")
 			Event Player.Spam_Cooldown = 3;
 			Stop Forcing Player Position(Event Player);
 			Detach Players(Event Player);
+			If(Count Of(Event Player.Leash_To) >= 1);
+				For Player Variable(Event Player, Leash_Index, 0, Count Of(Event Player.Leash_To), 1);
+					Event Player.Leash_Helper = Index Of Array Value(Event Player.Leash_To[Event Player.Leash_Index].Leash_List, Event Player);
+					Destroy Effect(Event Player.Leash_To[Event Player.Leash_Index].Leash_IDs[Event Player.Leash_Helper]);
+					Modify Player Variable(Event Player.Leash_To[Event Player.Leash_Index], Leash_List, Remove From Array By Value, Event Player);
+					Modify Player Variable(Event Player.Leash_To[Event Player.Leash_Index], Leash_IDs, Remove From Array By Index, Event Player.Leash_Helper);
+				End;
+			End;
+			Event Player.Leash_To = Empty Array;
 			If(Current Map == Map(Kanezaka));
 				Teleport(Event Player, Random Value In Array(Global.Kanezaka_Teleports));
 			Else;
@@ -4903,6 +4913,10 @@ rule("Mode_14 - Grapple_Line")
 			Abort If(Event Player.Target_Shortcut.Full_Protection);
 			Abort If(Not(Has Spawned(Event Player.Target_Shortcut)));
 			Abort If(Array Contains(Event Player.Leash_List, Event Player.Target_Shortcut));
+			If(Event Player.Promoted_Rank && Count Of(Event Player.Leash_List) >= 1);
+				Small Message(Event Player, Custom String("  Promoted can only leash 1 player"));
+				Abort;
+			End;
 			Play Effect(All Players(All Teams), Bad Pickup Effect, Color(Red), Event Player.Target_Shortcut, 1);
 			Create Beam Effect(All Players(All Teams), Good Beam, Evaluate Once(Event Player.Target_Shortcut), Event Player, Color(Rose),
 				Visible To Position and Radius);
@@ -4995,7 +5009,6 @@ rule("Mode_14 - Grapple_Line_Leaver")
 	{
 		For Player Variable(Event Player, Leash_Index, 0, Count Of(Event Player.Leash_List), 1);
 			If(Not(Entity Exists(Event Player.Leash_List[Event Player.Leash_Index])));
-				Small Message(ALl Players(ALl Teams), Custom String("{0}", Event Player.Leash_List[Event Player.Leash_Index]));
 				Destroy Effect(Event Player.Leash_IDs[Event Player.Leash_Index]);
 				Modify Player Variable(Event Player, Leash_List, Remove From Array By Index, Event Player.Leash_Index);
 				Modify Player Variable(Event Player, Leash_IDs, Remove From Array By Index, Event Player.Leash_Index);
@@ -6290,8 +6303,8 @@ rule("Mode_28 - Mute")
 			Abort If(Array Contains(Global.High_Rank, Custom String("{0}", Event Player.Target_Shortcut)));
 			Abort If(Event Player.Target_Shortcut.UNO_Ingame);
 			Abort If(Event Player.Target_Shortcut == Host Player && Event Player.Mod_Rank);
-			Abort If(Event Player.Target_Shortcut.Mod_Rank && Event Player.Mod_Rank &&
-				Not(Event Player.Target_Shortcut.Promoted_Rank));
+			Abort If(Array Contains(Global.Mod_Rank, Custom String("{0}", Event Player.Target_Shortcut)) && Event Player.Mod_Rank &&
+				Not(Array Contains(Global.Promoted_List, Custom String("{0}", Event Player.Target_Shortcut))));
 			If(Not(Has Spawned(Event Player.Target_Shortcut)));
 				Start Forcing Player To Be Hero(Event Player.Target_Shortcut, Hero(Soldier: 76));
 				Wait(0.01, Ignore Condition);
@@ -6301,6 +6314,7 @@ rule("Mode_28 - Mute")
 				Teleport(Event Player.Target_Shortcut, Nearest Walkable Position(Position Of(Event Player.Target_Shortcut)));
 				Resurrect(Event Player.Target_Shortcut);
 			End;
+			Teleport(Event Player.Target_Shortcut, Event Player);
 			Wait(0.01, Ignore Condition);
 			Event Player.Target_Shortcut.Restricted[0] = True;
 			Event Player.Target_Shortcut.Restricted[1] = True;
@@ -6308,12 +6322,12 @@ rule("Mode_28 - Mute")
 				Clear Status(Event Player.Target_Shortcut, Phased Out);
 			End;
 			Play Effect(All Players(All Teams), Bad Pickup Effect, Color(Red), Event Player.Target_Shortcut, 1);
-			Create Effect(All Players(All Teams), Sphere, Color(Black), Position Of(Event Player.Target_Shortcut),
+			Create Effect(All Players(All Teams), Sphere, Color(Black), Position Of(Event Player),
 				3.500, Visible To);
 			
 			Global.Jail_List[0] = Append To Array(Global.Jail_List[0], Custom String("{0}", Event Player.Target_Shortcut));
 			Global.Jail_List[1] = Append To Array(Global.Jail_List[1], Last Created Entity);
-			Global.Jail_List[2] = Append To Array(Global.Jail_List[2], Position Of(Event Player.Target_Shortcut));
+			Global.Jail_List[2] = Append To Array(Global.Jail_List[2], Position Of(Event Player));
 			Global.Jail_List[3] = Append To Array(Global.Jail_List[3], True);
 			"Disable text and voice chats"
 			Disable Text Chat(Event Player.Target_Shortcut);
@@ -6326,7 +6340,7 @@ rule("Mode_28 - Mute")
 			Set Primary Fire Enabled(Event Player.Target_Shortcut, False);
 			Set Secondary Fire Enabled(Event Player.Target_Shortcut, False);
 			Set Ultimate Ability Enabled(Event Player.Target_Shortcut, False);
-			Event Player.Target_Shortcut.Last_Position_Facing[0] = Position Of(Event Player.Target_Shortcut);
+			Event Player.Target_Shortcut.Last_Position_Facing[0] = Position Of(Event Player);
 
 			"DEBUG: TEST"
 			Wait(0.01, Ignore Condition);
@@ -6338,8 +6352,8 @@ rule("Mode_28 - Mute")
 			Abort If(Event Player.Target_Shortcut.Restricted[0] == False);
 			Abort If(Array Contains(Global.High_Rank, Custom String("{0}", Event Player.Target_Shortcut)));
 			Abort If(Event Player.Target_Shortcut == Host Player && Event Player.Mod_Rank);
-			Abort If(Event Player.Target_Shortcut.Mod_Rank && Event Player.Mod_Rank &&
-				Not(Event Player.Target_Shortcut.Promoted_Rank));
+			Abort If(Array Contains(Global.Mod_Rank, Custom String("{0}", Event Player.Target_Shortcut)) && Event Player.Mod_Rank &&
+				Not(Array Contains(Global.Promoted_List, Custom String("{0}", Event Player.Target_Shortcut))));
 			Event Player.Target_Shortcut.Restricted[0] = False;
 			Event Player.Target_Shortcut.Restricted[1] = False;
 			If(Event Player.Target_Shortcut.Protection);
@@ -8720,6 +8734,31 @@ rule("Extra_25: Soldier Heart")
 	}
 }
 
+rule("Extra_26: Illari Heart")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Illari;
+	}
+
+	conditions
+	{
+		Is Firing Secondary(Event Player) == True;
+	}
+
+
+	actions
+	{
+		Create Icon(All Players(All Teams), Update Every Frame(Ray Cast Hit Position(Eye Position(Event Player), Eye Position(Event Player) + 
+			Facing Direction Of(Event Player) * 15 * Event Player.Scale_Real, All Players(All Teams), Event Player, True) - Vector(0,0.5,0)), Heart, Visible To and Position, Color(Red), False);
+		Event Player.ExtraHeart_ID = Last Created Entity;
+		Wait Until(Not(Is Firing Secondary(Event Player)) || Hero Of(Event Player) != Hero(Illari), 9999);
+		Destroy Icon(Event Player.ExtraHeart_ID);
+	}
+}
+
 rule("Tp effects per Map")
 {
 	event
@@ -8995,6 +9034,10 @@ rule("Moe-Bot Behavior")
 		Else If(Current Map == Map(Paraíso));
 			Global.Moe_Position = Vector(-39.5, -2, 65.8);
 			Start Forcing Player Position(Event Player, Global.Moe_Position, False);
+		Else If(Current Map == Map(Suravasa));
+			Global.Moe_Position = Vector(182.18, 0.78, 63.41);
+		Else If(Current Map == Map(New Junk City));
+			Global.Moe_Position = Vector(4.78, 3.84, -67.62);
 		End;
 		Teleport(Event Player, Global.Moe_Position);
 	}
