@@ -29,7 +29,7 @@ rule ("Custom nameplates list")
                 	),
             Array(Custom String("LƐafa"),  
                 		Custom Color(255, 127, 80, 255),
-						Custom String("probably alt tabbed")
+						Custom String("probably afk")
 					),
 			Array(Custom String("Gregi"), 
                 		Custom String("Rainbow"),
@@ -631,10 +631,10 @@ rule ("Custom nameplates list")
 				Custom String("☆Great Explosion Mvrder God Dynamight☆")
 				), 
 			Array(Custom String("bbĸ"), 
-				Custom Color(214, 141, 229, 255),
-				Custom String("{0} bbk's uni of rizz {0}", Hero Icon String(Hero(Sombra))),
+				Custom Color(184, 48, 48, 255),
+				Custom String("♡  Sweet Potato  ♡"),
 				Custom String("{0} Rizz Certifier {0}", Icon String(Fire)),
-				Custom String("♥ No #1 Baptiste Enjoyer ♥")
+				Custom String("♡  ΣMЯΣ'Ƨ BB  ♡")
 				),
 			Array(Custom String("lostsektor"), 
 				Custom Color(56, 149, 251, 255),
