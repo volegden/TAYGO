@@ -28,8 +28,8 @@ rule ("Custom nameplates list")
 				Custom String("Custom String(\"Insert 3rd name\")")
                 	),
             Array(Custom String("LƐafa"),  
-                		Custom Color(255, 127, 80, 255),
-						Custom String("probably afk")
+                		Custom Color(110, 0, 0, 255),
+						Custom String("probably afk/alt tabbed")
 					),
 			Array(Custom String("Gregi"), 
                 		Custom String("Rainbow"),
