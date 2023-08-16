@@ -805,14 +805,14 @@ rule ("Custom nameplates list")
 			Array(Custom String("Lannaanna"), 
 				Custom String("Rainbow"), 
 				Custom String("{0}  ♥ Genji Simp ♥  {0}", Ability Icon String(Hero(Mercy), Button(Ultimate))),
-                Custom String("{0}  ♥ LANA THE BANANA ♥  {0}", Ability Icon String(Hero(Mercy), Button(Ultimate))), 
-				Custom String("{0} Spark Gengu Squad {0}", Ability Icon String(Hero(Genji), Button(Ultimate)))
+				Custom String("{0} Spark Gengu Squad {0}", Ability Icon String(Hero(Genji), Button(Ultimate))),
+                Custom String("{0}  ♥ LANA THE BANANA ♥  {0}", Ability Icon String(Hero(Mercy), Button(Ultimate)))
 				),
 			Array(Custom String("RiwaChan"),
 				Custom Color(201, 0, 10, 255),
 				Custom String("SUSSY"), 
 				Custom String("♥ RIWA ♥ "), 
-                		Custom String("{0}  • フェニックス •  {0}", Ability Icon String(Hero(Mercy), Button(Ultimate)))
+                Custom String("{0}  • フェニックス •  {0}", Ability Icon String(Hero(Mercy), Button(Ultimate)))
 				),
 			Array(Custom String("Asta"), 
 				Custom String("Rainbow"),
