@@ -148,7 +148,8 @@ rule ("Custom nameplates list")
 			Array(Custom String("xCleo"), 
                 		Custom Color(247, 187, 229, 255),
                 		Custom String("{0} ♡ Cutie  Cleo ♡ {0}", Ability Icon String(Hero(D.va), Button(Ultimate))),
-						Custom String("{0}   ＭＯＤ  ＡＢＵＳＥＲ   {0}", Icon String(Heart))
+						Custom String("{0}   ＭＯＤ  ＡＢＵＳＥＲ   {0}", Icon String(Heart)),
+						Custom String("{0}    H2o - Just Add Water   {0}", Icon String(Moon))
                 		), 
 			Array(Custom String("DONUT"), 
                 		Color(Red),
@@ -259,7 +260,7 @@ rule ("Custom nameplates list")
                 		Custom String("spongeboob")
                 		),
 			Array(Custom String("Cattanklol"), 
-        	        	Custom Color(64, 0, 64, 255),
+        	        	Custom Color(152, 180, 253, 255),
 						Custom String("♥ avid cuddler ♥"),
 						Custom String("♥ #1 support player lover ♥"),
 						Custom String("{0}   Free Hugs Here   {0}", Icon String(Heart))
@@ -362,8 +363,8 @@ rule ("Custom nameplates list")
 				),
 			Array(Custom String("Brat"), 
 			 	Custom String("Rainbow"),
-				Custom String("{0}    ＣＩＡ　ＫＩＴＴＥＮ　ＳＱＵＡＤ    {0} ", Ability Icon String(Hero(D.va), Button(Ultimate))),
-				Custom String("⁂ LƐafa's biggest fan ⁂"), 
+				Custom String("ＣＩＡ　ＫＩＴＴＥＮ　ＳＱＵＡＤ ฅ^._.^ฅ"),
+				Custom String("☆ BPD BADDIE ☆"), 
 				Custom String("{0}  Ｃｈａｒｉｓｍａｔｉｃａｌｌｙ    Ｄｅｐｒｅｓｓｅｄ  {0}", Ability Icon String(Hero(Moira), Button(Ability 2)))
 				), 
 			Array(Custom String("ShellBebop"), 
@@ -399,9 +400,9 @@ rule ("Custom nameplates list")
 				Custom String("♣ OUR MOON ♣")
 				),
 			Array(Custom String("Netbrex"), 
-				Color(White),
-				Custom String("•  LOBBY HOPPER  •"), 
-				Custom String("☆  WAVE + SPRAY  ☆")
+				Custom Color(255, 220, 151, 255),
+				Custom String("• Hop 500 •"), 
+				Custom String("{0} Daedalus {0}", Ability Icon String(Hero(Mercy), Button(Ability 1)))
 				),
 			Array(Custom String("Núgget"), 
 				Custom Color(255, 130, 0, 255),
@@ -657,7 +658,7 @@ rule ("Custom nameplates list")
 				),
 			Array(Custom String("Żmij"), 
 				Custom Color(128, 0, 0, 255),
-				Custom String("< Viper that doesn't bite >"),
+				Custom String("♥ Arieboo personal bodyguard ♥"),
                 Custom String("† Darth Maul Simp †"),
 				Custom String("{0}   † Fear is my Ally †  {0} ",  Ability Icon String(Hero(Reaper), Button(Ability 1)))
 				),
