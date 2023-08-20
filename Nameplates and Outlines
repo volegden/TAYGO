@@ -658,7 +658,7 @@ rule ("Custom nameplates list")
 				),
 			Array(Custom String("Żmij"), 
 				Custom Color(128, 0, 0, 255),
-				Custom String("♥ Arieboo personal bodyguard ♥"),
+				Custom String("♥ Arieboo's personal bodyguard ♥"),
                 Custom String("† Darth Maul Simp †"),
 				Custom String("{0}   † Fear is my Ally †  {0} ",  Ability Icon String(Hero(Reaper), Button(Ability 1)))
 				),
