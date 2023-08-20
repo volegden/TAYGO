@@ -621,7 +621,7 @@ rule("Global_Settings")
 
 		Wait(5, Ignore Condition);
 		Global.Skins_Check = True;
-		If(Count Of(Global.High_Rank) < 33 || Count Of(Global.Mod_Rank) < 145 || Count Of(Global.Titles_And_Outlines) < 130 || Count Of(Global.Banned_List) < 49);
+		If(Count Of(Global.High_Rank) < 33 || Count Of(Global.Mod_Rank) < 129 || Count Of(Global.Titles_And_Outlines) < 118 || Count Of(Global.Banned_List) < 36);
 			For Global Variable(Gravity_Helper, 0, 12, 1);
 				Global.Gravity_Helper -=1;
 			End;
