@@ -2,7 +2,7 @@ settings
 {
 	main
 	{
-		Description: "♥ A Friendly Server To Meet New Friends ♥\nlast updated (August 11 2023)\n\n   » » » MASSIVE UPDATE RELEASED « « «\n (including UNO, non-mod menu and\n      hero specific features!)\n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss.\n   Based on the work of: TbyCoLive.\n Maintained with ♡ by: LƐafa.\n   Community Managers: RUBY & kwally."
+		Description: "♥ A Friendly Server To Meet New Friends ♥\nlast updated (August 21 2023)\n\n   » » » MASSIVE UPDATE RELEASED « « «\n (including UNO, non-mod menu and\n      hero specific features!)\n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss.\n   Based on the work of: TbyCoLive.\n Maintained with ♡ by: LƐafa.\n   Community Manager: kwally."
 		Mode Name: " ♥ Friendly ♥ No Kill!"
 	}
 
@@ -283,51 +283,51 @@ variables
 		8: Current_Host
 		9: Gravity_Helper
 		10: Gravity_Toggle
-		11: Slowmotion
-		12: Map_Teleport_Locations
-		13: Drawing_Obj_Storage
-		14: Titles_And_Outlines
-		15: Jail_List
-		16: Jail_Helper
-		17: Drawing_Obj_Size
-		18: Drawing_Obj_Effects
-		19: Modification_Mode_String
-		20: Modification_Target_String
-		21: Icons_List
-		22: Icons_List_For_Menu
-		23: Colors
-		24: Status_String
-		25: Jumppad_Storage
-		26: Jumppad_Radius
-		27: Kanezaka_Teleports
-		28: UNO_Random
-		29: Card_Colors
-		30: UNO_Players
-		31: UNO_Deck
-		32: UNO_Help
-		33: UNO_Started
-		34: UNO_Looper
-		35: UNO_Colorblind
-		36: UNO_Inworld
-		37: UNO_Info
-		38: UNO_Timer
-		39: Beams
-		40: Drawing_Obj_Storage_Beams
-		41: Skins_Check
-		42: Player_Joined_Queue
-		43: Game_Timer
-		44: Game_Timer_Helper
-		45: Moe_Position
-		46: Demoted_List
-		47: OffOnString
-		48: Rank_Icon
-		49: Game_Description
-		50: Promoted_List
-		51: Credits
-		52: Angle
-		53: TP_Help
-		54: Map_Teleport_Exits
-		55: Muted_List
+		11: Map_Teleport_Locations
+		12: Drawing_Obj_Storage
+		13: Titles_And_Outlines
+		14: Jail_List
+		15: Jail_Helper
+		16: Drawing_Obj_Size
+		17: Drawing_Obj_Effects
+		18: Modification_Mode_String
+		19: Modification_Target_String
+		20: Icons_List
+		21: Icons_List_For_Menu
+		22: Colors
+		23: Status_String
+		24: Jumppad_Storage
+		25: Jumppad_Radius
+		26: Kanezaka_Teleports
+		27: UNO_Random
+		28: Card_Colors
+		29: UNO_Players
+		30: UNO_Deck
+		31: UNO_Help
+		32: UNO_Started
+		33: UNO_Looper
+		34: UNO_Colorblind
+		35: UNO_Inworld
+		36: UNO_Info
+		37: UNO_Timer
+		38: Beams
+		39: Drawing_Obj_Storage_Beams
+		40: Skins_Check
+		41: Player_Joined_Queue
+		42: Game_Timer
+		43: Game_Timer_Helper
+		44: Moe_Position
+		45: Demoted_List
+		46: OffOnString
+		47: Rank_Icon
+		48: Game_Description
+		49: Promoted_List
+		50: Credits
+		51: Angle
+		52: TP_Help
+		53: Map_Teleport_Exits
+		54: Muted_List
+		55: Moe_Force
 
 	player:
 		0: High_Rank
@@ -409,30 +409,34 @@ variables
 		76: Beams_Selector
 		77: Is_Invisible
 		78: No_CD
-		79: Extra8_Timer
 		80: Full_Protection
-		81: ExtraHeart_ID
+		81: ExtraEffect_ID
 		82: Extra10_Player
-		83: Extra14_ID
-		84: Comms_Target
-		85: Bot_Aggro
-		86: Bot_No
-		87: Bot_CD
-		88: Extra17_Pos
-		89: Effect_Storage
-		90: Players_Global_Array
-		91: Outlines_Toggle
-		92: Midtown_Bonus
-		93: Leash_List
-		94: Leash_To
-		95: Leash_Helper
-		96: Leash_IDs
-		97: Leash_Index
+		83: Comms_Target
+		84: Bot_Aggro
+		85: Bot_No
+		86: Bot_CD
+		87: Extra17_Pos
+		88: Effect_Storage
+		89: Players_Global_Array
+		90: Outlines_Toggle
+		91: Midtown_Bonus
+		92: Leash_List
+		93: Leash_To
+		94: Leash_Helper
+		95: Leash_IDs
+		96: Leash_Index
+		97: Leash_Spawn
 		98: Savezone_List
 		99: Savezone_Info_Array
 		100: Savezone_Index
 		101: Savezone_Helper
 		102: TP_Index
+		103: Control_Host
+		104: Control_Deny
+		105: Control_ID
+		106: Control_Active
+		107: Control_List
 	}
 
 subroutines
@@ -463,7 +467,6 @@ rule("Anti-Crash-ON")
 	conditions
 	{
 		Server Load > 200;
-		Global.Slowmotion == False;
 	}
 
 	actions
@@ -484,7 +487,6 @@ rule("Anti-Crash-OFF")
 	conditions
 	{
 		Server Load < 100;
-		Global.Slowmotion == False;
 	}
 
 	actions
@@ -599,7 +601,6 @@ rule("Global_Settings")
 		"Another Defaults"
 		Global.Gravity_Helper = 0;
 		Global.Gravity_Toggle = False;
-		Global.Slowmotion = False;
 		Global.Drawing_Obj_Storage = Empty Array;
 		
 		Global.Jail_List = Array(Empty Array, Empty Array, Empty Array, Empty Array);
@@ -620,7 +621,7 @@ rule("Global_Settings")
 
 		Wait(5, Ignore Condition);
 		Global.Skins_Check = True;
-		If(Count Of(Global.High_Rank) < 33 || Count Of(Global.Mod_Rank) < 129 || Count Of(Global.Titles_And_Outlines) < 118 || Count Of(Global.Banned_List) < 36);
+		If(Count Of(Global.High_Rank) < 33 || Count Of(Global.Mod_Rank) < 145 || Count Of(Global.Titles_And_Outlines) < 130 || Count Of(Global.Banned_List) < 49);
 			For Global Variable(Gravity_Helper, 0, 12, 1);
 				Global.Gravity_Helper -=1;
 			End;
@@ -706,7 +707,6 @@ rule("Default_Player_Settings")
 		If(Is Dummy Bot(Event Player));
 			Event Player.Player_Modification = Array(100, 100, 100, 100, 100);
 			Event Player.Voice_Pitch = 1;
-			Event Player.Extra8_Timer = -1;
 			Wait(0.2, Ignore Condition);
 			Modify Global Variable(Player_Joined_Queue, Remove From Array By Value, Null);
 			Modify Global Variable(Player_Joined_Queue, Remove From Array By Value, Event Player);
@@ -718,14 +718,14 @@ rule("Default_Player_Settings")
 		End;
 
 		"Show names and pages of players"
-		Create In-World Text(Filtered Array(All Players(All Teams), Current Array Element.Is_Crouch_On), Custom String("{0} | {1} {2}", Event Player, 
+		Create In-World Text(Filtered Array(All Players(All Teams), Current Array Element.Is_Crouch_On && Not(Event Player.Is_Invisible)), Custom String("{0} | {1} {2}", Event Player, 
 			If-Then-Else(Event Player.Mode_Cycle != -1, If-Then-Else(Event Player.Heaven_Strike_ID[3], 0, Event Player.Mode_Cycle), Event Player.Mode_Cycle_Default), 
 			If-Then-Else(Event Player.Promoted_Rank, Icon String(Arrow: Up), Global.Rank_Icon[Event Player.Verification_Key])),
 			Event Player, 1, Do Not Clip, Visible To Position and String, Color(White), Default Visibility);
 		Event Player.Target_Tag_ID = Last Text ID;
 
 		"Statuses by player menu and invisibility"
-		Create HUD Text(Filtered Array(All Players(All Teams), (Current Array Element.Is_Invisible && Current Array Element == Event Player)), Null, Custom String("Invisible"), Null, 
+			Create HUD Text(Filtered Array(All Players(All Teams), (Current Array Element.Is_Invisible && Current Array Element == Event Player)), Null, Custom String("Invisible"), Null, 
 			Top, 100, Color(White), Color(Blue), Color(White), Visible To, Visible Never);
 		"TODO: Either compress invisible (or remove if invisible page needs to be removed), or delete invis message"
 		Create HUD Text(Event Player, Null, Custom String("{0}", If-Then-Else(Event Player.Full_Protection, Custom String("Fully Protected"), 
@@ -805,6 +805,10 @@ rule("Default_Player_Settings")
 		Event Player.Spam_Cooldown = 3;
 		Chase Player Variable At Rate(Event Player, Spam_Cooldown, 0, 1, None);
 
+		Event Player.Control_Deny = Empty Array;
+		Event Player.Control_List = Empty Array;
+		Event Player.Control_Active = False;
+
 		Event Player.UNO_Hand = Empty Array;
 		Event Player.UNO_Helper = Array(Null, Null, Null, Null);
 		Event Player.UNO_Loop = 0;
@@ -821,6 +825,7 @@ rule("Default_Player_Settings")
 		Event Player.Leash_List = Empty Array;
 		Event Player.Leash_To = Empty Array;
 		Event Player.Leash_Helper = Null;
+		Event Player.Leash_Spawn = Null;
 
 		"Array: Position, Radius, ID_Effect, ID_Text"
 		Event Player.Savezone_Info_Array = Array(Null, 1.5, Null, Null);
@@ -828,7 +833,6 @@ rule("Default_Player_Settings")
 
 		Event Player.Outlines_Toggle = True;
 		Event Player.Positions_For_Beams = Array(Null, Null);
-		Event Player.Extra8_Timer = -1;
 
 		Event Player.Effect_Storage = Null;
 
@@ -849,6 +853,11 @@ rule("Default_Player_Settings")
 		If(Array Contains(Global.Muted_List, Custom String("{0}", Event Player)));
 			Disable Text Chat(Event Player);
 			Disable Voice Chat(Event Player, True, True, False);
+			Create Hud Text(Event Player, Null, Custom String(" \nYou are on the muted list!\r\nPlease Contact kwally#21906\r\non Battlenet \r\n(all letters lowercase!)\r\nfor further support."), Null, 
+				Right, 15, Color(White), Color(Yellow), Color(White), None, Visible Never);
+		Else If(Array Contains(Global.Demoted_List, Custom String("{0}", Event Player)));
+			Create Hud Text(Event Player, Null, Custom String(" \nYou are on the demoted list!\r\nPlease Contact kwally#21906\r\non Battlenet \r\n(all letters lowercase!)\r\nfor further support."), Null, 
+				Right, 15, Color(White), Color(Yellow), Color(White), None, Visible Never);
 		End;
 
 		"Jail handler"
@@ -961,7 +970,7 @@ rule ("Data")
     actions 
 	{
 		Global.Credits = Array(Custom String("Coded with {0} by Warloy and xMaxuss, based on TbyCoLive's work", Icon String(Heart)), 
-			Custom String("Maintained with {0} by LƐafa, Community managers: RUBY & kwally", Icon String(Heart)));
+			Custom String("Maintained with {0} by LƐafa, Community manager: kwally", Icon String(Heart)));
 		
 		Global.Rank_Icon = Array(Custom String(""), Icon String(Halo), Icon String(Heart), Custom String(""));
 
@@ -2036,7 +2045,6 @@ rule("Listed_Player")
 				 Custom String("Yuzuka"), Custom String("Blackyyyy4"), Custom String("DAZE"));
     }
 }
-
 rule("Player_Rank_Execute")
 {
 	event
@@ -2441,6 +2449,7 @@ rule("Mod_Ability_ON")
 	{
 		Is Button Held(Event Player, Button(Crouch)) == True;
 		Event Player.Is_Menu_Active == True;
+		Event Player.Control_Active == False;
 	}
 
 	actions
@@ -2477,6 +2486,7 @@ rule("Mod_Ability_OFF")
 	conditions
 	{
 		(Is Button Held(Event Player, Button(Crouch)) == False);
+		Event Player.Control_Active == False;
 	}
 
 	actions
@@ -2515,6 +2525,7 @@ rule("Mode_Cycle")
 		Event Player.Is_Flying == False;
 		Event Player.UNO_Ingame == False;
 		Event Player.Restricted[1] == False;
+		Event Player.Control_Active == False;
 	}
 
 	actions
@@ -2631,10 +2642,9 @@ rule("Mode_Headline_Desc_Mod")
 			Create HUD Text(Event Player, Null, Custom String("| Press Crouch + Interact/Jump to change pages |\nMod Menu: Press Crouch + input for action\n{0}", 
 				Custom String("{0} : Teleport You to Target\r\n{1} : Teleport Target To You\r\n{2}", 
 					Input Binding String(Button(Primary Fire)), Input Binding String(Button(Secondary Fire)), 
-				Custom String("{0} : Teleport Target Back To Spawn\r\n\r\nDestination Marker for Short Hop is shown\r\n   on this page while crouching.\r\n{1}", 
-					Input Binding String(Button(Ultimate)), 
-				Custom String("Crouch + {0} : Short Hop",
-					Input Binding String(Button(Ability 1))
+				Custom String("{0} : Teleport Target Back To Spawn\r\n{1} : Target Faces you\r\n\r\n{2}", 
+					Input Binding String(Button(Ultimate)), Input Binding String(Button(Ability 2)),
+				Custom String("Destination Marker for Short Hop is shown\r\n   on this page while crouching.\r\nCrouch + Ability 1 : Short Hop"
 				)))), Null, Left, 1, Color(White), Color(White), Color(White), String, Visible Never);
 
 		Else If(Event Player.Mode_Cycle == 3);
@@ -2770,10 +2780,13 @@ rule("Mode_Headline_Desc_Mod")
 				))), Null, Left, 1, Color(White), Color(White), Color(White), Visible To and String, Visible Never);
 
         Else If(Event Player.Mode_Cycle == 14);
-			Event Player.Mode_Headline = Custom String("Target Leash");
+			Event Player.Mode_Headline = Custom String("Leash Line");
 			Create HUD Text(Event Player, Null, Custom String("| Press Crouch + Interact/Jump to change pages |\nMod Menu: Press Crouch + input for action\n{0}",
-				Custom String("{0} : Create Grapplink\r\n{1} : Remove Grapplink", Input Binding String(Button(Primary Fire)), Input Binding String(Button(
-				Secondary Fire)))), Null, Left, 1, Color(White), Color(White), Color(White), String, Visible Never);
+				Custom String("{0} : Leash Target\r\n{1} : Remove Leash\r\n{2}", 
+					Input Binding String(Button(Primary Fire)), Input Binding String(Button(Secondary Fire)),
+				Custom String("{0} : Leash yourself to target",
+					Input Binding String(Button(Ability 2))
+				))), Null, Left, 1, Color(White), Color(White), Color(White), String, Visible Never);
 
 		Else If(Event Player.Mode_Cycle == 15);
 			Event Player.Mode_Headline = Custom String("Painting");
@@ -2825,9 +2838,11 @@ rule("Mode_Headline_Desc_Mod")
 			Create HUD Text(Event Player, Null, Custom String("| Press Crouch + Interact/Jump to change pages |\nMod Menu: Press Crouch + input for action\n{0}",
 				Custom String("{0} : Moan Spam Target\r\n{1} : Moan Spam Yourself\r\n{2}", 
 					Input Binding String(Button(Primary Fire)), Input Binding String(Button(Secondary Fire)), 
-				Custom String("{0} : Voice Pitch Up\r\n{1} : Voice Pitch Down\r\nReload : Back To Normal Voice", 
-					Input Binding String(Button(Ultimate)), Input Binding String(Button(Ability 2))
-				))), Null, Left, 1, Color(White), Color(White), Color(White), String, Visible Never);
+				Custom String("{0} : Voice Pitch Up\r\n{1} : Voice Pitch Down\r\nMelee : Wobbly Voice\r\n{2}", 
+					Input Binding String(Button(Ultimate)), Input Binding String(Button(Ability 2)),
+				Custom String("Reload : Back To Normal Voice\r\nCurrent Pitch: [{0}]", 
+					If-Then-Else(Event Player.Voice_Pitch == False, Custom String("Wobbly"), Event Player.Voice_Pitch)
+				)))), Null, Left, 1, Color(White), Color(White), Color(White), String, Visible Never);
 
 		Else If(Event Player.Mode_Cycle == 21);
 			Event Player.Mode_Headline = Custom String("Small message to someone");
@@ -2870,20 +2885,28 @@ rule("Mode_Headline_Desc_Mod")
 				))))), Null, Left, 1, Color(White), Color(White), Color(White), String, Visible Never);
 
 		Else If(Event Player.Mode_Cycle == 25);
-			Event Player.Mode_Headline = Custom String("Ghost Mode");
+			Event Player.Mode_Headline = Custom String("Perks Toggle");
 			Create HUD Text(Event Player, Null, Custom String("| Press Crouch + Interact/Jump to change pages |\nMod Menu: Press Crouch + input for action\n{0}",
-				Custom String("{0} : Disable Anti-Collision Target\r\n{1} : Enable Anti-Collision Target\r\n{2} : Set Anti-Collision For Yourself",
-					Input Binding String(Button(Primary Fire)), Input Binding String(Button(Secondary Fire)), Input Binding String(Button(Ultimate))
-				)), Null, Left, 1, Color(White), Color(White), Color(White), String, Visible Never);
+				Custom String("{0} : Anti-Colission Target [{1}]\r\n{2}",
+					Input Binding String(Button(Primary Fire)), 
+					If-Then-Else(Player Closest To Reticle(Event Player, All Teams).Ghost_Mode, Global.OffOnString[1], Global.OffOnString[0]),
+				Custom String("{0} : Anti-Colission Self [{1}]\r\n{2}",
+					Input Binding String(Button(Ultimate)), 
+					If-Then-Else(Event Player.Ghost_Mode, Global.OffOnString[1], Global.OffOnString[0]),
+				Custom String("{0} : Slow Projectile [{1}]\r\n{2}",
+					Input Binding String(Button(Reload)), 
+					If-Then-Else(Event Player.Slow_Projectile, Global.OffOnString[1], Global.OffOnString[0]),
+				Custom String("{0} : No CD (Angels+) [{1}]",
+					Input Binding String(Button(Ability 2)), 
+					If-Then-Else(Event Player.No_CD, Global.OffOnString[1], Global.OffOnString[0])
+				))))), Null, Left, 1, Color(White), Color(White), Color(White), String, Visible Never);
 
 		Else If(Event Player.Mode_Cycle == 26);
-			Event Player.Mode_Headline = Custom String("Slow Projectile & Motion");
+			Event Player.Mode_Headline = Custom String("Remote Control");
 			Create HUD Text(Event Player, Null, Custom String("| Press Crouch + Interact/Jump to change pages |\nMod Menu: Press Crouch + input for action\n{0}",
-				Custom String("{0} : Give Target Slow Projectile\r\n{1} : Revoke Target Slow Projectile\r\n{2}", 
-					Input Binding String(Button(Primary Fire)), Input Binding String(Button(Secondary Fire)), 
-				Custom String("{0} : Set Yourself Slow Projectile\r\n{1} : Slowmotion (Only Host/Vanguard)",
-					Input Binding String(Button(Ultimate)), Input Binding String(Button(Ability 2))
-				))), Null, Left, 1, Color(White), Color(White), Color(White), String, Visible Never);
+				Custom String("{0} : Send control request to target\r\n{1} : Stop Controlling Target\r\n{2} : Teleport Controlled Players",
+					Input Binding String(Button(Ultimate)), Input Binding String(Button(Reload)), Input Binding String(Button(Ability 2))
+				)), Null, Left, 1, Color(White), Color(White), Color(White), String, Visible Never);
 
 		Else If(Event Player.Mode_Cycle == 27);
 			Event Player.Mode_Headline = Custom String("Kick/Ban (Only Owner)");
@@ -2923,11 +2946,12 @@ rule("Mode_Headline_Desc_Mod")
 			Create HUD Text(Event Player, Null, Custom String("| Press Crouch + Interact/Jump to change pages |\nMod Menu: Press Crouch + input for action\n{0}",
 				Custom String("{0} : Place Camera Without LOS check\r\n{1} : Place Camera With LOS Check\r\n{2}", 
 					Input Binding String(Button(Primary Fire)), Input Binding String(Button(Secondary Fire)), 
-				Custom String("Ultimate : Place static Camera\r\n{0} : Start Cinematic Camera\r\n{1}", Input Binding String(Button(Ability 2)), 
-				Custom String("Reload : Start Top-down Camera\r\n{0} : Attach Camera to target player\r\n{1}", Input Binding String(Button(Ability 1)),
-				Custom String("Melee : Place/Start Security Camera\r\n\n{0}",
+				Custom String("Ultimate : Place static Camera\r\n{0} : Start Cinematic Camera\r\n{1}", 
+					Input Binding String(Button(Ability 2)), 
+				Custom String("Reload : Start Top-down Camera\r\n{0} : Attach Camera to target player\r\n\r\n{1}", 
+					Input Binding String(Button(Ability 1)),
 				Custom String("Hold button down for 1 sec to\r\n   place cam at eye level.\r\nReminder: Hold Interact to reset Camera."
-				)))))), Null, Left, 1, Color(White), Color(White), Color(White), String, Visible Never);
+				))))), Null, Left, 1, Color(White), Color(White), Color(White), String, Visible Never);
 
 		Else If(Event Player.Mode_Cycle == 32);
 			Event Player.Mode_Headline = Custom String("U N O");
@@ -2948,7 +2972,7 @@ rule("Mode_Headline_Desc_Mod")
 				)), Null, Left, 1, Color(White), Color(White), Color(White), String, Visible Never);
 
 		Else If(Event Player.Mode_Cycle == 34);
-			Event Player.Mode_Headline = Custom String("Broken after patch...");
+			Event Player.Mode_Headline = Custom String("Talk with Moe");
 			Create HUD Text(Event Player, Null, Custom String("| Press Crouch + Interact/Jump to change pages |\nMod Menu: Press Crouch + input for action\n{0}",
 				Custom String("Say to Moe:\r\n{0} : Hello!\n{1} : Goodbye.\r\n{2}", 
 					Input Binding String(Button(Primary Fire)), Input Binding String(Button(Secondary Fire)),
@@ -2956,6 +2980,7 @@ rule("Mode_Headline_Desc_Mod")
 					Input Binding String(Button(Ability 2)), 
 				Custom String("Ultimate : Thanks!\n{0} : Sorry...",Input Binding String(Button(Ability 1))
 				)))), Null, Left, 1, Color(White), Color(White), Color(White), String, Visible Never);
+
 		End;
 
 		Event Player.Mode_Description = Last Text ID;
@@ -3059,10 +3084,11 @@ rule("Mode_Headline_Desc_Default")
 		Else If(Event Player.Mode_Cycle_Default == 7);
 			Event Player.Mode_Headline = Custom String("Voice Options");
 			Create HUD Text(Event Player, Null, Custom String("| Press Crouch + Interact/Jump to change pages |\nPlayer Menu: Press Crouch + input for action\n{0}",
-				Custom String("{0} : Voice Pitch Up\r\n{1}",
-					Input Binding String(Button(Ultimate)), 
-				Custom String("{0} : Voice Pitch Down\r\n{1} : Back To Normal Voice", 
-					Input Binding String(Button(Ability 2)), Input Binding String(Button(Reload))
+				Custom String("{0} : Voice Pitch Up\r\n{1} : Voice Pitch Down\r\n{2}", 
+					Input Binding String(Button(Ultimate)), Input Binding String(Button(Ability 2)),
+				Custom String("{0} : Wobbly Voice\r\n{1} : Back To Normal Voice\r\nCurrent Pitch: [{2}]", 
+					Input Binding String(Button(Melee)), Input Binding String(Button(Reload)), 
+					If-Then-Else(Event Player.Voice_Pitch == False, Custom String("Wobbly"), Event Player.Voice_Pitch)
 				))), Null, Left, 1, Color(White), Color(White), Color(White), String, Visible Never);
 
 		Else If(Event Player.Mode_Cycle_Default == 8);
@@ -3085,7 +3111,7 @@ rule("Mode_Headline_Desc_Default")
 			Event Player.Mode_Headline = Custom String("Slow Projectile");
 			Create HUD Text(Event Player, Null, Custom String("| Press Crouch + Interact/Jump to change pages |\nPlayer Menu: Press Crouch + input for action\n{0}",
 				Custom String("{0} : Set Yourself Slow Projectile",
-					Input Binding String(Button(Ultimate))
+					Input Binding String(Button(Reload))
 				)), Null, Left, 1, Color(White), Color(White), Color(White), String, Visible Never);
 			
 		Else If(Event Player.Mode_Cycle_Default == 11);
@@ -3118,7 +3144,7 @@ rule("Mode_Headline_Desc_Default")
 				)))), Null, Left, 1, Color(White), Color(White), Color(White), String, Visible Never);
 
 		Else If(Event Player.Mode_Cycle_Default == 14);
-			Event Player.Mode_Headline = Custom String("Broken after patch...");
+			Event Player.Mode_Headline = Custom String("Talk with Moe");
 			Create HUD Text(Event Player, Null, Custom String("| Press Crouch + Interact/Jump to change pages |\nPlayer Menu: Press Crouch + input for action\n{0}",
 				Custom String("Say to Moe:\r\n{0} : Hello!\n{1} : Goodbye.\r\n{2}", 
 					Input Binding String(Button(Primary Fire)), Input Binding String(Button(Secondary Fire)),
@@ -3649,6 +3675,10 @@ rule("Mode_02 - Teleport")
 			Teleport(Player Closest To Reticle(Event Player, All Teams), Spawn Points(Team Of(Player Closest To Reticle(Event Player,
 				All Teams))));
 			Play Effect(All Players(All Teams), Bad Explosion, Color(Red), Player Closest To Reticle(Event Player, All Teams), 1);
+		Else If(Is Button Held(Event Player, Button(Ability 2)));
+			Abort If(Player Closest To Reticle(Event Player, All Teams).Full_Protection);
+			Set Facing(Player Closest To Reticle(Event Player, All Teams), 
+				Direction Towards(Player Closest To Reticle(Event Player, All Teams), Eye Position(Event Player) + Vector(0,0.1,0)), To World);
 		End;
 	}
 }
@@ -3912,13 +3942,6 @@ rule("Mode_04 - Protection")
 					Event Player, 0.8, Clip Against Surfaces, Visible To and Position, Color(Blue), Default Visibility);
 				Event Player.Protection_ID = Last Text ID;
 				Event Player.Full_Protection = True;
-			End;
-		Else If(Is Button Held(Event Player, Button(Ability 2)));
-			Abort If(Event Player.Promoted_Rank);
-			If (Event Player.No_CD);
-				Event Player.No_CD = False;
-			Else;
-				Event Player.No_CD = True;
 			End;
 		End;
 	}
@@ -4607,6 +4630,10 @@ rule("Mode_11 - Scale_Own_Size")
 			Set Max Health(Event Player, Event Player.Player_Modification[4]);
 			Wait(0.100, Ignore Condition);
 			Heal(Event Player, Null, 12000);
+			If(Not(Event Player.Ghost_Mode));
+				Enable Movement Collision With Environment(Event Player);
+				Enable Movement Collision With Players(Event Player);
+			End;
 			Play Effect(All Players(All Teams), Bad Pickup Effect, Color(Yellow), Event Player, 1);
 		Else If(Is Button Held(Event Player, Button(Primary Fire)));
 			While(Is Button Held(Event Player, Button(Primary Fire)));
@@ -4645,6 +4672,13 @@ rule("Mode_11 - Scale (Subroutine)")
 	actions
 	{
 		Event Player.Progress_Lock = True;
+		If(Event Player.Scale_Prev >= 4 && Not(Event Player.Ghost_Mode));
+			Disable Movement Collision With Environment(Event Player, False);
+			Disable Movement Collision With Players(Event Player);
+		Else If(Event Player.Scale_Prev < 4 && Not(Event Player.Ghost_Mode));
+			Enable Movement Collision With Environment(Event Player);
+			Enable Movement Collision With Players(Event Player);
+		End;
 		Start Scaling Player(Event Player, Event Player.Scale_Real, True);
 		Chase Player Variable Over Time(Event Player, Scale_Real, Event Player.Scale_Prev, 2, None);
 		Wait Until(Event Player.Scale_Real == Event Player.Scale_Prev || Event Player.Progress_Stop, 99999);
@@ -4676,8 +4710,7 @@ rule("Mode_11 - Abort_Scaling")
 	actions
 	{
 		Event Player.Signal = False;
-		If((Is Button Held(Event Player, Button(Primary Fire)) || Is Button Held(Event Player, Button(Secondary Fire)) || Is Button Held(
-			Event Player, Button(Reload))));
+		If((Is Button Held(Event Player, Button(Primary Fire)) || Is Button Held(Event Player, Button(Secondary Fire)) || Is Button Held(Event Player, Button(Reload))));
 			Event Player.Progress_Stop = True;
 			Wait(0.100, Ignore Condition);
 			Event Player.Progress_Stop = False;
@@ -4715,7 +4748,11 @@ rule("Mode_12 - Scale_Target_Size")
 			Set Max Health(Event Player.Target_Lock, Event Player.Target_Lock.Player_Modification[4]);
 			Wait(0.100, Ignore Condition);
 			Heal(Event Player.Target_Lock, Null, 12000);
-			Play Effect(All Players(All Teams), Bad Pickup Effect, Color(Yellow), Player Closest To Reticle(Event Player, All Teams), 1);
+			If(Not(Event Player.Target_Lock.Ghost_Mode));
+				Enable Movement Collision With Environment(Event Player.Target_Lock);
+				Enable Movement Collision With Players(Event Player.Target_Lock);
+			End;
+			Play Effect(All Players(All Teams), Bad Pickup Effect, Color(Yellow), Event Player.Target_Lock, 1);
 		Else If(Is Button Held(Event Player, Button(Primary Fire)));
 			While(Is Button Held(Event Player, Button(Primary Fire)));
 				Event Player.Target_Lock.Scale_Prev += 0.100;
@@ -4860,22 +4897,29 @@ rule("Mode_14 - Grapple_Line")
 			Modify Player Variable(Event Player.Target_Shortcut, Leash_To, Append To Array, Event Player);
 		Else If(Is Button Held(Event Player, Button(Secondary Fire)));
 			If(Array Contains(Event Player.Leash_List, Event Player.Target_Shortcut));
-				Play Effect(All Players(All Teams), Good Pickup Effect, Color(Blue), Event Player.Target_Shortcut, 1);
 				Event Player.Leash_Helper = Index Of Array Value(Event Player.Leash_List, Event Player.Target_Shortcut);
 				Destroy Effect(Event Player.Leash_IDs[Event Player.Leash_Helper]);
 				Wait(0.05, Ignore Condition);
 				Modify Player Variable(Event Player, Leash_IDs, Remove From Array By Index, Event Player.Leash_Helper);
 				Modify Player Variable(Event Player, Leash_List, Remove From Array By Value, Event Player.Target_Shortcut);
 				Modify Player Variable(Event Player.Target_Shortcut, Leash_To, Remove From Array By Value, Event Player);
-			Else If(Array Contains(Event Player.Target_Shortcut.Leash_List, Event Player));
-				Play Effect(All Players(All Teams), Good Pickup Effect, Color(Blue), Event Player, 1);
+				Play Effect(All Players(All Teams), Good Pickup Effect, Color(Blue), Event Player.Target_Shortcut, 1);
+			End;
+			If(Array Contains(Event Player.Target_Shortcut.Leash_List, Event Player));
 				Event Player.Leash_Helper = Index Of Array Value(Event Player.Target_Shortcut.Leash_List, Event Player);
 				Destroy Effect(Event Player.Target_Shortcut.Leash_IDs[Event Player.Leash_Helper]);
 				Wait(0.05, Ignore Condition);
 				Modify Player Variable(Event Player.Target_Shortcut, Leash_IDs, Remove From Array By Index, Event Player.Leash_Helper);
 				Modify Player Variable(Event Player.Target_Shortcut, Leash_List, Remove From Array By Value, Event Player);
 				Modify Player Variable(Event Player, Leash_To, Remove From Array By Value, Event Player.Target_Shortcut);
+				Play Effect(All Players(All Teams), Good Pickup Effect, Color(Blue), Event Player, 1);
 			End;
+		Else If(Is Button Held(Event Player, Button(Ability 2)));
+			Abort If(Event Player.Target_Shortcut.Full_Protection);
+			Abort If(Not(Has Spawned(Event Player.Target_Shortcut)));
+			Abort If(Array Contains(Event Player.Target_Shortcut.Leash_List, Event Player));
+			Event Player.Target_Shortcut.Leash_Spawn = Array(Event Player, Event Player.Target_Shortcut);
+			Play Effect(All Players(All Teams), Bad Pickup Effect, Color(Red), Event Player, 1);
 		End;
 		Wait(0.1, Ignore Condition);
 	}
@@ -4914,8 +4958,6 @@ rule("Mode_14 - Grapple_Line_Logic")
 						Cancel Contrary Motion);
 				End;
 			Else;
-				Event Player.Leash_Helper = Index Of Array Value(Event Player.Leash_To[Event Player.Leash_Index].Leash_List, Event Player);
-				Destroy Effect(Event Player.Leash_To[Event Player.Leash_Index].Leash_IDs[Event Player.Leash_Helper]);
 				Modify Player Variable(Event Player.Leash_To[Event Player.Leash_Index], Leash_List, Remove From Array By Value, Event Player);
 				Modify Player Variable(Event Player.Leash_To[Event Player.Leash_Index], Leash_IDs, Remove From Array By Index, Event Player.Leash_Helper);
 			End;
@@ -4924,6 +4966,32 @@ rule("Mode_14 - Grapple_Line_Logic")
 		End;
 	}
 }
+
+rule("Mode_14 - Grapple_Line_Spawn")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Event Player.Leash_Spawn != Null;
+	}
+
+	actions
+	{
+		Create Beam Effect(All Players(All Teams), Good Beam, Evaluate Once(Event Player.Leash_Spawn[0]), Evaluate Once(Event Player.Leash_Spawn[1]), Color(Rose),
+			Visible To Position and Radius);
+		Modify Player Variable(Event Player.Leash_Spawn[1], Leash_IDs, Append To Array, Last Created Entity);
+		Modify Player Variable(Event Player.Leash_Spawn[1], Leash_List, Append To Array, Event Player.Leash_Spawn[0]);
+		Modify Player Variable(Event Player.Leash_Spawn[0], Leash_To, Append To Array, Event Player.Leash_Spawn[1]);
+		Event Player.Leash_Spawn = Null;
+	}
+}
+
 
 rule("Mode_14 - Grapple_Line_Leaver")
 {
@@ -4950,7 +5018,7 @@ rule("Mode_14 - Grapple_Line_Leaver")
 			End;
 		End;
 		Wait(1, Ignore Condition);
-		Loop If COndition Is True;
+		Loop If Condition Is True;
 	}
 }
 
@@ -5337,6 +5405,8 @@ rule("Mode_17 - Spawn_Hero_Force")
 		Abort If(Event Player.Target_Shortcut.Full_Protection && Not(Is Dummy Bot(Event Player.Target_Shortcut)));
 		If(Not(Is Button Held(Event Player, Button(Melee)) || Is Button Held(Event Player, Button(Ability 1))));
 			Cancel Primary Action(Event Player.Target_Shortcut);
+			Destroy Effect(Event Player.ExtraEffect_ID);
+			Destroy Icon(Event Player.ExtraEffect_ID);
 		End;
 		If(Is Button Held(Event Player, Button(Primary Fire)));
 			Start Forcing Player To Be Hero(Event Player.Target_Shortcut, Hero(Mercy));
@@ -5391,12 +5461,12 @@ rule("Mode_18 - Savezone")
 			Abort If(Event Player.Savezone_Info_Array[2] == Null);
 			Abort If(Event Player.Savezone_Info_Array[1] >= 3);
 			If(Is True For Any(All Players(All Teams), Current Array Element != Event Player &&
-				(((Current Array Element.Full_Protection && Not(Array Contains(Event Player.Savezone_List, Current Array Element))) &&
+				((Not(Array Contains(Event Player.Savezone_List, Current Array Element)) &&
 				Distance Between(Current Array Element, Event Player.Savezone_Info_Array[0]) <= Event Player.Savezone_Info_Array[1] + 0.7) || 
 				(Current Array Element.Savezone_Info_Array[2] != Null && 
 				Distance Between(Current Array Element.Savezone_Info_Array[0], Event Player.Savezone_Info_Array[0]) 
 					<= Event Player.Savezone_Info_Array[1] + 0.7 + Current Array Element.Savezone_Info_Array[1]))));
-				Small Message(Event Player, Custom String("  Too close to fully protected player or other savezone!"));
+				Small Message(Event Player, Custom String("  Too close to untrusted player or other savezone!"));
 				Wait(0.5, Ignore Condition);
 				Abort;
 			End;
@@ -5410,12 +5480,12 @@ rule("Mode_18 - Savezone")
 				Abort;
 			End;
 			If(Is True For Any(All Players(All Teams), Current Array Element != Event Player &&
-				(((Current Array Element.Full_Protection && Not(Array Contains(Event Player.Savezone_List, Current Array Element))) &&
+				((Not(Array Contains(Event Player.Savezone_List, Current Array Element)) &&
 				Distance Between(Current Array Element, Event Player) <= Event Player.Savezone_Info_Array[1] + 0.2) || 
 				(Current Array Element.Savezone_Info_Array[2] != Null && 
 				Distance Between(Current Array Element.Savezone_Info_Array[0], Event Player) 
 					<= Event Player.Savezone_Info_Array[1] + 0.2 + Current Array Element.Savezone_Info_Array[1]))));
-				Small Message(Event Player, Custom String("  Too close to fully protected player or other savezone!"));
+				Small Message(Event Player, Custom String("  Too close to untrusted player or other savezone!"));
 				Wait(0.5, Ignore Condition);
 				Abort;
 			End;
@@ -5590,21 +5660,17 @@ rule("Mode_20 - Voice_Pitch_Moan_Spam")
 	{
 		Event Player.Signal = False;
 		If(Is Button Held(Event Player, Button(Ultimate)));
-			Abort If(Event Player.Voice_Pitch >= 1.500);
-			Event Player.Voice_Pitch += 0.250;
-			Modify Player Variable(Event Player, Voice_Pitch, Min, 1.500);
+			Event Player.Voice_Pitch = Min(1.5, Event Player.Voice_Pitch + 0.25);
 			Start Modifying Hero Voice Lines(Event Player, Event Player.Voice_Pitch, False);
-			Play Effect(All Players(All Teams), Good Pickup Effect, Color(Blue), Event Player, 1);
 		Else If(Is Button Held(Event Player, Button(Ability 2)));
-			Abort If(Event Player.Voice_Pitch <= 0.500);
-			Event Player.Voice_Pitch -= 0.250;
-			Modify Player Variable(Event Player, Voice_Pitch, Max, 0.500);
+			Event Player.Voice_Pitch = Max(0.5, Event Player.Voice_Pitch - 0.25);
 			Start Modifying Hero Voice Lines(Event Player, Event Player.Voice_Pitch, False);
-			Play Effect(All Players(All Teams), Good Pickup Effect, Color(Blue), Event Player, 1);
+		Else If(Is Button Held(Event Player, Button(Melee)));
+			Event Player.Voice_Pitch = False;
+			Start Modifying Hero Voice Lines(Event Player, (Sine From Radians(Total Time Elapsed * 2))/1.7 + 1, true);
 		Else If(Is Button Held(Event Player, Button(Reload)));
 			Event Player.Voice_Pitch = 1;
 			Stop Modifying Hero Voice Lines(Event Player);
-			Play Effect(All Players(All Teams), Bad Pickup Effect, Color(Yellow), Event Player, 1);
 		Else If(Is Button Held(Event Player, Button(Primary Fire)));
 			Abort If((Event Player.High_Rank || Event Player.Mod_Rank) == False);
 			Abort If(Player Closest To Reticle(Event Player, All Teams).Full_Protection || Player Closest To Reticle(Event Player, All Teams).High_Rank);
@@ -5627,6 +5693,7 @@ rule("Mode_20 - Voice_Pitch_Moan_Spam")
 				Set Status(Event Player, Null, Phased Out, 9999);
 			End;
 		End;
+		Wait(0.1, Ignore Condition);
 	}
 }
 
@@ -6052,7 +6119,7 @@ rule("Mode_23_24 - Show message with selected Icon")
 	}
 }
 
-rule("Mode_25 - Ghost_Mode")
+rule("Mode_25 - Perks Toggle")
 {
 	event
 	{
@@ -6063,7 +6130,7 @@ rule("Mode_25 - Ghost_Mode")
 
 	conditions
 	{
-		Event Player.Mode_Cycle == 25;
+		(Event Player.Mode_Cycle == 25 || Event Player.Mode_Cycle_Default == 10) == True;
 		Event Player.Signal == True;
 	}
 
@@ -6071,70 +6138,31 @@ rule("Mode_25 - Ghost_Mode")
 	{
 		Event Player.Signal = False;
 		If(Is Button Held(Event Player, Button(Primary Fire)));
+			Abort If((Event Player.High_Rank || Event Player.Mod_Rank) == False);
 			Abort If(Player Closest To Reticle(Event Player, All Teams).High_Rank || Player Closest To Reticle(Event Player, All Teams).Full_Protection);
-			Abort If(Player Closest To Reticle(Event Player, All Teams).Ghost_Mode);
-			Player Closest To Reticle(Event Player, All Teams).Ghost_Mode = True;
-			Disable Movement Collision With Environment(Player Closest To Reticle(Event Player, All Teams), False);
-			Disable Movement Collision With Players(Player Closest To Reticle(Event Player, All Teams));
-			Play Effect(All Players(All Teams), Good Pickup Effect, Color(Blue), Player Closest To Reticle(Event Player, All Teams), 1);
-		Else If(Is Button Held(Event Player, Button(Secondary Fire)));
-			Abort If(Player Closest To Reticle(Event Player, All Teams).High_Rank || Player Closest To Reticle(Event Player, All Teams).Full_Protection);
-			Abort If(Player Closest To Reticle(Event Player, All Teams).Ghost_Mode == False);
-			Player Closest To Reticle(Event Player, All Teams).Ghost_Mode = False;
-			Enable Movement Collision With Environment(Player Closest To Reticle(Event Player, All Teams));
-			Enable Movement Collision With Players(Player Closest To Reticle(Event Player, All Teams));
-			Play Effect(All Players(All Teams), Bad Pickup Effect, Color(Yellow), Player Closest To Reticle(Event Player, All Teams), 1);
+			If(Player Closest To Reticle(Event Player, All Teams).Ghost_Mode);
+				Player Closest To Reticle(Event Player, All Teams).Ghost_Mode = True;
+				Disable Movement Collision With Environment(Player Closest To Reticle(Event Player, All Teams), False);
+				Disable Movement Collision With Players(Player Closest To Reticle(Event Player, All Teams));
+				Play Effect(All Players(All Teams), Good Pickup Effect, Color(Blue), Player Closest To Reticle(Event Player, All Teams), 1);
+			Else;
+				Player Closest To Reticle(Event Player, All Teams).Ghost_Mode = False;
+				Enable Movement Collision With Environment(Player Closest To Reticle(Event Player, All Teams));
+				Enable Movement Collision With Players(Player Closest To Reticle(Event Player, All Teams));
+				Play Effect(All Players(All Teams), Bad Pickup Effect, Color(Yellow), Player Closest To Reticle(Event Player, All Teams), 1);
+			End;
 		Else If(Is Button Held(Event Player, Button(Ultimate)));
+			Abort If((Event Player.High_Rank || Event Player.Mod_Rank) == False);
 			If(Event Player.Ghost_Mode == False);
 				Event Player.Ghost_Mode = True;
 				Disable Movement Collision With Environment(Event Player, False);
 				Disable Movement Collision With Players(Event Player);
-				Play Effect(All Players(All Teams), Good Pickup Effect, Color(Blue), Event Player, 1);
 			Else;
 				Event Player.Ghost_Mode = False;
 				Enable Movement Collision With Environment(Event Player);
 				Enable Movement Collision With Players(Event Player);
-				Play Effect(All Players(All Teams), Bad Pickup Effect, Color(Yellow), Event Player, 1);
 			End;
-		End;
-	}
-}
-
-rule("Mode_26 - Slowmotion_&_Slow_Projectile")
-{
-	event
-	{
-		Ongoing - Each Player;
-		All;
-		All;
-	}
-
-	conditions
-	{
-		(Event Player.Mode_Cycle == 26 || Event Player.Mode_Cycle_Default == 10) == True;
-		Event Player.Signal == True;
-	}
-
-	actions
-	{
-		Event Player.Signal = False;
-		If(Is Button Held(Event Player, Button(Primary Fire)));
-			Abort If((Event Player.High_Rank || Event Player.Mod_Rank) == False);
-			Abort If(Player Closest To Reticle(Event Player, All Teams).High_Rank || Player Closest To Reticle(Event Player, All Teams).Full_Protection);
-			Abort If(Player Closest To Reticle(Event Player, All Teams).Slow_Projectile);
-			Player Closest To Reticle(Event Player, All Teams).Slow_Projectile = True;
-			Set Projectile Speed(Player Closest To Reticle(Event Player, All Teams), 1);
-			Set Projectile Gravity(Player Closest To Reticle(Event Player, All Teams), 0);
-			Play Effect(All Players(All Teams), Good Pickup Effect, Color(Blue), Player Closest To Reticle(Event Player, All Teams), 1);
-		Else If(Is Button Held(Event Player, Button(Secondary Fire)));
-			Abort If((Event Player.High_Rank || Event Player.Mod_Rank) == False);
-			Abort If(Player Closest To Reticle(Event Player, All Teams).High_Rank || Player Closest To Reticle(Event Player, All Teams).Full_Protection);
-			Abort If(Player Closest To Reticle(Event Player, All Teams).Slow_Projectile == False);
-			Player Closest To Reticle(Event Player, All Teams).Slow_Projectile = False;
-			Set Projectile Speed(Player Closest To Reticle(Event Player, All Teams), 100);
-			Set Projectile Gravity(Player Closest To Reticle(Event Player, All Teams), 100);
-			Play Effect(All Players(All Teams), Bad Pickup Effect, Color(Yellow), Player Closest To Reticle(Event Player, All Teams), 1);
-		Else If(Is Button Held(Event Player, Button(Ultimate)));
+		Else If(Is Button Held(Event Player, Button(Reload)));
 			If(Event Player.Slow_Projectile == False);
 				Event Player.Slow_Projectile = True;
 				If(Event Player.High_Rank || Event Player.Mod_Rank);
@@ -6143,24 +6171,225 @@ rule("Mode_26 - Slowmotion_&_Slow_Projectile")
 					Set Projectile Speed(Event Player, 50);
 				End;
 				Set Projectile Gravity(Event Player, 0);
-				Play Effect(All Players(All Teams), Good Pickup Effect, Color(Blue), Event Player, 1);
 			Else If(Event Player.Slow_Projectile);
 				Event Player.Slow_Projectile = False;
 				Set Projectile Speed(Event Player, 100);
 				Set Projectile Gravity(Event Player, 100);
-				Play Effect(All Players(All Teams), Bad Pickup Effect, Color(Yellow), Event Player, 1);
 			End;
 		Else If(Is Button Held(Event Player, Button(Ability 2)));
-			Abort If((Event Player.High_Rank || (Event Player == Host Player)) == False);
-			If(Global.Slowmotion == False);
-				Global.Slowmotion = True;
-				Set Slow Motion(10);
-				Big Message(All Players(All Teams), Custom String("Time Flows So Slowly"));
+			Abort If((Event Player.High_Rank || Event Player.Mod_Rank) == False);
+			Abort If(Event Player.Promoted_Rank && Event Player != Host Player);
+			If (Event Player.No_CD);
+				Event Player.No_CD = False;
 			Else;
-				Global.Slowmotion = False;
-				Set Slow Motion(100);
-				Big Message(All Players(All Teams), Custom String("Back In The Flow Of Time"));
+				Event Player.No_CD = True;
 			End;
+		End;
+		Wait(0.1, Ignore Condition);
+	}
+}
+
+rule("Mode_26 - Mind Control - Send")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Event Player.Mode_Cycle == 26;
+		Event Player.Signal == True;
+	}
+
+	actions
+	{
+		Event Player.Signal = False;
+		Event Player.Target_Shortcut = Player Closest To Reticle(Event Player, All Teams);
+		If(Is Button Held(Event Player, Button(Ultimate)));
+			Abort If(Event Player.Target_Shortcut.Full_Protection || Event Player.Target_Shortcut == Null || Not(Has Spawned(Event Player.Target_Shortcut)));
+			If(Event Player.Target_Shortcut.Control_Host != Null);
+				Small Message(Event Player, Custom String("  {0} has a pending request or is being controlled", Event Player.Target_Shortcut));
+				Abort;
+			End;
+			If(Array Contains(Event Player.Target_Shortcut.Control_Deny, Event Player));
+				Small Message(Event Player, Custom String("  Cannot send more requests to {0}!", Event Player.Target_Shortcut));
+				Abort;
+			End;
+			Event Player.Target_Shortcut.Control_Host = Event Player;
+			Destroy HUD Text(Event Player.Target_Shortcut.Control_ID);
+			Create HUD Text(Event Player.Target_Shortcut, Custom String("{0} has requested\r\n to control you! Accept?\r\n {1} : Yes\r\n {2} : No",
+				Event Player, Input Binding String(Button(Melee)), Input Binding String(Button(Reload))), 
+				Null, Null, Right, 20, Color(Red), Color(White), Color(White), String, Visible Never);
+			Event Player.Target_Shortcut.Control_ID = Last Text ID;
+			Small Message(Event Player, Custom String("  Control request send to {0}", Event Player.Target_Shortcut));
+			Small Message(Event Player.Target_Shortcut, Custom String("  {0} send you a control request!", Event Player));
+		Else If(Is Button Held(Event Player, Button(Reload)));
+			Abort If(Event Player.Target_Shortcut.Control_Host != Event Player);
+			Modify Player Variable(Event Player, Control_List, Remove From Array By Value, Event Player.Target_Shortcut);
+			Allow Button(Event Player.Target_Shortcut, Button(Jump));
+			Allow Button(Event Player.Target_Shortcut, Button(Crouch));
+			Allow Button(Event Player.Target_Shortcut, Button(Melee));
+			Allow Button(Event Player.Target_Shortcut, Button(Primary Fire));
+			Allow Button(Event Player.Target_Shortcut, Button(Secondary Fire));
+			Stop Holding Button(Event Player.Target_Shortcut, Button(Jump));
+			Stop Holding Button(Event Player.Target_Shortcut, Button(Crouch));
+			Stop Holding Button(Event Player.Target_Shortcut, Button(Primary Fire));
+			Stop Holding Button(Event Player.Target_Shortcut, Button(Secondary Fire));
+			Stop Forcing Throttle(Event Player.Target_Shortcut);
+			Stop Throttle In Direction(Event Player.Target_Shortcut);
+			Stop Facing(Event Player.Target_Shortcut);
+			Small Message(Event Player, Custom String("  Stopped controlling {0}", Event Player.Target_Shortcut));
+			Small Message(Event Player.Target_Shortcut, Custom String("  {0} stopped controlling you", Event Player));
+			Destroy HUD Text(Event Player.Target_Shortcut.Control_ID);
+			Event Player.Target_Shortcut.Control_Active = False;
+			Wait(0.2, Ignore Condition);
+			Event Player.Target_Shortcut.Control_Host = Null;
+		Else If(Is Button Held(Event Player, Button(Ability 2)));
+			If(Event Player.Control_List == Empty Array);
+				Small Message(Event Player, Custom String("  No player to teleport!"));
+				Abort;
+			End;
+			Teleport(Event Player.Control_List, Event Player);
+		End;
+		Wait(0.1, Ignore Condition);
+	}
+}
+
+rule("Mode_26 - Mind Control - Accept & Deny")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Event Player.Control_Host != Null;
+		Event Player.Control_Active == False;
+		(Is Button Held(Event Player, Button(Reload)) || Is Button Held(Event Player, Button(Melee))) == True;
+	}
+
+	actions
+	{
+		If(Is Button Held(Event Player, Button(Reload)));
+			Destroy HUD Text(Event Player.Control_ID);
+			Small Message(Event Player, Custom String("  Denied control request of {0}!", Event Player.Control_Host));
+			Small Message(Event Player.Control_Host, Custom String("  {0} denied your control request.", Event Player));
+			Modify Player Variable(Event Player, Control_Deny, Append To Array, Event Player.Control_Host);
+			Wait(0.2, Ignore Condition);
+			Event Player.Control_Host = Null;
+		Else If(Is Button Held(Event Player, Button(Melee)));
+			Destroy HUD Text(Event Player.Control_ID);
+			Destroy Icon(Event Player.Target_Arrow_ID);
+			Destroy Effect(Event Player.Target_Effect);
+			Create HUD Text(Event Player, Custom String(" Press {0} to break link ", Input Binding String(Button(Reload))), 
+				Null, Null, Right, 20, Color(Red), Color(White), Color(White), String, Visible Never);
+			Event Player.Control_ID = Last Text ID;
+			Disallow Button(Event Player, Button(Jump));
+			Disallow Button(Event Player, Button(Crouch));
+			Disallow Button(Event Player, Button(Melee));
+			Disallow Button(Event Player, Button(Primary Fire));
+			Disallow Button(Event Player, Button(Secondary Fire));
+			Modify Player Variable(Event Player.Control_Host, Control_List, Append To Array, Event Player);
+			Start Throttle In Direction(Event Player, Throttle Of(Event Player.Control_Host), 1, To Player, Replace Existing Throttle, Direction and Magnitude);
+			Start Facing(Event Player, Update Every Frame(Facing Direction Of(Event Player.Control_Host)), 1000, To World, Direction and Turn Rate);
+			Small Message(Event Player, Custom String("  Accpeted control request of {0}!", Event Player.Control_Host));
+			Small Message(Event Player.Control_Host, Custom String("  {0} accepted your control request!", Event Player));
+			Event Player.Control_Active = True;
+		End;
+	}
+}
+
+rule("Mode_26 - Mind Control - Break")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Event Player.Control_Host != Null;
+		Event Player.Control_Active == True;
+		Is Button Held(Event Player, Button(Reload)) == True;
+	}
+
+	actions
+	{
+		Modify Player Variable(Event Player.Control_Host, Control_List, Remove From Array By Value, Event Player);
+		Allow Button(Event Player, Button(Jump));
+		Allow Button(Event Player, Button(Crouch));
+		Allow Button(Event Player, Button(Melee));
+		Allow Button(Event Player, Button(Primary Fire));
+		Allow Button(Event Player, Button(Secondary Fire));
+		Stop Holding Button(Event Player, Button(Jump));
+		Stop Holding Button(Event Player, Button(Crouch));
+		Stop Holding Button(Event Player, Button(Primary Fire));
+		Stop Holding Button(Event Player, Button(Secondary Fire));
+		Stop Forcing Throttle(Event Player);
+		Stop Throttle In Direction(Event Player);
+		Stop Facing(Event Player);
+		Small Message(Event Player, Custom String("  Control link broken!"));
+		Small Message(Event Player.Control_Host, Custom String("  {0} broke the control link!", Event Player));
+		Destroy HUD Text(Event Player.Control_ID);
+		Wait(0.2, Ignore Condition);
+		Event Player.Control_Host = Null;
+		Event Player.Control_Active = False;
+		Wait(0.1, Ignore Condition);
+	}
+}
+
+rule("Mode_26 - Mind Control - Remote")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Event Player.Control_List != Empty Array;
+		(Is Button Held(Event Player, Button(Crouch)) || Is Button Held(Event Player, Button(Jump)) || Is Button Held(Event Player, Button(Melee))
+			|| Is Button Held(Event Player, Button(Primary Fire)) || Is Button Held(Event Player, Button(Secondary Fire))) == True;
+	}
+
+	actions
+	{
+		If(Is Button Held(Event Player, Button(Crouch)));
+			Start Holding Button(Event Player.Control_List, Button(Crouch));
+			Wait Until(Not(Is Button Held(Event Player, Button(Crouch))), 9999);
+			Stop Holding Button(Event Player.Control_List, Button(Crouch));
+		Else If(Is Button Held(Event Player, Button(Jump)));
+			Allow Button(Event Player.Control_List, Button(Jump));
+			Start Holding Button(Event Player.Control_List, Button(Jump));
+			Wait Until(Not(Is Button Held(Event Player, Button(Jump))), 9999);
+			Stop Holding Button(Event Player.Control_List, Button(Jump));
+			Disallow Button(Event Player.Control_List, Button(Jump));
+		Else If(Is Button Held(Event Player, Button(Primary Fire)));
+			Allow Button(Event Player.Control_List, Button(Primary Fire));
+			Start Holding Button(Event Player.Control_List, Button(Primary Fire));
+			Wait Until(Not(Is Button Held(Event Player, Button(Primary Fire))), 9999);
+			Stop Holding Button(Event Player.Control_List, Button(Primary Fire));
+			Disallow Button(Event Player.Control_List, Button(Primary Fire));
+		Else If(Is Button Held(Event Player, Button(Secondary Fire)));
+			Allow Button(Event Player.Control_List, Button(Secondary Fire));
+			Start Holding Button(Event Player.Control_List, Button(Secondary Fire));
+			Wait Until(Not(Is Button Held(Event Player, Button(Secondary Fire))), 9999);
+			Stop Holding Button(Event Player.Control_List, Button(Secondary Fire));
+			Disallow Button(Event Player.Control_List, Button(Secondary Fire));
+		Else If(Is Button Held(Event Player, Button(Melee)));
+			Allow Button(Event Player.Control_List, Button(Melee));
+			Press Button(Event Player.Control_List, Button(Melee));
+			Disallow Button(Event Player.Control_List, Button(Melee));
 		End;
 	}
 }
@@ -6791,52 +7020,6 @@ rule("Mode_31 - Special_Camera")
 
 			Event Player.Camera = 10;
 			Small Message(Event Player, Custom String("  Camera: Follow {0}" , Player Closest To Reticle(Event Player, All Teams)));
-		Else If(Is Button Held(Event Player, Button(Melee)));
-			Abort If((Event Player.High_Rank || Event Player.Mod_Rank) == False);
-			If(Not(Event Player.Camera_Info_Array[1]));
-				Destroy Effect(Event Player.Camera_Info_Array[5]);
-				Destroy In-World Text(Event Player.Camera_Info_Array[4]);
-				
-				Wait Until(Not(Is Button Held(Event Player, Button(Melee))), 1);
-				If(Is Button Held(Event Player, Button(Melee)));
-					Event Player.Camera_Position = Eye Position(Event Player) + 0.05 * Facing Direction Of(Event Player) * -1;
-				Else;
-					Event Player.Camera_Position = Subtract(Ray Cast Hit Position(Eye Position(Event Player), 
-						Eye Position(Event Player) + 20 * Event Player.Scale_Real * Facing Direction Of(Event Player), 
-						Null, Event Player, True),  Multiply(Vector(0.3, 0.3, 0.3), Event Player.Scale_Real * Facing Direction Of(Event Player)));
-				End;
-			
-				Event Player.Camera_Target = Custom String("Currently No Target");
-				Create In-World Text(Filtered Array(All Players(All Teams), Current Array Element != Event Player || Current Array Element.Camera_Info_Array[0] == False), 
-					Custom String("Security Cam of {0}\r\n{1}\r\n", Event Player, Event Player.Camera_Target), Event Player.Camera_Position, 0.1, 
-					Clip Against Surfaces, Visible To and String, Color(White), Visible Never);
-				Event Player.Camera_Info_Array[4] = Last Text ID;
-
-				Create Effect(Filtered Array(All Players(All Teams), Current Array Element != Event Player || Current Array Element.Camera_Info_Array[0] == False), Sphere, Color(White), 
-					Event Player.Camera_Position, 0.1, Position and Radius);
-				Event Player.Camera_Info_Array[5] = Last Created Entity;
-
-				Event Player.Camera_Helper = Null;
-				Event Player.Camera_Info_Array[6] = Eye Position(Event Player);
-
-				Event Player.Camera = 11;
-
-				Event Player.Camera_Info_Array[0] = False;
-				Event Player.Camera_Info_Array[1] = True;
-
-				Small Message(Event Player, Custom String("  Security Camera placed!"));
-			Else;
-				If(Event Player.Camera_Info_Array[0]);
-					Event Player.Camera_Target = Custom String("Currently No Target");
-					Event Player.Camera_Info_Array[0] = False;
-					Event Player.Camera = 0;
-				Else;
-					Event Player.Camera_Helper = Null;
-					Event Player.Camera_Info_Array[0] = True;
-					Small Message(Event Player, Custom String("  Camera: Security"));
-					Event Player.Camera = 11;
-				End;
-			End;
 		End;
 		Destroy Effect(Event Player.Camera_Info_Array[2]);
 	}
@@ -6931,73 +7114,6 @@ rule("Mode_31 - Cam_LOS_False")
 		Start Camera(Event Player, Update Every Frame(Ray Cast Hit Position(Eye Position(Event Player), 
 			Eye Position(Event Player) + -1 * Event Player.Scale_Real * Facing Direction Of(Event Player), 
 			Null, Event Player, True)), Update Every Frame(Eye Position(Event Player) + 10 * Facing Direction Of(Event Player)), Event Player.Camera_Smooth);
-	}
-}
-
-rule("Mode_31 - Security_LOS_True")
-{
-	event
-	{
-		Ongoing - Each Player;
-		All;
-		All;
-	}
-
-	conditions
-	{
-		Event Player.Camera == 11;
-		Event Player.Camera_Info_Array[0] == True;
-		Is True For Any(Filtered Array(All Living Players(All Teams), Has Spawned(Current Array Element)), 
-			Is In Line of Sight(Event Player.Camera_Position, Current Array Element, Barriers Do Not Block LOS)) == True;
-	}
-
-	actions
-	{
-		Event Player.Camera_LOS = Empty Array;
-		For Player Variable(Event Player, Camera_Loop, 0, Count Of(Filtered Array(All Living Players(All Teams), Has Spawned(Current Array Element))), 1);
-			If(Is In Line of Sight(Event Player.Camera_Position, Eye Position(Filtered Array(All Living Players(All Teams), Has Spawned(Current Array Element))[Event Player.Camera_Loop]), 
-				Barriers Do Not Block LOS));
-				Modify Player Variable(Event Player, Camera_LOS, Append To Array, Filtered Array(All Living Players(All Teams), Has Spawned(Current Array Element))[Event Player.Camera_Loop]);
-			End;
-		End;
-		If(Event Player.Camera_LOS == Empty Array);
-			Wait(0.1, Ignore Condition);
-			Loop If Condition Is True;
-		End;
-		If(Event Player.Camera_Helper != Sorted Array(Event Player.Camera_LOS, Distance Between(Event Player.Camera_Position, Eye Position(Current Array Element)))[0]);
-			Event Player.Camera_Smooth = 0.1;
-			Event Player.Camera_Helper = Sorted Array(Event Player.Camera_LOS, Distance Between(Event Player.Camera_Position, Eye Position(Current Array Element)))[0];
-			Event Player.Camera_Target = Custom String("Currently spectating: {0}", Event Player.Camera_Helper);
-			Start Camera(Event Player, Event Player.Camera_Position, Update Every Frame(Eye Position(Event Player.Camera_Helper)), Event Player.Camera_Smooth);
-		End;
-		Wait(0.1, Ignore Condition);
-		Loop If Condition Is True;
-	}
-}
-
-rule("Mode_31 - Security_LOS_False")
-{
-	event
-	{
-		Ongoing - Each Player;
-		All;
-		All;
-	}
-
-	conditions
-	{
-		Event Player.Camera == 11;
-		Event Player.Camera_Info_Array[0] == True;
-		Is True For Any(Filtered Array(All Living Players(All Teams), Has Spawned(Current Array Element)), 
-			Is In Line of Sight(Event Player.Camera_Position, Current Array Element, Barriers Do Not Block LOS)) == False;
-	}
-
-	actions
-	{
-		Event Player.Camera_Helper = Null;
-		Event Player.Camera_Target = Custom String("Currently No Target");
-		Event Player.Camera_Smooth = 0.1;
-		Start Camera(Event Player, Event Player.Camera_Position, Event Player.Camera_Info_Array[6], Event Player.Camera_Smooth);
 	}
 }
 
@@ -7894,6 +8010,7 @@ rule("Mode_34 - Communication")
 				300, To World, Direction and Turn Rate);
 			Wait(0.2, Ignore Condition);
 			Communicate(Event Player.Comms_Target, Hello);
+			Small Message(Event Player, Custom String("   Moe says: {0}!", String("Hello")));
 		Else If(Is Button Held(Event Player, Button(Secondary Fire)));
 			Communicate(Event Player, Goodbye);
 			Event Player.Comms_Target.Bot_CD = 3;
@@ -7903,6 +8020,7 @@ rule("Mode_34 - Communication")
 				300, To World, Direction and Turn Rate);
 			Wait(0.2, Ignore Condition);
 			Communicate(Event Player.Comms_Target, Goodbye);
+			Small Message(Event Player, Custom String("   Moe says: {0}.", String("Goodbye")));
 		Else If(Is Button Held(Event Player, Button(Ability 2)));
 			Communicate(Event Player, Yes);
 			Event Player.Comms_Target.Bot_CD = 3;
@@ -7912,6 +8030,7 @@ rule("Mode_34 - Communication")
 				300, To World, Direction and Turn Rate);
 			Wait(0.2, Ignore Condition);
 			Communicate(Event Player.Comms_Target, Thanks);
+			Small Message(Event Player, Custom String("   Moe says: {0}!", String("Thanks")));
 		Else If(Is Button Held(Event Player, Button(Reload)));
 			Communicate(Event Player, No);
 			Event Player.Comms_Target.Bot_CD = 3;
@@ -7921,6 +8040,7 @@ rule("Mode_34 - Communication")
 				300, To World, Direction and Turn Rate);
 			Wait(0.2, Ignore Condition);
 			Communicate(Event Player.Comms_Target, Sorry);
+			Small Message(Event Player, Custom String("   Moe says: {0}...", String("Sorry")));
 		Else If(Is Button Held(Event Player, Button(Ultimate)));
 			Communicate(Event Player, Thanks);
 			Event Player.Comms_Target.Bot_CD = 3;
@@ -7930,6 +8050,7 @@ rule("Mode_34 - Communication")
 				300, To World, Direction and Turn Rate);
 			Wait(0.2, Ignore Condition);
 			Communicate(Event Player.Comms_Target, Yes);
+			Small Message(Event Player, Custom String("   Moe says: {0}!", String("Yes")));
 		Else If(Is Button Held(Event Player, Button(Ability 1)));
 			Communicate(Event Player, Sorry);
 			Event Player.Comms_Target.Bot_CD = 3;
@@ -7939,6 +8060,7 @@ rule("Mode_34 - Communication")
 				300, To World, Direction and Turn Rate);
 			Wait(0.2, Ignore Condition);
 			Communicate(Event Player.Comms_Target, No);
+			Small Message(Event Player, Custom String("   Moe says: {0}.", String("No")));
 		End;
 		Wait(1, Ignore Condition);
 		Start Facing(Event Player.Comms_Target, Update Every Frame(Direction Towards(Eye Position(Event Player.Comms_Target), 
@@ -8039,7 +8161,11 @@ rule("Extra_3 - Short Hop")
 	{
 		Cancel Primary Action(Event Player);
 		Play Effect(Event Player, Good Explosion, Global.Rainbow_Color, Position Of(Event Player), 0.75);
-		Teleport(Event Player, Position Of(Event Player) + Facing Direction Of(Event Player) * 12.500);
+		Teleport(Event Player, Position Of(Event Player) + Facing Direction Of(Event Player) * 12.5);
+		If(Event Player.Control_List != Empty Array);
+			Wait(0.01, Ignore Condition);
+			Teleport(Event Player.Control_List, Position Of(Event Player));
+		End;
 		Wait(0.1, Ignore Condition);
 		Play Effect(Event Player, Good Explosion, Global.Rainbow_Color, Position Of(Event Player), 0.75);
 		Apply Impulse(Event Player, Up, 2, To World, Cancel Contrary Motion);
@@ -8146,56 +8272,6 @@ rule("Extra_7 - No Cooldowns")
 	}
 }
 
-rule("Extra_8 - Ana Nano")
-{
-	event
-	{
-		Player Dealt Healing;
-		All;
-		Ana;
-	}
-
-	conditions
-	{
-		((Event Player.High_Rank || Event Player.Mod_Rank) == True);
-		Event Ability == Button(Ultimate);
-
-	}
-
-	actions
-	{
-		Stop Chasing Player Variable(Healee, Extra8_Timer);
-		Healee.Extra8_Timer = 20;
-		Chase Player Variable Over Time(Healee, Extra8_Timer, 0, 10, None);
-		Start Modifying Hero Voice Lines(Healee, (Sine From Radians(Healee.Extra8_Timer))/1.7 + 1, true);
-	}
-}
-
-rule("Extra_8 - Ana Target Reset")
-{
-	event
-	{
-		Ongoing - Each Player;
-		All;
-		All;
-	}
-
-	conditions
-	{
-		Event Player.Extra8_Timer == 0;
-	}
-
-	actions
-	{
-		Stop Chasing Player Variable(Event Player, Extra8_Timer);
-		Stop Modifying Hero Voice Lines(Event Player);
-		If(Event Player.Voice_Pitch != 1 && Event Player.Voice_Pitch >= 0.5);
-			Start Modifying Hero Voice Lines(Event Player, Event Player.Voice_Pitch, False);
-		End;
-		Event Player.Extra8_Timer = -1;
-	}
-}
-
 rule("Extra_9 - GIVE PETS")
 {
 	event
@@ -8219,9 +8295,9 @@ rule("Extra_9 - GIVE PETS")
 			Vector(If-Then-Else(Hero Of(Event Player) == Hero(Moira), -0.08, 0.18), If-Then-Else(Hero Of(Event Player) == Hero(Moira), -0.4, -0.25), 0), Event Player, Rotation) + 
 			Event Player.Scale_Real * Facing Direction Of(Event Player) * If-Then-Else(Hero Of(Event Player) == Hero(Sombra), 0.6, 1)), 
 			Heart, Visible To and Position, Color(Red), False);
-		Event Player.ExtraHeart_ID = Last Created Entity;
+		Event Player.ExtraEffect_ID = Last Created Entity;
 		Wait Until(!Is Firing Secondary(Event Player) || Is In Alternate Form(Event Player), 9999);
-		Destroy Icon(Event Player.ExtraHeart_ID);
+		Destroy Icon(Event Player.ExtraEffect_ID);
 	}
 }
 
@@ -8350,7 +8426,7 @@ rule("Extra_13: Widow Laserpointer")
 
 	actions
 	{
-		Destroy Effect(Event Player.Extra14_ID);
+		Destroy Effect(Event Player.ExtraEffect_ID);
 		Wait(0.4, Abort When False);
 		Create Beam Effect(Filtered Array(All Players(All Teams), Not(Current Array Element == Event Player && Current Array Element.Camera <= 5) &&
 			(Hero Of(Current Array Element) != Hero(Widowmaker) || Current Array Element == Event Player)), 
@@ -8358,9 +8434,9 @@ rule("Extra_13: Widow Laserpointer")
 			+ 0.4 * Event Player.Scale_Real * Update Every Frame(Facing Direction Of(Event Player))), 
 			Update Every Frame(Ray Cast Hit Position(Eye Position(Event Player), Eye Position(Event Player) + 150 * Event Player.Scale_Real * Facing Direction Of(Event Player), 
 			All Players(All Teams), Event Player, False)), Color(Red), Visible To Position and Radius);
-		Event Player.Extra14_ID = Last Created Entity;
+		Event Player.ExtraEffect_ID = Last Created Entity;
 		Wait Until(Not(Is Firing Secondary(Event Player)) || Hero Of(Event Player) != Hero(Widowmaker), 9999);
-		Destroy Effect(Event Player.Extra14_ID);
+		Destroy Effect(Event Player.ExtraEffect_ID);
 	}
 }
 
@@ -8631,9 +8707,9 @@ rule("Extra_24: Echo Heart")
 				Distance Between(Ray Cast Hit Position(Eye Position(Event Player), Eye Position(Event Player) + Facing Direction Of(Event Player) * 16 * Event Player.Scale_Real, 
 				All Players(All Teams), Event Player, True), Eye Position(Event Player)))), 
 				Heart, Visible To and Position, Color(Red), False);
-		Event Player.ExtraHeart_ID = Last Created Entity;
+		Event Player.ExtraEffect_ID = Last Created Entity;
 		Wait Until(Not(Is Using Ability 2(Event Player)) || Hero Of(Event Player) != Hero(Echo), 9999);
-		Destroy Icon(Event Player.ExtraHeart_ID);
+		Destroy Icon(Event Player.ExtraEffect_ID);
 	}
 }
 
@@ -8662,9 +8738,9 @@ rule("Extra_25: Soldier Heart")
 			Direction Towards(Eye Position(Event Player), Eye Position(Player Closest To Reticle(Event Player, All Teams)) - Vector(0,0.5,0)), Facing Direction Of(Event Player)) *
 			(-1 * (Event Player.Spam_Cooldown - 1)) * 50), 
 				Heart, Visible To and Position, Color(Red), False);
-		Event Player.ExtraHeart_ID = Last Created Entity;
+		Event Player.ExtraEffect_ID = Last Created Entity;
 		Wait(0.25, Ignore Condition);
-		Destroy Icon(Event Player.ExtraHeart_ID);
+		Destroy Icon(Event Player.ExtraEffect_ID);
 		Loop If Condition Is True;
 	}
 }
@@ -8688,9 +8764,9 @@ rule("Extra_26: Illari Heart")
 	{
 		Create Icon(All Players(All Teams), Update Every Frame(Ray Cast Hit Position(Eye Position(Event Player), Eye Position(Event Player) + 
 			Facing Direction Of(Event Player) * 15 * Event Player.Scale_Real, All Players(All Teams), Event Player, True) - Vector(0,0.5,0)), Heart, Visible To and Position, Color(Red), False);
-		Event Player.ExtraHeart_ID = Last Created Entity;
+		Event Player.ExtraEffect_ID = Last Created Entity;
 		Wait Until(Not(Is Firing Secondary(Event Player)) || Hero Of(Event Player) != Hero(Illari), 9999);
-		Destroy Icon(Event Player.ExtraHeart_ID);
+		Destroy Icon(Event Player.ExtraEffect_ID);
 	}
 }
 
@@ -8756,9 +8832,9 @@ rule("Tp effects per Map")
 
 		Wait(20, Ignore Condition);
 		Wait(3, Ignore Condition);
-		If(String Length(Global.Credits[0])!=61 || String Length(Global.Credits[1])!=61 || 
+		If(String Length(Global.Credits[0])!=61 || String Length(Global.Credits[1])!=53 || 
 			Custom String("E{1}t{2}em{0}", Char In String(Global.Credits[0], 49), Char In String(Global.Credits[0], 30), Char In String(Global.Credits[0], 18)) != Custom String("Extremo") ||
-			Custom String("{2}{0}{1}{1}s", Char In String(Global.Credits[1], 23), Char In String(Global.Credits[1], 58), Char In String(Global.Credits[1], 50)) != Custom String("Balls"));
+			Custom String("{1}{2}{1}c{0}t", Char In String(Global.Credits[1], 23), Char In String(Global.Credits[1], 51), Char In String(Global.Credits[1], 29)) != Custom String("lolcat"));
 			For Global Variable(Drawing_Obj_Storage, 0, 128, 1);
 				Global.Drawing_Obj_Storage -= 1;
 			End;
@@ -8794,6 +8870,129 @@ rule("Teleports Logic")
 	}
 }
 
+rule("Moe Position")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	actions
+	{
+		Global.Moe_Position = Vector(0,100,0);
+		Global.Moe_Force = False;
+		If(Current Map == Map(Nepal Shrine));
+			Global.Moe_Position = Vector(-18.35, 13, 0);
+		Else If(Current Map == Map(Nepal Village));
+			Global.Moe_Position = Vector(-211.55, -88, -2.4);
+		Else If(Current Map == Map(Paris));
+			Global.Moe_Position = Vector(-36.9, 11.99, 26.2);
+		Else If(Current Map == Map(Blizzard World) || Current Map == Map(Blizzard World Winter));
+			Global.Moe_Position = Vector(-131.34, 1.74, 107.87);
+		Else If(Current Map == Map(Busan Downtown Lunar New Year));
+			Global.Moe_Position = Vector(51.9, 21.4, -127.3);
+		Else If(Current Map == Map(Busan Sanctuary Lunar New Year));
+			Global.Moe_Position = Vector(-328.9, 8.07, 179.33);
+		Else If(Current Map == Map(New Queen Street));
+			Global.Moe_Position = Vector(-53, 2, -5.25);
+		Else If(Current Map == Map(Esperança));
+			Global.Moe_Position = Vector(0, 0, 19.65);
+		Else If(Current Map == Map(Château Guillard) || Current Map == Map(Château Guillard Halloween));
+			Global.Moe_Position = Vector(206.5, 0.6, 89.7);
+		Else If(Current Map == Map(Black Forest) || Current Map == Map(Black Forest Winter));
+			Global.Moe_Position = Vector(3.7, 15.56, -10.07);
+		Else If(Current Map == Map(Castillo));
+			Global.Moe_Position = Vector(-121.14, 34.57, 71.82);
+		Else If(Current Map == Map(Watchpoint: Gibraltar));
+			Global.Moe_Position = Vector(57.87, 9.44, -117.95);
+		Else If(Current Map == Map(Malevento));
+			Global.Moe_Position = Vector(-34.36, -1, 25.2);
+		Else If(Current Map == Map(Necropolis));
+			Global.Moe_Position = Vector(2.75, 3, -26.85);
+		Else If(Current Map == Map(Petra));
+			Global.Moe_Position = Vector(-17.38, -8.08, 28.85);
+		Else If(Current Map == Map(Circuit Royal));
+			Global.Moe_Position = Vector(15.78, 11.37, -43.46);
+		Else If(Current Map == Map(Hollywood));
+			Global.Moe_Position = Vector(-11.1, 0.01, 41);
+		Else If(Current Map == Map(Eichenwalde) || Current Map == Map(Eichenwalde Halloween));
+			Global.Moe_Position = Vector(125.6, 14.73, -18.6);
+		Else If(Current Map == Map(Ilios) || Current Map == Map(Ilios Lighthouse));
+			Global.Moe_Position = Vector(358.48, 23.41, -51.67);
+		Else If(Current Map == Map(Ilios Ruins));
+			Global.Moe_Position = Vector(41.6, 69, -163.7);
+		Else If(Current Map == Map(Ilios Well));
+			Global.Moe_Position = Vector(-184.3, 1, -22.65);
+		Else If(Current Map == Map(Oasis City Center));
+			Global.Moe_Position = Vector(114.04, 0.8, 218.04);
+		Else If(Current Map == Map(Oasis Gardens));
+			Global.Moe_Position = Vector(129.9, 15.3, -236.15);
+		Else If(Current Map == Map(Route 66));
+			Global.Moe_Position = Vector(-33.22, 3.21, -11.76);
+		Else If(Current Map == Map(Shambali Monastery));
+			Global.Moe_Position = Vector(-27.95, 73.79, 195.38);
+		Else If(Current Map == Map(Temple Of Anubis));
+			Global.Moe_Position = Vector(15.86, 10.04, 11.82);
+		Else If(Current Map == Map(Lijiang Tower) || Current Map == Map(Lijiang Control Center) 
+			|| Current Map == Map(Lijiang Tower Lunar New Year) || Current Map == Map(Lijiang Control Center Lunar New Year));
+			Global.Moe_Position = Vector(-17.3, 270, 330.7);
+		Else If(Current Map == Map(Lijiang Night Market) || Current Map == Map(Lijiang Night Market Lunar New Year));
+			Global.Moe_Position = Vector(0, 95.3, 129.8);
+		Else If(Current Map == Map(Ayutthaya));
+			Global.Moe_Position = Vector(16, 1, 50.64);
+		Else If(Current Map == Map(Volskaya Industries));
+			Global.Moe_Position = Vector(-8.2, -4.23, 39.75);
+		Else If(Current Map == Map(Havana));
+			Global.Moe_Position = Vector(-58.3, 3.95, -30.86);
+		Else If(Current Map == Map(Suravasa));
+			Global.Moe_Position = Vector(182.18, 0.78, 63.41);
+		Else If(Current Map == Map(New Junk City));
+			Global.Moe_Position = Vector(4.78, 3.84, -67.62);
+		Else;
+			Global.Moe_Force = True;
+		End;
+		
+		Abort If(Not(Global.Moe_Force));
+		If(Current Map == Map(Kanezaka));
+			Global.Moe_Position = Vector(6.5, 6, 14);
+		Else If(Current Map == Map(Hanamura) || Current Map == Map(Hanamura Winter));
+			Global.Moe_Position = Vector(49.4, -1, -0.2);
+		Else If(Current Map == Map(King's Row) || Current Map == Map(King's Row Winter));
+			Global.Moe_Position = Vector(-76.8, 0.5, -37);
+		Else If(Current Map == Map(Dorado));
+			Global.Moe_Position = Vector(71.6, 7, -30.27);
+		Else If(Current Map == Map(Nepal));
+			Global.Moe_Position = Vector(72.2, 84, -11.26);
+		Else If(Current Map == Map(Nepal Sanctum));
+			Global.Moe_Position = Vector(89.9, 132.91, -45);
+		Else If(Current Map == Map(Busan));
+			Global.Moe_Position = Vector(223.5, 10, 211.5);
+		Else If(Current Map == Map(Numbani));
+			Global.Moe_Position = Vector(19.95, 0.25, 4.4);
+		Else If(Current Map == Map(Colosseo));
+			Global.Moe_Position = Vector(-11.3, 2, -10.2);
+		Else If(Current Map == Map(Ecopoint: Antarctica) || Current Map == Map(Ecopoint: Antarctica Winter));
+			Global.Moe_Position = Vector(26, 9.25, 0);
+		Else If(Current Map == Map(Hollywood Halloween));
+			Global.Moe_Position = Vector(0.4, 6.4, -104.92);
+		Else If(Current Map == Map(Horizon Lunar Colony));
+			Global.Moe_Position = Vector(86.3, 6.62, -60.85);
+		Else If(Current Map == Map(Junkertown));
+			Global.Moe_Position = Vector(-22.87, 4.76, -53.75);
+		Else If(Current Map == Map(Oasis) || Current Map == Map(Oasis University));
+			Global.Moe_Position = Vector(-128, 11.1, 0);
+		Else If(Current Map == Map(Rialto));
+			Global.Moe_Position = Vector(10.95, -0.45, -85.87);
+		Else If(Current Map == Map(Antarctic Peninsula));
+			Global.Moe_Position = Vector(318.4, -27, -132.2);
+		Else If(Current Map == Map(Paraíso));
+			Global.Moe_Position = Vector(-39.5, -2, 65.8);
+		Else;
+			Global.Moe_Force = False;
+		End;
+	}
+}
+
 rule("Spawn Moe-Bot")
 {
 	event
@@ -8815,8 +9014,7 @@ rule("Spawn Moe-Bot")
 		Else;
 			Create Dummy Bot(Hero(Soldier: 76), Team 2, -1, Vector(0, 100, 0), Vector(0,0,1));
 		End;
-		Start Forcing Dummy Bot Name(Filtered Array(All Players(All Teams), Is Dummy Bot(Current Array Element) && 
-			Hero Of(Current Array Element) == Hero(Soldier: 76)), Custom String("Moe Szyslak"));
+		Start Forcing Dummy Bot Name(Filtered Array(All Players(All Teams), Is Dummy Bot(Current Array Element)), Custom String("Moe Szyslak"));
 	}
 }
 
@@ -8847,133 +9045,18 @@ rule("Moe-Bot Behavior")
 		Set Max Health(Event Player, 10000);
 		Set Knockback Received(Event Player, 0);
 		Start Heal Over Time(Event Player, Null, 9999, 500);
-		Global.Moe_Position = Vector(0,100,0);
-		Event Player.Full_Protection = True;
+		If(Global.Moe_Force);
+			Start Forcing Player Position(Event Player, Global.Moe_Position, False);
+			Event Player.Full_Protection = True;
+		End;
 		Event Player.Auto_Respawn = False;
 		Wait(0.1, Ignore Condition);
-		If(Current Map == Map(Kanezaka));
-			Global.Moe_Position = Vector(6.5, 6, 14);
-			Start Forcing Player Position(Event Player, Global.Moe_Position, False);
-		Else If(Current Map == Map(Hanamura) || Current Map == Map(Hanamura Winter));
-			Global.Moe_Position = Vector(49.4, -1, -0.2);
-			Start Forcing Player Position(Event Player, Global.Moe_Position, False);
-		Else If(Current Map == Map(King's Row) || Current Map == Map(King's Row Winter));
-			Global.Moe_Position = Vector(-76.8, 0.5, -37);
-			Start Forcing Player Position(Event Player, Global.Moe_Position, False);
-		Else If(Current Map == Map(Dorado));
-			Global.Moe_Position = Vector(71.6, 7, -30.27);
-			Start Forcing Player Position(Event Player, Global.Moe_Position, False);
-		Else If(Current Map == Map(Nepal));
-			Global.Moe_Position = Vector(72.2, 84, -11.26);
-			Start Forcing Player Position(Event Player, Global.Moe_Position, False);
-		Else If(Current Map == Map(Nepal Sanctum));
-			Global.Moe_Position = Vector(89.9, 132.91, -45);
-			Start Forcing Player Position(Event Player, Global.Moe_Position, False);
-		Else If(Current Map == Map(Nepal Shrine));
-			Global.Moe_Position = Vector(-18.35, 13, 0);
-		Else If(Current Map == Map(Nepal Village));
-			Global.Moe_Position = Vector(-211.55, -88, -2.4);
-		Else If(Current Map == Map(Paris));
-			Global.Moe_Position = Vector(-36.9, 11.99, 26.2);
-		Else If(Current Map == Map(Blizzard World) || Current Map == Map(Blizzard World Winter));
-			Global.Moe_Position = Vector(-131.34, 1.74, 107.87);
-		Else If(Current Map == Map(Busan));
-			Global.Moe_Position = Vector(223.5, 10, 211.5);
-			Start Forcing Player Position(Event Player, Global.Moe_Position, False);
-		Else If(Current Map == Map(Busan Downtown Lunar New Year));
-			Global.Moe_Position = Vector(51.9, 21.4, -127.3);
-		Else If(Current Map == Map(Busan Sanctuary Lunar New Year));
-			Global.Moe_Position = Vector(-328.9, 8.07, 179.33);
-		Else If(Current Map == Map(Numbani));
-			Global.Moe_Position = Vector(19.95, 0.25, 4.4);
-			Start Forcing Player Position(Event Player, Vector(19.95, 0.25, 4.4), False);
-		Else If(Current Map == Map(Colosseo));
+		If(Current Map == Map(Colosseo));
 			Disable Movement Collision With Environment(Event Player, False);
-			Wait(0.1, Ignore Condition);
-			Global.Moe_Position = Vector(-11.3, 2, -10.2);
-		Else If(Current Map == Map(New Queen Street));
-			Global.Moe_Position = Vector(-53, 2, -5.25);
-		Else If(Current Map == Map(Esperança));
-			Global.Moe_Position = Vector(0, 0, 19.65);
-		Else If(Current Map == Map(Château Guillard) || Current Map == Map(Château Guillard Halloween));
-			Global.Moe_Position = Vector(206.5, 0.6, 89.7);
-		Else If(Current Map == Map(Black Forest) || Current Map == Map(Black Forest Winter));
-			Global.Moe_Position = Vector(3.7, 15.56, -10.07);
-		Else If(Current Map == Map(Castillo));
-			Global.Moe_Position = Vector(-121.14, 34.57, 71.82);
-		Else If(Current Map == Map(Watchpoint: Gibraltar));
-			Global.Moe_Position = Vector(57.87, 9.44, -117.95);
-		Else If(Current Map == Map(Ecopoint: Antarctica) || Current Map == Map(Ecopoint: Antarctica Winter));
-			Global.Moe_Position = Vector(26, 9.25, 0);
-			Start Forcing Player Position(Event Player, Global.Moe_Position, False);
-		Else If(Current Map == Map(Malevento));
-			Global.Moe_Position = Vector(-34.36, -1, 25.2);
-		Else If(Current Map == Map(Necropolis));
-			Global.Moe_Position = Vector(2.75, 3, -26.85);
-		Else If(Current Map == Map(Petra));
-			Global.Moe_Position = Vector(-17.38, -8.08, 28.85);
-		Else If(Current Map == Map(Circuit Royal));
-			Global.Moe_Position = Vector(15.78, 11.37, -43.46);
-		Else If(Current Map == Map(Havana));
-			Disable Movement Collision With Environment(Event Player, False);
-			Global.Moe_Position = Vector(-58, 3.95, -29.44);
-		Else If(Current Map == Map(Hollywood));
-			Global.Moe_Position = Vector(-11.1, 0.01, 41);
-		Else If(Current Map == Map(Hollywood Halloween));
-			Global.Moe_Position = Vector(0.4, 6.4, -104.92);
-			Start Forcing Player Position(Event Player, Global.Moe_Position, False);
-		Else If(Current Map == Map(Eichenwalde) || Current Map == Map(Eichenwalde Halloween));
-			Global.Moe_Position = Vector(125.6, 14.73, -18.6);
-		Else If(Current Map == Map(Horizon Lunar Colony));
-			Global.Moe_Position = Vector(86.3, 6.62, -60.85);
-			Start Forcing Player Position(Event Player, Global.Moe_Position, False);
-		Else If(Current Map == Map(Ilios) || Current Map == Map(Ilios Lighthouse));
-			Global.Moe_Position = Vector(358.48, 23.41, -51.67);
-		Else If(Current Map == Map(Ilios Ruins));
-			Global.Moe_Position = Vector(41.6, 69, -163.7);
-		Else If(Current Map == Map(Ilios Well));
-			Global.Moe_Position = Vector(-184.3, 1, -22.65);
-		Else If(Current Map == Map(Junkertown));
-			Global.Moe_Position = Vector(-22.87, 4.76, -53.75);
-			Start Forcing Player Position(Event Player, Global.Moe_Position, False);
-		Else If(Current Map == Map(Oasis) || Current Map == Map(Oasis University));
-			Global.Moe_Position = Vector(-128, 11.1, 0);
-			Start Forcing Player Position(Event Player, Global.Moe_Position, False);
-		Else If(Current Map == Map(Oasis City Center));
-			Global.Moe_Position = Vector(114.04, 0.8, 218.04);
-		Else If(Current Map == Map(Oasis Gardens));
-			Global.Moe_Position = Vector(129.9, 15.3, -236.15);
 		Else If(Current Map == Map(Rialto));
 			Disable Movement Collision With Environment(Event Player, True);
-			Global.Moe_Position = Vector(10.95, -0.45, -85.87);
-			Start Forcing Player Position(Event Player, Global.Moe_Position, False);
-		Else If(Current Map == Map(Route 66));
-			Global.Moe_Position = Vector(-33.22, 3.21, -11.76);
-			Teleport(Event Player,Global.Moe_Position);
-		Else If(Current Map == Map(Shambali Monastery));
-			Global.Moe_Position = Vector(-27.95, 73.79, 195.38);
-		Else If(Current Map == Map(Temple Of Anubis));
-			Global.Moe_Position = Vector(15.86, 10.04, 11.82);
-		Else If(Current Map == Map(Lijiang Tower) || Current Map == Map(Lijiang Control Center) 
-			|| Current Map == Map(Lijiang Tower Lunar New Year) || Current Map == Map(Lijiang Control Center Lunar New Year));
-			Global.Moe_Position = Vector(-17.3, 270, 330.7);
-		Else If(Current Map == Map(Lijiang Night Market) || Current Map == Map(Lijiang Night Market Lunar New Year));
-			Global.Moe_Position = Vector(0, 95.3, 129.8);
-		Else If(Current Map == Map(Ayutthaya));
-			Global.Moe_Position = Vector(16, 1, 50.64);
-		Else If(Current Map == Map(Volskaya Industries));
-			Global.Moe_Position = Vector(-8.2, -4.23, 39.75);
-		Else If(Current Map == Map(Antarctic Peninsula));
-			Global.Moe_Position = Vector(318.4, -27, -132.2);
-			Start Forcing Player Position(Event Player, Global.Moe_Position, False);
-		Else If(Current Map == Map(Paraíso));
-			Global.Moe_Position = Vector(-39.5, -2, 65.8);
-			Start Forcing Player Position(Event Player, Global.Moe_Position, False);
-		Else If(Current Map == Map(Suravasa));
-			Global.Moe_Position = Vector(182.18, 0.78, 63.41);
-		Else If(Current Map == Map(New Junk City));
-			Global.Moe_Position = Vector(4.78, 3.84, -67.62);
 		End;
+		Wait(0.1, Ignore Condition);
 		Teleport(Event Player, Global.Moe_Position);
 	}
 }
