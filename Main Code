@@ -5405,8 +5405,8 @@ rule("Mode_17 - Spawn_Hero_Force")
 		Abort If(Event Player.Target_Shortcut.Full_Protection && Not(Is Dummy Bot(Event Player.Target_Shortcut)));
 		If(Not(Is Button Held(Event Player, Button(Melee)) || Is Button Held(Event Player, Button(Ability 1))));
 			Cancel Primary Action(Event Player.Target_Shortcut);
-			Destroy Effect(Event Player.ExtraEffect_ID);
-			Destroy Icon(Event Player.ExtraEffect_ID);
+			Destroy Effect(Event Player.Target_Shortcut.ExtraEffect_ID);
+			Destroy Icon(Event Player.Target_Shortcut.ExtraEffect_ID);
 		End;
 		If(Is Button Held(Event Player, Button(Primary Fire)));
 			Start Forcing Player To Be Hero(Event Player.Target_Shortcut, Hero(Mercy));
