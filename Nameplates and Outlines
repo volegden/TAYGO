@@ -351,7 +351,7 @@ rule ("Custom nameplates list")
 				),
 			Array(Custom String("Fære"), 
 				Custom Color(246, 195, 247, 255),
-				Custom String("{0} If Karma doesn't come after you, I will {0}", Ability Icon String(Hero(Widowmaker), Button(Ability 2))),
+				Custom String("{0} † Agony's Embrace †  {0}", Ability Icon String(Hero(Widowmaker), Button(Ability 2))),
 				Custom String("{0} Therapy is now in session!{0}", Icon String(Asterisk)),
 				Custom String("{0} Spirit Blossom  {0}", Ability Icon String(Hero(Lifeweaver), Button(Primaryfire)))
 				),
@@ -402,7 +402,8 @@ rule ("Custom nameplates list")
 			Array(Custom String("Netbrex"), 
 				Custom Color(255, 220, 151, 255),
 				Custom String("• Hop 500 •"), 
-				Custom String("{0} Daedalus {0}", Ability Icon String(Hero(Mercy), Button(Ability 1)))
+				Custom String("{0} Daedalus {0}", Ability Icon String(Hero(Mercy), Button(Ability 1))),
+				Custom String("{0} local artist {0}", Icon String(Halo))
 				),
 			Array(Custom String("Núgget"), 
 				Custom Color(255, 130, 0, 255),
@@ -612,14 +613,16 @@ rule ("Custom nameplates list")
 				Custom String("{0} TrashLord {0}", Icon String(Trashcan))
 				), 
 			Array(Custom String("RUBY"), 
-				Custom Color(152, 195, 243, 255),
-				Custom String("☆ RUBYX CUBE ☆"), 
-				Custom String("HAS SLEEP PARALYSIS")			
+				Color(White),
+                Custom String("{0} ♡ Looking For A GM Genji Main To Pocket ♡ {0}", Ability Icon String(Hero(Mercy), Button(Jump))),
+                Custom String("♡ Your Pocket ♡"),
+				Custom String("♡ Cutie Patootie ♡")
 				),
 			Array(Custom String("Nutzee"), 
 				Color(Sky Blue),
 				Custom String("DEEZ ... (/*°▽°*)"), 
-				Custom String("{0} Spark Gengu Squad {0}", Ability Icon String(Hero(Genji), Button(Ultimate)))
+				Custom String("{0} Spark Gengu Squad {0}", Ability Icon String(Hero(Genji), Button(Ultimate))),
+                Custom String("{0} inadequate creature {0}", Ability Icon String(Hero(Roadhog), Button(Ultimate)))
 				),
 			Array(Custom String("ThatAspect"), 
 				Color(Purple),
