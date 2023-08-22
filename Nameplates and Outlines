@@ -472,10 +472,6 @@ rule ("Custom nameplates list")
 				Custom String("失恋した"), 
 				Custom String("Ghostie")
 				),
-			Array(Custom String("Cinderhardt"), 
-				Color(Sky Blue),
-				Custom String("Peacekeeper Sun")
-				),  
 			Array(Custom String("InMoonlight"), 
 				Color(Rose),
 				Custom String("♥ Caretaker Moon ♥")
