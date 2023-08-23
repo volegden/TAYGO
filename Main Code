@@ -2,7 +2,7 @@ settings
 {
 	main
 	{
-		Description: "♥ A Friendly Server To Meet New Friends ♥\nlast updated (August 21 2023)\n\n   » » » MASSIVE UPDATE RELEASED « « «\n (including UNO, non-mod menu and\n      hero specific features!)\n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss.\n   Based on the work of: TbyCoLive.\n Maintained with ♡ by: LƐafa.\n   Community Manager: kwally."
+		Description: "♥ A Friendly Server To Meet New Friends ♥\nlast updated (August 24 2023)\n\n   » » » MASSIVE UPDATE RELEASED « « «\n (including UNO, non-mod menu and\n      hero specific features!)\n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss.\n   Based on the work of: TbyCoLive.\n Maintained with ♡ by: LƐafa.\n   Community Manager: kwally."
 		Mode Name: " ♥ Friendly ♥ No Kill!"
 	}
 
@@ -259,6 +259,7 @@ settings
 			{
 				Ultimate Generation - Combat Graviton Surge: 50%
 				Ultimate Generation - Passive Graviton Surge: 75%
+				No Ammunition Requirement: On
 			}
 
 			Zenyatta
@@ -328,6 +329,7 @@ variables
 		53: Map_Teleport_Exits
 		54: Muted_List
 		55: Moe_Force
+		56: Warning_List
 
 	player:
 		0: High_Rank
@@ -455,6 +457,7 @@ subroutines
 	11: UNO_End
 	12: Info_Page_Default
 	13: Info_Page_Mod
+	14: Control_Sub
 }
 
 rule("Anti-Crash-ON")
@@ -858,6 +861,10 @@ rule("Default_Player_Settings")
 		Else If(Array Contains(Global.Demoted_List, Custom String("{0}", Event Player)));
 			Create Hud Text(Event Player, Null, Custom String(" \nYou are on the demoted list!\r\nPlease Contact kwally#21906\r\non Battlenet \r\n(all letters lowercase!)\r\nfor further support."), Null, 
 				Right, 15, Color(White), Color(Yellow), Color(White), None, Visible Never);
+		Else If(Array Contains(Global.Warning_List, Custom String("{0}", Event Player)));
+			Create Hud Text(Event Player, Null, 
+				Custom String(" \nWARNING! You have been\nreported in our custom mode.\nPlease Contact kwally#21906\non Bnet (all lowercase) for\nfurther support."), 
+				Null, Right, 15, Color(White), Color(Yellow), Color(White), None, Visible Never);
 		End;
 
 		"Jail handler"
@@ -2001,47 +2008,49 @@ rule("Listed_Player")
 			Custom String("aisuh"), Custom String("Lannaanna"), Custom String("Cattanklol"), Custom String("Aki"), Custom String("Fære"), 
 			Custom String("Netbrex"), Custom String("minori"), Custom String("YėsNø"), Custom String("MsHeartBreak"), Custom String("Yeraei"), 
 			Custom String("yohan"), Custom String("karlybarly"), Custom String("Deira"), Custom String("Dehya"), Custom String("RiwaChan"), 
-			Custom String("현대적인쌍봉낙타"), Custom String("Colestar24"),  Custom String("FrostSlvt"), Custom String("NotForYou"), 
+			Custom String("현대적인쌍봉낙타"), Custom String("Colestar24"), Custom String("FrostSlvt"), Custom String("NotForYou"), 
 			Custom String("fenmorre"), Custom String("Edeeeeen"), Custom String("Eosia"), Custom String("Nef"), Custom String("Kêñ"), 
 			Custom String("Hestia"), Custom String("sushiii"), Custom String("AMATERASU"), Custom String("かなかけ"), Custom String("Tedz"), 
 			Custom String("Lunarion"), Custom String("Asta"), Custom String("PŏŏkiƐ"), Custom String("Yohakzu"), Custom String("Ðårk"), 
 			Custom String("FactAttend"), Custom String("SpƐdy"), Custom String("Nickyunited7"), Custom String("Kazuma"), Custom String("Kazumi"), 
 			Custom String("Jermuseppo"), Custom String("Redacted"), Custom String("S0undw4v3"));
-			
+		
+		Global.Warning_List = Array(Custom String("xMaxuss has been warned :("));
+
 		"Muted (anyone on this list is muted AND demoted, no need to have them in both lists)"
 		Global.Muted_List = Array(
-			     Custom String("Abdul1Jafar"), Custom String("Strawberry"), Custom String("SexiestBeast"), Custom String("GoblinSexual"), Custom String("SilentStorm"), Custom String("＞：［"),
-				 Custom String("GrayRaven"), Custom String("Pastor"), Custom String("AlterGirl"), Custom String("JeffyEpstèin"), Custom String("IslandGirl"), Custom String("Valencia"),
-                 Custom String("TrickyHunter"), Custom String("Evelia"), Custom String("Coastals"), Custom String("Fluttershy"), Custom String("robotmaster7"), Custom String("mari"), 
-				 Custom String("leroyjenkins"), Custom String("ǷenisŞucker"), Custom String("IwantToDie77"), Custom String("Giraffestin"), Custom String("TitanJolt"), Custom String("JoltWave"),
-				 Custom String("WYPCS"), Custom String("ammar"), Custom String("seyarsa"), Custom String("MauveViper"), Custom String("CorruptWang"), Custom String("Uhtly"), Custom String("Conservative"), 
-				 Custom String("BlackOmniMan"), Custom String("Dre"), Custom String("nick"), Custom String("reize"), Custom String("Batman"), Custom String("Cupid"), Custom String("Slimbo"), 
-				 Custom String("Joel"), Custom String("Eclipse"), Custom String("Nyska"), Custom String("Ghost"), Custom String("Kongoscool69"), Custom String("MagicTurtle"), Custom String("CozyMersi"), 
-				 Custom String("RexViaLactea"), Custom String("ǂYagiǂ"), Custom String("SuperMage"), Custom String("SniperTF2"), Custom String("Oishi"), Custom String("Coyote"), Custom String("Apöllö"), 
-				 Custom String("DBUZAZA"), Custom String("Cold"), Custom String("betr0ut"), Custom String("duckywaddles"), Custom String("Minazukiǃ"), Custom String("Zatana"), 
-				 Custom String("GasMonkey"), Custom String("Pharamercy"), Custom String("boy"), Custom String("TechnoBolt"), Custom String("XeVier"), Custom String("MercyMommy"), Custom String("Kuro"), 
-				 Custom String("aqua"), Custom String("LiquidBerry"), Custom String("LiquidBerry"), Custom String("Elvishlegion"), Custom String("Sig"), Custom String("Juicycouture"), Custom String("Ruxby"), 
-				 Custom String("Ryo"), Custom String("DeadObiWan"), Custom String("mystery"), Custom String("Borja"), Custom String("MONKEYMAN420"), Custom String("siegrich"), Custom String("Starr"), 
-				 Custom String("Siegreich"), Custom String("OrangeJuiice"), Custom String("TheLegendMan"), Custom String("Karagor"), Custom String("LuckyPants"), Custom String("Browhs"),
-				 Custom String("Benito"), Custom String("MDLuffy"));
+			Custom String("Abdul1Jafar"), Custom String("Strawberry"), Custom String("SexiestBeast"), Custom String("GoblinSexual"), Custom String("SilentStorm"), Custom String("＞：［"),
+			Custom String("GrayRaven"), Custom String("Pastor"), Custom String("AlterGirl"), Custom String("JeffyEpstèin"), Custom String("IslandGirl"), Custom String("Valencia"),
+            Custom String("TrickyHunter"), Custom String("Evelia"), Custom String("Coastals"), Custom String("Fluttershy"), Custom String("robotmaster7"), Custom String("mari"), 
+			Custom String("leroyjenkins"), Custom String("ǷenisŞucker"), Custom String("IwantToDie77"), Custom String("Giraffestin"), Custom String("TitanJolt"), Custom String("JoltWave"),
+			Custom String("WYPCS"), Custom String("ammar"), Custom String("seyarsa"), Custom String("MauveViper"), Custom String("CorruptWang"), Custom String("Uhtly"), Custom String("Conservative"), 
+			Custom String("BlackOmniMan"), Custom String("Dre"), Custom String("nick"), Custom String("reize"), Custom String("Batman"), Custom String("Cupid"), Custom String("Slimbo"), 
+			Custom String("Joel"), Custom String("Eclipse"), Custom String("Nyska"), Custom String("Ghost"), Custom String("Kongoscool69"), Custom String("MagicTurtle"), Custom String("CozyMersi"), 
+			Custom String("RexViaLactea"), Custom String("ǂYagiǂ"), Custom String("SuperMage"), Custom String("SniperTF2"), Custom String("Oishi"), Custom String("Coyote"), Custom String("Apöllö"), 
+			Custom String("DBUZAZA"), Custom String("Cold"), Custom String("betr0ut"), Custom String("duckywaddles"), Custom String("Minazukiǃ"), Custom String("Zatana"), 
+			Custom String("GasMonkey"), Custom String("Pharamercy"), Custom String("boy"), Custom String("TechnoBolt"), Custom String("XeVier"), Custom String("MercyMommy"), Custom String("Kuro"), 
+			Custom String("aqua"), Custom String("LiquidBerry"), Custom String("LiquidBerry"), Custom String("Elvishlegion"), Custom String("Sig"), Custom String("Juicycouture"), Custom String("Ruxby"), 
+			Custom String("Ryo"), Custom String("DeadObiWan"), Custom String("mystery"), Custom String("Borja"), Custom String("MONKEYMAN420"), Custom String("siegrich"), Custom String("Starr"), 
+			Custom String("Siegreich"), Custom String("OrangeJuiice"), Custom String("TheLegendMan"), Custom String("Karagor"), Custom String("LuckyPants"), Custom String("Browhs"),
+			Custom String("Benito"), Custom String("MDLuffy"));
 
 		"Demoted"
 		Global.Demoted_List = Array(
-				 Custom String("Eggman"), Custom String("fishy"), Custom String("Sadness"), Custom String("Mikasa"), Custom String("BabyDarl"), 
-				 Custom String("Snaiy"), Custom String("Atlas"), Custom String("MissTOKIO"), Custom String("Pardál"), Custom String("WHTJazmin"), Custom String("Eka"),
-				 Custom String("Abdulwahab"), Custom String("EVILIC1A"), Custom String("BeyondToLax"), Custom String("RAT"), Custom String("Kashi"), Custom String("Lutz"), 
-				 Custom String("Lurly"), Custom String("PrincessUni"), Custom String("Alęx"), Custom String("CIELOS"), Custom String("MISTƔ"), Custom String("BoldCharger"), 
-				 Custom String("zelda4tw"), Custom String("PUPI"), Custom String("OmarOmarOmar"), Custom String("OliveShark"), Custom String("RemRanger"), Custom String("Naboman6"));
+			Custom String("Eggman"), Custom String("fishy"), Custom String("Sadness"), Custom String("Mikasa"), Custom String("BabyDarl"), 
+			Custom String("Snaiy"), Custom String("Atlas"), Custom String("MissTOKIO"), Custom String("Pardál"), Custom String("WHTJazmin"), Custom String("Eka"),
+			Custom String("Abdulwahab"), Custom String("EVILIC1A"), Custom String("BeyondToLax"), Custom String("RAT"), Custom String("Kashi"), Custom String("Lutz"), 
+			Custom String("Lurly"), Custom String("PrincessUni"), Custom String("Alęx"), Custom String("CIELOS"), Custom String("MISTƔ"), Custom String("BoldCharger"), 
+			Custom String("zelda4tw"), Custom String("PUPI"), Custom String("OmarOmarOmar"), Custom String("OliveShark"), Custom String("RemRanger"), Custom String("Naboman6"));
 
 		"Automatic Ban"
 		Global.Banned_List = Array(
-			     Custom String("blueberry!"), Custom String("Heretic"), Custom String("BoneStealer"), Custom String("Simplicity"), Custom String("IloveBirds"), Custom String("Kyger100"), 
-				 Custom String("KR0"), Custom String("Kromazome"), Custom String("Kr0"), Custom String("BebeUwU"), Custom String("Katsuki"),  Custom String("Coydn"), Custom String("TwitchPoison"), 
-				 Custom String("Ikawu"), Custom String("Stars"), Custom String("Gn0mie"), Custom String("BigBadBosses"), Custom String("euphorictwnk"), Custom String("S233"), Custom String("FoxreyCZ"),
-				 Custom String("Reyes"), Custom String("SHINIxMIZU"), Custom String("MIZU"), Custom String("Hephaestus"), Custom String("Hundesturm"), Custom String("purple"), 
-				 Custom String("TheHuntress"), Custom String("BMO"), Custom String("Avani"), Custom String("Carrot"), Custom String("Reptiles246"), Custom String("Urizen"), 
-				 Custom String("Saturn"), Custom String("Indica"), Custom String("Pepper"), Custom String("Yuzuka"), Custom String("Blackyyyy4"), Custom String("DAZE"), Custom String("Arthur"), 
-				 Custom String("SigmaRule34"), Custom String("humor"));
+			Custom String("blueberry!"), Custom String("Heretic"), Custom String("BoneStealer"), Custom String("Simplicity"), Custom String("IloveBirds"), Custom String("Kyger100"), 
+			Custom String("KR0"), Custom String("Kromazome"), Custom String("Kr0"), Custom String("BebeUwU"), Custom String("Katsuki"),  Custom String("Coydn"), Custom String("TwitchPoison"), 
+			Custom String("Ikawu"), Custom String("Stars"), Custom String("Gn0mie"), Custom String("BigBadBosses"), Custom String("euphorictwnk"), Custom String("S233"), Custom String("FoxreyCZ"),
+			Custom String("Reyes"), Custom String("SHINIxMIZU"), Custom String("MIZU"), Custom String("Hephaestus"), Custom String("Hundesturm"), Custom String("purple"), 
+			Custom String("TheHuntress"), Custom String("BMO"), Custom String("Avani"), Custom String("Carrot"), Custom String("Reptiles246"), Custom String("Urizen"), 
+			Custom String("Saturn"), Custom String("Indica"), Custom String("Pepper"), Custom String("Yuzuka"), Custom String("Blackyyyy4"), Custom String("DAZE"), Custom String("Arthur"), 
+			Custom String("SigmaRule34"), Custom String("humor"));
     }
 }
 
@@ -2808,11 +2817,11 @@ rule("Mode_Headline_Desc_Mod")
 				))), Null, Left, 1, Color(White), Color(White), Color(White), String, Visible Never);
 
 		Else If(Event Player.Mode_Cycle == 17);
-			Event Player.Mode_Headline = Custom String("Spawn Hero Forcing");
+			Event Player.Mode_Headline = Custom String("Target Hero Swap");
 			Create HUD Text(Event Player, Null, Custom String("| Press Crouch + Interact/Jump to change pages |\nMod Menu: Press Crouch + input for action\n{0}",
 				Custom String("{0} : Make Target To Mercy\r\n{1} : Make Target To D.Va\r\n{2}", 
 					Input Binding String(Button(Primary Fire)), Input Binding String(Button(Secondary Fire)), 
-				Custom String("{0} : Make Target To Widow\r\n{1} : Make Target Same Hero As You\r\nReload : Stop Forcing To Be Hero (Target and You)",
+				Custom String("{0} : Make Target To Widow\r\n{1} : Make Target Same Hero As You",
 					Input Binding String(Button(Ultimate)), Input Binding String(Button(Ability 2))
 				))), Null, Left, 1, Color(White), Color(White), Color(White), String, Visible Never);
 
@@ -4885,7 +4894,7 @@ rule("Mode_14 - Grapple_Line")
 			Abort If(Event Player.Target_Shortcut.Full_Protection);
 			Abort If(Not(Has Spawned(Event Player.Target_Shortcut)));
 			Abort If(Array Contains(Event Player.Leash_List, Event Player.Target_Shortcut));
-			If(Event Player.Promoted_Rank && Count Of(Event Player.Leash_List) >= 1);
+			If((Event Player.Promoted_Rank && Event Player != Host Player) && Count Of(Event Player.Leash_List) >= 1);
 				Small Message(Event Player, Custom String("  Promoted can only leash 1 player"));
 				Abort;
 			End;
@@ -5428,12 +5437,10 @@ rule("Mode_17 - Spawn_Hero_Force")
 			Small Message(All Players(All Teams), Custom String("  {0} Is Now {1}", Event Player.Target_Shortcut,
 				Hero Icon String(Hero Of(Event Player))));
 			Play Effect(All Players(All Teams), Good Pickup Effect, Color(Yellow), Event Player.Target_Shortcut, 1);
-		Else If(Is Button Held(Event Player, Button(Reload)));
-			Stop Forcing Player To Be Hero(Event Player.Target_Shortcut);
-			Stop Forcing Player To Be Hero(Event Player);
-			Small Message(All Players(All Teams), Custom String("  {0} Can Now Choose Any Hero", Event Player.Target_Shortcut));
-			Play Effect(All Players(All Teams), Good Pickup Effect, Color(Blue), Event Player.Target_Shortcut, 1);
 		End;
+		Wait(0.1, Ignore Condition);
+		Stop Forcing Player To Be Hero(Event Player.Target_Shortcut);
+		Stop Forcing Player To Be Hero(Event Player);
 		Wait(0.1, Ignore Condition);
 	}
 }
@@ -6209,7 +6216,8 @@ rule("Mode_26 - Mind Control - Send")
 		Event Player.Signal = False;
 		Event Player.Target_Shortcut = Player Closest To Reticle(Event Player, All Teams);
 		If(Is Button Held(Event Player, Button(Ultimate)));
-			Abort If(Event Player.Target_Shortcut.Full_Protection || Event Player.Target_Shortcut == Null || Not(Has Spawned(Event Player.Target_Shortcut)));
+			Abort If((Event Player.Target_Shortcut.Full_Protection && Not(Is Dummy Bot(Event Player.Target_Shortcut))) 
+				|| Event Player.Target_Shortcut == Null || Not(Has Spawned(Event Player.Target_Shortcut)));
 			If(Event Player.Target_Shortcut.Control_Host != Null);
 				Small Message(Event Player, Custom String("  {0} has a pending request or is being controlled", Event Player.Target_Shortcut));
 				Abort;
@@ -6245,6 +6253,11 @@ rule("Mode_26 - Mind Control - Send")
 			Small Message(Event Player.Target_Shortcut, Custom String("  {0} stopped controlling you", Event Player));
 			Destroy HUD Text(Event Player.Target_Shortcut.Control_ID);
 			Event Player.Target_Shortcut.Control_Active = False;
+			If(Is Dummy Bot(Event Player.Target_Shortcut));
+				Start Facing(Event Player.Target_Shortcut, Update Every Frame(Direction Towards(Eye Position(Evaluate Once(Event Player.Target_Shortcut)), 
+					Eye Position(Closest Player To(Evaluate Once(Event Player.Target_Shortcut), All Teams)))),
+					300, To World, Direction and Turn Rate);
+			End;
 			Wait(0.2, Ignore Condition);
 			Event Player.Target_Shortcut.Control_Host = Null;
 		Else If(Is Button Held(Event Player, Button(Ability 2)));
@@ -6271,7 +6284,7 @@ rule("Mode_26 - Mind Control - Accept & Deny")
 	{
 		Event Player.Control_Host != Null;
 		Event Player.Control_Active == False;
-		(Is Button Held(Event Player, Button(Reload)) || Is Button Held(Event Player, Button(Melee))) == True;
+		(Is Button Held(Event Player, Button(Reload)) || Is Button Held(Event Player, Button(Melee)) || Is Dummy Bot(Event Player)) == True;
 	}
 
 	actions
@@ -6283,7 +6296,10 @@ rule("Mode_26 - Mind Control - Accept & Deny")
 			Modify Player Variable(Event Player, Control_Deny, Append To Array, Event Player.Control_Host);
 			Wait(0.2, Ignore Condition);
 			Event Player.Control_Host = Null;
-		Else If(Is Button Held(Event Player, Button(Melee)));
+		Else If(Is Button Held(Event Player, Button(Melee)) || Is Dummy Bot(Event Player));
+			If(Is Dummy Bot(Event Player));
+				Wait(1, Abort When False);
+			End;
 			Destroy HUD Text(Event Player.Control_ID);
 			Destroy Icon(Event Player.Target_Arrow_ID);
 			Destroy Effect(Event Player.Target_Effect);
@@ -6346,7 +6362,7 @@ rule("Mode_26 - Mind Control - Break")
 	}
 }
 
-rule("Mode_26 - Mind Control - Remote")
+rule("Mode_26 - Mind Control - Remote 1")
 {
 	event
 	{
@@ -6359,9 +6375,8 @@ rule("Mode_26 - Mind Control - Remote")
 	{
 		Event Player.Control_List != Empty Array;
 		(Is Button Held(Event Player, Button(Crouch)) || Is Button Held(Event Player, Button(Jump)) || Is Button Held(Event Player, Button(Melee))
-			|| Is Button Held(Event Player, Button(Primary Fire)) || Is Button Held(Event Player, Button(Secondary Fire))) == True;
+			|| Is Button Held(Event Player, Button(Secondary Fire))) == True;
 	}
-
 	actions
 	{
 		If(Is Button Held(Event Player, Button(Crouch)));
@@ -6374,12 +6389,6 @@ rule("Mode_26 - Mind Control - Remote")
 			Wait Until(Not(Is Button Held(Event Player, Button(Jump))), 9999);
 			Stop Holding Button(Event Player.Control_List, Button(Jump));
 			Disallow Button(Event Player.Control_List, Button(Jump));
-		Else If(Is Button Held(Event Player, Button(Primary Fire)));
-			Allow Button(Event Player.Control_List, Button(Primary Fire));
-			Start Holding Button(Event Player.Control_List, Button(Primary Fire));
-			Wait Until(Not(Is Button Held(Event Player, Button(Primary Fire))), 9999);
-			Stop Holding Button(Event Player.Control_List, Button(Primary Fire));
-			Disallow Button(Event Player.Control_List, Button(Primary Fire));
 		Else If(Is Button Held(Event Player, Button(Secondary Fire)));
 			Allow Button(Event Player.Control_List, Button(Secondary Fire));
 			Start Holding Button(Event Player.Control_List, Button(Secondary Fire));
@@ -6391,6 +6400,30 @@ rule("Mode_26 - Mind Control - Remote")
 			Press Button(Event Player.Control_List, Button(Melee));
 			Disallow Button(Event Player.Control_List, Button(Melee));
 		End;
+	}
+}
+
+rule("Mode_26 - Mind Control - Remote 2")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Event Player.Control_List != Empty Array;
+		Is Button Held(Event Player, Button(Primary Fire)) == True;
+	}
+	actions
+	{
+		Allow Button(Event Player.Control_List, Button(Primary Fire));
+		Start Holding Button(Event Player.Control_List, Button(Primary Fire));
+		Wait Until(Not(Is Button Held(Event Player, Button(Primary Fire))), 9999);
+		Stop Holding Button(Event Player.Control_List, Button(Primary Fire));
+		Disallow Button(Event Player.Control_List, Button(Primary Fire));
 	}
 }
 
@@ -7996,7 +8029,7 @@ rule("Mode_34 - Communication")
 		Event Player.Signal = False;
 
 		Event Player.Comms_Target = Player Closest To Reticle(Event Player, All Teams);
-		Abort If(Not(Is Dummy Bot(Event Player.Comms_Target)));
+		Abort If(Not(Is Dummy Bot(Event Player.Comms_Target)) || Event Player.Comms_Target.Control_Active);
 		If(Event Player.Comms_Target.Bot_CD > 0);
 			Small Message(Event Player, Custom String("  {0} sec CD", Event Player.Comms_Target.Bot_CD));
 			Abort;
@@ -8267,6 +8300,10 @@ rule("Extra_7 - No Cooldowns")
 		Set Ability Cooldown(Event Player, Button (Secondary Fire), 0);
 		Set Ability Cooldown(Event Player, Button (Ability 1), 0);
 		Set Ability Cooldown(Event Player, Button (Ability 2), 0);
+		Set Ammo(Event Player, 0, 69);
+		Set Ammo(Event Player, 1, 69);
+		Set Ability Charge(Event Player, Button(Ability 1), 3);
+		Set Ability Charge(Event Player, Button(Ability 2), 3);
 		Wait(0.1, Abort When False);
 		Loop If Condition Is True;
 	}
@@ -8745,7 +8782,35 @@ rule("Extra_25: Soldier Heart")
 	}
 }
 
-rule("Extra_26: Illari Heart")
+rule("Extra_26: Laser Heart")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		(Hero Of(Event Player) == Hero(Zarya) || Hero Of(Event Player) == Hero(Symmetra)) == True;
+		Is Firing Primary(Event Player) == True;
+	}
+
+
+	actions
+	{
+		Abort If((Is Firing Primary(Event Player) && Not(Hero Of(Event Player) == Hero(Zarya) || Hero Of(Event Player) == Hero(Symmetra))));
+		Create Icon(All Players(All Teams), Update Every Frame(Ray Cast Hit Position(Eye Position(Event Player), Eye Position(Event Player) + 
+			Facing Direction Of(Event Player) * If-Then-Else(Hero Of(Event Player) == Hero(Symmetra), 12, 15) * 
+			Event Player.Scale_Real, All Players(All Teams), Event Player, True) - Vector(0,0.5,0)), Heart, Visible To and Position, Color(Red), False);
+		Event Player.ExtraEffect_ID = Last Created Entity;
+		Wait Until(Not(Is Firing Primary(Event Player)), 9999);
+		Destroy Icon(Event Player.ExtraEffect_ID);
+	}
+}
+
+rule("Extra_27: Illari Heart")
 {
 	event
 	{
@@ -8763,9 +8828,10 @@ rule("Extra_26: Illari Heart")
 	actions
 	{
 		Create Icon(All Players(All Teams), Update Every Frame(Ray Cast Hit Position(Eye Position(Event Player), Eye Position(Event Player) + 
-			Facing Direction Of(Event Player) * 15 * Event Player.Scale_Real, All Players(All Teams), Event Player, True) - Vector(0,0.5,0)), Heart, Visible To and Position, Color(Red), False);
+			Facing Direction Of(Event Player) * 15 * 
+			Event Player.Scale_Real, All Players(All Teams), Event Player, True) - Vector(0,0.5,0)), Heart, Visible To and Position, Color(Red), False);
 		Event Player.ExtraEffect_ID = Last Created Entity;
-		Wait Until(Not(Is Firing Secondary(Event Player)) || Hero Of(Event Player) != Hero(Illari), 9999);
+		Wait Until(Not(Is Firing Secondary(Event Player) || Hero Of(Event Player) != Hero(Illari)), 9999);
 		Destroy Icon(Event Player.ExtraEffect_ID);
 	}
 }
