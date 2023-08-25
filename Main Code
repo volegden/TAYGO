@@ -6760,7 +6760,7 @@ rule("Mode_29 - Promote/Demote_And_Teamswap")
 			Event Player.Target_Shortcut = Player Closest To Reticle(Event Player, All Teams);
 			Abort If(Event Player.Target_Shortcut == Null);
 			If(Array Contains(Global.Demoted_List, Custom String("{0}", Event Player.Target_Shortcut)) || 
-				Array Contains(Global.Muted_List, Custom String("{0}", Event Event Player.Target_Shortcut)));
+				Array Contains(Global.Muted_List, Custom String("{0}", Event Player.Target_Shortcut)));
 				Small Message(Event Player, Custom String("  Can't promote {0}, please contact team for support.", Event Player.Target_Shortcut)); 
 				Abort;
 			End;
