@@ -2,7 +2,7 @@ settings
 {
 	main
 	{
-		Description: "♥ A Friendly Server To Meet New Friends ♥\nlast updated (August 24 2023)\n\n   » » » MASSIVE UPDATE RELEASED « « «\n (including UNO, non-mod menu and\n      hero specific features!)\n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss.\n   Based on the work of: TbyCoLive.\n Maintained with ♡ by: LƐafa.\n   Community Manager: kwally."
+		Description: "♥ A Friendly Server To Meet New Friends ♥\nlast updated (August 31 2023)\n\n   » » » MASSIVE UPDATE RELEASED « « «\n (including UNO, non-mod menu and\n      hero specific features!)\n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss.\n   Based on the work of: TbyCoLive.\n Maintained with ♡ by: LƐafa.\n   Community Manager: kwally."
 		Mode Name: " ♥ Friendly ♥ No Kill!"
 	}
 
@@ -330,6 +330,8 @@ variables
 		54: Muted_List
 		55: Moe_Force
 		56: Warning_List
+		57: Dice_String
+		58: Music_Toggle
 
 	player:
 		0: High_Rank
@@ -359,7 +361,6 @@ variables
 		24: Mode_Description
 		25: Last_Position_Facing
 		26: Restricted
-		27: Damage_Reflect
 		28: Voice_Pitch
 		29: Heaven_Strike_Radius
 		30: Heaven_Strike_ID
@@ -439,6 +440,7 @@ variables
 		105: Control_ID
 		106: Control_Active
 		107: Control_List
+		108: AFK_Toggle
 	}
 
 subroutines
@@ -584,6 +586,7 @@ rule("Global_Settings")
 
 	actions
 	{
+		Global.Music_Toggle = Workshop Setting Toggle(Custom String("Music Lobby"), Custom String("Set this lobby as a music lobby"), False, 0);
 		Global.Current_Host = Null;
 		Global.Player_Joined_Queue = Empty Array;
 		"Dev Tools"
@@ -628,6 +631,11 @@ rule("Global_Settings")
 			For Global Variable(Gravity_Helper, 0, 12, 1);
 				Global.Gravity_Helper -=1;
 			End;
+		End;
+
+		If(Global.Music_Toggle);
+			Create HUD Text(All Players(All Teams), Null, Null, Custom String("This is a music lobby, so no talking in MVC!"), Top, 0, Color(White), Color(White), Color(Sky Blue),
+				Visible To, Default Visibility);
 		End;
 	}
 }
@@ -767,7 +775,6 @@ rule("Default_Player_Settings")
 		Event Player.Remote_Scale = False;
 		Event Player.Mode_Description = Null;
 		Event Player.Last_Position_Facing = Array(Null, Null);
-		Event Player.Damage_Reflect = False;
 		Event Player.Voice_Pitch = 1;
 		Event Player.Heaven_Strike_Radius = Null;
 		Event Player.Heaven_Strike_ID = Array(Null, Null, False, False);
@@ -982,6 +989,8 @@ rule ("Data")
 		Global.Rank_Icon = Array(Custom String(""), Icon String(Halo), Icon String(Heart), Custom String(""));
 
 		Global.OffOnString = Array(Custom String("Off"), Custom String("On"));
+
+		Global.Dice_String = Array(Custom String("Heads"), Custom String("Tails"), Custom String("Rock"), Custom String("Paper"), Custom String("Scissors"));
 
 		Global.Modification_Mode_String = Array(Custom String("Damage"), Custom String("Speed"), Custom String("Knockback"), Custom String("Gravity"));
 		Global.Modification_Target_String = Array(Custom String("Yourself"), Custom String("Target"));
@@ -1840,6 +1849,24 @@ rule ("Custom nameplates list")
 			Array(Custom String("DaisyMoo"), 
 				Custom String("Rainbow"),
 				Custom String("♡  Mommy Cow  ♡")
+				),
+			Array(Custom String("Awwie"), 
+				Color(Violet),
+				Custom String("♡  Awwie  ♡"),
+				Custom String("{0}  Moe Abuser  {0}", Ability Icon String(Hero(Sombra), Button(Melee)))
+				),
+			Array(Custom String("ImmaPenguin"), 
+				Color(Blue),
+				Custom String("♡  ImmaPenguin  ♡")
+				),
+			Array(Custom String("HOÑEYBEE"), 
+				Custom String("Rainbow"),
+				Custom String("♡  HOÑEYBEE  ♡")
+				),
+			Array(Custom String("MrMidnight"), 
+				Color(Rose),
+				Custom String("♡  MrMidnight  ♡"),
+				Custom String("♡  Cat Maid  ♡")
 				)
 		);
 	}
@@ -1982,7 +2009,7 @@ rule("Listed_Player")
 			Custom String("Metalgy"), Custom String("PapaRomeo"), Custom String("RUBY"), Custom String("Miowell"), Custom String("Brat"), Custom String("CyberSentai"), 
 			Custom String("Mustika"), Custom String("xMumu"), Custom String("Shampoo"), Custom String("xCleo"), Custom String("AndrewKnoll"), Custom String("YeastBeast"), 
 			Custom String("ShellBebop"), Custom String("Dubbie7"), Custom String("MissImmortal"), Custom String("Zxtyi"), Custom String("Bendude1000"), Custom String("Lostshadow"), 
-			Custom String("Reapersimp"), Custom String("Dead"));
+			Custom String("Reapersimp"), Custom String("Dead"), Custom String("HYUA"));
 			
 		"Automatic Mod"
 		Global.Mod_Rank = Array(
@@ -1998,7 +2025,7 @@ rule("Listed_Player")
 			Custom String("Fuji"), Custom String("AsyCorn"), Custom String("DaisyMoo"), Custom String("Mettlis"),
 			Custom String("Kiwizzlee"), Custom String("BStray"), Custom String("InMoonlight"),
 			Custom String("Boney"), Custom String("tsunde"), Custom String("sonwukong"), Custom String("solevaya"), Custom String("Lünår"),
-			Custom String("AvatarGod"), Custom String("rin"), Custom String("HYUA"), Custom String("fa89"), Custom String("ThatAspect"), 
+			Custom String("AvatarGod"), Custom String("rin"), Custom String("fa89"), Custom String("ThatAspect"), 
 			Custom String("DȈŦǾ"), Custom String("GhostPunch"), Custom String("PaulineP"), Custom String("lana"), Custom String("LeMix"), 
 			Custom String("mourne"), Custom String("Erin"), Custom String("ugh"), Custom String("Akaza"), Custom String("Catgirl"), 
 			Custom String("BƑG"), Custom String("MopuD"), Custom String("ori6072"), Custom String("OperativeLyn"), Custom String("froggygutz"), 
@@ -2013,9 +2040,10 @@ rule("Listed_Player")
 			Custom String("Hestia"), Custom String("sushiii"), Custom String("AMATERASU"), Custom String("かなかけ"), Custom String("Tedz"), 
 			Custom String("Lunarion"), Custom String("Asta"), Custom String("PŏŏkiƐ"), Custom String("Yohakzu"), Custom String("Ðårk"), 
 			Custom String("FactAttend"), Custom String("SpƐdy"), Custom String("Nickyunited7"), Custom String("Kazuma"), Custom String("Kazumi"), 
-			Custom String("Jermuseppo"), Custom String("Redacted"), Custom String("S0undw4v3"));
+			Custom String("Jermuseppo"), Custom String("Redacted"), Custom String("S0undw4v3"), Custom String("Awwie"), Custom String("ImmaPenguin"), 
+			Custom String("HOÑEYBEE"), Custom String("MrMidnight"));
 		
-		Global.Warning_List = Array(Custom String("xMaxuss has been warned :("));
+		Global.Warning_List = Array(Custom String("BlueSky"));
 
 		"Muted (anyone on this list is muted AND demoted, no need to have them in both lists)"
 		Global.Muted_List = Array(
@@ -2826,7 +2854,7 @@ rule("Mode_Headline_Desc_Mod")
 				))), Null, Left, 1, Color(White), Color(White), Color(White), String, Visible Never);
 
 		Else If(Event Player.Mode_Cycle == 18);
-			Event Player.Mode_Headline = Custom String("Savezone (Host/Angels+)");
+			Event Player.Mode_Headline = Custom String("Savezone");
 			Create HUD Text(Event Player, Null, Custom String("| Press Crouch + Interact/Jump to change pages |\nMod Menu: Press Crouch + input for action\n{0}",
 				Custom String("{0} : Create/Move Safezone\n{1} : Remove Safezone\n{2}",
 					Input Binding String(Button(Ultimate)), Input Binding String(Button(Ability 2)), 
@@ -2836,10 +2864,12 @@ rule("Mode_Headline_Desc_Mod")
 				))), Null, Left, 1, Color(White), Color(White), Color(White), String,Visible Never);
 
 		Else If(Event Player.Mode_Cycle == 19);
-			Event Player.Mode_Headline = Custom String("Don't Touch Me");
+			Event Player.Mode_Headline = Custom String("Page of Fates");
 			Create HUD Text(Event Player, Null, Custom String("| Press Crouch + Interact/Jump to change pages |\nMod Menu: Press Crouch + input for action\n{0}",
-				Custom String("{0} : Activate Target DMG Reflect\r\n{1} : Deactivate Target DMG Reflect\r\n{2} : Set Damage Reflect Yourself",
-					Input Binding String(Button(Primary Fire)), Input Binding String(Button(Secondary Fire)), Input Binding String(Button(Ultimate)
+				Custom String("{0} : Coin Toss\r\n{1} : Rocks/Paper/Scissors\r\n{2}",
+					Input Binding String(Button(Primary Fire)), Input Binding String(Button(Secondary Fire)),
+				Custom String("{0} : 6 Sided Die\r\n{1} : 20 Sided Die\r\nReload : Percentage Die",
+					Input Binding String(Button(Ultimate)), Input Binding String(Button(Ability 2))
 				))), Null, Left, 1, Color(White), Color(White), Color(White), String, Visible Never);
 
 		Else If(Event Player.Mode_Cycle == 20);
@@ -2913,9 +2943,11 @@ rule("Mode_Headline_Desc_Mod")
 		Else If(Event Player.Mode_Cycle == 26);
 			Event Player.Mode_Headline = Custom String("Remote Control");
 			Create HUD Text(Event Player, Null, Custom String("| Press Crouch + Interact/Jump to change pages |\nMod Menu: Press Crouch + input for action\n{0}",
-				Custom String("{0} : Send control request to target\r\n{1} : Stop Controlling Target\r\n{2} : Teleport Controlled Players",
-					Input Binding String(Button(Ultimate)), Input Binding String(Button(Reload)), Input Binding String(Button(Ability 2))
-				)), Null, Left, 1, Color(White), Color(White), Color(White), String, Visible Never);
+				Custom String("{0} : Send control request to target\r\n{1} : Stop Controlling Target\r\n{2}",
+					Input Binding String(Button(Ultimate)), Input Binding String(Button(Reload)),
+				Custom String("{0} : Target Controlls you\r\n{1} : Teleport Controlled Players",
+					Input Binding String(Button(Secondary Fire)), Input Binding String(Button(Ability 2))
+				))), Null, Left, 1, Color(White), Color(White), Color(White), String, Visible Never);
 
 		Else If(Event Player.Mode_Cycle == 27);
 			Event Player.Mode_Headline = Custom String("Kick/Ban (Only Owner)");
@@ -3536,6 +3568,98 @@ rule("3rd_Camera_4_Zoom")
 			Eye Position(Event Player) + 1 * Event Player.Scale_Real * Facing Direction Of(Event Player), 
 			Null, Event Player, True)), Update Every Frame(Eye Position(Event Player) + -10 * Facing Direction Of(Event Player)), 30);
 		Small Message(Event Player, Custom String(" Front View, Close"));
+	}
+}
+
+rule("Mode_00 - AFK Toggle")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		(Event Player.Mode_Cycle == 0 || Event Player.Mode_Cycle_Default == 0) == True;
+		Event Player.Signal == True;
+	}
+
+	actions
+	{
+		Event Player.Signal = False;
+		If(Is Button Held(Event Player, Button(Ultimate)));
+			If(Event Player.AFK_Toggle);
+				Small Message(Event Player, Custom String("  Already set as afk"));
+			Else;
+				Event Player.AFK_Toggle = True;
+				Small Message(Event Player, Custom String("  Set as afk"));
+			End;
+		Wait(1, Ignore Condition);
+		End;
+	}
+}
+
+rule("Mode_00 AFK ON")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Event Player.AFK_Toggle == True;
+		Is Moving(Event Player) == False;
+		Is Crouching(Event Player) == False;
+		Has Spawned(Event Player) == True;
+		Event Player.Effect_Storage == Null;
+	}
+
+	actions
+	{
+		Wait(5, Abort When False);
+		Create Progress Bar In-World Text(All Players(All Teams), Modulo(Total Time Elapsed * Evaluate Once(Random Real(2,8)), 100), 
+			If-Then-Else(Custom String("{0}", Event Player) == Custom String("xMaxuss"), Custom String("Max is coding/afk\r\n\r\n"), 
+			If-Then-Else(Custom String("{0}", Event Player) == Custom String("LƐafa") || Custom String("{0}", Event Player) == Custom String("kwally"), 
+				Custom String("{0} is unavailable/afk\r\n\r\n", Event Player), Custom String("{0} is afk\r\n\r\n", Event Player))), 
+			Event Player, 0.5, Clip Against Surfaces, 
+			If-Then-Else(Event Player.Is_Title_Given, 
+			If-Then-Else(Event Player.Player_Title_And_Outline[1] == Custom String("Rainbow") || Event Player.Player_Title_And_Outline[1] == Custom String("Fading"), 
+			Global.Rainbow_Color, Event Player.Player_Title_And_Outline[1]), 
+			If-Then-Else(Event Player.Regular_Player_Has_Title, Global.Colors[Event Player.NamesAndOutlines_Colors_Selector], 
+			Evaluate Once(Random Value In Array(Global.Colors)))), Color(White), Visible To Position Values and Color, Default Visibility);
+		Event Player.Effect_Storage = Last Text ID;
+		Small Message(Event Player, Custom String("  AFK text now active"));
+	}
+}
+
+rule("Mode_00 - AFK OFF")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Event Player.AFK_Toggle == True;
+		Event Player.Effect_Storage != Null;
+		(Is Jumping(Event Player) || Throttle Of(Event Player) != Vector(0,0,0) || Is Crouching(Event Player) || Not(Has Spawned(Event Player))) == True;
+	}
+
+	actions
+	{
+		Destroy Progress Bar In-World Text(Event Player.Effect_Storage);
+		Wait(0.1, Ignore Condition);
+		Event Player.Effect_Storage = Null;
+		Small Message(Event Player, Custom String("  No Longer afk"));
+		Event Player.AFK_Toggle = False;
 	}
 }
 
@@ -5458,7 +5582,6 @@ rule("Mode_18 - Savezone")
 	{
 		Event Player.Mode_Cycle == 18;
 		Event Player.Signal == True;
-		(Event Player.Promoted_Rank == False || Event Player == Host Player) == True;
 	}
 
 	actions
@@ -5530,6 +5653,10 @@ rule("Mode_18 - Savezone")
 				Small Message(Event Player, Custom String("  {0} is already in your savezone", Player Closest To Reticle(Event Player, All Teams)));
 			End;
 		Else If(Is Button Held(Event Player, Button(Melee)));
+			If(Distance Between(Player Closest To Reticle(Event Player, All Teams), Event Player.Savezone_Info_Array[0]) <= Event Player.Savezone_Info_Array[1] + 0.2);
+				Small Message(Event Player, Custom String("  Cannot perform on players within savezone"));
+				Abort;
+			End;
 			If(Array Contains(Event Player.Savezone_List, Player Closest To Reticle(Event Player, All Teams)));
 				Modify Player Variable(Event Player, Savezone_List, Remove From Array By Value, Player Closest To Reticle(Event Player, All Teams));
 				Small Message(Event Player, Custom String("  {0} was removed from your savezone", Player Closest To Reticle(Event Player, All Teams)));
@@ -5574,7 +5701,7 @@ rule("Mode_18 - No_Access")
 	}
 }
 
-rule("Mode_19 - Damage_Reflection")
+rule("Mode_19 - Page of Fates")
 {
 	event
 	{
@@ -5592,59 +5719,20 @@ rule("Mode_19 - Damage_Reflection")
 	actions
 	{
 		Event Player.Signal = False;
-		If(Is Button Held(Event Player, Button(Ultimate)));
-			If(Event Player.Damage_Reflect == False);
-				Event Player.Damage_Reflect = True;
-				Play Effect(All Players(All Teams), Good Pickup Effect, Color(Blue), Event Player, 1);
-			Else If(Event Player.Damage_Reflect);
-				Event Player.Damage_Reflect = False;
-				Play Effect(All Players(All Teams), Bad Pickup Effect, Color(Red), Event Player, 1);
-			End;
-		Else If(Is Button Held(Event Player, Button(Primary Fire)));
-			If((Event Player.High_Rank || (Event Player == Host Player)) == False);
-				Small Message(Event Player, Custom String("  Only Host/Vanguards."));
-				Abort;
-			End;
-			Abort If(Array Contains(Global.High_Rank, Custom String("{0}", Player Closest To Reticle(Event Player, All Teams))));
-			Player Closest To Reticle(Event Player, All Teams).Damage_Reflect = True;
-			Play Effect(All Players(All Teams), Good Pickup Effect, Color(Blue), Player Closest To Reticle(Event Player, All Teams), 1);
+		If(Is Button Held(Event Player, Button(Primary Fire)));
+			Big Message(Event Player, Custom String("Coin Toss: {0}", Global.Dice_String[Random Integer(0,1)]));
 		Else If(Is Button Held(Event Player, Button(Secondary Fire)));
-			If((Event Player.High_Rank || (Event Player == Host Player)) == False);
-				Small Message(Event Player, Custom String("  Only Host/Vanguards."));
-				Abort;
-			End;
-			Abort If(Array Contains(Global.High_Rank, Custom String("{0}", Player Closest To Reticle(Event Player, All Teams))));
-			Player Closest To Reticle(Event Player, All Teams).Damage_Reflect = False;
-			Play Effect(All Players(All Teams), Bad Pickup Effect, Color(Red), Player Closest To Reticle(Event Player, All Teams), 1);
+			Big Message(Event Player, Custom String("Rock Paper Scissors: {0}", Global.Dice_String[Random Integer(2,4)]));
+		Else If(Is Button Held(Event Player, Button(Ultimate)));
+			Big Message(Event Player, Custom String("6-Sided-Dice Roll: {0}", Random Integer(1, 6)));
+		Else If(Is Button Held(Event Player, Button(Ability 2)));
+			Big Message(Event Player, Custom String("20-Sided-Dice Roll: {0}", Random Integer(1, 20)));
+		Else If(Is Button Held(Event Player, Button(Reload)));
+			Big Message(Event Player, Custom String("%-Dice Roll: {0}%", Random Integer(1, 10) * 10));
 		End;
-	}
-}
-
-rule("Mode_19 - Attacker_Victim_Reaction (Victim has reflection)")
-{
-	event
-	{
-		Player Dealt Damage;
-		All;
-		All;
-	}
-
-	conditions
-	{
-		Victim.Damage_Reflect == True;
-		Attacker.Damage_Reflect == False;
-	}
-
-	actions
-	{
-		Damage(Attacker, Victim, Event Damage);
-		If(Is Dead(Event Player));
-			Resurrect(Victim);
+		If(Not(Is Button Held(Event Player, Button(Ability 1))));
+			Wait(3, Ignore Condition);
 		End;
-		Heal(Victim, Attacker, Event Damage);
-		Apply Impulse(Attacker, Vector(0, 1, 0), 20, To World, Cancel Contrary Motion);
-		Apply Impulse(Attacker, Direction Towards(Position Of(Victim), Position Of(Attacker)), 100, To World, Incorporate Contrary Motion);
-		Set Status(Attacker, Null, Knocked Down, 3);
 	}
 }
 
@@ -5723,6 +5811,7 @@ rule("Mode_21 - Small_Messages")
 	{
 		Event Player.Signal = False;
 		Event Player.Target_Lock = Player Closest To Reticle(Event Player, All Teams);
+		Abort If(Event Player.Target_Lock.Full_Protection);
 		If(Event Player.Bot_CD > 0);
 			Small Message(Event Player, Custom String("  {0} sec CD", Event Player.Bot_CD));
 			Abort;
@@ -6260,6 +6349,25 @@ rule("Mode_26 - Mind Control - Send")
 			End;
 			Wait(0.2, Ignore Condition);
 			Event Player.Target_Shortcut.Control_Host = Null;
+		Else If(Is Button Held(Event Player, Button(Secondary Fire)));
+			Abort If(Event Player.Control_Host != Null);
+			Destroy HUD Text(Event Player.Control_ID);
+			Destroy Icon(Event Player.Target_Arrow_ID);
+			Destroy Effect(Event Player.Target_Effect);
+			Create HUD Text(Event Player, Custom String(" Press {0} to break link ", Input Binding String(Button(Reload))), 
+				Null, Null, Right, 20, Color(Red), Color(White), Color(White), String, Visible Never);
+			Event Player.Control_ID = Last Text ID;
+			Disallow Button(Event Player, Button(Jump));
+			Disallow Button(Event Player, Button(Crouch));
+			Disallow Button(Event Player, Button(Melee));
+			Disallow Button(Event Player, Button(Primary Fire));
+			Disallow Button(Event Player, Button(Secondary Fire));
+			Modify Player Variable(Event Player.Target_Shortcut, Control_List, Append To Array, Event Player);
+			Start Throttle In Direction(Event Player, Throttle Of(Evaluate Once(Event Player.Target_Shortcut)), 1, To Player, Replace Existing Throttle, Direction and Magnitude);
+			Start Facing(Event Player, Update Every Frame(Facing Direction Of(Evaluate Once(Event Player.Target_Shortcut))), 1000, To World, Direction and Turn Rate);
+			Event Player.Is_Crouch_On = False;
+			Event Player.Control_Host = Event Player.Target_Shortcut;
+			Event Player.Control_Active = True;
 		Else If(Is Button Held(Event Player, Button(Ability 2)));
 			If(Event Player.Control_List == Empty Array);
 				Small Message(Event Player, Custom String("  No player to teleport!"));
@@ -8276,7 +8384,11 @@ rule("Extra_6 - Mercy Movement Collision")
 		Disable Movement Collision With Environment(Event Player, True);
 		Wait Until(Not(Is Using Ultimate(Event Player)) || (Hero Of(Event Player) != Hero (Mercy)), 9999);
 		Set Move Speed(Event Player, Event Player.Player_Modification[1]);
-		Enable Movement Collision With Environment(Event Player);
+		If(Event Player.Ghost_Mode);
+			Disable Movement Collision With Environment(Event Player, False);
+		Else;
+			Enable Movement Collision With Environment(Event Player);
+		End;
 	}
 }
 
@@ -8608,11 +8720,12 @@ rule("Extra_19: Florenzio Bandaid")
 	{
 		Ongoing - Each Player;
 		All;
-		Lifeweaver;
+		All;
 	}
 
 	conditions
 	{
+		Hero Of(Event Player) == Hero(Lifeweaver);
 		(Event Player.High_Rank || (Event Player.Mod_Rank && Not(Event Player.Promoted_Rank)) || Event Player == Host Player) == False;
 	}
 
@@ -8633,11 +8746,12 @@ rule("Extra_20: Screw Mei")
 	{
 		Ongoing - Each Player;
 		All;
-		Mei;
+		All;
 	}
 
 	conditions
 	{
+		Hero Of(Event Player) == Hero(Mei);
 		(Event Player.High_Rank || (Event Player.Mod_Rank && Not(Event Player.Promoted_Rank)) || Event Player == Host Player) == False;
 	}
 
@@ -9102,6 +9216,7 @@ rule("Moe-Bot Behavior")
 	actions
 	{
 		Wait(0.1, Ignore Condition);
+		"Moe's gender is attack helicopter"
 		Start Facing(Event Player, Update Every Frame(Direction Towards(Eye Position(Event Player), 
 			Eye Position(Closest Player To(Event Player, All Teams)))),
 			300, To World, Direction and Turn Rate);
@@ -9114,7 +9229,6 @@ rule("Moe-Bot Behavior")
 		Start Heal Over Time(Event Player, Null, 9999, 500);
 		If(Global.Moe_Force);
 			Start Forcing Player Position(Event Player, Global.Moe_Position, False);
-			Event Player.Full_Protection = True;
 		End;
 		Event Player.Auto_Respawn = False;
 		Wait(0.1, Ignore Condition);
