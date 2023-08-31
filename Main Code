@@ -361,86 +361,85 @@ variables
 		24: Mode_Description
 		25: Last_Position_Facing
 		26: Restricted
-		28: Voice_Pitch
-		29: Heaven_Strike_Radius
-		30: Heaven_Strike_ID
-		31: Icon_ID
-		32: Ghost_Mode
-		33: Slow_Projectile
-		34: Progress_Stop
-		35: Drawing_Obj_Info_Array
-		36: Player_Title_And_Outline
-		37: Player_Nameplates
-		38: Is_Title_Given
-		39: Index_Help
-		40: Modification_Mode_Selector
-		41: Modification_Scalar_Selector
-		42: Target_Shortcut
-		43: Auto_Respawn
-		44: Icons_Info_Array
-		45: Icons_Info_Copy
-		46: Icons_Signal
-		47: Regular_Player_Has_Title
-		48: M32_Players_Nameplate
-		49: NamesAndOutlines_Colors_Selector
-		50: Is_Menu_Active
-		51: Status_Selector
-		52: Jumppad_Helper
-		53: Jumppad_Entry
-		54: Jumppad_Loop
-		55: Jumppad_Info_Array
-		56: Jumppad_Preview
-		57: Camera_Info_Array
-		58: Camera_Helper
-		59: Camera_Position
-		60: Camera_Smooth
-		61: Camera_Loop
-		62: Camera_LOS
-		63: Camera_Target
-		64: Signal
-		65: Mode_Cycle_Default
-		66: Spam_Cooldown
-		67: UNO_Info_Array
-		68: UNO_Hand
-		69: UNO_Helper
-		70: UNO_Ingame
-		71: UNO_Loop
-		72: UNO_Sorter
-		73: Print
-		74: Positions_For_Beams
-		75: Beams_Preview_ID
-		76: Beams_Selector
-		77: Is_Invisible
-		78: No_CD
-		80: Full_Protection
-		81: ExtraEffect_ID
-		82: Extra10_Player
-		83: Comms_Target
-		84: Bot_Aggro
-		85: Bot_No
-		86: Bot_CD
-		87: Extra17_Pos
-		88: Effect_Storage
-		89: Players_Global_Array
-		90: Outlines_Toggle
-		91: Midtown_Bonus
-		92: Leash_List
-		93: Leash_To
-		94: Leash_Helper
-		95: Leash_IDs
-		96: Leash_Index
-		97: Leash_Spawn
-		98: Savezone_List
-		99: Savezone_Info_Array
-		100: Savezone_Index
-		101: Savezone_Helper
-		102: TP_Index
-		103: Control_Host
-		104: Control_Deny
-		105: Control_ID
-		106: Control_Active
-		107: Control_List
-		108: AFK_Toggle
+		27: Voice_Pitch
+		28: Heaven_Strike_Radius
+		29: Heaven_Strike_ID
+		30: Icon_ID
+		31: Ghost_Mode
+		32: Slow_Projectile
+		33: Progress_Stop
+		34: Drawing_Obj_Info_Array
+		35: Player_Title_And_Outline
+		36: Player_Nameplates
+		37: Is_Title_Given
+		38: Index_Help
+		39: Modification_Mode_Selector
+		40: Modification_Scalar_Selector
+		41: Target_Shortcut
+		42: Auto_Respawn
+		43: Icons_Info_Array
+		44: Icons_Info_Copy
+		45: Icons_Signal
+		46: Regular_Player_Has_Title
+		47: M32_Players_Nameplate
+		48: NamesAndOutlines_Colors_Selector
+		49: Is_Menu_Active
+		50: Status_Selector
+		51: Jumppad_Helper
+		52: Jumppad_Entry
+		53: Jumppad_Loop
+		54: Jumppad_Info_Array
+		55: Jumppad_Preview
+		56: Camera_Info_Array
+		57: Camera_Helper
+		58: Camera_Position
+		59: Camera_Smooth
+		60: Camera_Loop
+		61: Camera_LOS
+		62: Camera_Target
+		63: Signal
+		64: Mode_Cycle_Default
+		65: Spam_Cooldown
+		66: UNO_Info_Array
+		67: UNO_Hand
+		68: UNO_Helper
+		69: UNO_Ingame
+		70: UNO_Loop
+		71: UNO_Sorter
+		72: Print
+		73: Positions_For_Beams
+		74: Beams_Preview_ID
+		75: Beams_Selector
+		76: Is_Invisible
+		77: No_CD
+		78: Full_Protection
+		79: ExtraEffect_ID
+		80: Extra10_Player
+		81: Comms_Target
+		82: Bot_Aggro
+		83: Bot_No
+		84: Bot_CD
+		85: Extra17_Pos
+		86: Effect_Storage
+		87: Players_Global_Array
+		88: Outlines_Toggle
+		89: Midtown_Bonus
+		90: Leash_List
+		91: Leash_To
+		92: Leash_Helper
+		93: Leash_IDs
+		94: Leash_Index
+		95: Leash_Spawn
+		96: Savezone_List
+		97: Savezone_Info_Array
+		98: Savezone_Index
+		99: Savezone_Helper
+		100: TP_Index
+		101: Control_Host
+		102: Control_Deny
+		103: Control_ID
+		104: Control_Active
+		105: Control_List
 	}
 
 subroutines
@@ -1849,24 +1848,6 @@ rule ("Custom nameplates list")
 			Array(Custom String("DaisyMoo"), 
 				Custom String("Rainbow"),
 				Custom String("♡  Mommy Cow  ♡")
-				),
-			Array(Custom String("Awwie"), 
-				Color(Violet),
-				Custom String("♡  Awwie  ♡"),
-				Custom String("{0}  Moe Abuser  {0}", Ability Icon String(Hero(Sombra), Button(Melee)))
-				),
-			Array(Custom String("ImmaPenguin"), 
-				Color(Blue),
-				Custom String("♡  ImmaPenguin  ♡")
-				),
-			Array(Custom String("HOÑEYBEE"), 
-				Custom String("Rainbow"),
-				Custom String("♡  HOÑEYBEE  ♡")
-				),
-			Array(Custom String("MrMidnight"), 
-				Color(Rose),
-				Custom String("♡  MrMidnight  ♡"),
-				Custom String("♡  Cat Maid  ♡")
 				)
 		);
 	}
@@ -2009,7 +1990,7 @@ rule("Listed_Player")
 			Custom String("Metalgy"), Custom String("PapaRomeo"), Custom String("RUBY"), Custom String("Miowell"), Custom String("Brat"), Custom String("CyberSentai"), 
 			Custom String("Mustika"), Custom String("xMumu"), Custom String("Shampoo"), Custom String("xCleo"), Custom String("AndrewKnoll"), Custom String("YeastBeast"), 
 			Custom String("ShellBebop"), Custom String("Dubbie7"), Custom String("MissImmortal"), Custom String("Zxtyi"), Custom String("Bendude1000"), Custom String("Lostshadow"), 
-			Custom String("Reapersimp"), Custom String("Dead"), Custom String("HYUA"));
+			Custom String("Reapersimp"), Custom String("Dead"));
 			
 		"Automatic Mod"
 		Global.Mod_Rank = Array(
@@ -2025,7 +2006,7 @@ rule("Listed_Player")
 			Custom String("Fuji"), Custom String("AsyCorn"), Custom String("DaisyMoo"), Custom String("Mettlis"),
 			Custom String("Kiwizzlee"), Custom String("BStray"), Custom String("InMoonlight"),
 			Custom String("Boney"), Custom String("tsunde"), Custom String("sonwukong"), Custom String("solevaya"), Custom String("Lünår"),
-			Custom String("AvatarGod"), Custom String("rin"), Custom String("fa89"), Custom String("ThatAspect"), 
+			Custom String("AvatarGod"), Custom String("rin"), Custom String("HYUA"), Custom String("fa89"), Custom String("ThatAspect"), 
 			Custom String("DȈŦǾ"), Custom String("GhostPunch"), Custom String("PaulineP"), Custom String("lana"), Custom String("LeMix"), 
 			Custom String("mourne"), Custom String("Erin"), Custom String("ugh"), Custom String("Akaza"), Custom String("Catgirl"), 
 			Custom String("BƑG"), Custom String("MopuD"), Custom String("ori6072"), Custom String("OperativeLyn"), Custom String("froggygutz"), 
@@ -2040,10 +2021,9 @@ rule("Listed_Player")
 			Custom String("Hestia"), Custom String("sushiii"), Custom String("AMATERASU"), Custom String("かなかけ"), Custom String("Tedz"), 
 			Custom String("Lunarion"), Custom String("Asta"), Custom String("PŏŏkiƐ"), Custom String("Yohakzu"), Custom String("Ðårk"), 
 			Custom String("FactAttend"), Custom String("SpƐdy"), Custom String("Nickyunited7"), Custom String("Kazuma"), Custom String("Kazumi"), 
-			Custom String("Jermuseppo"), Custom String("Redacted"), Custom String("S0undw4v3"), Custom String("Awwie"), Custom String("ImmaPenguin"), 
-			Custom String("HOÑEYBEE"), Custom String("MrMidnight"));
+			Custom String("Jermuseppo"), Custom String("Redacted"), Custom String("S0undw4v3"));
 		
-		Global.Warning_List = Array(Custom String("BlueSky"));
+		Global.Warning_List = Array(Custom String("tzu6fhf"));
 
 		"Muted (anyone on this list is muted AND demoted, no need to have them in both lists)"
 		Global.Muted_List = Array(
@@ -3568,98 +3548,6 @@ rule("3rd_Camera_4_Zoom")
 			Eye Position(Event Player) + 1 * Event Player.Scale_Real * Facing Direction Of(Event Player), 
 			Null, Event Player, True)), Update Every Frame(Eye Position(Event Player) + -10 * Facing Direction Of(Event Player)), 30);
 		Small Message(Event Player, Custom String(" Front View, Close"));
-	}
-}
-
-rule("Mode_00 - AFK Toggle")
-{
-	event
-	{
-		Ongoing - Each Player;
-		All;
-		All;
-	}
-
-	conditions
-	{
-		(Event Player.Mode_Cycle == 0 || Event Player.Mode_Cycle_Default == 0) == True;
-		Event Player.Signal == True;
-	}
-
-	actions
-	{
-		Event Player.Signal = False;
-		If(Is Button Held(Event Player, Button(Ultimate)));
-			If(Event Player.AFK_Toggle);
-				Small Message(Event Player, Custom String("  Already set as afk"));
-			Else;
-				Event Player.AFK_Toggle = True;
-				Small Message(Event Player, Custom String("  Set as afk"));
-			End;
-		Wait(1, Ignore Condition);
-		End;
-	}
-}
-
-rule("Mode_00 AFK ON")
-{
-	event
-	{
-		Ongoing - Each Player;
-		All;
-		All;
-	}
-
-	conditions
-	{
-		Event Player.AFK_Toggle == True;
-		Is Moving(Event Player) == False;
-		Is Crouching(Event Player) == False;
-		Has Spawned(Event Player) == True;
-		Event Player.Effect_Storage == Null;
-	}
-
-	actions
-	{
-		Wait(5, Abort When False);
-		Create Progress Bar In-World Text(All Players(All Teams), Modulo(Total Time Elapsed * Evaluate Once(Random Real(2,8)), 100), 
-			If-Then-Else(Custom String("{0}", Event Player) == Custom String("xMaxuss"), Custom String("Max is coding/afk\r\n\r\n"), 
-			If-Then-Else(Custom String("{0}", Event Player) == Custom String("LƐafa") || Custom String("{0}", Event Player) == Custom String("kwally"), 
-				Custom String("{0} is unavailable/afk\r\n\r\n", Event Player), Custom String("{0} is afk\r\n\r\n", Event Player))), 
-			Event Player, 0.5, Clip Against Surfaces, 
-			If-Then-Else(Event Player.Is_Title_Given, 
-			If-Then-Else(Event Player.Player_Title_And_Outline[1] == Custom String("Rainbow") || Event Player.Player_Title_And_Outline[1] == Custom String("Fading"), 
-			Global.Rainbow_Color, Event Player.Player_Title_And_Outline[1]), 
-			If-Then-Else(Event Player.Regular_Player_Has_Title, Global.Colors[Event Player.NamesAndOutlines_Colors_Selector], 
-			Evaluate Once(Random Value In Array(Global.Colors)))), Color(White), Visible To Position Values and Color, Default Visibility);
-		Event Player.Effect_Storage = Last Text ID;
-		Small Message(Event Player, Custom String("  AFK text now active"));
-	}
-}
-
-rule("Mode_00 - AFK OFF")
-{
-	event
-	{
-		Ongoing - Each Player;
-		All;
-		All;
-	}
-
-	conditions
-	{
-		Event Player.AFK_Toggle == True;
-		Event Player.Effect_Storage != Null;
-		(Is Jumping(Event Player) || Throttle Of(Event Player) != Vector(0,0,0) || Is Crouching(Event Player) || Not(Has Spawned(Event Player))) == True;
-	}
-
-	actions
-	{
-		Destroy Progress Bar In-World Text(Event Player.Effect_Storage);
-		Wait(0.1, Ignore Condition);
-		Event Player.Effect_Storage = Null;
-		Small Message(Event Player, Custom String("  No Longer afk"));
-		Event Player.AFK_Toggle = False;
 	}
 }
 
