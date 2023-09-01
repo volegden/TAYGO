@@ -2,7 +2,7 @@ settings
 {
 	main
 	{
-		Description: "♥ A Friendly Server To Meet New Friends ♥\nlast updated (August 31 2023)\n\n   » » » MASSIVE UPDATE RELEASED « « «\n (including UNO, non-mod menu and\n      hero specific features!)\n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss.\n   Based on the work of: TbyCoLive.\n Maintained with ♡ by: LƐafa.\n   Community Manager: kwally."
+		Description: "♥ A Friendly Server To Meet New Friends ♥\nlast updated (September 01 2023)\n\n   » » » MASSIVE UPDATE RELEASED « « «\n (including UNO, non-mod menu and\n      hero specific features!)\n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss.\n   Based on the work of: TbyCoLive.\n Maintained with ♡ by: LƐafa.\n   Community Manager: kwally."
 		Mode Name: " ♥ Friendly ♥ No Kill!"
 	}
 
@@ -440,6 +440,7 @@ variables
 		103: Control_ID
 		104: Control_Active
 		105: Control_List
+		106: Target_Select
 	}
 
 subroutines
@@ -5738,7 +5739,7 @@ rule("Mode_22 - Heaven")
 	{
 		(Event Player.Mode_Cycle == 22 || Event Player.Mode_Cycle_Default == 8) == True;
 		Event Player.Signal == True;
-		Event Player.Target_Lock.Progress_Lock == False;
+		Event Player.Target_Select.Progress_Lock == False;
 	}
 
 	actions
@@ -5777,49 +5778,49 @@ rule("Mode_22 - Heaven")
 			Abort If((Event Player.High_Rank || Event Player.Mod_Rank) == False);
 			Abort If(Player Closest To Reticle(Event Player, All Teams).High_Rank || Player Closest To Reticle(Event Player, All Teams).Full_Protection);
 			Abort If(Player Closest To Reticle(Event Player, All Teams).UNO_Ingame);
-			Event Player.Target_Lock = Player Closest To Reticle(Event Player, All Teams);
-			Abort If(Event Player.Target_Lock == Null);
+			Event Player.Target_Select = Player Closest To Reticle(Event Player, All Teams);
+			Abort If(Event Player.Target_Select == Null);
 		Else If(Is Button Held(Event Player, Button(Ultimate)));
-			Event Player.Target_Lock = Event Player;
+			Event Player.Target_Select = Event Player;
 		End;
-		Event Player.Target_Lock.Progress_Lock = True;
-		Set Status(Event Player.Target_Lock, Null, Rooted, 9999);
-		Big Message(All Players(All Teams), Custom String("{0} is going to Heaven.", Event Player.Target_Lock));
+		Event Player.Target_Select.Progress_Lock = True;
+		Set Status(Event Player.Target_Select, Null, Rooted, 9999);
+		Big Message(All Players(All Teams), Custom String("{0} is going to Heaven.", Event Player.Target_Select));
 		"Intro"
-		Event Player.Target_Lock.Heaven_Strike_Radius = 3;
-		Create Effect(All Players(All Teams), Light Shaft, Color(Sky Blue), Position Of(Event Player.Target_Lock),
-			Event Player.Target_Lock.Heaven_Strike_Radius, Position and Radius);
-		Event Player.Target_Lock.Heaven_Strike_ID[0] = Last Created Entity;
-		Create Effect(All Players(All Teams), Ring, Color(Red), Position Of(Event Player.Target_Lock),
-			Event Player.Target_Lock.Heaven_Strike_Radius, Position and Radius);
-		Event Player.Target_Lock.Heaven_Strike_ID[1] = Last Created Entity;
-		Chase Player Variable Over Time(Event Player.Target_Lock, Heaven_Strike_Radius, 0.075, 5, Destination and Duration);
+		Event Player.Target_Select.Heaven_Strike_Radius = 3;
+		Create Effect(All Players(All Teams), Light Shaft, Color(Sky Blue), Position Of(Event Player.Target_Select),
+			Event Player.Target_Select.Heaven_Strike_Radius, Position and Radius);
+		Event Player.Target_Select.Heaven_Strike_ID[0] = Last Created Entity;
+		Create Effect(All Players(All Teams), Ring, Color(Red), Position Of(Event Player.Target_Select),
+			Event Player.Target_Select.Heaven_Strike_Radius, Position and Radius);
+		Event Player.Target_Select.Heaven_Strike_ID[1] = Last Created Entity;
+		Chase Player Variable Over Time(Event Player.Target_Select, Heaven_Strike_Radius, 0.075, 5, Destination and Duration);
 		Wait(5, Ignore Condition);
-		Stop Chasing Player Variable(Event Player.Target_Lock, Heaven_Strike_Radius);
-		Destroy Effect(Event Player.Target_Lock.Heaven_Strike_ID[0]);
-		Destroy Effect(Event Player.Target_Lock.Heaven_Strike_ID[1]);
+		Stop Chasing Player Variable(Event Player.Target_Select, Heaven_Strike_Radius);
+		Destroy Effect(Event Player.Target_Select.Heaven_Strike_ID[0]);
+		Destroy Effect(Event Player.Target_Select.Heaven_Strike_ID[1]);
 		"Explosion"
-		Play Effect(All Players(All Teams), Good Explosion, Color(Red), Position Of(Event Player.Target_Lock), 3);
-		Play Effect(All Players(All Teams), Explosion Sound, Null, Position Of(Event Player.Target_Lock), 200);
+		Play Effect(All Players(All Teams), Good Explosion, Color(Red), Position Of(Event Player.Target_Select), 3);
+		Play Effect(All Players(All Teams), Explosion Sound, Null, Position Of(Event Player.Target_Select), 200);
 		Wait(0.100, Ignore Condition);
-		Play Effect(All Players(All Teams), Bad Explosion, Color(Orange), Position Of(Event Player.Target_Lock), 3);
-		Play Effect(All Players(All Teams), Ring Explosion, Color(Yellow), Position Of(Event Player.Target_Lock), 3);
+		Play Effect(All Players(All Teams), Bad Explosion, Color(Orange), Position Of(Event Player.Target_Select), 3);
+		Play Effect(All Players(All Teams), Ring Explosion, Color(Yellow), Position Of(Event Player.Target_Select), 3);
 		"Outro"
-		Teleport(Event Player.Target_Lock, Vector(0, 1000, 0));
-		Set Facing(Event Player.Target_Lock, Down, To World);
-		Set Gravity(Event Player.Target_Lock, 0);
+		Teleport(Event Player.Target_Select, Vector(0, 1000, 0));
+		Set Facing(Event Player.Target_Select, Down, To World);
+		Set Gravity(Event Player.Target_Select, 0);
 		Wait(5, Ignore Condition);
 		Set Damage Dealt(Event Player, 100);
-		Kill(Event Player.Target_Lock, Event Player);
-		If(Is Alive(Event Player.Target_Lock));
+		Kill(Event Player.Target_Select, Event Player);
+		If(Is Alive(Event Player.Target_Select));
 			Wait(1, Ignore Condition);
-			Kill(Event Player.Target_Lock, Event Player);
+			Kill(Event Player.Target_Select, Event Player);
 		End;
 		Set Damage Dealt(Event Player, Event Player.Player_Modification[0]);
-		Set Gravity(Event Player.Target_Lock, Event Player.Player_Modification[3]);
-		Clear Status(Event Player.Target_Lock, Rooted);
-		Event Player.Target_Lock.Progress_Lock = False;
-		Event Player.Target_Lock = Custom String("--- No Target ---");
+		Set Gravity(Event Player.Target_Select, Event Player.Player_Modification[3]);
+		Clear Status(Event Player.Target_Select, Rooted);
+		Event Player.Target_Select.Progress_Lock = False;
+		Event Player.Target_Select = Custom String("--- No Target ---");
 	}
 }
 
