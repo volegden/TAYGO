@@ -32,7 +32,7 @@ rule ("Custom nameplates list")
 				Custom String("{0}  ø¤º°★AFK SƲBROƲTIŊE LOADIŊG. . .★°º¤ø  {1}", Ability Icon String(Hero(Zenyatta), Button(Ability 1)), Ability Icon String(Hero(Zenyatta), Button(Ability 2))), 
 				Custom String("{0}  ♬.♩.♪. . . IŊ DIRE ŊEED OF A BREAK . . .♪.♩.♬  {0}", Ability Icon String(Hero(Soldier: 76), Button(Ability 2))), 
             	Custom String("{0}  ★×º°”PREMIƲM RESIDEŊT OF BAŊLAŊD™`”°º×★  {0}", Ability Icon String(Hero(Reinhardt), Button(Ultimate)))
-					), 
+					),
 			Array(Custom String("Gregi"), 
                 		Custom String("Rainbow"),
                 		Custom String("♥ ★ Baby D.va ★ ♥")
@@ -332,7 +332,7 @@ rule ("Custom nameplates list")
                 Custom String("{0} ☆ŜƆĦĬZǾȈƇ☆SǬMƁȐǺ☆ƐŊĴǬŶĔȒ☆ {0}", Hero Icon String(Hero(Sombra))),
 				Custom String("{0} Kir's Dad {0}", Ability Icon String(Hero(Kiriko), Button(Ability 2)))
 				),
-            Array(Custom String("Redacted"), 
+            Array(Custom String("Ređacted"), 
 				Custom String("Rainbow"),
 				Custom String("{0} † ＢＡＤ  ＯＭＥＮ † {0}", Ability Icon String(Hero(Zenyatta), Button(Ability 2))),
                 Custom String("{0}     Unpaid DJ     {0}", Icon String(fire)),
@@ -411,10 +411,10 @@ rule ("Custom nameplates list")
 				Custom String("• Processed Food •")
 				),
 			Array(Custom String("Akaza"), 
-				Custom Color(140, 49, 230, 255),
+				Color(black),
 				Custom String("{0} Use code 'Artist' in Rec Room! {0} ", Hero Icon String(Hero(Wreckingball))),
 				Custom String("{0} ♥☆ AKAZA ☆♥ {0}", Hero Icon String(Hero(Doomfist))),
-				Custom String("{0} Enjoyer of Maya {0}", Hero Icon String(Hero(Ramattra)))
+				Custom String("{0} Enjoyer of Maya {0}", Hero Icon String(Hero(Widowmaker)))
 				), 
             Array(Custom String("Mustika"), 
 				Custom Color(18, 12, 219, 255),
@@ -431,7 +431,7 @@ rule ("Custom nameplates list")
 			Array(Custom String("Slafii"), 
 				        Custom Color(47, 33, 57, 255),
 				Custom String("{0}  P r i n c e  O f  H a r m o n y  {0}", Ability Icon String(Hero(Mercy), Button(Ability 2))), 
-				Custom String("{0} Support not Healer {0}", Ability Icon String(Hero(Illari), Button(Ability 2))), 
+				Custom String("{0}  SLABIKI  {0}", Ability Icon String(Hero(Illari), Button(Ability 2))), 
 				Custom String(" † Slafiiko - Kirikult † ")
 				    ),
 			Array(Custom String("DĴŜMǾĿƑȒƔ"), 
@@ -471,6 +471,10 @@ rule ("Custom nameplates list")
 				Custom String("失恋した"), 
 				Custom String("Ghostie")
 				),
+			Array(Custom String("Cinderhardt"), 
+				Color(Sky Blue),
+				Custom String("Peacekeeper Sun")
+				),  
 			Array(Custom String("InMoonlight"), 
 				Color(Rose),
 				Custom String("♥ Caretaker Moon ♥")
@@ -575,9 +579,9 @@ rule ("Custom nameplates list")
 				),
             Array(Custom String("Kêñ"), 
 				Color(Black),
-				Custom String("☆ E-Girl Collector ☆"), 
 				Custom String("{0}      has money     {0}", Icon String(Happy)),
-				Custom String("♥ Bee’s Big brother ♥") 
+				Custom String("♥ Bee’s Big brother ♥"),
+				Custom String("{0}  what is your genda  {0}", Icon String(Question Mark))
 				), 
 			Array(Custom String("Nef"),	
 				Custom Color(62, 253, 255, 255),
@@ -640,7 +644,7 @@ rule ("Custom nameplates list")
 				Custom String("Rainbow"),
 				Custom String("{0} ☆  D u b s t a r  ☆ {0}", Ability Icon String(Hero(Kiriko), Button(Ultimate))),
 				Custom String("{0}  Dubbie the dummie  {0}", Ability Icon String(Hero(Roadhog), Button(Ultimate))),
-				Custom String("† Dubiko - Kirikult †")
+				Custom String("{0}  i'm a mekanik  {0}", Ability Icon String(Hero(Torbjörn), Button(Ability 2)))
 				), 
 			Array(Custom String("MOOOUSH"), 
 				Custom Color(204, 251, 255, 255),
@@ -668,15 +672,15 @@ rule ("Custom nameplates list")
 				),
 			Array(Custom String("FrostSlvt"), 
 				Custom Color(255, 140, 140, 255),
-				Custom String("{0} Frostie {0}", Ability Icon String(Hero(Kiriko), Button(Ultimate))), 
-        		Custom String("♥ Girlie lover ♥"),
+				Custom String("{0} • Keep your distance - my wife is very protective • {0}", Ability Icon String(Hero(Sombra), Button(Ultimate))), 
+        		Custom String("♥ Viki mnie kocha ♥"),
 				Custom String(" <<(・ө・)>> Saturn is typing... ")
 				),
 			Array(Custom String("karlybarly"), 
 				Color(White),
+				Custom String("{0}    wants money     {0}", Icon String(Sad)),
 				Custom String("{0} 莉 {0}", Ability Icon String(Hero(D.va), Button(Ultimate))), 
-				Custom String("{0} くそがき  {0}", Ability Icon String(Hero(Kiriko), Button(Ability 2))), 
-				Custom String("{0}    wants money     {0}", Icon String(Sad))
+				Custom String("{0} くそがき  {0}", Ability Icon String(Hero(Kiriko), Button(Ability 2)))
 				), 
 			Array(Custom String("かなかけ"), 
 				Custom String("Rainbow"),
