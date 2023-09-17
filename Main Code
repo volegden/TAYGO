@@ -3796,7 +3796,7 @@ rule("Mode_01 - Kill_Rez")
 				Abort;
 			End;
 			Abort If(Player Closest To Reticle(Event Player, All Teams).High_Rank || (Player Closest To Reticle(Event Player, All Teams).Mod_Rank &&
-				Not(Player Closest To Reticle(Event Player, All Teams).Promoted_Rank)));
+				Not(Player Closest To Reticle(Event Player, All Teams).Promoted_Rank)) || Player Closest To Reticle(Event Player, All Teams).Full_Protection);
 			Kill(Player Closest To Reticle(Event Player, All Teams), Event Player);
 			Play Effect(All Players(All Teams), Bad Pickup Effect, Color(Red), Player Closest To Reticle(Event Player, All Teams), 1);
 		Else If(Is Button Held(Event Player, Button(Ability 2)));
