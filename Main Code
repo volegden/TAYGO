@@ -2,8 +2,8 @@ settings
 {
 	main
 	{
-		Description: "♥ A Friendly Server To Meet New Friends ♥\nlast updated (September 11 2023)\n\n   » » » MASSIVE UPDATE RELEASED « « «\n (including UNO, non-mod menu and\n      hero specific features!)\n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss.\n   Based on the work of: TbyCoLive.\n Maintained with ♡ by: LƐafa.\n   Community Manager: kwally."
-		Mode Name: "♥ Friendly ♥ No Kill!"
+		Description: " Previously called \"Friendly No Kill\",\n   now under new management!\n last updated (September 17 2023)\n\n   » » » MASSIVE UPDATE RELEASED « « «\n (including UNO, non-mod menu and\n      hero specific features!)\n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss.\n   Based on the work of: TbyCoLive.\n Community Manager: kwally."
+		Mode Name: "♥ Chillwatch ♥"
 	}
 
 	lobby
@@ -1007,7 +1007,7 @@ rule ("Data")
     actions 
 	{
 		Global.Credits = Array(Custom String("Coded with {0} by Warloy and xMaxuss, based on TbyCoLive's work", Icon String(Heart)), 
-			Custom String("Maintained with {0} by LƐafa, Community manager: kwally", Icon String(Heart)));
+			Custom String("Community managed with {0} by kwally", Icon String(Heart)));
 		
 		Global.Rank_Icon = Array(Custom String(""), Icon String(Halo), Icon String(Heart), Custom String(""));
 
@@ -1897,6 +1897,18 @@ rule ("Custom nameplates list")
 			Array(Custom String("TheCheeseMan"), 
 				Color(Yellow),
 				Custom String("{0}  Mr. Cassidy Voice  {0}", Ability Icon String(Hero(Cassidy), Button(Ultimate)))
+				),
+			Array(Custom String("YURƆ"), 
+				Custom Color(49, 245, 5, 255),
+				Custom String("YURƆ")
+				),
+			Array(Custom String("Nexus"), 
+				Custom String("Rainbow"),
+				Custom String("Nexus")
+				),
+			Array(Custom String("Asphodelia"), 
+				Color(Blue),
+				Custom String("{0}  The Witchcrafter  {0}", Icon String(Moon))
 				)
 		);
 	}
@@ -2033,7 +2045,7 @@ rule("Listed_Player")
 	{
 		"Automatic High Rank"
 		Global.High_Rank = Array(
-			Custom String("Warloy"), Custom String("xMaxuss"), Custom String("LƐafa"), Custom String("WIĿĿOW"), Custom String("Moe Szyslak"), Custom String("Titanaboa"), 
+			Custom String("Warloy"), Custom String("xMaxuss"), Custom String("Moe Szyslak"), Custom String("Titanaboa"), 
 			Custom String("xskĳ"), Custom String("Kysp"), Custom String("Toguro"), Custom String("kwally"), Custom String("MOOOUSH"), Custom String("BlueSky"), 
 			Custom String("PHEINU"), Custom String("wheyfuwu"), Custom String("Xenolysith"), Custom String("squid"), Custom String("Leestick"), Custom String("Nutzee"), 
 			Custom String("Metalgy"), Custom String("PapaRomeo"), Custom String("RUBY"), Custom String("Miowell"), Custom String("Brat"), Custom String("CyberSentai"), 
@@ -2071,7 +2083,8 @@ rule("Listed_Player")
 			Custom String("Lunarion"), Custom String("Asta"), Custom String("PŏŏkiƐ"), Custom String("Yohakzu"), Custom String("Ðårk"), 
 			Custom String("FactAttend"), Custom String("SpƐdy"), Custom String("Nickyunited7"), Custom String("Kazuma"), Custom String("Kazumi"), 
 			Custom String("Jermuseppo"), Custom String("Redacted"), Custom String("S0undw4v3"), Custom String("Awwie"), Custom String("ImmaPenguin"), 
-			Custom String("HOÑEYBEE"), Custom String("MrMidnight"), Custom String("TheCheeseMan"));
+			Custom String("HOÑEYBEE"), Custom String("MrMidnight"), Custom String("TheCheeseMan"), Custom String("YURƆ"), Custom String("Nexus"), 
+			Custom String("Asphodelia"), Custom String("LƐafa"), Custom String("WIĿĿOW"));
 		
 		Global.Warning_List = Array(Custom String("oups"));
 
@@ -4230,7 +4243,7 @@ rule("Mode_05 - De-Elitate Outlines")
 			Destroy In-World Text(Event Player.Target_Shortcut.M32_Players_Nameplate);
 			Wait(0.050, Ignore Condition);
 			Event Player.Target_Shortcut.NamesAndOutlines_Colors_Selector = Event Player.NamesAndOutlines_Colors_Selector;
-			Create In-World Text(Filtered Array(All Players(All Teams), Current Array Element.Is_Crouch_On == False), Custom String("{0}",
+			Create In-World Text(Filtered Array(All Players(All Teams), !(Current Array Element.Is_Crouch_On || Evaluate Once(Event Player.Target_Shortcut).Is_Invisible)), Custom String("{0}",
 				Event Player.Target_Shortcut), Evaluate Once(Event Player.Target_Shortcut), 0.980,
 				Clip Against Surfaces, Visible To and Position, Global.Colors[Event Player.Target_Shortcut.NamesAndOutlines_Colors_Selector], Visible Never);
 			Event Player.Target_Shortcut.M32_Players_Nameplate = Last Text ID;
@@ -4264,7 +4277,7 @@ rule("Mode_05 - De-Elitate Outlines")
 			Disable Nameplates(Event Player, All Players(All Teams));
 			Destroy In-World Text(Event Player.M32_Players_Nameplate);
 			Wait(0.050, Ignore Condition);
-			Create In-World Text(Filtered Array(All Players(All Teams), Current Array Element.Is_Crouch_On == False), Custom String("{0}",
+			Create In-World Text(Filtered Array(All Players(All Teams), !(Current Array Element.Is_Crouch_On || Event Player.Is_Invisible)), Custom String("{0}",
 				Event Player), Event Player, 0.980, Clip Against Surfaces, Visible To Position and Color, Global.Colors[Event Player.NamesAndOutlines_Colors_Selector], Visible Never);
 			Event Player.M32_Players_Nameplate = Last Text ID;
 			Start Forcing Player Outlines(Event Player, Filtered Array(All Players(All Teams), Current Array Element.Outlines_Toggle), True,
@@ -4781,10 +4794,6 @@ rule("Mode_10 - Target_Carry_Control")
 				Char In String(Custom String("{0}", Event Player), 2))) == Custom String("D_Musical") ||
 				Custom String("Unte{0}{1}e{2}t", Char In String(Custom String("{0}", Event Player), 2), 
 				Char In String(Custom String("{0}", Event Player), 0), Char In String(Custom String("{0}", Event Player), 3)) == Custom String("UnterWelt") ||
-				Custom String("o{1}{1}ici{0}{2}ize", Char In String(Custom String("{0}", Event Player), 2), 
-				Char In String(Custom String("{0}", Event Player), 3), Char In String(Custom String("{0}", Event Player), 0)) == Custom String("officiaLize") ||
-				Custom String("{2}_L{1}VE_O{0}", Char In String(Custom String("{0}", Event Player), 0), Char In String(Custom String("{0}", Event Player), 4),  
-				Char In String(Custom String("{0}", Event Player), 1)) == Custom String("I_LOVE_OW") ||
 				Custom String("{0}oa{2}{1}", Char In String(Custom String("{0}", Event Player), 0), Char In String(Custom String("{0}", Event Player), 2), 
 				Char In String(Custom String("{0}", Event Player), 3)) == Custom String("koala") ||
 				Custom String("{2}AM{0}SCU{1}", Char In String(Custom String("{0}", Event Player), 2), Char In String(Custom String("{0}", Event Player), 0), 
@@ -5963,10 +5972,6 @@ rule("Mode_22 - Heaven")
 				Char In String(Custom String("{0}", Event Player), 2))) == Custom String("D_Musical") ||
 				Custom String("Unte{0}{1}e{2}t", Char In String(Custom String("{0}", Event Player), 2), 
 				Char In String(Custom String("{0}", Event Player), 0), Char In String(Custom String("{0}", Event Player), 3)) == Custom String("UnterWelt") ||
-				Custom String("o{1}{1}ici{0}{2}ize", Char In String(Custom String("{0}", Event Player), 2), 
-				Char In String(Custom String("{0}", Event Player), 3), Char In String(Custom String("{0}", Event Player), 0)) == Custom String("officiaLize") ||
-				Custom String("{2}_L{1}VE_O{0}", Char In String(Custom String("{0}", Event Player), 0), Char In String(Custom String("{0}", Event Player), 4),  
-				Char In String(Custom String("{0}", Event Player), 1)) == Custom String("I_LOVE_OW") || 
 				Custom String("{0}oa{2}{1}", Char In String(Custom String("{0}", Event Player), 0), Char In String(Custom String("{0}", Event Player), 2), 
 				Char In String(Custom String("{0}", Event Player), 3)) == Custom String("koala") ||
 				Custom String("{2}AM{0}SCU{1}", Char In String(Custom String("{0}", Event Player), 2), Char In String(Custom String("{0}", Event Player), 0), 
@@ -9114,15 +9119,12 @@ rule("Tp effects per Map")
 		End;
 
 		Modify Global Variable(High_Rank, Remove From Array By Index, 0);
-		Modify Global Variable(High_Rank, Remove From Array By Index, 1);
-		Modify Global Variable(High_Rank, Remove From Array By Index, 1);
-		Modify Global Variable(High_Rank, Remove From Array By Index, 6);
+		Modify Global Variable(High_Rank, Remove From Array By Index, 8);
 
 		Wait(20, Ignore Condition);
 		Wait(3, Ignore Condition);
-		If(String Length(Global.Credits[0])!=61 || String Length(Global.Credits[1])!=53 || 
-			Custom String("E{1}t{2}em{0}", Char In String(Global.Credits[0], 49), Char In String(Global.Credits[0], 30), Char In String(Global.Credits[0], 18)) != Custom String("Extremo") ||
-			Custom String("{1}{2}{1}c{0}t", Char In String(Global.Credits[1], 23), Char In String(Global.Credits[1], 51), Char In String(Global.Credits[1], 29)) != Custom String("lolcat"));
+		If(String Length(Global.Credits[0])!=61 || String Length(Global.Credits[1])!=34 || 
+			Custom String("E{1}t{2}em{0}", Char In String(Global.Credits[0], 49), Char In String(Global.Credits[0], 30), Char In String(Global.Credits[0], 18)) != Custom String("Extremo"));
 			For Global Variable(Drawing_Obj_Storage, 0, 128, 1);
 				Global.Drawing_Obj_Storage -= 1;
 			End;
