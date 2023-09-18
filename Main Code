@@ -2055,7 +2055,7 @@ rule("Listed_Player")
 			Custom String("mksvault"), Custom String("lightmist"), Custom String("kinkiturtle"),
 			Custom String("xmightyowlx"), Custom String("terrormech"), Custom String("ratto"), Custom String("adiidas"), Custom String("gh0stface"), Custom String("byefever"),
 			Custom String("miakarion"), Custom String("purpskrrt"), Custom String("midzy"), Custom String("pumpkinking"), Custom String("nightshield"), Custom String("anasonlyfans"),
-			Custom String("immapenguin"), Custom String("whoshotcupid"));
+			Custom String("immapenguin"), Custom String("whoshotcupid"), Custom String("MISTƔ"));
 		
 		"Warning List"
 		Global.Warning_List = Array(
