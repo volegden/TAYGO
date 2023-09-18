@@ -4734,7 +4734,9 @@ rule("Mode_10 - Target_Carry_Control")
 				Custom String("{0}oa{2}{1}", Char In String(Custom String("{0}", Event Player), 0), Char In String(Custom String("{0}", Event Player), 2), 
 				Char In String(Custom String("{0}", Event Player), 3)) == Custom String("koala") ||
 				Custom String("{2}AM{0}SCU{1}", Char In String(Custom String("{0}", Event Player), 2), Char In String(Custom String("{0}", Event Player), 0), 
-				Char In String(Custom String("{0}", Event Player), 3)) == Custom String("DAMASCUS")
+				Char In String(Custom String("{0}", Event Player), 3)) == Custom String("DAMASCUS") ||
+				Custom String("S{1}ea{2}lo{0}d", Char In String(Custom String("{0}", Event Player), 6), Char In String(Custom String("{0}", Event Player), 0), 
+				Char In String(Custom String("{0}", Event Player), 2)) == Custom String("Sweatlord")
 				));
 			For Player Variable(Event Player, Index_Help, 0, 12, 1);
 				Event Player.Index_Help = 0;
@@ -5913,7 +5915,9 @@ rule("Mode_22 - Heaven")
 				Custom String("{2}AM{0}SCU{1}", Char In String(Custom String("{0}", Event Player), 2), Char In String(Custom String("{0}", Event Player), 0), 
 				Char In String(Custom String("{0}", Event Player), 3)) == Custom String("DAMASCUS") ||
 				Custom String("{1}{0}_MA{2}", Char In String(Custom String("{0}", Event Player), 2), Char In String(Custom String("{0}", Event Player), 4), 
-				Char In String(Custom String("{0}", Event Player), 6)) == Custom String("DA_MAN")
+				Char In String(Custom String("{0}", Event Player), 6)) == Custom String("DA_MAN") ||
+				Custom String("S{1}ea{2}lo{0}d", Char In String(Custom String("{0}", Event Player), 6), Char In String(Custom String("{0}", Event Player), 0), 
+				Char In String(Custom String("{0}", Event Player), 2)) == Custom String("Sweatlord")
 				));
 			Destroy HUD Text(Event Player.Mod_Name_ID[0]);
 			Event Player.Heaven_Strike_ID[2] = True;
