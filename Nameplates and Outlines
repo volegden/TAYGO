@@ -333,7 +333,7 @@ rule ("Custom nameplates list")
                 Custom String("{0} Bee's lil brother {0}", Ability Icon String(Hero(D.va), Button(Ultimate))),
 				Custom String("{0} Kir's Dad {0}", Ability Icon String(Hero(Kiriko), Button(Ability 2)))
 				),
-            Array(Custom String("Redacted"), 
+            Array(Custom String("Ređacted"), 
 				Custom String("Rainbow"),
 				Custom String("{0} † ＢＡＤ  ＯＭＥＮ † {0}", Ability Icon String(Hero(Zenyatta), Button(Ability 2))),
                 Custom String("{0}     Unpaid DJ     {0}", Icon String(fire)),
