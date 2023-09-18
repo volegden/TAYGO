@@ -216,7 +216,7 @@ rule ("Custom nameplates list")
                 		Custom Color(219, 99, 179, 255),
                 		Custom String("wheyfu"), 
                 		Custom String("resident tomboy"),
-						Custom String("{0} Deadlifting Your Body Weight {0}", Icon String(Skull))
+						Custom String("President #whey", Ability Icon String(Hero(Ramattra), Button(Ability 1)))
                 		),
 			Array(Custom String("GuardBoyyy"), 
                 		Color(Rose),
