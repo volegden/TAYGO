@@ -538,7 +538,7 @@ rule ("Custom nameplates list")
                 Custom String("{0} ＦＥＥＤ　ＴＨＥ　ＢＥＡＳＴ {0}", Icon String(Exclamation Mark)),
 				Custom String("{0} •ＨＥＡＤ•ＰＡＴＳ•ＰＬＥＡＳＥ• {0}", Ability Icon String(Hero(Kiriko), Button(Ability 2)))
 				),
-			Array(Custom String("fishy"), 
+			Array(Custom String("Ƒìşhy"), 
 				Custom Color(155, 9, 30, 255),
 				Custom String("{0}• Sammy • {0}", Ability Icon String(Hero(Hanzo), Button(Ultimate))), 
 				Custom String("{0} ♥ Sylvari Adorer ♥ {0}", Ability Icon String(Hero(Hanzo), Button(Ultimate))), 
