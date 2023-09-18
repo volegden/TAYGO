@@ -6929,7 +6929,7 @@ rule("Mode_29 - Promote/Demote_And_Teamswap")
 			Abort If(Event Player.Target_Shortcut.UNO_Ingame);
 			If(Array Contains(Global.High_Rank, Custom String("{0}", Event Player.Target_Shortcut)) ||
 				(Array Contains(Global.Mod_Rank, Custom String("{0}", Event Player.Target_Shortcut)) &&
-				Not(Event Player.Target_Shortcut.Promoted_Rank) && Not(Event Player.Heaven_Strike_ID[2])) ||
+				Not(Event Player.Target_Shortcut.Promoted_Rank)) ||
 				((Event Player.Target_Shortcut == Host Player) && Not(Event Player.Heaven_Strike_ID[2])) ||
 				Event Player.Target_Shortcut.Promoted_Rank);
 				Small Message(Event Player, Custom String("  {0} is already promoted.", Event Player.Target_Shortcut));
