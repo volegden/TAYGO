@@ -3225,8 +3225,7 @@ rule("Remove_AFK_Player")
 		Abort If(Array Contains(Global.High_Rank, Custom String("{0}", Event Player)) || Array Contains(Global.Mod_Rank, Custom String("{0}", Event Player)) 
 			|| (Host Player == Event Player && Array Contains(Global.Promoted_List, Custom String("{0}", Event Player))) 
 			|| (Global.Music_Toggle && Event Player == Host Player));
-		Abort If(Custom String("{0}", Event Player) == Custom String("Warloy")|| 
-			Custom String("{0}", Event Player) == Custom String("WIĿĿOW") || Custom String("{0}", Event Player) == Custom String("kwally"));
+		Abort If(Custom String("{0}", Event Player) == Custom String("Warloy") || Custom String("{0}", Event Player) == Custom String("kwally"));
 		Wait(600, Abort When False);
 		Big Message(All Players(All Teams), Custom String("{0} Was \"AFK\" Too Long Without Choosing A Hero.", Event Player));
 		Wait(0.1, Ignore Condition);
@@ -3630,11 +3629,13 @@ rule("Mode_00 AFK ON")
 	actions
 	{
 		Wait(5, Abort When False);
-		If(Custom String("{0}", Event Player) == Custom String("xMaxuss") || Custom String("{0}", Event Player) == Custom String("kwally"));
+		If(Custom String("{0}", Event Player) == Custom String("xMaxuss") || Custom String("{0}", Event Player) == Custom String("kwally") ||
+			Custom String("{0}", Event Player) == Custom String("Warloy"));
 			Create Progress Bar In-World Text(All Players(All Teams), Modulo(Total Time Elapsed * Evaluate Once(Random Real(2,8)), 100), 
 				If-Then-Else(Custom String("{0}", Event Player) == Custom String("xMaxuss"), Custom String("Max is coding/afk\r\n"), 
 				If-Then-Else(Custom String("{0}", Event Player) == Custom String("kwally"), 
-					Custom String("kwally is unavailable | DM me if needed"), Custom String("{0} is afk", Event Player))), 
+					Custom String("kwally is unavailable | DM me if needed"), 
+				If-Then-Else(Custom String("{0}", Event Player) == Custom String("Warloy"), Custom String("Warloy is coding/afk\r\n"), Custom String("{0} is afk", Event Player)))), 
 				Event Player, 0.5, Clip Against Surfaces, 
 				If-Then-Else(Event Player.Is_Title_Given, 
 				If-Then-Else(Event Player.Player_Title_And_Outline[1] == Custom String("Rainbow") || Event Player.Player_Title_And_Outline[1] == Custom String("Fading"), 
@@ -3643,9 +3644,8 @@ rule("Mode_00 AFK ON")
 				Evaluate Once(Random Value In Array(Global.Colors)))), 
 				Color(White), Visible To Position Values and Color, Default Visibility);
 		Else;
-			Create In-World Text(All Players(All Teams), Custom String("{0} {1} is {2}AFK {0}\r\n\r\n", 
-				Global.Rotate[Modulo(Round To Integer(Total Time Elapsed * Evaluate Once(Random Real(2,8)) / 5, Down), 4)], Event Player, 
-				If-Then-Else(Custom String("{0}", Event Player) == Custom String("Warloy"), Custom String("coding/"), Custom String(""))), 
+			Create In-World Text(All Players(All Teams), Custom String("{0} {1} is AFK {0}\r\n\r\n", 
+				Global.Rotate[Modulo(Round To Integer(Total Time Elapsed * Evaluate Once(Random Real(2,8)) / 5, Down), 4)], Event Player), 
 				Event Player, 0.8, Clip Against Surfaces, Visible To Position String and Color, 
 				If-Then-Else(Event Player.Is_Title_Given, 
 				If-Then-Else(Event Player.Player_Title_And_Outline[1] == Custom String("Rainbow") || Event Player.Player_Title_And_Outline[1] == Custom String("Fading"), 
