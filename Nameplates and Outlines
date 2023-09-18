@@ -827,7 +827,13 @@ rule ("Custom nameplates list")
 			Array(Custom String("ImmaPenguin"), 
 				Color(Blue),
 				Custom String("♡  ImmaPenguin  ♡")
-				)
+				),
+			Array(Custom String("LightMist"), 
+				Custom Color(102, 178, 178, 255),
+				Custom String("{0} ♡ Clumsy Little Waffle ♡ {0}", Icon String(Halo)),
+				Custom String("{0} Lifeweaver connoisseur {0}", Ability Icon String(Hero(Lifeweaver), Button(Primary Fire))),
+				Custom String("{0} ♡ Clumsy Little Waffle ♡ {0}", Ability Icon String(Hero(Lucio), Button(Ability 2)))
+				),
 		);
 	}
 }
