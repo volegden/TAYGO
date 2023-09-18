@@ -1267,7 +1267,7 @@ rule ("Custom nameplates list")
                 		Custom Color(219, 99, 179, 255),
                 		Custom String("wheyfu"), 
                 		Custom String("resident tomboy"),
-						Custom String("{0} Deadlifting Your Body Weight {0}", Icon String(Skull))
+						Custom String("President #whey", Ability Icon String(Hero(Ramattra), Button(Ability 1)))
                 		),
 			Array(Custom String("GuardBoyyy"), 
                 		Color(Rose),
@@ -2055,7 +2055,7 @@ rule("Listed_Player")
 			Custom String("mksvault"), Custom String("lightmist"), Custom String("kinkiturtle"),
 			Custom String("xmightyowlx"), Custom String("terrormech"), Custom String("ratto"), Custom String("adiidas"), Custom String("gh0stface"), Custom String("byefever"),
 			Custom String("miakarion"), Custom String("purpskrrt"), Custom String("midzy"), Custom String("pumpkinking"), Custom String("nightshield"), Custom String("anasonlyfans"),
-			Custom String("immapenguin"), Custom String("whoshotcupid"), Custom String("MISTƔ"));
+			Custom String("immapenguin"), Custom String("whoshotcupid"), Custom String("MISTƔ"), Custom String("Pumpkinjinx"));
 		
 		"Warning List"
 		Global.Warning_List = Array(
