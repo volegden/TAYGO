@@ -15,7 +15,7 @@ rule ("Custom nameplates list")
 				Custom String("Coup de grâce")
                 	), 
 			Array(Custom String("kwally"),
-                		Custom Color(220, 100, 143, 255), 
+                		Custom Color(0, 15, 125, 255), 
 				Custom String("Ｋｗａｌｌｙ"), 
 				Custom String("bittersweet symphony"), 
 				Custom String("ї ∂นҫӄїภғ Һαҭѡ ұσน")
