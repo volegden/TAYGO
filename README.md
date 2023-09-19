@@ -1,2 +1,2 @@
 
-Shared lists for lobby RJJ01 in Overwatch 2.
+Shared lists for lobby TAYGO in Overwatch 2.
