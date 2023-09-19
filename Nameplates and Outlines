@@ -26,9 +26,9 @@ rule ("Custom nameplates list")
 				Custom String("¡Hola! ¿Qué onda? {0}", Hero Icon String(Hero(Sombra))),
 				Custom String("Custom String(\"Insert 3rd name\")")
                 	),
-            		Array(Custom String("LƐafa"),  
+            Array(Custom String("LƐafa"),  
                 		Custom Color(110, 0, 0, 255),
-				Custom String("probably afk/alt tabbed")
+						Custom String("probably afk/alt tabbed")
 					),
 			Array(Custom String("Gregi"), 
                 		Custom String("Rainbow"),
@@ -121,8 +121,8 @@ rule ("Custom nameplates list")
 			Array(Custom String("S0undw4v3"), 
 						Custom Color(170, 111, 229, 255), 
 						Custom String("{0}  Sкυ∂ηαвє'ѕ Sσυη∂вαє  {0}", Hero Icon String(Hero(Reaper))), 
-						Custom String ("{0}  Ｔｈｅ Ｃｙｂｅｒｔｒｏｎｉａｎ  {0}", Ability Icon String(Hero(Bastion), Button(Ultimate))), 
-						Custom String ("{0}  enthusiast of the logic of the sword  {0}", Ability Icon String(Hero(Genji), Button(Ultimate)))
+						Custom String ("{0}  ⇒   -`†  ΣNƬHƱЅIΔЅƬ  ΘF  ƬHΣ  LΘGIC  ΘF  ƬHΣ  ЅШΘRD™  †´-  {0}", Ability Icon String(Hero(Genji), Button(Ultimate))),
+						Custom String ("{0}  Ｔｈｅ Ｃｙｂｅｒｔｒｏｎｉａｎ  {0}", Ability Icon String(Hero(Bastion), Button(Ultimate)))
                 		), 
 			Array(Custom String("Fuji"), 
                 		Custom String("Rainbow"),
@@ -525,7 +525,7 @@ rule ("Custom nameplates list")
 			Array(Custom String("Hxneibee"), 
 				Custom Color(84, 1, 1, 255),
 				Custom String("愛"), 
-				Custom String("{0}{0} Yes Kakarot I see it... {0}{0}", Icon String(Exclamation Mark)), 
+				Custom String("{0} Yes Kakarot I see it... {0}", Icon String(Exclamation Mark)), 
 				Custom String("{0}  Camel milk hater  {0}", Ability Icon String(Hero(Kiriko), Button(Secondary Fire)))
 				),
 			Array(Custom String("Blueberrycow"), 
@@ -576,9 +576,9 @@ rule ("Custom nameplates list")
 				),
             Array(Custom String("Kêñ"), 
 				Color(Black),
-				Custom String("☆ E-Girl Collector ☆"), 
-				Custom String("{0}      Kwenfected     {0}", Ability Icon String(Hero(Cassidy), Button(Ultimate))),
-				Custom String("{0}{0}  Vegeta you see this?  {0}{0}", Icon String(Exclamation Mark)) 
+				Custom String("the voices...are taking over"), 
+				Custom String("Vegeta you see this?"),
+				Custom String("{0}  what is your genda  {0}", Icon String(Question Mark)) 
 				), 
 			Array(Custom String("Nef"),	
 				Custom Color(62, 253, 255, 255),
@@ -887,7 +887,7 @@ rule ("Custom nameplates list")
 				),
 			Array(Custom String("Midzy"), 
 				Color(Black),
-				Custom String("✧ 𝙶𝚎𝚗𝚓𝚒 𝙲𝚘𝚕𝚕𝚎𝚌𝚝𝚘𝚛 ✧"),
+				Custom String("☆ Genji Collector ☆"),
 				Custom String("(￣ω￣)"),
 				Custom String("☆ ITZY fan ☆")
 				),
