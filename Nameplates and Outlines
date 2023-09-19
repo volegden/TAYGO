@@ -437,9 +437,9 @@ rule ("Custom nameplates list")
 				    ),
 			Array(Custom String("DJCarwashSym"), 
 				Custom Color(0, 255, 255, 255), 
-				Custom String("{0}  ⇒   -`★  Ш4ƬCHΣR'Ѕ CƱЅƬΘΜΣR ЅƱƤƤΘRƬ™  ★´-   {0}", Hero Icon String(Hero(Orisa))), 
-				Custom String("{0}  ⇒   -`♡  ΜΣNƬΔL  HΣΔLƬH  CHΣCƘƤΘINƬ™  ♡´-   {0}", Hero Icon String(Hero(Brigitte))), 
-				Custom String("{0}  ⇒   -`•  CΔRШΔЅH  ЅΨΜƱLΔƬΘR™   •´-   {0}", Hero Icon String(Hero(Symmetra)))
+				Custom String("{0}  ⇒   -`★  CHILLШΔƬCH CΘNƬΔCƬ ЅƱƤƤΘRƬ™  ★´-   {0}", Hero Icon String(Hero(Orisa))), 
+				Custom String("{0}  ⇒   -`†  ΣΜƁRΔCΣR  ΘF  ƬHΣ  LΘGIC  ΘF  ƬHΣ  ЅШΘRD™  †´-   {0}", Ability Icon String(Hero(Genji), Button(Ultimate))), 
+				Custom String("{0}  ⇒   -`△  ЅHΔDΘШ  ШIZΔRD  ΜΘNΣΨ  GΔNG™   △´-   {0}", Ability Icon String(Hero(Sombra), Button(Ultimate)))
 				),
 			Array(Custom String("Reapersimp"), 
 				Custom Color(255, 255, 178, 255), 
