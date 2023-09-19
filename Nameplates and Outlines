@@ -11,14 +11,13 @@ rule ("Custom nameplates list")
 		Global.Titles_And_Outlines = Array(
 			Array(Custom String("Warloy"), 
                 		Custom Color(220, 100, 143, 255),
-				Custom String("Notakichiōnā"), 
-				Custom String("Loy Loy"), 
-				Custom String("Ilo Be Zou")
+				Custom String("Warloy"), 
+				Custom String("Coup de grâce")
                 	), 
 			Array(Custom String("kwally"),
                 		Custom Color(220, 100, 143, 255), 
-				Custom String("notakichi"), 
-				Custom String("Kwa Kwa"), 
+				Custom String("Ｋｗａｌｌｙ"), 
+				Custom String("bittersweet symphony"), 
 				Custom String("ї ∂นҫӄїภғ Һαҭѡ ұσน")
                 	),
 			Array(Custom String("xMaxuss"), 
@@ -282,8 +281,8 @@ rule ("Custom nameplates list")
 				Custom String("♣ ★ D.vastation ★ ♣")
 				), 
 			Array(Custom String("Deira"), 
-				Custom String("Rainbow"), 
-				Custom String("KawaiiChan")
+				Color(Black), 
+				Custom String("♡")
 				),
 			Array(Custom String("Ƙenzai"), 
 				Custom String("Rainbow"),
@@ -307,8 +306,8 @@ rule ("Custom nameplates list")
 				), 
 			Array(Custom String("Lostshadow"), 
 			 	Custom String("Rainbow"),
-				Custom String("★ Your Shadow ★"), 
-				Custom String("Camel milk enjoyer"), 
+				Custom String("♡ Gh0stface's little brother ♡"), 
+				Custom String("{0} Camel milk enjoyer {0}", Ability Icon String(Hero(Kiriko), Button(Ability 2))), 
                 Custom String("{0} Ｓｅｅｌｅｎｓｏｒｇｅ {0}", Icon String(Moon))
 				), 
             Array(Custom String("froggygutz"), 
@@ -363,7 +362,7 @@ rule ("Custom nameplates list")
 				),
 			Array(Custom String("Brat"), 
 			 	Custom String("Rainbow"),
-				Custom String("ฅ^._.^ฅ　ＣＩＡ　ＫＩＴＴＥＮ　ＳＱＵＡＤ　ฅ^._.^ฅ"),
+				Custom String("{0} PARTNERS IN CRIME {0}", Icon String(Dizzy)),
 				Custom String("☆ BPD BADDIE ☆"), 
 				Custom String("{0}  Ｃｈａｒｉｓｍａｔｉｃａｌｌｙ    Ｄｅｐｒｅｓｓｅｄ  {0}", Ability Icon String(Hero(Moira), Button(Ability 2)))
 				), 
@@ -374,7 +373,7 @@ rule ("Custom nameplates list")
 				),
 			Array(Custom String("Shampoo"), 
 				Custom String("Rainbow"),
-				Custom String("{0}    ＣＩＡ　ＫＩＴＴＥＮ　ＳＱＵＡＤ    {0} ", Ability Icon String(Hero(Cassidy), Button(Primaryfire))),
+				Custom String("{0}  Shadow Wizard Money Gang  {0} ", Ability Icon String(Hero(Sombra), Button(Ultimate))),
 				Custom String("♡ FAAFO ♡"), 
 				Custom String("⁂BACONEGGNCHEESE⁂")
 				),
@@ -382,11 +381,11 @@ rule ("Custom nameplates list")
 				Custom Color(163, 144, 222, 255),
 				Custom String("  ฅ ^ •ㅈ• ^ ฅ  "),
 				Custom String("{0}♥ Solarion's Moon ♥{0}", Ability Icon String(Hero(D.va), Button(Ultimate))), 
-				Custom String("{0}☆ Mia's Little Sister ☆{0}", Ability Icon String(Hero(Kiriko), Button(Ultimate)))
+				Custom String("{0}  Shadow Wizard Money Gang  {0}", Ability Icon String(Hero(Sombra), Button(Ultimate)))
 				),
 			Array(Custom String("TURBOMURO"),
-				Color(Blue),
-				Custom String("highspeed")
+				Custom Color(255, 255, 255, 255),
+				Custom String("{0}  ARMY OF TWO  {0}", Ability Icon String(Hero(Ramattra), Button(Primaryfire)))
 				),
 			Array(Custom String("DȈŦǾ"), 
 				Custom String("Rainbow"),
@@ -424,15 +423,15 @@ rule ("Custom nameplates list")
 				Custom String("{0} ♡ Hestia's Little Baby ♡ {0}", Ability Icon String(Hero(D.va), Button(Ultimate)))
 				),
 			Array(Custom String("Hestia"), 
-				Custom Color(215, 163, 245, 255),
+				Custom Color(84, 1, 1, 255),
 				Custom String("{0} Musti's Mom {0}", Ability Icon String(Hero(Mercy), Button(Ultimate))), 
 				Custom String("{0} Midlight {0}", Ability Icon String(Hero(Mercy), Button(Ultimate))), 
 				Custom String("{0} ♡ Beast Creator ♡ {0}", Ability Icon String(Hero(Lifeweaver), Button(Primaryfire)))
 				),
 			Array(Custom String("Slafii"), 
-				Custom Color(136, 0, 0, 255),
+				Custom Color(46, 26, 71, 255),
 				Custom String("{0}  P r i n c e  O f  H a r m o n y  {0}", Ability Icon String(Hero(Mercy), Button(Ability 2))), 
-				Custom String("{0} Support not Healer {0}", Ability Icon String(Hero(Illari), Button(Ability 2))), 
+				Custom String("{0} Slabiki {0}", Ability Icon String(Hero(Illari), Button(Ability 2))), 
 				Custom String(" † Slafiiko - Kirikult † ")
 				    ),
 			Array(Custom String("DJCarwashSym"), 
@@ -523,10 +522,10 @@ rule ("Custom nameplates list")
 				Custom String("☆ Seli's wife ☆")
 				),
 			Array(Custom String("Hxneibee"), 
-				Color(White),
+				Custom Color(84, 1, 1, 255),
 				Custom String("愛"), 
-				Custom String("♡ Ken’s lil sister ♡"), 
-				Custom String("Camel milk hater")
+				Custom String("{0}{0} Yes Kakarot I see it... {0}{0}", Icon String(Exclamation Mark)), 
+				Custom String("{0}  Camel milk hater  {0}", Ability Icon String(Hero(Kiriko), Button(Secondary Fire)))
 				),
 			Array(Custom String("Blueberrycow"), 
 				Custom Color(175, 216, 255, 255),
@@ -578,13 +577,13 @@ rule ("Custom nameplates list")
 				Color(Black),
 				Custom String("☆ E-Girl Collector ☆"), 
 				Custom String("{0}      Kwenfected     {0}", Ability Icon String(Hero(Cassidy), Button(Ultimate))),
-				Custom String("♥ Bee’s Big brother ♥") 
+				Custom String("{0}{0}  Vegeta you see this?  {0}{0}", Icon String(Exclamation Mark)) 
 				), 
 			Array(Custom String("Nef"),	
 				Custom Color(62, 253, 255, 255),
-				Custom String("♡ ⁂ U n b r e a k a b l e ⁂ ♡"),
-				Custom String("{0}     FREE • PATS     {0}", Ability Icon String(Hero(Ramattra), Button(Ultimate))),
-				Custom String("{0}     SLEEP • DEPRIVED     {0}", Ability Icon String(Hero(Ana), Button(Ability 1)))
+				Custom String("{0}  PARTNERS IN CRIME  {0}", Icon String(Dizzy)),
+				Custom String("{0}  ARMY OF TWO  {0}", Ability Icon String(Hero(Ramattra), Button(Ability 1))),
+				Custom String("{0}  ALWAYS EEPY  {0}", Ability Icon String(Hero(Ana), Button(Ability 1)))
 				),
 			Array(Custom String("Secré"), 
 				Color(Rose),
@@ -703,10 +702,10 @@ rule ("Custom nameplates list")
 				Custom String("{0}  pinakanakapagpapabagabag-damdamin {0}", Ability Icon String(Hero(Lifeweaver), Button(Secondaryfire)))
 				),
 			Array(Custom String("PŏŏkiƐ"),
-				Custom Color(255, 171, 128, 255), 
+				Custom Color(255, 136, 92, 255), 
 				Custom String("{0} Amorzinho {0}", Ability Icon String(Hero(Lúcio), Button(Ultimate))), 
-				Custom String("{0} . ˚ · (ㅅ´ ˘ `)  ˚ . {0}", Ability Icon String(Hero(Lifeweaver), Button(Primaryfire))), 
-				Custom String("{0} Yours, Truly {0}", Ability Icon String(Hero(Hanzo), Button(Primaryfire)))
+				Custom String("{0} . ˚ · (ㅅ´ ˘ `) · ˚ . {0}", Ability Icon String(Hero(Lifeweaver), Button(Primaryfire))), 
+				Custom String("{0} 〞You may as well take my ♥; it's already full of you— 〟{0}", Ability Icon String(Hero(Hanzo), Button(Primaryfire)))
 				),
 			Array(Custom String("AMATERASU"), 
 				Custom String("Rainbow"),
@@ -737,7 +736,7 @@ rule ("Custom nameplates list")
 				Custom Color(255, 204, 230, 255),
 				Custom String("{0} sushiii wooshiii {0}", Ability Icon String(Hero(Genji), Button(Ultimate))),
 				Custom String("(๑)#))<<"),
-				Custom String("{0}  ☆ M e r c y  E n j o y e r ☆ {0}", Ability Icon String(Hero(Mercy), Button(Ultimate)))
+				Custom String("{0} ☆ Ｓ ｕ ｓ ｈ ｉ Ｅ ｎ ｊ ｏ ｙ ｅ ｒ ☆ {0}", Ability Icon String(Hero(Mercy), Button(Ability 1)))
 				), 
 			Array(Custom String("Yeraei"), 
 				Custom String("Rainbow"),
@@ -832,8 +831,48 @@ rule ("Custom nameplates list")
 				Custom Color(102, 178, 178, 255),
 				Custom String("{0} ♡ Clumsy Little Waffle ♡ {0}", Icon String(Halo)),
 				Custom String("{0} Lifeweaver connoisseur {0}", Ability Icon String(Hero(Lifeweaver), Button(Primary Fire))),
-				Custom String("{0} ♡ Jazz groover ♡ {0}", Ability Icon String(Hero(Lucio), Button(Ability 2)))
+				Custom String("{0} ♡ Jazz groover ♡ {0}", Ability Icon String(Hero(Lúcio), Button(Ability 2)))
 				),
+			Array(Custom String("gh0stface"), 
+				Custom Color(255, 153, 153, 255),
+				Custom String("♡ Lostshadow's big sister ♡"),
+				Custom String("{0} Ram & Sigma Enjoyer {0}", Ability Icon String(Hero(Moira), Button(Primary Fire))),
+				Custom String("{0} The North Remmembers {0}", Ability Icon String(Hero(Mercy), Button(Ability 1)))
+				),
+			Array(Custom String("TerrorMech"), 
+				Custom Color(115, 230, 0, 255),
+				Custom String("{0} Pocket sized friend {0}", Ability Icon String(Hero(Wreckingball), Button(Crouch))),
+				Custom String("{0} Standby for Titanfall! {0}", Ability Icon String(Hero(Orisa), Button(Ultimate))),
+				Custom String("{0} I will lead you through the darkness {0}", Ability Icon String(Hero(Sigma), Button(Ultimate)))
+				),
+			Array(Custom String("PurpSkrrt"), 
+				Custom Color(235, 178, 255, 255),
+				Custom String("{0} Princess Pürp {0}", Ability Icon String(Hero(Lifeweaver), Button(Primary Fire))),
+				Custom String("{0} Pookie Collector {0}", Ability Icon String(Hero(Mercy), Button(Ultimate))),
+				Custom String("{0} Shadow Wizard Money Gang {0}", Ability Icon String(Hero(Sombra), Button(Ultimate)))
+				),
+			Array(Custom String("Miamor"), 
+				Custom Color(235, 178, 255, 255),
+				Custom String("{0} Shadow Wizard Money Gang {0}", Ability Icon String(Hero(Sombra), Button(Ultimate)))
+				),
+			Array(Custom String("PumpkinJinx"), 
+				Custom Color(235, 138, 54, 255),
+				Custom String("{0} Junkrat's Husband {0}", Ability Icon String(Hero(Junkrat), Button(Ultimate))),
+				Custom String("{0} Go Pico! Yeah Yeah! Go Pico! {0}", Ability Icon String(Hero(Reaper), Button(Primary Fire))),
+				Custom String("{0} Foxy's Pirate's Cove {0}", Ability Icon String(Hero(Roadhog), Button(Ability 1)))
+				),
+			Array(Custom String("NightShield"), 
+				Custom Color(115, 50, 2, 255),
+				Custom String("{0} Go Push a rock up a hill {0}", Ability Icon String(Hero(Sigma), Button(Ability 2))),
+				Custom String("{0} Kirikult - Niriko {0}", Ability Icon String(Hero(Kiriko), Button(Ultimate))),
+				Custom String("{0} I don't have any {0}", Icon String(Question Mark))
+				),
+			Array(Custom String("kinkiturtle"), 
+				Custom Color(153, 197, 242, 255),
+				Custom String("♡ Lazy Turtle ♡"),
+				Custom String("{0} the wrost speller intbrhw wholx world {0}", Icon String(Question Mark)),
+				Custom String("{0} I have many {0}", Icon String(Exclamation Mark))
+				)
 		);
 	}
 }
