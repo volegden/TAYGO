@@ -883,7 +883,7 @@ rule ("Custom nameplates list")
 				Custom String("{0} ⁂ moe: 76 lover ⁂ {0}", Ability Icon String(Hero(Soldier: 76), Button(Ultimate))),
 				Custom String("{0} ☆ friendly neighborhood lucio ☆ {0}", Ability Icon String(Hero(Lúcio), Button(Ultimate)))
 				),
-			Array(Custom String("xMightyOwlXx"), 
+			Array(Custom String("XMightyOwlXx"), 
 				Custom Color(255, 102, 102, 255),
 				Custom String("{0} average junkerqueen lover {0}", Icon String(Plus)),
 				Custom String("{0} ♥ Kiwi’s little brother ♥ {0}", Icon String(Halo)),
