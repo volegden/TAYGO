@@ -10,7 +10,7 @@ rule ("Custom nameplates list")
 		"31619 -> 31205"
 		Global.Titles_And_Outlines = Array(
 			Array(Custom String("w4tchers"), 
-                		Custom String("Rainbow"),
+                Custom String("Rainbow"),
 				Custom String("w4tchers")
                 	), 
 			Array(Custom String("Warloy"), 
@@ -112,9 +112,9 @@ rule ("Custom nameplates list")
                 		Custom String("Black Cat")
                 		),
 			Array(Custom String("HYUA"), 
-                		Custom Color(156, 20, 5, 255),
+                		Custom Color(145, 10, 3, 255),
                 		Custom String("Cat"), 
-                		Custom String("I swear it was a catcident!	  。゜゜(´Ｏ`) ゜゜。"),
+                		Custom String("literally asuka"),
                 		Custom String("boobsponge")
                 		), 
 			Array(Custom String("Titanaboa"), 
@@ -319,7 +319,7 @@ rule ("Custom nameplates list")
 				Custom String("Rainbow"),
 				Custom String("☆ Frog Queen ☆")
 				), 
-			Array(Custom String("Sp3dy"), 
+			Array(Custom String("SpƐdy"), 
 				Custom String("Rainbow"),
 				Custom String("{0} ホッパーワン! スチームライナー! ガチャンコ! スチームホッパー! {0} ", Ability Icon String(Hero(Kiriko), Button(Ability 2))),
 				Custom String("{0}         仮面ライダー        {0} ", Hero Icon String(Hero(Genji))),
@@ -329,7 +329,7 @@ rule ("Custom nameplates list")
 			 	Custom Color(255, 148, 250, 255),
 				Custom String("{0} Goddess Hylia {0}", Ability Icon String(Hero(Mercy), Button(Ultimate))), 
 				Custom String("{0} Princess of Harmony {0}", Ability Icon String(Hero(Mercy), Button(Ability 2))), 
-				Custom String("Ƹ̵̡Ӝ̵̨̄Ʒ      Ｂｕｔｔｅｒｆｌｙ　Ｑｕｅｅｎ      Ƹ̵̡Ӝ̵̨̄Ʒ")
+				Custom String("{0} ゴーストルール {0}", Ability Icon String(Hero(Kiriko), Button(Ultimate)))
 				),
 			Array(Custom String("Eosia"), 
 				Custom Color(246, 154, 255, 255),
@@ -670,8 +670,8 @@ rule ("Custom nameplates list")
 				),
 			Array(Custom String("FrostSlvt"), 
 				Custom Color(255, 140, 140, 255),
-				Custom String("{0} Frostie {0}", Ability Icon String(Hero(Kiriko), Button(Ultimate))), 
-        		Custom String("♥ Girlie lover ♥"),
+				Custom String("{0} • Keep your distance - My wife is very protective • {0}", Ability Icon String(Hero(Sombra), Button(Ultimate))), 
+        		Custom String("♥ ⁂ Viki mnie kocha ⁂ ♥"),
 				Custom String(" <<(・ө・)>> Saturn is typing... ")
 				),
 			Array(Custom String("karlybarly"), 
@@ -756,7 +756,7 @@ rule ("Custom nameplates list")
 				Color(Black),
 				Custom String("★ Stormlight consumer ★"), 
 				Custom String("{0} true schizo {0}", Ability Icon String(Hero(Ramattra), Button(Ultimate))), 
-				Custom String("{0} The Things We Whisper in the Dark {0}", Ability Icon String(Hero(Genji), Button(Secondaryfire)))
+				Custom String("† ₲59 †")
 				),
 			Array(Custom String("MissImmortal"), 
 				Color(Red),
@@ -827,7 +827,6 @@ rule ("Custom nameplates list")
 				),
 			Array(Custom String("ImmaPenguin"), 
 				Custom Color(3, 4, 174, 255),
-				Custom String("♡  ImmaPenguin  ♡"),
 				Custom String("Pengu"),
 				Custom String("(˘︶˘).｡.:*♡")
 				),
@@ -847,7 +846,7 @@ rule ("Custom nameplates list")
 				Custom Color(115, 230, 0, 255),
 				Custom String("{0} Pocket sized friend {0}", Ability Icon String(Hero(Wreckingball), Button(Crouch))),
 				Custom String("{0} Standby for Titanfall! {0}", Ability Icon String(Hero(Orisa), Button(Ultimate))),
-				Custom String("{0} I will lead you through the darkness {0}", Ability Icon String(Hero(Sigma), Button(Ultimate)))
+				Custom String("{0} Stormborn {0}", Ability Icon String(Hero(Reinhardt), Button(Ultimate)))
 				),
 			Array(Custom String("PurpSkrrt"), 
 				Custom Color(235, 178, 255, 255),
@@ -856,7 +855,9 @@ rule ("Custom nameplates list")
 				Custom String("{0} ЅHΔDΘШ ШIZΔRD ΜΘNΣΨ GΔNG {0}", Ability Icon String(Hero(Sombra), Button(Ultimate)))
 				),
 			Array(Custom String("Miamor"), 
-				Custom Color(235, 178, 255, 255),
+				Custom Color(85, 107, 47, 255),
+				Custom String("{0} sleepers girl {0}", Ability Icon String(Hero(Ana), Button(Ability 1))),
+				Custom String("{0} R A B I D {0}", Ability Icon String(Hero(Kiriko), Button(Ultimate))),
 				Custom String("{0} ЅHΔDΘШ ШIZΔRD ΜΘNΣΨ GΔNG {0}", Ability Icon String(Hero(Sombra), Button(Ultimate)))
 				),
 			Array(Custom String("PumpkinJinx"), 
