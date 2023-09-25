@@ -413,10 +413,10 @@ rule ("Custom nameplates list")
 				Custom String("• Processed Food •")
 				),
 			Array(Custom String("Akaza"), 
-				Custom Color(140, 49, 230, 255),
+				Color(White),
 				Custom String("{0} Use code 'Artist' in Rec Room! {0} ", Hero Icon String(Hero(Wreckingball))),
-				Custom String("{0} ♥☆ AKAZA ☆♥ {0}", Hero Icon String(Hero(Doomfist))),
-				Custom String("{0} Enjoyer of Maya {0}", Hero Icon String(Hero(Ramattra)))
+				Custom String("{0} 赤座  ♥  A  k  a  z  a  ♥  赤座 {1}", Ability Icon String(Hero(Doomfist), Button(Primaryfire)), Ability Icon String(Hero(Ramattra), Button(Primaryfire))),
+				Custom String("{0}  M  a  y  a ' s    B  e  l  o  v  e  d    P  e  t    a  n  d    P  r  i  n  c  e  {0}", Icon String(Heart))
 				), 
             Array(Custom String("Mustika"), 
 				Custom Color(18, 12, 219, 255),
@@ -641,7 +641,7 @@ rule ("Custom nameplates list")
 			Array(Custom String("Dubbie7"), 
 				Custom String("Rainbow"),
 				Custom String("{0} ☆  D u b s t a r  ☆ {0}", Ability Icon String(Hero(Kiriko), Button(Ultimate))),
-				Custom String("{0}  Dubbie the dummie  {0}", Ability Icon String(Hero(Roadhog), Button(Ultimate))),
+				Custom String("{0} Greek adam warlock {0}", Ability Icon String(Hero(Cassidy), Button(Ultimate))),
 				Custom String("{0}  Im a mekanik  {0}", Ability Icon String(Hero(Torbjörn), Button(Ability 2)))
 				), 
 			Array(Custom String("MOOOUSH"), 
@@ -837,19 +837,19 @@ rule ("Custom nameplates list")
 				Custom String("{0} ♡ Jazz groover ♡ {0}", Ability Icon String(Hero(Lúcio), Button(Ability 2)))
 				),
 			Array(Custom String("gh0stface"), 
-				Custom Color(255, 153, 153, 255),
+				Custom Color(204, 204, 255, 255),
 				Custom String("♡ Lostshadow's big sister ♡"),
 				Custom String("{0} Ram & Sigma Enjoyer {0}", Ability Icon String(Hero(Moira), Button(Primary Fire))),
-				Custom String("{0} The North Remembers {0}", Ability Icon String(Hero(Mercy), Button(Ability 1)))
+				Custom String("† Ｈｅｘ： Ｄｅｖｏｕｒ Ｈｏｐｅ† ")
 				),
 			Array(Custom String("TerrorMech"), 
-				Custom Color(115, 230, 0, 255),
+				Custom Color(128, 191, 255, 255),
 				Custom String("{0} Pocket sized friend {0}", Ability Icon String(Hero(Wreckingball), Button(Crouch))),
 				Custom String("{0} Standby for Titanfall! {0}", Ability Icon String(Hero(Orisa), Button(Ultimate))),
 				Custom String("{0} Stormborn {0}", Ability Icon String(Hero(Reinhardt), Button(Ultimate)))
 				),
 			Array(Custom String("PurpSkrrt"), 
-				Custom Color(235, 178, 255, 255),
+				Custom Color(209, 170, 229, 255),
 				Custom String("{0} Princess Pürp {0}", Ability Icon String(Hero(Lifeweaver), Button(Primary Fire))),
 				Custom String("{0} Pookie Collector {0}", Ability Icon String(Hero(Mercy), Button(Ultimate))),
 				Custom String("{0} ЅHΔDΘШ ШIZΔRD ΜΘNΣΨ GΔNG {0}", Ability Icon String(Hero(Sombra), Button(Ultimate)))
