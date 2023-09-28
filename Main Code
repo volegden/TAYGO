@@ -3722,7 +3722,7 @@ rule("Mode_00 AFK ON")
 			Create Progress Bar In-World Text(All Players(All Teams), Modulo(Total Time Elapsed * Evaluate Once(Random Real(2,8)), 100), 
 				If-Then-Else(Custom String("{0}", Event Player) == Custom String("xMaxuss"), Custom String("Max is coding/afk\r\n"), 
 				If-Then-Else(Custom String("{0}", Event Player) == Custom String("kwally"), 
-					Custom String("KWA is unavailable | DM me if needed"), 
+					Custom String("Kwa is afk catching rats | DM if you need me"), 
 				If-Then-Else(Custom String("{0}", Event Player) == Custom String("Warloy"), Custom String("Warloy is coding/afk\r\n"), Custom String("{0} is afk", Event Player)))), 
 				Event Player, 0.5, Clip Against Surfaces, 
 				If-Then-Else(Event Player.Is_Title_Given, 
