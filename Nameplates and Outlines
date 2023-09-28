@@ -10,7 +10,7 @@ rule ("Custom nameplates list")
 		"31619 -> 31205"
 		Global.Titles_And_Outlines = Array(
 			Array(Custom String("w4tchers"), 
-                Custom String("Rainbow"),
+                Custom Color(240, 128, 128, 255),
 				Custom String("w4tchers"),
 				Custom String("Who's this?"),
 				Custom String("It's me!")
@@ -20,13 +20,13 @@ rule ("Custom nameplates list")
 				Custom String("Coup de grâce")
                 	), 
 			Array(Custom String("kwally"),
-                		Custom Color(0, 15, 125, 255), 
+                Custom Color(0, 15, 125, 255), 
 				Custom String("Ｋｗａｌｌｙ"), 
 				Custom String("bittersweet symphony"), 
 				Custom String("ї ∂นҫӄїภғ Һαҭѡ ұσน")
                 	),
 			Array(Custom String("xMaxuss"), 
-                		Custom Color(70, 220, 255, 255),
+                Custom Color(70, 220, 255, 255),
 				Custom String("{0} TO THE MAX {0}", Ability Icon String(Hero(Sombra), Button(Ultimate))),
 				Custom String("¡Hola! ¿Qué onda? {0}", Hero Icon String(Hero(Sombra))),
 				Custom String("Custom String(\"Insert 3rd name\")")
