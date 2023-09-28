@@ -888,12 +888,6 @@ rule ("Custom nameplates list")
 				Custom String("{0} ♥ Kiwi’s little brother ♥ {0}", Icon String(Halo)),
 				Custom String("{0} Florida man {0}", Icon String(Spiral))
 				),
-			Array(Custom String("Midzy"), 
-				Color(Black),
-				Custom String("☆ Genji Collector ☆"),
-				Custom String("(￣ω￣)"),
-				Custom String("☆ ITZY fan ☆")
-				),
 			Array(Custom String("ByeFever"), 
 				Custom Color(249, 236, 136, 255),
 				Custom String("{0}  Ｓ ｕ ｎ ｂ ｏ ｒ ｎ  {0}", Ability Icon String(Hero(Illari), Button(Ultimate))),
