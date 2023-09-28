@@ -49,9 +49,8 @@ rule("Listed_Player")
 			Custom String("Jermuseppo"), Custom String("Ređacted"), Custom String("S0undw4v3"),  Custom String("LƐafa"), Custom String("WIĿĿOW"), 
 			Custom String("mksvault"), Custom String("LightMist"), Custom String("KinkiTurtle"), Custom String("Miamor"), 
 			Custom String("XMightyOwlXx"), Custom String("TerrorMech"), Custom String("Ratto421"), Custom String("Adiidas"), 
-			Custom String("gh0stface"), Custom String("ByeFever"),Custom String("PurpSkrrt"), Custom String("Midzy"), 
-			Custom String("NightShield"), Custom String("Gerry"), Custom String("whoshotcupid"), Custom String("MISTƔ"), Custom String("Ƒìşhy"), 
-			Custom String("PumpkinJinx"), Custom String("ImmaPenguin"));
+			Custom String("gh0stface"), Custom String("ByeFever"),Custom String("PurpSkrrt"), Custom String("NightShield"), Custom String("Gerry"), 
+			Custom String("whoshotcupid"), Custom String("MISTƔ"), Custom String("Ƒìşhy"), Custom String("PumpkinJinx"), Custom String("ImmaPenguin"));
 		
 		"Warning List"
 		Global.Warning_List = Array(
