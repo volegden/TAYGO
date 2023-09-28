@@ -20,9 +20,9 @@ rule ("Custom nameplates list")
 				Custom String("Coup de grâce")
                 	), 
 			Array(Custom String("kwally"),
-                Custom Color(0, 15, 125, 255), 
-				Custom String("Ｋｗａｌｌｙ"), 
-				Custom String("bittersweet symphony"), 
+                Custom Color(145, 15, 27, 255), 
+				Custom String("† LET IT REIGN †"), 
+				Custom String("† Reigning supreme †"),
 				Custom String("ї ∂นҫӄїภғ Һαҭѡ ұσน")
                 	),
 			Array(Custom String("xMaxuss"), 
@@ -33,7 +33,7 @@ rule ("Custom nameplates list")
                 	),
             Array(Custom String("LƐafa"),  
                 		Custom Color(110, 0, 0, 255),
-						Custom String("probably afk/alt tabbed")
+				Custom String("probably afk/alt tabbed")
 					),
 			Array(Custom String("Gregi"), 
                 		Custom String("Rainbow"),
@@ -46,7 +46,7 @@ rule ("Custom nameplates list")
 			Array(Custom String("ǀƑIREǀ"), 
                 		Custom String("Rainbow"),
                 		Custom String("ALT F4"),
-						Custom String("{0}   Ｍｅｌｔｉｎｇ...   {0}", Ability Icon String(Hero(Mei), Button(Ability 1)))
+				Custom String("{0}   Ｍｅｌｔｉｎｇ...   {0}", Ability Icon String(Hero(Mei), Button(Ability 1)))
                 		),
 			Array(Custom String("solevaya"), 
                 		Custom String("Rainbow"),
@@ -65,14 +65,14 @@ rule ("Custom nameplates list")
 			Array(Custom String("FaLLz"), 
                 		Color(Orange),
                 		Custom String("♡ The Sun ♡"), 
-						Custom String("ALT F4 for loot boxes"),
-						Custom String("I'm with Stoopid")
+				Custom String("ALT F4 for loot boxes"),
+				Custom String("I'm with Stoopid")
                 		),
 			Array(Custom String("Westwife"),
                 		Custom Color(56, 250, 98, 255),
                 		Custom String("♡ The Moon ♡"),
-						Custom String("ALT F4 for screenshot"),
-						Custom String("I'm Stoopid")
+				Custom String("ALT F4 for screenshot"),
+				Custom String("I'm Stoopid")
                 		),
 			Array(Custom String("TEAMEPǃC"),
                 		Color(Green),
@@ -265,16 +265,16 @@ rule ("Custom nameplates list")
                 		Custom String("spongeboob")
                 		),
 			Array(Custom String("Cattanklol"), 
-        	        	Custom Color(152, 180, 253, 255),
-						Custom String("♥ avid cuddler ♥"),
-						Custom String("♥ #1 support player lover ♥"),
-						Custom String("{0}   Free Hugs Here   {0}", Icon String(Heart))
+        	        	Color(Black),
+				Custom String("♡ single pringle ♡"),
+				Custom String("★ lone star ★"),
+				Custom String("{0}   Free Hugs Here   {0}", Icon String(Heart))
                 		),
 			Array(Custom String("Kiwizzlee"), 
                 		Custom Color(229, 204, 255, 255),
-						Custom String("♥ Need Cuddles ♥"),
+				Custom String("♥ Need Cuddles ♥"),
                 		Custom String("{0} ♥ Owl's Big Sis ♥ {0}", Ability Icon String(Hero(Ashe), Button(Primaryfire))),
-						Custom String("{0} Kiwi Deserves All The Hugs {0}", Icon String(Heart))
+				Custom String("{0} Kiwi Deserves All The Hugs {0}", Icon String(Heart))
         		        ),
 
 				Array(Custom String("Moe Szyslak"), 
@@ -653,7 +653,7 @@ rule ("Custom nameplates list")
 				),
 			Array(Custom String("Zxtyi"), 
 				Color(Black),
-				Custom String("{0} マルチェロ {0}", Ability Icon String(Hero(Sombra), Button(Ability 1))), 
+				Custom String("{0} D E P R E S S I O N {0}", Icon String(Heart)), 
 				Custom String("{0} CYBER, IM NOT A FEM BOY {0}", Ability Icon String(Hero(Genji), Button(Ultimate))), 
 				Custom String("{0} Ｃｈａｒｉｓｍａｔｉｃａｌｌｙ    Ｄｅｐｒｅｓｓｅｄ {0}", Icon String(Spade))
 				),
@@ -913,7 +913,9 @@ rule ("Custom nameplates list")
 				Custom String("{0} Ken Abuser {0}", Icon String(Happy)),
 				Custom String("the voices...are getting louder"),
 				Custom String("{0} Nike {0}", Icon String(Checkmark))
-				)
+				),
+			Array(Custom String("Alex"), 
+				Custom Color(0, 0, 128, 255))
 		);
 	}
 }
