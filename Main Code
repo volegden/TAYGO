@@ -119,6 +119,11 @@ settings
 				Regenerative Burst Cooldown Time: 20%
 			}
 
+			Bastion
+			{
+				Reconfigure Cooldown Time: 0%
+			}
+
 			Cassidy
 			{
 				Combat Roll Cooldown Time: 0%
