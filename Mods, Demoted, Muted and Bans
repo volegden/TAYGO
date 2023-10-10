@@ -64,7 +64,7 @@ rule("Listed_Player")
 			Custom String("JLRazor"), Custom String("Valencia"), Custom String("Evalia"), Custom String("DBDZaza"), Custom String("DeadObiWan"), Custom String("siegrich"), 
 			Custom String("TitanJolt"), Custom String("JoltWave"), Custom String("DJBASTIOON"), Custom String("DJBastion"), Custom String("Djbastion"), Custom String("DJBASTION!"),
 			Custom String("MrBastion"), Custom String("Dampoegood"), Custom String("Howard"), Custom String("vibe"), Custom String("tomkuo74"), 
-			Custom String("wonderland"), Custom String("Ɓack2spawŊ"));
+			Custom String("wonderland"), Custom String("Ɓack2spawŊ"), Custom String("armoureddiam"), Custom String("DjBeep"), Custom String("Astraeus"));
 
 		"Demoted List"
 		Global.Demoted_List = Array(
