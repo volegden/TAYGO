@@ -7,7 +7,6 @@ rule ("Custom nameplates list")
 
     actions 
 	{
-		"31619 -> 31205"
 		Global.Titles_And_Outlines = Array(
 			Array(Custom String("w4tchers"), 
                               Custom Color(240, 128, 128, 255),
@@ -125,10 +124,10 @@ rule ("Custom nameplates list")
 			      Custom String("{0}  ⇒   -`♡  FRΨ'Ѕ  HƱЅƁΔNDΘ™   ♡´-   {0}", Ability Icon String(Hero(Lifeweaver), Button(Primaryfire)))
                 ), 
 			Array(Custom String("S0undw4v3"), 
-			      Custom Color(170, 111, 229, 255), 
-			      Custom String("{0}  Sкυ∂ηαвє'ѕ Sσυη∂вαє  {0}", Hero Icon String(Hero(Reaper))), 
-			      Custom String ("{0}  ⇒   -`†  ΣNƬHƱЅIΔЅƬ  ΘF  ƬHΣ  LΘGIC  ΘF  ƬHΣ  ЅШΘRD™  †´-  {0}", Ability Icon String(Hero(Genji), Button(Ultimate))),
-			      Custom String ("{0}  I I Yaosia usya Cosuaida uy Yasi Yiausyre Lausiaso  {0}", Ability Icon String(Hero(Genji), Button(Ultimate)))
+			    	Custom Color(170, 111, 229, 255), 
+					Custom String("{0}  Sкυ∂ηαвє'ѕ Sσυη∂вαє  {0}", Hero Icon String(Hero(Reaper))), 
+					Custom String("{0}  ⇒   -`†  ΣNƬHƱЅIΔЅƬ  ΘF  ƬHΣ  LΘGIC  ΘF  ƬHΣ  ЅШΘRD™  †´-  {0}", Ability Icon String(Hero(Genji), Button(Ultimate))),
+        			Custom String("♥ {0} I I Ya-adatsuos Ausyka Cosuatuyos Uy-y Tqsu Yandessa Lasymuiamsu {0} ♥", Ability Icon String(Hero(Genji), Button(Ultimate)))
                 ), 
 			Array(Custom String("Fuji"), 
                               Custom String("Rainbow"),
@@ -600,9 +599,10 @@ rule ("Custom nameplates list")
 			      Custom String("{0} I'm Your Shield {0}", Ability Icon String(Hero(Brigitte), Button(Secondaryfire)))
 		),
 			Array(Custom String("Leestick"), 
-			      Color(Green),
-			      Custom String("LeafLover"), 
-			      Custom String("{0} TrashLord {0}", Icon String(Trashcan))
+			      Custom Color(160, 32, 240, 255),
+			      Custom String("{0} vaporlover {0}", Ability Icon String(Hero(Ramattra), Button(Ultimate))), 
+			      Custom String("{0} TrashLord {0}", Icon String(Trashcan)),
+				  Custom String("{0} trick or treat {1}", Ability Icon String(Hero(Zenyatta), Button(Ability 1)), Ability Icon String(Hero(Zenyatta), Button(Ability 2)))
 		), 
 			Array(Custom String("RUBY"), 
 			      Color(White),
@@ -726,9 +726,9 @@ rule ("Custom nameplates list")
 			      Custom String("{0} ☆Ｓｉｌｅｎｔ Ｋｉｒｉｋ0☆ {0}", Ability Icon String(Hero(Kiriko), Button(Ultimate)))
 		),
 			Array(Custom String("CyberSentai"), 
-			      Color(Black),
-			      Custom String("{0}  ♡ 戦隊司令官 ♡  {0}", Ability Icon String(Hero(D.va), Button(Ultimate))),
-			      Custom String("{0} ♡ †  HEX : Ŀ♡VƐ ŜƗƆK  † ♡  {0}", Ability Icon String(Hero(Mercy), Button(Jump))),
+			      Custom Color(255, 0, 0, 255),
+			      Custom String("†  WALKING RED FLAG  †"),
+			      Custom String("Akchuly... insane :3"),
 			      Custom String("{0} Ｃｈａｒｉｓｍａｔｉｃａｌｌｙ    Ｄｅｐｒｅｓｓｅｄ  {0}", Icon String(Moon))
 		),
 			Array(Custom String("sushiii"), 
@@ -836,12 +836,12 @@ rule ("Custom nameplates list")
 			Array(Custom String("gh0stface"), 
 			      Custom Color(204, 204, 255, 255),
 			      Custom String("♡ Lostshadow's big sister ♡"),
-			      Custom String("{0} Ram & Sigma Enjoyer {0}", Ability Icon String(Hero(Moira), Button(Primary Fire))),
+			      Custom String("{0} ЯΔM  &  ṨIƓṂΔ  ΣNJOYΣЯ {0}", Ability Icon String(Hero(Ramattra), Button(Ultimate))),
 			      Custom String("† Ｈｅｘ： Ｄｅｖｏｕｒ Ｈｏｐｅ †")
 		),
 			Array(Custom String("TerrorMech"),
-			      Custom Color(128, 191, 255, 255),
-			      Custom String("{0} I'll take you to infinity and beyond {0}", Ability Icon String(Hero(D.va), Button(Ability 1))),
+			      Color(Red),
+			      Custom String("{0} PREPARE FOR HELLFIRE {0}", Ability Icon String(Hero(Wrecking Ball), Button(Crouch))),
 			      Custom String("{0} Standby for Titanfall! {0}", Ability Icon String(Hero(Orisa), Button(Ultimate))),
 			      Custom String("{0} Stormborn {0}", Ability Icon String(Hero(Reinhardt), Button(Ultimate)))
 		),
@@ -867,13 +867,13 @@ rule ("Custom nameplates list")
 			      Custom Color(133, 44, 137, 255),
 			      Custom String("{0} Go Push a rock up a hill {0}", Ability Icon String(Hero(Sigma), Button(Ability 2))),
 			      Custom String("{0} Kirikult - Niriko {0}", Ability Icon String(Hero(Kiriko), Button(Ultimate))),
-			      Custom String("{0} I don't have any {0}", Icon String(Question Mark))
+			      Custom String("♡ 彡ƳƠƲ ƛƦЄ MƳ ƧЄƛ ♡ 彡")
 		),
 			Array(Custom String("KinkiTurtle"), 
-			      Custom Color(153, 197, 242, 255),
-			      Custom String("♡ Lazy Turtle ♡"),
-			      Custom String("{0} the wrost speller intbrhw wholx world {0}", Icon String(Question Mark)),
-			      Custom String("{0} I have many {0}", Icon String(Exclamation Mark))
+			      Custom Color(255, 209, 209, 255),
+			      Custom String("{0} ミ☆ｓｌｅｅｐｙ ｔｕｒｔｌｅミ☆ {0}", Ability Icon String(Hero(Ana), Button(Ability 1))),
+			      Custom String("{0} ♬ｌｉｓｔｅｎｉｎｇ ｔｏ ｍｕｓｉｃ ２４/７ ♬ {0}", Ability Icon String(Hero(Lúcio), Button(Ability 2))),
+			      Custom String("ミ♡ ƳƠƲ ƛƦЄ MƳ ƧƲƝƧӇƖƝЄ ミ♡")
 		),
 			Array(Custom String("mksvault"), 
 			      Custom Color(244, 187, 68, 255),
@@ -904,13 +904,14 @@ rule ("Custom nameplates list")
 			      Custom String("{0} Nike {0}", Icon String(Checkmark))
 		),
 			Array(Custom String("Alex"), 
-			      Custom Color(0, 0, 128, 255)
+			      Custom Color(0, 0, 128, 255),
+				  Custom String(" ")
 		),
 			Array(Custom String("HOÑEYBEE"),
 			      Custom String("Rainbow"), 
-			      Custom String("♥ Dj Hoñeybee ♥"), 
-			      Custom String("♥ Mother of Five ♥"),
-			      Custom String("♥ {0} ♥ I I Yaosia usya Cosuaida uy Yasi Yiausyre Lausiaso ♥ {0} ♥", Ability Icon String(Hero(Mercy), Button(Ultimate)))
+			      Custom String("♬ Hoñeybee Radio ♬"), 
+			      Custom String("♥ Headpat Addict ♥"),
+			      Custom String("♥ {0} I I Yaudatsuos Ausyka Cosuatuyos Uy Tqi Yandessa Lasymuiamsu {0} ♥", Ability Icon String(Hero(Mercy), Button(Ultimate)))
 		),
 			Array(Custom String("ЈФҜЁЯ"),
 			      Custom String("Rainbow"),
@@ -925,16 +926,16 @@ rule ("Custom nameplates list")
 			      Custom String("{0} Moicy on top {1}", Ability Icon String(Hero(Mercy), Button(Ultimate)), Ability Icon String (Hero(Moira), Button(Ultimate)))
 		),
 			Array(Custom String("viioletfxrn"),
-			      Custom Color(230, 255, 230, 255),
+			      Custom String("Rainbow"),
 			      Custom String("{0} ♥ ＮＡＴＵＲＥ＇Ｓ ＷＲＡＴＨ ♥ {0}", Ability Icon String(Hero(Lifeweaver), Button(Primary Fire))),
 			      Custom String("{0} ⁂ ＭＯＴＨＥＲ ＰＬＡＮＴ ⁂ {0}", Ability Icon String(Hero(Reaper), Button(Ultimate))),
-			      Custom String("{0} † ＳＨＩＮＩＧＡＭＩ ＥＹＥＳ † {0}", Ability Icon String(Hero(Ramattra), Button(Ultimate)))
+			      Custom String("{0} ☆ｉｔ’ｓ ｐａｓｔ ｍｙ ｂｅｄｔｉｍｅ☆ {0}", Ability Icon String(Hero(Ana), Button(Ability 1)))
 		),
 			Array(Custom String("Fragoso"),
 			      Custom Color(166, 13, 166, 255),
 			      Custom String("{0} F•R•A•G•G•Y {0}", Ability Icon String(Hero(Reaper), Button(Ability 1))),
 			      Custom String("{0} ICARUS {0}", Ability Icon String(Hero(Mercy), Button(Ability 1))),
-			      Custom String("{0} GOUGE AWAY {0}", Ability Icon String(Hero(Cassidy), Button(Ultimate)))
+			      Custom String("{0} {1} ♡ ŞNΘΘKƱMŞ ♡ {0} {1}", Ability Icon String(Hero(Ashe), Button(Ultimate)), Ability Icon String(Hero(Cassidy), Button(Ultimate)))
 		),
 			Array(Custom String("MrCleanerrrr"),
 			      Custom Color(242, 242, 242, 255),
