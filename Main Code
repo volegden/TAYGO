@@ -8953,28 +8953,6 @@ rule("Extra_20: Screw Mei")
 	}
 }
 
-rule("Extra_21: Sombra sneaky sneaky")
-{
-	event
-	{
-		Ongoing - Each Player;
-		All;
-		Sombra;
-	}
-
-	conditions
-	{
-		Is Using Ability 1(Event Player) == True;
-	}
-
-	actions
-	{
-		Event Player.Is_Invisible = True;
-		Wait Until(Not(Is Using Ability 1(Event Player) || Hero Of(Event Player) != Hero(Sombra)), 9999);
-		Event Player.Is_Invisible = False;
-	}
-}
-
 rule("Extra_22: Ball Bounce")
 {
 	event
@@ -9184,6 +9162,12 @@ rule("Tp effects per Map")
 			Global.Map_Teleport_Locations = Array(Vector(4.75, 21, 26.5), Vector(29.75, 0.11, -28));
 
 			Global.Map_Teleport_Exits = Array(Vector(29.75, 0.11, -25), Vector(4.75, 21, 29.5));
+		Else If(Current Map == Map(Samoa));
+			Global.Map_Teleport_Locations = Array(Vector(275, 8.3, -250.8), Vector(193, 8.3, -250.8), Vector(-328.2, 3.05, -121.3), Vector(27.6, 333.6, 366.6), 
+				Vector(-344.2, 3, -132.2), Vector(-322.5, -2.8, -189));
+
+			Global.Map_Teleport_Exits = Array(Vector(-330, 3.05, -118.5), Vector(27.6, 333.6, 363.6), Vector(272, 8.3, -250.8), Vector(196, 8.3, -250.8), 
+				Vector(-324.1, -3.1, -196.3), Vector(-341.7, 3, -130.2));
 		End;
 		If(Global.Map_Teleport_Locations != Empty Array);
 			For Global Variable(TP_Help, 0, Count Of(Global.Map_Teleport_Locations), 1);
@@ -9314,6 +9298,8 @@ rule("Moe Position")
 			Global.Moe_Position = Vector(4.78, 3.84, -67.62);
 		Else If(Current Map == Map(Midtown));
 			Global.Moe_Position = Vector(62, 8.11, 13.9);
+		Else If(Current Map == Map(Samoa));
+			Global.Moe_Position = Vector(257.5, 5.75, -283.8);
 		Else;
 			Global.Moe_Force = True;
 		End;
@@ -9527,6 +9513,32 @@ rule("Midtown Bonus")
 		Event Player.Midtown_Bonus = Last Created Entity;
 		Wait Until(Not(Is On Objective(Event Player)), 9999);
 		Destroy Icon(Event Player.Midtown_Bonus);
+	}
+}
+
+rule("Individual effect: kwally (is moving)")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Is Alive(Event Player) == True;
+		Has Spawned(Event Player) == True;
+		Event Player.Is_Invisible == False;
+	}
+
+	actions
+	{
+		Abort If(Custom String("{0}", Event Player) != Custom String("kwally"));
+		Play Effect(All Players(All Teams), Ring Explosion, Color(Blue), Position Of(Event Player) + Vector(X Component Of(
+			Event Player), 0.022, Z Component Of(Event Player)), 1.3);
+		Wait(0.1, Ignore Condition);
+		Loop If Condition Is True;
 	}
 }
 
