@@ -19,10 +19,10 @@ rule ("Custom nameplates list")
 			      Custom String("Coup de grâce")
                 ), 
 			Array(Custom String("kwally"),
-                              Custom Color(145, 15, 27, 255), 
-			      Custom String("† LET IT REIGN †"), 
-			      Custom String("† Reigning supreme †"),
-			      Custom String("ї ∂นҫӄїภғ Һαҭѡ ұσน")
+                              Custom Color(0, 15, 125, 255), 
+                  	Custom String("Yōkai"), 
+                  	Custom String("poumpy"),
+                  	Custom String("ї ∂นҫӄїภғ Һαҭѡ ұσน")
                 ),
 			Array(Custom String("xMaxuss"), 
                               Custom Color(70, 220, 255, 255),
