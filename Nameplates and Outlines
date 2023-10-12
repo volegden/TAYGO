@@ -264,10 +264,10 @@ rule ("Custom nameplates list")
                               Custom String("spongeboob")
                 ),
 			Array(Custom String("Cattanklol"), 
-        	              Color(Black),
-			      Custom String("♡ single pringle ♡"),
-			      Custom String("★ lone star ★"),
-			      Custom String("{0}   Free Hugs Here   {0}", Icon String(Heart))
+        	              Custom Color(0, 23, 100, 255), 
+			    	Custom String("{0} ΜΘΘN ΣNJΘYΣR {0}", Ability Icon String(Hero(Illari), Button(Ultimate))),
+			    	Custom String("{0} Mercy & Kiri Enjoyer {1}", Ability Icon String(Hero(Mercy), Button(Ultimate)), Ability Icon String(Hero(Kiriko), Button(Ultimate))),
+			    	Custom String("{0} Gets Bitten {0}", Icon String(Heart))
                 ),
 			Array(Custom String("Kiwizzlee"), 
                               Custom Color(255, 0, 87, 255),
@@ -427,7 +427,7 @@ rule ("Custom nameplates list")
 			Array(Custom String("Slafii"), 
 			      Custom Color(46, 26, 71, 255),
 			      Custom String("{0}  P r i n c e  O f  H a r m o n y  {0}", Ability Icon String(Hero(Mercy), Button(Ability 2))), 
-			      Custom String("{0} Slabiki {0}", Ability Icon String(Hero(Illari), Button(Ability 2))), 
+			      Custom String("{0} Hero of Time {0}", Ability Icon String(Hero(Torbjörn), Button(Ability 2))), 
 			      Custom String(" † Slafiiko - Kirikult † ")
 		),
 			Array(Custom String("DJCarwashSym"), 
