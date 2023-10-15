@@ -620,7 +620,7 @@ rule ("Custom nameplates list")
 			      Color(Purple),
 			      Custom String("{0} † The Lich, Last Scholar of Golb † {0}", Ability Icon String(Hero(Cassidy), Button(Ultimate))),
 			      Custom String("☆ •  Guardian Of Time  • ☆ "),
-			      Custom String("{0}  Stains of Time  {0}", Ability Icon String(Hero(Ramattra), Button(Ultimate)))
+			      Custom String("{0}  Revenge Of The Fallen  {1}", Ability Icon String(Hero(Reaper), Button(Ability 2)), Ability Icon String(Hero(Ramattra), Button(Ability 2)))
 		), 
 			Array(Custom String("Vanessav"), 
 			      Color(Purple),
@@ -649,7 +649,7 @@ rule ("Custom nameplates list")
 			      Color(Black),
 			      Custom String("{0} D E P R E S S I O N {0}", Icon String(Heart)), 
 			      Custom String("{0} CYBER, IM NOT A FEM BOY {0}", Ability Icon String(Hero(Genji), Button(Ultimate))), 
-			      Custom String("{0} Ｃｈａｒｉｓｍａｔｉｃａｌｌｙ    Ｄｅｐｒｅｓｓｅｄ {0}", Icon String(Spade))
+			      Custom String("{0} What's yo zodiac sign? Do you think I am fine? Am I wasting your time? {0}", Ability Icon String(Hero(Reaper), Button(Ultimate)))
 		),
 			Array(Custom String("Żmij"), 
 			      Custom Color(128, 0, 0, 255),
