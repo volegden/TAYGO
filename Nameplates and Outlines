@@ -636,7 +636,7 @@ rule ("Custom nameplates list")
 			Array(Custom String("Dubbie7"), 
 			      Custom String("Rainbow"),
 			      Custom String("{0} ☆  D u b s t a r  ☆ {0}", Ability Icon String(Hero(Kiriko), Button(Ultimate))),
-			      Custom String("{0} Greek adam warlock {0}", Ability Icon String(Hero(Cassidy), Button(Ultimate))),
+			      Custom String("{0} Ｂａｒｋ ｆｏｒ Ｒｏｂｕｘ {0}", Ability Icon String(Hero(Ramattra), Button(Ultimate))),
 			      Custom String("{0}  Im a mekanik  {0}", Ability Icon String(Hero(Torbjörn), Button(Ability 2)))
 		), 
 			Array(Custom String("MOOOUSH"), 
@@ -834,9 +834,9 @@ rule ("Custom nameplates list")
 			      Custom String("{0} ♡ Jazz groover ♡ {0}", Ability Icon String(Hero(Lúcio), Button(Ability 2)))
 		),
 			Array(Custom String("gh0stface"), 
-			      Custom Color(204, 204, 255, 255),
+			      Custom Color(229, 255, 204, 255),
 			      Custom String("♡ Lostshadow's big sister ♡"),
-			      Custom String("{0} ЯΔM  &  ṨIƓṂΔ  ΣNJOYΣЯ {0}", Ability Icon String(Hero(Ramattra), Button(Ultimate))),
+			      Custom String("{0} Ｍｅｏｗ ｆｏｒ Ｎｉｔｒｏ {0}", Ability Icon String(Hero(Ramattra), Button(Ultimate))),
 			      Custom String("† Ｈｅｘ： Ｄｅｖｏｕｒ Ｈｏｐｅ †")
 		),
 			Array(Custom String("TerrorMech"),
