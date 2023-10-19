@@ -861,7 +861,7 @@ rule ("Custom nameplates list")
 			      Custom Color(1, 243, 255, 255),
 			      Custom String("{0} Junkenstein's experiment {0}", Ability Icon String(Hero(Junkrat), Button(Ultimate))),
 			      Custom String("{0} the Mangle {0}", Ability Icon String(Hero(Moira), Button(Secondary fire))),
-			      Custom String("{0} get jinxed !! {0}", Icon String(Spiral))
+			      Custom String("{0} ♡ mirage's bumble bee ♡ {0}", Ability Icon String(Hero(Mercy), Button(Jump)))
 		),
 			Array(Custom String("NightShield"), 
 			      Custom Color(133, 44, 137, 255),
