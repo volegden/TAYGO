@@ -925,7 +925,7 @@ rule ("Custom nameplates list")
 			      Custom String("♡ Bayonetta simp ♡"),
 			      Custom String("{0} Moicy on top {1}", Ability Icon String(Hero(Mercy), Button(Ultimate)), Ability Icon String (Hero(Moira), Button(Ultimate)))
 		),
-			Array(Custom String("viioletfxrn"),
+			Array(Custom String("VĬƗŌĿĖŦ"),
 			      Custom String("Rainbow"),
 			      Custom String("{0} ♥ ＮＡＴＵＲＥ＇Ｓ ＷＲＡＴＨ ♥ {0}", Ability Icon String(Hero(Lifeweaver), Button(Primary Fire))),
 			      Custom String("{0} ⁂ ＭＯＴＨＥＲ ＰＬＡＮＴ ⁂ {0}", Ability Icon String(Hero(Reaper), Button(Ultimate))),
