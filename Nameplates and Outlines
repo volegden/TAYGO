@@ -648,7 +648,7 @@ rule ("Custom nameplates list")
 			Array(Custom String("Zxtyi"), 
 			      Color(Black),
 			      Custom String("{0} D E P R E S S I O N {0}", Icon String(Heart)), 
-			      Custom String("{0} CYBER, IM NOT A FEM BOY {0}", Ability Icon String(Hero(Genji), Button(Ultimate))), 
+			      Custom String("{0} Kiriko Simp {0}", Ability Icon String(Hero(Kiriko), Button(Secondaryfire))), 
 			      Custom String("{0} What's yo zodiac sign? Do you think I am fine? Am I wasting your time? {0}", Ability Icon String(Hero(Reaper), Button(Ultimate)))
 		),
 			Array(Custom String("Żmij"), 
@@ -864,7 +864,7 @@ rule ("Custom nameplates list")
 			      Custom String("{0} ♡ mirage's bumble bee ♡ {0}", Ability Icon String(Hero(Mercy), Button(Jump)))
 		),
 			Array(Custom String("NightShield"), 
-			      Custom Color(133, 44, 137, 255),
+			      Custom Color(174, 156, 55, 255),
 			      Custom String("{0} Go Push a rock up a hill {0}", Ability Icon String(Hero(Sigma), Button(Ability 2))),
 			      Custom String("{0} Kirikult - Niriko {0}", Ability Icon String(Hero(Kiriko), Button(Ultimate))),
 			      Custom String("♡ 彡ƳƠƲ ƛƦЄ MƳ ƧЄƛ ♡ 彡")
