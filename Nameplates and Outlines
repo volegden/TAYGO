@@ -128,7 +128,7 @@ rule ("Custom nameplates list")
                 ), 
 			Array(Custom String("S0undw4v3"), 
 			    	Custom Color(170, 111, 229, 255), 
-					Custom String("{0}  Sкυ∂ηαвє'ѕ Sσυη∂вαє  {0}", Hero Icon String(Hero(Reaper))), 
+					Custom String("♥ SOUNDBAE ♥"), 
 					Custom String("{0}  ⇒   -`†  ΣNƬHƱЅIΔЅƬ  ΘF  ƬHΣ  LΘGIC  ΘF  ƬHΣ  ЅШΘRD™  †´-  {0}", Ability Icon String(Hero(Genji), Button(Ultimate))),
         			Custom String("♥ {0} I I Ya-adatsuos Ausyka Cosuatuyos Uy-y Tqsu Yandessa Lasymuiamsu {0} ♥", Ability Icon String(Hero(Genji), Button(Ultimate)))
                 ), 
@@ -513,7 +513,7 @@ rule ("Custom nameplates list")
 			      Custom String("{0} †  ＳＡＴＡＮＩＳＭ！ ＹＥＡＨ！．．． ＣＡＮ ＴＨＡＴ ＢＥ Ａ ＴＩＴＬＥ？ † {0}", Ability Icon String(Hero(Illari), Button(Ultimate)))
 		),
 			Array(Custom String("Ƒìşhy"), 
-			      Custom Color(255, 128, 0, 255),
+			      Custom Color(128, 0, 0, 255),
 			      Custom String("{0} S•A•M•M•Y {0}", Ability Icon String(Hero(Reaper), Button(Ability 1))), 
 			      Custom String("{0} {1} • ＴＲＩＣＫ ＯＲ ＴＲＥＡＴ • {1} {0}", Ability Icon String(Hero(Genji), Button(Primaryfire)), Icon String(Question Mark)),
 			      Custom String("{0}  • ＴＨＥ ＲＥＡＰＥＲ •  {0}", Ability Icon String(Hero(Junkerqueen), Button(Secondaryfire)))
@@ -887,10 +887,10 @@ rule ("Custom nameplates list")
 				  Custom String(" ")
 		),
 			Array(Custom String("HOÑEYBEE"),
-			      Custom String("Rainbow"), 
+			      Custom Color(135, 69, 180, 255), 
 			      Custom String("♬ Hoñeybee Radio ♬"), 
-			      Custom String("♥ Headpat Addict ♥"),
-			      Custom String("♥ {0} I I Ya-adatsuos Ausyka Cosuatuyos Uy-y Tqsu Yandessa Lasymuiamsu {0} ♥", Ability Icon String(Hero(Mercy), Button(Ultimate)))
+			      Custom String("•♥• Offical Simp Collector •♥•"),
+			      Custom String("•♥• †hï¢k †hïgh§ §åvê Lïvê§ •♥•")
 		),
 			Array(Custom String("ЈФҜЁЯ"),
 			      Custom String("Rainbow"),
