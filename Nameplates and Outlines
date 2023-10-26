@@ -306,7 +306,7 @@ rule ("Custom nameplates list")
 			      Custom Color(255, 148, 250, 255),
 			      Custom String("{0} Goddess Hylia {0}", Ability Icon String(Hero(Mercy), Button(Ultimate))), 
 			      Custom String("{0} Princess of Harmony {0}", Ability Icon String(Hero(Mercy), Button(Ability 2))), 
-			      Custom String("{0} ゴーストルール {0}", Ability Icon String(Hero(Kiriko), Button(Ultimate)))
+			      Custom String("{0} Wall Demon Squad {0}", Ability Icon String(Hero(D.va), Button(Ultimate)))
 		),
 			Array(Custom String("Eosia"), 
 			      Custom Color(181, 112, 232, 255),
@@ -416,8 +416,8 @@ rule ("Custom nameplates list")
 			Array(Custom String("DJCarwashSym"), 
 			      Custom Color(0, 255, 255, 255), 
 			      Custom String("{1} {0}  ⇒   -`★  CHILLШΔƬCH CΘNƬΔCƬ ЅƱƤƤΘRƬ™  ★´-   {1} {0}", Hero Icon String(Hero(Moira)), Hero Icon String(Hero(Symmetra))), 
-			      Custom String("{0}  ⇒   -`†  ΣΜƁRΔCΣR  ΘF  ƬHΣ  LΘGIC  ΘF  ƬHΣ  ЅШΘRD™  †´-   {0}", Ability Icon String(Hero(Genji), Button(Ultimate))), 
-			      Custom String("{0}  ⇒   -`♡  ƬIƬΔN'Ѕ  ШΔIFƱ™   ♡´-   {0}", Ability Icon String(Hero(Lifeweaver), Button(Primary Fire)))
+			      Custom String("{0}  ⇒   -`†  ШΔLL DΣΜΘN ЅQƱΔD™  †´-   {0}", Ability Icon String(Hero(D.va), Button(Ultimate))), 
+			      Custom String("{0}  ⇒   -`†  DΘΜΜΨ ЅƱCCƱƁƱЅ ΜΘΜΜΨ FRΨ™  †´-   {1}", Ability Icon String(Hero(Zenyatta), Button(Ability 1)), Ability Icon String(Hero(Zenyatta), Button(Ability 2)))
 		),
 			Array(Custom String("Reapersimp"), 
 			      Custom Color(255, 255, 178, 255), 
