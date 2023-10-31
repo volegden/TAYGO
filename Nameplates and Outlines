@@ -118,7 +118,7 @@ rule ("Custom nameplates list")
                               Custom Color(145, 10, 3, 255),
                               Custom String("Cat"), 
                               Custom String("literally asuka"),
-                              Custom String("boobsponge")
+                              Custom String("{0} L O A F L Y {0}", Icon String(Diamond))
                 ), 
 			Array(Custom String("Titanaboa"), 
 			      Custom Color(255, 171, 210, 255), 
@@ -381,7 +381,7 @@ rule ("Custom nameplates list")
 			      Custom Color(255, 220, 151, 255),
 			      Custom String("• Hop 500 •"), 
 			      Custom String("{0} Daedalus {0}", Ability Icon String(Hero(Mercy), Button(Ability 1))),
-			      Custom String("{0} local artist {0}", Icon String(Halo))
+			      Custom String("{0} B R E A D I F U L {0}", Icon String(Diamond))
 		),
 			Array(Custom String("Núgget"), 
 			      Custom Color(255, 130, 0, 255),
@@ -914,7 +914,7 @@ rule ("Custom nameplates list")
 			      Custom Color(166, 13, 166, 255),
 			      Custom String("{0} F•R•A•G•G•Y {0}", Ability Icon String(Hero(Reaper), Button(Ability 1))),
 			      Custom String("{0} ICARUS {0}", Ability Icon String(Hero(Mercy), Button(Ability 1))),
-			      Custom String("{0} • SCRIMBLOS! • {1}", Icon String(Bolt))
+			      Custom String("{0} • SCRIMBLOS! • {0}", Icon String(Bolt))
 		),
 			Array(Custom String("MrCleanerrrr"),
 			      Custom Color(242, 242, 242, 255),
