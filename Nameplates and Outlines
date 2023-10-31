@@ -818,7 +818,7 @@ rule ("Custom nameplates list")
 			      Custom String("{0} Ｍｅｏｗ ｆｏｒ Ｎｉｔｒｏ {0}", Ability Icon String(Hero(Ramattra), Button(Ultimate))),
 			      Custom String("† Ｈｅｘ： Ｄｅｖｏｕｒ Ｈｏｐｅ †")
 		),
-			Array(Custom String("TerrorMech"),
+			Array(Custom String("ImV"),
 			      Custom Color(166, 255, 77, 255),
 			      Custom String("{0} PREPARE FOR HELLFIRE {0}", Ability Icon String(Hero(Wrecking Ball), Button(Crouch))),
 			      Custom String("{0} Standby for Titanfall! {0}", Ability Icon String(Hero(Orisa), Button(Ultimate))),
