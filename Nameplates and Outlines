@@ -789,10 +789,10 @@ rule ("Custom nameplates list")
 			      Custom String("{0} ЅHΔDΘШ ШIZΔRD ΜΘNΣΨ GΔNG {0}", Ability Icon String(Hero(Sombra), Button(Ultimate)))
 		),
 			Array(Custom String("PumpkinJinx"), 
-			      Custom Color(142, 31, 33, 255),
+			      Custom Color(199, 51, 38, 255),
 			      Custom String("{0} - ☆ Sorry! Out of Order ☆ - {0}", Ability Icon String(Hero(Roadhog), Button(Ability 1))),
 			      Custom String("{0} ★ it's oogie's turn to boogie now ★ {0}", Icon String(Dizzy)),
-			      Custom String("{0} ☆ Van Hellsing's vampire ☆ {0}", Ability Icon String(Hero(Junkrat), Button(Ultimate)))
+			      Custom String("{0} ☆ Van Hellsing's vampire ☆ {1}", Ability Icon String(Hero(Cassidy), Button(Ultimate)), Ability Icon String(Hero(Junkrat), Button(Ultimate)))
 		),
 			Array(Custom String("NightShield"), 
 			      Custom Color(174, 156, 55, 255),
