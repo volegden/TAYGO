@@ -1194,10 +1194,16 @@ rule ("Custom nameplates list")
                 ), 
 			Array(Custom String("Dead"), 
                               Color(Black),
-                              Custom String("Supernova"), 
-                              Custom String("Xena"), 
-                              Custom String("Rattenkönigin")
+                   		Custom String("♥ Siente mi dolor ♥"),
+				Custom String("I get us into trouble"),
+				Custom String("Dumber")
                 ), 
+			Array(Custom String("Cold"), 
+                              Color(Black),
+                    		Custom String("♥ Cold ♥"),
+				Custom String("I get us out of trouble"),
+				Custom String("Dumb")
+		),
 			Array(Custom String("Nightfire"), 
                               Custom String("Rainbow"),
                               Custom String("{0}  Ikea Man  {0}", Icon String(Bolt))
