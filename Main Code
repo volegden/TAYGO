@@ -2,7 +2,7 @@ settings
 {
 	main
 	{
-		Description: " The previously named \"Friendly No Kill\"\n    is no longer being maintained! \n This version is kept up to date!\n Last updated: November 3, 2023\n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss\n   Based on the work of: TbyCoLive\n Community managed with ♡ by: kwally"
+		Description: " The previously named \"Friendly No Kill\"\n    is no longer being maintained! \n This version is kept up to date!\n Last updated: November 4, 2023\n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss\n   Based on the work of: TbyCoLive\n Community managed with ♡ by: kwally"
 		Mode Name: "♥ Chillwatch ♥ Friendly ♥"
 	}
 
@@ -1194,16 +1194,16 @@ rule ("Custom nameplates list")
                 ), 
 			Array(Custom String("Dead"), 
                               Color(Black),
-                   		Custom String("♥ Siente mi dolor ♥"),
-				Custom String("I get us into trouble"),
-				Custom String("Dumber")
+                              Custom String("♥ Siente mi dolor ♥"),
+					Custom String("I get us into trouble"),
+					Custom String("Dumber")
                 ), 
 			Array(Custom String("Cold"), 
                               Color(Black),
-                    		Custom String("♥ Cold ♥"),
+                              Custom String("♥ Cold ♥"),
 				Custom String("I get us out of trouble"),
 				Custom String("Dumb")
-		),
+				), 
 			Array(Custom String("Nightfire"), 
                               Custom String("Rainbow"),
                               Custom String("{0}  Ikea Man  {0}", Icon String(Bolt))
@@ -1458,7 +1458,7 @@ rule ("Custom nameplates list")
 			      Custom String("{0} ♡ Hestia's Little Baby ♡ {0}", Ability Icon String(Hero(D.va), Button(Ultimate)))
 		),
 			Array(Custom String("Hestia"), 
-			      Custom Color(84, 1, 1, 255),
+			      Custom Color(193, 59, 120, 255),
 			      Custom String("♣ Ｍｕｓｔｉ＇ｓ  Ｍｏｔｈｅｒ ♣"), 
 			      Custom String("{0} Midlight {0}", Ability Icon String(Hero(Mercy), Button(Ultimate))), 
 			      Custom String("{0} ♡ Beast Creator ♡ {0}", Ability Icon String(Hero(Lifeweaver), Button(Primaryfire)))
@@ -1855,10 +1855,10 @@ rule ("Custom nameplates list")
 			      Custom String("{0} ЅHΔDΘШ ШIZΔRD ΜΘNΣΨ GΔNG {0}", Ability Icon String(Hero(Sombra), Button(Ultimate)))
 		),
 			Array(Custom String("PumpkinJinx"), 
-			      Custom Color(142, 31, 33, 255),
+			      Custom Color(199, 51, 38, 255),
 			      Custom String("{0} - ☆ Sorry! Out of Order ☆ - {0}", Ability Icon String(Hero(Roadhog), Button(Ability 1))),
 			      Custom String("{0} ★ it's oogie's turn to boogie now ★ {0}", Icon String(Dizzy)),
-			      Custom String("{0} ☆ Van Hellsing's vampire ☆ {0}", Ability Icon String(Hero(Junkrat), Button(Ultimate)))
+			      Custom String("{0} ☆ Van Hellsing's vampire ☆ {1}", Ability Icon String(Hero(Cassidy), Button(Ultimate)), Ability Icon String(Hero(Junkrat), Button(Ultimate)))
 		),
 			Array(Custom String("NightShield"), 
 			      Custom Color(174, 156, 55, 255),
@@ -2154,7 +2154,7 @@ rule("Listed_Player")
 			Custom String("AvatarGod"), Custom String("rin"), Custom String("fa89"), Custom String("ThatAspect"), 
 			Custom String("DȈŦǾ"), Custom String("GhostPunch"), Custom String("PaulineP"), Custom String("lana"), Custom String("LeMix"), 
 			Custom String("mourne"), Custom String("Erin"), Custom String("ugh"), Custom String("Akaza"), Custom String("Catgirl"), 
-			Custom String("BƑG"), Custom String("MopuD"), Custom String("ori6072"), Custom String("OperativeLyn"), Custom String("froggygutz"), 
+			Custom String("BƑG"), Custom String("MopuD"),  
 			Custom String("Ghøst"), Custom String("TURBOMURO"), Custom String("Mxth"), Custom String("Núgget"), 
 			Custom String("lostsektor"), Custom String("Lexa"), Custom String("Secré"), Custom String("Hxneibee"), Custom String("Fenetre"), 
 			Custom String("Sinnie"), Custom String("TazE"), Custom String("A1IZEN"), Custom String("Triin1ty"), Custom String("LȄAƑIƐ"), 
@@ -2173,7 +2173,7 @@ rule("Listed_Player")
 			Custom String("whoshotcupid"), Custom String("MISTƔ"), Custom String("Ƒìşhy"), Custom String("PumpkinJinx"), Custom String("ImmaPenguin"),
 			Custom String("MrCleanerrrr"), Custom String("MrMidnight"), Custom String("HOÑEYBEE"), Custom String("SapphicWitch"), 
 			Custom String("VĬƗŌĿĖŦ"), Custom String("Arlecchino"), Custom String("ЈФҜЁЯ"), Custom String("Fragoso"), Custom String("Juuzo"),
-			Custom String("Fearlxss"));
+			Custom String("Fearlxss"), Custom String("ǃSHAY"), Custom String("Stalker"));
 		
 		"Warning List"
 		Global.Warning_List = Array(
