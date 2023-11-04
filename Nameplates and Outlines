@@ -135,15 +135,15 @@ rule ("Custom nameplates list")
 			Array(Custom String("Dead"), 
                               Color(Black),
                               Custom String("♥ Siente mi dolor ♥"),
-				Custom String("I get us into trouble"),
-				Custom String("Dumber")
+					Custom String("I get us into trouble"),
+					Custom String("Dumber")
                 ), 
 			Array(Custom String("Cold"), 
                               Color(Black),
                               Custom String("♥ Cold ♥"),
 				Custom String("I get us out of trouble"),
 				Custom String("Dumb")
-                ), 
+				), 
 			Array(Custom String("Nightfire"), 
                               Custom String("Rainbow"),
                               Custom String("{0}  Ikea Man  {0}", Icon String(Bolt))
@@ -398,7 +398,7 @@ rule ("Custom nameplates list")
 			      Custom String("{0} ♡ Hestia's Little Baby ♡ {0}", Ability Icon String(Hero(D.va), Button(Ultimate)))
 		),
 			Array(Custom String("Hestia"), 
-			      Custom Color(84, 1, 1, 255),
+			      Custom Color(193, 59, 120, 255),
 			      Custom String("♣ Ｍｕｓｔｉ＇ｓ  Ｍｏｔｈｅｒ ♣"), 
 			      Custom String("{0} Midlight {0}", Ability Icon String(Hero(Mercy), Button(Ultimate))), 
 			      Custom String("{0} ♡ Beast Creator ♡ {0}", Ability Icon String(Hero(Lifeweaver), Button(Primaryfire)))
