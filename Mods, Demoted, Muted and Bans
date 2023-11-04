@@ -34,7 +34,7 @@ rule("Listed_Player")
 			Custom String("AvatarGod"), Custom String("rin"), Custom String("fa89"), Custom String("ThatAspect"), 
 			Custom String("DȈŦǾ"), Custom String("GhostPunch"), Custom String("PaulineP"), Custom String("lana"), Custom String("LeMix"), 
 			Custom String("mourne"), Custom String("Erin"), Custom String("ugh"), Custom String("Akaza"), Custom String("Catgirl"), 
-			Custom String("BƑG"), Custom String("MopuD"), Custom String("ori6072"), Custom String("OperativeLyn"), Custom String("froggygutz"), 
+			Custom String("BƑG"), Custom String("MopuD"),  
 			Custom String("Ghøst"), Custom String("TURBOMURO"), Custom String("Mxth"), Custom String("Núgget"), 
 			Custom String("lostsektor"), Custom String("Lexa"), Custom String("Secré"), Custom String("Hxneibee"), Custom String("Fenetre"), 
 			Custom String("Sinnie"), Custom String("TazE"), Custom String("A1IZEN"), Custom String("Triin1ty"), Custom String("LȄAƑIƐ"), 
@@ -53,7 +53,7 @@ rule("Listed_Player")
 			Custom String("whoshotcupid"), Custom String("MISTƔ"), Custom String("Ƒìşhy"), Custom String("PumpkinJinx"), Custom String("ImmaPenguin"),
 			Custom String("MrCleanerrrr"), Custom String("MrMidnight"), Custom String("HOÑEYBEE"), Custom String("SapphicWitch"), 
 			Custom String("VĬƗŌĿĖŦ"), Custom String("Arlecchino"), Custom String("ЈФҜЁЯ"), Custom String("Fragoso"), Custom String("Juuzo"),
-			Custom String("Fearlxss"));
+			Custom String("Fearlxss"), Custom String("ǃSHAY"), Custom String("Stalker"));
 		
 		"Warning List"
 		Global.Warning_List = Array(
