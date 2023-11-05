@@ -121,10 +121,10 @@ rule ("Custom nameplates list")
 			      Custom String("{0}  ⇒   -`♡  FRΨ'Ѕ  HƱЅƁΔNDΘ™   ♡´-   {0}", Ability Icon String(Hero(Lifeweaver), Button(Primaryfire)))
                 ), 
 			Array(Custom String("S0undw4v3"), 
-			    	Custom Color(170, 111, 229, 255), 
+			    	Custom Color(255, 0, 127, 255), 
 					Custom String("♥ SOUNDBAE ♥"), 
-					Custom String("{0}  ⇒   -`†  ΣNƬHƱЅIΔЅƬ  ΘF  ƬHΣ  LΘGIC  ΘF  ƬHΣ  ЅШΘRD™  †´-  {0}", Ability Icon String(Hero(Genji), Button(Ultimate))),
-        			Custom String("♥ {0} I I Ya-adatsuos Ausyka Cosuatuyos Uy-y Tqsu Yandessa Lasymuiamsu {0} ♥", Ability Icon String(Hero(Genji), Button(Ultimate)))
+        			Custom String("♥ {0} I I Ya-adatsuos Ausyka Cosuatuyos Uy-y Tqsu Yandessa Lasymuiamsu {0} ♥", Ability Icon String(Hero(Genji), Button(Ultimate))),
+					Custom String("{0} Gå§ Gïåñ† †õråmõ õf †hê Jårµõlå §¥§†êm {0}", Ability Icon String(Hero(Illari), Button(Ultimate)))
                 ), 
 			Array(Custom String("Xenolysith"), 
                               Custom Color(241, 196, 15, 255),
@@ -299,10 +299,10 @@ rule ("Custom nameplates list")
 			      Custom String("{0}         ウルトラマン        {0} ", Ability Icon String(Hero(Reinhardt), Button(Ultimate)))
 		),
 			Array(Custom String("Lünår"), 
-			      Custom Color(255, 148, 250, 255),
+			      Custom Color(255, 0, 127, 255),
 			      Custom String("{0} Goddess Hylia {0}", Ability Icon String(Hero(Mercy), Button(Ultimate))), 
 			      Custom String("{0} Princess of Harmony {0}", Ability Icon String(Hero(Mercy), Button(Ability 2))), 
-			      Custom String("{0} Wall Demon Squad {0}", Ability Icon String(Hero(D.va), Button(Ultimate)))
+			      Custom String("{0} Gå§ Gïåñ† †õråmï õf †hê Jårµõlå §¥§†êm {0}", Ability Icon String(Hero(Illari), Button(Ultimate)))
 		),
 			Array(Custom String("Eosia"), 
 			      Custom Color(196, 255, 77, 255),
@@ -902,7 +902,19 @@ rule ("Custom nameplates list")
 			      Custom String("{0} Kιяιкσ мч вεlσνεd {0}", Ability Icon String(Hero(Kiriko), Button(Ability 2))),
 			      Custom String("{0} Ɲσтнιηg ιѕ тяυє, єνєяутнιηg ιѕ ρєямιттє∂ {0}", Ability Icon String(Hero(Kiriko), Button(Secondaryfire))),
 			      Custom String("{0} Hεrσ σf Τhε Lιghτ {0}", Icon String(Halo))
-		)
+		),
+		Array(Custom String("Stalker"),
+			      Custom Color(170, 128, 255, 255),
+			      Custom String("{0} † I'm inside your walls. † {0}", Ability Icon String(Hero(D.Va), Button(Ultimate))),
+			      Custom String("{0} † Prince of destruction. † {0}", Ability Icon String(Hero(Junkrat), Button(Ultimate))),
+			      Custom String("{0} † Hier Kommt Die Sonne. † {0}", Ability Icon String(Hero(Illari), Button(Ultimate)))
+		),
+		Array(Custom String("ǃSHAY"),
+			      Custom Color(255, 0, 0, 255),
+			      Custom String("♣Mιηαzυкι ♣"),
+			      Custom String("†нєαятlєѕѕ†"),
+			      Custom String("†¢αll мє мσмму†")
+		)				
 		);
 	}
 }
