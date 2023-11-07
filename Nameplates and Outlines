@@ -109,8 +109,7 @@ rule ("Custom nameplates list")
                               Custom String("Black Cat")
                 ),
 			Array(Custom String("HYUA"), 
-                              Custom Color(145, 10, 3, 255),
-                              Custom String("Cat"), 
+                              Custom Color(89, 5, 5, 255),
                               Custom String("literally asuka"),
                               Custom String("{0} L O A F L Y {0}", Icon String(Diamond))
                 ), 
@@ -835,9 +834,9 @@ rule ("Custom nameplates list")
 			      Custom String("♬LOCAL GERRY ＼(^￢^)／♬")
 		),
 			Array(Custom String("Adiidas"), 
-			      Color(Black),
+			      Custom Color(80, 8, 61, 255),
 			      Custom String("{0} ȂBÛ$ȄR & ȂBÛŠȄD {0}", Icon String(Moon)),
-			      Custom String("the voices...are getting louder"),
+			      Custom String("{0} This Side Of Paradise {0}", Ability Icon String(Hero(Mercy), Button(Ultimate))),
 			      Custom String("{0} Nike {0}", Icon String(Checkmark))
 		),
 			Array(Custom String("Alex"), 
