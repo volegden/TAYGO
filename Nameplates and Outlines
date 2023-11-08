@@ -409,10 +409,10 @@ rule ("Custom nameplates list")
 			      Custom String(" † Slafiiko - Kirikult † ")
 		),
 			Array(Custom String("DJCarwashSym"), 
-			      Custom Color(0, 255, 255, 255), 
+			      Custom Color(255, 0, 127, 255), 
 			      Custom String("{1} {0}  ⇒   -`★  CHILLШΔƬCH CΘNƬΔCƬ ЅƱƤƤΘRƬ™  ★´-   {1} {0}", Hero Icon String(Hero(Moira)), Hero Icon String(Hero(Symmetra))), 
-			      Custom String("{0}  ⇒   -`†  ШΔLL DΣΜΘN ЅQƱΔD™  †´-   {0}", Ability Icon String(Hero(D.va), Button(Ultimate))), 
-			      Custom String("{0}  ⇒   -`†  DΘΜΜΨ ЅƱCCƱƁƱЅ ΜΘΜΜΨ FRΨ™  †´-   {1}", Ability Icon String(Hero(Zenyatta), Button(Ability 1)), Ability Icon String(Hero(Zenyatta), Button(Ability 2)))
+			      Custom String("{0}  ⇒   -`†  DΘΜΜΨ ЅƱCCƱƁƱЅ ΜΘΜΜΨ FRΨ™  †´-   {1}", Ability Icon String(Hero(Zenyatta), Button(Ability 1)), Ability Icon String(Hero(Zenyatta), Button(Ability 2))),
+				  Custom String("{0} Gå§ Gïåñ† Rµlïå§†õ õf †hê Jårµõlå §¥§†êm {0}", Ability Icon String(Hero(Illari), Button (Ultimate)))
 		),
 			Array(Custom String("Reapersimp"), 
 			      Custom Color(255, 255, 178, 255), 
@@ -800,16 +800,15 @@ rule ("Custom nameplates list")
 			      Custom String("{0} ☆ Van Hellsing's vampire ☆ {1}", Ability Icon String(Hero(Cassidy), Button(Ultimate)), Ability Icon String(Hero(Junkrat), Button(Ultimate)))
 		),
 			Array(Custom String("NightShield"), 
-			      Custom Color(174, 156, 55, 255),
+			      Custom Color(98, 107, 150, 255),
 			      Custom String("{0} Go Push a rock up a hill {0}", Ability Icon String(Hero(Sigma), Button(Ability 2))),
-			      Custom String("{0} Kirikult - Niriko {0}", Ability Icon String(Hero(Kiriko), Button(Ultimate))),
-			      Custom String("♡ 彡ƳƠƲ ƛƦЄ MƳ ƧЄƛ ♡ 彡")
+			      Custom String("{0} Kirikult - Niriko {0}", Ability Icon String(Hero(Kiriko), Button(Ultimate)))
 		),
 			Array(Custom String("KinkiTurtle"), 
 			      Custom Color(255, 209, 209, 255),
-			      Custom String("{0} ミ☆ｓｌｅｅｐｙ ｔｕｒｔｌｅミ☆ {0}", Ability Icon String(Hero(Ana), Button(Ability 1))),
-			      Custom String("{0} ♬ｌｉｓｔｅｎｉｎｇ ｔｏ ｍｕｓｉｃ ２４/７ ♬ {0}", Ability Icon String(Hero(Lúcio), Button(Ability 2))),
-			      Custom String("ミ♡ ƳƠƲ ƛƦЄ MƳ ƧƲƝƧӇƖƝЄ ミ♡")
+			      Custom String("{0} 我爱你 {0}", Ability Icon String(Hero(Genji), Button(Ultimate))),
+			      Custom String("{0} Kirikult - kinkiko {0}", Ability Icon String(Hero(Kiriko), Button(Ultimate))),
+				  Custom String("{0} RïñgêÐ Öcêåñ WõrlÐ †õmïrå õf †hê Jårµõlå §¥§†êm {0}", Ability Icon String(Hero(Illari), Button(Ultimate)))
 		),
 			Array(Custom String("mksvault"), 
 			      Custom Color(244, 187, 68, 255),
@@ -836,7 +835,7 @@ rule ("Custom nameplates list")
 			Array(Custom String("Adiidas"), 
 			      Custom Color(80, 8, 61, 255),
 			      Custom String("{0} ȂBÛ$ȄR & ȂBÛŠȄD {0}", Icon String(Moon)),
-			      Custom String("{0} This Side Of Paradise {0}", Ability Icon String(Hero(Mercy), Button(Ultimate))),
+			      Custom String("†♬ {0} This Side Of Paradise {0} ♬†", Ability Icon String(Hero(Mercy), Button(Ultimate))),
 			      Custom String("{0} Nike {0}", Icon String(Checkmark))
 		),
 			Array(Custom String("Alex"), 
