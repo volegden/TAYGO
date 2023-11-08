@@ -408,12 +408,6 @@ rule ("Custom nameplates list")
 			      Custom String("{0} Hero of Time {0}", Ability Icon String(Hero(Torbjörn), Button(Ability 2))), 
 			      Custom String(" † Slafiiko - Kirikult † ")
 		),
-			Array(Custom String("DJCarwashSym"), 
-			      Custom Color(255, 0, 127, 255), 
-			      Custom String("{1} {0}  ⇒   -`★  CHILLШΔƬCH CΘNƬΔCƬ ЅƱƤƤΘRƬ™  ★´-   {1} {0}", Hero Icon String(Hero(Moira)), Hero Icon String(Hero(Symmetra))), 
-			      Custom String("{0}  ⇒   -`†  DΘΜΜΨ ЅƱCCƱƁƱЅ ΜΘΜΜΨ FRΨ™  †´-   {1}", Ability Icon String(Hero(Zenyatta), Button(Ability 1)), Ability Icon String(Hero(Zenyatta), Button(Ability 2))),
-				  Custom String("{0} Gå§ Gïåñ† Rµlïå§†õ õf †hê Jårµõlå §¥§†êm {0}", Ability Icon String(Hero(Illari), Button (Ultimate)))
-		),
 			Array(Custom String("Reapersimp"), 
 			      Custom Color(255, 255, 178, 255), 
 			      Custom String("{0}   Wanheda   {0}",  Ability Icon String(Hero(Junkerqueen), Button(Secondaryfire))),
@@ -429,10 +423,6 @@ rule ("Custom nameplates list")
 			Array(Custom String("AliceRowe"), 
 			      Custom Color(204, 204, 255, 255),
 			      Custom String("69 with 7")
-		), 
-			Array(Custom String("BƑG"), 
-			      Color(Black),
-			      Custom String("⛦ Eternal Doom ⛦")
 		), 
 			Array(Custom String("Sinnie"), 
 			      Custom String("Rainbow"), 
