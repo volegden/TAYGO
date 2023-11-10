@@ -550,8 +550,7 @@ rule ("Custom nameplates list")
 			Array(Custom String("Leestick"), 
 			      Custom Color(160, 32, 240, 255),
 			      Custom String("{0} vaporlover {0}", Ability Icon String(Hero(Ramattra), Button(Ultimate))), 
-			      Custom String("{0} TrashLord {0}", Icon String(Trashcan)),
-				  Custom String("{0} trick or treat {1}", Ability Icon String(Hero(Zenyatta), Button(Ability 1)), Ability Icon String(Hero(Zenyatta), Button(Ability 2)))
+			      Custom String("{0} TrashLord {0}", Icon String(Trashcan))
 		), 
 			Array(Custom String("ThatAspect"), 
 			      Color(Purple),
@@ -716,9 +715,9 @@ rule ("Custom nameplates list")
 			      Custom String("{0}     りん     {0}", Ability Icon String(Hero(Kiriko), Button(Primaryfire)))
 		),
 			Array(Custom String("Triin1ty"), 
-			      Custom Color(120, 29, 6, 255),
-			      Custom String("{0} cutie {0}", Ability Icon String(Hero(D.Va), Button(Ultimate))), 
-			      Custom String("{0} genji lvr {0}", Ability Icon String(Hero(Mercy), Button(Ultimate)))
+			      Color(White),
+			      Custom String("his pocket mercy"), 
+			      Custom String("little sh%t")
 		),
 			Array(Custom String("LȄAƑIƐ"), 
 			      Custom Color(206, 204, 255, 255), 
@@ -877,7 +876,8 @@ rule ("Custom nameplates list")
 			Array(Custom String("Arlecchino"),
 			      Custom Color(255, 50, 145, 255),
 			      Custom String("♥ Arlecchino ♥"),
-			      Custom String("♥ {0} Hampter {0} ♥", Hero Icon String(Hero(Wrecking Ball)))
+			      Custom String("♥ {0} Hampter {0} ♥", Hero Icon String(Hero(Wrecking Ball))),
+				  Custom String("{0} Öcêåñ WõrlÐ Äqõpïlå õf †hê Jårµõlå §¥§†ê {0}", Ability Icon String(Hero(Illari), Button(Ultimate)))
 		),
 		Array(Custom String("Juuzo"),
 			      Custom Color(243, 214, 223, 255),
