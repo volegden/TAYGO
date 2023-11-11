@@ -405,7 +405,7 @@ rule ("Custom nameplates list")
 			Array(Custom String("Slafii"), 
 			      Custom Color(46, 26, 71, 255),
 			      Custom String("{0}  P r i n c e  O f  H a r m o n y  {0}", Ability Icon String(Hero(Mercy), Button(Ability 2))), 
-			      Custom String("{0} Hero of Time {0}", Ability Icon String(Hero(Torbjörn), Button(Ability 2))), 
+			      Custom String("♡F r y ' s   W i f e♡"), 
 			      Custom String(" † Slafiiko - Kirikult † ")
 		),
 			Array(Custom String("Reapersimp"), 
@@ -500,7 +500,7 @@ rule ("Custom nameplates list")
 			Array(Custom String("Ƒìşhy"), 
 			      Custom Color(128, 0, 0, 255),
 			      Custom String("{0} S•A•M•M•Y {0}", Ability Icon String(Hero(Reaper), Button(Ability 1))), 
-			      Custom String("»Ｏｓｔｍａｎｔｈｕｓ ｗｉｎｅ．．．«"),
+			      Custom String("{0} » Achilles « {0}", Ability Icon String(Hero(Orisa), Button(Secondaryfire))),
 			      Custom String("{0} • ♬ エーデンス ♡ • {0}", Ability Icon String(Hero(Lúcio), Button(Ultimate)))
 		),
             Array(Custom String("TazE"),
@@ -773,7 +773,7 @@ rule ("Custom nameplates list")
 			Array(Custom String("PurpSkrrt"), 
 			      Custom Color(209, 170, 229, 255),
 			      Custom String("{0} Princess Pürp {0}", Ability Icon String(Hero(Lifeweaver), Button(Primary Fire))),
-			      Custom String("{0} Pookie Collector {0}", Ability Icon String(Hero(Mercy), Button(Ultimate))),
+			      Custom String("{0}* .˚ PurpSkrrt™ ˚. *{0}", Ability Icon String(Hero(Kiriko), Button(Ability 2))),
 			      Custom String("{0} ЅHΔDΘШ ШIZΔRD ΜΘNΣΨ GΔNG {0}", Ability Icon String(Hero(Sombra), Button(Ultimate)))
 		),
 			Array(Custom String("Miamor"), 
