@@ -52,7 +52,7 @@ rule("Listed_Player")
 			Custom String("whoshotcupid"), Custom String("MISTƔ"), Custom String("Ƒìşhy"), Custom String("PumpkinJinx"), Custom String("ImmaPenguin"),
 			Custom String("MrCleanerrrr"), Custom String("MrMidnight"), Custom String("HOÑEYBEE"), Custom String("SapphicWitch"), 
 			Custom String("VĬƗŌĿĖŦ"), Custom String("Arlecchino"), Custom String("ЈФҜЁЯ"), Custom String("Fragoso"), Custom String("Juuzo"),
-			Custom String("Fearlxss"), Custom String("ǃSHAY"), Custom String("Stalker"));
+			Custom String("Fearlxss"), Custom String("ǃSHAY"), Custom String("Stalker"), Custom String("Eggman"));
 		
 		"Warning List"
 		Global.Warning_List = Array(
@@ -65,7 +65,8 @@ rule("Listed_Player")
 			Custom String("TitanJolt"), Custom String("JoltWave"), Custom String("DJBASTIOON"), Custom String("DJBastion"), Custom String("Djbastion"), Custom String("DJBASTION!"),
 			Custom String("MrBastion"), Custom String("Dampoegood"), Custom String("Howard"), Custom String("vibe"), Custom String("tomkuo74"), 
 			Custom String("wonderland"), Custom String("Ɓack2spawŊ"), Custom String("armoureddiam"), Custom String("DjBeep"), Custom String("Astraeus"), Custom String("SaladGuy"), 
-			Custom String("EREN"), Custom String("ElTata"), Custom String("Elpapu"));
+			Custom String("EREN"), Custom String("ElTata"), Custom String("Elpapu"), Custom String("FPSNight"), Custom String("Apotato2182"), 
+			Custom String("sherminator"), Custom String("Doom"));
 
 		"Demoted List"
 		Global.Demoted_List = Array(
