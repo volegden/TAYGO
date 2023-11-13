@@ -2,7 +2,7 @@ settings
 {
 	main
 	{
-		Description: " The previously named \"Friendly No Kill\"\n    is no longer being maintained! \n This version is kept up to date!\n Last updated: November 4, 2023\n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss\n   Based on the work of: TbyCoLive\n Community managed with ♡ by: kwally"
+		Description: " The previously named \"Friendly No Kill\"\n    is no longer being maintained! \n This version is kept up to date!\n Last updated: November 13, 2023\n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss\n   Based on the work of: TbyCoLive\n Community managed with ♡ by: kwally"
 		Mode Name: "♥ Chillwatch ♥ Friendly ♥"
 	}
 
@@ -1089,9 +1089,9 @@ rule ("Custom nameplates list")
 			Array(Custom String("xMaxuss"), 
                                 Custom String("Fading"), 
                 				70,200,255, 150,225,255,
-			      Custom String("{0} TO THE MAX {0}", Ability Icon String(Hero(Sombra), Button(Ultimate))),
-			      Custom String("¡Hola! ¿Qué onda? {0}", Hero Icon String(Hero(Sombra))),
-			      Custom String("Custom String(\"Insert 3rd name\")")
+			      Custom String("{1} {0}     M L  S  A  E      {0} {1}", Ability Icon String(Hero(Widowmaker), Button(Ultimate)), Icon String(Heart)),
+			       Custom String("{0} TO THE MAX {0}", Ability Icon String(Hero(Sombra), Button(Ultimate))),
+			       Custom String("¡Hola! ¿Qué onda? {0}", Hero Icon String(Hero(Sombra)))
                 ),
                         Array(Custom String("LƐafa"),  
                               Custom Color(110, 0, 0, 255),
@@ -1194,7 +1194,7 @@ rule ("Custom nameplates list")
                 ), 
 			Array(Custom String("Dead"), 
                               Color(Black),
-                              Custom String("♥ Siente mi dolor ♥"),
+                             Custom String("{1}      {0}   I  K  H  K   {0}     {1}", Ability Icon String(Hero(Sombra), Button(Ultimate)), Icon String(Heart)),
 					Custom String("I get us into trouble"),
 					Custom String("Dumber")
                 ), 
