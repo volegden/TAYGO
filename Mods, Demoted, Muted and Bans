@@ -56,7 +56,7 @@ rule("Listed_Player")
 		
 		"Warning List"
 		Global.Warning_List = Array(
-			Custom String("RobotMaster7"), Custom String("RICE"), Custom String("JKX"));
+			Custom String("None"));
 
 		"Muted (anyone on this list is muted AND demoted, no need to have them in both lists)"
 		Global.Muted_List = Array(
@@ -70,7 +70,7 @@ rule("Listed_Player")
 
 		"Demoted List"
 		Global.Demoted_List = Array(
-			Custom String("hu ho"));
+			Custom String("DjSmolfry"));
 
 		"Automatic Ban"
 		Global.Banned_List = Array(
