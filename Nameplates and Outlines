@@ -29,7 +29,7 @@ rule ("Custom nameplates list")
 			Array(Custom String("xMaxuss"), 
                                 Custom String("Fading"), 
                 				70,200,255, 150,225,255,
-			      Custom String("{1} {0}     M L  S  A  E      {0}{1}", Ability Icon String(Hero(Widowmaker), Button(Ultimate)), Icon String(Heart)),
+			      Custom String("{1} {0}     M L  S  A  E      {0} {1}", Ability Icon String(Hero(Widowmaker), Button(Ultimate)), Icon String(Heart)),
 			      Custom String("{0} TO THE MAX {0}", Ability Icon String(Hero(Sombra), Button(Ultimate))),
 			      Custom String("¡Hola! ¿Qué onda? {0}", Hero Icon String(Hero(Sombra)))
                 ),
@@ -133,7 +133,7 @@ rule ("Custom nameplates list")
                 ), 
 			Array(Custom String("Dead"), 
                               Color(Black),
-                              Custom String("{1}      {0}   I  K  H  K   {0}     {1}", Ability Icon String(Hero(Sombra), Button(Ultimate)), Icon String(Heart)),
+                    Custom String("{1}      {0}   I  K  H  K   {0}     {1}", Ability Icon String(Hero(Sombra), Button(Ultimate)), Icon String(Heart)),
 					Custom String("I get us into trouble"),
 					Custom String("Dumber")
                 ), 
@@ -688,9 +688,7 @@ rule ("Custom nameplates list")
 		), 
 			Array(Custom String("Bendude1000"), 
 			      Custom Color(195, 177, 225, 255),
-			      Custom String(" R A T "),
-			      Custom String("Dungeon Master"), 
-			      Custom String("{0} Rolling the dice! {0}", Icon String(Diamond))
+			      Custom String(" R A T ")
 		),
 			Array(Custom String("Aki"), 
 			      Custom Color(255, 0, 0, 255),
@@ -765,10 +763,10 @@ rule ("Custom nameplates list")
 			      Custom String("† hεx: hαuη†εd gröuηd †")
 		),
 			Array(Custom String("ImV"),
-			      Custom Color(166, 255, 77, 255),
-			      Custom String("{0} PREPARE FOR HELLFIRE {0}", Ability Icon String(Hero(Wrecking Ball), Button(Crouch))),
-			      Custom String("{0} Standby for Titanfall! {0}", Ability Icon String(Hero(Orisa), Button(Ultimate))),
-			      Custom String("{0} Radioactive subject {0}", Ability Icon String(Hero(Sigma), Button(Ultimate)))
+			      Custom Color(163, 39, 245, 255),
+			      Custom String("{0} Crushed with springlocks {0}", Ability Icon String(Hero(Wrecking Ball), Button(Crouch))),
+			      Custom String("{0} Man behind the slaughter {0}", Ability Icon String(Hero(Reaper), Button(Ability 1))),
+			      Custom String("{0} Purple crewmate {0}", Ability Icon String(Hero(Bastion), Button(Ability 1)))
 		),
 			Array(Custom String("PurpSkrrt"), 
 			      Custom Color(209, 170, 229, 255),
@@ -833,7 +831,7 @@ rule ("Custom nameplates list")
 		),
 			Array(Custom String("HOÑEYBEE"),
 			      Custom Color(211, 211, 211, 255), 
-			      Custom String("•♥• Mð†hêr Ö£ Çhåð§ •♥•"), 
+			      Custom String("•♥• MÖ†hêr Ö£ Måñ¥ •♥•"), 
 			      Custom String("•♥• Offical Simp Collector •♥•"),
 			      Custom String("•♥• †hï¢k †hïgh§ §åvê Lïvê§ •♥•")
 		),
