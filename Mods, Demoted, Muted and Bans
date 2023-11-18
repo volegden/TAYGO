@@ -52,7 +52,7 @@ rule("Listed_Player")
 			Custom String("whoshotcupid"), Custom String("MISTƔ"), Custom String("Ƒìşhy"), Custom String("PumpkinJinx"), Custom String("ImmaPenguin"),
 			Custom String("MrCleanerrrr"), Custom String("MrMidnight"), Custom String("HOÑEYBEE"), Custom String("SapphicWitch"), 
 			Custom String("VĬƗŌĿĖŦ"), Custom String("Arlecchino"), Custom String("ЈФҜЁЯ"), Custom String("Fragoso"), Custom String("Juuzo"),
-			Custom String("Fearlxss"), Custom String("ǃSHAY"), Custom String("Stalker"), Custom String("Eggman"));
+			Custom String("Fearlxss"), Custom String("ǃSHAY"), Custom String("Stalker"), Custom String("Eggman"), Custom String("Mirage"));
 		
 		"Warning List"
 		Global.Warning_List = Array(
