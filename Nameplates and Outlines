@@ -123,8 +123,8 @@ rule ("Custom nameplates list")
                 ), 
 			Array(Custom String("S0undw4v3"), 
 			    	Custom Color(255, 0, 127, 255), 
+					Custom String("'-CHIIIIIIIEEEEEEEFFFFFFFSSSSS'"),
 					Custom String("♥ SOUNDBAE ♥"), 
-        			Custom String("♥ {0} I I Ya-adatsuos Ausyka Cosuatuyos Uy-y Tqsu Yandessa Lasymuiamsu {0} ♥", Ability Icon String(Hero(Genji), Button(Ultimate))),
 					Custom String("{0} Gå§ Gïåñ† †õråmõ õf †hê Jårµõlå §¥§†êm {0}", Ability Icon String(Hero(Illari), Button(Ultimate)))
                 ), 
 			Array(Custom String("Xenolysith"), 
@@ -716,7 +716,7 @@ rule ("Custom nameplates list")
 		),
 			Array(Custom String("Triin1ty"), 
 			      Color(White),
-			      Custom String("his pocket mercy"), 
+			      Custom String("stuffed animal lover"), 
 			      Custom String("little sh%t")
 		),
 			Array(Custom String("LȄAƑIƐ"), 
@@ -894,11 +894,11 @@ rule ("Custom nameplates list")
 		Array(Custom String("Stalker"),
 			      Custom Color(170, 128, 255, 255),
 			      Custom String("{0} † I'm inside your walls. † {0}", Ability Icon String(Hero(D.Va), Button(Ultimate))),
-			      Custom String("{0} † Prince of destruction. † {0}", Ability Icon String(Hero(Junkrat), Button(Ultimate))),
+			      Custom String("{0} ChillWatch Law Enforcement {0}", Ability Icon String(Hero(Kiriko), Button(Ultimate))),
 			      Custom String("{0} † Hier Kommt Die Sonne. † {0}", Ability Icon String(Hero(Illari), Button(Ultimate)))
 		),
 		Array(Custom String("ǃSHAY"),
-			      Custom Color(255, 0, 0, 255),
+			      Custom Color(204, 0, 0, 255),
 			      Custom String("♣Mιηαzυкι ♣"),
 			      Custom String("†нєαятlєѕѕ†"),
 			      Custom String("†¢αll мє мσмму†")
@@ -906,7 +906,13 @@ rule ("Custom nameplates list")
 		Array(Custom String("MOOOUSH"),
 			      Color(Black),
 			      Custom String("{0} (っ--)っ {0}", Icon String(Moon))
-		)						
+		),
+		Array(Custom String("Mirage"),
+			      Custom Color(185, 9, 15, 255),
+			      Custom String("'AND THE HOME OF THE-'"),
+			      Custom String("{0}  Hero of Time  {0}", Ability Icon String(Hero(Genji), Button(Ultimate))),
+			      Custom String("• Bamboozled ツ •")
+		)
 		);
 	}
 }
