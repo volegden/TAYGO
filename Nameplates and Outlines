@@ -17,9 +17,9 @@ rule ("Custom nameplates list")
 			Array(Custom String("Warloy"), 
                               Custom String("Fading"),
 							  0, 0, 204, 128, 0, 0,
-			      Custom String("Coup de grâce"),
-				  Custom String("Komm zu mir"),
-				  Custom String("Und wozu das alles?")
+			      Custom String("Workloy"),
+			      Custom String("Toastloy"),
+			      Custom String("Coup de grâce")
                 ), 
 			Array(Custom String("kwally"),		
 							  Custom String("Fading"),	
@@ -128,10 +128,9 @@ rule ("Custom nameplates list")
 					Custom String("{0} Gå§ Gïåñ† †õråmõ õf †hê Jårµõlå §¥§†êm {0}", Ability Icon String(Hero(Illari), Button(Ultimate)))
                 ), 
 			Array(Custom String("Xenolysith"), 
-                              Custom Color(241, 196, 15, 255),
-                              Custom String("Stargazer"), 
-                              Custom String("Professor"), 
-			      Custom String("{0}  Rattenkönig  {1}", Icon String(Poison), Icon String(Radioactive))
+                    Custom Color(241, 196, 15, 255),
+                    Custom String("Stargazer"), 
+                    Custom String("Professor")
                 ), 
 			Array(Custom String("Dead"), 
                               Color(Black),
@@ -291,7 +290,7 @@ rule ("Custom nameplates list")
 			      Custom String("Rainbow"),
 			      Custom String("♡ Gh0stface's little brother ♡"), 
 			      Custom String("★ RIWA PROPERTY UWU ★"), 
-                              Custom String("{0} Ｓｅｅｌｅｎｓｏｒｇｅ {0}", Icon String(Moon))
+                  Custom String("{0} Ｓｅｅｌｅｎｓｏｒｇｅ {0}", Icon String(Moon))
 		), 
 			Array(Custom String("SpƐdy"), 
 			      Custom String("Rainbow"),
@@ -311,7 +310,7 @@ rule ("Custom nameplates list")
 			      Custom String("{0} Kir's Dad {0}", Ability Icon String(Hero(Kiriko), Button(Ability 2))),
 			      Custom String("{0} Radioactive Worker {0}", Ability Icon String(Hero(Sigma), Button(Ultimate)))
 		),
-                        Array(Custom String("Ređacted"), 
+            Array(Custom String("Ređacted"), 
 			      Custom String("Rainbow"),
 			      Custom String("{0} † ＢＡＤ  ＯＭＥＮ † {0}", Ability Icon String(Hero(Zenyatta), Button(Ability 2))),
 			      Custom String("{0}     Unpaid DJ     {0}", Icon String(fire)),
@@ -398,12 +397,6 @@ rule ("Custom nameplates list")
 			      Custom String("{0} Spark Gengu Squad {0}", Ability Icon String(Hero(Genji), Button(Ultimate))),
 			      Custom String("{0} ♡ Hestia's Little Baby ♡ {0}", Ability Icon String(Hero(D.va), Button(Ultimate)))
 		),
-			Array(Custom String("Hestia"), 
-			      Custom Color(193, 59, 120, 255),
-			      Custom String("♣ Ｍｕｓｔｉ＇ｓ  Ｍｏｔｈｅｒ ♣"), 
-			      Custom String("{0} Midlight {0}", Ability Icon String(Hero(Mercy), Button(Ultimate))), 
-			      Custom String("{0} ♡ Beast Creator ♡ {0}", Ability Icon String(Hero(Lifeweaver), Button(Primaryfire)))
-		),
 			Array(Custom String("Slafii"), 
 			      Custom Color(46, 26, 71, 255),
 			      Custom String("{0}  P r i n c e  O f  H a r m o n y  {0}", Ability Icon String(Hero(Mercy), Button(Ability 2))), 
@@ -421,10 +414,6 @@ rule ("Custom nameplates list")
 			      Custom String("♥ MOE ♥"), 
 			      Custom String("• MYTH •"), 
 			      Custom String("☆ The Man The Myth The Legend ☆") 
-		), 
-			Array(Custom String("AliceRowe"), 
-			      Custom Color(204, 204, 255, 255),
-			      Custom String("69 with 7")
 		), 
 			Array(Custom String("Sinnie"), 
 			      Custom String("Rainbow"), 
@@ -464,9 +453,9 @@ rule ("Custom nameplates list")
 		), 
 			Array(Custom String("Fenetre"), 
 			      Custom Color(0, 204, 255, 255), 
-			      Custom String("♣ Window ♣"),
+			      Custom String("{0} Lap Thief {0}", Ability Icon String(Hero(Sombra), Button(Ultimate))),
 			      Custom String("♬• DJ •♬"),
-			      Custom String("{0} Higher then Stone, More stony then Burj Khalifa {0}", Ability Icon String(Hero(Ana), Button(Ability 1)))
+			      Custom String("{0} Wanna hear something scary? eeaasssyy moode {0}", Ability Icon String(Hero(D.Va), Button(Ultimate)))
 		),
 			Array(Custom String("OperativeLyn"), 
 			      Color(Rose),
