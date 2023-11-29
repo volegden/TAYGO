@@ -18,7 +18,6 @@ rule ("Custom nameplates list")
                               Custom String("Fading"),
 							  0, 0, 204, 128, 0, 0,
 			      Custom String("Workloy"),
-			      Custom String("Toastloy"),
 			      Custom String("Coup de grâce")
                 ), 
 			Array(Custom String("kwally"),		
@@ -399,7 +398,7 @@ rule ("Custom nameplates list")
 		),
 			Array(Custom String("Slafii"), 
 			      Custom Color(46, 26, 71, 255),
-			      Custom String("{0}  P r i n c e  O f  H a r m o n y  {0}", Ability Icon String(Hero(Mercy), Button(Ability 2))), 
+			      Custom String("♡ I   M e o w   y o u ♡"), 
 			      Custom String("♡F r y ' s   W i f e♡"), 
 			      Custom String(" † Slafiiko - Kirikult † ")
 		),
@@ -457,21 +456,6 @@ rule ("Custom nameplates list")
 			      Custom String("♬• DJ •♬"),
 			      Custom String("{0} Wanna hear something scary? eeaasssyy moode {0}", Ability Icon String(Hero(D.Va), Button(Ultimate)))
 		),
-			Array(Custom String("OperativeLyn"), 
-			      Color(Rose),
-			      Custom String("♥ WISHY WASHY's ♥"), 
-			      Custom String("♥ WISHY'S ♥"), 
-			      Custom String("★ Wishmaster ★")
-		), 
-			Array(Custom String("Seli"),
-			      Custom Color(247, 187, 229, 255),
-			      Custom String("† Saros  †"), 
-			      Custom String("⁂ Penguin Enjoyer ⁂")
-		), 
-			Array(Custom String("Lexa"), 
-			      Custom String("Rainbow"), 
-			      Custom String("☆ Seli's wife ☆")
-		),
 			Array(Custom String("Hxneibee"), 
 			      Custom Color(84, 1, 1, 255),
 			      Custom String("愛"), 
@@ -515,22 +499,15 @@ rule ("Custom nameplates list")
 			      Custom String("{0} Spark Gengu Squad {0}", Ability Icon String(Hero(Genji), Button(Ultimate))),
 			      Custom String("Sweet Potato Chip")
 		),
-			Array(Custom String("Kêñ"), 
+			Array(Custom String("Visual"), 
 			      Custom Color(255, 105, 180, 255),
-			      Custom String("will you meow for daddy, kitten? uwu"),
-			      Custom String(" •  E-Girl Collector is back  • "),
-			      Custom String(" {0}  I am your discord daddy now  {0}", Icon String(Heart))
+			      Custom String("kwallyphobic")
 		), 
 			Array(Custom String("Nef"),	
 			      Custom Color(62, 253, 255, 255),
 			      Custom String("{0}  PARTNERS IN CRIME  {0}", Icon String(Dizzy)),
 			      Custom String("{0}  ARMY OF TWO  {0}", Ability Icon String(Hero(Ramattra), Button(Ability 1))),
 			      Custom String("{0}  ALWAYS EEPY  {0}", Ability Icon String(Hero(Ana), Button(Ability 1)))
-		),
-			Array(Custom String("Secré"), 
-			      Color(Rose),
-			      Custom String("♥Yamato simp♥"), 
-			      Custom String("☆Anime Enjoyer☆")
 		),
 			Array(Custom String("lostsektor"), 
 			      Custom Color(56, 149, 251, 255),
@@ -580,10 +557,10 @@ rule ("Custom nameplates list")
 			      Custom String("{0} Time for some moogle magic. Kupo! {0}", Ability Icon String(Hero(Ana), Button(Ability 1)))
 		),
 			Array(Custom String("FrostSlvt"), 
-			      Custom Color(242, 242, 242, 255),
+			      Custom Color(255, 153, 179, 255),
 			      Custom String("{0} ♡ frostie ♡ {0}", Ability Icon String(Hero(Kiriko), Button(Ultimate))), 
-			      Custom String("♥ ⁂ Viki mnie kocha ⁂ ♥"),
-			      Custom String("{0} • Keep your distance - My wife is very protective • {0}", Ability Icon String(Hero(Sombra), Button(Ultimate)))
+			      Custom String("⁂ Jupiter ⁂"),
+			      Custom String("♡ • Deja Vu • ♡")
 		),
 			Array(Custom String("karlybarly"), 
 			      Custom Color(153, 204, 255, 255),
@@ -772,15 +749,15 @@ rule ("Custom nameplates list")
 		),
 			Array(Custom String("PumpkinJinx"), 
 			      Custom Color(237, 27, 12, 255),
-			      Custom String("{0} - ☆ Sorry! Out of Order ☆ - {0}", Ability Icon String(Hero(Roadhog), Button(Ability 1))),
-			      Custom String("{0} ★ it's oogie's turn to boogie now ★ {0}", Icon String(Dizzy)),
-			      Custom String("{0} ☆ Van Hellsing's vampire ☆ {1}", Ability Icon String(Hero(Cassidy), Button(Ultimate)), Ability Icon String(Hero(Junkrat), Button(Ultimate)))
+			      Custom String("{0} - ☆ Seeing you powerless is like music to me ☆ - {0}", Icon String(Eye)),
+			      Custom String("{0} ★ - Love me, hate me... Either way I'm on your mind ! - ★ {0}", Icon String(Poison)),
+			      Custom String("{0} - ☆ Van Hellsing's devil ☆ - {1}", Ability Icon String(Hero(Cassidy), Button(Ultimate)), Ability Icon String(Hero(Junkrat), Button(Ultimate)))
 		),
 			Array(Custom String("NightShield"), 
 			      Custom Color(0, 117, 106, 255),
 			      Custom String("{0} Go Push a rock up a hill {0}", Ability Icon String(Hero(Sigma), Button(Ability 2))),
 			      Custom String("{0} Kirikult - Niriko {0}", Ability Icon String(Hero(Kiriko), Button(Ultimate))),
-				  Custom String("♥︎ Bunny's Bully ♥︎ LOL TAKE THAT SUCKER")
+				  Custom String("♥︎ Bunny's Bully ♥︎")
 		),
 			Array(Custom String("KinkiTurtle"), 
 			      Custom Color(255, 209, 209, 255),
@@ -900,6 +877,18 @@ rule ("Custom nameplates list")
 			      Custom String("'AND THE HOME OF THE-'"),
 			      Custom String("{0}  Hero of Time  {0}", Ability Icon String(Hero(Genji), Button(Ultimate))),
 			      Custom String("• Bamboozled ツ •")
+		),
+		Array(Custom String("chii"),
+			      Custom Color(219, 230, 255, 255),
+			      Custom String("{0} C Y B E R C O R E - ☆ - c н σ в ı т ƨ {0}", Ability Icon String(Hero(Lifeweaver), Button(Primaryfire))),
+			      Custom String("{0} ♡ Mσяıƨ Bυппч ♡ {0}", Ability Icon String(Hero(D.Va), Button(Ultimate))),
+			      Custom String("{0} ♬  ちぃ - R A V E  P E R S O C O M  ♬ {0}", Ability Icon String(Hero(Mei), Button(Ability 1)))
+		),
+		Array(Custom String("Bluroisa"),
+			      Custom Color(255, 164, 220, 255),
+			      Custom String("♡Gimpy Lover♡"),
+			      Custom String("{0} Happy Mercy {0}", Icon String(Happy)),
+			      Custom String("{0} Bluroisa {0}", Ability Icon String(Hero(Mercy), Button(Ultimate)))
 		)
 		);
 	}
