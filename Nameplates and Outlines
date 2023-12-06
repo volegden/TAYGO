@@ -556,7 +556,7 @@ rule ("Custom nameplates list")
 			      Custom String("{0} ♥Smol Kiriko Lover♥ {0}", Ability Icon String(Hero(Kiriko), Button(Ultimate))),
 			      Custom String("{0} Time for some moogle magic. Kupo! {0}", Ability Icon String(Hero(Ana), Button(Ability 1)))
 		),
-			Array(Custom String("FrostSlvt"), 
+			Array(Custom String("jupiter"), 
 			      Custom Color(255, 153, 179, 255),
 			      Custom String("{0} ♡ frostie ♡ {0}", Ability Icon String(Hero(Kiriko), Button(Ultimate))), 
 			      Custom String("⁂ Jupiter ⁂"),
