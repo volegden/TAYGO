@@ -22,10 +22,8 @@ rule ("Custom nameplates list")
                 ), 
 			Array(Custom String("kwally"),		
 							  Custom String("Fading"),	
-                              44,49,69, 138,121,163,
-                  Custom String("Jemēla gēlyni enkā! Taobus!"), 
-                  Custom String("ї ∂นҫӄїภғ Һαҭѡ ұσน"),
-                  Custom String("嫌いなものはたくさんあるし、特に好きなものもありません。")
+                              168,165,182, 15,17,16,
+                  Custom String(" ")
                 ),
 			Array(Custom String("xMaxuss"), 
                                 Custom String("Fading"), 
