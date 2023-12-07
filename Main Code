@@ -95,39 +95,55 @@ settings
 	{
 		General
 		{
-			Ability Cooldown Time: 30%
-			Ultimate Duration: 250%
-			Ultimate Generation: 150%
+			Ability Cooldown Time: 500%
+			Ultimate Duration: 350%
 			Ultimate Generation - Passive: 500%
 
 			Ana
 			{
-				Sleep Dart Cooldown Time: 200%
+				Biotic Grenade Cooldown Time: 20%
+				Sleep Dart Cooldown Time: 20%
 			}
 
 			Ashe
 			{
-				Coach Gun Knockback Scalar Enemy: 50%
+				Coach Gun Cooldown Time: 10%
+				Coach Gun Knockback Scalar Enemy: 150%
 				Coach Gun Knockback Scalar Self: 200%
+				Dynamite Cooldown Time: 29%
 				Dynamite Fuse Time Scalar: 500%
 				Infinite Ultimate Duration: On
 			}
 
 			Baptiste
 			{
+				Immortality Field Cooldown Time: 20%
 				Regenerative Burst Cooldown Time: 20%
 			}
 
 			Bastion
 			{
+				A-36 Tactical Grenade Cooldown Time: 30%
+				A-36 Tactical Grenade Knockback Scalar: 250%
 				Reconfigure Cooldown Time: 0%
+				Ultimate Duration: 100%
+			}
+
+			Brigitte
+			{
+				Barrier Shield Cooldown Time: 1%
+				Barrier Shield Recharge Rate: 500%
+				Repair Pack Cooldown Time: 1%
+				Shield Bash Cooldown Time: 10%
+				Shield Bash Knockback Scalar: 150%
+				Whip Shot Cooldown Time: 30%
+				Whip Shot Knockback Scalar: 150%
 			}
 
 			Cassidy
 			{
 				Combat Roll Cooldown Time: 0%
-				Magnetic Grenade Cooldown Time: 200%
-				Ultimate Generation - Passive Deadeye: 500%
+				Magnetic Grenade Cooldown Time: 20%
 			}
 
 			D.Va
@@ -138,27 +154,41 @@ settings
 				Spawn Without Mech: On
 			}
 
+			Doomfist
+			{
+				Power Block Charge Rate: 500%
+				Power Block Cooldown Time: 20%
+				Rocket Punch Cooldown Time: 20%
+				Rocket Punch Knockback Scalar: 150%
+				Seismic Slam Cooldown Time: 20%
+				Ultimate Duration: 500%
+			}
+
 			Echo
 			{
 				Flight Cooldown Time: 0%
 				Focusing Beam Cooldown Time: 15%
+				Sticky Bombs Cooldown Time: 10%
 			}
 
 			Genji
 			{
 				Deflect Cooldown Time: 20%
-				Swift Strike Cooldown Time: 20%
 				No Ammunition Requirement: On
+				Swift Strike Cooldown Time: 20%
 			}
 
 			Hanzo
 			{
 				Lunge Cooldown Time: 0%
 				Lunge Distance Scalar: 150%
+				Sonic Arrow Cooldown Time: 20%
+				Storm Arrows Cooldown Time: 20%
 			}
 
 			Illari
 			{
+				Healing Pylon Cooldown Time: 20%
 				Outburst Cooldown Time: 15%
 				Solar Energy Maximum: 300%
 				Solar Energy Recharge Rate: 500%
@@ -166,21 +196,32 @@ settings
 
 			Junker Queen
 			{
-				Commanding Shout Cooldown Time: 20%
+				Carnage Cooldown Time: 10%
+				Commanding Shout Cooldown Time: 10%
+				Jagged Blade Cooldown Time: 15%
 				Jagged Blade Delay Before Automatic Recall: 400%
 			}
 
+			Junkrat
+			{
+				Concussion Mine Cooldown Time: 10%
+				Steel Trap Cooldown Time: 20%
+				Ultimate Duration: 500%
+			}
 
 			Kiriko
 			{
-				Protection Suzu Cooldown Time: 50%
+				Protection Suzu Cooldown Time: 15%
+				Swift Step Cooldown Time: 10%
 				Swift Step Distance Scalar: 300%
 			}
 
 			Lifeweaver
 			{
+				Life Grip Cooldown Time: 50%
 				No Ammunition Requirement: On
-				Petal Platform Cooldown Time: 200%
+				Petal Platform Cooldown Time: 99%
+				Rejuvenating Dash Cooldown Time: 20%
 				Ultimate Generation - Combat Tree of Life: 50%
 				Ultimate Generation - Passive Tree of Life: 55%
 			}
@@ -188,41 +229,52 @@ settings
 			Lúcio
 			{
 				Amp It Up Cooldown Time: 20%
+				Soundwave Cooldown Time: 45%
 			}
-			
+
 			Mauga
 			{
+				Cardiac Overdrive Cooldown Time: 35%
 				Overrun Cooldown Time: 0%
+				Overrun Knockback: 150%
 				Ultimate Duration: 25%
 			}
 
 			Mercy
 			{
-				Guardian Angel Cooldown Time: 10%
+				Guardian Angel Cooldown Time: 0%
 				No Ammunition Requirement: On
+				Resurrect Cooldown Time: 0%
 			}
 
 			Moira
 			{
 				Biotic Energy Maximum: 300%
 				Biotic Energy Recharge Rate: 500%
+				Biotic Orb Cooldown Time: 20%
 				Fade Cooldown Time: 0%
 			}
 
 			Orisa
 			{
-				Javelin Spin Cooldown Time: 20%
+				Energy Javelin Cooldown Time: 40%
+				Fortify Cooldown Time: 25%
+				Javelin Spin Cooldown Time: 15%
 			}
 
 			Pharah
 			{
+				Concussive Blast Cooldown Time: 25%
 				Hover Jets Unlimited Fuel: On
 				Jump Jet Cooldown Time: 0%
 			}
 
 			Ramattra
 			{
+				Nemesis Form Cooldown Time: 20%
 				No Ammunition Requirement: On
+				Ravenous Vortex Cooldown Time: 20%
+				Void Barrier Omnic Form Cooldown Time: 20%
 			}
 
 			Reaper
@@ -233,60 +285,98 @@ settings
 
 			Reinhardt
 			{
-				Fire Strike Cooldown Time: 60%
+				Barrier Field Cooldown Time: 10%
+				Charge Cooldown Time: 15%
+				Fire Strike Cooldown Time: 50%
+			}
+
+			Roadhog
+			{
+				Chain Hook Cooldown Time: 20%
+				Pig Pen Cooldown Time: 20%
+				Take a Breather Cooldown Time: 20%
+				Take a Breather Maximum Time: 500%
+				Take a Breather Recharge Rate: 500%
 			}
 
 			Sigma
 			{
+				Accretion Cooldown Time: 10%
+				Experimental Barrier Cooldown Time: 15%
+				Experimental Barrier Recharge Rate: 500%
+				Kinetic Grasp Cooldown Time: 20%
 				Ultimate Generation - Combat Gravitic Flux: 50%
 				Ultimate Generation - Passive Gravitic Flux: 75%
 			}
 
 			Sojourn
 			{
-				Power Slide Cooldown Time: 10%
+				Disruptor Shot Cooldown Time: 20%
+				Power Slide Cooldown Time: 0%
 			}
 
 			Soldier: 76
 			{
 				Biotic Field Cooldown Time: 10%
+				Helix Rockets Cooldown Time: 15%
+				Helix Rockets Knockback Scalar: 150%
 				No Ammunition Requirement: On
 			}
 
 			Sombra
 			{
+				Hack Cooldown Time: 15%
 				Translocator Cooldown Time: 0%
+				Virus Cooldown Time: 15%
 			}
 
 			Symmetra
 			{
-				Teleporter Cooldown Time: 20%
 				No Ammunition Requirement: On
+				Sentry Turret Cooldown Time: 20%
+				Teleporter Cooldown Time: 20%
+			}
+
+			Torbjörn
+			{
+				Deploy Turret Cooldown Time: 99%
+				Overload Cooldown Time: 25%
 			}
 
 			Tracer
 			{
 				Blink Cooldown Time: 0%
-				Recall Cooldown Time: 50%
+				Recall Cooldown Time: 30%
 			}
 
 			Widowmaker
 			{
 				Grappling Hook Cooldown Time: 0%
 				No Ammunition Requirement: On
+				Venom Mine Cooldown Time: 45%
+			}
+
+			Winston
+			{
+				Barrier Projector Cooldown Time: 15%
+				Jump Pack Acceleration Scalar: 80%
+				Jump Pack Cooldown Time: 10%
 			}
 
 			Wrecking Ball
 			{
 				Adaptive Shield Cooldown Time: 20%
 				Grappling Claw Cooldown Time: 10%
+				Piledriver Cooldown Time: 30%
 			}
 
 			Zarya
 			{
+				No Ammunition Requirement: On
+				Particle Barrier Cooldown Time: 25%
+				Projected Barrier Cooldown Time: 25%
 				Ultimate Generation - Combat Graviton Surge: 50%
 				Ultimate Generation - Passive Graviton Surge: 75%
-				No Ammunition Requirement: On
 			}
 
 			Zenyatta
@@ -1620,7 +1710,7 @@ rule ("Custom nameplates list")
 			      Custom String("{0} ♥Smol Kiriko Lover♥ {0}", Ability Icon String(Hero(Kiriko), Button(Ultimate))),
 			      Custom String("{0} Time for some moogle magic. Kupo! {0}", Ability Icon String(Hero(Ana), Button(Ability 1)))
 		),
-			Array(Custom String("FrostSlvt"), 
+			Array(Custom String("jupiter"), 
 			      Custom Color(255, 153, 179, 255),
 			      Custom String("{0} ♡ frostie ♡ {0}", Ability Icon String(Hero(Kiriko), Button(Ultimate))), 
 			      Custom String("⁂ Jupiter ⁂"),
@@ -2157,7 +2247,7 @@ rule("Listed_Player")
 			Custom String("aisuh"), Custom String("Lannaanna"), Custom String("Cattanklol"), Custom String("Aki"), Custom String("Fære"), 
 			Custom String("Netbrex"), Custom String("minori"), Custom String("YėsNø"), Custom String("MsHeartBreak"), Custom String("Yeraei"), 
 			Custom String("yohan"), Custom String("karlybarly"), Custom String("Dehya"), Custom String("RiwaChan"), 
-			Custom String("현대적인쌍봉낙타"), Custom String("Colestar24"), Custom String("FrostSlvt"), Custom String("NotForYou"), 
+			Custom String("현대적인쌍봉낙타"), Custom String("Colestar24"), Custom String("jupiter"), Custom String("NotForYou"), 
 			Custom String("fenmorre"), Custom String("Edeeeeen"), Custom String("Eosia"), Custom String("Nef"), Custom String("Visual"), 
 			Custom String("Hestia"), Custom String("sushiii"), Custom String("AMATERASU"), Custom String("かなかけ"), Custom String("Tedz"), 
 			Custom String("Lunarion"), Custom String("Asta"), Custom String("PŏŏkiƐ"), Custom String("Yohakzu"), Custom String("Ðårk"), 
@@ -2170,7 +2260,8 @@ rule("Listed_Player")
 			Custom String("MrCleanerrrr"), Custom String("MrMidnight"), Custom String("HOÑEYBEE"), Custom String("SapphicWitch"), 
 			Custom String("VĬƗŌĿĖŦ"), Custom String("Arlecchino"), Custom String("ЈФҜЁЯ"), Custom String("Fragoso"), Custom String("Juuzo"),
 			Custom String("Fearlxss"), Custom String("ǃSHAY"), Custom String("Stalker"), Custom String("Eggman"), Custom String("Mirage"),
-			Custom String("Bluroisa"), Custom String("chii"), Custom String("Smiley"), Custom String("godly"), Custom String("BȂKƐDBȔŊŊYǃ"));
+			Custom String("Bluroisa"), Custom String("chii"), Custom String("Smiley"), Custom String("godly"), Custom String("BȂKƐDBȔŊŊYǃ"),
+			Custom String("zovha"), Custom String("Pancakes"), Custom String("emilie"), Custom String("LostShadow"));
 		
 		"Warning List"
 		Global.Warning_List = Array(
@@ -3035,7 +3126,7 @@ rule("Mode_Headline_Desc_Mod")
 				Custom String("{0} : Slow Projectile [{1}]\r\n{2}",
 					Input Binding String(Button(Reload)), 
 					If-Then-Else(Event Player.Slow_Projectile, Global.OffOnString[1], Global.OffOnString[0]),
-				Custom String("{0} : No CD (Angels+) [{1}]\r\n{2}",
+				Custom String("{0} : No CD (Temp. DISABLED :: Angels+) [{1}]\r\n{2}",
 					Input Binding String(Button(Ability 2)), 
 					If-Then-Else(Event Player.No_CD, Global.OffOnString[1], Global.OffOnString[0]),
 				Custom String("{0} : Full Protection [{1}]",
@@ -8568,7 +8659,7 @@ rule("Extra_6 - Mercy Movement Collision")
 	}
 }
 
-rule("Extra_7 - No Cooldowns")
+disabled rule("Extra_7 - No Cooldowns")
 {
 	event
 	{
@@ -9121,10 +9212,6 @@ rule("Tp effects per Map")
 			Global.Map_Teleport_Locations = Array(Vector(-39.470, 6, -28.170), Vector(-17.710, 5.950, -18.280), Vector(24.920, 5.950, -33.410));
 			
 			Global.Map_Teleport_Exits = Array(Vector(40.780, 8, 10.420), Vector(-34.180, 5.840, -33.220), Vector(-34.180, 5.840, -33.220));
-		Else If(Current Map == Map(Rialto));
-			Global.Map_Teleport_Locations = Array(Vector(50.350, -1.250, 4.500), Vector(-11.920, -1.250, -21.900), Vector(0.750, -1.250, 35.670), Vector(34, -1.25, 66.4), Vector(66.8, 50.45, 70.5));
-			
-			Global.Map_Teleport_Exits = Array(Vector(5.420, -1.250, 20.590), Vector(52.720, -1.250, -9.320), Vector(52.720, -1.250, -9.320), Vector(63.7, 48.75, 66), Vector(35, -1.25, 70));
 		Else If(Current Map == Map(Lijiang Tower) || Current Map == Map(Lijiang Tower Lunar New Year));
 			Global.Map_Teleport_Locations = Array(Vector(2.7, 94, 187.8), Vector(-2.7, 94, 187.8), Vector(5, 0, -14), Vector(5.7, 267.17, 290));
 
@@ -9324,8 +9411,6 @@ rule("Moe Position")
 			Global.Moe_Position = Vector(-22.87, 4.76, -53.75);
 		Else If(Current Map == Map(Oasis) || Current Map == Map(Oasis University));
 			Global.Moe_Position = Vector(-128, 11.1, 0);
-		Else If(Current Map == Map(Rialto));
-			Global.Moe_Position = Vector(10.95, -0.45, -85.87);
 		Else If(Current Map == Map(Antarctic Peninsula));
 			Global.Moe_Position = Vector(318.4, -27, -132.2);
 		Else If(Current Map == Map(Paraíso));
@@ -9396,8 +9481,6 @@ rule("Moe-Bot Behavior")
 		Wait(0.1, Ignore Condition);
 		If(Current Map == Map(Colosseo));
 			Disable Movement Collision With Environment(Event Player, False);
-		Else If(Current Map == Map(Rialto));
-			Disable Movement Collision With Environment(Event Player, True);
 		End;
 		Wait(0.1, Ignore Condition);
 		Teleport(Event Player, Global.Moe_Position);
@@ -9552,4 +9635,3 @@ rule("Signal Catch Failsave")
 		Event Player.Signal = False;
 	}
 }
-
