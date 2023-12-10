@@ -619,10 +619,10 @@ rule ("Custom nameplates list")
 			      Custom String("{0} - ☆ Van Hellsing's devil ☆ - {1}", Ability Icon String(Hero(Cassidy), Button(Ultimate)), Ability Icon String(Hero(Junkrat), Button(Ultimate)))
 		),
 			Array(Custom String("NightShield"), 
-			      Custom Color(0, 117, 106, 255),
+			      Custom Color(145, 0, 68, 255),
 			      Custom String("{0} Go Push a rock up a hill {0}", Ability Icon String(Hero(Sigma), Button(Ability 2))),
 			      Custom String("{0} Kirikult - Niriko {0}", Ability Icon String(Hero(Kiriko), Button(Ultimate))),
-				  Custom String("♥︎ Bunny's Bully ♥︎")
+				  Custom String("{0} K I T S U N E {0}", Ability Icon String(Hero(Kiriko), Button(Ultimate)))
 		),
 			Array(Custom String("KinkiTurtle"), 
 			      Custom Color(255, 209, 209, 255),
@@ -765,6 +765,24 @@ rule ("Custom nameplates list")
 			      Custom Color(193, 59, 120, 255),
 			      Custom String("⁂ Ｍｏｏｎｌｉｇｈｔ⁂"), 
 			      Custom String("†Huntress With Gun†")
+		),
+		Array(Custom String("godly"),
+			      Custom Color(89, 5, 5, 255),
+			      Custom String("{0} ＢＡＳＥＤ {0}", Ability Icon String(Hero(Reaper), Button(Ultimate))),
+			      Custom String("{0} 敬虔的 {0}", Ability Icon String(Hero(Reaper), Button(Ability 1))),
+			      Custom String("{0} looking for female reaper main {0}", Ability Icon String(Hero(Kiriko), Button(Ability 2)))
+		),
+		Array(Custom String("BȂKƐDBȔŊŊYǃ"),
+			      Custom Color(141, 255, 248, 255),
+			      Custom String("† тнιѕ ωιт¢н кιяιкσ ιѕ нιgн 24/7 †"),
+			      Custom String("{0} CΗΣRRY BLΘSSΘM SQƱΔD™ {0}", Ability Icon String(Hero(Lifeweaver), Button(Primaryfire))),
+			      Custom String("♡ {0} T O K K I {0} ♡", Ability Icon String(Hero(DVA), Button(Ultimate)))
+		),
+		Array(Custom String("Smiley"),
+			      Custom String("Rainbow"),
+			      Custom String("{0} ∂ση'т мαкє мє ƒяσωηу {0}", Icon String(Sad)),
+			      Custom String("{0} CΗΣRRY BLΘSSΘM SQƱΔD™ {0}", Ability Icon String(Hero(Lifeweaver), Button(Primaryfire))),
+			      Custom String("{0} ｃｅｒｔｉｆｉｅｄ ｓｉｌｌｙ ｇｏｏｓｅ {0}", Ability Icon String(Hero(Ana), Button(Ability 1)))
 		)
 		);
 	}
