@@ -171,10 +171,10 @@ rule ("Custom nameplates list")
                               Custom String("ΔΔΔ")
                 ),
 			Array(Custom String("Cattanklol"), 
-        	        Custom Color(0, 23, 100, 255), 
-			    	Custom String("{0} Pancakes Enjoyer {0}", Ability Icon String(Hero(Lifeweaver), Button(Primaryfire))),
-			    	Custom String("{0} Mercy & Kiri Enjoyer {1}", Ability Icon String(Hero(Mercy), Button(Ultimate)), Ability Icon String(Hero(Kiriko), Button(Ultimate))),
-			    	Custom String("{0} Cuddle buddy {0}", Icon String(Heart))
+        	        Custom Color(65, 25, 117, 255), 
+			    	Custom String("•♥• Cuddle Buddy •♥•"),
+			    	Custom String("•♥• Deals With Smooth Brain Girls •♥•"),
+			    	Custom String("•♥• Embrace Yourself and Know Strength Without Fear •♥•")
                 ),
 			Array(Custom String("Kiwizzlee"), 
                               Custom Color(255, 0, 87, 255),
@@ -628,6 +628,8 @@ rule ("Custom nameplates list")
 			      Custom Color(255, 209, 209, 255),
 			      Custom String("{0} 我爱你 {0}", Ability Icon String(Hero(Genji), Button(Ultimate))),
 			      Custom String("{0} Kirikult - kinkiko {0}", Ability Icon String(Hero(Kiriko), Button(Ultimate)))
+				  Custom String("♥ ΛᄂΣX IƧ Λ BЯΣΛD ♥")
+
 		),
 			Array(Custom String("mksvault"), 
 			      Custom Color(244, 187, 68, 255),
@@ -729,9 +731,7 @@ rule ("Custom nameplates list")
 		),
 		Array(Custom String("ǃSHAY"),
 			      Custom Color(204, 0, 0, 255),
-			      Custom String("♣Mιηαzυкι ♣"),
-			      Custom String("†нєαятlєѕѕ†"),
-			      Custom String("†¢αll мє мσмму†")
+			      Custom String("† B A N K A I †")
 		),
 		Array(Custom String("MOOOUSH"),
 			      Color(Black),
@@ -783,6 +783,18 @@ rule ("Custom nameplates list")
 			      Custom String("{0} ∂ση'т мαкє мє ƒяσωηу {0}", Icon String(Sad)),
 			      Custom String("{0} CΗΣRRY BLΘSSΘM SQƱΔD™ {0}", Ability Icon String(Hero(Lifeweaver), Button(Primaryfire))),
 			      Custom String("{0} ｃｅｒｔｉｆｉｅｄ ｓｉｌｌｙ ｇｏｏｓｅ {0}", Ability Icon String(Hero(Ana), Button(Ability 1)))
+		),
+		Array(Custom String("zovha"),
+			      Custom Color(0, 0, 128, 255),
+			      Custom String("♠ Dαмє ﾒ Cнαη¢є ♣️"),
+			      Custom String("{0} Widow Simp {0}", Ability Icon String(Hero(Junkrat), Button(Ability 1))),
+			      Custom String("{0} ♬-♬ {1}", Ability Icon String(Hero(Zenyatta), Button(Ability 1)), Ability Icon String(Hero(Zenyatta), Button(Ability 2)))
+		),		  
+		Array(Custom String("Kuwai"),
+			      Custom Color(255, 44, 97, 255),
+			      Custom String("{0} 『 LOCAL E-COWGIRL™ 』{0}", Ability Icon String(Hero(Ashe), Button(Ultimate))),
+			      Custom String("{0} CΗΣRRY BLΘSSΘM SQƱΔD™ {0}", Ability Icon String(Hero(Lifeweaver), Button(Primaryfire))),
+			      Custom String("{0} ― Queen of the Yeehaws ― {0}", Ability Icon String(Hero(Illari), Button(Ultimate)))		  
 		)
 		);
 	}
