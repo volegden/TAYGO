@@ -61,7 +61,7 @@ rule("Listed_Player")
 
 		"Demoted List"
 		Global.Demoted_List = Array(
-			Custom String("DjSmolfry"));
+			Custom String("None"));
 
 		"Automatic Ban"
 		Global.Banned_List = Array(
