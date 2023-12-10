@@ -12,8 +12,8 @@ rule("Listed_Player")
 			
 		"Automatic Mod"
 		Global.Mod_Rank = Array(
-			Custom String("Warloy"), Custom String("xMaxuss"), Custom String("xskĳ"), Custom String("Toguro"),
-			Custom String("Titanaboa"), Custom String("MOOOUSH"), Custom String("kwally"), Custom String("BlueSky"), Custom String("wheyfuwu"), Custom String("Xenolysith"),
+			Custom String("Warloy"), Custom String("kwally"), Custom String("xMaxuss"), Custom String("xskĳ"), Custom String("Toguro"),
+			Custom String("Titanaboa"), Custom String("MOOOUSH"), Custom String("BlueSky"), Custom String("wheyfuwu"), Custom String("Xenolysith"),
 			Custom String("Leestick"), Custom String("Nutzee"), Custom String("Metalgy"), Custom String("PapaRomeo"), Custom String("RUBY"),
 			Custom String("Miowell"), Custom String("Brat"), Custom String("CyberSentai"), Custom String("Mustika"), Custom String("xMumu"),
 			Custom String("Shampoo"), Custom String("xCleo"), Custom String("AndrewKnoll"), Custom String("YeastBeast"), Custom String("ShellBebop"),
