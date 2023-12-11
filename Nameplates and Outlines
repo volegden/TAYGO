@@ -594,6 +594,12 @@ rule ("Custom nameplates list")
 			      Custom String("{0} Ｍｅｏｗ ｆｏｒ Ｎｉｔｒｏ {0}", Ability Icon String(Hero(Ramattra), Button(Ultimate))),
 			      Custom String("{0} Viki's Bestie {0}", Ability Icon String(Hero(Genji), Button(Ultimate)))
 		),
+			Array(Custom String("ImV"),
+			      Custom Color(163, 39, 245, 255),
+			      Custom String("{0} Crushed with springlocks {0}", Ability Icon String(Hero(Wrecking Ball), Button(Crouch))),
+			      Custom String("{0} Man behind the slaughter {0}", Ability Icon String(Hero(Reaper), Button(Ability 1))),
+			      Custom String("{0} Purple crewmate {0}", Ability Icon String(Hero(Bastion), Button(Ability 1)))
+		),
 			Array(Custom String("PurpSkrrt"), 
 			      Custom Color(209, 170, 229, 255),
 			      Custom String("{0} Princess Pürp {0}", Ability Icon String(Hero(Lifeweaver), Button(Primary Fire))),
@@ -658,10 +664,10 @@ rule ("Custom nameplates list")
 				  Custom String(" ")
 		),
 			Array(Custom String("HOÑEYBEE"),
-			      Custom Color(211, 211, 211, 255), 
-			      Custom String("•♥• Mother •♥•"), 
+			      Custom Color(112, 21, 16, 255), 
+			      Custom String("•♥• Cuddle Bug •♥•"), 
 			      Custom String("•♥• Smooth Brain Go Brrrr •♥•"),
-			      Custom String("•♥• Reapers Wife •♥•")
+			      Custom String("•♥• Sleepy 24/7 •♥•")
 		),
 			Array(Custom String("ЈФҜЁЯ"),
 			      Custom String("Rainbow"),
@@ -738,10 +744,10 @@ rule ("Custom nameplates list")
 			      Custom String("• Bamboozled ツ •")
 		),
 		Array(Custom String("chii"),
-			      Custom Color(219, 230, 255, 255),
-			      Custom String("{0} C Y B E R C O R E - ☆ - c н σ в ı т ƨ {0}", Ability Icon String(Hero(Lifeweaver), Button(Primaryfire))),
-			      Custom String("{0} ♡ Mσяıƨ Bυппч ♡ {0}", Ability Icon String(Hero(D.Va), Button(Ultimate))),
-			      Custom String("{0} ♬  ちぃ - R A V E  P E R S O C O M  ♬ {0}", Ability Icon String(Hero(Mei), Button(Ability 1)))
+			      Custom Color(229, 242, 255, 255),
+			      Custom String("{0} b r e a k c o r e  - ♡ - c н σ в ı т ƨ {0}", Ability Icon String(Hero(Lifeweaver), Button(Primaryfire))),
+			      Custom String("{0} ♡ ωнιтє кιтту - M E O W ♡ {0}", Ability Icon String(Hero(D.Va), Button(Ultimate))),
+			      Custom String("{0} ♬  c н ι ι   ♡   м y  н ι d e ĸ ι  ♬ {0}", Ability Icon String(Hero(Mei), Button(Ability 1)))
 		),
 		Array(Custom String("Bluroisa"),
 			      Custom Color(255, 164, 220, 255),
