@@ -594,12 +594,6 @@ rule ("Custom nameplates list")
 			      Custom String("{0} Ｍｅｏｗ ｆｏｒ Ｎｉｔｒｏ {0}", Ability Icon String(Hero(Ramattra), Button(Ultimate))),
 			      Custom String("{0} Viki's Bestie {0}", Ability Icon String(Hero(Genji), Button(Ultimate)))
 		),
-			Array(Custom String("ImV"),
-			      Custom Color(163, 39, 245, 255),
-			      Custom String("{0} Crushed with springlocks {0}", Ability Icon String(Hero(Wrecking Ball), Button(Crouch))),
-			      Custom String("{0} Man behind the slaughter {0}", Ability Icon String(Hero(Reaper), Button(Ability 1))),
-			      Custom String("{0} Purple crewmate {0}", Ability Icon String(Hero(Bastion), Button(Ability 1)))
-		),
 			Array(Custom String("PurpSkrrt"), 
 			      Custom Color(209, 170, 229, 255),
 			      Custom String("{0} Princess Pürp {0}", Ability Icon String(Hero(Lifeweaver), Button(Primary Fire))),
