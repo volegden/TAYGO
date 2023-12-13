@@ -302,8 +302,7 @@ settings
 			Sigma
 			{
 				Accretion Cooldown Time: 10%
-				Experimental Barrier Cooldown Time: 15%
-				Experimental Barrier Recharge Rate: 500%
+				Experimental Barrier Cooldown Time: 20%
 				Kinetic Grasp Cooldown Time: 20%
 				Ultimate Generation - Combat Gravitic Flux: 50%
 				Ultimate Generation - Passive Gravitic Flux: 75%
@@ -561,7 +560,7 @@ variables
 		105: Control_List
 		106: Target_Select
 		107: AFK_Toggle
-		108: Stunned_By_Moderator
+		108: FunkySkillsToggle
 	}
 
 subroutines
@@ -972,6 +971,9 @@ rule("Default_Player_Settings")
 
 		Disable Game Mode HUD(Event Player);
 		Disable Game Mode In-World UI(Event Player);
+
+		"Funky Skills"
+		Event Player.FunkySkillsToggle = True;
 
 		"Is menu Active"
 		Event Player.Is_Menu_Active = True;
@@ -2169,7 +2171,7 @@ rule("Listed_Player")
 		Global.Banned_List = Array(
 			Custom String("BebeUwU"), Custom String("Fluttershy"), Custom String("SexiestBeast"), Custom String("BigBadBosses"), Custom String("Arthur"), 
 			Custom String("MrBalkanom"), Custom String("Partilazac11"), Custom String("Gn0mie"), Custom String("zanji3abd"), Custom String("FlameOwl"), 
-			Custom String("ActiveShootr"));
+			Custom String("ActiveShootr"), Custom String("ImV"));
     }
 }
 
@@ -2360,7 +2362,6 @@ rule("Show_And_Hide_Menu")
 		(Event Player.Mode_Cycle == 0 || Event Player.Mode_Cycle_Default == 0) == True;
 		(Is Button Held(Event Player, Button(Crouch)) && Is Button Held(Event Player, Button(Melee)))== True;
 		Event Player.UNO_Ingame == False;
-		Event Player.Stunned_By_Moderator == False;
 		Array Contains(Global.UNO_Players, Event Player) == False;
 	}
 
@@ -2649,14 +2650,14 @@ rule("Mode_Cycle")
 		If((Event Player.High_Rank || Event Player.Mod_Rank));
 			Event Player.Mode_Cycle_Default = -1;
 			If(Is Button Held(Event Player, Button(Interact)));
-				If(Event Player.Mode_Cycle >= 34);
+				If(Event Player.Mode_Cycle >= 35);
 					Event Player.Mode_Cycle = 0;
 				Else;
 					Event Player.Mode_Cycle += 1;
 				End;
 			Else If(Is Button Held(Event Player, Button(Jump)));
 				If(Event Player.Mode_Cycle <= 0);
-					Event Player.Mode_Cycle = 34;
+					Event Player.Mode_Cycle = 35;
 				Else;
 					Event Player.Mode_Cycle -= 1;
 				End;
@@ -2664,14 +2665,14 @@ rule("Mode_Cycle")
 		Else;
 			Event Player.Mode_Cycle = -1;
 			If(Is Button Held(Event Player, Button(Interact)));
-				If(Event Player.Mode_Cycle_Default >= 16);
+				If(Event Player.Mode_Cycle_Default >= 17);
 					Event Player.Mode_Cycle_Default = 0;
 				Else;
 					Event Player.Mode_Cycle_Default += 1;
 				End;
 			Else If(Is Button Held(Event Player, Button(Jump)));
 				If(Event Player.Mode_Cycle_Default <= 0);
-					Event Player.Mode_Cycle_Default = 16;
+					Event Player.Mode_Cycle_Default = 17;
 				Else;
 					Event Player.Mode_Cycle_Default -= 1;
 				End;
@@ -3104,10 +3105,10 @@ rule("Mode_Headline_Desc_Mod")
 				)))), Null, Left, 1, Color(White), Color(White), Color(White), String, Visible Never);
 
 		Else If(Event Player.Mode_Cycle == 35);
-			Event Player.Mode_Headline = Custom String("Menu disabler (Only Host/Angels)");
+			Event Player.Mode_Headline = Custom String("Hero Features");
 			Create HUD Text(Event Player, Null, Custom String("| Press Crouch + Interact/Jump to change pages |\nMod Menu: Press Crouch + input for action\n{0}",
-				Custom String("{0} : Lock \r\n{1} : Unlock ", 
-					Input Binding String(Button(Primary Fire)), Input Binding String(Button(Secondary Fire))
+				Custom String("{0} : Toggle All Hero Special Features [{1}] \n\n(Moira Ghost Fade, Heart Tags, Widowmaker's Laser pointer, etc)",
+					Input Binding String(Button(Ultimate)), If-Then-Else(Event Player.FunkySkillsToggle, Global.OffOnString[1], Global.OffOnString[0])
 				)), Null, Left, 1, Color(White), Color(White), Color(White), String, Visible Never);
 
 
@@ -3306,6 +3307,13 @@ rule("Mode_Headline_Desc_Default")
 					Input Binding String(Button(Ability 2)), 
 				Custom String("Ultimate : Thanks!\n{0} : Sorry...",Input Binding String(Button(Ability 1))
 				)))), Null, Left, 1, Color(White), Color(White), Color(White), String, Visible Never);
+		
+		Else If(Event Player.Mode_Cycle_Default == 17);
+			Event Player.Mode_Headline = Custom String("Hero Features");
+			Create HUD Text(Event Player, Null, Custom String("| Press Crouch + Interact/Jump to change pages |\nMod Menu: Press Crouch + input for action\n{0}",
+				Custom String("{0} : Toggle All Hero Special Features [{1}] \n\n(Moira Ghost Fade, Heart Tags, Widowmaker's Laser pointer, etc)",
+					Input Binding String(Button(Ultimate)), If-Then-Else(Event Player.FunkySkillsToggle, Global.OffOnString[1], Global.OffOnString[0])
+				)), Null, Left, 1, Color(White), Color(White), Color(White), String, Visible Never);
 		End;
 
 		Event Player.Mode_Description = Last Text ID;
@@ -8374,79 +8382,6 @@ rule("Mode_34 - Communication")
 	}
 }
 
-rule("35_Stun")
-{
-	event
-	{
-		Ongoing - Each Player;
-		All;
-		All;
-	}
-
-	conditions
-	{
-		Event Player.Mode_Cycle == 35;
-		Event Player.Signal == True;
-		(Event Player.High_Rank || (Event Player.Mod_Rank && (Not(Event Player.Promoted_Rank)) || Event Player == Host Player)) == True;
-	}
-	actions
-	{
-		Event Player.Signal = False;
-		Event Player.Target_Shortcut = Player Closest To Reticle(Event Player, All Teams);
-		Abort If(Event Player.Target_Shortcut == Null);
-		Abort If(Event Player.Promoted_Rank && (Event Player != Host Player));
-		Abort If(Event Player.Target_Shortcut.High_Rank);
-		If(Is Button Held(Event Player, Button(Primaryfire)));
-			Event Player.Target_Shortcut.Stunned_By_Moderator = -10;
-			Event Player.Target_Shortcut.Is_Menu_Active = False;
-			If(Event Player.Target_Shortcut.Protection);
-				Clear Status(Event Player.Target_Shortcut, Phased Out);
-			End;
-			Set Status(Event Player.Target_Shortcut, Null, Knocked Down, 9999);
-			Destroy HUD Text(Event Player.Target_Shortcut.Mode_Description);
-			Destroy Progress Bar HUD Text(Event Player.Target_Shortcut.Scale_Hud_ID);			
-			If((Event Player.Target_Shortcut.High_Rank || Event Player.Target_Shortcut.Mod_Rank));
-				Event Player.Target_Shortcut.Mode_Cycle = -1;
-			Else;
-				Event Player.Target_Shortcut.Mode_Cycle_Default = -1;
-			End;
-		End;
-		If(Is Button Held(Event Player, Button(Secondaryfire)));
-			Event Player.Target_Shortcut.Stunned_By_Moderator = 10;
-			Event Player.Target_Shortcut.Is_Menu_Active = True;
-			Clear Status(Event Player.Target_Shortcut, Knocked Down);
-			If((Event Player.Target_Shortcut.High_Rank || Event Player.Target_Shortcut.Mod_Rank));
-				Event Player.Target_Shortcut.Mode_Cycle = 0;
-			Else;
-				Event Player.Target_Shortcut.Mode_Cycle_Default = 0;
-			End;
-		End;
-	}
-}
-
-rule("35_Subroutine")
-{
-	event
-	{
-		Ongoing - Each Player;
-		All;
-		All;
-	}
-
-	conditions
-	{
-		Event Player.Stunned_By_Moderator == 10;
-	}
-	
-	actions
-	{
-		If(Event Player.Promoted_Rank || Not(Event Player.High_Rank || Event Player.Mod_Rank));
-			Call Subroutine(Info_Page_Default);
-		Else;
-			Call Subroutine(Info_Page_Mod);
-		End;
-	}
-}
 
 disabled rule("")
 {
@@ -8565,6 +8500,7 @@ rule("Extra_4 - Mercy sleep darts")
 		(Event Player.High_Rank || Event Player.Mod_Rank) == True;
 		Event Ability == Button(Primary Fire);
 		Is Dummy Bot(Event Player) == False;
+		Event Player.FunkySkillsToggle == True;
 	}
 
 	actions
@@ -8613,6 +8549,8 @@ rule("Extra_6 - Mercy Movement Collision")
 		Hero Of(Event Player) == Hero(Mercy);
 		((Event Player.High_Rank || Event Player.Mod_Rank) == True);
 		Is Using Ultimate(Event Player) == True;
+		Event Player.FunkySkillsToggle == True;
+		
 	}
 
 	actions
@@ -8675,6 +8613,7 @@ rule("Extra_9 - GIVE PETS")
 			Hero Of(Event Player) == Hero(Moira)) == True;
 		Is Firing Secondary(Event Player) == True;
 		Is In Alternate Form(Event Player) == False;
+		Event Player.FunkySkillsToggle == True;
 	}
 
 	actions
@@ -8702,6 +8641,7 @@ rule("Extra_10: Doom Hug")
 	{
 		((Event Player.High_Rank || Event Player.Mod_Rank) == True);
 		Is Using Ability 2(Event Player) == True;
+		Event Player.FunkySkillsToggle == True;
 	}
 
 	actions
@@ -8752,6 +8692,7 @@ rule("Extra_11: Cass HE HE")
 	conditions
 	{
 		Is Using Ultimate(Event Player) == True;
+		Event Player.FunkySkillsToggle == True;
 	}
 
 	actions
@@ -8810,6 +8751,7 @@ rule("Extra_13: Widow Laserpointer")
 	conditions
 	{
 		Is Firing Secondary(Event Player) == True;
+		Event Player.FunkySkillsToggle == True;
 	}
 
 	actions
@@ -8840,6 +8782,7 @@ rule("Extra_14: Broccoli Shield")
 	conditions
 	{
 		Is Firing Secondary(Event Player) == True;
+		Event Player.FunkySkillsToggle == True;
 	}
 
 	actions
@@ -8862,6 +8805,7 @@ rule("Extra_15: Spider Hog")
 	conditions
 	{
 		Is Using Ability 1(Event Player) == True;
+		Event Player.FunkySkillsToggle == True;
 	}
 
 	actions
@@ -8888,6 +8832,7 @@ rule("Extra_16: Pharah Float")
 	conditions
 	{
 		Is Using Ultimate(Event Player) == True;
+		Event Player.FunkySkillsToggle == True;
 	}
 
 	actions
@@ -8911,6 +8856,7 @@ rule("Extra_17: Orisacopter")
 	conditions
 	{
 		Is Using Ability 2(Event Player) == True;
+		Event Player.FunkySkillsToggle == True;
 	}
 
 	actions
@@ -8936,6 +8882,7 @@ rule("Extra_18: Reaper Ghost")
 	conditions
 	{
 		Is Using Ability 1(Event Player) == True;
+		Event Player.FunkySkillsToggle == True;
 	}
 
 	actions
@@ -9015,6 +8962,7 @@ rule("Extra_22: Ball Bounce")
 		Is Using Ability 2(Event Player) == True;
 		Is In Alternate Form(Event Player) == True;
 		Is On Ground(Event Player) == True;
+		Event Player.FunkySkillsToggle == True;
 	}
 
 	actions
@@ -9036,6 +8984,7 @@ rule("Extra_23: Moira Ghost")
 	{
 		Is Using Ability 1(Event Player) == True;
 		Event Player.Full_Protection == False;
+		Event Player.FunkySkillsToggle == True;
 	}
 
 	actions
@@ -9058,6 +9007,7 @@ rule("Extra_24: Echo Heart")
 	conditions
 	{
 		Is Using Ability 2(Event Player) == True;
+		Event Player.FunkySkillsToggle == True;
 	}
 
 	actions
@@ -9088,6 +9038,7 @@ rule("Extra_25: Soldier Heart")
 	{
 		Is Using Ultimate(Event Player) == True;
 		Is Firing Primary(Event Player) == True;
+		Event Player.FunkySkillsToggle == True;
 	}
 
 
@@ -9120,6 +9071,7 @@ rule("Extra_26: Laser Heart")
 		(Current Map == Map(Paris) || Current Map == Map(Circuit Royal)) == False;
 		(Hero Of(Event Player) == Hero(Zarya) || Hero Of(Event Player) == Hero(Symmetra)) == True;
 		Is Firing Primary(Event Player) == True;
+		Event Player.FunkySkillsToggle == True;
 	}
 
 
@@ -9147,6 +9099,7 @@ rule("Extra_27: Illari Heart")
 	conditions
 	{
 		Is Firing Secondary(Event Player) == True;
+		Event Player.FunkySkillsToggle == True;
 	}
 
 
@@ -9554,6 +9507,36 @@ rule("Midtown Bonus")
 	}
 }
 
+rule("Hero features toggle")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		(Event Player.Mode_Cycle == 35 || Event Player.Mode_Cycle_Default == 17) == True;
+		Event Player.Signal == True;
+	}
+
+	actions
+	{
+		Event Player.Signal = False;
+		If(Is Button Held(Event Player, Button(Ultimate)));
+			If(Event Player.FunkySkillsToggle == False);
+				Small Message(Event Player, Custom String(" Hero Features ON"));
+				Event Player.FunkySkillsToggle = True;
+			Else;
+				Small Message(Event Player, Custom String(" Hero Features OFF"));
+				Event Player.FunkySkillsToggle = False;
+			End;
+		End;
+	}
+}
+
 rule("Individual effect: kwally (is moving)")
 {
 	event
@@ -9599,4 +9582,3 @@ rule("Signal Catch Failsave")
 		Event Player.Signal = False;
 	}
 }
-
