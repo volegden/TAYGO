@@ -57,7 +57,7 @@ rule("Listed_Player")
 			Custom String("TitanJolt"), Custom String("JoltWave"), Custom String("DJBASTIOON"), Custom String("DJBastion"), Custom String("Djbastion"), Custom String("DJBASTION!"),
 			Custom String("MrBastion"), Custom String("Dampoegood"), Custom String("Howard"), Custom String("vibe"), Custom String("tomkuo74"), 
 			Custom String("wonderland"), Custom String("Ɓack2spawŊ"), Custom String("armoureddiam"), Custom String("DjBeep"), Custom String("Astraeus"), Custom String("SaladGuy"), 
-			Custom String("FPSNight"), Custom String("Apotato2182"), Custom String("sherminator"), Custom String("Doom"));
+			Custom String("FPSNight"), Custom String("Apotato2182"), Custom String("sherminator"), Custom String("Doom"), Custom String("ImV"));
 
 		"Demoted List"
 		Global.Demoted_List = Array(
@@ -67,6 +67,6 @@ rule("Listed_Player")
 		Global.Banned_List = Array(
 			Custom String("BebeUwU"), Custom String("Fluttershy"), Custom String("SexiestBeast"), Custom String("BigBadBosses"), Custom String("Arthur"), 
 			Custom String("MrBalkanom"), Custom String("Partilazac11"), Custom String("Gn0mie"), Custom String("zanji3abd"), Custom String("FlameOwl"), 
-			Custom String("ActiveShootr"), Custom String("ImV"));
+			Custom String("ActiveShootr"));
     }
 }
