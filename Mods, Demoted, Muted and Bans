@@ -19,7 +19,7 @@ rule("Listed_Player")
 			Custom String("Shampoo"), Custom String("xCleo"), Custom String("AndrewKnoll"), Custom String("YeastBeast"), Custom String("ShellBebop"),
 			Custom String("Dubbie7"), Custom String("MissImmortal"), Custom String("Zxtyi"), Custom String("Bendude1000"), Custom String("Lostshadow"),
 			Custom String("Reapersimp"), Custom String("Dead"), Custom String("HYUA"), Custom String("Rylu"), Custom String("Mogo"),
-			Custom String("Ashe62"), Custom String("ElDiablo"), Custom String("Żmij"), Custom String("FaLLz"), Custom String("Sithrael"),
+			Custom String("Ashe62"), Custom String("ElDiablo"), Custom String("Żmij"), Custom String("FaLLz"), 
 			Custom String("Ezio"), Custom String("BluTyde"), Custom String("Moistra"), Custom String("DONUT"), Custom String("Nightfire"),
 			Custom String("Westwife"), Custom String("Slafii"), Custom String("Gregi"), Custom String("ǀƑIREǀ"), Custom String("TEAMEPǃC"),
 			Custom String("kosmos"), Custom String("CatToast"), Custom String("TbyCoLive"), Custom String("Alex"), Custom String("Mettlis"),
