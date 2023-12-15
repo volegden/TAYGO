@@ -771,6 +771,12 @@ rule ("Custom nameplates list")
 			      Custom String("{0} 『 LOCAL E-COWGIRL™ 』{0}", Ability Icon String(Hero(Ashe), Button(Ultimate))),
 			      Custom String("{0} CΗΣRRY BLΘSSΘM SQƱΔD™ {0}", Ability Icon String(Hero(Lifeweaver), Button(Primaryfire))),
 			      Custom String("{0} ― Queen of the Yeehaws ― {0}", Ability Icon String(Hero(Illari), Button(Ultimate)))		  
+		),
+		Array(Custom String("pancakes"),
+			      Custom Color(96, 50, 156, 255),
+			      Custom String("{0} heat + bread + time = toast {0}", Ability Icon String(Hero(Illari), Button(Ultimate))),
+			      Custom String("•♥• Smooth Brain Go Brrrr 2.0 •♥•"),
+			      Custom String("♥ мч ģάŕģĻέ∂ ĻίţţĻέ мίς ήόίşέş ♥")	
 		)
 		);
 	}
