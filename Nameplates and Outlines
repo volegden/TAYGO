@@ -190,6 +190,12 @@ rule ("Custom nameplates list")
 			      Custom String("{0}  HIGHSPEED  {0}", Ability Icon String(Hero(Genji), Button(Ability 1))),
 			      Custom String("{0}  ARMY OF TWO  {0}", Ability Icon String(Hero(Ramattra), Button(Ability 1)))
 		),
+			Array(Custom String("DȈŦǾ"), 
+			      Custom String("Rainbow"),
+			      Custom String("♡ DORITO DITO ♡"), 
+			      Custom String("★☆★ ＰＵＭＰＫＩＮ　ＳＰＩＣＥ ★☆★"), 
+			      Custom String("⁂ BACONEGGNCHEESE ⁂")
+		),
 			Array(Custom String("Netbrex"), 
 			      Custom Color(255, 220, 151, 255),
 			      Custom String("• Hop 500 •"), 
