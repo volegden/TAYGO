@@ -99,6 +99,10 @@ rule ("Custom nameplates list")
 			      Custom String("resident tomboy"),
 			      Custom String("President #whey", Ability Icon String(Hero(Ramattra), Button(Ability 1)))
                 ),
+			Array(Custom String("AvatarGod"), 
+                              Color(Red),
+                              Custom String("ＡｖａｔａｒＧｏｄ")
+                ),
 			Array(Custom String("Rylu"), 
                               Custom String("Rainbow"),
                               Custom String("is that a geometry dash reference?!"),
@@ -189,12 +193,6 @@ rule ("Custom nameplates list")
 			      Custom Color(255, 255, 255, 255),
 			      Custom String("{0}  HIGHSPEED  {0}", Ability Icon String(Hero(Genji), Button(Ability 1))),
 			      Custom String("{0}  ARMY OF TWO  {0}", Ability Icon String(Hero(Ramattra), Button(Ability 1)))
-		),
-			Array(Custom String("DȈŦǾ"), 
-			      Custom String("Rainbow"),
-			      Custom String("♡ DORITO DITO ♡"), 
-			      Custom String("★☆★ ＰＵＭＰＫＩＮ　ＳＰＩＣＥ ★☆★"), 
-			      Custom String("⁂ BACONEGGNCHEESE ⁂")
 		),
 			Array(Custom String("Netbrex"), 
 			      Custom Color(255, 220, 151, 255),
@@ -406,7 +404,7 @@ rule ("Custom nameplates list")
 		),
 			Array(Custom String("Triin1ty"), 
 			      Color(White),
-			      Custom String("stuffed animal lover"), 
+			      Custom String("♡ we're going out in style, babe ♡"), 
 			      Custom String("little sh%t")
 		),
 			Array(Custom String("LȄAƑIƐ"), 
@@ -487,15 +485,9 @@ rule ("Custom nameplates list")
 			      Custom String("{0} ⁂ moe: 76 lover ⁂ {0}", Ability Icon String(Hero(Soldier: 76), Button(Ultimate))),
 			      Custom String("{0} ★ friendly neighborhood lucio ★ {0}", Ability Icon String(Hero(Lúcio), Button(Ultimate)))
 		),
-			Array(Custom String("XMightyOwlXx"), 
-			      Custom Color(255, 102, 102, 255),
-			      Custom String("{0} average junkerqueen lover {0}", Icon String(Plus)),
-			      Custom String("{0} ♥ Kiwi’s little brother ♥ {0}", Icon String(Halo)),
-			      Custom String("{0} Florida man {0}", Icon String(Spiral))
-		),
 			Array(Custom String("ByeFever"), 
 			      Custom Color(249, 236, 136, 255),
-			      Custom String("{0}  Ｓ ｕ ｎ ｂ ｏ ｒ ｎ  {0}", Ability Icon String(Hero(Illari), Button(Ultimate))),
+			      Custom String("Ｐｏｔｉｏｎ ｔｈａｔ ｔａｓｔｅｓ ｌｉｋｅ ｓｕｎｒｉｓｅ", Ability Icon String(Hero(Illari), Button(Ultimate))),
 			      Custom String("♡ Ｐａｎｄａｒｉｋｏ ♡")
 		),
 			Array(Custom String("Gerry"), 
