@@ -20,8 +20,8 @@ rule ("Custom nameplates list")
         ), 
 			Array(Custom String("kwally"),		
 				  Custom String("Fading"),	
-                  168,165,182, 15,17,16,
-                  Custom String(" ")
+                  240,235,219, 0,25,63,
+                  Custom String("Ｋｗａｌｌｙ")
         ),
 			Array(Custom String("xMaxuss"), 
                   Custom String("Fading"), 
