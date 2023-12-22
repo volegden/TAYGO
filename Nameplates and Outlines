@@ -82,10 +82,10 @@ rule ("Custom nameplates list")
                   Custom String("ALPHA DONUT")
         ), 
 			Array(Custom String("Toguro"), 
-                  Color(Red),
-                  Custom String("Doomslayer"), 
-                  Custom String("Tarnished"),
-                  Custom String("Metalhead")
+                  Color(Black),
+                  Custom String("Darkeater"), 
+                  Custom String("Fléau des Astres"),
+                  Custom String("Celui qui renaquit")
         ),
 			Array(Custom String("kosmos"), 
                   Custom Color(80, 179, 149, 255),
@@ -230,8 +230,8 @@ rule ("Custom nameplates list")
 			      Custom String("ヴィ")
 		),  
 			Array(Custom String("Visual"), 
-			      Custom Color(255, 105, 180, 255),
-			      Custom String("kwallyphobic")
+			      Color(Black),
+			      Custom String(" ")
 		), 
 			Array(Custom String("Nef"),	
 			      Custom Color(62, 253, 255, 255),
@@ -446,10 +446,10 @@ rule ("Custom nameplates list")
 			      Custom String("{0}♡ ｎｏｔｈｉｎｇ ｌａｓｔｓ ｆｏｒｅｖｅｒ♡{0}", Ability Icon String(Hero(Kiriko), Button(Ultimate)))
 		),
 			Array(Custom String("Fragoso"),
-			      Custom Color(1, 116, 144, 255),
+			      Custom Color(166, 13, 166, 255),
 			      Custom String("{0} F•R•A•G•G•Y {0}", Ability Icon String(Hero(Reaper), Button(Ability 1))),
 			      Custom String("{0} ICARUS {0}", Ability Icon String(Hero(Mercy), Button(Ability 1))),
-			      Custom String("{0} • SCRIMBLOS! • {0}", Icon String(Bolt))
+			      Custom String("{0} ― ♠ ― GШYNBLΣIDD ― ♠ ― {0}", Ability Icon String(Hero(Kiriko), Button(Ultimate)))
 		),
 			Array(Custom String("MrCleanerrrr"),
 			      Custom Color(242, 242, 242, 255),
@@ -496,10 +496,10 @@ rule ("Custom nameplates list")
 			      Custom String("{0} † 乂 乂 乂 † {0}", Icon String(Moon))
 		),
 		    Array(Custom String("Mirage"),
-			      Custom Color(185, 9, 15, 255),
-			      Custom String("'AND THE HOME OF THE-'"),
-			      Custom String("{0}  Hero of Time  {0}", Ability Icon String(Hero(Genji), Button(Ultimate))),
-			      Custom String("• Bamboozled ツ •")
+			      Custom Color(34, 139, 34, 255),
+			      Custom String("• Bamboozled ツ •"),
+			      Custom String("{0}  The Calm Before the Storm  {0}", Ability Icon String(Hero(Junker Queen), Button(Ultimate))),
+				  Custom String("{0} • U N D E F E A T A B L E • {0}", Ability Icon String(Hero(Ramattra), Button(Ultimate)))
 		),
 		    Array(Custom String("chii"),
 			      Custom Color(229, 242, 255, 255),
