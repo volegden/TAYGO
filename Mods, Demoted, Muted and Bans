@@ -35,7 +35,7 @@ rule("Listed_Player")
 			Custom String("Juuzo"), Custom String("Fearlxss"), Custom String("ǃSHAY"), Custom String("Stalker"), Custom String("Eggman"),
 			Custom String("Mirage"), Custom String("Bluroisa"), Custom String("chii"), Custom String("Smiley"), Custom String("godly"),
 			Custom String("BȂKƐDBȔŊŊYǃ"), Custom String("zovha"), Custom String("pancakes"), Custom String("emilie"), Custom String("LostShadow"),
-			Custom String("Viktorski"), Custom String("Kuwai"));
+			Custom String("Viktorski"), Custom String("Kuwai"), Custom String("Miamor"), Custom String("BlueSky"));
 		
 		"Warning List"
 		Global.Warning_List = Array(
