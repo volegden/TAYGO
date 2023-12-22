@@ -8,7 +8,7 @@ rule("Listed_Player")
 	actions
 	{
 		"Automatic High Rank"
-		Global.High_Rank = Array(Custom String("Moe Szyslak"));
+		Global.High_Rank = Array(Custom String("Moe Szyslak"), Custom String("Cattanklol"));
 			
 		"Automatic Mod"
 		Global.Mod_Rank = Array(
@@ -22,7 +22,7 @@ rule("Listed_Player")
 			Custom String("BStray"), Custom String("tsunde"), Custom String("Lünår"), Custom String("AvatarGod"), Custom String("ThatAspect"),
 			Custom String("DȈŦǾ"), Custom String("GhostPunch"), Custom String("Akaza"), Custom String("Ghøst"), Custom String("TURBOMURO"),
 			Custom String("Núgget"), Custom String("lostsektor"), Custom String("Hxneibee"), Custom String("Fenetre"), Custom String("Sinnie"),
-			Custom String("TazE"), Custom String("Triin1ty"), Custom String("Lannaanna"), Custom String("Cattanklol"), Custom String("Fære"),
+			Custom String("TazE"), Custom String("Triin1ty"), Custom String("Lannaanna"), Custom String("Fære"), Custom String(""),
 			Custom String("Netbrex"), Custom String("Yeraei"), Custom String("yohan"), Custom String("RiwaChan"), Custom String("현대적인쌍봉낙타"),
 			Custom String("jupiter"), Custom String("NotForYou"), Custom String("fenmorre"), Custom String("Eosia"), Custom String("Nef"),
 			Custom String("Visual"), Custom String("Hestia"), Custom String("AMATERASU"), Custom String("Tedz"), Custom String("PŏŏkiƐ"),
@@ -35,7 +35,7 @@ rule("Listed_Player")
 			Custom String("Juuzo"), Custom String("Fearlxss"), Custom String("ǃSHAY"), Custom String("Stalker"), Custom String("Eggman"),
 			Custom String("Mirage"), Custom String("Bluroisa"), Custom String("chii"), Custom String("Smiley"), Custom String("godly"),
 			Custom String("BȂKƐDBȔŊŊYǃ"), Custom String("zovha"), Custom String("pancakes"), Custom String("emilie"), Custom String("LostShadow"),
-			Custom String("Viktorski"), Custom String("Kuwai"), Custom String("Miamor"), Custom String("BlueSky"));
+			Custom String("Viktorski"), Custom String("Kuwai"),  Custom String("Miamor"), Custom String("BlueSky"));
 		
 		"Warning List"
 		Global.Warning_List = Array(
