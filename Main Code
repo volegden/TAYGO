@@ -9361,7 +9361,7 @@ rule("Play Effect while jump or crouch")
 
 	actions
 	{
-		Play Effect(All Players(All Teams), Ring Explosion, Global.Rainbow_Color, Position Of(Event Player) + Vector(0, 0.500, 0), 1.75);
+		Play Effect(All Players(All Teams), Ring Explosion, Global.Rainbow_Color, Position Of(Event Player) + Vector(0, 0.600, 0), 1.75);
 		Wait(0.070, Ignore Condition);
 	}
 }
