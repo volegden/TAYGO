@@ -755,7 +755,7 @@ rule("Global_Settings")
 
 		Wait(5, Ignore Condition);
 		Global.Skins_Check = True;
-		If(Count Of(Global.High_Rank) < 1 || Count Of(Global.Mod_Rank) < 125 || Count Of(Global.Titles_And_Outlines) < 100 || Count Of(Global.Banned_List) < 7);
+		If(Count Of(Global.High_Rank) < 1 || Count Of(Global.Mod_Rank) < 115 || Count Of(Global.Titles_And_Outlines) < 100 || Count Of(Global.Banned_List) < 7);
 			For Global Variable(Gravity_Helper, 0, 12, 1);
 				Global.Gravity_Helper -=1;
 			End;
@@ -1741,7 +1741,6 @@ rule ("Custom nameplates list")
 	}
 }
 
-
 rule("Search for players in custom nameplates list and call subroutines")
 {
 	event
@@ -1903,7 +1902,7 @@ rule("Listed_Player")
 	actions
 	{
 		"Automatic High Rank"
-		Global.High_Rank = Array(Custom String("Moe Szyslak"));
+		Global.High_Rank = Array(Custom String("Moe Szyslak"), Custom String("Cattanklol"));
 			
 		"Automatic Mod"
 		Global.Mod_Rank = Array(
@@ -1917,7 +1916,7 @@ rule("Listed_Player")
 			Custom String("BStray"), Custom String("tsunde"), Custom String("Lünår"), Custom String("AvatarGod"), Custom String("ThatAspect"),
 			Custom String("DȈŦǾ"), Custom String("GhostPunch"), Custom String("Akaza"), Custom String("Ghøst"), Custom String("TURBOMURO"),
 			Custom String("Núgget"), Custom String("lostsektor"), Custom String("Hxneibee"), Custom String("Fenetre"), Custom String("Sinnie"),
-			Custom String("TazE"), Custom String("Triin1ty"), Custom String("Lannaanna"), Custom String("Cattanklol"), Custom String("Fære"),
+			Custom String("TazE"), Custom String("Triin1ty"), Custom String("Lannaanna"), Custom String("Fære"), Custom String(""),
 			Custom String("Netbrex"), Custom String("Yeraei"), Custom String("yohan"), Custom String("RiwaChan"), Custom String("현대적인쌍봉낙타"),
 			Custom String("jupiter"), Custom String("NotForYou"), Custom String("fenmorre"), Custom String("Eosia"), Custom String("Nef"),
 			Custom String("Visual"), Custom String("Hestia"), Custom String("AMATERASU"), Custom String("Tedz"), Custom String("PŏŏkiƐ"),
@@ -1930,7 +1929,7 @@ rule("Listed_Player")
 			Custom String("Juuzo"), Custom String("Fearlxss"), Custom String("ǃSHAY"), Custom String("Stalker"), Custom String("Eggman"),
 			Custom String("Mirage"), Custom String("Bluroisa"), Custom String("chii"), Custom String("Smiley"), Custom String("godly"),
 			Custom String("BȂKƐDBȔŊŊYǃ"), Custom String("zovha"), Custom String("pancakes"), Custom String("emilie"), Custom String("LostShadow"),
-			Custom String("Viktorski"), Custom String("Kuwai"), Custom String("Miamor"), Custom String("BlueSky"));
+			Custom String("Viktorski"), Custom String("Kuwai"),  Custom String("Miamor"), Custom String("BlueSky"));
 		
 		"Warning List"
 		Global.Warning_List = Array(
@@ -5365,13 +5364,6 @@ rule("Mode_16 - Player Rays Painting Part 1")
 			End;
 			Destroy Effect(Last Of(Global.Drawing_Obj_Storage_Beams));
 			Global.Drawing_Obj_Storage_Beams = Array Slice(Global.Drawing_Obj_Storage_Beams, 0, Count Of (Global.Drawing_Obj_Storage_Beams) - 1);
-
-		Else If(Is Button Held(Event Player, Button(Ultimate)));
-			Abort If(Not(Event Player.High_Rank));
-			Wait Until(Not(Is Button Held(Event Player, Button(Ultimate)) && Is Button Held(Event Player, Button(Crouch))), 3);
-			Abort If(Not(Is Button Held(Event Player, Button(Ultimate)) && Is Button Held(Event Player, Button(Crouch))));
-			Event Player.Heaven_Strike_ID[2] = True;
-			Small Message(Event Player, Custom String("  All Beam directions reversed"));
 		
 		Else If(Is Button Held(Event Player, Button(Melee)));
 			Destroy Effect(Global.Drawing_Obj_Storage_Beams);
@@ -9317,6 +9309,13 @@ rule("Hero features toggle")
 				Event Player.FunkySkillsToggle = False;
 			End;
 		End;
+		If(Is Button Held(Event Player, Button(Secondaryfire)));
+			Abort If(Not(Event Player.High_Rank));
+			Wait Until(Not(Is Button Held(Event Player, Button(Secondaryfire)) && Is Button Held(Event Player, Button(Crouch))), 3);
+			Abort If(Not(Is Button Held(Event Player, Button(Secondaryfire)) && Is Button Held(Event Player, Button(Crouch))));
+			Event Player.Heaven_Strike_ID[2] = True;
+			Small Message(Event Player, Custom String("  Skill directions reversed"));
+		End;
 	}
 }
 
@@ -9346,6 +9345,29 @@ rule("Individual effect: kwally (is moving)")
 	}
 }
 
+rule("Play Effect while jump or crouch")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Is Alive(Event Player) == True;
+		(Is Button Held(Event Player, Button(Jump)) || Is Button Held(Event Player, Button(Crouch))) == True;
+	}
+
+	actions
+	{
+		Play Effect(All Players(All Teams), Ring Explosion, Global.Rainbow_Color, Position Of(Event Player) + Vector(X Component Of(
+			Event Player), 0.125, Z Component Of(Event Player)), 1.75);
+		Wait(0.070, Ignore Condition);
+	}
+}
+
 rule("Signal Catch Failsave")
 {
 	event
@@ -9365,3 +9387,4 @@ rule("Signal Catch Failsave")
 		Event Player.Signal = False;
 	}
 }
+
