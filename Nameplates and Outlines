@@ -19,10 +19,9 @@ rule ("Custom nameplates list")
 			      Custom String("Coup de grâce")
         ), 
 			Array(Custom String("kwally"),		
-				  Custom String("Fading"),	
-                  240,235,219, 0,25,63,
-                  Custom String("Ｋｗａｌｌｙ")
-        ),
+				Custom Color(15, 15, 15, 255),
+                		Custom String("Ｋｗａｌｌｙ")
+		),
 			Array(Custom String("xMaxuss"), 
                   Custom String("Fading"), 
                   70,200,255, 150,225,255,
