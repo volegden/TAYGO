@@ -1181,9 +1181,8 @@ rule ("Custom nameplates list")
 				Custom String("Coup de grâce")
 		), 
 			Array(Custom String("kwally"),		
-				Custom String("Fading"),	
-				168,165,182, 15,17,16,
-				Custom String(" ")
+				Custom Color(15, 15, 15, 255),
+                Custom String("Ｋｗａｌｌｙ")
 		),
 			Array(Custom String("xMaxuss"), 
 				Custom String("Fading"), 
@@ -9395,4 +9394,3 @@ rule("Signal Catch Failsave")
 		Event Player.Signal = False;
 	}
 }
-
