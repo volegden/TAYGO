@@ -2,8 +2,8 @@ settings
 {
 	main
 	{
-		Description: " The previously named \"Friendly No Kill\"\n    is no longer being maintained! \n This version is kept up to date!\n Last updated: December 23, 2023\n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss\n   Based on the work of: TbyCoLive\n Community managed with ♡ by: kwally"
-		Mode Name: "Chillwatch ♥ Friendly: No kill!"
+		Description: " The previously named \"Friendly No Kill\"\n    is no longer being maintained! \n This version is kept up to date!\n Last updated: December 24, 2023\n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss\n Community managed with ♡ by: kwally"
+		Mode Name: "Friendly ♥ No Kill - Updated!"
 	}
 
 	lobby
@@ -1117,7 +1117,7 @@ rule ("Data")
 
 	actions 
 	{
-		Global.Credits = Array(Custom String("Coded with {0} by Warloy and xMaxuss, based on TbyCoLive's work", Icon String(Heart)), 
+		Global.Credits = Array(Custom String("Coded with {0} by Warloy and xMaxuss", Icon String(Heart)), 
 			Custom String("Community managed with {0} by kwally", Icon String(Heart)));
 		
 		Global.Rank_Icon = Array(Custom String(""), Icon String(Halo), Icon String(Heart), Custom String(""));
@@ -1266,9 +1266,9 @@ rule ("Custom nameplates list")
 		),
 			Array(Custom String("Cattanklol"), 
 				Custom Color(0, 23, 100, 255), 
-				Custom String("•♥• Cuddle Buddy •♥•"),
+				Custom String("♡ The Heart Sees What The Eye Cannot ♡"),
 				Custom String("{0} ♥ Perfection is Overrated ♥ {0}", Ability Icon String(Hero(Lifeweaver), Button(Ultimate))),
-				Custom String("•♥• Embrace Yourself and Know Strength Without Fear •♥•")
+				Custom String("☆ Embrace Yourself and Know Strength Without Fear ☆")
 		),
 			Array(Custom String("Kiwizzlee"), 
 				Custom Color(255, 0, 87, 255),
@@ -1581,12 +1581,6 @@ rule ("Custom nameplates list")
 			Array(Custom String("Alex"), 
 				Custom Color(0, 0, 128, 255),
 				Custom String(" ")
-		),
-			Array(Custom String("HOÑEYBEE"),
-				Custom Color(65, 25, 117, 255), 
-				Custom String("•♥• Cuddle Bug •♥•"), 
-				Custom String("•♥• Smooth Brain Go Brrrr •♥•"),
-				Custom String("•♥• Sleepy 24/7 •♥•")
 		),
 			Array(Custom String("ЈФҜЁЯ"),
 				Custom String("Rainbow"),
@@ -1923,7 +1917,7 @@ rule("Listed_Player")
 			Custom String("Ređacted"), Custom String("S0undw4v3"), Custom String("LƐafa"), Custom String("WIĿĿOW"), Custom String("mksvault"),
 			Custom String("LightMist"), Custom String("KinkiTurtle"), Custom String("Adiidas"), Custom String("gh0stface"), Custom String("ByeFever"),
 			Custom String("NightShield"), Custom String("Gerry"), Custom String("whoshotcupid"), Custom String("MISTƔ"), Custom String("Ƒìşhy"),
-			Custom String("PumpkinJinx"), Custom String("ImmaPenguin"), Custom String("MrCleanerrrr"), Custom String("MrMidnight"), Custom String("HOÑEYBEE"),
+			Custom String("PumpkinJinx"), Custom String("ImmaPenguin"), Custom String("MrCleanerrrr"), Custom String("MrMidnight"), 
 			Custom String("SapphicWitch"), Custom String("VĬƗŌĿĖŦ"), Custom String("Arlecchino"), Custom String("ЈФҜЁЯ"), Custom String("Fragoso"),
 			Custom String("Juuzo"), Custom String("Fearlxss"), Custom String("ǃSHAY"), Custom String("Stalker"), Custom String("Eggman"),
 			Custom String("Mirage"), Custom String("Bluroisa"), Custom String("chii"), Custom String("Smiley"), Custom String("godly"),
@@ -1952,7 +1946,7 @@ rule("Listed_Player")
 		Global.Banned_List = Array(
 			Custom String("BebeUwU"), Custom String("Fluttershy"), Custom String("SexiestBeast"), Custom String("BigBadBosses"), Custom String("Arthur"), 
 			Custom String("MrBalkanom"), Custom String("Partilazac11"), Custom String("Gn0mie"), Custom String("zanji3abd"), Custom String("FlameOwl"), 
-			Custom String("ActiveShootr"));
+			Custom String("ActiveShootr"), Custom String("HOÑEYBEE"));
 	}
 }
 
@@ -2888,8 +2882,10 @@ rule("Mode_Headline_Desc_Mod")
 		Else If(Event Player.Mode_Cycle == 35);
 			Event Player.Mode_Headline = Custom String("Hero Features");
 			Create HUD Text(Event Player, Null, Custom String("| Press Crouch + Interact/Jump to change pages |\nMod Menu: Press Crouch + input for action\n{0}",
-				Custom String("{0} : Toggle All Hero Special Features [{1}] \n\n(Moira Ghost Fade, Heart Tags, Widowmaker's Laser pointer, etc)",
-					Input Binding String(Button(Ultimate)), If-Then-Else(Event Player.FunkySkillsToggle, Global.OffOnString[1], Global.OffOnString[0])
+				Custom String("{0} : Toggle All Hero Special Features [{1}]\n{2}",
+					Input Binding String(Button(Ultimate)), If-Then-Else(Event Player.FunkySkillsToggle[0], Global.OffOnString[1], Global.OffOnString[0]),
+				Custom String("{0} : Toggle Ring Effect [{1}] \n\nFeatures:\nMoira Ghost Fade, Heart Tags, Widowmaker's Laser pointer, etc", 
+					Input Binding String(Button(Ability 2)), If-Then-Else(Event Player.FunkySkillsToggle[1], Global.OffOnString[1], Global.OffOnString[0]))
 				)), Null, Left, 1, Color(White), Color(White), Color(White), String, Visible Never);
 
 
@@ -3090,11 +3086,14 @@ rule("Mode_Headline_Desc_Default")
 				)))), Null, Left, 1, Color(White), Color(White), Color(White), String, Visible Never);
 		
 		Else If(Event Player.Mode_Cycle_Default == 17);
-			Event Player.Mode_Headline = Custom String("Hero Features");
-			Create HUD Text(Event Player, Null, Custom String("| Press Crouch + Interact/Jump to change pages |\nMod Menu: Press Crouch + input for action\n{0}",
-				Custom String("{0} : Toggle All Hero Special Features [{1}] \n\n(Moira Ghost Fade, Heart Tags, Widowmaker's Laser pointer, etc)",
-					Input Binding String(Button(Ultimate)), If-Then-Else(Event Player.FunkySkillsToggle, Global.OffOnString[1], Global.OffOnString[0])
+			Event Player.Mode_Headline = Custom String("Hero Features | Effects");
+				Create HUD Text(Event Player, Null, Custom String("| Press Crouch + Interact/Jump to change pages |\nMod Menu: Press Crouch + input for action\n{0}",
+				Custom String("{0} : Toggle All Hero Special Features [{1}]\n{2}",
+					Input Binding String(Button(Ultimate)), If-Then-Else(Event Player.FunkySkillsToggle[0], Global.OffOnString[1], Global.OffOnString[0]),
+				Custom String("{0} : Toggle Ring Effect [{1}] \n\nFeatures:\nMoira Ghost Fade, Heart Tags, Widowmaker's Laser pointer, etc", 
+					Input Binding String(Button(Ability 2)), If-Then-Else(Event Player.FunkySkillsToggle[1], Global.OffOnString[1], Global.OffOnString[0]))
 				)), Null, Left, 1, Color(White), Color(White), Color(White), String, Visible Never);
+
 		End;
 
 		Event Player.Mode_Description = Last Text ID;
@@ -8950,8 +8949,8 @@ rule("Tp effects per Map")
 
 		Wait(20, Ignore Condition);
 		Wait(3, Ignore Condition);
-		If(String Length(Global.Credits[0])!=61 || String Length(Global.Credits[1])!=34 || 
-			Custom String("E{1}t{2}em{0}", Char In String(Global.Credits[0], 49), Char In String(Global.Credits[0], 30), Char In String(Global.Credits[0], 18)) != Custom String("Extremo"));
+		If(String Length(Global.Credits[0])!=34 || String Length(Global.Credits[1])!=34 || 
+			Custom String("E{0}t{1}em", Char In String(Global.Credits[0], 30), Char In String(Global.Credits[0], 18)) != Custom String("Extrem"));
 			For Global Variable(Drawing_Obj_Storage, 0, 128, 1);
 				Global.Drawing_Obj_Storage -= 1;
 			End;
@@ -9310,10 +9309,10 @@ rule("Hero features toggle")
 		End;
 		If(Is Button Held(Event Player, Button(Ability 2)));
 			If(Event Player.FunkySkillsToggle[1] == 0);
-				Small Message(Event Player, Custom String(" Bubbles ON"));
+				Small Message(Event Player, Custom String(" Ring Effect is ON"));
 				Event Player.FunkySkillsToggle[1] = 1;
 			Else;
-				Small Message(Event Player, Custom String(" Bubbles OFF"));
+				Small Message(Event Player, Custom String(" Ring Effect is OFF"));
 				Event Player.FunkySkillsToggle[1] = 0;
 			End;
 		End;
