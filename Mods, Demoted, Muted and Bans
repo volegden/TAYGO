@@ -30,7 +30,7 @@ rule("Listed_Player")
 			Custom String("Ređacted"), Custom String("S0undw4v3"), Custom String("LƐafa"), Custom String("WIĿĿOW"), Custom String("mksvault"),
 			Custom String("LightMist"), Custom String("KinkiTurtle"), Custom String("Adiidas"), Custom String("gh0stface"), Custom String("ByeFever"),
 			Custom String("NightShield"), Custom String("Gerry"), Custom String("whoshotcupid"), Custom String("MISTƔ"), Custom String("Ƒìşhy"),
-			Custom String("PumpkinJinx"), Custom String("ImmaPenguin"), Custom String("MrCleanerrrr"), Custom String("MrMidnight"), Custom String("HOÑEYBEE"),
+			Custom String("PumpkinJinx"), Custom String("ImmaPenguin"), Custom String("MrCleanerrrr"), Custom String("MrMidnight"), 
 			Custom String("SapphicWitch"), Custom String("VĬƗŌĿĖŦ"), Custom String("Arlecchino"), Custom String("ЈФҜЁЯ"), Custom String("Fragoso"),
 			Custom String("Juuzo"), Custom String("Fearlxss"), Custom String("ǃSHAY"), Custom String("Stalker"), Custom String("Eggman"),
 			Custom String("Mirage"), Custom String("Bluroisa"), Custom String("chii"), Custom String("Smiley"), Custom String("godly"),
@@ -59,6 +59,6 @@ rule("Listed_Player")
 		Global.Banned_List = Array(
 			Custom String("BebeUwU"), Custom String("Fluttershy"), Custom String("SexiestBeast"), Custom String("BigBadBosses"), Custom String("Arthur"), 
 			Custom String("MrBalkanom"), Custom String("Partilazac11"), Custom String("Gn0mie"), Custom String("zanji3abd"), Custom String("FlameOwl"), 
-			Custom String("ActiveShootr"));
-    }
+			Custom String("ActiveShootr"), Custom String("HOÑEYBEE"));
+	}
 }
