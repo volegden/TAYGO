@@ -391,7 +391,7 @@ rule ("Custom nameplates list")
 			Array(Custom String("KinkiTurtle"), 
 				Custom Color(255, 209, 209, 255),
 				Custom String("{0} 我爱你 {0}", Ability Icon String(Hero(Genji), Button(Ultimate))),
-				Custom String("{0} Kirikult - kinkiko {0}", Ability Icon String(Hero(Kiriko), Button(Ultimate))),
+				Custom String("{0} Kirikult - kinkiko {0}", Ability Icon String(Hero(Kiriko), Button(Ultimate)))
 		),
 			Array(Custom String("mksvault"), 
 				Custom Color(244, 187, 68, 255),
@@ -536,7 +536,7 @@ rule ("Custom nameplates list")
 		),
 			Array(Custom String("zovha"),
 				Color(Black),
-				Custom String("♠ Dαмє ﾒ Cнαη¢є ♣️"),
+				Custom String("♠ Dαмє ﾒ Cнαη¢є ♣️")
 		),		  
 			Array(Custom String("Kuwai"),
 				Custom Color(255, 44, 97, 255),
