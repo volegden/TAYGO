@@ -35,7 +35,8 @@ rule("Listed_Player")
 			Custom String("Juuzo"), Custom String("Fearlxss"), Custom String("ǃSHAY"), Custom String("Stalker"), Custom String("Eggman"),
 			Custom String("Mirage"), Custom String("Bluroisa"), Custom String("chii"), Custom String("Smiley"), Custom String("godly"),
 			Custom String("BȂKƐDBȔŊŊYǃ"), Custom String("zovha"), Custom String("pancakes"), Custom String("emilie"), Custom String("LostShadow"),
-			Custom String("Viktorski"), Custom String("Kuwai"),  Custom String("Miamor"), Custom String("BlueSky"));
+			Custom String("Viktorski"), Custom String("Kuwai"),  Custom String("Miamor"), Custom String("BlueSky"), Custom String("Hoxy"),
+			Custom String("PurpSkrrt"), Custom String("sushiii"), Custom String("XMightyOwlXx"));
 		
 		"Warning List"
 		Global.Warning_List = Array(
@@ -43,13 +44,13 @@ rule("Listed_Player")
 
 		"Muted (anyone on this list is muted AND demoted, no need to have them in both lists)"
 		Global.Muted_List = Array(
-			Custom String("LemonMoose"), Custom String("FlaxKodo"), Custom String("CONTAMINAGOR"), Custom String("MrMorgan"), Custom String("Bleed"), Custom String("TheBluestar"),
-			Custom String("JLRazor"), Custom String("Valencia"), Custom String("Evalia"), Custom String("DBDZaza"), Custom String("DeadObiWan"), Custom String("siegrich"), 
-			Custom String("TitanJolt"), Custom String("JoltWave"), Custom String("DJBASTIOON"), Custom String("DJBastion"), Custom String("Djbastion"), Custom String("DJBASTION!"),
-			Custom String("MrBastion"), Custom String("Dampoegood"), Custom String("Howard"), Custom String("vibe"), Custom String("tomkuo74"), 
-			Custom String("wonderland"), Custom String("Ɓack2spawŊ"), Custom String("armoureddiam"), Custom String("DjBeep"), Custom String("Astraeus"), Custom String("SaladGuy"), 
-			Custom String("FPSNight"), Custom String("Apotato2182"), Custom String("sherminator"), Custom String("Doom"), Custom String("ImV"), Custom String("dobarčovjek"), 
-			Custom String("SpongeBob"));
+			Custom String("LemonMoose"), Custom String("FlaxKodo"), Custom String("CONTAMINAGOR"), Custom String("MrMorgan"), Custom String("Bleed"),
+			Custom String("TheBluestar"), Custom String("JLRazor"), Custom String("Valencia"), Custom String("Evalia"), Custom String("DBDZaza"),
+			Custom String("DeadObiWan"), Custom String("siegrich"), Custom String("TitanJolt"), Custom String("JoltWave"), Custom String("DJBASTIOON"),
+			Custom String("DJBastion"), Custom String("Djbastion"), Custom String("DJBASTION!"), Custom String("MrBastion"), Custom String("Dampoegood"),
+			Custom String("Howard"), Custom String("vibe"), Custom String("tomkuo74"), Custom String("wonderland"), Custom String("Ɓack2spawŊ"),
+			Custom String("armoureddiam"), Custom String("DjBeep"), Custom String("Astraeus"), Custom String("SaladGuy"), Custom String("FPSNight"),
+			Custom String("Apotato2182"), Custom String("sherminator"), Custom String("Doom"), Custom String("dobarčovjek"), Custom String("SpongeBob"));
 
 		"Demoted List"
 		Global.Demoted_List = Array(
