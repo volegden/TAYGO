@@ -121,7 +121,7 @@ rule ("Custom nameplates list")
 			Array(Custom String("Lostshadow"), 
 				Custom String("Rainbow"),
 				Custom String("♡ Gh0stface's little brother ♡"), 
-				Custom String("★ 16 ★"),
+				Custom String("{0} Camel milk enjoyer {0}", Ability Icon String(Hero(Kiriko), Button(Ability 2))),
 				Custom String("{0} Ｓｅｅｌｅｎｓｏｒｇｅ {0}", Icon String(Moon))
 		), 
 			Array(Custom String("SpƐdy"), 
@@ -257,9 +257,9 @@ rule ("Custom nameplates list")
 		), 
 			Array(Custom String("현대적인쌍봉낙타"), 
 				Custom Color(243, 214, 223, 255),
-				Custom String("(ㅇㅅㅇ)"),
-				Custom String("{0}  Let's Play: Hard To Read  {0}", Icon String(Exclamation Mark)),
-				Custom String("♥ 자기 ♥")
+				Custom String("{0} 星 {0}", Icon String(Dizzy)),
+				Custom String("{0} CΗΣRRY BLΘSSΘM SQƱΔD™ {0}", Ability Icon String(Hero(Lifeweaver), Button(Primaryfire))),
+				Custom String("{0} ☆DЯΛMΛ ID: BƱBBLΣ☆ {0}", Ability Icon String(Hero(Echo), Button(Secondaryfire)))
 		),
 			Array(Custom String("Dubbie7"), 
 				Custom String("Rainbow"),
@@ -269,7 +269,7 @@ rule ("Custom nameplates list")
 		), 
 			Array(Custom String("Zxtyi"), 
 				Color(Black),
-				Custom String("{0} Looking for a Kiriko Main {0}", Ability Icon String(Hero(Genji), Button(Jump))), 
+				Custom String("{0} ㄒ尺|卩卩|几 ㄖ几 爪ㄚ丂乇ㄥ千 {0}", Icon String(Dizzy)), 
 				Custom String("{0} Kiriko Simp {0}", Ability Icon String(Hero(Kiriko), Button(Secondaryfire))), 
 				Custom String("{0} 乙乂ㄒㄚｉ {0}", Ability Icon String(Hero(Illari), Button(Ultimate)))
 		),
@@ -374,7 +374,7 @@ rule ("Custom nameplates list")
 				Custom String("Rainbow"),
 				Custom String("♡ Lostshadow's big sister ♡"),
 				Custom String("{0} Ｍｅｏｗ ｆｏｒ Ｎｉｔｒｏ {0}", Ability Icon String(Hero(Ramattra), Button(Ultimate))),
-				Custom String("{0} Viki's Bestie {0}", Ability Icon String(Hero(Genji), Button(Ultimate)))
+				Custom String("{0} ☆DЯΛMΛ ID: BƱƬƬΣЯCƱP☆ {0}", Ability Icon String(Hero(Kiriko), Button(Ultimate)))
 		),
 			Array(Custom String("PumpkinJinx"), 
 				Custom Color(237, 27, 12, 255),
@@ -383,16 +383,15 @@ rule ("Custom nameplates list")
 				Custom String("{0} - ☆ Van Hellsing's devil ☆ - {1}", Ability Icon String(Hero(Cassidy), Button(Ultimate)), Ability Icon String(Hero(Junkrat), Button(Ultimate)))
 		),
 			Array(Custom String("NightShield"), 
-				Custom Color(146, 186, 244, 255),
+				Color(Black),
 				Custom String("{0} Go Push a rock up a hill {0}", Ability Icon String(Hero(Sigma), Button(Ability 2))),
 				Custom String("{0} Kirikult - Niriko {0}", Ability Icon String(Hero(Kiriko), Button(Ultimate))),
-				Custom String("♥︎ {0} K I T S U N E {0} ♥︎", Ability Icon String(Hero(Kiriko), Button(Ultimate)))
+				Custom String("{0} ― † Obanai Iguro † ― {0}", Ability Icon String(Hero(Kiriko), Button(Ultimate)))
 		),
 			Array(Custom String("KinkiTurtle"), 
 				Custom Color(255, 209, 209, 255),
 				Custom String("{0} 我爱你 {0}", Ability Icon String(Hero(Genji), Button(Ultimate))),
 				Custom String("{0} Kirikult - kinkiko {0}", Ability Icon String(Hero(Kiriko), Button(Ultimate))),
-				Custom String("♥ ΛᄂΣX IƧ Λ BЯΣΛD ♥")
 		),
 			Array(Custom String("mksvault"), 
 				Custom Color(244, 187, 68, 255),
@@ -464,9 +463,9 @@ rule ("Custom nameplates list")
 		),
 			Array(Custom String("Juuzo"),
 				Custom Color(243, 214, 223, 255),
-				Custom String("ㅎㅅㅎ"),
+				Custom String("{0} 月 {0}", Icon String(Moon)),
 				Custom String("{0} 쥬죠 {0}", Ability Icon String(Hero(Genji), Button(Primaryfire))),
-				Custom String("♥ 여보 ♥")
+				Custom String("! stinky british !")
 		),
 			Array(Custom String("Fearlxss"),
 				Custom String("Rainbow"),
@@ -525,9 +524,9 @@ rule ("Custom nameplates list")
 		),
 			Array(Custom String("BȂKƐDBȔŊŊYǃ"),
 				Custom Color(254, 171, 230, 255),
-				Custom String("• ★ Sei Una Meraviglia ☆ •"),
+				Custom String("♬ {0} 『 BEKAD BYNNU™ 』 {0} ♬", Ability Icon String(Hero(D.va), Button(Ultimate))),
 				Custom String("{0} CΗΣRRY BLΘSSΘM SQƱΔD™ {0}", Ability Icon String(Hero(Lifeweaver), Button(Primaryfire))),
-				Custom String("♡ {0} T O K K I {0} ♡", Ability Icon String(Hero(D.Va), Button(Ultimate)))
+				Custom String("{0} ― ♥︎ Mitsuri Kanroji ♡ ― {0}", Ability Icon String(Hero(D.Va), Button(Ultimate)))
 		),
 			Array(Custom String("Smiley"),
 				Custom String("Rainbow"),
@@ -536,10 +535,8 @@ rule ("Custom nameplates list")
 				Custom String("♥ мч ģάŕģĻέ∂ ĻίţţĻέ мίς ήόίşέş ♥")
 		),
 			Array(Custom String("zovha"),
-				Custom Color(72, 61, 139, 255),
+				Color(Black),
 				Custom String("♠ Dαмє ﾒ Cнαη¢є ♣️"),
-				Custom String("{0} Widow Simp {0}", Ability Icon String(Hero(Junkrat), Button(Ability 1))),
-				Custom String("† looking for mercy main †")
 		),		  
 			Array(Custom String("Kuwai"),
 				Custom Color(255, 44, 97, 255),
@@ -550,7 +547,7 @@ rule ("Custom nameplates list")
 			Array(Custom String("pancakes"),
 				Custom Color(96, 50, 156, 255),
 				Custom String("{0} heat + bread + time = toast {0}", Ability Icon String(Hero(Illari), Button(Ultimate))),
-				Custom String("•♥• Smooth Brain Go Brrrr 2.0 •♥•"),
+				Custom String("{0} Ι DΙDΠT CΘMΣ HΣRΣ TΘ BΣ BΘIĿΣD {0}", Ability Icon String(Hero(Mercy), Button(Ultimate))),
 				Custom String("♥ мч ģάŕģĻέ∂ ĻίţţĻέ мίς ήόίşέş ♥")	
 		),
 			Array(Custom String("Viktorski"),
@@ -567,7 +564,17 @@ rule ("Custom nameplates list")
 				Custom Color(128, 0, 128, 255),
 				Custom String("{0} The Saint {0}", Icon String(Halo)),
 				Custom String("{0} Spark Gengu Squad {0}", Ability Icon String(Hero(Genji), Button(Ultimate)))
-		)
+		),
+		    Array(Custom String("BlueSky"), 
+                Color(Sky Blue),
+                Custom String("{0} Skies of Blue {0}", Ability Icon String(Hero(Mercy), Button(Ability 1)))
+		),
+		    Array(Custom String("Metalgy"), 
+			    Custom Color(245, 14, 10, 255),
+			    Custom String("♥ Trans King ♥"), 
+			    Custom String("{0} Spark Gengu Squad {0}", Ability Icon String(Hero(Genji), Button(Ultimate))),
+			    Custom String("Spicy Potato Chip")
+		)	
 		);
 	}
 }
