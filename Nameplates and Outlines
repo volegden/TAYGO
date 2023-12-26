@@ -412,7 +412,7 @@ rule ("Custom nameplates list")
 			Array(Custom String("Adiidas"), 
 				Custom Color(80, 8, 61, 255),
 				Custom String("{0} ȂBÛ$ȄR & ȂBÛŠȄD {0}", Icon String(Moon)),
-				Custom String("{0} † ♡ Viki is a liar and blind, I sleep 24/7 ♡ † {0}", Ability Icon String(Hero(Kiriko), Button(Ability 2))),
+				Custom String("{0} ♡♬~TASKUT NI PAINAVAT EN TARVI SALI~♬♡ {0}", Ability Icon String(Hero(Kiriko), Button(Ability 2))),
 				Custom String("{0} Nike {0}", Icon String(Checkmark))
 		),
 			Array(Custom String("Alex"), 
@@ -446,8 +446,8 @@ rule ("Custom nameplates list")
 			Array(Custom String("MrCleanerrrr"),
 				Custom Color(242, 242, 242, 255),
 				Custom String("{0} † Viki † {0}", Ability Icon String(Hero(Hanzo), Button(Ultimate))),
-				Custom String("{0} † ♡ Adi abuses me 24/7, and she's a dummy ♡ † {0}", Ability Icon String(Hero(Ramattra), Button(Ultimate))),
-				Custom String("{0} Maria's Bestie {0}", Ability Icon String(Hero(Reinhardt), Button(Ultimate)))
+				Custom String("{0} ♡♬~SUN TAKII KAKS LÄ TEKE WEEN~♬♡ {0}", Ability Icon String(Hero(Ramattra), Button(Ultimate))),
+				Custom String("{0} ☆DЯΛMΛ ID: BLӨƧƧӨM☆ {0}", Ability Icon String(Hero(Reinhardt), Button(Ultimate)))
 		),
 			Array(Custom String("MrMidnight"),
 				Custom Color(199, 21, 133, 255),
@@ -574,7 +574,11 @@ rule ("Custom nameplates list")
 			    Custom String("♥ Trans King ♥"), 
 			    Custom String("{0} Spark Gengu Squad {0}", Ability Icon String(Hero(Genji), Button(Ultimate))),
 			    Custom String("Spicy Potato Chip")
-		)	
+		),
+		    Array(Custom String("Hoxy"), 
+			    Custom String("Rainbow"),
+			    Custom String("{0} Kiriko-Chan {0}", Ability Icon String(Hero(Kiriko), Button(Ultimate)))
+		)
 		);
 	}
 }
