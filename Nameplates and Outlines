@@ -25,7 +25,6 @@ rule ("Custom nameplates list")
 			Array(Custom String("xMaxuss"), 
 				Custom String("Fading"), 
 				70,200,255, 150,225,255,
-				Custom String("{1} {0}     M L  S  A  E      {0} {1}", Ability Icon String(Hero(Widowmaker), Button(Ultimate)), Icon String(Heart)),
 				Custom String("{0} TO THE MAX {0}", Ability Icon String(Hero(Sombra), Button(Ultimate))),
 				Custom String("¡Hola! ¿Qué onda? {0}", Hero Icon String(Hero(Sombra)))
 		),
@@ -50,7 +49,7 @@ rule ("Custom nameplates list")
 		),
 			Array(Custom String("HYUA"), 
 				Custom Color(89, 5, 5, 255),
-				Custom String("literally asuka"),
+				Custom String(":3"),
 				Custom String("{0} L O A F L Y {0}", Icon String(Diamond))
 		), 
 			Array(Custom String("S0undw4v3"), 
@@ -63,12 +62,6 @@ rule ("Custom nameplates list")
 				Custom Color(241, 196, 15, 255),
 				Custom String("Stargazer"), 
 				Custom String("Professor")
-		), 
-			Array(Custom String("Dead"), 
-				Color(Black),
-				Custom String("{1}      {0}   I  K  H  K   {0}     {1}", Ability Icon String(Hero(Sombra), Button(Ultimate)), Icon String(Heart)),
-				Custom String("I get us into trouble"),
-				Custom String("Dumber")
 		),
 			Array(Custom String("xCleo"), 
 				Custom Color(247, 187, 229, 255),
@@ -530,7 +523,7 @@ rule ("Custom nameplates list")
 		),
 			Array(Custom String("Smiley"),
 				Custom String("Rainbow"),
-				Custom String("{0} ∂ση'т мαкє мє ƒяσωηу {0}", Icon String(Sad)),
+				Custom String("{0} ☆ rεšïdεηƭ pεФpﾚε šηαƭςhεr ☆ {0}", Ability Icon String(Hero(Sigma), Button(Ability 1))),
 				Custom String("{0} CΗΣRRY BLΘSSΘM SQƱΔD™ {0}", Ability Icon String(Hero(Lifeweaver), Button(Primaryfire))),
 				Custom String("♥ мч ģάŕģĻέ∂ ĻίţţĻέ мίς ήόίşέş ♥")
 		),
@@ -539,10 +532,10 @@ rule ("Custom nameplates list")
 				Custom String("♠ Dαмє ﾒ Cнαη¢є ♣️")
 		),		  
 			Array(Custom String("Kuwai"),
-				Custom Color(255, 44, 97, 255),
-				Custom String("{0} 『 LOCAL E-COWGIRL™ 』{0}", Ability Icon String(Hero(Ashe), Button(Ultimate))),
+				Custom Color(245, 222, 179, 255),
+				Custom String("{0} 『 ㅤ 火  ― KEYBLADE WIELDER ― ♡ ㅤ 』 {0}", Ability Icon String(Hero(Illari), Button(Ultimate))),
 				Custom String("{0} CΗΣRRY BLΘSSΘM SQƱΔD™ {0}", Ability Icon String(Hero(Lifeweaver), Button(Primaryfire))),
-				Custom String("{0} ― Queen of the Yeehaws ― {0}", Ability Icon String(Hero(Illari), Button(Ultimate)))		  
+				Custom String("{0} 『 ㅤ神  ― '' GOD IS A WOMAN '' ― ♬ㅤ 』 {0}", Ability Icon String(Hero(Moira), Button(Ability 1)))		  
 		),
 			Array(Custom String("pancakes"),
 				Custom Color(96, 50, 156, 255),
