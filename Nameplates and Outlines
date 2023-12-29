@@ -23,7 +23,7 @@ rule ("Custom nameplates list")
 				Custom String("Fading"), 
 				80,0,0, 255,0,0,
                 Custom String("Ｋｗａｌｌｙ"),
-				Custom String("† ї ∂นҫӄїภғ Һαҭѡ ұσน †"),
+				Custom String("† ї ∂นҫӄїภғ Һαҭѡ ұσน †")
 		),
 			Array(Custom String("xMaxuss"), 
 				Custom String("Fading"), 
