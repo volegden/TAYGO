@@ -2,7 +2,7 @@ settings
 {
 	main
 	{
-		Description: " The previously named \"Friendly No Kill\"\n    is no longer being maintained! \n This version is kept up to date!\n\n Last updated: December 29, 2023\n\n      HAPPY HOLIDAYS!   \n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss\n Community managed with ♡ by: kwally"
+		Description: " The previously named \"Friendly No Kill\"\n    is no longer being maintained! \n This version is kept up to date!\n\n Last updated: December 30, 2023\n\n      HAPPY HOLIDAYS!   \n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss\n Community managed with ♡ by: kwally"
 		Mode Name: "♥ Friendly ♥ No Kill ♥ Updated ♥"
 	}
 
@@ -1173,11 +1173,14 @@ rule ("Custom nameplates list")
 		), 
 			Array(Custom String("Warloy"), 
 				Custom Color(64, 130, 109, 255),
-				Custom String("Coup de grâce")
+				Custom String("Coup de grâce"),
+				Custom String("♡")
 		), 
 			Array(Custom String("kwally"),		
-				Custom Color(15, 15, 15, 255),
-                Custom String("Ｋｗａｌｌｙ")
+				Custom String("Fading"), 
+				80,0,0, 255,0,0,
+                Custom String("Ｋｗａｌｌｙ"),
+				Custom String("† ї ∂นҫӄїภғ Һαҭѡ ұσน †")
 		),
 			Array(Custom String("xMaxuss"), 
 				Custom String("Fading"), 
@@ -1281,10 +1284,10 @@ rule ("Custom nameplates list")
 				Custom String("{0} A rubber room with rats and rats make me crazy {0}", Icon String(Skull))
 		),
 			Array(Custom String("Lünår"), 
-				Custom Color(237, 26, 77, 255),
-				Custom String("{0} Aegis Pyra {1}", Ability Icon String(Hero(Zenyatta), Button(Ability 1)), Ability Icon String(Hero(Zenyatta), Button(Ability 2))), 
-				Custom String("{0} Princess Daisy {0}", Ability Icon String(Hero(Lifeweaver), Button(Primaryfire))), 
-				Custom String("{0} Skull Kid {0}", Icon String(Skull))
+                Custom Color(88, 41, 160, 255),
+                Custom String("{0} 『 ＫｅｙＢｌａｄｅ Ｗｉｅｌｄｅｒ 』 {0}", Ability Icon String(Hero(Genji), Button(Ultimate))),
+                Custom String("{0} Dream of an Absolution {0}", Ability Icon String(Hero(Lifeweaver), Button(Primaryfire))), 
+                Custom String("{0} Skull Kid {0}", Icon String(Skull))
 		),
 			Array(Custom String("Eosia"), 
 				Custom Color(204, 0, 255, 255),
@@ -1354,7 +1357,7 @@ rule ("Custom nameplates list")
 				Color(Red),
 				Custom String("† Not Your Daddy †"), 
 				Custom String("† E-Girl Baiter †"), 
-				Custom String("† DEVILS DJ †")
+				Custom String("† Omega Kitten Owner †")
 		), 
 			Array(Custom String("Fenetre"), 
 				Custom Color(0, 0, 0, 255), 
@@ -1379,8 +1382,10 @@ rule ("Custom nameplates list")
 				Custom String("ヴィ")
 		),  
 			Array(Custom String("Visual"), 
-				Color(Black),
-				Custom String(" ")
+				Custom Color(220, 20, 60, 255),
+				Custom String("† E-GIRLS ARE RUINING MY LIFE! †"),
+				Custom String("† E-Girl Collector †"),
+				Custom String("† Omega Kitten †")
 		), 
 			Array(Custom String("Nef"),	
 				Custom Color(62, 253, 255, 255),
@@ -1533,15 +1538,16 @@ rule ("Custom nameplates list")
 				Custom String("{0} - ☆ Van Hellsing's devil ☆ - {1}", Ability Icon String(Hero(Cassidy), Button(Ultimate)), Ability Icon String(Hero(Junkrat), Button(Ultimate)))
 		),
 			Array(Custom String("NightShield"), 
-				Color(Black),
+				Custom Color(0, 255, 239, 255),
 				Custom String("{0} Go Push a rock up a hill {0}", Ability Icon String(Hero(Sigma), Button(Ability 2))),
 				Custom String("{0} Kirikult - Niriko {0}", Ability Icon String(Hero(Kiriko), Button(Ultimate))),
 				Custom String("{0} ― † Obanai Iguro † ― {0}", Ability Icon String(Hero(Kiriko), Button(Ultimate)))
 		),
 			Array(Custom String("KinkiTurtle"), 
-				Custom Color(255, 209, 209, 255),
-				Custom String("{0} 我爱你 {0}", Ability Icon String(Hero(Genji), Button(Ultimate))),
-				Custom String("{0} Kirikult - kinkiko {0}", Ability Icon String(Hero(Kiriko), Button(Ultimate)))
+                Custom Color(255, 209, 209, 255),
+                Custom String("{0} 我爱你 {0}", Ability Icon String(Hero(Genji), Button(Ultimate))),
+                Custom String("{0} Kirikult - kinkiko {0}", Ability Icon String(Hero(Kiriko), Button(Ultimate))),
+                Custom String("(๛ ˘ ³˘ )♡  кιикι ιѕ ячlυ (๛ ˘ ³˘ )♡")
 		),
 			Array(Custom String("mksvault"), 
 				Custom Color(244, 187, 68, 255),
@@ -1634,20 +1640,15 @@ rule ("Custom nameplates list")
 				Custom String("† B A N K A I †")
 		),
 			Array(Custom String("MOOOUSH"),
-				Color(Black),
-				Custom String("{0} † 乂 乂 乂 † {0}", Icon String(Moon))
+                Color(Black),
+                Custom String("{0} † 乂 乂 乂 † {0}", Icon String(Moon)),
+                Custom String("{0} ﾒ ﾒ ﾒ {0}", Icon String(Ring Thin))
 		),
 			Array(Custom String("Mirage"),
 				Custom Color(34, 139, 34, 255),
 				Custom String("• Bamboozled ツ •"),
 				Custom String("{0}  The Calm Before the Storm  {0}", Ability Icon String(Hero(Junker Queen), Button(Ultimate))),
 				Custom String("{0} • U N D E F E A T A B L E • {0}", Ability Icon String(Hero(Ramattra), Button(Ultimate)))
-		),
-			Array(Custom String("chii"),
-				Custom Color(216, 202, 231, 255),
-				Custom String("{0} b r e a k c o r e  - ♡ - c н σ в ı т ƨ {0}", Ability Icon String(Hero(Lifeweaver), Button(Primaryfire))),
-				Custom String("{0} ♡ ωнιтє кιтту - M E O W ♡ {0}", Ability Icon String(Hero(D.Va), Button(Ultimate))),
-				Custom String("{0} ♬  c н ι ι   ♡   м y  н ι d e ĸ ι  ♬ {0}", Ability Icon String(Hero(Mei), Button(Ability 1)))
 		),
 			Array(Custom String("Bluroisa"),
 				Custom Color(255, 164, 220, 255),
@@ -1673,7 +1674,7 @@ rule ("Custom nameplates list")
 				Custom String("{0} looking for female reaper main {0}", Ability Icon String(Hero(Kiriko), Button(Ability 2)))
 		),
 			Array(Custom String("BȂKƐDBȔŊŊYǃ"),
-				Custom Color(254, 171, 230, 255),
+				Custom Color(150, 111, 214, 255),
 				Custom String("♬ {0} 『 BEKAD BYNNU™ 』 {0} ♬", Ability Icon String(Hero(D.va), Button(Ultimate))),
 				Custom String("{0} CΗΣRRY BLΘSSΘM SQƱΔD™ {0}", Ability Icon String(Hero(Lifeweaver), Button(Primaryfire))),
 				Custom String("{0} ― ♥︎ Mitsuri Kanroji ♡ ― {0}", Ability Icon String(Hero(D.Va), Button(Ultimate)))
@@ -1728,6 +1729,23 @@ rule ("Custom nameplates list")
 		    Array(Custom String("Hoxy"), 
 			    Custom String("Rainbow"),
 			    Custom String("{0} Kiriko-Chan {0}", Ability Icon String(Hero(Kiriko), Button(Ultimate)))
+		),
+		    Array(Custom String("Simba"),
+                Color(Black),
+                Custom String("♡ CΔＮDұ GïVΣＲ ♡"),
+                Custom String("{0} ＢΔD ΘＭΣＮS CüL† {0}", Ability Icon String(Hero(Cassidy), Button(Ultimate)))
+        ),
+            Array(Custom String("sweet"),
+                Color(Black),
+                Custom String("{0} GRΣMĿIΠ MΣΠΛCΣ SQUΔD {0}", Ability Icon String(Hero(Sombra), Button(Ultimate))),
+                Custom String("『 {0} ― ѕмσℓ αηкℓє вιтєя ― {0} 』", Ability Icon String(Hero(D.Va), Button(Ultimate))),
+                Custom String("{0} ♡ FΣRΔL FΘR GΣNJI ♡ {0}", Ability Icon String(Hero(Genji), Button(Ultimate)))
+        ),
+            Array(Custom String("iXerethiel"),
+                Color(Black),
+                Custom String("{0} GRΣMĿIΠ MΣΠΛCΣ SQUΔD {0}", Ability Icon String(Hero(Sombra), Button(Ultimate))),
+                Custom String("{0} Ｆｒｅａｋ　ｏｎ　ａ　ｌｅａｓｈ {1}", Ability Icon String(Hero(Zenyatta), Button(Ability 1)), Ability Icon String(Hero(Zenyatta), Button(Ability 2))),
+                Custom String("{0} ♥︎ FΣRΔĿ FΘR RΣΛPΣR ♥︎ {0}", Ability Icon String(Hero(Reaper), Button(Ultimate)))
 		)
 		);
 	}
@@ -1908,7 +1926,7 @@ rule("Listed_Player")
 			Custom String("BStray"), Custom String("tsunde"), Custom String("Lünår"), Custom String("AvatarGod"), Custom String("ThatAspect"),
 			Custom String("DȈŦǾ"), Custom String("GhostPunch"), Custom String("Akaza"), Custom String("Ghøst"), Custom String("TURBOMURO"),
 			Custom String("Núgget"), Custom String("lostsektor"), Custom String("Hxneibee"), Custom String("Fenetre"), Custom String("Sinnie"),
-			Custom String("TazE"), Custom String("Triin1ty"), Custom String("Lannaanna"), Custom String("Fære"), 
+			Custom String("TazE"), Custom String("Triin1ty"), Custom String("Lannaanna"), Custom String("Fære"), Custom String("BlueSky"),
 			Custom String("Netbrex"), Custom String("Yeraei"), Custom String("yohan"), Custom String("RiwaChan"), Custom String("현대적인쌍봉낙타"),
 			Custom String("jupiter"), Custom String("NotForYou"), Custom String("fenmorre"), Custom String("Eosia"), Custom String("Nef"),
 			Custom String("Visual"), Custom String("Hestia"), Custom String("AMATERASU"), Custom String("Tedz"), Custom String("PŏŏkiƐ"),
@@ -1916,13 +1934,13 @@ rule("Listed_Player")
 			Custom String("Ređacted"), Custom String("S0undw4v3"), Custom String("LƐafa"), Custom String("WIĿĿOW"), Custom String("mksvault"),
 			Custom String("LightMist"), Custom String("KinkiTurtle"), Custom String("Adiidas"), Custom String("gh0stface"), Custom String("ByeFever"),
 			Custom String("NightShield"), Custom String("Gerry"), Custom String("whoshotcupid"), Custom String("MISTƔ"), Custom String("Ƒìşhy"),
-			Custom String("PumpkinJinx"), Custom String("ImmaPenguin"), Custom String("MrCleanerrrr"), Custom String("MrMidnight"), 
-			Custom String("SapphicWitch"), Custom String("VĬƗŌĿĖŦ"), Custom String("Arlecchino"), Custom String("ЈФҜЁЯ"), Custom String("Fragoso"),
-			Custom String("Juuzo"), Custom String("Fearlxss"), Custom String("ǃSHAY"), Custom String("Stalker"), Custom String("Eggman"),
-			Custom String("Mirage"), Custom String("Bluroisa"), Custom String("chii"), Custom String("Smiley"), Custom String("godly"),
-			Custom String("BȂKƐDBȔŊŊYǃ"), Custom String("zovha"), Custom String("pancakes"), Custom String("emilie"), Custom String("LostShadow"),
-			Custom String("Viktorski"), Custom String("Kuwai"),  Custom String("Miamor"), Custom String("BlueSky"), Custom String("PurpSkrrt"),
-			Custom String("sushiii"), Custom String("XMightyOwlXx"), Custom String("iXerethiel"), Custom String("Simba"), Custom String("sweet"));
+			Custom String("PumpkinJinx"), Custom String("ImmaPenguin"), Custom String("MrCleanerrrr"), Custom String("MrMidnight"), Custom String("SapphicWitch"), 
+			Custom String("VĬƗŌĿĖŦ"), Custom String("Arlecchino"), Custom String("ЈФҜЁЯ"), Custom String("Fragoso"), Custom String("Juuzo"),
+			Custom String("Fearlxss"), Custom String("ǃSHAY"), Custom String("Stalker"), Custom String("Eggman"), Custom String("Mirage"),
+			Custom String("Bluroisa"), Custom String("Smiley"), Custom String("godly"), Custom String("BȂKƐDBȔŊŊYǃ"), Custom String("zovha"),
+			Custom String("pancakes"), Custom String("emilie"), Custom String("LostShadow"), Custom String("Viktorski"), Custom String("Kuwai"),
+			Custom String("Miamor"), Custom String("PurpSkrrt"), Custom String("sushiii"), Custom String("XMightyOwlXx"), Custom String("iXerethiel"),
+			Custom String("Simba"), Custom String("sweet"));
 		
 		"Warning List"
 		Global.Warning_List = Array(
@@ -1946,7 +1964,8 @@ rule("Listed_Player")
 		Global.Banned_List = Array(
 			Custom String("BebeUwU"), Custom String("Fluttershy"), Custom String("SexiestBeast"), Custom String("BigBadBosses"), Custom String("Arthur"), 
 			Custom String("MrBalkanom"), Custom String("Partilazac11"), Custom String("Gn0mie"), Custom String("zanji3abd"), Custom String("FlameOwl"), 
-			Custom String("ActiveShootr"), Custom String("HOÑEYBEE"), Custom String("Dead"));
+			Custom String("ActiveShootr"), Custom String("HOÑEYBEE"), Custom String("Dead"), Custom String("chii"), Custom String("Valkyria"),
+			Custom String("WÃFFLĚS"));
 	}
 }
 
@@ -9344,7 +9363,7 @@ rule("Individual effect")
 	actions
 	{
 		Abort If(Custom String("{0}", Event Player) != Custom String("kwally"));
-		Play Effect(All Players(All Teams), Ring Explosion, Color(Black), Position Of(Event Player) + Vector(0, 0.022, 0), 1.3);
+		Play Effect(All Players(All Teams), Ring Explosion, Color(Red), Position Of(Event Player) + Vector(0, 0.022, 0), 1.3);
 		Wait(0.1, Ignore Condition);
 		Loop If Condition Is True;
 	}
@@ -9392,4 +9411,3 @@ rule("Signal Catch Failsave")
 		Event Player.Signal = False;
 	}
 }
-
