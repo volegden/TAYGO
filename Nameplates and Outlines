@@ -98,12 +98,6 @@ rule ("Custom nameplates list")
 				Color(Red),
 				Custom String("ＡｖａｔａｒＧｏｄ")
 		),
-			Array(Custom String("Cattanklol"), 
-				Custom Color(0, 23, 100, 255), 
-				Custom String("♡ The Heart Sees What The Eye Cannot ♡"),
-				Custom String("{0} ♥ Perfection is Overrated ♥ {0}", Ability Icon String(Hero(Lifeweaver), Button(Ultimate))),
-				Custom String("☆ Embrace Yourself and Know Strength Without Fear ☆")
-		),
 			Array(Custom String("Kiwizzlee"), 
 				Custom Color(255, 0, 87, 255),
 				Custom String("{0} ♬ Certified Girlboss ♬ {0}", Ability Icon String(Hero(Ashe), Button(Ability 2))),
@@ -471,12 +465,6 @@ rule ("Custom nameplates list")
 				Custom String("{0} Kιяιкσ мч вεlσνεd {0}", Ability Icon String(Hero(Kiriko), Button(Ability 2))),
 				Custom String("{0} Ɲσтнιηg ιѕ тяυє, єνєяутнιηg ιѕ ρєямιттє∂ {0}", Ability Icon String(Hero(Kiriko), Button(Secondaryfire))),
 				Custom String("{0} Hεrσ σf Τhε Lιghτ {0}", Icon String(Halo))
-		),
-			Array(Custom String("Stalker"),
-				Custom Color(153, 0, 0, 255),
-				Custom String("{0} Luigi {0}", Ability Icon String(Hero(Lifeweaver), Button(Primaryfire))),
-				Custom String("{0} Keaton mask {0}", Icon String(Skull)),
-				Custom String("{0} † Hier Kommt Die Sonne. † {0}", Ability Icon String(Hero(Illari), Button(Ultimate)))
 		),
 			Array(Custom String("ǃSHAY"),
 				Custom Color(204, 0, 0, 255),
