@@ -8408,9 +8408,6 @@ rule("Extra_7 - No Cooldowns")
 		If(Is Button Held(Event Player, Button(Secondary Fire)));
 			Set Ability Cooldown(Event Player, Button(Secondary Fire), 0);
 		End;
-		If(Is Button Held(Event Player, Button(Ultimate)));
-			Set Ability Cooldown(Event Player, Button(Ultimate), 0);
-		End;
 		If(Is Button Held(Event Player, Button(Jump)));
 			Set Ability Cooldown(Event Player, Button(Jump), 0);
 		End;
