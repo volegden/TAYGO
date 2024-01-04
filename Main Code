@@ -8368,7 +8368,7 @@ rule("Extra_6 - Mercy Movement Collision")
 	}
 }
 
-disabled rule("Extra_7 - No Cooldowns")
+rule("Extra_7 - No Cooldowns")
 {
 	event
 	{
@@ -8379,23 +8379,47 @@ disabled rule("Extra_7 - No Cooldowns")
 
 	conditions
 	{
+		Is True For Any(Array(Button(Primary Fire), Button(Secondary Fire), Button(Ability 1), Button(Ability 2), Button(Ultimate), 
+			Button(Interact), Button(Jump), Button(Crouch), Button(Melee), Button(Reload)), Is Button Held(Event Player, Current Array Element)) == True;
 		((Event Player.High_Rank || Event Player.Mod_Rank) == True);
+		Has Spawned(Event Player) == True;
 		Event Player.No_CD == True;
 	}
 
 	actions
 	{
-		Set Ability Cooldown(Event Player, Button (Primary Fire), 0);
-		Set Ability Cooldown(Event Player, Button (Secondary Fire), 0);
-		Set Ability Cooldown(Event Player, Button (Ability 1), 0);
-		Set Ability Cooldown(Event Player, Button (Ability 2), 0);
+		"Cooldown only when press the button >"
+		Wait(0.050, Abort When False);
+		If(Is Button Held(Event Player, Button(Ability 1)));
+			Set Ability Cooldown(Event Player, Button(Ability 1), 0);
+			Set Ability Charge(Event Player, Button(Ability 1), 3);
+			Set Ability Charge(Event Player, Button(Ability 1), 3);
+			Set Ability Resource(Event Player, Button(Ability 1), 3);
+		End;
+		If(Is Button Held(Event Player, Button(Ability 2)));
+			Set Ability Cooldown(Event Player, Button(Ability 2), 0);
+			Set Ability Charge(Event Player, Button(Ability 2), 3);
+			Set Ability Charge(Event Player, Button(Ability 2), 3);
+			Set Ability Resource(Event Player, Button(Ability 2), 3);
+		End;
+		If(Is Button Held(Event Player, Button(Primary Fire)));
+			Set Ability Cooldown(Event Player, Button(Primary Fire), 0);
+		End;
+		If(Is Button Held(Event Player, Button(Secondary Fire)));
+			Set Ability Cooldown(Event Player, Button(Secondary Fire), 0);
+		End;
+		If(Is Button Held(Event Player, Button(Ultimate)));
+			Set Ability Cooldown(Event Player, Button(Ultimate), 0);
+		End;
+		If(Is Button Held(Event Player, Button(Jump)));
+			Set Ability Cooldown(Event Player, Button(Jump), 0);
+		End;
+		If(Is Button Held(Event Player, Button(Crouch)));
+			Set Ability Cooldown(Event Player, Button(Crouch), 0);
+		End;
 		If(Ammo(Event Player, 0) <=1 && Hero Of(Event Player) != Hero(Cassidy) && Hero Of(Event Player) != Hero(Lifeweaver));
 			Set Ammo(Event Player, Weapon(Event Player)-1, 69);
-		End;
-		Set Ability Charge(Event Player, Button(Ability 1), 3);
-		Set Ability Charge(Event Player, Button(Ability 2), 3);
-		Wait(0.1, Abort When False);
-		Loop If Condition Is True;
+		End;	
 	}
 }
 
