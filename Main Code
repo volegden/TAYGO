@@ -8389,7 +8389,6 @@ rule("Extra_7 - No Cooldowns")
 	actions
 	{
 		"Cooldown only when press the button >"
-		Wait(0.050, Abort When False);
 		If(Is Button Held(Event Player, Button(Ability 1)));
 			Set Ability Cooldown(Event Player, Button(Ability 1), 0);
 			Set Ability Charge(Event Player, Button(Ability 1), 3);
