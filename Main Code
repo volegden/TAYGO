@@ -2,7 +2,7 @@ settings
 {
 	main
 	{
-		Description: " The previously named \"Friendly No Kill\"\n    is no longer being maintained! \n This version is kept up to date!\n\n Last updated: January 5, 2024\n\n      HAPPY HOLIDAYS!   \n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss\n Community managed with ♡ by: kwally"
+		Description: " The previously named \"Friendly No Kill\"\n    is no longer being maintained! \n This version is kept up to date!\n\n Last updated: January 8, 2024\n\n      HAPPY HOLIDAYS!   \n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss\n Community managed with ♡ by: kwally"
 		Mode Name: "♥ Friendly ♥ No Kill ♥ Updated ♥"
 	}
 
@@ -8866,6 +8866,7 @@ rule("Extra_25: Soldier Heart")
 
 	actions
 	{
+		Abort If(!Hero Of(Event Player) == Hero(Soldier: 76));
 		Event Player.Spam_Cooldown = 1;
 		Create Icon(All Players(All Teams), Update Every Frame(Eye Position(Event Player) - Vector(0,0.5,0) +
 			Event Player.Scale_Real * If-Then-Else(Is In View Angle(Event Player, Player Closest To Reticle(Event Player, All Teams), 25) 
