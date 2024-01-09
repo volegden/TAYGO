@@ -1182,12 +1182,6 @@ rule ("Custom nameplates list")
 				Custom String("† ї ∂นҫӄїภғ Һαҭѡ ұσน †"),
 				Custom String("†  **** outta here  †")
 		),
-			Array(Custom String("xMaxuss"), 
-				Custom String("Fading"), 
-				70,200,255, 150,225,255,
-				Custom String("{0} TO THE MAX {0}", Ability Icon String(Hero(Sombra), Button(Ultimate))),
-				Custom String("¡Hola! ¿Qué onda? {0}", Hero Icon String(Hero(Sombra)))
-		),
 			Array(Custom String("ǀƑIREǀ"), 
 				Custom String("Rainbow"),
 				Custom String("ALT F4"),
@@ -3535,7 +3529,7 @@ rule("Mode_00 AFK ON")
 	actions
 	{
 		Wait(5, Abort When False);
-		If(Custom String("{0}", Event Player) == Custom String("xMaxuss") || Custom String("{0}", Event Player) == Custom String("kwally") ||
+		If(Custom String("{0}", Event Player) == Custom String("kwally") ||
 			Custom String("{0}", Event Player) == Custom String("Warloy"));
 			Create Progress Bar In-World Text(All Players(All Teams), Modulo(Total Time Elapsed * Evaluate Once(Random Real(2,8)), 100), 
 				If-Then-Else(Custom String("{0}", Event Player) == Custom String("xMaxuss"), Custom String("Max is coding/afk\r\n"), 
