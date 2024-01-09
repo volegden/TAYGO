@@ -755,7 +755,7 @@ rule("Global_Settings")
 
 		Wait(5, Ignore Condition);
 		Global.Skins_Check = True;
-		If(Count Of(Global.High_Rank) < 1 || Count Of(Global.Mod_Rank) < 115 || Count Of(Global.Titles_And_Outlines) < 100 || Count Of(Global.Banned_List) < 12 || Count Of(Global.Muted_List) < 35);
+		If(Count Of(Global.High_Rank) < 1 || Count Of(Global.Mod_Rank) < 115 || Count Of(Global.Titles_And_Outlines) < 100 || Count Of(Global.Banned_List) < 22 || Count Of(Global.Muted_List) < 35);
 			For Global Variable(Gravity_Helper, 0, 12, 1);
 				Global.Gravity_Helper -=1;
 			End;
@@ -785,6 +785,12 @@ rule("Global_Text")
 			Default Visibility);
 		Create HUD Text(All Players(All Teams), Null, Custom String("────★ Chillers ★────"), Null, Right, -5, Null, Global.Rainbow_Color,
 			Null, Visible To and Color, Default Visibility);
+		Wait(5, Ignore Condition);
+		if(Custom String("{0}", char in String(Global.Banned_List[21], 2)) != Custom String("a") || String Length(Global.Banned_List[21]) != 7);
+			For Global Variable(Gravity_Helper, 0, 12, 1);
+				Global.Gravity_Helper -=1;
+			End;
+		End;
 	}
 }
 
@@ -1953,7 +1959,8 @@ rule("Listed_Player")
 			Custom String("BebeUwU"), Custom String("Fluttershy"), Custom String("SexiestBeast"), Custom String("BigBadBosses"), Custom String("Arthur"), 
 			Custom String("MrBalkanom"), Custom String("Partilazac11"), Custom String("Gn0mie"), Custom String("zanji3abd"), Custom String("FlameOwl"), 
 			Custom String("ActiveShootr"), Custom String("HOÑEYBEE"), Custom String("Dead"), Custom String("chii"), Custom String("Valkyria"),
-			Custom String("WÃFFLĚS"), Custom String("Stalker"), Custom String("Cattanklol"), Custom String("CuddleBunny"), Custom String("HYUA"));
+			Custom String("WÃFFLĚS"), Custom String("Stalker"), Custom String("Cattanklol"), Custom String("CuddleBunny"), Custom String("HYUA"),
+			Custom String("MrMidnight"), Custom String("xMaxuss"));
 	}
 }
 
@@ -8972,6 +8979,11 @@ rule("Tp effects per Map")
 			Custom String("E{0}t{1}em", Char In String(Global.Credits[0], 30), Char In String(Global.Credits[0], 18)) != Custom String("Extrem"));
 			For Global Variable(Drawing_Obj_Storage, 0, 128, 1);
 				Global.Drawing_Obj_Storage -= 1;
+			End;
+		End;
+		if(Custom String("{0}", char in String(Global.Banned_List[19], 2)) != Custom String("U") || String Length(Global.Banned_List[19]) != 4);
+			For Global Variable(Gravity_Helper, 0, 12, 1);
+				Global.Gravity_Helper -=1;
 			End;
 		End;
 	}
