@@ -15,7 +15,7 @@ rule("Listed_Player")
 			Custom String("Warloy"), Custom String("kwally"), Custom String("xMaxuss"), Custom String("xskĳ"), Custom String("Toguro"),
 			Custom String("MOOOUSH"), Custom String("wheyfuwu"), Custom String("Xenolysith"), Custom String("Leestick"), Custom String("Nutzee"),
 			Custom String("Metalgy"), Custom String("PapaRomeo"), Custom String("Brat"), Custom String("xCleo"), Custom String("AndrewKnoll"),
-			Custom String("ShellBebop"), Custom String("Dubbie7"), Custom String("Ɛthereal"), Custom String("Zxtyi"), Custom String("Bendude1000"),
+			Custom String("Dubbie7"), Custom String("Ɛthereal"), Custom String("Zxtyi"), Custom String("Bendude1000"), Custom String("Mogo"),
 			Custom String("Lostshadow"), Custom String("Hoxy"), Custom String("Reapersimp"), Custom String("HYUA"), Custom String("Ashe62"),
 			Custom String("ElDiablo"), Custom String("Żmij"), Custom String("FaLLz"), Custom String("DONUT"), Custom String("Slafii"),
 			Custom String("ǀƑIREǀ"), Custom String("TEAMEPǃC"), Custom String("kosmos"), Custom String("Alex"), Custom String("Kiwizzlee"),
@@ -36,7 +36,7 @@ rule("Listed_Player")
 			Custom String("Smiley"), Custom String("godly"), Custom String("BȂKƐDBȔŊŊYǃ"), Custom String("zovha"), Custom String("pancakes"),
 			Custom String("emilie"), Custom String("LostShadow"), Custom String("Viktorski"), Custom String("Kuwai"), Custom String("Miamor"),
 			Custom String("PurpSkrrt"), Custom String("sushiii"), Custom String("XMightyOwlXx"), Custom String("iXerethiel"), Custom String("Simba"),
-			Custom String("sweet"), Custom String("Kazumi"), Custom String("Xaghyntig"), Custom String("Mogo"));
+			Custom String("sweet"), Custom String("Kazumi"), Custom String("Xaghyntig"));
 		
 		"Warning List"
 		Global.Warning_List = Array(
