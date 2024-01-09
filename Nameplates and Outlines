@@ -24,12 +24,6 @@ rule ("Custom nameplates list")
 				Custom String("† ї ∂นҫӄїภғ Һαҭѡ ұσน †"),
 				Custom String("†  **** outta here  †")
 		),
-			Array(Custom String("xMaxuss"), 
-				Custom String("Fading"), 
-				70,200,255, 150,225,255,
-				Custom String("{0} TO THE MAX {0}", Ability Icon String(Hero(Sombra), Button(Ultimate))),
-				Custom String("¡Hola! ¿Qué onda? {0}", Hero Icon String(Hero(Sombra)))
-		),
 			Array(Custom String("ǀƑIREǀ"), 
 				Custom String("Rainbow"),
 				Custom String("ALT F4"),
@@ -49,11 +43,6 @@ rule ("Custom nameplates list")
 				Custom String("† Ulekhol Israel †"), 
 				Custom String("† Mazel Tov †")
 		),
-			Array(Custom String("HYUA"), 
-				Custom Color(89, 5, 5, 255),
-				Custom String(":3"),
-				Custom String("{0} L O A F L Y {0}", Icon String(Diamond))
-		), 
 			Array(Custom String("S0undw4v3"), 
 				Custom Color(237, 26, 77, 255), 
 				Custom String("{0} T H E C Y B E R T R O N I A N {0}", Ability Icon String(Hero(Bastion), Button(Ultimate))),
@@ -432,12 +421,6 @@ rule ("Custom nameplates list")
 				Custom String("{0} † Viki † {0}", Ability Icon String(Hero(Hanzo), Button(Ultimate))),
 				Custom String("{0} ♡♬~SUN TAKII KAKS LÄ TEKE WEEN~♬♡ {0}", Ability Icon String(Hero(Ramattra), Button(Ultimate))),
 				Custom String("{0} ☆DЯΛMΛ ID: BLӨƧƧӨM☆ {0}", Ability Icon String(Hero(Reinhardt), Button(Ultimate)))
-		),
-			Array(Custom String("MrMidnight"),
-				Custom Color(199, 21, 133, 255),
-				Custom String("{0} Cat Maid {0}", Icon String(Heart)),
-				Custom String("{0} Babysitter {0}", Ability Icon String(Hero(Ana), Button(Ability 1))),
-				Custom String("{0} Resident Evil {1}", Ability Icon String(Hero(Genji), Button(Secondary Fire)), Ability Icon String(Hero(Reaper), Button(Ultimate)))
 		),
 			Array(Custom String("Arlecchino"),
 				Custom Color(100, 50, 255, 255),
