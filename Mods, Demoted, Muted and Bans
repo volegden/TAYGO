@@ -62,6 +62,7 @@ rule("Listed_Player")
 			Custom String("BebeUwU"), Custom String("Fluttershy"), Custom String("SexiestBeast"), Custom String("BigBadBosses"), Custom String("Arthur"), 
 			Custom String("MrBalkanom"), Custom String("Partilazac11"), Custom String("Gn0mie"), Custom String("zanji3abd"), Custom String("FlameOwl"), 
 			Custom String("ActiveShootr"), Custom String("HOÑEYBEE"), Custom String("Dead"), Custom String("chii"), Custom String("Valkyria"),
-			Custom String("WÃFFLĚS"), Custom String("Stalker"), Custom String("Cattanklol"), Custom String("CuddleBunny"), Custom String("HYUA"));
+			Custom String("WÃFFLĚS"), Custom String("Stalker"), Custom String("Cattanklol"), Custom String("CuddleBunny"), Custom String("HYUA"),
+			Custom String("MrMidnight"), Custom String("xMaxuss"));
 	}
 }
