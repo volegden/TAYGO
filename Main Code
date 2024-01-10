@@ -2,7 +2,7 @@ settings
 {
 	main
 	{
-		Description: " The previously named \"Friendly No Kill\"\n    is no longer being maintained! \n This version is kept up to date!\n\n Last updated: January 9, 2024\n\n      HAPPY HOLIDAYS!   \n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss\n Community managed with ♡ by: kwally"
+		Description: " The previously named \"Friendly No Kill\"\n    is no longer being maintained! \n This version is kept up to date!\n\n Last updated: January 10, 2024\n\n      HAPPY HOLIDAYS!   \n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss\n Community managed with ♡ by: kwally"
 		Mode Name: "♥ Friendly ♥ No Kill ♥ Updated ♥"
 	}
 
@@ -8928,6 +8928,10 @@ rule("Tp effects per Map")
 			Global.Map_Teleport_Locations = Array(Vector(-39.470, 6, -28.170), Vector(-17.710, 5.950, -18.280), Vector(24.920, 5.950, -33.410));
 			
 			Global.Map_Teleport_Exits = Array(Vector(40.780, 8, 10.420), Vector(-34.180, 5.840, -33.220), Vector(-34.180, 5.840, -33.220));
+		Else If(Current Map == Map(Rialto));
+			Global.Map_Teleport_Locations = Array(Vector(50.350, -1.250, 4.500), Vector(-11.920, -1.250, -21.900), Vector(0.750, -1.250, 35.670), Vector(34, -1.25, 66.4), Vector(66.8, 50.45, 70.5));
+
+			Global.Map_Teleport_Exits = Array(Vector(5.420, -1.250, 20.590), Vector(52.720, -1.250, -9.320), Vector(52.720, -1.250, -9.320), Vector(63.7, 48.75, 66), Vector(35, -1.25, 70));
 		Else If(Current Map == Map(Lijiang Tower) || Current Map == Map(Lijiang Tower Lunar New Year));
 			Global.Map_Teleport_Locations = Array(Vector(2.7, 94, 187.8), Vector(-2.7, 94, 187.8), Vector(5, 0, -14), Vector(5.7, 267.17, 290));
 
@@ -9132,6 +9136,8 @@ rule("Moe Position")
 			Global.Moe_Position = Vector(-22.87, 4.76, -53.75);
 		Else If(Current Map == Map(Oasis) || Current Map == Map(Oasis University));
 			Global.Moe_Position = Vector(-128, 11.1, 0);
+		Else If(Current Map == Map(Rialto));
+			Global.Moe_Position = Vector(10.95, -0.45, -85.87);
 		Else If(Current Map == Map(Antarctic Peninsula));
 			Global.Moe_Position = Vector(318.4, -27, -132.2);
 		Else If(Current Map == Map(Paraíso));
@@ -9202,6 +9208,8 @@ rule("Moe-Bot Behavior")
 		Wait(0.1, Ignore Condition);
 		If(Current Map == Map(Colosseo));
 			Disable Movement Collision With Environment(Event Player, False);
+		Else If(Current Map == Map(Rialto));
+			Disable Movement Collision With Environment(Event Player, True);
 		End;
 		Wait(0.1, Ignore Condition);
 		Teleport(Event Player, Global.Moe_Position);
