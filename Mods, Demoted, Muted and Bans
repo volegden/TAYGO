@@ -24,7 +24,7 @@ rule("Listed_Player")
 			Custom String("Núgget"), Custom String("lostsektor"), Custom String("Hxneibee"), Custom String("Fenetre"), Custom String("Sinnie"),
 			Custom String("TazE"), Custom String("Triin1ty"), Custom String("Lannaanna"), Custom String("Fære"), Custom String("BlueSky"),
 			Custom String("Netbrex"), Custom String("Yeraei"), Custom String("yohan"), Custom String("RiwaChan"), Custom String("현대적인쌍봉낙타"),
-			Custom String("jupiter"), Custom String("NotForYou"), Custom String("fenmorre"), Custom String("Eosia"), Custom String("Nef"),
+			Custom String("jupiter"), Custom String("NotForYou"), Custom String("fenmorre"), Custom String("Eosia"), Custom String("Hogsrightnut"),
 			Custom String("Visual"), Custom String("Hestia"), Custom String("IZANAMI"), Custom String("Tedz"), Custom String("PŏŏkiƐ"),
 			Custom String("Ðårk"), Custom String("FactAttend"), Custom String("SpƐdy"), Custom String("Kazuma"), Custom String("Jermuseppo"),
 			Custom String("Ređacted"), Custom String("S0undw4v3"), Custom String("LƐafa"), Custom String("WIĿĿOW"), Custom String("mksvault"),
@@ -62,7 +62,7 @@ rule("Listed_Player")
 			Custom String("BebeUwU"), Custom String("Fluttershy"), Custom String("SexiestBeast"), Custom String("BigBadBosses"), Custom String("Arthur"), 
 			Custom String("MrBalkanom"), Custom String("Partilazac11"), Custom String("Gn0mie"), Custom String("zanji3abd"), Custom String("FlameOwl"), 
 			Custom String("ActiveShootr"), Custom String("HOÑEYBEE"), Custom String("Dead"), Custom String("chii"), Custom String("Valkyria"),
-			Custom String("WÃFFLĚS"), Custom String("Stalker"), Custom String("Cattanklol"), Custom String("CuddleBunny"), Custom String("HYUA"),
-			Custom String("MrMidnight"), Custom String("xMaxuss"));
+			Custom String("WÃFFLĚS"), Custom String("Stalker"), Custom String("CuddleBunny"), Custom String("HYUA"), Custom String("MrMidnight"),
+			Custom String("xMaxuss"));
 	}
 }
