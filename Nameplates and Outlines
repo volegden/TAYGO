@@ -71,15 +71,7 @@ rule ("Custom nameplates list")
 		),
 			Array(Custom String("kosmos"), 
 				Custom Color(80, 179, 149, 255),
-				Custom String("{0} I'm so full from uranium yum {0}", Icon String(Radioactive)), 
-				Custom String("{0} Can I borrow your Geigercounter? {0}", Icon String(Radioactive)),
-				Custom String("{0} I am in your walls {0}", Icon String(Radioactive))
-		), 
-			Array(Custom String("wheyfuwu"), 
-				Custom Color(219, 99, 179, 255),
-				Custom String("wheyfu"), 
-				Custom String("resident tomboy"),
-				Custom String("President #whey", Ability Icon String(Hero(Ramattra), Button(Ability 1)))
+				Custom String("{0} I'm so full from uranium yum {0}", Icon String(Radioactive))
 		),
 			Array(Custom String("AvatarGod"), 
 				Color(Red),
@@ -122,7 +114,6 @@ rule ("Custom nameplates list")
 		),
 			Array(Custom String("Fære"), 
 				Custom Color(246, 195, 247, 255),
-				Custom String("{0} † Agony's Embrace † {0}", Ability Icon String(Hero(Widowmaker), Button(Ability 2))),
 				Custom String("{0} † The Siren's Call † {0}", Icon String(Skull)),
 				Custom String("{0} Spirit Blossom {0}", Ability Icon String(Hero(Lifeweaver), Button(Primaryfire)))
 		),
@@ -178,8 +169,7 @@ rule ("Custom nameplates list")
 			Array(Custom String("Hxneibee"), 
 				Custom Color(84, 1, 1, 255),
 				Custom String("愛"), 
-				Custom String("{0} Yes Kakarot I see it... {0}", Icon String(Exclamation Mark)), 
-				Custom String("{0}  Camel milk hater  {0}", Ability Icon String(Hero(Kiriko), Button(Secondary Fire)))
+				Custom String("{0} Beesnutz {0}", Ability Icon String(Hero(Kiriko), Button(Secondary Fire)))
 		),
 			Array(Custom String("Ƒìşhy"), 
 				Custom Color(255, 155, 202, 255),
@@ -191,12 +181,10 @@ rule ("Custom nameplates list")
 				Custom String("ヴィ")
 		),  
 			Array(Custom String("Visual"), 
-				Custom Color(220, 20, 60, 255),
-				Custom String("† E-GIRLS ARE RUINING MY LIFE! †"),
-				Custom String("† E-Girl Collector †"),
-				Custom String("† Omega Kitten †")
+				Color(Black),
+				Custom String(" ")
 		), 
-			Array(Custom String("Nef"),	
+			Array(Custom String("Hogsrightnut"),	
 				Custom Color(62, 253, 255, 255),
 				Custom String("{0}  PARTNERS IN CRIME  {0}", Icon String(Dizzy)),
 				Custom String("{0}  ARMY OF TWO  {0}", Ability Icon String(Hero(Ramattra), Button(Ability 1))),
@@ -248,7 +236,6 @@ rule ("Custom nameplates list")
 			Array(Custom String("jupiter"), 
 				Custom Color(255, 153, 179, 255),
 				Custom String("{0} ♡ frostie ♡ {0}", Ability Icon String(Hero(Kiriko), Button(Ultimate))), 
-				Custom String("⁂ Jupiter ⁂"),
 				Custom String("♡ • Deja Vu • ♡")
 		), 
 			Array(Custom String("かなかけ"), 
@@ -263,9 +250,7 @@ rule ("Custom nameplates list")
 		),
 			Array(Custom String("yohan"),
 				Custom Color(153, 230, 153, 255), 
-				Custom String("{0} 'phil'ipino {0}", Ability Icon String(Hero(Illari), Button(Ultimate))),
-				Custom String("{0} bravo six lover {0}", Icon String(Dizzy)),
-				Custom String("{0}  ｙｏｌｕｌｕ  {0}", Ability Icon String(Hero(Hanzo), Button(Ability 1)))
+				Custom String("{0} bravo six lover {0}", Icon String(Dizzy))
 		),
 			Array(Custom String("PŏŏkiƐ"),
 				Custom Color(255, 136, 92, 255), 
@@ -369,7 +354,6 @@ rule ("Custom nameplates list")
 		),
 			Array(Custom String("Adiidas"), 
 				Custom Color(80, 8, 61, 255),
-				Custom String("{0} ȂBÛ$ȄR & ȂBÛŠȄD {0}", Icon String(Moon)),
 				Custom String("{0} ♡♬~TASKUT NI PAINAVAT EN TARVI SALI~♬♡ {0}", Ability Icon String(Hero(Kiriko), Button(Ability 2))),
 				Custom String("{0} Nike {0}", Icon String(Checkmark))
 		),
@@ -519,7 +503,6 @@ rule ("Custom nameplates list")
             Array(Custom String("sweet"),
                 Color(Black),
                 Custom String("{0} GRΣMĿIΠ MΣΠΛCΣ SQUΔD {0}", Ability Icon String(Hero(Sombra), Button(Ultimate))),
-                Custom String("『 {0} ― ѕмσŀ αηкŀє вιтєя ― {0} 』", Ability Icon String(Hero(D.Va), Button(Ultimate))),
                 Custom String("{0} ♡ FΣRΔL FΘR GΣNJI ♡ {0}", Ability Icon String(Hero(Genji), Button(Ultimate)))
         ),
             Array(Custom String("iXerethiel"),
