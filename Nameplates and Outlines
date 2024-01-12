@@ -324,7 +324,7 @@ rule ("Custom nameplates list")
 			Array(Custom String("NightShield"), 
                 Custom Color(143, 27, 34, 255),
                 Custom String("{0} Go Push a rock up a hill {0}", Ability Icon String(Hero(Sigma), Button(Ability 2))),
-                Custom String("{0} 『 ♬ KƳΘƲKΛ - 耳郎 』 {0}", Ability Icon String(Hero(Lucio), Button(Ability 2)))
+                Custom String("{0} 『 ♬ KƳΘƲKΛ - 耳郎 』 {0}", Ability Icon String(Hero(Lúcio), Button(Ability 2)))
 		),
 			Array(Custom String("KinkiTurtle"), 
                 Custom Color(255, 209, 209, 255),
