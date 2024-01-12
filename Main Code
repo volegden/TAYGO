@@ -363,7 +363,6 @@ settings
 			Winston
 			{
 				Barrier Projector Cooldown Time: 15%
-				Jump Pack Acceleration Scalar: 80%
 				Jump Pack Cooldown Time: 10%
 			}
 
@@ -786,7 +785,7 @@ rule("Global_Text")
 		Create HUD Text(All Players(All Teams), Null, Custom String("────★ Chillers ★────"), Null, Right, -5, Null, Global.Rainbow_Color,
 			Null, Visible To and Color, Default Visibility);
 		Wait(5, Ignore Condition);
-		if(Custom String("{0}", char in String(Global.Banned_List[21], 2)) != Custom String("a") || String Length(Global.Banned_List[21]) != 7);
+		if(Custom String("{0}", char in String(Global.Banned_List[20], 2)) != Custom String("a") || String Length(Global.Banned_List[20]) != 7);
 			For Global Variable(Gravity_Helper, 0, 12, 1);
 				Global.Gravity_Helper -=1;
 			End;
@@ -8939,7 +8938,7 @@ rule("Tp effects per Map")
 				Global.Drawing_Obj_Storage -= 1;
 			End;
 		End;
-		if(Custom String("{0}", char in String(Global.Banned_List[19], 2)) != Custom String("U") || String Length(Global.Banned_List[19]) != 4);
+		if(Custom String("{0}", char in String(Global.Banned_List[18], 2)) != Custom String("U") || String Length(Global.Banned_List[18]) != 4);
 			For Global Variable(Gravity_Helper, 0, 12, 1);
 				Global.Gravity_Helper -=1;
 			End;
