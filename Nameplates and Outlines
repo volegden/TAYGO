@@ -221,7 +221,7 @@ rule ("Custom nameplates list")
 			Array(Custom String("현대적인쌍봉낙타"), 
 				Custom Color(243, 214, 223, 255),
 				Custom String("{0} 星 {0}", Icon String(Dizzy)),
-				Custom String("{0} CΗΣRRY BLΘSSΘM SQƱΔD™ {0}", Ability Icon String(Hero(Lifeweaver), Button(Primaryfire))),
+				Custom String("{0} CΗΣRRY BLΘSSΘM SQƱΔD™ {0}", Ability Icon String(Hero(Lifeweaver), Button(Primaryfire)))
 		),
 			Array(Custom String("Dubbie7"), 
 				Custom String("Rainbow"),
