@@ -868,10 +868,6 @@ rule("Default_Player_Settings")
 			Event Player, 1, Do Not Clip, Visible To Position and String, Color(White), Default Visibility);
 		Event Player.Target_Tag_ID = Last Text ID;
 
-		"Happy Holidays Str"
-		Create HUD Text(Event Player, Null, Null, Custom String("{0} Happy Holidays! {1}", Ability Icon String(Hero(Mercy), Button(Ultimate)), Icon String(Fire)), 
-			Top, 100, Null, Null, Global.Rainbow_Color, Visible To And Color, Default Visibility);
-
 		"Default Variables"
 		Event Player.Signal = False;
 		Event Player.Is_Invisible = False;
