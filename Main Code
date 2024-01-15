@@ -2,7 +2,7 @@ settings
 {
 	main
 	{
-		Description: " The previously named \"Friendly No Kill\"\n    is no longer being maintained! \n This version is kept up to date!\n\n Last updated: January 14, 2024\n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss\n Community managed with ♡ by: kwally"
+		Description: " The previously named \"Friendly No Kill\"\n    is no longer being maintained! \n This version is kept up to date!\n\n Last updated: January 15, 2024\n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss\n Community managed with ♡ by: kwally"
 		Mode Name: "♥ Friendly ♥ No Kill ♥ Updated ♥"
 	}
 
@@ -1179,7 +1179,7 @@ rule ("Custom nameplates list")
 			Array(Custom String("kwally"),		
 				Custom String("Fading"), 
 				80,0,0, 255,0,0,
-                Custom String("† ƅїǥ ҭїҭҭїę ǥσҭҺ ḿσḿḿұ †"),
+                Custom String("† ƅїǥ ҭїҭҭїє ǥσҭҺ ḿσḿḿұ †"),
 				Custom String("† ї ∂นҫӄїภғ Һαҭѡ ұσน †"),
 				Custom String("Ｋｗａｌｌｙ")
 		),
@@ -1260,10 +1260,9 @@ rule ("Custom nameplates list")
                 Custom String("{0} Dream of an Absolution {0}", Ability Icon String(Hero(Lifeweaver), Button(Primaryfire)))
 		),
 			Array(Custom String("Eosia"), 
-				Custom Color(204, 0, 255, 255),
-				Custom String("☆Sombra Enjoyer☆"),
-				Custom String("{0} Kir's Dad {0}", Ability Icon String(Hero(Kiriko), Button(Ability 2))),
-				Custom String("★ Heroicoholic ★")
+				Custom String("Rainbow"),
+				Custom String("☆ dragon accro au sucre ☆"),
+				Custom String("{0} Kir's Dad {0}", Ability Icon String(Hero(Kiriko), Button(Ability 2)))
 		),
 			Array(Custom String("Ređacted"), 
 				Custom String("Rainbow"),
@@ -1367,7 +1366,7 @@ rule ("Custom nameplates list")
 			Array(Custom String("현대적인쌍봉낙타"), 
 				Custom Color(243, 214, 223, 255),
 				Custom String("{0} 星 {0}", Icon String(Dizzy)),
-				Custom String("{0} CΗΣRRY BLΘSSΘM SQƱΔD™ {0}", Ability Icon String(Hero(Lifeweaver), Button(Primaryfire)))
+				Custom String("{0} ☆DЯΛMΛ ID: BƱBBLΣ☆ {0}", Ability Icon String(Hero(Echo), Button(Secondaryfire)))
 		),
 			Array(Custom String("Dubbie7"), 
 				Custom String("Rainbow"),
@@ -1461,7 +1460,7 @@ rule ("Custom nameplates list")
 			Array(Custom String("ImmaPenguin"), 
 				Custom Color(3, 4, 174, 255),
 				Custom String("Pengu"),
-				Custom String("{0} What's your favorite animal? {1}", Ability Icon String(Hero(D.va), Button(Ultimate)), Ability Icon String(Hero(Kiriko), Button(Ultimate)))
+				Custom String("{0} What's your favorite animal? {0}", Ability Icon String(Hero(D.va), Button(Ultimate)))
 		),
 			Array(Custom String("LightMist"), 
 				Custom Color(102, 178, 178, 255),
@@ -1472,7 +1471,6 @@ rule ("Custom nameplates list")
 			Array(Custom String("gh0stface"), 
 				Custom String("Rainbow"),
 				Custom String("♡ Lostshadow's big sister ♡"),
-				Custom String("{0} Ｍｅｏｗ ｆｏｒ Ｎｉｔｒｏ {0}", Ability Icon String(Hero(Ramattra), Button(Ultimate))),
 				Custom String("{0} ☆DЯΛMΛ ID: BƱƬƬΣЯCƱP☆ {0}", Ability Icon String(Hero(Kiriko), Button(Ultimate)))
 		),
 			Array(Custom String("PumpkinJinx"), 
@@ -1525,7 +1523,7 @@ rule ("Custom nameplates list")
 				Custom Color(204, 153, 255, 255),
 				Custom String("♡ {0} Local server mom friend {0} ♡", Ability Icon String(Hero(Mercy), Button(Ability 1))),
 				Custom String("♡ Bayonetta simp ♡"),
-				Custom String("{0} Moicy on top {1}", Ability Icon String(Hero(Mercy), Button(Ultimate)), Ability Icon String (Hero(Moira), Button(Ultimate)))
+				Custom String("{0} Moicy on top {0}", Ability Icon String(Hero(Mercy), Button(Ultimate)))
 		),
 			Array(Custom String("VĬƗŌĿĖŦ"),
 				Custom Color(179, 168, 247, 255),
@@ -1598,11 +1596,11 @@ rule ("Custom nameplates list")
 			Array(Custom String("BȂKƐDBȔŊŊYǃ"),
                 Custom Color(93, 63, 211, 255),
                 Custom String("{0} -` εїз ĿEΛF & SΔIF'S SISƬΣR εїз ´- {0}", Ability Icon String(Hero(Genji), Button(Ultimate))),
-                Custom String("{0} 『 ♡ ƳΛΘƳΘƦΘȤƲ - 桃 』 {0}", Ability Icon String(Hero(Mercy), Button(Ultimate)))
+                Custom String("{0} 『 ♡ ƳΛΘƳΘƦΘZƲ - 桃 』 {0}", Ability Icon String(Hero(Mercy), Button(Ultimate)))
 		),
-			Array(Custom String("Smiley"),
+			Array(Custom String("Nel"),
 				Custom Color(169, 174, 241, 255),
-				Custom String("† ŋęę∂ ḿұ ƅїǥ ҭїҭҭїę ǥσҭҺ ḿσḿḿұ †"), 
+				Custom String("† ภєє∂ ḿұ ƅїǥ ҭїҭҭїє ǥσҭҺ ḿσḿḿұ †"), 
 				Custom String("{0} ñØ ï'm Ɓïg ƁrαïñêÐ {0}", Ability Icon String(Hero(Kiriko), Button(Secondaryfire)))
 		),
 			Array(Custom String("zovha"),
@@ -1652,11 +1650,6 @@ rule ("Custom nameplates list")
                 Custom String("{0} ＢΔD ΘＭΣＮS CüL† {0}", Ability Icon String(Hero(Cassidy), Button(Ultimate))),
 				Custom String("{0}  N α и ø  ♥  B ø ø š т e я  {0}", Ability Icon String(Hero(Ana), Button(Ultimate)))
         ),
-            Array(Custom String("sweet"),
-                Color(Black),
-                Custom String("{0} GRΣMĿIΠ MΣΠΛCΣ SQUΔD {0}", Ability Icon String(Hero(Sombra), Button(Ultimate))),
-                Custom String("{0} ♡ FΣRΔL FΘR GΣNJI ♡ {0}", Ability Icon String(Hero(Genji), Button(Ultimate)))
-        ),
             Array(Custom String("iXerethiel"),
                 Color(Black),
                 Custom String("{0} GRΣMĿIΠ MΣΠΛCΣ SQUΔD {0}", Ability Icon String(Hero(Sombra), Button(Ultimate))),
@@ -1678,8 +1671,13 @@ rule ("Custom nameplates list")
 		),
 		    Array(Custom String("Xaghyntig"),
 			    Custom String("Rainbow"),
-                Custom String("♥️ I love titties ♥️"),
-				Custom String("Man, I really love titties")
+                Custom String("♥️ I LΘƲΣ ƬIDDIΣЅ ♥️"),
+				Custom String("ΜΔN, I RΣΔLLΨ LΘƲΣ ƬIDDIΣЅ")
+		),
+			Array(Custom String("karlybarly"), 
+			      Custom Color(153, 204, 255, 255),
+			      Custom String("{0} 莉 {0}", Ability Icon String(Hero(D.va), Button(Ultimate))), 
+			      Custom String("{0} くそがき  {0}", Ability Icon String(Hero(Kiriko), Button(Ability 2)))
 		)
 		);
 	}
@@ -1871,10 +1869,10 @@ rule("Listed_Player")
 			Custom String("PumpkinJinx"), Custom String("ImmaPenguin"), Custom String("MrCleanerrrr"), Custom String("SapphicWitch"), 
 			Custom String("VĬƗŌĿĖŦ"), Custom String("Arlecchino"), Custom String("IZANAGI"), Custom String("Fragoso"), Custom String("Juuzo"),
 			Custom String("Fearlxss"), Custom String("ǃSHAY"), Custom String("Eggman"), Custom String("Mirage"), Custom String("Bluroisa"),
-			Custom String("Smiley"), Custom String("godly"), Custom String("BȂKƐDBȔŊŊYǃ"), Custom String("zovha"), Custom String("pancakes"),
+			Custom String("Nel"), Custom String("godly"), Custom String("BȂKƐDBȔŊŊYǃ"), Custom String("zovha"), Custom String("pancakes"),
 			Custom String("emilie"), Custom String("LostShadow"), Custom String("Viktorski"), Custom String("Kuwai"), Custom String("Miamor"),
 			Custom String("PurpSkrrt"), Custom String("sushiii"), Custom String("XMightyOwlXx"), Custom String("iXerethiel"), Custom String("Simba"),
-			Custom String("sweet"), Custom String("Kazumi"), Custom String("Xaghyntig"));
+			Custom String("karlybarly"), Custom String("Kazumi"), Custom String("Xaghyntig"));
 		
 		"Warning List"
 		Global.Warning_List = Array(
@@ -1893,7 +1891,7 @@ rule("Listed_Player")
 
 		"Demoted List"
 		Global.Demoted_List = Array(
-			Custom String("None"));
+			Custom String("sweet"));
 
 		"Automatic Ban"
 		Global.Banned_List = Array(
