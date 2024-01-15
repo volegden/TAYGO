@@ -33,10 +33,10 @@ rule("Listed_Player")
 			Custom String("PumpkinJinx"), Custom String("ImmaPenguin"), Custom String("MrCleanerrrr"), Custom String("SapphicWitch"), 
 			Custom String("VĬƗŌĿĖŦ"), Custom String("Arlecchino"), Custom String("IZANAGI"), Custom String("Fragoso"), Custom String("Juuzo"),
 			Custom String("Fearlxss"), Custom String("ǃSHAY"), Custom String("Eggman"), Custom String("Mirage"), Custom String("Bluroisa"),
-			Custom String("Smiley"), Custom String("godly"), Custom String("BȂKƐDBȔŊŊYǃ"), Custom String("zovha"), Custom String("pancakes"),
+			Custom String("Nel"), Custom String("godly"), Custom String("BȂKƐDBȔŊŊYǃ"), Custom String("zovha"), Custom String("pancakes"),
 			Custom String("emilie"), Custom String("LostShadow"), Custom String("Viktorski"), Custom String("Kuwai"), Custom String("Miamor"),
 			Custom String("PurpSkrrt"), Custom String("sushiii"), Custom String("XMightyOwlXx"), Custom String("iXerethiel"), Custom String("Simba"),
-			Custom String("sweet"), Custom String("Kazumi"), Custom String("Xaghyntig"));
+			Custom String("karlybarly"), Custom String("Kazumi"), Custom String("Xaghyntig"));
 		
 		"Warning List"
 		Global.Warning_List = Array(
@@ -55,7 +55,7 @@ rule("Listed_Player")
 
 		"Demoted List"
 		Global.Demoted_List = Array(
-			Custom String("None"));
+			Custom String("sweet"));
 
 		"Automatic Ban"
 		Global.Banned_List = Array(
