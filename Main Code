@@ -2,7 +2,7 @@ settings
 {
 	main
 	{
-		Description: " The previously named \"Friendly No Kill\"\n    is no longer being maintained! \n This version is kept up to date!\n\n Last updated: January 15, 2024\n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss\n Community managed with ♡ by: kwally"
+		Description: " The previously named \"Friendly No Kill\"\n    is no longer being maintained! \n This version is kept up to date!\n\n Last updated: January 17, 2024\n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss\n Community managed with ♡ by: kwally"
 		Mode Name: "♥ Friendly ♥ No Kill ♥ Updated ♥"
 	}
 
@@ -1225,8 +1225,7 @@ rule ("Custom nameplates list")
 			Array(Custom String("Toguro"), 
 				Color(Black),
 				Custom String("Darkeater"), 
-				Custom String("Fléau des Astres"),
-				Custom String("Celui qui renaquit")
+				Custom String("Fléau des Astres")
 		),
 			Array(Custom String("kosmos"), 
 				Custom Color(80, 179, 149, 255),
@@ -1283,8 +1282,7 @@ rule ("Custom nameplates list")
 			Array(Custom String("Brat"), 
 				Custom String("Rainbow"),
 				Custom String("{0} PARTNERS IN CRIME {0}", Icon String(Dizzy)),
-				Custom String("☆ BPD BADDIE ☆"), 
-				Custom String("{0} Ｃｈａｒｉｓｍａｔｉｃａｌｌｙ    Ｄｅｐｒｅｓｓｅｄ {0}", Ability Icon String(Hero(Moira), Button(Ability 2)))
+				Custom String("☆ BPD BADDIE ☆")
 		),
 			Array(Custom String("TURBOMURO"),
 				Custom Color(255, 255, 255, 255),
@@ -1339,9 +1337,9 @@ rule ("Custom nameplates list")
 		),  
 			Array(Custom String("Visual"), 
 				Color(Black),
-				Custom String(" ")
+				Custom String("† Kwally's kitten †")
 		), 
-			Array(Custom String("Hogsrightnut"),	
+			Array(Custom String("HogsRightNut"),	
 				Custom Color(62, 253, 255, 255),
 				Custom String("{0}  PARTNERS IN CRIME  {0}", Icon String(Dizzy)),
 				Custom String("{0}  ARMY OF TWO  {0}", Ability Icon String(Hero(Ramattra), Button(Ability 1))),
@@ -1371,7 +1369,7 @@ rule ("Custom nameplates list")
 			Array(Custom String("Dubbie7"), 
 				Custom String("Rainbow"),
 				Custom String("{0} ☆  D u b s t a r  ☆ {0}", Ability Icon String(Hero(Kiriko), Button(Ultimate))),
-				Custom String("{0} Ｂａｒｋ ｆｏｒ Ｒｏｂｕｘ {0}", Ability Icon String(Hero(Ramattra), Button(Ultimate)))
+				Custom String("♥ Ghostface es mi amor ♥")
 		), 
 			Array(Custom String("Zxtyi"), 
 				Color(Black),
@@ -1434,7 +1432,6 @@ rule ("Custom nameplates list")
 		),
 			Array(Custom String("Ɛthereal"), 
 				Color(Red),
-				Custom String("{0} Ｅｎｄｌｅｓｓ　　Ｌｉｆｅ {0}", Ability Icon String(Hero(Kiriko), Button(Secondaryfire))),
 				Custom String("{0} Sith Master Immortal {0}", Ability Icon String(Hero(Genji), Button(ULtimate))), 
 				Custom String("{0} Sigma's Starlight {0}", Ability Icon String(Hero(Sigma), Button(Ultimate)))
 		), 
@@ -1476,7 +1473,7 @@ rule ("Custom nameplates list")
 			Array(Custom String("PumpkinJinx"), 
 				Custom Color(237, 27, 12, 255),
 				Custom String("{0} - ☆ Joke's over, you're dead! ☆ - {0}", Icon String(Fire)),
-				Custom String("{0} ★ - Love me, hate me... Either way I'm on your mind ! - ★ {0}", Icon String(Poison))
+				Custom String("{0} ★ - Stuck in your head ! - ★ {0}", Icon String(Poison))
 		),
 			Array(Custom String("NightShield"), 
                 Custom Color(143, 27, 34, 255),
@@ -1511,7 +1508,7 @@ rule ("Custom nameplates list")
 				Custom String("{0} Nike {0}", Icon String(Checkmark))
 		),
 			Array(Custom String("Alex"), 
-				Custom Color(0, 0, 128, 255),
+				Custom Color(139, 0, 0, 255),
 				Custom String(" ")
 		),
 			Array(Custom String("IZANAGI"),
@@ -1521,8 +1518,7 @@ rule ("Custom nameplates list")
 		),
 			Array(Custom String("SapphicWitch"),
 				Custom Color(204, 153, 255, 255),
-				Custom String("♡ {0} Local server mom friend {0} ♡", Ability Icon String(Hero(Mercy), Button(Ability 1))),
-				Custom String("♡ Bayonetta simp ♡"),
+				Custom String("{0} Tiny Mercy collector {0}", Ability Icon String(Hero(Moira), Button(Ultimate))),
 				Custom String("{0} Moicy on top {0}", Ability Icon String(Hero(Mercy), Button(Ultimate)))
 		),
 			Array(Custom String("VĬƗŌĿĖŦ"),
@@ -1541,7 +1537,6 @@ rule ("Custom nameplates list")
 		),
 			Array(Custom String("Arlecchino"),
 				Custom Color(100, 50, 255, 255),
-				Custom String("♥ Arlecchino ♥"),
 				Custom String("♥ {0} Hampter {0} ♥", Hero Icon String(Hero(Wrecking Ball))),
 				Custom String("♥ Cappuccino ♥")
 		),
@@ -1651,9 +1646,8 @@ rule ("Custom nameplates list")
 				Custom String("{0}  N α и ø  ♥  B ø ø š т e я  {0}", Ability Icon String(Hero(Ana), Button(Ultimate)))
         ),
             Array(Custom String("iXerethiel"),
-                Color(Black),
-                Custom String("{0} GRΣMĿIΠ MΣΠΛCΣ SQUΔD {0}", Ability Icon String(Hero(Sombra), Button(Ultimate))),
-                Custom String("{0} ♥︎ FΣRΔĿ FΘR RΣΛPΣR ♥︎ {0}", Ability Icon String(Hero(Reaper), Button(Ultimate)))
+                Custom String("Rainbow"),
+				Custom String(" ")
 		),
 		    Array(Custom String("Mogo"),
                 Custom Color(0, 0, 205, 255),
@@ -1677,7 +1671,17 @@ rule ("Custom nameplates list")
 			Array(Custom String("karlybarly"), 
 			      Custom Color(153, 204, 255, 255),
 			      Custom String("{0} 莉 {0}", Ability Icon String(Hero(D.va), Button(Ultimate))), 
-			      Custom String("{0} くそがき  {0}", Ability Icon String(Hero(Kiriko), Button(Ability 2)))
+			      Custom String("{0} くそがき {0}", Ability Icon String(Hero(Kiriko), Button(Ability 2)))
+		),
+			Array(Custom String("XMightyOwlXx"), 
+			      Custom Color(255, 102, 102, 255),
+			      Custom String("{0} ♥ Kiwi’s little brother ♥ {0}", Icon String(Halo)),
+			      Custom String("{0} Florida man {0}", Icon String(Spiral))
+		),
+			Array(Custom String("FactAttend"), 
+                  Custom Color(96, 10, 113, 255),
+                  Custom String("{0}  ♥ Ｖｅｒｇｉｆｔｅｔｅ  Ｇｎａｄｅ ♥  {0}", Ability Icon String(Hero(Sombra), Button(Ultimate))),
+            	  Custom String("{0} 実際 † Synysteria Gates † 実際 {0}", Hero Icon String(Hero(Illari)))
 		)
 		);
 	}
@@ -1860,7 +1864,7 @@ rule("Listed_Player")
 			Custom String("Núgget"), Custom String("lostsektor"), Custom String("Hxneibee"), Custom String("Fenetre"), Custom String("Sinnie"),
 			Custom String("TazE"), Custom String("Triin1ty"), Custom String("Lannaanna"), Custom String("Fære"), Custom String("BlueSky"),
 			Custom String("Netbrex"), Custom String("Yeraei"), Custom String("yohan"), Custom String("RiwaChan"), Custom String("현대적인쌍봉낙타"),
-			Custom String("jupiter"), Custom String("NotForYou"), Custom String("fenmorre"), Custom String("Eosia"), Custom String("Hogsrightnut"),
+			Custom String("jupiter"), Custom String("NotForYou"), Custom String("fenmorre"), Custom String("Eosia"), Custom String("HogsRightNut"),
 			Custom String("Visual"), Custom String("Hestia"), Custom String("IZANAMI"), Custom String("Tedz"), Custom String("PŏŏkiƐ"),
 			Custom String("Ðårk"), Custom String("FactAttend"), Custom String("SpƐdy"), Custom String("Kazuma"), Custom String("Jermuseppo"),
 			Custom String("Ređacted"), Custom String("S0undw4v3"), Custom String("LƐafa"), Custom String("WIĿĿOW"), Custom String("mksvault"),
