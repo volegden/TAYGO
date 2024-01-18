@@ -88,11 +88,7 @@ rule ("Custom nameplates list")
 			Array(Custom String("Lostshadow"), 
 				Custom String("Rainbow"),
 				Custom String("♡ Gh0stface's little brother ♡"), 
-				Custom String("{0} Camel milk enjoyer {0}", Ability Icon String(Hero(Kiriko), Button(Ability 2)))
-		), 
-			Array(Custom String("SpƐdy"), 
-				Custom String("Rainbow"),
-				Custom String("☆ Retired Angel ☆")		
+				Custom String("{0} Camel milk enjoyer {0}", Ability Icon String(Hero(Kiriko), Button(Ability 2)))		
 		),
 			Array(Custom String("Lünår"), 
                 Custom Color(88, 41, 160, 255),
@@ -321,12 +317,6 @@ rule ("Custom nameplates list")
                 Custom String("{0} Go Push a rock up a hill {0}", Ability Icon String(Hero(Sigma), Button(Ability 2))),
                 Custom String("{0} 『 ♬ KƳΘƲKΛ - 耳郎 』 {0}", Ability Icon String(Hero(Lúcio), Button(Ability 2)))
 		),
-			Array(Custom String("KinkiTurtle"), 
-                Custom Color(255, 209, 209, 255),
-                Custom String("{0} 我爱你 {0}", Ability Icon String(Hero(Genji), Button(Ultimate))),
-                Custom String("{0} Kirikult - kinkiko {0}", Ability Icon String(Hero(Kiriko), Button(Ultimate))),
-                Custom String("(๛ ˘ ³˘ )♡  кιикι ιѕ ячlυ (๛ ˘ ³˘ )♡")
-		),
 			Array(Custom String("mksvault"), 
 				Custom Color(244, 187, 68, 255),
 				Custom String("{0} ♥ koibito ♥ {0}", Ability Icon String(Hero(Hanzo), Button(Ultimate))),
@@ -523,6 +513,11 @@ rule ("Custom nameplates list")
                   Custom Color(96, 10, 113, 255),
                   Custom String("{0}  ♥ Ｖｅｒｇｉｆｔｅｔｅ  Ｇｎａｄｅ ♥  {0}", Ability Icon String(Hero(Sombra), Button(Ultimate))),
             	  Custom String("{0} 実際 † Synysteria Gates † 実際 {0}", Hero Icon String(Hero(Illari)))
+		),
+			Array(Custom String("Lunarion"), 
+			      Custom Color(163, 144, 222, 255),
+			      Custom String("{0}♥ Solarion's Moon ♥{0}", Ability Icon String(Hero(D.va), Button(Ultimate))), 
+			      Custom String("{0}  ЅHΔDΘШ ШIZΔRD ΜΘNΣΨ GΔNG  {0}", Ability Icon String(Hero(Sombra), Button(Ultimate)))
 		)
 		);
 	}
