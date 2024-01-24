@@ -2,7 +2,7 @@ settings
 {
 	main
 	{
-		Description: " The previously named \"Friendly No Kill\"\n    is no longer being maintained! \n This version is kept up to date!\n\n Last updated: January 22, 2024\n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss\n Community managed with ♡ by: kwally"
+		Description: " The previously named \"Friendly No Kill\"\n    is no longer being maintained! \n This version is kept up to date!\n\n Last updated: January 24, 2024\n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss\n Community managed with ♡ by: kwally"
 		Mode Name: "♥ Friendly ♥ No Kill ♥ Updated ♥"
 	}
 
@@ -2178,6 +2178,7 @@ rule("Hero_Switch")
 		Cancel Primary Action(Event Player);
 		Event Player.Last_Position_Facing[0] = Position Of(Event Player);
 		Event Player.Last_Position_Facing[1] = Facing Direction Of(Event Player);
+		Detach Players(Event Player);
 		Set Player Allowed Heroes(Event Player, Filtered Array(All Heroes, Current Array Element != Hero Of(Event Player)));
 		Wait(0.250, Ignore Condition);
 		Set Player Allowed Heroes(Event Player, All Heroes);
@@ -8174,6 +8175,7 @@ rule("Extra_3 - Short Hop")
 	actions
 	{
 		Cancel Primary Action(Event Player);
+		Detach Players(Event Player);
 		Play Effect(Event Player, Good Explosion, Global.Rainbow_Color, Position Of(Event Player), 0.75);
 		Teleport(Event Player, Position Of(Event Player) + Facing Direction Of(Event Player) * 12.5);
 		If(Event Player.Control_List != Empty Array);
