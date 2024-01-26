@@ -113,7 +113,7 @@ settings
 			{
 				Coach Gun Cooldown Time: 10%
 				Coach Gun Knockback Scalar Enemy: 150%
-				Coach Gun Knockback Scalar Self: 200%
+				Coach Gun Knockback Scalar Self: 150%
 				Dynamite Cooldown Time: 29%
 				Dynamite Fuse Time Scalar: 500%
 				Infinite Ultimate Duration: On
