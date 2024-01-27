@@ -2,7 +2,7 @@ settings
 {
 	main
 	{
-		Description: " The previously named \"Friendly No Kill\"\n    is no longer being maintained! \n This version is kept up to date!\n\n Last updated: January 24, 2024\n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss\n Community managed with ♡ by: kwally"
+		Description: " The previously named \"Friendly No Kill\"\n    is no longer being maintained! \n This version is kept up to date!\n\n Last updated: January 27, 2024\n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss\n Community managed with ♡ by: kwally"
 		Mode Name: "♥ Friendly ♥ No Kill ♥ Updated ♥"
 	}
 
@@ -1181,7 +1181,7 @@ rule ("Custom nameplates list")
 				80,0,0, 255,0,0,
                 Custom String("† ƅїǥ ҭїҭҭїє ǥσҭҺ ḿσḿḿұ †"),
 				Custom String("† ї ∂นҫӄїภғ Һαҭѡ ұσน †"),
-				Custom String("Ｋｗａｌｌｙ")
+				Custom String("† Izanami-no-Mikoto †")
 		),
 			Array(Custom String("ǀƑIREǀ"), 
 				Custom String("Rainbow"),
@@ -1222,7 +1222,7 @@ rule ("Custom nameplates list")
 		), 
 			Array(Custom String("Toguro"), 
 				Color(Black),
-				Custom String("Darkeater"), 
+				Custom String("L'enfer du dragon volant aux 103 passions"), 
 				Custom String("Fléau des Astres")
 		),
 			Array(Custom String("kosmos"), 
@@ -1305,7 +1305,7 @@ rule ("Custom nameplates list")
 			Array(Custom String("ElDiablo"), 
 				Color(Red),
 				Custom String("† E-Girl Baiter †"), 
-				Custom String("† Omega Kitten Owner †")
+				Custom String("† Kwally's Little Bottom †")
 		), 
 			Array(Custom String("Fenetre"), 
 				Custom Color(0, 0, 0, 255), 
@@ -1452,15 +1452,15 @@ rule ("Custom nameplates list")
 				Custom String("♡ Lostshadow's big sister ♡"),
 				Custom String("he looked at me...and he smirked...")
 		),
-			Array(Custom String("PumpkinJinx"), 
+			Array(Custom String("AngelicMinx"), 
 				Custom Color(237, 27, 12, 255),
 				Custom String("{0} - ☆ Joke's over, you're dead! ☆ - {0}", Icon String(Fire)),
 				Custom String("{0} ★ - Stuck in your head ! - ★ {0}", Icon String(Poison))
 		),
 			Array(Custom String("NightShield"), 
-                Custom Color(143, 27, 34, 255),
+                Custom String("Rainbow"),
                 Custom String("{0} Go Push a rock up a hill {0}", Ability Icon String(Hero(Sigma), Button(Ability 2))),
-                Custom String("{0} 『 ♬ KƳΘƲKΛ - 耳郎 』 {0}", Ability Icon String(Hero(Lúcio), Button(Ability 2)))
+                Custom String("{0} ⁂ §hê †ålk§ Äboµ† Hïm 24/7 ⁂ {0}", Ability Icon String(Hero(Reinhardt), Button(Ability 2)))
 		),
 			Array(Custom String("mksvault"), 
 				Custom Color(244, 187, 68, 255),
@@ -1522,8 +1522,8 @@ rule ("Custom nameplates list")
 		),
 			Array(Custom String("Fearlxss"),
 				Custom String("Rainbow"),
-				Custom String("{0} Ɲσтнιηg ιѕ тяυє, єνєяутнιηg ιѕ ρєямιттє∂ {0}", Ability Icon String(Hero(Kiriko), Button(Secondaryfire))),
-				Custom String("{0} Hεrσ σf Τhε Lιghτ {0}", Icon String(Halo))
+				Custom String("{0} † ♡ υя ƒανσяιтє кιяιкσ мαιη ♡ † {0}", Icon String(Halo)),
+				Custom String("{0} Ɲσтнιηg ιѕ тяυє, єνєяутнιηg ιѕ ρєямιттє∂ {0}", Ability Icon String(Hero(Kiriko), Button(Secondaryfire)))
 		),
 			Array(Custom String("ǃSHAY"),
 				Custom Color(128, 0, 0, 255),
@@ -1560,9 +1560,9 @@ rule ("Custom nameplates list")
 				Custom String("ＧＯＤＬＹ :3")
 		),
 			Array(Custom String("BȂKƐDBȔŊŊYǃ"),
-                Custom Color(93, 63, 211, 255),
+                Custom String("Rainbow"),
                 Custom String("† roasted rabbit †"),
-                Custom String("{0} 『 ♡ ƳΛΘƳΘƦΘZƲ - 桃 』 {0}", Ability Icon String(Hero(Mercy), Button(Ultimate)))
+                Custom String("{0} † ¥oµr Lo¢ål Ädåm Såndlêr Fåñ † {0}", Ability Icon String(Hero(Ana), Button(Ability 1)))
 		),
 			Array(Custom String("Nel"),
 				Custom Color(169, 174, 241, 255),
@@ -1617,7 +1617,8 @@ rule ("Custom nameplates list")
         ),
             Array(Custom String("iXerethiel"),
                 Custom String("Rainbow"),
-				Custom String(" ")
+				Custom String("{0} † Skill Issue † {0}", Ability Icon String(Hero(Cassidy), Button(Ultimate))),
+				Custom String("{0} Ｆｒｅａｋ　ｏｎ　ａ　ｌｅａｓｈ {0}", Icon String(Poison))
 		),
 		    Array(Custom String("Mogo"),
                 Custom Color(0, 0, 205, 255),
@@ -1631,7 +1632,7 @@ rule ("Custom nameplates list")
             Array(Custom String("PurpSkrrt"), 
                 Custom Color(221, 175, 255, 255),
                 Custom String("{0} ЅHΔDΘШ ШIZΔRD ΜΘNΣΨ GΔNG {0}", Ability Icon String(Hero(Sombra), Button(Ultimate))),
-                Custom String("{0} * .˚ PurpSkrrt™ ˚. * {0}", Ability Icon String(Hero(Kiriko), Button(Ability 2)))
+                Custom String("{0} * . ˚ PurpSkrrt™ ˚ . * {0}", Ability Icon String(Hero(Kiriko), Button(Ability 2)))
 		),
 		    Array(Custom String("Xaghyntig"),
 			    Custom String("Rainbow"),
@@ -1849,7 +1850,7 @@ rule("Listed_Player")
 			Custom String("Ređacted"), Custom String("S0undw4v3"), Custom String("LƐafa"), Custom String("WIĿĿOW"), Custom String("mksvault"),
 			Custom String("LightMist"), Custom String("Lunarion"), Custom String("Adiidas"), Custom String("gh0stface"), Custom String("ByeFever"),
 			Custom String("NightShield"), Custom String("Gerry"), Custom String("whoshotcupid"), Custom String("MISTƔ"), Custom String("Ƒìşhy"),
-			Custom String("PumpkinJinx"), Custom String("ImmaPenguin"), Custom String("MrCleanerrrr"), Custom String("SapphicWitch"), 
+			Custom String("AngelicMinx"), Custom String("ImmaPenguin"), Custom String("MrCleanerrrr"), Custom String("SapphicWitch"), 
 			Custom String("VĬƗŌĿĖŦ"), Custom String("Arlecchino"), Custom String("IZANAGI"), Custom String("Fragoso"), Custom String("Juuzo"),
 			Custom String("Fearlxss"), Custom String("ǃSHAY"), Custom String("Eggman"), Custom String("Mirage"), Custom String("Bluroisa"),
 			Custom String("Nel"), Custom String("godly"), Custom String("BȂKƐDBȔŊŊYǃ"), Custom String("zovha"), Custom String("pancakes"),
