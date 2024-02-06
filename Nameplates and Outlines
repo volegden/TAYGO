@@ -86,7 +86,7 @@ rule ("Custom nameplates list")
 			Array(Custom String("Lostshadow"), 
 				Custom String("Rainbow"),
 				Custom String("♡ Gh0stface's little brother ♡"), 
-				Custom String("{0} Camel milk enjoyer {0}", Ability Icon String(Hero(Kiriko), Button(Ability 2)))		
+				Custom String("{0} ☆ * .˚ ♡ ㄥӨVΣㄥY ♡ ˚. * ☆ {0}", Ability Icon String(Hero(Illari), Button(Ultimate)))		
 		),
 			Array(Custom String("Lünår"), 
                 Custom Color(88, 41, 160, 255),
@@ -159,9 +159,8 @@ rule ("Custom nameplates list")
 				Custom String("{0} Beesnutz {0}", Ability Icon String(Hero(Kiriko), Button(Secondary Fire)))
 		),
 			Array(Custom String("Ƒìşhy"), 
-				Custom Color(255, 155, 202, 255),
-				Custom String("{0} » Achilles « {0}", Ability Icon String(Hero(Orisa), Button(Secondaryfire))),
-				Custom String("{0} • ♬ エーデンス ♡ • {0}", Ability Icon String(Hero(Lúcio), Button(Ultimate)))
+				Custom Color(255, 204, 229, 255),
+				Custom String("♡Sam♡")
 		),
 			Array(Custom String("TazE"),
 				Color(Purple),
@@ -193,7 +192,7 @@ rule ("Custom nameplates list")
 		), 
 			Array(Custom String("현대적인쌍봉낙타"), 
 				Custom Color(243, 214, 223, 255),
-				Custom String("{0} ♡ 9 9 9 ♡ {0}")
+				Custom String("♡ 9 9 9 ♡")
 		),
 			Array(Custom String("Dubbie7"), 
 				Custom String("Rainbow"),
@@ -319,7 +318,7 @@ rule ("Custom nameplates list")
 		),
 			Array(Custom String("Adiidas"), 
 				Custom String("Rainbow"),
-				Custom String("{0} ♡†~Someone call the whambulance~†♡ {0}", Ability Icon String(Hero(Kiriko), Button(Ability 2))),
+				Custom String("{0} ♡†~I HATE MY SISTER SO MUCH~†♡ {0}", Ability Icon String(Hero(Kiriko), Button(Ability 2))),
 				Custom String("{0} Nike {0}", Icon String(Checkmark))
 		),
 			Array(Custom String("Alex"), 
@@ -347,7 +346,7 @@ rule ("Custom nameplates list")
 		),
 			Array(Custom String("MrCleanerrrr"),
 				Custom Color(242, 242, 242, 255),
-				Custom String("{0} ♡†~Come come come hereeee~†♡ {0}", Ability Icon String(Hero(Ramattra), Button(Ultimate))),
+				Custom String("{0} ♡†~I LOVE MY SISTER SO MUCH~†♡ {0}", Ability Icon String(Hero(Ramattra), Button(Ultimate))),
 				Custom String("{0} ☆DЯΛMΛ ID: BLӨƧƧӨM☆ {0}", Ability Icon String(Hero(Reinhardt), Button(Ultimate)))
 		),
 			Array(Custom String("Arlecchino"),
@@ -377,7 +376,7 @@ rule ("Custom nameplates list")
 			Array(Custom String("Mirage"),
 				Custom Color(34, 139, 34, 255),
 				Custom String("• Bamboozled ツ •"),
-				Custom String("{0}  N α и ø  ♥  B ø ø š т e đ  {0}", Ability Icon String(Hero(Ramattra), Button(Ultimate)))
+				Custom String("{0}  * .˚ ☆ Mirage™ ☆ ˚. *  {0}", Ability Icon String(Hero(Ana), Button(Ability 1)))
 		),
 			Array(Custom String("Bluroisa"),
 				Custom Color(255, 164, 220, 255),
@@ -476,8 +475,7 @@ rule ("Custom nameplates list")
 		),
 		    Array(Custom String("Xaghyntig"),
 			    Custom String("Rainbow"),
-                Custom String("Yeetus Deletus Fetus"),
-				Custom String("ΜΔN, I RΣΔLLΨ LΘƲΣ ƬIDDIΣЅ")
+                Custom String("{0} Free Fortnite Battle Pass {0}", Ability Icon String(Hero(Sojourn), Button(Ability 2)))
 		),
 			Array(Custom String("karlybarly"), 
 			    Custom Color(153, 204, 255, 255),
@@ -502,6 +500,11 @@ rule ("Custom nameplates list")
 		    Array(Custom String("whoshotcupid"),
 			    Custom Color(64, 224, 208, 255),
                 Custom String("♡ 9 9 9 ♡")
+		),
+		    Array(Custom String("tsunde"),
+			    Custom String("Rainbow"),
+                Custom String("{0} Follow me ~ . ‧ ˚ ‧ {0}", Ability Icon String(Hero(Ana), Button(Ability 1))),
+				Custom String("{0} ŦØƤ500 ΛỮŦØ~ΛŇǤ€Ł Λ฿ỮŞ€Ř ツ {0}", Ability Icon String(Hero(Reinhardt), Button(Ultimate)))
 		)
 		);
 	}
