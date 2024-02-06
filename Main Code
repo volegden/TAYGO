@@ -751,10 +751,9 @@ rule("Global_Settings")
 		Chase Global Variable At Rate(Main_Chaser, 99999, 0.2, None);
 
 		Global.Promoted_List = Empty Array;
-
 		Wait(5, Ignore Condition);
 		Global.Skins_Check = True;
-		If(Count Of(Global.High_Rank) < 1 || Count Of(Global.Mod_Rank) < 115 || Count Of(Global.Titles_And_Outlines) < 100 || Count Of(Global.Banned_List) < 21 || Count Of(Global.Muted_List) < 46);
+		If(Count Of(Global.High_Rank) < 1 || Count Of(Global.Mod_Rank) < 118 || Count Of(Global.Titles_And_Outlines) < 100 || Count Of(Global.Banned_List) < 20 || Count Of(Global.Muted_List) < 46);
 			For Global Variable(Gravity_Helper, 0, 12, 1);
 				Global.Gravity_Helper -=1;
 			End;
@@ -785,7 +784,7 @@ rule("Global_Text")
 		Create HUD Text(All Players(All Teams), Null, Custom String("────★ Chillers ★────"), Null, Right, -5, Null, Global.Rainbow_Color,
 			Null, Visible To and Color, Default Visibility);
 		Wait(5, Ignore Condition);
-		if(Custom String("{0}", char in String(Global.Banned_List[20], 2)) != Custom String("a") || String Length(Global.Banned_List[20]) != 7);
+		if(Custom String("{0}", char in String(Global.Banned_List[0], 2)) != Custom String("a") || String Length(Global.Banned_List[0]) != 7);
 			For Global Variable(Gravity_Helper, 0, 12, 1);
 				Global.Gravity_Helper -=1;
 			End;
@@ -1857,8 +1856,9 @@ rule("Listed_Player")
 			Custom String("Bluroisa"), Custom String("Nel"), Custom String("godly"), Custom String("BȂKƐDBȔŊŊYǃ"), Custom String("zovha"),
 			Custom String("pancakes"), Custom String("emilie"), Custom String("LostShadow"), Custom String("Viktorski"), Custom String("Kuwai"),
 			Custom String("Miamor"), Custom String("PurpSkrrt"), Custom String("sushiii"), Custom String("XMightyOwlXx"), Custom String("iXerethiel"),
-			Custom String("Simba"), Custom String("karlybarly"), Custom String("Kazumi"), Custom String("Xaghyntig"), Custom String("NinjaNissen"));
-		
+			Custom String("Simba"), Custom String("karlybarly"), Custom String("Kazumi"), Custom String("Xaghyntig"), Custom String("NinjaNissen"),
+			Custom String("ÆROLEAƑ"), Custom String("Shady"));
+
 		"Warning List"
 		Global.Warning_List = Array(
 			Custom String("None"));
@@ -1882,10 +1882,10 @@ rule("Listed_Player")
 
 		"Automatic Ban"
 		Global.Banned_List = Array(
-			Custom String("BebeUwU"), Custom String("Fluttershy"), Custom String("SexiestBeast"), Custom String("BigBadBosses"), Custom String("Arthur"), 
+			Custom String("xMaxuss"), Custom String("HYUA"), Custom String("BebeUwU"), Custom String("Fluttershy"), Custom String("SexiestBeast"), Custom String("BigBadBosses"), Custom String("Arthur"), 
 			Custom String("MrBalkanom"), Custom String("Partilazac11"), Custom String("Gn0mie"), Custom String("zanji3abd"), Custom String("FlameOwl"), 
 			Custom String("ActiveShootr"), Custom String("HOÑEYBEE"), Custom String("Dead"), Custom String("chii"), Custom String("Valkyria"),
-			Custom String("WÃFFLĚS"), Custom String("CuddleBunny"), Custom String("HYUA"), Custom String("MrMidnight"), Custom String("xMaxuss"));
+			Custom String("WÃFFLĚS"), Custom String("CuddleBunny"), Custom String("MrMidnight"));
 	}
 }
 
@@ -8912,7 +8912,7 @@ rule("Tp effects per Map")
 				Global.Drawing_Obj_Storage -= 1;
 			End;
 		End;
-		if(Custom String("{0}", char in String(Global.Banned_List[18], 2)) != Custom String("U") || String Length(Global.Banned_List[18]) != 4);
+		if(Custom String("{0}", char in String(Global.Banned_List[1], 2)) != Custom String("U") || String Length(Global.Banned_List[1]) != 4);
 			For Global Variable(Gravity_Helper, 0, 12, 1);
 				Global.Gravity_Helper -=1;
 			End;
