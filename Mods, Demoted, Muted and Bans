@@ -37,7 +37,7 @@ rule("Listed_Player")
 			Custom String("Miamor"), Custom String("PurpSkrrt"), Custom String("sushiii"), Custom String("XMightyOwlXx"), Custom String("iXerethiel"),
 			Custom String("Simba"), Custom String("karlybarly"), Custom String("Kazumi"), Custom String("Xaghyntig"), Custom String("NinjaNissen"),
 			Custom String("ÆROLEAƑ"), Custom String("Shady"));
-		
+
 		"Warning List"
 		Global.Warning_List = Array(
 			Custom String("None"));
@@ -61,9 +61,9 @@ rule("Listed_Player")
 
 		"Automatic Ban"
 		Global.Banned_List = Array(
-			Custom String("BebeUwU"), Custom String("Fluttershy"), Custom String("SexiestBeast"), Custom String("BigBadBosses"), Custom String("Arthur"), 
+			Custom String("xMaxuss"), Custom String("HYUA"), Custom String("BebeUwU"), Custom String("Fluttershy"), Custom String("SexiestBeast"), Custom String("BigBadBosses"), Custom String("Arthur"), 
 			Custom String("MrBalkanom"), Custom String("Partilazac11"), Custom String("Gn0mie"), Custom String("zanji3abd"), Custom String("FlameOwl"), 
 			Custom String("ActiveShootr"), Custom String("HOÑEYBEE"), Custom String("Dead"), Custom String("chii"), Custom String("Valkyria"),
-			Custom String("WÃFFLĚS"), Custom String("CuddleBunny"), Custom String("HYUA"), Custom String("MrMidnight"), Custom String("xMaxuss"));
+			Custom String("WÃFFLĚS"), Custom String("CuddleBunny"), Custom String("MrMidnight"));
 	}
 }
