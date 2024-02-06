@@ -2,7 +2,7 @@ settings
 {
 	main
 	{
-		Description: " The previously named \"Friendly No Kill\"\n    is no longer being maintained! \n This version is kept up to date!\n\n Last updated: January 27, 2024\n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss\n Community managed with ♡ by: kwally"
+		Description: " The previously named \"Friendly No Kill\"\n    is no longer being maintained! \n This version is kept up to date!\n\n Last updated: February 05, 2024\n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss\n Community managed with ♡ by: kwally"
 		Mode Name: "♥ Friendly ♥ No Kill ♥ Updated ♥"
 	}
 
@@ -1299,8 +1299,8 @@ rule ("Custom nameplates list")
 		),
 			Array(Custom String("Slafii"), 
 				Custom Color(46, 26, 71, 255),
-				Custom String("†Tired inside, smiling outside†"), 
-				Custom String("†♡IDC about them, my feelings are real♡†")
+				Custom String("♤Thank you♤"), 
+				Custom String("♤Its not fair♤")
 		),
 			Array(Custom String("ElDiablo"), 
 				Color(Red),
@@ -1318,9 +1318,8 @@ rule ("Custom nameplates list")
 				Custom String("{0} Beesnutz {0}", Ability Icon String(Hero(Kiriko), Button(Secondary Fire)))
 		),
 			Array(Custom String("Ƒìşhy"), 
-				Custom Color(255, 155, 202, 255),
-				Custom String("{0} » Achilles « {0}", Ability Icon String(Hero(Orisa), Button(Secondaryfire))),
-				Custom String("{0} • ♬ エーデンス ♡ • {0}", Ability Icon String(Hero(Lúcio), Button(Ultimate)))
+				Custom Color(255, 204, 229, 255),
+				Custom String("♡Sam♡")
 		),
 			Array(Custom String("TazE"),
 				Color(Purple),
@@ -1352,8 +1351,7 @@ rule ("Custom nameplates list")
 		), 
 			Array(Custom String("현대적인쌍봉낙타"), 
 				Custom Color(243, 214, 223, 255),
-				Custom String("{0} 星 {0}", Icon String(Dizzy)),
-				Custom String("{0} ☆DЯΛMΛ ID: BƱBBLΣ☆ {0}", Ability Icon String(Hero(Echo), Button(Secondaryfire)))
+				Custom String("♡ 9 9 9 ♡")
 		),
 			Array(Custom String("Dubbie7"), 
 				Custom String("Rainbow"),
@@ -1387,7 +1385,7 @@ rule ("Custom nameplates list")
 		),
 			Array(Custom String("fenmorre"), 
 				Custom Color(255, 39, 12, 255),
-				Custom String("{0} ♡ Silly Little Donut ♡ {0}", Ability Icon String(Hero(Mercy), Button(Ultimate))), 
+				Custom String("{0} ♡ ♬ Beloved Oomfie ♬ ♡ {0}", Ability Icon String(Hero(Mercy), Button(Ultimate))), 
 				Custom String("{0} Chronically Ill Artist, Writer & Hater {0}", Ability Icon String(Hero(Reaper), Button(Ultimate)))
 		),
 			Array(Custom String("yohan"),
@@ -1562,7 +1560,7 @@ rule ("Custom nameplates list")
 			Array(Custom String("BȂKƐDBȔŊŊYǃ"),
                 Custom String("Rainbow"),
                 Custom String("† roasted rabbit †"),
-                Custom String("{0} † ¥oµr Lo¢ål Ädåm Såndlêr Fåñ † {0}", Ability Icon String(Hero(Ana), Button(Ability 1)))
+                Custom String("{0} †♡ Yoµr Ło¢ãl Ädȁm Såŋdler Faŋ ♡† {0}", Ability Icon String(Hero(Ana), Button(Ability 1)))
 		),
 			Array(Custom String("Nel"),
 				Custom Color(169, 174, 241, 255),
@@ -1632,7 +1630,7 @@ rule ("Custom nameplates list")
             Array(Custom String("PurpSkrrt"), 
                 Custom Color(221, 175, 255, 255),
                 Custom String("{0} ЅHΔDΘШ ШIZΔRD ΜΘNΣΨ GΔNG {0}", Ability Icon String(Hero(Sombra), Button(Ultimate))),
-                Custom String("{0} * . ˚ PurpSkrrt™ ˚ . * {0}", Ability Icon String(Hero(Kiriko), Button(Ability 2)))
+                Custom String("{0} * .˚ ♡ [ PurpSkrrt™ ] ♡ ˚. * {0}", Ability Icon String(Hero(Mercy), Button(Ultimate)))
 		),
 		    Array(Custom String("Xaghyntig"),
 			    Custom String("Rainbow"),
