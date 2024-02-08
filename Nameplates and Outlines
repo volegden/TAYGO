@@ -171,7 +171,7 @@ rule ("Custom nameplates list")
 				Color(Black),
 				Custom String("† Kwally's kitten †")
 		), 
-			Array(Custom String("HogsRightNut"),	
+			Array(Custom String("Nef"),	
 				Custom Color(62, 253, 255, 255),
 				Custom String("{0}  PARTNERS IN CRIME  {0}", Icon String(Dizzy)),
 				Custom String("{0}  ARMY OF TWO  {0}", Ability Icon String(Hero(Ramattra), Button(Ability 1)))
