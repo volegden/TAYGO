@@ -405,9 +405,9 @@ rule ("Custom nameplates list")
                 Custom String("{0} †♡ Yoµr Ło¢ãl Ädȁm Såŋdler Faŋ ♡† {0}", Ability Icon String(Hero(Ana), Button(Ability 1)))
 		),
 			Array(Custom String("Nel"),
-				Custom Color(169, 174, 241, 255),
-				Custom String("† ภєє∂ ḿұ ƅїǥ ҭїҭҭїє ǥσҭҺ ḿσḿḿұ †"), 
-				Custom String("{0} ñØ ï'm Ɓïg ƁrαïñêÐ {0}", Ability Icon String(Hero(Kiriko), Button(Secondaryfire)))
+				Custom Color(0, 67, 74, 255),
+				Custom String("{0} ¢σgιтσ, єяgσ ѕυм. {0}", Ability Icon String(Hero(Zenyatta), Button(Ultimate))), 
+				Custom String("{0} Peter Parker {0}", Icon String(Spiral))
 		),
 			Array(Custom String("zovha"),
 				Color(Black),
@@ -419,9 +419,9 @@ rule ("Custom nameplates list")
 				Custom String("{0} 『 ㅤ神  ― '' GOD IS A WOMAN '' ― ♬ㅤ 』 {0}", Ability Icon String(Hero(Moira), Button(Ability 1)))		  
 		),
 			Array(Custom String("pancakes"),
-				Custom Color(96, 50, 156, 255),
+				Custom String("Rainbow"),
 				Custom String("{0} heat + bread + time = toast {0}", Ability Icon String(Hero(Illari), Button(Ultimate))),
-				Custom String("{0} şmïlê¥ αrê ¥Øµ şmαll ƁrαïñêÐ? {0}", Ability Icon String(Hero(Kiriko), Button(Secondaryfire)))
+				Custom String("{0} Gwen Stacy {0}", Icon String(Spiral))
 		),
 			Array(Custom String("Viktorski"),
 				Color(Yellow),
@@ -471,7 +471,7 @@ rule ("Custom nameplates list")
 	    ),
             Array(Custom String("PurpSkrrt"), 
                 Custom Color(221, 175, 255, 255),
-                Custom String("{0} ЅHΔDΘШ ШIZΔRD ΜΘNΣΨ GΔNG {0}", Ability Icon String(Hero(Sombra), Button(Ultimate))),
+                Custom String("{0}  ЅHΔDΘШ ШIZΔRD ΜΘNΣΨ GΔNG  {0}", Ability Icon String(Hero(Sombra), Button(Ultimate))),
                 Custom String("{0} * .˚ ♡ [ PurpSkrrt™ ] ♡ ˚. * {0}", Ability Icon String(Hero(Mercy), Button(Ultimate)))
 		),
 		    Array(Custom String("Xaghyntig"),
@@ -495,8 +495,8 @@ rule ("Custom nameplates list")
 		),
 			Array(Custom String("Lunarion"), 
 			    Custom Color(163, 144, 222, 255),
-			    Custom String("{0}♥ Solarion's Moon ♥{0}", Ability Icon String(Hero(D.va), Button(Ultimate))), 
-			    Custom String("{0}  ЅHΔDΘШ ШIZΔRD ΜΘNΣΨ GΔNG  {0}", Ability Icon String(Hero(Sombra), Button(Ultimate)))
+			    Custom String("{0}  ЅHΔDΘШ ШIZΔRD ΜΘNΣΨ GΔNG  {0}", Ability Icon String(Hero(Sombra), Button(Ultimate))),
+				Custom String("{0}♥ Solarion's Moon ♥{0}", Ability Icon String(Hero(D.va), Button(Ultimate)))
 		),
 		    Array(Custom String("whoshotcupid"),
 			    Custom Color(64, 224, 208, 255),
@@ -516,6 +516,11 @@ rule ("Custom nameplates list")
 			    Custom String("Rainbow"),
                 Custom String("{0} I found the One Piece, its Mimi {0}", Ability Icon String(Hero(Mercy), Button(Ultimate))),
 				Custom String("{0} You gon' think about me when i'm gone {0}", Icon String(Dizzy))
+		),
+		    Array(Custom String("Shampoo"),
+			    Custom String("Rainbow"),
+                Custom String("{0}  ЅHΔDΘШ ШIZΔRD ΜΘNΣΨ GΔNG  {0} ", Ability Icon String(Hero(Sombra), Button(Ultimate))),
+				Custom String("{0} 13-1 Shampoo {0}", Ability Icon String(Hero(Genji), Button(Ultimate)))
 		)
 		);
 	}
