@@ -2649,7 +2649,7 @@ rule("Mode_Headline_Desc_Mod")
 			Create HUD Text(Event Player, Null, Custom String("| Press Crouch + Interact/Jump to change pages |\nMod Menu: Press Crouch + input for action\n{0}",
 				Custom String("{0} : Draw Beam\r\n{1} : Choose Beam\r\n{2}", 
 					Input Binding String(Button(Primary Fire)), Input Binding String(Button(Secondary Fire)), 
-				Custom String("{0} : Choose Color\r\n{1} : Remove previous bream\r\nMelee : Clear All Beams", 
+				Custom String("{0} : Choose Color\r\n{1} : Remove previous beam\r\nMelee : Clear All Beams", 
 					Input Binding String(Button(Ability 2)), Input Binding String(Button(Reload))
 				))), Null, Left, 1, Color(White), Color(White), Color(White), String, Visible Never);
 
@@ -5308,7 +5308,7 @@ rule("Mode_16 - Player Rays Painting Part 1")
 			Call Subroutine(Beams_Preview);
 		Else If(Is Button Held(Event Player, Button(Reload)));
 			If(Global.Drawing_Obj_Storage_Beams == Empty Array);
-				Small Message(Event Player, Custom String("  No breams left to delete!"));
+				Small Message(Event Player, Custom String("  No beams left to delete!"));
 				Abort;
 			End;
 			Destroy Effect(Last Of(Global.Drawing_Obj_Storage_Beams));
