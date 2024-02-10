@@ -12,6 +12,8 @@ settings
 		Map Rotation: After A Game
 		Match Voice Chat: Enabled
 		Max Spectators: 5
+		Max Team 1 Players: 6
+		Max Team 2 Players: 6
 		Return To Lobby: Never
 		Swap Teams After Match: No
 	}
@@ -48,6 +50,7 @@ settings
 
 			disabled maps
 			{
+				Eichenwalde
 				Hanamura
 				Hollywood
 				King's Row
@@ -63,20 +66,21 @@ settings
 
 		Team Deathmatch
 		{
+			Game Mode Start: Immediately
 			Self Initiated Respawn: Off
 
 			enabled maps
 			{
-				Black Forest 972777519512063901
-				Castillo 972777519512063901
-				Château Guillard 972777519512063901
-				Château Guillard Halloween 972777519512063901
-				Ecopoint: Antarctica 972777519512068154
-				Ecopoint: Antarctica Winter 972777519512063901
-				Kanezaka 972777519512063901
-				Malevento 972777519512063901
-				Necropolis 972777519512068153
-				Petra 972777519512068154
+				Black Forest
+				Castillo
+				Château Guillard
+				Château Guillard Halloween
+				Ecopoint: Antarctica
+				Ecopoint: Antarctica Winter
+				Kanezaka
+				Malevento
+				Necropolis
+				Petra
 			}
 		}
 
@@ -1172,7 +1176,7 @@ rule ("Custom nameplates list")
 				Custom String("♡")
 		), 
 			Array(Custom String("Warloy"), 
-				Custom Color(134, 134, 134, 255),
+				Custom Color(72, 72, 72, 255),
 				Custom String("Coup de grâce"),
 				Custom String("♡")
 		), 
