@@ -1176,7 +1176,7 @@ rule ("Custom nameplates list")
 			Array(Custom String("w4tchers"),
 			    Custom String("Fading"), 
 				0,28,87, 123,104,238,
-				Custom String("w4tchers")
+				Custom String("♡")
 		), 
 			Array(Custom String("Warloy"), 
 				Custom Color(64, 130, 109, 255),
@@ -1257,7 +1257,7 @@ rule ("Custom nameplates list")
 			Array(Custom String("Lünår"), 
                 Custom Color(88, 41, 160, 255),
                 Custom String("{0} 『 ＫｅｙＢｌａｄｅ Ｗｉｅｌｄｅｒ 』 {0}", Ability Icon String(Hero(Genji), Button(Ultimate))),
-                Custom String("{0} Dream of an Absolution {0}", Ability Icon String(Hero(Lifeweaver), Button(Primaryfire)))
+                Custom String("{0} σƅѕ¢υṛα є¢ƪιρѕιѕ {0}", Icon String(Moon))
 		),
 			Array(Custom String("Eosia"), 
 				Custom String("Rainbow"),
@@ -1566,17 +1566,17 @@ rule ("Custom nameplates list")
 		),
 			Array(Custom String("BȂKƐDBȔŊŊYǃ"),
                 Custom String("Rainbow"),
-                Custom String("† roasted rabbit †"),
+                Custom String("{0} † Roasted Rabbit™ † {0} ", Ability Icon String(Hero(D.va), Button(Ultimate))),
                 Custom String("{0} †♡ Yoµr Ło¢ãl Ädȁm Såŋdler Faŋ ♡† {0}", Ability Icon String(Hero(Ana), Button(Ability 1)))
 		),
 			Array(Custom String("Nel"),
 				Custom Color(0, 67, 74, 255),
-				Custom String("{0} ¢σgιтσ, єяgσ ѕυм. {0}", Ability Icon String(Hero(Zenyatta), Button(Ultimate))), 
+				Custom String("{0} ¢σğιťσ, єяğσ ѕυḿ. {0}", Ability Icon String(Hero(Zenyatta), Button(Ultimate))), 
 				Custom String("{0} Peter Parker {0}", Icon String(Spiral))
 		),
 			Array(Custom String("zovha"),
 				Color(Black),
-				Custom String(" ")
+				Custom String("Clive")
 		),		  
 			Array(Custom String("Kuwai"),
 				Custom Color(245, 222, 179, 255),
@@ -1674,7 +1674,7 @@ rule ("Custom nameplates list")
 		),
 		    Array(Custom String("ÆROLEAƑ"),
 			    Custom Color(153, 0, 0, 255),
-                Custom String("{0} PΣTΛL DΛNCING TIĿ ŊIGHTFΛLL {0}", Ability Icon String(Hero(Lifeweaver), Button(Ability 1))),
+                Custom String("{0} † Hurricane Of Leaves™ † {0}", Ability Icon String(Hero(Genji), Button(Ultimate))),
 				Custom String("{0} EƬHΣRΣΛL STΘRM {0}", Ability Icon String(Hero(Hanzo), Button(Ultimate)))
 		),
 		    Array(Custom String("Shady"),
