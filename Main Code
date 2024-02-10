@@ -1027,7 +1027,7 @@ rule("Default_Player_Settings")
 		Wait Until(Has Spawned(Event Player), 99999);
 
 		"Set protection on player by default"
-		Event Player.Protection = True;
+		Event Player.Protection = Workshop Setting Toggle(Custom String("Player Damage Protection"), Custom String("Automatic Enabled"), True, 1);
 
 		"Set auto resurrection on player by default"
 		Event Player.Auto_Respawn = True;
