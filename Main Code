@@ -2843,7 +2843,7 @@ rule("Mode_Headline_Desc_Mod")
 				)), Null, Left, 1, Color(White), Color(White), Color(White), String, Visible Never);
 
 		Else If(Event Player.Mode_Cycle == 36);
-			Event Player.Mode_Headline = Custom String("Communicate (Angels+)");
+			Event Player.Mode_Headline = Custom String("Communicate (Angels+ / Host)");
 			Create HUD Text(Event Player, Null, Custom String("| Press Crouch + Interact/Jump to change pages |\nMod Menu: Press Crouch + input for action\n{0}",
 				Custom String("{0} : Use Emote UP \r\n{1} : Use Emote Down \r\n{2}", 
 					Input Binding String(Button(Primary Fire)), Input Binding String(Button(Secondary Fire)), 
