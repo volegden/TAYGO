@@ -9442,6 +9442,7 @@ rule("Mode_36 Communicate")
 			Small Message(Event Player, Custom String("  {0} sec CD", Event Player.Bot_CD));
 			Abort;
 		End;
+		Cancel Primary Action(Event Player.Target_Shortcut);
 		If(Is Button Held(Event Player, Button(Primary Fire)));
 			Play Effect(All Players(All Teams), Good Pickup Effect, Color(Blue), Event Player.Target_Shortcut, 1);
 			Communicate(Event Player.Target_Shortcut, Emote Up);
