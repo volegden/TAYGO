@@ -9435,6 +9435,7 @@ rule("Mode_36 Communicate")
 	{
 		Event Player.Signal = False;
 		Abort If((Event Player.High_Rank || Event Player.Mod_Rank) == False);
+		Abort If((Event Player.Promoted_Rank && Event Player.Mod_Rank) == True);
 		Abort If(Event Player.Target_Shortcut.Full_Protection);
 		Event Player.Target_Shortcut = Player Closest To Reticle(Event Player, All Teams);
 		If(Event Player.Bot_CD > 0);
