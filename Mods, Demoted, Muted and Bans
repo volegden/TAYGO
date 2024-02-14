@@ -53,7 +53,7 @@ rule("Listed_Player")
 			Custom String("Apotato2182"), Custom String("sherminator"), Custom String("Doom"), Custom String("dobarčovjek"), Custom String("SpongeBob"),
 			Custom String("Elpapu"), Custom String("Nezhant"), Custom String("pupi"), Custom String("Bee"), Custom String("ƁOOƁS69420"), 
 			Custom String("MERCYFEET"), Custom String("Jeanne"), Custom String("Coy"), Custom String("Locustgunner"), Custom String("junkcubus"),
-			Custom String("UwUkitten69"));
+			Custom String("UwUkitten69"), Custom String("InkyCrane"));
 
 		"Demoted List"
 		Global.Demoted_List = Array(
@@ -64,6 +64,6 @@ rule("Listed_Player")
 			Custom String("xMaxuss"), Custom String("HYUA"), Custom String("BebeUwU"), Custom String("Fluttershy"), Custom String("SexiestBeast"), Custom String("BigBadBosses"), Custom String("Arthur"), 
 			Custom String("MrBalkanom"), Custom String("Partilazac11"), Custom String("Gn0mie"), Custom String("zanji3abd"), Custom String("FlameOwl"), 
 			Custom String("ActiveShootr"), Custom String("HOÑEYBEE"), Custom String("Dead"), Custom String("chii"), Custom String("Valkyria"),
-			Custom String("WÃFFLĚS"), Custom String("CuddleBunny"), Custom String("MrMidnight"));
+			Custom String("WÃFFLĚS"), Custom String("CuddleBunny"), Custom String("MrMidnight"), Custom String("Her21YrOld"));
 	}
 }
