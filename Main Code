@@ -2,7 +2,7 @@ settings
 {
 	main
 	{
-		Description: " The previously named \"Friendly No Kill\"\n    is no longer being maintained! \n This version is kept up to date!\n\n Last updated: February 14, 2024\n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss\n Community managed with ♡ by: kwally"
+		Description: " The previously named \"Friendly No Kill\"\n    is no longer being maintained! \n This version is kept up to date!\n\n Last updated: February 16, 2024\n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss\n Community managed with ♡ by: kwally"
 		Mode Name: "♥ Friendly ♥ No Kill ♥ Updated ♥"
 	}
 
@@ -1460,7 +1460,7 @@ rule ("Custom nameplates list")
 			Array(Custom String("NightShield"),
                 Custom String("Rainbow"),
                 Custom String("{0} Go Push a rock up a hill {0}", Ability Icon String(Hero(Sigma), Button(Ability 2))),
-                Custom String("{0} * .˚ ☆ キツネ ☆ ˚. * {0}", Icon String(Dizzy)
+                Custom String("{0} * .˚ ☆ キツネ ☆ ˚. * {0}", Icon String(Dizzy))
 		),
 			Array(Custom String("mksvault"),
 				Custom Color(244, 187, 68, 255),
