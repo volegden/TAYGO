@@ -453,11 +453,6 @@ variables
 		58: Music_Toggle
 		59: Rotate
 		60: Main_Chaser
-		61: Z
-		62: VDay_Paris
-		63: VDay_Sparkles_Paris
-		64: VDay_LOVE_Cirquit
-		65: VDay_Hearts_Cirquit
 
 	player:
 		0: High_Rank
@@ -9461,98 +9456,6 @@ rule("Mode_36 Communicate")
 		End;
 		Chase Player Variable At Rate(Event Player, Bot_CD, 0, 1, Destination and Rate);
 		Event Player.Target_Lock = Custom String("--- No Target ---");
-	}
-}
-
-rule("VDay_Create Effect")
-{
-	event
-	{
-		Ongoing - Global;
-	}
-
-	actions
-	{
-		Global.Z = 0;
-		Global.VDay_Paris = Array(Vector(-55.751, 12.025, 15.167), Vector(-59.618, 12.025, 15.292), Vector(-55.770, 12.025, 19.117),
-			Vector(-59.396, 12.025, 11.350), Vector(-51.812, 12.025, 18.836), Vector(-55.740, 12.025, 15.872), Vector(-56.443, 12.025,
-			15.165), Vector(-57.193, 12.025, 15.403), Vector(-57.975, 12.025, 15.535), Vector(-58.758, 12.025, 15.582), Vector(-55.851,
-			12.025, 16.686), Vector(-55.902, 12.025, 17.630), Vector(-55.901, 12.025, 18.501), Vector(-60.037, 12.025, 14.331), Vector(
-			-60.214, 12.025, 13.328), Vector(-60.015, 12.025, 12.359), Vector(-55.012, 12.025, 19.668), Vector(-54.121, 12.025, 19.769),
-			Vector(-53.170, 12.025, 19.581), Vector(-52.443, 12.025, 19.297), Vector(-50.978, 12.025, 10.357), Vector(-51.983, 12.025,
-			10.158), Vector(-53.548, 12.025, 10.195), Vector(-55.062, 12.025, 10.228), Vector(-56.589, 12.025, 10.388), Vector(-58.595,
-			12.025, 10.803), Vector(-50.762, 12.025, 11.853), Vector(-50.737, 12.025, 13.244), Vector(-50.692, 12.025, 14.953), Vector(
-			-50.759, 12.025, 16.675), Vector(-51.206, 12.025, 18.118), Vector(-52.773, 12.025, 10.192), Vector(-54.357, 12.025, 10.213),
-			Vector(-55.847, 12.025, 10.332), Vector(-57.665, 12.025, 10.529), Vector(-50.822, 12.025, 11.202), Vector(-50.694, 12.025,
-			12.617), Vector(-50.700, 12.025, 14.183), Vector(-50.695, 12.025, 15.833), Vector(-50.949, 12.025, 17.475), Vector(-51.469,
-			12.025, 10.200), Vector(-50.874, 12.025, 10.728), Vector(-50.750, 12.025, 13.741), Vector(-50.744, 12.025, 15.393), Vector(
-			-50.691, 12.025, 14.527), Vector(-50.752, 12.025, 16.281), Vector(-50.840, 12.025, 17.073), Vector(-52.409, 12.025, 10.157),
-			Vector(-53.231, 12.025, 10.180), Vector(-53.999, 12.025, 10.197), Vector(-54.747, 12.025, 10.207), Vector(-55.474, 12.025,
-			10.249), Vector(-56.252, 12.025, 10.359), Vector(-57.157, 12.025, 10.452), Vector(-58.122, 12.025, 10.614), Vector(-59.094,
-			12.025, 11.076), Vector(-59.835, 12.025, 11.882), Vector(-60.167, 12.025, 12.867), Vector(-60.195, 12.025, 13.913), Vector(
-			-59.874, 12.025, 14.882), Vector(-59.239, 12.025, 15.593), Vector(-58.389, 12.025, 15.583), Vector(-57.615, 12.025, 15.463),
-			Vector(-56.810, 12.025, 15.297), Vector(-50.716, 12.025, 12.239), Vector(-51.472, 12.025, 18.525), Vector(-52.838, 12.025,
-			19.503), Vector(-52.115, 12.025, 19.099), Vector(-53.729, 12.025, 19.739), Vector(-54.602, 12.025, 19.772), Vector(-55.553,
-			12.025, 19.518), Vector(-50.813, 12.025, 11.568), Vector(-55.872, 12.025, 17.136), Vector(-55.931, 12.025, 18.093), Vector(
-			-55.822, 12.025, 16.278), Vector(-55.726, 12.025, 15.523), Vector(-56.127, 12.025, 15.137));
-		Global.VDay_Sparkles_Paris = Array(Vector(-53.548, 12.025, 16.455), Vector(-52.636, 12.025, 12.270), Vector(-54.894, 12.025,
-			14.266), Vector(-57.864, 12.025, 13.360), Vector(-55.404, 12.025, 11.708), Vector(-52.028, 12.025, 14.198), Vector(-53.323,
-			12.025, 18.441), Vector(-58.527, 12.025, 11.941));
-		Global.VDay_LOVE_Cirquit = Array(Vector(61.473, 21.848, 48.232), Vector(61.480, 21.369, 48.227), Vector(61.486, 20.899, 48.224),
-			Vector(61.488, 20.454, 48.223), Vector(61.483, 20.008, 48.226), Vector(61.494, 19.494, 48.219), Vector(61.935, 19.510, 47.945),
-			Vector(62.348, 19.490, 47.689), Vector(62.714, 19.497, 47.461), Vector(64.154, 21.222, 46.567), Vector(63.862, 21.556, 46.748),
-			Vector(63.437, 21.756, 47.012), Vector(63.124, 21.438, 47.207), Vector(63.078, 20.979, 47.235), Vector(63.178, 20.584, 47.173),
-			Vector(63.451, 20.179, 47.003), Vector(63.709, 19.798, 46.843), Vector(64.112, 19.448, 46.593), Vector(64.365, 20.902, 46.435),
-			Vector(64.576, 21.253, 46.304), Vector(64.774, 21.672, 46.182), Vector(65.140, 21.755, 45.954), Vector(65.493, 21.442, 45.735),
-			Vector(65.604, 21.036, 45.666), Vector(65.532, 20.564, 45.711), Vector(65.279, 20.246, 45.868), Vector(64.973, 19.943, 46.058),
-			Vector(64.732, 19.697, 46.207), Vector(64.383, 19.450, 46.424), Vector(66.203, 21.737, 45.294), Vector(66.386, 21.322, 45.180),
-			Vector(66.545, 20.941, 45.082), Vector(66.700, 20.554, 44.985), Vector(66.844, 20.119, 44.896), Vector(67.105, 19.618, 44.734),
-			Vector(67.448, 20.201, 44.521), Vector(67.585, 20.672, 44.435), Vector(67.713, 21.161, 44.356), Vector(67.833, 21.588, 44.282),
-			Vector(67.933, 22.014, 44.219), Vector(69.024, 21.985, 43.556), Vector(69.020, 21.586, 43.544), Vector(69.023, 21.147, 43.542),
-			Vector(69.033, 20.699, 43.536), Vector(69.036, 20.283, 43.534), Vector(69.051, 19.891, 43.525), Vector(69.023, 19.507, 43.542),
-			Vector(69.388, 19.495, 43.315), Vector(69.744, 19.509, 43.095), Vector(70.112, 19.504, 42.865), Vector(69.367, 22.009, 43.329),
-			Vector(69.730, 21.993, 43.103), Vector(70.119, 22.016, 42.861), Vector(69.326, 20.689, 43.354), Vector(69.672, 20.688, 43.139),
-			Vector(70.041, 20.732, 42.909), Vector(67.300, 19.916, 44.612), Vector(84.761, 12.006, 50.733));
-        Global.VDay_Hearts_Cirquit = Array(Vector(75.985, 21.291, 64.704), Vector(76.166, 21.707, 64.393), Vector(76.335, 22.013,
-            64.046), Vector(76.760, 21.901, 63.651), Vector(77.110, 21.449, 63.469), Vector(77.169, 20.882, 63.664), Vector(77.023, 20.391,
-            63.966), Vector(76.768, 20.014, 64.252), Vector(76.435, 19.621, 64.492), Vector(76.107, 19.269, 64.629), Vector(75.602, 21.637,
-            64.768), Vector(75.182, 21.976, 64.756), Vector(74.688, 22.003, 64.856), Vector(74.367, 21.628, 65.070), Vector(74.185, 21.083,
-            65.250), Vector(74.526, 20.539, 65.323), Vector(74.943, 20.125, 65.270), Vector(75.325, 19.733, 65.128), Vector(75.766, 19.418,
-            64.876), Vector(83.376, 21.241, 60.763), Vector(83.517, 21.674, 60.475), Vector(83.752, 22.003,
-            60.046), Vector(84.190, 21.778, 59.683), Vector(84.458, 21.290, 59.605), Vector(84.463, 20.722, 59.826), Vector(84.265, 20.254,
-            60.144), Vector(84.021, 19.832, 60.371), Vector(83.567, 19.398, 60.653), Vector(82.901, 21.687, 60.843), Vector(82.502, 22.081,
-            60.784), Vector(82.038, 22.014, 60.938), Vector(81.719, 21.591, 61.176), Vector(81.611, 21.103, 61.336), Vector(81.949, 20.586,
-            61.397), Vector(82.369, 20.160, 61.333), Vector(82.739, 19.820, 61.192), Vector(83.145, 19.480, 60.943), Vector(90.261, 21.339, 56.167), 
-            Vector(90.403, 21.675, 55.909), Vector(90.581, 21.966,
-            55.560), Vector(90.936, 21.880, 55.213), Vector(91.255, 21.467, 55.050), Vector(91.309, 20.950, 55.236), Vector(91.192, 20.446,
-            55.510), Vector(90.941, 20.142, 55.805), Vector(90.556, 19.824, 56.118), Vector(89.861, 21.701, 56.243), Vector(89.443, 22.008,
-            56.255), Vector(88.927, 21.923, 56.439), Vector(88.646, 21.540, 56.648), Vector(88.846, 21.003, 56.788), Vector(89.172, 20.606,
-            56.792), Vector(89.588, 20.234, 56.686), Vector(89.890, 19.944, 56.545), Vector(90.248, 19.647, 56.302));
-		If(Current Map == Map(Paris));
-			For Global Variable(Z, 0, Count Of(Global.VDay_Paris), 1);
-				Create Effect(All Players(All Teams), Good Aura, Color(Red), Global.VDay_Paris[Global.Z], 0.400, Visible To);
-				Wait(0.036, Ignore Condition);
-			End;
-			Global.Z = 0;
-			For Global Variable(Z, 0, Count Of(Global.VDay_Sparkles_Paris), 1);
-				Create Effect(All Players(All Teams), Sparkles, Color(Red), Global.VDay_Sparkles_Paris[Global.Z], 3, Visible To);
-				Wait(0.036, Ignore Condition);
-			End;
-		End;
-		If(Current Map == Map(Circuit royal));
-			Global.Z = 0;
-			For Global Variable(Z, 0, Count Of(Global.VDay_Hearts_Cirquit), 1);
-				Create Effect(All Players(All Teams), Good Aura, Color(Red), Global.VDay_Hearts_Cirquit[Global.Z], 0.200, Visible To);
-				Wait(0.036, Ignore Condition);
-			End;
-			Global.Z = 0;
-			For Global Variable(Z, 0, Count Of(Global.VDay_LOVE_Cirquit), 1);
-				Create Effect(All Players(All Teams), Good Aura, Color(Red), Global.VDay_LOVE_Cirquit[Global.Z], 0.400, Visible To);
-				Wait(0.036, Ignore Condition);
-			End;
-			    Create Effect(All Players(All Teams), Sparkles, Color(Red), Vector(80.03, 17.67, 50.73), 50, Visible To);
-				Wait(0.036, Ignore Condition);
-		End;
 	}
 }
 
