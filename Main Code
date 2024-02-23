@@ -752,7 +752,7 @@ rule("Global_Settings")
 		Global.Promoted_List = Empty Array;
 		Wait(5, Ignore Condition);
 		Global.Skins_Check = True;
-		If(Count Of(Global.High_Rank) < 1 || Count Of(Global.Mod_Rank) < 104 || Count Of(Global.Titles_And_Outlines) != 80 || Count Of(Global.Banned_List) < 21 || Count Of(Global.Muted_List) < 47);
+		If(Count Of(Global.High_Rank) < 1 || Count Of(Global.Mod_Rank) < 94 || Count Of(Global.Titles_And_Outlines) != 80 || Count Of(Global.Banned_List) < 21 || Count Of(Global.Muted_List) < 47);
 			For Global Variable(Gravity_Helper, 0, 12, 1);
 				Global.Gravity_Helper -=1;
 			End;
@@ -1723,17 +1723,15 @@ rule("Listed_Player")
 			Custom String("Mogo"), Custom String("Lostshadow"), Custom String("Hoxy"), Custom String("Kazumi"), Custom String("ElDiablo"),
 			Custom String("Miamor"), Custom String("Viktorski"), Custom String("Slafii"), Custom String("karlybarly"), Custom String("TEAMEPǃC"),
 			Custom String("kosmos"), Custom String("Alex"), Custom String("Kiwizzlee"), Custom String("BStray"), Custom String("tsunde"),
-			Custom String("Lünår"), Custom String("AvatarGod"), Custom String("ThatAspect"), Custom String("DȈŦǾ"), Custom String("Akaza"),
-			Custom String("TURBOMURO"), Custom String("Núgget"), Custom String("lostsektor"), Custom String("Hxneibee"), Custom String("Fenetre"),
-			Custom String("Sinnie"), Custom String("TazE"), Custom String("Triin1ty"), Custom String("Lannaanna"), Custom String("XMightyOwlXx"),
-			Custom String("BlueSky"), Custom String("Netbrex"), Custom String("sushiii"), Custom String("yohan"), Custom String("RiwaChan"),
-			Custom String("현대적인쌍봉낙타"), Custom String("jupiter"), Custom String("NotForYou"), Custom String("fenmorre"), Custom String("Eosia"),
-			Custom String("Nef"), Custom String("Visual"), Custom String("Hestia"), Custom String("IZANAMI"), Custom String("Tedz"),
-			Custom String("Xaghyntig"), Custom String("Ðårk"), Custom String("FactAttend"), Custom String("SpƐdy"), Custom String("Kazuma"),
-			Custom String("Jermuseppo"), Custom String("Ređacted"), Custom String("S0undw4v3"), Custom String("LƐafa"), Custom String("mksvault"),
-			Custom String("LightMist"), Custom String("Lunarion"), Custom String("Adiidas"), Custom String("gh0stface"), Custom String("ByeFever"),
-			Custom String("NightShield"), Custom String("Gerry"), Custom String("whoshotcupid"), Custom String("Ƒìşhy"), Custom String("AngelicMinx"),
-			Custom String("ImmaPenguin"), Custom String("MrCleanerrrr"), Custom String("SapphicWitch"), Custom String("VĬƗŌĿĖŦ"), Custom String("Arlecchino"),
+			Custom String("Lünår"), Custom String("AvatarGod"), Custom String("TURBOMURO"), Custom String("Núgget"), Custom String("Hxneibee"),
+			Custom String("Fenetre"), Custom String("Triin1ty"), Custom String("Lannaanna"), Custom String("XMightyOwlXx"), Custom String("BlueSky"),
+			Custom String("Netbrex"), Custom String("sushiii"), Custom String("RiwaChan"), Custom String("현대적인쌍봉낙타"), Custom String("jupiter"),
+			Custom String("NotForYou"), Custom String("fenmorre"), Custom String("Eosia"), Custom String("Nef"), Custom String("Visual"),
+			Custom String("Hestia"), Custom String("IZANAMI"), Custom String("Tedz"), Custom String("Xaghyntig"), Custom String("SpƐdy"),
+			Custom String("Kazuma"), Custom String("Jermuseppo"), Custom String("Ređacted"), Custom String("S0undw4v3"), Custom String("LƐafa"),
+			Custom String("mksvault"), Custom String("LightMist"), Custom String("Lunarion"), Custom String("Adiidas"), Custom String("gh0stface"),
+			Custom String("ByeFever"), Custom String("NightShield"), Custom String("Gerry"), Custom String("whoshotcupid"), Custom String("Ƒìşhy"),
+			Custom String("AngelicMinx"), Custom String("ImmaPenguin"), Custom String("MrCleanerrrr"), Custom String("SapphicWitch"), Custom String("VĬƗŌĿĖŦ"),
 			Custom String("IZANAGI"), Custom String("Fragoso"), Custom String("Juuzo"), Custom String("Fearlxss"), Custom String("ǃSHAY"),
 			Custom String("Eggman"), Custom String("Mirage"), Custom String("Bluroisa"), Custom String("Nel"), Custom String("godly"),
 			Custom String("BȂKƐDBȔŊŊYǃ"), Custom String("zovha"), Custom String("pancakes"), Custom String("emilie"), Custom String("LostShadow"),
