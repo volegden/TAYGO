@@ -269,6 +269,7 @@ settings
 			Pharah
 			{
 				Concussive Blast Cooldown Time: 25%
+				Jet Dash Cooldown Time: 0%
 				Hover Jets Unlimited Fuel: On
 				Jump Jet Cooldown Time: 0%
 			}
