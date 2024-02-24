@@ -14,7 +14,8 @@ rule ("Custom nameplates list")
 				Custom String("♡")
 		), 
 			Array(Custom String("Warloy"),
-				Custom Color(72, 72, 72, 255),
+				Custom String("Fading"), 
+				95,176,150, 39,79,66,
 				Custom String("Coup de grâce")
 		), 
 			Array(Custom String("kwally"),
