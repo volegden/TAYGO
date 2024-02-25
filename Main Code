@@ -1048,11 +1048,14 @@ rule("Dynamic_Color")
 
 	actions
 	{
-		Global.Angle = Total Time Elapsed / 80 * 360;
-		Global.Red = 127.5 + 127.5 * Cosine From Degrees(Global.Angle);
-		Global.Green = 127.5 + 127.5 * Cosine From Degrees(Global.Angle - 120);
-		Global.Blue = 127.5 + 127.5 * Cosine From Degrees(Global.Angle + 120);
-		Global.Rainbow_Color = Custom Color(Global.Red, Global.Green, Global.Blue, 255);
+		"[0] Angle, [1] Red, [2] Green, [3] Blue"
+		Global.rainbowColoringList = Array(
+			Total Time Elapsed / 80 * 360, 
+			127.5 + 127.5 * Cosine From Degrees(Global.rainbowColoringList[0]), 
+			127.5 + 127.5 * Cosine From Degrees(Global.rainbowColoringList[0] - 120), 
+			127.5 + 127.5 * Cosine From Degrees(Global.rainbowColoringList[0] + 120)
+			);
+		Global.Rainbow_Color = Custom Color(Global.rainbowColoringList[1], Global.rainbowColoringList[2], Global.rainbowColoringList[3], 255);
 		Wait(0.12, Ignore Condition);
 		Loop;
 	}
