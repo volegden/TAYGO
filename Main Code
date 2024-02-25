@@ -395,9 +395,6 @@ variables
 	global:
 		0: High_Rank
 		1: Banned_List
-		2: Red
-		3: Green
-		4: Blue
 		5: Rainbow_Color
 		6: Mod_Rank
 		7: Temp_Banned
@@ -444,7 +441,6 @@ variables
 		48: Game_Description
 		49: Promoted_List
 		50: Credits
-		51: Angle
 		52: TP_Help
 		53: Map_Teleport_Exits
 		54: Muted_List
@@ -454,6 +450,7 @@ variables
 		58: Music_Toggle
 		59: Rotate
 		60: Main_Chaser
+		61: rainbowColoringList
 
 	player:
 		0: High_Rank
@@ -724,10 +721,6 @@ rule("Global_Settings")
 		Disable Built-In Game Mode Music;
 		Modify Global Variable(Mod_Rank, Remove From Array By Value, 0);
 		Modify Global Variable(Temp_Banned, Remove From Array By Value, 0);
-		"Default Color"
-		Global.Red = 0;
-		Global.Green = 0;
-		Global.Blue = 0;
 		"Another Defaults"
 		Global.Gravity_Helper = 0;
 		Global.Gravity_Toggle = False;
