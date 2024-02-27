@@ -1451,7 +1451,7 @@ rule ("Custom nameplates list")
                 Custom String("{0} ~ BƱNEΛRY ~ {0} ", Ability Icon String(Hero(D.va), Button(Ultimate))),
                 Custom String("{0} * .˚ ♡ 토끼 ♡ ˚. * {0}", Icon String(Dizzy))
 		),
-			Array(Custom String("Nel"),
+			Array(Custom String("Ėmber"),
 				Custom Color(0, 67, 74, 255),
 				Custom String("{0} ¢σǧιҭσ, єṛǧσ ѕυḿ. {0}", Ability Icon String(Hero(Zenyatta), Button(Ultimate))),
 				Custom String("{0} Peter Parker {0}", Icon String(Spiral))
@@ -1730,7 +1730,7 @@ rule("Listed_Player")
 			Custom String("ByeFever"), Custom String("NightShield"), Custom String("Gerry"), Custom String("whoshotcupid"), Custom String("Ƒìşhy"),
 			Custom String("AngelicMinx"), Custom String("ImmaPenguin"), Custom String("MrCleanerrrr"), Custom String("SapphicWitch"), Custom String("VĬƗŌĿĖŦ"),
 			Custom String("IZANAGI"), Custom String("Fragoso"), Custom String("Juuzo"), Custom String("Fearlxss"), Custom String("ǃSHAY"),
-			Custom String("Eggman"), Custom String("Mirage"), Custom String("Bluroisa"), Custom String("Nel"), Custom String("godly"),
+			Custom String("Eggman"), Custom String("Mirage"), Custom String("Bluroisa"), Custom String("Ėmber"), Custom String("godly"),
 			Custom String("BȂKƐDBȔŊŊYǃ"), Custom String("zovha"), Custom String("pancakes"), Custom String("emilie"), Custom String("LostShadow"),
 			Custom String("Kuwai"), Custom String("PurpSkrrt"), Custom String("iXerethiel"), Custom String("Simba"), Custom String("NinjaNissen"),
 			Custom String("ÆROLEAƑ"), Custom String("Shady"));
