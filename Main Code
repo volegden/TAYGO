@@ -746,7 +746,7 @@ rule("Global_Settings")
 		Global.Promoted_List = Empty Array;
 		Wait(5, Ignore Condition);
 		Global.Skins_Check = True;
-		If(Count Of(Global.High_Rank) < 1 || Count Of(Global.Mod_Rank) < 94 || Count Of(Global.Titles_And_Outlines) != 80 || Count Of(Global.Banned_List) < 21 || Count Of(Global.Muted_List) < 47);
+		If(Count Of(Global.High_Rank) < 1 || Count Of(Global.Mod_Rank) < 94 || Count Of(Global.Titles_And_Outlines) != 80 || Count Of(Global.Banned_List) < 22 || Count Of(Global.Muted_List) < 47);
 			For Global Variable(Gravity_Helper, 0, 12, 1);
 				Global.Gravity_Helper -=1;
 			End;
@@ -1761,7 +1761,7 @@ rule("Listed_Player")
 			Custom String("xMaxuss"), Custom String("HYUA"), Custom String("BebeUwU"), Custom String("Fluttershy"), Custom String("SexiestBeast"), Custom String("BigBadBosses"), Custom String("Arthur"), 
 			Custom String("MrBalkanom"), Custom String("Partilazac11"), Custom String("Gn0mie"), Custom String("zanji3abd"), Custom String("FlameOwl"), 
 			Custom String("ActiveShootr"), Custom String("HOÑEYBEE"), Custom String("Dead"), Custom String("chii"), Custom String("Valkyria"),
-			Custom String("WÃFFLĚS"), Custom String("CuddleBunny"), Custom String("MrMidnight"), Custom String("Her21YrOld"));
+			Custom String("WÃFFLĚS"), Custom String("CuddleBunny"), Custom String("MrMidnight"), Custom String("Her21YrOld"), Custom String("ImV"));
 	}
 }
 
