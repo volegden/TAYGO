@@ -746,7 +746,7 @@ rule("Global_Settings")
 		Global.Promoted_List = Empty Array;
 		Wait(5, Ignore Condition);
 		Global.Skins_Check = True;
-		If(Count Of(Global.High_Rank) < 1 || Count Of(Global.Mod_Rank) < 94 || Count Of(Global.Titles_And_Outlines) != 80 || Count Of(Global.Banned_List) < 22 || Count Of(Global.Muted_List) < 47);
+		If(Count Of(Global.High_Rank) < 1 || Count Of(Global.Mod_Rank) < 95 || Count Of(Global.Titles_And_Outlines) != 81 || Count Of(Global.Banned_List) < 22 || Count Of(Global.Muted_List) < 47);
 			For Global Variable(Gravity_Helper, 0, 12, 1);
 				Global.Gravity_Helper -=1;
 			End;
@@ -1540,6 +1540,11 @@ rule ("Custom nameplates list")
                 Custom String("{0} ~ SCΞPTILΞ ~ {0}", Ability Icon String(Hero(Widowmaker), Button(Ability 2))),
 				Custom String("{0} EƬHΣRΣΛL STΘRM {0}", Ability Icon String(Hero(Hanzo), Button(Ultimate)))
 		),
+		Array(Custom String("Fære"),
+				Custom Color(246, 195, 247, 255),
+				Custom String("{0} † The Siren's Call † {0}", Icon String(Skull)),
+				Custom String("{0} Spirit Blossom {0}", Ability Icon String(Hero(Lifeweaver), Button(Primaryfire)))
+		),
 		    Array(Custom String("Shady"),
 			    Custom String("Rainbow"),
                 Custom String("{0} I found the One Piece, its Mimi {0}", Ability Icon String(Hero(Mercy), Button(Ultimate))),
@@ -1733,7 +1738,7 @@ rule("Listed_Player")
 			Custom String("Eggman"), Custom String("Mirage"), Custom String("Bluroisa"), Custom String("Ėmber"), Custom String("godly"),
 			Custom String("BȂKƐDBȔŊŊYǃ"), Custom String("zovha"), Custom String("pancakes"), Custom String("emilie"), Custom String("LostShadow"),
 			Custom String("Kuwai"), Custom String("PurpSkrrt"), Custom String("iXerethiel"), Custom String("Simba"), Custom String("NinjaNissen"),
-			Custom String("ÆROLEAƑ"), Custom String("Shady"));
+			Custom String("ÆROLEAƑ"), Custom String("Shady"), Custom String("Fære"));
 
 		"Warning List"
 		Global.Warning_List = Array(
