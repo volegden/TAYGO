@@ -2,7 +2,7 @@ settings
 {
 	main
 	{
-		Description: " The previously named \"Friendly No Kill\"\n    is no longer being maintained! \n This version is kept up to date!\n\n Last updated: February 24, 2024\n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss\n Community managed with ♡ by: kwally"
+		Description: " The previously named \"Friendly No Kill\"\n    is no longer being maintained! \n This version is kept up to date!\n\n Last updated: March 4, 2024\n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss\n Community managed with ♡ by: kwally"
 		Mode Name: "♥ Friendly ♥ No Kill ♥ Updated ♥"
 	}
 
@@ -562,6 +562,8 @@ variables
 		106: Target_Select
 		107: AFK_Toggle
 		108: FunkySkillsToggle
+		109: inAction
+		110: playersUnderControl
 	}
 
 subroutines
@@ -968,6 +970,16 @@ rule("Default_Player_Settings")
 
 		"Funky Skills"
 		Event Player.FunkySkillsToggle = Array(1, 1);
+
+		"Leash/Grab/Attach"
+		Event Player.inAction = Array(False, False, False);
+		Event Player.playersUnderControl = Empty Array;
+		Create HUD Text(Filtered Array(All Players(All Teams), 
+			(Current Array Element.inAction[0] == True || 
+			Current Array Element.inAction[1] == True || 
+			Current Array Element.inAction[2] == True) && 
+			Current Array Element == Event Player), Null, Custom String("Press {0} to remove controls", Input Binding String(Button(Ability 2))), Null, Right, 0,
+			Null, Color(Blue), Null, Visible To String and Color, Default Visibility);
 
 		"Is menu Active"
 		Event Player.Is_Menu_Active = True;
@@ -2063,12 +2075,15 @@ rule("Hero_Switch")
 		Event Player.Last_Position_Facing[0] = Position Of(Event Player);
 		Event Player.Last_Position_Facing[1] = Facing Direction Of(Event Player);
 		Detach Players(Event Player);
+		Filtered Array(All Players(All Teams), Current Array Element.inAction[1] == True && Array Contains(Event Player.playersUnderControl, Current Array Element)).inAction[1] = False;
 		Set Player Allowed Heroes(Event Player, Filtered Array(All Heroes, Current Array Element != Hero Of(Event Player)));
 		Wait(0.250, Ignore Condition);
 		Set Player Allowed Heroes(Event Player, All Heroes);
 		Wait Until(Has Spawned(Event Player) == True, 99999);
 		Teleport(Event Player, Event Player.Last_Position_Facing[0]);
 		Set Facing(Event Player, Event Player.Last_Position_Facing[1], To World);
+		Event Player.inAction[1] = False;
+		Event Player.playersUnderControl = Empty Array;
 		Event Player.Last_Position_Facing[0] = Null;
 		Event Player.Last_Position_Facing[1] = Null;
 	}
@@ -4442,11 +4457,13 @@ rule("Mode_10 - Target_Carry_Control")
 			Start Forcing Player Position(Event Player.Target_Lock, World Vector Of(Vector(X Component Of(Event Player), (
 				Vertical Facing Angle Of(Event Player) - Vertical Facing Angle Of(Event Player) * 2) / 10, Z Component Of(Event Player) + 5),
 				Event Player, Rotation And Translation), True);
+			Event Player.Target_Lock.inAction[0] = True;
 			Wait(0.500, Ignore Condition);
 			Wait Until((Is Button Held(Event Player, Button(Primary Fire)) && Event Player.Is_Crouch_On == True) || (Is Button Held(Event Player, Button(Secondary Fire)) && Event Player.Is_Crouch_On == True) ||
 				Event Player.Target_Lock.Full_Protection, 99999);
 			Event Player.Signal = False;
 			Stop Forcing Player Position(Event Player.Target_Lock);
+			Event Player.Target_Lock.inAction[0] = False;
 			If(Is Button Held(Event Player, Button(Secondary Fire)) && Event Player.Is_Crouch_On == True);
 				Apply Impulse(Event Player.Target_Lock, Direction Towards(Event Player, Event Player.Target_Lock), 70, To World,
 					Cancel Contrary Motion);
@@ -4475,7 +4492,9 @@ rule("Mode_10 - Target_Carry_Control")
 			End;
 			Event Player.Spam_Cooldown = 3;
 			Stop Forcing Player Position(Event Player);
+			Event Player.Target_Lock.inAction[0] = False;
 			Detach Players(Event Player);
+			Event Player.Target_Lock.inAction[1] = False;
 			If(Count Of(Event Player.Leash_To) >= 1);
 				For Player Variable(Event Player, Leash_Index, 0, Count Of(Event Player.Leash_To), 1);
 					Event Player.Leash_Helper = Index Of Array Value(Event Player.Leash_To[Event Player.Leash_Index].Leash_List, Event Player);
@@ -4731,36 +4750,52 @@ rule("Mode_13 - Attach_System")
 	actions
 	{
 		Event Player.Signal = False;
+		Event Player.Target_Shortcut = Player Closest To Reticle(Event Player, All Teams);
+
 		If(Is Button Held(Event Player, Button(Primary Fire)));
-			Abort If(Player Closest To Reticle(Event Player, All Teams).Full_Protection);
-			Attach Players(Event Player, Player Closest To Reticle(Event Player, All Teams), Vector(0, 2, 0));
-			Play Effect(All Players(All Teams), Bad Pickup Effect, Color(Red), Player Closest To Reticle(Event Player, All Teams), 1);
+			Abort If(Event Player.Target_Shortcut.Full_Protection);
+			Event Player.Target_Shortcut.playersUnderControl = Append to Array(Event Player.Target_Shortcut.playersUnderControl, Event Player);
+			Attach Players(Event Player, Event Player.Target_Shortcut, Vector(0, 2, 0));
+			Play Effect(All Players(All Teams), Bad Pickup Effect, Color(Red), Event Player.Target_Shortcut, 1);
+			Event Player.inAction[1] = True;
+
 		Else If(Is Button Held(Event Player, Button(Secondary Fire)));
-			Abort If(Player Closest To Reticle(Event Player, All Teams).Full_Protection);
-			Attach Players(Player Closest To Reticle(Event Player, All Teams), Event Player, Vector(0, 2, 0));
+			Abort If(Event Player.Target_Shortcut.Full_Protection);
+			Attach Players(Event Player.Target_Shortcut, Event Player, Vector(0, 2, 0));
 			Play Effect(All Players(All Teams), Bad Pickup Effect, Color(Red), Event Player, 1);
+			Event Player.playersUnderControl = Append to Array(Event Player.playersUnderControl, Event Player.Target_Shortcut);
+			Event Player.Target_Shortcut.inAction[1] = True;
+
 		Else If(Is Button Held(Event Player, Button(Ability 2)));
-			Abort If(Player Closest To Reticle(Event Player, All Teams).Full_Protection);
-			Attach Players(Player Closest To Reticle(Event Player, All Teams), Event Player, Vector(0, 0, 0.4));
+			Abort If(Event Player.Target_Shortcut.Full_Protection);
+			Attach Players(Event Player.Target_Shortcut, Event Player, Vector(0, 0, 0.4));
 			Play Effect(All Players(All Teams), Bad Pickup Effect, Color(Red), Event Player, 1);
+			Event Player.playersUnderControl = Append to Array(Event Player.playersUnderControl, Event Player.Target_Shortcut);
+			Event Player.Target_Shortcut.inAction[1] = True;
+
 		Else If(Is Button Held(Event Player, Button(Ultimate)));
 			Detach Players(Event Player);
 			Stop Forcing Player Position(Event Player);
 			Play Effect(All Players(All Teams), Good Pickup Effect, Color(Blue), Event Player, 1);
+			Event Player.inAction[1] = False;
+
 		Else If(Is Button Held(Event Player, Button(Reload)));
-			Abort If(Player Closest To Reticle(Event Player, All Teams).Full_Protection);
-			Detach Players(Player Closest To Reticle(Event Player, All Teams));
-			Stop Forcing Player Position(Player Closest To Reticle(Event Player, All Teams));
-			Play Effect(All Players(All Teams), Good Pickup Effect, Color(Blue), Player Closest To Reticle(Event Player, All Teams), 1);
+			Abort If(Event Player.Target_Shortcut.Full_Protection);
+			Detach Players(Event Player.Target_Shortcut);
+			Stop Forcing Player Position(Event Player.Target_Shortcut);
+			Play Effect(All Players(All Teams), Good Pickup Effect, Color(Blue), Event Player.Target_Shortcut, 1);
+			Event Player.Target_Shortcut.inAction[1] = False;
+
 		Else If(Is Button Held(Event Player, Button(Melee)));
-			Abort If(Player Closest To Reticle(Event Player, All Teams).Full_Protection);
+			Abort If(Event Player.Target_Shortcut.Full_Protection);
 			Event Player.Print = Random Real(1,4);
-			Start Forcing Player Position(Event Player,  Add(Eye Position(Evaluate Once(Player Closest To Reticle(Event Player, All Teams))),Vector(
+			Start Forcing Player Position(Event Player,  Add(Eye Position(Evaluate Once(Player Closest To Reticle(Event Player, All Teams))), Vector(
 				(2 + Evaluate Once(Event Player.Print) * 0.5) * Cosine From Degrees(Total Time Elapsed * 10 * Evaluate Once(Event Player.Print)), 
 				0.3 * Sine From Radians(Total Time Elapsed * 0.5 * Evaluate Once(Random Real(1,4))), 
 				(2 + Evaluate Once(Event Player.Print) * 0.5) * Sine From Degrees(Total Time Elapsed * 10 * Evaluate Once(Event Player.Print)))), True);
 			Play Effect(All Players(All Teams), Good Pickup Effect, Color(Blue), Event Player, 1);
 		End;
+		Event Player.Target_Shortcut = Null;
 	}
 }
 
@@ -4796,6 +4831,7 @@ rule("Mode_14 - Grapple_Line")
 			Play Effect(All Players(All Teams), Bad Pickup Effect, Color(Red), Event Player.Target_Shortcut, 1);
 			Create Beam Effect(All Players(All Teams), Good Beam, Evaluate Once(Event Player.Target_Shortcut), Event Player, Color(Rose),
 				Visible To Position and Radius);
+			Event Player.Target_Shortcut.inAction[2] = True;
 			Modify Player Variable(Event Player, Leash_IDs, Append To Array, Last Created Entity);
 			Modify Player Variable(Event Player, Leash_List, Append To Array, Event Player.Target_Shortcut);
 			Modify Player Variable(Event Player.Target_Shortcut, Leash_To, Append To Array, Event Player);
@@ -4808,6 +4844,7 @@ rule("Mode_14 - Grapple_Line")
 				Modify Player Variable(Event Player, Leash_List, Remove From Array By Value, Event Player.Target_Shortcut);
 				Modify Player Variable(Event Player.Target_Shortcut, Leash_To, Remove From Array By Value, Event Player);
 				Play Effect(All Players(All Teams), Good Pickup Effect, Color(Blue), Event Player.Target_Shortcut, 1);
+				Event Player.Target_Shortcut.inAction[2] = False;
 			End;
 			If(Array Contains(Event Player.Target_Shortcut.Leash_List, Event Player));
 				Event Player.Leash_Helper = Index Of Array Value(Event Player.Target_Shortcut.Leash_List, Event Player);
@@ -4817,6 +4854,7 @@ rule("Mode_14 - Grapple_Line")
 				Modify Player Variable(Event Player.Target_Shortcut, Leash_List, Remove From Array By Value, Event Player);
 				Modify Player Variable(Event Player, Leash_To, Remove From Array By Value, Event Player.Target_Shortcut);
 				Play Effect(All Players(All Teams), Good Pickup Effect, Color(Blue), Event Player, 1);
+				Event Player.inAction[2] = False;
 			End;
 		Else If(Is Button Held(Event Player, Button(Ability 2)));
 			Abort If(Event Player.Target_Shortcut.Full_Protection);
@@ -4824,6 +4862,7 @@ rule("Mode_14 - Grapple_Line")
 			Abort If(Array Contains(Event Player.Target_Shortcut.Leash_List, Event Player));
 			Event Player.Target_Shortcut.Leash_Spawn = Array(Event Player, Event Player.Target_Shortcut);
 			Play Effect(All Players(All Teams), Bad Pickup Effect, Color(Red), Event Player, 1);
+			Event Player.inAction[2] = True;
 		End;
 		Wait(0.1, Ignore Condition);
 	}
@@ -4923,6 +4962,40 @@ rule("Mode_14 - Grapple_Line_Leaver")
 		End;
 		Wait(1, Ignore Condition);
 		Loop If Condition Is True;
+	}
+}
+
+rule("10_13_14 Control removal")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Event Player.Is_Crouch_On == False;
+		Is Button Held(Event Player, Button(Ability 2)) == True;
+	}
+
+	actions
+	{
+		If(Event Player.inAction[0] == True || Event Player.inAction[1] == True || Event Player.inAction[2] == True);
+			Stop Forcing Player Position(Event Player);
+			Detach Players(Event Player);
+			For Player Variable(Event Player, Leash_Index, 0, Count Of(Event Player.Leash_To), 1);
+				Event Player.Leash_Helper = Index Of Array Value(Event Player.Leash_To[Event Player.Leash_Index].Leash_List, Event Player);
+				Destroy Effect(Event Player.Leash_To[Event Player.Leash_Index].Leash_IDs[Event Player.Leash_Helper]);
+				Modify Player Variable(Event Player.Leash_To[Event Player.Leash_Index], Leash_List, Remove From Array By Value, Event Player);
+				Modify Player Variable(Event Player.Leash_To[Event Player.Leash_Index], Leash_IDs, Remove From Array By Index, Event Player.Leash_Helper);
+			End;
+			Event Player.Leash_To = Empty Array;
+			Event Player.inAction[0] = False;
+			Event Player.inAction[1] = False;
+			Event Player.inAction[2] = False;
+		End;
 	}
 }
 
