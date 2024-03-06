@@ -297,7 +297,7 @@ rule ("Custom nameplates list")
                 Custom String("{0} ~ BƱNEΛRY ~ {0} ", Ability Icon String(Hero(D.va), Button(Ultimate))),
                 Custom String("{0} * .˚ ♡ 토끼 ♡ ˚. * {0}", Icon String(Dizzy))
 		),
-			Array(Custom String("Nel"),
+			Array(Custom String("Ėmber"),
 				Custom Color(0, 67, 74, 255),
 				Custom String("{0} ¢σǧιҭσ, єṛǧσ ѕυḿ. {0}", Ability Icon String(Hero(Zenyatta), Button(Ultimate))),
 				Custom String("{0} Peter Parker {0}", Icon String(Spiral))
@@ -385,6 +385,11 @@ rule ("Custom nameplates list")
 			    Custom Color(153, 0, 0, 255),
                 Custom String("{0} ~ SCΞPTILΞ ~ {0}", Ability Icon String(Hero(Widowmaker), Button(Ability 2))),
 				Custom String("{0} EƬHΣRΣΛL STΘRM {0}", Ability Icon String(Hero(Hanzo), Button(Ultimate)))
+		),
+		Array(Custom String("Fære"),
+				Custom Color(246, 195, 247, 255),
+				Custom String("{0} † The Siren's Call † {0}", Icon String(Skull)),
+				Custom String("{0} Spirit Blossom {0}", Ability Icon String(Hero(Lifeweaver), Button(Primaryfire)))
 		),
 		    Array(Custom String("Shady"),
 			    Custom String("Rainbow"),
