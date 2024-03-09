@@ -16,7 +16,8 @@ rule ("Custom nameplates list")
 			Array(Custom String("Warloy"),
 				Custom String("Fading"), 
 				95,176,150, 39,79,66,
-				Custom String("Coup de grâce")
+				Custom String("Coup de grâce"),
+				Custom String("Gott ist tot")
 		), 
 			Array(Custom String("kwally"),
 				Custom String("Fading"),
@@ -126,7 +127,7 @@ rule ("Custom nameplates list")
 			Array(Custom String("Fenetre"),
 				Custom Color(0, 0, 0, 255),
 				Custom String("ω ι и d σ ω"),
-				Custom String("{0} I HΔVΣ ЅΘΜBRΔ PRΘBLΣΜ {0}", Ability Icon String(Hero(Sombra), Button(Ultimate)))
+				Custom String("Yes")
 		),
 			Array(Custom String("Hxneibee"),
 				Custom Color(84, 1, 1, 255),
@@ -279,8 +280,7 @@ rule ("Custom nameplates list")
 		),
 			Array(Custom String("Mirage"),
 				Custom Color(34, 139, 34, 255),
-				Custom String("• Bamboozled ツ •"),
-				Custom String("{0}  * .˚ ☆ Mirage™ ☆ ˚. *  {0}", Ability Icon String(Hero(Ana), Button(Ability 1)))
+				Custom String("• Bamboozled ツ •")
 		),
 			Array(Custom String("Bluroisa"),
 				Custom Color(255, 164, 220, 255),
@@ -300,7 +300,7 @@ rule ("Custom nameplates list")
 			Array(Custom String("Ėmber"),
 				Custom Color(0, 67, 74, 255),
 				Custom String("{0} ¢σǧιҭσ, єṛǧσ ѕυḿ. {0}", Ability Icon String(Hero(Zenyatta), Button(Ultimate))),
-				Custom String("{0} Peter Parker {0}", Icon String(Spiral))
+				Custom String("{0} Ｓｌｅｅｐｙｈｅａｄ {0}", Ability Icon String(Hero(Ana), Button(Ability 1)))
 		),
 			Array(Custom String("zovha"),
 				Color(Black),
@@ -314,7 +314,7 @@ rule ("Custom nameplates list")
 			Array(Custom String("pancakes"),
 				Custom String("Rainbow"),
 				Custom String("{0} heat + bread + time = toast {0}", Ability Icon String(Hero(Illari), Button(Ultimate))),
-				Custom String("{0} Gwen Stacy {0}", Icon String(Spiral))
+				Custom String("{0} Ｗａｋｅ Ｕｐ {0}", Ability Icon String(Hero(Ana), Button(Ability 1)))
 		),
 			Array(Custom String("Viktorski"),
 				Color(Yellow),
@@ -386,7 +386,7 @@ rule ("Custom nameplates list")
                 Custom String("{0} ~ SCΞPTILΞ ~ {0}", Ability Icon String(Hero(Widowmaker), Button(Ability 2))),
 				Custom String("{0} EƬHΣRΣΛL STΘRM {0}", Ability Icon String(Hero(Hanzo), Button(Ultimate)))
 		),
-		Array(Custom String("Fære"),
+			Array(Custom String("Fære"),
 				Custom Color(246, 195, 247, 255),
 				Custom String("{0} † The Siren's Call † {0}", Icon String(Skull)),
 				Custom String("{0} Spirit Blossom {0}", Ability Icon String(Hero(Lifeweaver), Button(Primaryfire)))
@@ -395,6 +395,10 @@ rule ("Custom nameplates list")
 			    Custom String("Rainbow"),
                 Custom String("{0} I found the One Piece, its Mimi {0}", Ability Icon String(Hero(Mercy), Button(Ultimate))),
 				Custom String("{0} You gon' think about me when i'm gone {0}", Icon String(Dizzy))
+		),
+		    Array(Custom String("Bendude1000"),
+			    Custom Color(155, 1, 63, 255),
+				Custom String("{0} 3Girl-Coll3ctor {0}", Ability Icon String(Hero(Sigma), Button(Ability 1)))
 		)
 		);
 	}
