@@ -2,7 +2,7 @@ settings
 {
 	main
 	{
-		Description: " The previously named \"Friendly No Kill\"\n    is no longer being maintained! \n This version is kept up to date!\n\n Last updated: March 4, 2024\n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss\n Community managed with ♡ by: kwally"
+		Description: " The previously named \"Friendly No Kill\"\n    is no longer being maintained! \n This version is kept up to date!\n\n Last updated: March 9, 2024\n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss\n Community managed with ♡ by: kwally"
 		Mode Name: "♥ Friendly ♥ No Kill ♥ Updated ♥"
 	}
 
@@ -748,7 +748,7 @@ rule("Global_Settings")
 		Global.Promoted_List = Empty Array;
 		Wait(5, Ignore Condition);
 		Global.Skins_Check = True;
-		If(Count Of(Global.High_Rank) < 1 || Count Of(Global.Mod_Rank) < 95 || Count Of(Global.Titles_And_Outlines) != 81 || Count Of(Global.Banned_List) < 22 || Count Of(Global.Muted_List) < 47);
+		If(Count Of(Global.High_Rank) < 1 || Count Of(Global.Mod_Rank) < 95 || Count Of(Global.Titles_And_Outlines) != 82 || Count Of(Global.Banned_List) < 22 || Count Of(Global.Muted_List) < 47);
 			For Global Variable(Gravity_Helper, 0, 12, 1);
 				Global.Gravity_Helper -=1;
 			End;
@@ -978,7 +978,7 @@ rule("Default_Player_Settings")
 			(Current Array Element.inAction[0] == True || 
 			Current Array Element.inAction[1] == True || 
 			Current Array Element.inAction[2] == True) && 
-			Current Array Element == Event Player), Null, Custom String("Press {0} to remove controls", Input Binding String(Button(Ability 2))), Null, Right, 0,
+			Current Array Element == Event Player), Null, Custom String("Hold {0} to clear leash/grab/attach", Input Binding String(Button(Ability 2))), Null, Right, 0,
 			Null, Color(Blue), Null, Visible To String and Color, Default Visibility);
 
 		"Is menu Active"
@@ -1182,7 +1182,8 @@ rule ("Custom nameplates list")
 			Array(Custom String("Warloy"),
 				Custom String("Fading"), 
 				95,176,150, 39,79,66,
-				Custom String("Coup de grâce")
+				Custom String("Coup de grâce"),
+				Custom String("Gott ist tot")
 		), 
 			Array(Custom String("kwally"),
 				Custom String("Fading"),
@@ -1292,7 +1293,7 @@ rule ("Custom nameplates list")
 			Array(Custom String("Fenetre"),
 				Custom Color(0, 0, 0, 255),
 				Custom String("ω ι и d σ ω"),
-				Custom String("{0} I HΔVΣ ЅΘΜBRΔ PRΘBLΣΜ {0}", Ability Icon String(Hero(Sombra), Button(Ultimate)))
+				Custom String("Yes")
 		),
 			Array(Custom String("Hxneibee"),
 				Custom Color(84, 1, 1, 255),
@@ -1445,8 +1446,7 @@ rule ("Custom nameplates list")
 		),
 			Array(Custom String("Mirage"),
 				Custom Color(34, 139, 34, 255),
-				Custom String("• Bamboozled ツ •"),
-				Custom String("{0}  * .˚ ☆ Mirage™ ☆ ˚. *  {0}", Ability Icon String(Hero(Ana), Button(Ability 1)))
+				Custom String("• Bamboozled ツ •")
 		),
 			Array(Custom String("Bluroisa"),
 				Custom Color(255, 164, 220, 255),
@@ -1466,7 +1466,7 @@ rule ("Custom nameplates list")
 			Array(Custom String("Ėmber"),
 				Custom Color(0, 67, 74, 255),
 				Custom String("{0} ¢σǧιҭσ, єṛǧσ ѕυḿ. {0}", Ability Icon String(Hero(Zenyatta), Button(Ultimate))),
-				Custom String("{0} Peter Parker {0}", Icon String(Spiral))
+				Custom String("{0} Ｓｌｅｅｐｙｈｅａｄ {0}", Ability Icon String(Hero(Ana), Button(Ability 1)))
 		),
 			Array(Custom String("zovha"),
 				Color(Black),
@@ -1480,7 +1480,7 @@ rule ("Custom nameplates list")
 			Array(Custom String("pancakes"),
 				Custom String("Rainbow"),
 				Custom String("{0} heat + bread + time = toast {0}", Ability Icon String(Hero(Illari), Button(Ultimate))),
-				Custom String("{0} Gwen Stacy {0}", Icon String(Spiral))
+				Custom String("{0} Ｗａｋｅ Ｕｐ {0}", Ability Icon String(Hero(Ana), Button(Ability 1)))
 		),
 			Array(Custom String("Viktorski"),
 				Color(Yellow),
@@ -1552,7 +1552,7 @@ rule ("Custom nameplates list")
                 Custom String("{0} ~ SCΞPTILΞ ~ {0}", Ability Icon String(Hero(Widowmaker), Button(Ability 2))),
 				Custom String("{0} EƬHΣRΣΛL STΘRM {0}", Ability Icon String(Hero(Hanzo), Button(Ultimate)))
 		),
-		Array(Custom String("Fære"),
+			Array(Custom String("Fære"),
 				Custom Color(246, 195, 247, 255),
 				Custom String("{0} † The Siren's Call † {0}", Icon String(Skull)),
 				Custom String("{0} Spirit Blossom {0}", Ability Icon String(Hero(Lifeweaver), Button(Primaryfire)))
@@ -1561,6 +1561,10 @@ rule ("Custom nameplates list")
 			    Custom String("Rainbow"),
                 Custom String("{0} I found the One Piece, its Mimi {0}", Ability Icon String(Hero(Mercy), Button(Ultimate))),
 				Custom String("{0} You gon' think about me when i'm gone {0}", Icon String(Dizzy))
+		),
+		    Array(Custom String("Bendude1000"),
+			    Custom Color(155, 1, 63, 255),
+				Custom String("{0} 3Girl-Coll3ctor {0}", Ability Icon String(Hero(Sigma), Button(Ability 1)))
 		)
 		);
 	}
@@ -1771,7 +1775,7 @@ rule("Listed_Player")
 
 		"Demoted List"
 		Global.Demoted_List = Array(
-			Custom String("sweet"));
+			Custom String("Null User"));
 
 		"Automatic Ban"
 		Global.Banned_List = Array(
@@ -4982,6 +4986,7 @@ rule("10_13_14 Control removal")
 
 	actions
 	{
+		Wait(0.350, Abort When False);
 		If(Event Player.inAction[0] == True || Event Player.inAction[1] == True || Event Player.inAction[2] == True);
 			Stop Forcing Player Position(Event Player);
 			Detach Players(Event Player);
