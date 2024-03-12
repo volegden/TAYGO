@@ -357,11 +357,6 @@ rule ("Custom nameplates list")
                 Custom String("{0}  ЅHΔDΘШ ШIZΔRD ΜΘNΣΨ GΔNG  {0}", Ability Icon String(Hero(Sombra), Button(Ultimate))),
                 Custom String("{0} * .˚ ♡ [ PurpSkrrt™ ] ♡ ˚. * {0}", Ability Icon String(Hero(Mercy), Button(Ultimate)))
 		),
-		    Array(Custom String("Xaghyntig"),
-			    Custom Color(137, 207, 240, 255),
-                Custom String("{0}  ⇒   -`★  CHILLШΔƬCH DJЅΜΘLFRΨ™  ★´-   {0}", Hero Icon String(Hero(Symmetra))),
-                Custom String("{0}  ⇒   -`†  ΜΣCHΔNICΔL ШΘNDΣRЅ™  †´-   {0}", Ability Icon String (Hero(Torbjörn), Button(Ability 2)))
-		),
 			Array(Custom String("karlybarly"),
 			    Custom Color(153, 204, 255, 255),
 			    Custom String("{0} 莉 {0}", Ability Icon String(Hero(D.va), Button(Ultimate))),
