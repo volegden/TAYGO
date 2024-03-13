@@ -2,7 +2,7 @@ settings
 {
 	main
 	{
-		Description: " The previously named \"Friendly No Kill\"\n    is no longer being maintained! \n This version is kept up to date!\n\n Last updated: March 9, 2024\n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss\n Community managed with ♡ by: kwally"
+		Description: " The previously named \"Friendly No Kill\"\n    is no longer being maintained! \n This version is kept up to date!\n\n Last updated: March 13, 2024\n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss\n Community managed with ♡ by: kwally"
 		Mode Name: "♥ Friendly ♥ No Kill ♥ Updated ♥"
 	}
 
@@ -748,7 +748,7 @@ rule("Global_Settings")
 		Global.Promoted_List = Empty Array;
 		Wait(5, Ignore Condition);
 		Global.Skins_Check = True;
-		If(Count Of(Global.High_Rank) < 1 || Count Of(Global.Mod_Rank) < 95 || Count Of(Global.Titles_And_Outlines) != 82 || Count Of(Global.Banned_List) < 22 || Count Of(Global.Muted_List) < 47);
+		If(Count Of(Global.High_Rank) < 1 || Count Of(Global.Mod_Rank) < 94 || Count Of(Global.Titles_And_Outlines) != 81 || Count Of(Global.Banned_List) < 22 || Count Of(Global.Muted_List) < 47);
 			For Global Variable(Gravity_Helper, 0, 12, 1);
 				Global.Gravity_Helper -=1;
 			End;
@@ -1247,8 +1247,8 @@ rule ("Custom nameplates list")
 		),
 			Array(Custom String("Lünår"),
                 Custom Color(88, 41, 160, 255),
-                Custom String("{0} 『 ＫｅｙＢｌａｄｅ Ｗｉｅｌｄｅｒ 』 {0}", Ability Icon String(Hero(Genji), Button(Ultimate))),
-                Custom String("{0} ~ SHΛYMIN ~ {0}", Ability Icon String(Hero(Lifeweaver), Button(Primaryfire)))
+                Custom String("{0}【Ｇａｌａｃｔｉｃ Ｅｍｐｒｅｓｓ】{0}", Ability Icon String(Hero(Sigma), Button(Ability 1))),
+                Custom String("{0}【Ｂｅｒｓｅｒｋ】 {0}", Ability Icon String(Hero(Sigma), Button(Ultimate)))
 		),
 			Array(Custom String("Eosia"),
 				Custom String("Rainbow"),
@@ -1523,11 +1523,6 @@ rule ("Custom nameplates list")
                 Custom String("{0}  ЅHΔDΘШ ШIZΔRD ΜΘNΣΨ GΔNG  {0}", Ability Icon String(Hero(Sombra), Button(Ultimate))),
                 Custom String("{0} * .˚ ♡ [ PurpSkrrt™ ] ♡ ˚. * {0}", Ability Icon String(Hero(Mercy), Button(Ultimate)))
 		),
-		    Array(Custom String("Xaghyntig"),
-			    Custom Color(137, 207, 240, 255),
-                Custom String("{0}  ⇒   -`★  CHILLШΔƬCH DJЅΜΘLFRΨ™  ★´-   {0}", Hero Icon String(Hero(Symmetra))),
-                Custom String("{0}  ⇒   -`†  ΜΣCHΔNICΔL ШΘNDΣRЅ™  †´-   {0}", Ability Icon String (Hero(Torbjörn), Button(Ability 2)))
-		),
 			Array(Custom String("karlybarly"),
 			    Custom Color(153, 204, 255, 255),
 			    Custom String("{0} 莉 {0}", Ability Icon String(Hero(D.va), Button(Ultimate))),
@@ -1549,7 +1544,7 @@ rule ("Custom nameplates list")
 		),
 		    Array(Custom String("ÆROLEAƑ"),
 			    Custom Color(153, 0, 0, 255),
-                Custom String("{0} ~ SCΞPTILΞ ~ {0}", Ability Icon String(Hero(Widowmaker), Button(Ability 2))),
+                Custom String("{0} WHΛT'S YOUR NΣXT MOVΣ? {0}", Ability Icon String(Hero(Genji), Button(Primaryfire))),
 				Custom String("{0} EƬHΣRΣΛL STΘRM {0}", Ability Icon String(Hero(Hanzo), Button(Ultimate)))
 		),
 			Array(Custom String("Fære"),
@@ -1745,7 +1740,7 @@ rule("Listed_Player")
 			Custom String("Fenetre"), Custom String("Triin1ty"), Custom String("Lannaanna"), Custom String("XMightyOwlXx"), Custom String("BlueSky"),
 			Custom String("Netbrex"), Custom String("sushiii"), Custom String("RiwaChan"), Custom String("현대적인쌍봉낙타"), Custom String("jupiter"),
 			Custom String("NotForYou"), Custom String("fenmorre"), Custom String("Eosia"), Custom String("Nef"), Custom String("Visual"),
-			Custom String("Hestia"), Custom String("IZANAMI"), Custom String("Tedz"), Custom String("Xaghyntig"), Custom String("SpƐdy"),
+			Custom String("Hestia"), Custom String("IZANAMI"), Custom String("Tedz"), Custom String("SpƐdy"),
 			Custom String("Kazuma"), Custom String("Jermuseppo"), Custom String("Ređacted"), Custom String("S0undw4v3"), Custom String("LƐafa"),
 			Custom String("mksvault"), Custom String("LightMist"), Custom String("Lunarion"), Custom String("Adiidas"), Custom String("gh0stface"),
 			Custom String("ByeFever"), Custom String("NightShield"), Custom String("Gerry"), Custom String("whoshotcupid"), Custom String("Ƒìşhy"),
