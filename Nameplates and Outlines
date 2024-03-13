@@ -81,8 +81,8 @@ rule ("Custom nameplates list")
 		),
 			Array(Custom String("Lünår"),
                 Custom Color(88, 41, 160, 255),
-                Custom String("{0} 『 ＫｅｙＢｌａｄｅ Ｗｉｅｌｄｅｒ 』 {0}", Ability Icon String(Hero(Genji), Button(Ultimate))),
-                Custom String("{0} ~ SHΛYMIN ~ {0}", Ability Icon String(Hero(Lifeweaver), Button(Primaryfire)))
+                Custom String("{0}【Ｇａｌａｃｔｉｃ Ｅｍｐｒｅｓｓ】{0}", Ability Icon String(Hero(Sigma), Button(Ability 1))),
+                Custom String("{0}【Ｂｅｒｓｅｒｋ】 {0}", Ability Icon String(Hero(Sigma), Button(Ultimate)))
 		),
 			Array(Custom String("Eosia"),
 				Custom String("Rainbow"),
@@ -378,7 +378,7 @@ rule ("Custom nameplates list")
 		),
 		    Array(Custom String("ÆROLEAƑ"),
 			    Custom Color(153, 0, 0, 255),
-                Custom String("{0} ~ SCΞPTILΞ ~ {0}", Ability Icon String(Hero(Widowmaker), Button(Ability 2))),
+                Custom String("{0} WHΛT'S YOUR NΣXT MOVΣ? {0}", Ability Icon String(Hero(Genji), Button(Primaryfire))),
 				Custom String("{0} EƬHΣRΣΛL STΘRM {0}", Ability Icon String(Hero(Hanzo), Button(Ultimate)))
 		),
 			Array(Custom String("Fære"),
