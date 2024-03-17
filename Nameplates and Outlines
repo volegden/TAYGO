@@ -202,8 +202,8 @@ rule ("Custom nameplates list")
 		),
 			Array(Custom String("RiwaChan"),
 				Custom String("Rainbow"),
-				Custom String("☆ şeker seven ejderha ☆"),
-				Custom String("♡ his lil pookie cat ♡")
+				Custom String("☆ R i w a ☆"),
+				Custom String("♡ Тигр ♡")
 		),
 			Array(Custom String("ImmaPenguin"),
 				Custom Color(3, 4, 174, 255),
