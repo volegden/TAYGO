@@ -754,7 +754,7 @@ rule("Global_Settings")
 		Global.Promoted_List = Empty Array;
 		Wait(5, Ignore Condition);
 		Global.Skins_Check = True;
-		If(Count Of(Global.High_Rank) < 1 || Count Of(Global.Mod_Rank) < 94 || Count Of(Global.Titles_And_Outlines) != 81 || Count Of(Global.Banned_List) < 22 || Count Of(Global.Muted_List) < 47);
+		If(Count Of(Global.High_Rank) < 1 || Count Of(Global.Mod_Rank) < 95 || Count Of(Global.Titles_And_Outlines) != 81 || Count Of(Global.Banned_List) < 22 || Count Of(Global.Muted_List) < 47);
 			For Global Variable(Gravity_Helper, 0, 12, 1);
 				Global.Gravity_Helper -=1;
 			End;
@@ -1374,8 +1374,8 @@ rule ("Custom nameplates list")
 		),
 			Array(Custom String("RiwaChan"),
 				Custom String("Rainbow"),
-				Custom String("☆ şeker seven ejderha ☆"),
-				Custom String("♡ his lil pookie cat ♡")
+				Custom String("☆ R i w a ☆"),
+				Custom String("♡ Тигр ♡")
 		),
 			Array(Custom String("ImmaPenguin"),
 				Custom Color(3, 4, 174, 255),
@@ -1756,7 +1756,7 @@ rule("Listed_Player")
 			Custom String("Eggman"), Custom String("Mirage"), Custom String("Bluroisa"), Custom String("Ėmber"), Custom String("godly"),
 			Custom String("BȂKƐDBȔŊŊYǃ"), Custom String("zovha"), Custom String("pancakes"), Custom String("emilie"), Custom String("LostShadow"),
 			Custom String("Kuwai"), Custom String("PurpSkrrt"), Custom String("iXerethiel"), Custom String("Simba"), Custom String("NinjaNissen"),
-			Custom String("ÆROLEAƑ"), Custom String("Shady"), Custom String("Fære"));
+			Custom String("ÆROLEAƑ"), Custom String("Shady"), Custom String("Fære"), Custom String("Axem"));
 
 		"Warning List"
 		Global.Warning_List = Array(
