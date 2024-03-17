@@ -294,7 +294,7 @@ rule ("Custom nameplates list")
 		),
 			Array(Custom String("BȂKƐDBȔŊŊYǃ"),
                 Custom String("Rainbow"),
-                Custom String("{0} ~ BƱNEΛRY ~ {0} ", Ability Icon String(Hero(D.va), Button(Ultimate))),
+                Custom String("{0} †♡ Esta Boricua Ama Ashe ♡† {0} ", Ability Icon String(Hero(Junker Queen), Button(Ultimate))),
                 Custom String("{0} * .˚ ♡ 토끼 ♡ ˚. * {0}", Icon String(Dizzy))
 		),
 			Array(Custom String("Ėmber"),
@@ -304,7 +304,8 @@ rule ("Custom nameplates list")
 		),
 			Array(Custom String("zovha"),
 				Color(Black),
-				Custom String("Clive")
+				Custom String("Clive"),
+				Custom String("bens favourite egirl")
 		),		  
 			Array(Custom String("Kuwai"),
 				Custom Color(245, 222, 179, 255),
