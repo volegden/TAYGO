@@ -2,7 +2,7 @@ settings
 {
 	main
 	{
-		Description: " The previously named \"Friendly No Kill\"\n    is no longer being maintained! \n This version is kept up to date!\n\n Last updated: March 13, 2024\n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss\n Community managed with ♡ by: kwally"
+		Description: " The previously named \"Friendly No Kill\"\n    is no longer being maintained! \n This version is kept up to date!\n\n Last updated: March 17, 2024\n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss\n Community managed with ♡ by: kwally"
 		Mode Name: "♥ Friendly ♥ No Kill ♥ Updated ♥"
 	}
 
@@ -192,6 +192,7 @@ settings
 
 			Illari
 			{
+				No Ammunition Requirement: On
 				Healing Pylon Cooldown Time: 20%
 				Outburst Cooldown Time: 15%
 				Solar Energy Maximum: 300%
@@ -383,6 +384,11 @@ settings
 			}
 
 			Zenyatta
+			{
+				No Ammunition Requirement: On
+			}
+
+			Mei
 			{
 				No Ammunition Requirement: On
 			}
@@ -1460,7 +1466,7 @@ rule ("Custom nameplates list")
 		),
 			Array(Custom String("BȂKƐDBȔŊŊYǃ"),
                 Custom String("Rainbow"),
-                Custom String("{0} ~ BƱNEΛRY ~ {0} ", Ability Icon String(Hero(D.va), Button(Ultimate))),
+                Custom String("{0} †♡ Esta Boricua Ama Ashe ♡† {0} ", Ability Icon String(Hero(Junker Queen), Button(Ultimate))),
                 Custom String("{0} * .˚ ♡ 토끼 ♡ ˚. * {0}", Icon String(Dizzy))
 		),
 			Array(Custom String("Ėmber"),
@@ -1470,7 +1476,8 @@ rule ("Custom nameplates list")
 		),
 			Array(Custom String("zovha"),
 				Color(Black),
-				Custom String("Clive")
+				Custom String("Clive"),
+				Custom String("bens favourite egirl")
 		),		  
 			Array(Custom String("Kuwai"),
 				Custom Color(245, 222, 179, 255),
