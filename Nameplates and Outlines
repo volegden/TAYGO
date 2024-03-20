@@ -127,7 +127,7 @@ rule ("Custom nameplates list")
 			Array(Custom String("Fenetre"),
 				Custom Color(0, 0, 0, 255),
 				Custom String("ω ι и d σ ω"),
-				Custom String("Yes")
+				Custom String("Potato Gremlin")
 		),
 			Array(Custom String("Hxneibee"),
 				Custom Color(84, 1, 1, 255),
@@ -266,8 +266,8 @@ rule ("Custom nameplates list")
 		),
 			Array(Custom String("Fearlxss"),
 				Custom String("Rainbow"),
-				Custom String("{0} † ♡ υя ƒανσяιтє кιяιкσ мαιη ♡ † {0}", Icon String(Halo)),
-				Custom String("{0} Ɲσтнιηg ιѕ тяυє, єνєяутнιηg ιѕ ρєямιттє∂ {0}", Ability Icon String(Hero(Kiriko), Button(Secondaryfire)))
+				Custom String("♡ υя ƒανσяιтє кιяιкσ мαιη ♡"),
+				Custom String("† яєqυιєѕ¢αт ιη ρα¢є †")
 		),
 			Array(Custom String("ǃSHAY"),
 				Custom Color(128, 0, 0, 255),
@@ -395,6 +395,11 @@ rule ("Custom nameplates list")
 		    Array(Custom String("Bendude1000"),
 			    Custom Color(155, 1, 63, 255),
 				Custom String("{0} 3Girl-Coll3ctor {0}", Ability Icon String(Hero(Sigma), Button(Ability 1)))
+		),
+		Array(Custom String("Axem"),
+			    Custom Color(100, 50, 255, 255),
+                Custom String("† DECENTRALIZED BY NATURE †", Ability Icon String(Hero(Mercy), Button(Ultimate))),
+				Custom String("{0} REVOLVER OCELOT {0}", Ability Icon String(Hero(Cassidy), Button(Ultimate)))
 		)
 		);
 	}
