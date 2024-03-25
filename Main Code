@@ -8846,7 +8846,7 @@ rule("Extra_26: Laser Heart")
 	{
 		(Current Map == Map(Paris) || Current Map == Map(Circuit Royal)) == False;
 		(Hero Of(Event Player) == Hero(Zarya) || Hero Of(Event Player) == Hero(Symmetra)) == True;
-		(Is Firing Primary(Event Player) || Is Firing Secondary(Event Player)) == True;
+		Is Firing Primary(Event Player) == True;
 		Event Player.FunkySkillsToggle == True;
 	}
 
