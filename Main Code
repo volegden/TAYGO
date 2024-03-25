@@ -2,7 +2,7 @@ settings
 {
 	main
 	{
-		Description: " The previously named \"Friendly No Kill\"\n    is no longer being maintained! \n This version is kept up to date!\n\n Last updated: March 17, 2024\n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss\n Community managed with ♡ by: kwally"
+		Description: " The previously named \"Friendly No Kill\"\n    is no longer being maintained! \n This version is kept up to date!\n\n Last updated: March 25, 2024\n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss\n Community managed with ♡ by: kwally"
 		Mode Name: "♥ Friendly ♥ No Kill ♥ Updated ♥"
 	}
 
@@ -195,7 +195,7 @@ settings
 				No Ammunition Requirement: On
 				Healing Pylon Cooldown Time: 20%
 				Outburst Cooldown Time: 15%
-				Solar Energy Maximum: 300%
+				Solar Energy Maximum: 500%
 				Solar Energy Recharge Rate: 500%
 			}
 
@@ -754,7 +754,7 @@ rule("Global_Settings")
 		Global.Promoted_List = Empty Array;
 		Wait(5, Ignore Condition);
 		Global.Skins_Check = True;
-		If(Count Of(Global.High_Rank) < 1 || Count Of(Global.Mod_Rank) < 95 || Count Of(Global.Titles_And_Outlines) != 81 || Count Of(Global.Banned_List) < 22 || Count Of(Global.Muted_List) < 47);
+		If(Count Of(Global.High_Rank) < 1 || Count Of(Global.Mod_Rank) < 95 || Count Of(Global.Titles_And_Outlines) != 83 || Count Of(Global.Banned_List) < 22 || Count Of(Global.Muted_List) < 47);
 			For Global Variable(Gravity_Helper, 0, 12, 1);
 				Global.Gravity_Helper -=1;
 			End;
@@ -1072,6 +1072,26 @@ rule("Dynamic_Color")
 	}
 }
 
+rule("Custom Effect Chateau")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		(Current Map == Map(Château Guillard) || Current Map == Map(Château Guillard Halloween)) == True;
+	}
+
+	actions
+	{
+		Create Effect(All Players(All Teams), Good Aura, Color(Blue), Vector(219.784897, 4.226018, 78.833099), 180, Visible To Position and Radius);
+	}
+}
+
 rule ("Subroutine: Call Default Info Page")
 {
 	event 
@@ -1252,8 +1272,8 @@ rule ("Custom nameplates list")
 				Custom String("{0} ☆ * .˚ ♡ ㄥӨVΣㄥY ♡ ˚. * ☆ {0}", Ability Icon String(Hero(Illari), Button(Ultimate)))		
 		),
 			Array(Custom String("Lünår"),
-                Custom Color(88, 41, 160, 255),
-                Custom String("{0}【Ｇａｌａｃｔｉｃ Ｅｍｐｒｅｓｓ】{0}", Ability Icon String(Hero(Sigma), Button(Ability 1))),
+                Custom Color(41, 0, 5, 255),
+                Custom String("{0}  ゴーストルール  {0}", Ability Icon String(Hero(Lifeweaver), Button(Primaryfire))),
                 Custom String("{0}【Ｂｅｒｓｅｒｋ】 {0}", Ability Icon String(Hero(Sigma), Button(Ultimate)))
 		),
 			Array(Custom String("Eosia"),
@@ -1299,7 +1319,7 @@ rule ("Custom nameplates list")
 			Array(Custom String("Fenetre"),
 				Custom Color(0, 0, 0, 255),
 				Custom String("ω ι и d σ ω"),
-				Custom String("Yes")
+				Custom String("Potato Gremlin")
 		),
 			Array(Custom String("Hxneibee"),
 				Custom Color(84, 1, 1, 255),
@@ -1429,7 +1449,7 @@ rule ("Custom nameplates list")
 			Array(Custom String("Fragoso"),
 				Custom Color(166, 13, 166, 255),
 				Custom String("{0} ICARUS {0}", Ability Icon String(Hero(Mercy), Button(Ability 1))),
-				Custom String("{0} ― ♠ ― GШYNBLΣIDD ― ♠ ― {0}", Ability Icon String(Hero(Kiriko), Button(Ultimate)))
+				Custom String("{0} ♥ Dya's Lullaby ♥ {0}", Ability Icon String(Hero(Ana), Button(Ability 1)))
 		),
 			Array(Custom String("MrCleanerrrr"),
 				Custom Color(242, 242, 242, 255),
@@ -1438,8 +1458,8 @@ rule ("Custom nameplates list")
 		),
 			Array(Custom String("Fearlxss"),
 				Custom String("Rainbow"),
-				Custom String("{0} † ♡ υя ƒανσяιтє кιяιкσ мαιη ♡ † {0}", Icon String(Halo)),
-				Custom String("{0} Ɲσтнιηg ιѕ тяυє, єνєяутнιηg ιѕ ρєямιттє∂ {0}", Ability Icon String(Hero(Kiriko), Button(Secondaryfire)))
+				Custom String("♡ υя ƒανσяιтє кιяιкσ мαιη ♡"),
+				Custom String("† яєqυιєѕ¢αт ιη ρα¢є †")
 		),
 			Array(Custom String("ǃSHAY"),
 				Custom Color(128, 0, 0, 255),
@@ -1466,7 +1486,7 @@ rule ("Custom nameplates list")
 		),
 			Array(Custom String("BȂKƐDBȔŊŊYǃ"),
                 Custom String("Rainbow"),
-                Custom String("{0} †♡ Esta Boricua Ama Ashe ♡† {0} ", Ability Icon String(Hero(Junker Queen), Button(Ultimate))),
+                Custom String("† 『 Depresso Espresso 』 †", Ability Icon String(Hero(Junker Queen), Button(Ultimate))),
                 Custom String("{0} * .˚ ♡ 토끼 ♡ ˚. * {0}", Icon String(Dizzy))
 		),
 			Array(Custom String("Ėmber"),
@@ -1476,8 +1496,7 @@ rule ("Custom nameplates list")
 		),
 			Array(Custom String("zovha"),
 				Color(Black),
-				Custom String("Clive"),
-				Custom String("bens favourite egirl")
+				Custom String("Clive")
 		),		  
 			Array(Custom String("Kuwai"),
 				Custom Color(245, 222, 179, 255),
@@ -1567,6 +1586,16 @@ rule ("Custom nameplates list")
 		    Array(Custom String("Bendude1000"),
 			    Custom Color(155, 1, 63, 255),
 				Custom String("{0} 3Girl-Coll3ctor {0}", Ability Icon String(Hero(Sigma), Button(Ability 1)))
+		),
+		Array(Custom String("Axem"),
+			    Custom Color(100, 50, 255, 255),
+                Custom String("† DECENTRALIZED BY NATURE †", Ability Icon String(Hero(Mercy), Button(Ultimate))),
+				Custom String("{0} REVOLVER OCELOT {0}", Ability Icon String(Hero(Cassidy), Button(Ultimate)))
+		),
+		Array(Custom String("Hestia"),
+			Custom Color(193, 59, 120, 255),
+			Custom String("♣ Ｍｕｓｔｉ＇ｓ  Ｍｏｔｈｅｒ ♣"),
+			Custom String("⁂Ｓｕｎｌｉｇｈｔ⁂")
 		)
 		);
 	}
@@ -8149,6 +8178,7 @@ rule("Extra_3 - Short Hop")
 	{
 		Cancel Primary Action(Event Player);
 		Detach Players(Event Player);
+		Event Player.inAction[1] = False;
 		Play Effect(Event Player, Good Explosion, Global.Rainbow_Color, Position Of(Event Player), 0.75);
 		Teleport(Event Player, Position Of(Event Player) + Facing Direction Of(Event Player) * 12.5);
 		If(Event Player.Control_List != Empty Array);
@@ -8816,7 +8846,7 @@ rule("Extra_26: Laser Heart")
 	{
 		(Current Map == Map(Paris) || Current Map == Map(Circuit Royal)) == False;
 		(Hero Of(Event Player) == Hero(Zarya) || Hero Of(Event Player) == Hero(Symmetra)) == True;
-		Is Firing Primary(Event Player) == True;
+		(Is Firing Primary(Event Player) || Is Firing Secondary(Event Player)) == True;
 		Event Player.FunkySkillsToggle == True;
 	}
 
@@ -8851,6 +8881,7 @@ rule("Extra_27: Illari Heart")
 
 	actions
 	{
+		Abort If(Current Map == Map(Paris));
 		Create Icon(All Players(All Teams), Update Every Frame(Ray Cast Hit Position(Eye Position(Event Player), Eye Position(Event Player) + 
 			Facing Direction Of(Event Player) * 15 * 
 			Event Player.Scale_Real, All Players(All Teams), Event Player, True) - Vector(0,0.5,0)), Heart, Visible To and Position, Color(Red), False);
