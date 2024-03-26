@@ -80,8 +80,8 @@ rule ("Custom nameplates list")
 				Custom String("{0} ☆ * .˚ ♡ ㄥӨVΣㄥY ♡ ˚. * ☆ {0}", Ability Icon String(Hero(Illari), Button(Ultimate)))		
 		),
 			Array(Custom String("Lünår"),
-                Custom Color(88, 41, 160, 255),
-                Custom String("{0}【Ｇａｌａｃｔｉｃ Ｅｍｐｒｅｓｓ】{0}", Ability Icon String(Hero(Sigma), Button(Ability 1))),
+                Custom Color(41, 0, 5, 255),
+                Custom String("{0}  ゴーストルール  {0}", Ability Icon String(Hero(Lifeweaver), Button(Primaryfire))),
                 Custom String("{0}【Ｂｅｒｓｅｒｋ】 {0}", Ability Icon String(Hero(Sigma), Button(Ultimate)))
 		),
 			Array(Custom String("Eosia"),
@@ -116,8 +116,8 @@ rule ("Custom nameplates list")
 		),
 			Array(Custom String("Slafii"),
 				Custom Color(46, 26, 71, 255),
-				Custom String("♤Thank you♤"),
-				Custom String("♤Its not fair♤")
+				Custom String("(♡~) S  C  H  N  A  C  K (~♡)"),
+				Custom String("(♡~)  B  O  O  P  I  O  O (~♡)")
 		),
 			Array(Custom String("ElDiablo"),
 				Color(Red),
@@ -257,7 +257,7 @@ rule ("Custom nameplates list")
 			Array(Custom String("Fragoso"),
 				Custom Color(166, 13, 166, 255),
 				Custom String("{0} ICARUS {0}", Ability Icon String(Hero(Mercy), Button(Ability 1))),
-				Custom String("{0} ― ♠ ― GШYNBLΣIDD ― ♠ ― {0}", Ability Icon String(Hero(Kiriko), Button(Ultimate)))
+				Custom String("{0} ♥ Dya's Lullaby ♥ {0}", Ability Icon String(Hero(Ana), Button(Ability 1)))
 		),
 			Array(Custom String("MrCleanerrrr"),
 				Custom Color(242, 242, 242, 255),
@@ -294,8 +294,8 @@ rule ("Custom nameplates list")
 		),
 			Array(Custom String("BȂKƐDBȔŊŊYǃ"),
                 Custom String("Rainbow"),
-                Custom String("{0} †♡ Esta Boricua Ama Ashe ♡† {0} ", Ability Icon String(Hero(Junker Queen), Button(Ultimate))),
-                Custom String("{0} * .˚ ♡ 토끼 ♡ ˚. * {0}", Icon String(Dizzy))
+                Custom String("† Depresso Espresso †"),
+                Custom String("- 魔 -")
 		),
 			Array(Custom String("Ėmber"),
 				Custom Color(0, 67, 74, 255),
@@ -304,8 +304,7 @@ rule ("Custom nameplates list")
 		),
 			Array(Custom String("zovha"),
 				Color(Black),
-				Custom String("Clive"),
-				Custom String("bens favourite egirl")
+				Custom String("Clive")
 		),		  
 			Array(Custom String("Kuwai"),
 				Custom Color(245, 222, 179, 255),
@@ -398,8 +397,17 @@ rule ("Custom nameplates list")
 		),
 		Array(Custom String("Axem"),
 			    Custom Color(100, 50, 255, 255),
-                Custom String("† DECENTRALIZED BY NATURE †", Ability Icon String(Hero(Mercy), Button(Ultimate))),
-				Custom String("{0} REVOLVER OCELOT {0}", Ability Icon String(Hero(Cassidy), Button(Ultimate)))
+                Custom String("† TRUST ISSUES †"),
+				Custom String("{0} REVOLVER OCELOT {0}", Ability Icon String(Hero(Cassidy), Button(Primaryfire)))
+		),
+		Array(Custom String("Hestia"),
+			Custom Color(193, 59, 120, 255),
+			Custom String("♣ Ｍｕｓｔｉ＇ｓ  Ｍｏｔｈｅｒ ♣"),
+			Custom String("⁂Ｓｕｎｌｉｇｈｔ⁂")
+		),
+		Array(Custom String("Kazuma"),
+			Color(Red),
+			Custom String("{0} Jake's loving soldier {0}", Icon String(Heart))
 		)
 		);
 	}
