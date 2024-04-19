@@ -1246,7 +1246,8 @@ rule ("Custom nameplates list")
 				Custom String("Fading"),
 				0,28,87, 123,104,238,
 				Custom String("† Izanami-no-Mikoto †"),
-				Custom String("Jemēla gēlyni enkā! Taobus!")
+				Custom String("嫌いなものはたくさんあるし、特に好きなものもありません。"),
+				Custom String("Tenebrae aeternae")
 		),
 			Array(Custom String("TEAMEPǃC"),
 				Color(Green),
@@ -1613,33 +1614,33 @@ rule ("Custom nameplates list")
 			    Custom Color(155, 1, 63, 255),
 				Custom String("{0} Mikhail {0}", Ability Icon String(Hero(Mei), Button(Ultimate)))
 		),
-		Array(Custom String("Axem"),
+		    Array(Custom String("Axem"),
 			    Custom Color(100, 50, 255, 255),
                 Custom String("† TRUST ISSUES †"),
 				Custom String("{0} REVOLVER OCELOT {0}", Ability Icon String(Hero(Cassidy), Button(Primaryfire)))
 		),
-		Array(Custom String("Hestia"),
-			Custom Color(193, 59, 120, 255),
-			Custom String("♣ Ｍｕｓｔｉ＇ｓ  Ｍｏｔｈｅｒ ♣"),
-			Custom String("⁂Ｓｕｎｌｉｇｈｔ⁂")
+		    Array(Custom String("Hestia"),
+			    Custom Color(193, 59, 120, 255),
+			    Custom String("♣ Ｍｕｓｔｉ＇ｓ  Ｍｏｔｈｅｒ ♣"),
+			    Custom String("⁂Ｓｕｎｌｉｇｈｔ⁂")
 		),
-		Array(Custom String("Frost"),
-			Custom Color(69, 255, 87, 255),
-			Custom String("It is such a quiet thing, to fall"),
-			Custom String("But far more terrible is to admit it")
+		    Array(Custom String("Frost"),
+			    Custom Color(69, 255, 87, 255),
+			    Custom String("It is such a quiet thing, to fall"),
+			    Custom String("But far more terrible is to admit it")
 		),
-		Array(Custom String("Root"),
-			Custom Color(5, 3, 13, 255),
-			Custom String("Integra Hellsing")
+		    Array(Custom String("Root"),
+			    Custom Color(5, 3, 13, 255),
+			    Custom String("Integra Hellsing")
 		),
-		Array(Custom String("foorelskett"),
-			Custom Color(102, 205, 170, 255),
-			Custom String("{0} ♥kiss of death♥ {0}", Icon String(Skull)),
-			Custom String("{0} hamster boy {0}", Icon String(Dizzy))
+		    Array(Custom String("foorelskett"),
+			    Custom Color(102, 205, 170, 255),
+			    Custom String("{0} ♥kiss of death♥ {0}", Icon String(Skull)),
+			    Custom String("{0} hamster boy {0}", Icon String(Dizzy))
 		),
-		Array(Custom String("Kazuma"),
-			Color(Red),
-			Custom String("{0} Jake's loving soldier {0}", Icon String(Heart))
+		    Array(Custom String("Kazuma"),
+			    Color(Red),
+			    Custom String("{0} Jake's loving soldier {0}", Icon String(Heart))
 		)
 		);
 	}
