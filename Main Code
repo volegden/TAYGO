@@ -2,7 +2,7 @@ settings
 {
 	main
 	{
-		Description: " The previously named \"Friendly No Kill\"\n    is no longer being maintained! \n This version is kept up to date!\n\n Last updated: April 19, 2024\n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss\n Community managed with ♡ by: kwally"
+		Description: " The previously named \"Friendly No Kill\"\n    is no longer being maintained! \n This version is kept up to date!\n\n Last updated: April 20, 2024\n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss\n Community managed with ♡ by: kwally"
 		Mode Name: "♥ Friendly ♥ No Kill ♥ Updated ♥"
 	}
 
@@ -782,7 +782,10 @@ rule("Global_Settings")
 
 		Global.Promoted_List = Empty Array;
 		Wait(5, Ignore Condition);
-		Global.Skins_Check = True;
+		"Assembling without skins check"
+		Global.Skins_Check[0] = True;
+		"Assembling with skins check"
+		Global.Skins_Check[1] = False;
 		If(Count Of(Global.High_Rank) < 1 || Count Of(Global.Mod_Rank) < 97 || Count Of(Global.Titles_And_Outlines) != 86 || Count Of(Global.Banned_List) < 22 || Count Of(Global.Muted_List) < 47);
 			For Global Variable(Gravity_Helper, 0, 12, 1);
 				Global.Gravity_Helper -=1;
@@ -1144,7 +1147,7 @@ rule("Skin Change HUD Text")
 	actions
 	{
 		Create HUD Text(Filtered Array(All Players(All Teams), ((Current Array Element == Host Player || (Current Array Element.Mod_Rank && !Current Array Element.Promoted_Rank) || Current Array Element.High_Rank) && Current Array Element == Event Player)), Null, 
-		Custom String("Hold {0} and {1} for 7 seconds to start changing skins in the lobby.", Input Binding String(Button(Crouch)), Input Binding String(Button(Jump))), Null, Top, 2, Color(White), Color(Blue), Color(White), Visible to and String, Visible Never);	
+		Custom String("Hold {0} and {1} for 7s. to start changing skins.", Input Binding String(Button(Crouch)), Input Binding String(Button(Jump))), Null, Top, 2, Color(White), Color(Blue), Color(White), Visible to and String, Visible Never);	
 	}
 }
 
@@ -1405,7 +1408,7 @@ rule ("Custom nameplates list")
 				Custom String("{0} ♡ ♬ Beloved Oomfie ♬ ♡ {0}", Ability Icon String(Hero(Mercy), Button(Ultimate))),
 				Custom String("{0} Chronically Ill Artist, Writer & Hater {0}", Ability Icon String(Hero(Reaper), Button(Ultimate)))
 		),
-			Array(Custom String("NONE USER"),
+			Array(Custom String("ĨŹĂŃĂMĨ"),
 				Custom String("Rainbow"),
 				Custom String("{0} ☆ P S Y C H O ☆ {0}", Ability Icon String(Hero(Cassidy), Button(Ultimate))),
 				Custom String("{0}    ＤＩＶＩＮＩＴＹ    {0}", Icon String(Moon))
@@ -1469,7 +1472,7 @@ rule ("Custom nameplates list")
 				Custom Color(139, 0, 0, 255),
 				Custom String(" ")
 		),
-			Array(Custom String("ЈФҜЁЯ"),
+			Array(Custom String("ĴŐĶĔŔ"),
 				Color(Black),
 				Custom String("{0} ☆ おばけ ☆ {0}", Ability Icon String(Hero(Genji), Button(Ultimate)))
 		),
@@ -1614,33 +1617,33 @@ rule ("Custom nameplates list")
 			    Custom Color(155, 1, 63, 255),
 				Custom String("{0} Mikhail {0}", Ability Icon String(Hero(Mei), Button(Ultimate)))
 		),
-		    Array(Custom String("Axem"),
+		Array(Custom String("Axem"),
 			    Custom Color(100, 50, 255, 255),
                 Custom String("† TRUST ISSUES †"),
 				Custom String("{0} REVOLVER OCELOT {0}", Ability Icon String(Hero(Cassidy), Button(Primaryfire)))
 		),
-		    Array(Custom String("Hestia"),
-			    Custom Color(193, 59, 120, 255),
-			    Custom String("♣ Ｍｕｓｔｉ＇ｓ  Ｍｏｔｈｅｒ ♣"),
-			    Custom String("⁂Ｓｕｎｌｉｇｈｔ⁂")
+		Array(Custom String("Hestia"),
+			Custom Color(193, 59, 120, 255),
+			Custom String("♣ Ｍｕｓｔｉ＇ｓ  Ｍｏｔｈｅｒ ♣"),
+			Custom String("⁂Ｓｕｎｌｉｇｈｔ⁂")
 		),
-		    Array(Custom String("Frost"),
-			    Custom Color(69, 255, 87, 255),
-			    Custom String("It is such a quiet thing, to fall"),
-			    Custom String("But far more terrible is to admit it")
+		Array(Custom String("Frost"),
+			Custom Color(69, 255, 87, 255),
+			Custom String("It is such a quiet thing, to fall"),
+			Custom String("But far more terrible is to admit it")
 		),
-		    Array(Custom String("Root"),
-			    Custom Color(5, 3, 13, 255),
-			    Custom String("Integra Hellsing")
+		Array(Custom String("Root"),
+			Custom Color(5, 3, 13, 255),
+			Custom String("Integra Hellsing")
 		),
-		    Array(Custom String("foorelskett"),
-			    Custom Color(102, 205, 170, 255),
-			    Custom String("{0} ♥kiss of death♥ {0}", Icon String(Skull)),
-			    Custom String("{0} hamster boy {0}", Icon String(Dizzy))
+		Array(Custom String("foorelskett"),
+			Custom Color(102, 205, 170, 255),
+			Custom String("{0} ♥kiss of death♥ {0}", Icon String(Skull)),
+			Custom String("{0} hamster boy {0}", Icon String(Dizzy))
 		),
-		    Array(Custom String("Kazuma"),
-			    Color(Red),
-			    Custom String("{0} Jake's loving soldier {0}", Icon String(Heart))
+		Array(Custom String("Kazuma"),
+			Color(Red),
+			Custom String("{0} Jake's loving soldier {0}", Icon String(Heart))
 		)
 		);
 	}
@@ -1821,12 +1824,12 @@ rule("Listed_Player")
 			Custom String("Fenetre"), Custom String("Triin1ty"), Custom String("Lannaanna"), Custom String("XMightyOwlXx"), Custom String("BlueSky"),
 			Custom String("Netbrex"), Custom String("sushiii"), Custom String("RiwaChan"), Custom String("현대적인쌍봉낙타"), Custom String("jupiter"),
 			Custom String("NotForYou"), Custom String("fenmorre"), Custom String("Eosia"), Custom String("Stinky"), Custom String("Visual"),
-			Custom String("Hestia"), Custom String("NONE USER"), Custom String("Tedz"), Custom String("SpƐdy"), Custom String("Frost"), 
+			Custom String("Hestia"), Custom String("ĨŹĂŃĂMĨ"), Custom String("Tedz"), Custom String("SpƐdy"), Custom String("Frost"), 
 			Custom String("Kazuma"), Custom String("Jermuseppo"), Custom String("Ređacted"), Custom String("S0undw4v3"), Custom String("LƐafa"),
 			Custom String("mksvault"), Custom String("LightMist"), Custom String("Lunarion"), Custom String("Adiidas"), Custom String("gh0stface"),
 			Custom String("ByeFever"), Custom String("NightShield"), Custom String("Gerry"), Custom String("whoshotcupid"), Custom String("Ƒìşhy"),
 			Custom String("AngelicMinx"), Custom String("ImmaPenguin"), Custom String("MrCleanerrrr"), Custom String("SapphicWitch"), Custom String("VĬƗŌĿĖŦ"),
-			Custom String("ЈФҜЁЯ"), Custom String("Fragoso"), Custom String("Juuzo"), Custom String("Fearlxss"), 
+			Custom String("ĴŐĶĔŔ"), Custom String("Fragoso"), Custom String("Juuzo"), Custom String("Fearlxss"), 
 			Custom String("Eggman"), Custom String("Mirage"), Custom String("Bluroisa"), Custom String("Ėmber"), Custom String("godly"),
 			Custom String("BȂKƐDBȔŊŊYǃ"), Custom String("zovha"), Custom String("pancakes"), Custom String("emilie"), Custom String("Quartz"),
 			Custom String("Kuwai"), Custom String("PurpSkrrt"), Custom String("iXerethiel"), Custom String("Simba"), Custom String("NinjaNissen"),
@@ -3226,7 +3229,7 @@ rule("Assembling if false")
 	conditions
 	{
 		Is Assembling Heroes == True;
-		Global.Skins_Check == False;
+		Global.Skins_Check[0] == False;
 	}
 
 	actions
@@ -3275,14 +3278,44 @@ rule("Skin Swap")
 		Wait(7, Abort When False);
 		Big Message(Event Player, Custom String("Commencing Skin Swap"));
 		Wait(3, Ignore Condition);
+		"Used to assign players positions before going to assemble heroes"
+		Global.Skins_Check[1] = True;
 		Global.matchTime = Evaluate Once(Match Time);
 		Go To Assemble Heroes;
 		Set Match Time(15);
 		Wait Until(!Is Assembling Heroes, 9999);
+		Global.Skins_Check[1] = False;
 		Wait(0.5, Ignore condition);
 		Set Match Time(Global.matchTime);
 		Wait(30, Ignore Condition);
 		Start Forcing Player To Be Hero(Filtered Array(All Players(All Teams), Is Dummy Bot(Current Array Element)), Hero(Soldier: 76));
+	}
+}
+
+rule("Teleportation after skins swap")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Global.Skins_Check[1] == True;
+	}
+
+	actions
+	{
+		"Teleporting Players to last known position after assembling heroes"
+		Event Player.Last_Position_Facing[0] = Position Of(Event Player);
+		Event Player.Last_Position_Facing[1] = Facing Direction Of(Event Player);
+		Wait Until(global.Skins_Check[1] == False, 99999);
+		Teleport(Event Player, Event Player.Last_Position_Facing[0]);
+		Set Facing(Event Player, Event Player.Last_Position_Facing[1], To World);
+		Event Player.Last_Position_Facing[0] = Null;
+		Event Player.Last_Position_Facing[1] = Null;
 	}
 }
 
