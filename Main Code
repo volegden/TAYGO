@@ -2,7 +2,7 @@ settings
 {
 	main
 	{
-		Description: " The previously named \"Friendly No Kill\"\n    is no longer being maintained! \n This version is kept up to date!\n\n Last updated: April 20, 2024\n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss\n Community managed with ♡ by: kwally"
+		Description: " The previously named \"Friendly No Kill\"\n    is no longer being maintained! \n This version is kept up to date!\n\n Last updated: April 23, 2024\n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss\n Community managed with ♡ by: kwally"
 		Mode Name: "♥ Friendly ♥ No Kill ♥ Updated ♥"
 	}
 
@@ -1308,8 +1308,8 @@ rule ("Custom nameplates list")
 		),
 			Array(Custom String("Lünår"),
                 Custom Color(41, 0, 5, 255),
-                Custom String("{0} 【﻿Ｐｒｉｎｃｅｓｓ　ｏｆ　ｈａｒｍｏｎｙ】 {0}", Ability Icon String(Hero(Lifeweaver), Button(Primaryfire))),
-                Custom String("{0}【﻿Ｆｏｕｌ　ｔａｒｎｉｓｈｅｄ】 {0}", Ability Icon String(Hero(D.Va), Button(Ultimate)))
+                Custom String("{0} 【Ｐｒｉｎｃｅｓｓ　ｏｆ　ｈａｒｍｏｎｙ】 {0}", Ability Icon String(Hero(Lifeweaver), Button(Primaryfire))),
+                Custom String("{0}【Ｆｏｕｌ　ｔａｒｎｉｓｈｅｄ】 {0}", Ability Icon String(Hero(D.Va), Button(Ultimate)))
 		),
 			Array(Custom String("Eosia"),
 				Custom String("Rainbow"),
@@ -1344,7 +1344,7 @@ rule ("Custom nameplates list")
 			Array(Custom String("Slafii"),
 				Custom Color(46, 26, 71, 255),
 				Custom String("♡~ S  C  H  N  A  C  K ~♡"),
-				Custom String("{0}【﻿Ｐｒｉｎｃｅ　ｏｆ　ｈａｒｍｏｎｙ】{0}", Ability Icon String(Hero(Lifeweaver), Button(Primaryfire)))
+				Custom String("{0}【Ｐｒｉｎｃｅ　ｏｆ　ｈａｒｍｏｎｙ】{0}", Ability Icon String(Hero(Lifeweaver), Button(Primaryfire)))
 		),
 			Array(Custom String("ElDiablo"),
 				Color(Red),
@@ -1440,8 +1440,7 @@ rule ("Custom nameplates list")
 		),
 			Array(Custom String("gh0stface"),
 				Custom String("Rainbow"),
-				Custom String("♡ Lostshadow's big sister ♡"),
-				Custom String("{0} ♡ JΣG ΣLSKΣR DΣG, DUBBIΣ ♡ {0}", Ability Icon String(Hero(Lifeweaver), Button(Primary Fire)))
+				Custom String("♡ Lostshadow's big sister ♡")
 		),
 			Array(Custom String("AngelicMinx"),
 				Custom Color(237, 27, 12, 255),
@@ -1644,6 +1643,10 @@ rule ("Custom nameplates list")
 		Array(Custom String("Kazuma"),
 			Color(Red),
 			Custom String("{0} Jake's loving soldier {0}", Icon String(Heart))
+		),
+		Array(Custom String("Quartz"),
+			Custom Color(6, 98, 70, 255),
+			Custom String("{0} Solo ulting shy {0}", Ability Icon String(Hero(Bastion), Button(Ultimate)))
 		)
 		);
 	}
