@@ -2,7 +2,7 @@ settings
 {
 	main
 	{
-		Description: " The previously named \"Friendly No Kill\"\n    is no longer being maintained! \n This version is kept up to date!\n\n Last updated: April 23, 2024\n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss\n Community managed with ♡ by: kwally"
+		Description: " The previously named \"Friendly No Kill\"\n    is no longer being maintained! \n This version is kept up to date!\n\n Last updated: April 25, 2024\n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss\n Community managed with ♡ by: kwally"
 		Mode Name: "♥ Friendly ♥ No Kill ♥ Updated ♥"
 	}
 
@@ -81,6 +81,7 @@ settings
 				Colosseo 972777519512068292
 				Esperança 972777519512068154
 				New Queen Street 972777519512068197
+				Suravasa
 			}
 		}
 
@@ -1065,6 +1066,11 @@ rule("Default_Player_Settings")
 		"Sequence Completed"
 		Wait Until(Has Spawned(Event Player), 99999);
 
+		If(Current Game Mode != Game Mode(Skirmish));
+			Create HUD Text(Filtered Array(All Players(All Teams), (((Current Array Element == Host Player && Current Array Element.Promoted_Rank) || (Current Array Element.Mod_Rank && !Current Array Element.Promoted_Rank) || Current Array Element.High_Rank) && Current Array Element == Event Player)), Null, 
+			Custom String("Hold {0} and {1} for 7s. to start changing skins.", Input Binding String(Button(Crouch)), Input Binding String(Button(Jump))), Null, Top, 2, Color(White), Color(Blue), Color(White), Visible To and String, Visible Never);	
+		End;
+
 		"Set protection on player by default"
 		Event Player.Protection = Workshop Setting Toggle(Custom String("Player Damage Protection"), Custom String("Automatic Enabled"), True, 1);
 
@@ -1126,28 +1132,6 @@ rule ("Subroutine: Call Default Info Page")
 			Custom String("In these lobbies, please be careful\r\n   who you interact with and what\r\n   personal information you share."
 			)))))))), Null, Left, 1, Color(White), Color(White), Color(White), String, Visible Never);
 		Event Player.Mode_Description = Last Text ID;
-	}
-}
-
-rule("Skin Change HUD Text")
-{
-	event
-	{
-		Ongoing - Each Player;
-		All;
-		All;
-	}
-
-	conditions
-	{
-		(Event Player == Host Player || (Event Player.Mod_Rank && !Event Player.Promoted_Rank) || Event Player.High_Rank) == True;
-		Current Game Mode != Game Mode(Skirmish);
-	}
-
-	actions
-	{
-		Create HUD Text(Filtered Array(All Players(All Teams), ((Current Array Element == Host Player || (Current Array Element.Mod_Rank && !Current Array Element.Promoted_Rank) || Current Array Element.High_Rank) && Current Array Element == Event Player)), Null, 
-		Custom String("Hold {0} and {1} for 7s. to start changing skins.", Input Binding String(Button(Crouch)), Input Binding String(Button(Jump))), Null, Top, 2, Color(White), Color(Blue), Color(White), Visible to and String, Visible Never);	
 	}
 }
 
@@ -1308,8 +1292,8 @@ rule ("Custom nameplates list")
 		),
 			Array(Custom String("Lünår"),
                 Custom Color(41, 0, 5, 255),
-                Custom String("{0} 【Ｐｒｉｎｃｅｓｓ　ｏｆ　ｈａｒｍｏｎｙ】 {0}", Ability Icon String(Hero(Lifeweaver), Button(Primaryfire))),
-                Custom String("{0}【Ｆｏｕｌ　ｔａｒｎｉｓｈｅｄ】 {0}", Ability Icon String(Hero(D.Va), Button(Ultimate)))
+                Custom String("{0} 【﻿Ｐｒｉｎｃｅｓｓ　ｏｆ　ｈａｒｍｏｎｙ】 {0}", Ability Icon String(Hero(Lifeweaver), Button(Primaryfire))),
+                Custom String("{0}【﻿Ｆｏｕｌ　ｔａｒｎｉｓｈｅｄ】 {0}", Ability Icon String(Hero(D.Va), Button(Ultimate)))
 		),
 			Array(Custom String("Eosia"),
 				Custom String("Rainbow"),
@@ -1344,7 +1328,7 @@ rule ("Custom nameplates list")
 			Array(Custom String("Slafii"),
 				Custom Color(46, 26, 71, 255),
 				Custom String("♡~ S  C  H  N  A  C  K ~♡"),
-				Custom String("{0}【Ｐｒｉｎｃｅ　ｏｆ　ｈａｒｍｏｎｙ】{0}", Ability Icon String(Hero(Lifeweaver), Button(Primaryfire)))
+				Custom String("{0}【﻿Ｐｒｉｎｃｅ　ｏｆ　ｈａｒｍｏｎｙ】{0}", Ability Icon String(Hero(Lifeweaver), Button(Primaryfire)))
 		),
 			Array(Custom String("ElDiablo"),
 				Color(Red),
@@ -1440,7 +1424,8 @@ rule ("Custom nameplates list")
 		),
 			Array(Custom String("gh0stface"),
 				Custom String("Rainbow"),
-				Custom String("♡ Lostshadow's big sister ♡")
+				Custom String("♡ Lostshadow's big sister ♡"),
+				Custom String("{0} ♡ JΣG ΣLSKΣR DΣG, DUBBIΣ ♡ {0}", Ability Icon String(Hero(Lifeweaver), Button(Primary Fire)))
 		),
 			Array(Custom String("AngelicMinx"),
 				Custom Color(237, 27, 12, 255),
@@ -1616,37 +1601,34 @@ rule ("Custom nameplates list")
 			    Custom Color(155, 1, 63, 255),
 				Custom String("{0} Mikhail {0}", Ability Icon String(Hero(Mei), Button(Ultimate)))
 		),
-			Array(Custom String("Axem"),
+		Array(Custom String("Axem"),
 			    Custom Color(100, 50, 255, 255),
                 Custom String("† TRUST ISSUES †"),
 				Custom String("{0} REVOLVER OCELOT {0}", Ability Icon String(Hero(Cassidy), Button(Primaryfire)))
 		),
-			Array(Custom String("Hestia"),
-			    Custom Color(193, 59, 120, 255),
-			    Custom String("♣ Ｍｕｓｔｉ＇ｓ  Ｍｏｔｈｅｒ ♣"),
-			    Custom String("⁂Ｓｕｎｌｉｇｈｔ⁂")
+		Array(Custom String("Hestia"),
+			Custom Color(193, 59, 120, 255),
+			Custom String("♣ Ｍｕｓｔｉ＇ｓ  Ｍｏｔｈｅｒ ♣"),
+			Custom String("⁂Ｓｕｎｌｉｇｈｔ⁂")
 		),
-			Array(Custom String("Frost"),
-			    Custom Color(69, 255, 87, 255),
-			    Custom String("It is such a quiet thing, to fall"),
-			    Custom String("But far more terrible is to admit it")
+		Array(Custom String("Frost"),
+			Custom Color(69, 255, 87, 255),
+			Custom String("It is such a quiet thing, to fall"),
+			Custom String("But far more terrible is to admit it")
 		),
-			Array(Custom String("Root"),
-			    Custom Color(5, 3, 13, 255),
-			    Custom String("Integra Hellsing")
+		Array(Custom String("Root"),
+			Custom Color(5, 3, 13, 255),
+			Custom String("Integra Hellsing"),
+			Custom String("L'Homme à femmes")
 		),
-			Array(Custom String("foorelskett"),
-			    Custom Color(102, 205, 170, 255),
-			    Custom String("{0} ♥kiss of death♥ {0}", Icon String(Skull)),
-			    Custom String("{0} hamster boy {0}", Icon String(Dizzy))
+		Array(Custom String("foorelskett"),
+			Custom Color(102, 205, 170, 255),
+			Custom String("{0} ♥kiss of death♥ {0}", Icon String(Skull)),
+			Custom String("{0} hamster boy {0}", Icon String(Dizzy))
 		),
-			Array(Custom String("Kazuma"),
-			    Color(Red),
-			    Custom String("{0} Jake's loving soldier {0}", Icon String(Heart))
-		),
-			Array(Custom String("Quartz"),
-			    Custom Color(6, 98, 70, 255),
-			    Custom String("{0} Solo ulting shy {0}", Ability Icon String(Hero(Bastion), Button(Ultimate)))
+		Array(Custom String("Kazuma"),
+			Color(Red),
+			Custom String("{0} Jake's loving soldier {0}", Icon String(Heart))
 		)
 		);
 	}
@@ -2103,7 +2085,7 @@ rule("Show_And_Hide_Menu")
 	}
 }
 
-rule("Show_And_Hide_Menu_Extender")
+disabled rule("Show_And_Hide_Menu_Extender")
 {
 	event
 	{
