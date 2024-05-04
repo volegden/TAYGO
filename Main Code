@@ -2,7 +2,7 @@ settings
 {
 	main
 	{
-		Description: " The previously named \"Friendly No Kill\"\n    is no longer being maintained! \n This version is kept up to date!\n\n Last updated: April 25, 2024\n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss\n Community managed with ♡ by: kwally"
+		Description: " The previously named \"Friendly No Kill\"\n    is no longer being maintained! \n This version is kept up to date!\n\n Last updated: May 04, 2024\n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss\n Community managed with ♡ by: kwally"
 		Mode Name: "♥ Friendly ♥ No Kill ♥ Updated ♥"
 	}
 
@@ -34,14 +34,6 @@ settings
 			{
 				Ayutthaya 972777519512063901
 			}
-		}
-
-		Clash
-		{
-			Game Mode Start: Immediately
-			Capture Speed Modifier: 10%
-			Hero Limit: Off
-			Kill Cam: Off
 		}
 
 		Control
@@ -787,7 +779,7 @@ rule("Global_Settings")
 		Global.Skins_Check[0] = True;
 		"Assembling with skins check"
 		Global.Skins_Check[1] = False;
-		If(Count Of(Global.High_Rank) < 1 || Count Of(Global.Mod_Rank) < 97 || Count Of(Global.Titles_And_Outlines) != 86 || Count Of(Global.Banned_List) < 22 || Count Of(Global.Muted_List) < 47);
+		If(Count Of(Global.High_Rank) < 1 || Count Of(Global.Mod_Rank) < 97 || Count Of(Global.Titles_And_Outlines) != 85 || Count Of(Global.Banned_List) < 22 || Count Of(Global.Muted_List) < 47);
 			For Global Variable(Gravity_Helper, 0, 12, 1);
 				Global.Gravity_Helper -=1;
 			End;
@@ -1297,8 +1289,8 @@ rule ("Custom nameplates list")
 		),
 			Array(Custom String("Eosia"),
 				Custom String("Rainbow"),
-				Custom String("☆ dragon accro au sucre ☆"),
-				Custom String("{0} Kir's Dad {0}", Ability Icon String(Hero(Kiriko), Button(Ability 2)))
+				Custom String("☆ His lil catboy ☆"),
+				Custom String("♥ purple kitsune ♥")
 		),
 			Array(Custom String("Tedz"),
 				Custom Color(0,255,188, 255),
@@ -1389,7 +1381,7 @@ rule ("Custom nameplates list")
 		),
 			Array(Custom String("fenmorre"),
 				Custom Color(255, 39, 12, 255),
-				Custom String("{0} ♡ ♬ Beloved Oomfie ♬ ♡ {0}", Ability Icon String(Hero(Mercy), Button(Ultimate))),
+				Custom String("{0} ♡ ♬ Phantom Thief ♬ ♡ {0}", Ability Icon String(Hero(Mercy), Button(Ultimate))),
 				Custom String("{0} Chronically Ill Artist, Writer & Hater {0}", Ability Icon String(Hero(Reaper), Button(Ultimate)))
 		),
 			Array(Custom String("ĨŹĂŃĂMĨ"),
@@ -1398,14 +1390,9 @@ rule ("Custom nameplates list")
 				Custom String("{0}    ＤＩＶＩＮＩＴＹ    {0}", Icon String(Moon))
 		),
 			Array(Custom String("Ɛthereal"),
-				Color(Red),
-				Custom String("{0} Sith Master Immortal {0}", Ability Icon String(Hero(Genji), Button(ULtimate))),
+				Custom String("Rainbow"),
+				Custom String("{0} Fürchtet euch, fürchtet euch nicht {0}", Ability Icon String(Hero(Reinhardt), Button(ULtimate))),
 				Custom String("{0} Sigma's Starlight {0}", Ability Icon String(Hero(Sigma), Button(Ultimate)))
-		),
-			Array(Custom String("Triin1ty"),
-				Color(White),
-				Custom String("little sh%t"),
-				Custom String("{0} Lyudmila {0}", Ability Icon String(Hero(Mei), Button(Ultimate)))
 		),
 			Array(Custom String("Lannaanna"),
 				Custom String("Rainbow"),
@@ -1414,8 +1401,8 @@ rule ("Custom nameplates list")
 		),
 			Array(Custom String("RiwaChan"),
 				Custom String("Rainbow"),
-				Custom String("☆ R i w a ☆"),
-				Custom String("♡ Тигр ♡")
+				Custom String("☆ His lil femboy ☆"),
+				Custom String("♥ white kitsune ♥")
 		),
 			Array(Custom String("ImmaPenguin"),
 				Custom Color(3, 4, 174, 255),
@@ -1425,7 +1412,7 @@ rule ("Custom nameplates list")
 			Array(Custom String("gh0stface"),
 				Custom String("Rainbow"),
 				Custom String("♡ Lostshadow's big sister ♡"),
-				Custom String("{0} ♡ JΣG ΣLSKΣR DΣG, DUBBIΣ ♡ {0}", Ability Icon String(Hero(Lifeweaver), Button(Primary Fire)))
+				Custom String("{0}『Hex: Unforgettαble』{0}", Ability Icon String(Hero(Reaper), Button(Ability 1)))
 		),
 			Array(Custom String("AngelicMinx"),
 				Custom Color(237, 27, 12, 255),
@@ -1477,8 +1464,8 @@ rule ("Custom nameplates list")
 		),
 			Array(Custom String("Fearlxss"),
 				Custom String("Rainbow"),
-				Custom String("♡ нєя ƒανσяιтє кιяιкσ мαιη ♡"),
-				Custom String("† яєqυιєѕ¢αт ιη ρα¢є †")
+				Custom String("{0} ☆ FLOWER BOY ☆ {0}", Ability Icon String(Hero(Zenyatta), Button(Ultimate))),
+				Custom String("{0} YOUR LOCAL INSOMNIA DUO {0}", Ability Icon String(Hero(Ana), Button(Ability 1)))
 		),
 			Array(Custom String("MOOOUSH"),
                 Color(Black),
@@ -1500,15 +1487,15 @@ rule ("Custom nameplates list")
 		),
 			Array(Custom String("BȂKƐDBȔŊŊYǃ"),
                 Custom String("Rainbow"),
-                Custom String("{0} ♡ Mantén La Calma, And Venture On ♡ {0}", Ability Icon String(Hero(Venture), Button(Ability 2))),
-				Custom String("♡ нιѕ ƒανσяιтє ∂να мαιη ♡")
+                Custom String("{0} ♥ Flower Girl ♥ {0}", Ability Icon String(Hero(Zenyatta), Button(Ultimate))),
+				Custom String("{0} YOUR LOCAL INSOMNIA DUO {0}", Ability Icon String(Hero(Ana), Button(Ability 1)))
 		),
 			Array(Custom String("Ėmber"),
 				Custom Color(0, 67, 74, 255),
 				Custom String("Fσliҽ à Dҽυx!"),
 				Custom String("{0} Ｓｌｅｅｐｙｈｅａｄ {0}", Ability Icon String(Hero(Ana), Button(Ability 1)))
 		),
-			Array(Custom String("zovha"),
+			Array(Custom String("BigBudoo"),
 				Color(Black),
 				Custom String("Clive")
 		),		  
@@ -1546,7 +1533,7 @@ rule ("Custom nameplates list")
         ),
             Array(Custom String("iXerethiel"),
                 Custom String("Rainbow"),
-				Custom String("{0} † Mêmêñ†ð Mðrï † {0}", Ability Icon String(Hero(Mercy), Button(Ultimate))),
+				Custom String("{0} † ｄｅａｔｈｃｏｒｅ ★ ａｎｇｅｌ† {0}", Ability Icon String(Hero(Cassidy), Button(Ultimate))),
 				Custom String("{0} Feed the flame cause we can't let go {0}", Icon String(Fire))
 		),
 		    Array(Custom String("Mogo"),
@@ -1560,8 +1547,8 @@ rule ("Custom nameplates list")
 	    ),
             Array(Custom String("PurpSkrrt"),
                 Custom Color(221, 175, 255, 255),
-                Custom String("{0}  ЅHΔDΘШ ШIZΔRD ΜΘNΣΨ GΔNG  {0}", Ability Icon String(Hero(Sombra), Button(Ultimate))),
-                Custom String("{0} * .˚ ♡『 PurpSkrrt™ 』♡ ˚. * {0}", Ability Icon String(Hero(Mercy), Button(Ultimate)))
+                Custom String("{0} * .˚ ♡『 PurpSkrrt™ 』♡ ˚. * {0}", Ability Icon String(Hero(Mercy), Button(Ultimate))),
+				Custom String("{0}《 ЅHΔDΘШ ΜΘNΣΨ ШIZΔRD GΔNG 》{0}", Ability Icon String(Hero(Sombra), Button(Ultimate)))
 		),
 			Array(Custom String("karlybarly"),
 			    Custom Color(153, 204, 255, 255),
@@ -1569,9 +1556,9 @@ rule ("Custom nameplates list")
 			    Custom String("{0} くそがき {0}", Ability Icon String(Hero(Kiriko), Button(Ability 2)))
 		),
 			Array(Custom String("Lunarion"),
-			    Custom Color(163, 144, 222, 255),
-			    Custom String("{0}  ЅHΔDΘШ ШIZΔRD ΜΘNΣΨ GΔNG  {0}", Ability Icon String(Hero(Sombra), Button(Ultimate))),
-				Custom String("{0} clarissima luna {0}", Icon String(Moon))
+			    Custom Color(245, 154, 196, 255),
+			    Custom String("{0} ☆ Miss Frieren ☆ {0}", Ability Icon String(Hero(Kiriko), Button(Ability 2))),
+				Custom String("{0}《 ЅHΔDΘШ ΜΘNΣΨ ШIZΔRD GΔNG 》{0}", Ability Icon String(Hero(Sombra), Button(Ultimate)))
 		),
 		    Array(Custom String("whoshotcupid"),
 			    Custom Color(64, 224, 208, 255),
@@ -1599,7 +1586,7 @@ rule ("Custom nameplates list")
 		),
 		    Array(Custom String("Bendude1000"),
 			    Custom Color(155, 1, 63, 255),
-				Custom String("{0} Mikhail {0}", Ability Icon String(Hero(Mei), Button(Ultimate)))
+				Custom String("")
 		),
 		Array(Custom String("Axem"),
 			    Custom Color(100, 50, 255, 255),
@@ -1816,7 +1803,7 @@ rule("Listed_Player")
 			Custom String("AngelicMinx"), Custom String("ImmaPenguin"), Custom String("MrCleanerrrr"), Custom String("SapphicWitch"), Custom String("VĬƗŌĿĖŦ"),
 			Custom String("ĴŐĶĔŔ"), Custom String("Fragoso"), Custom String("Juuzo"), Custom String("Fearlxss"), 
 			Custom String("Eggman"), Custom String("Mirage"), Custom String("Bluroisa"), Custom String("Ėmber"), Custom String("godly"),
-			Custom String("BȂKƐDBȔŊŊYǃ"), Custom String("zovha"), Custom String("pancakes"), Custom String("emilie"), Custom String("Quartz"),
+			Custom String("BȂKƐDBȔŊŊYǃ"), Custom String("BigBudoo"), Custom String("pancakes"), Custom String("emilie"), Custom String("Quartz"),
 			Custom String("Kuwai"), Custom String("PurpSkrrt"), Custom String("iXerethiel"), Custom String("Simba"), Custom String("NinjaNissen"),
 			Custom String("ÆROLEAƑ"), Custom String("Shady"), Custom String("Fære"), Custom String("Axem"), Custom String("foorelskett"), Custom String("Root"));
 
@@ -3070,7 +3057,7 @@ rule("Remove_AFK_Player")
 		Wait(600, Abort When False);
 		Big Message(All Players(All Teams), Custom String("{0} Was \"AFK\" Too Long Without Choosing A Hero.", Event Player));
 		Wait(0.1, Ignore Condition);
-		Remove Player(Event Player);
+		Move Player to Team(Event Player, Host Player, -1);
 	}
 }
 
@@ -3161,7 +3148,7 @@ rule("Game time")
 	}
 }
 
-rule("Match restart: Clash")
+disabled rule("Match restart: Clash")
 {
 	event
 	{
@@ -3170,7 +3157,8 @@ rule("Match restart: Clash")
 
 	conditions
 	{
-		Current Game Mode == Game Mode(Clash);
+		"Change It to Clash when it comes back"
+		Current Game Mode == Game Mode(Skirmish);
 	}
 	
 	actions
@@ -3261,10 +3249,11 @@ rule("Skin Swap")
 	actions
 	{
 		Wait(7, Abort When False);
-		Big Message(Event Player, Custom String("Commencing Skin Swap"));
+		Big Message(All Players(All Teams), Custom String("Skin Swap Started..."));
 		Wait(3, Ignore Condition);
 		"Used to assign players positions before going to assemble heroes"
 		Global.Skins_Check[1] = True;
+		Wait(0.125, Ignore condition);
 		Global.matchTime = Evaluate Once(Match Time);
 		Go To Assemble Heroes;
 		Set Match Time(15);
@@ -3293,14 +3282,14 @@ rule("Teleportation after skins swap")
 
 	actions
 	{
-		"Teleporting Players to last known position after assembling heroes"
-		Event Player.Last_Position_Facing[0] = Position Of(Event Player);
-		Event Player.Last_Position_Facing[1] = Facing Direction Of(Event Player);
-		Wait Until(global.Skins_Check[1] == False, 99999);
-		Teleport(Event Player, Event Player.Last_Position_Facing[0]);
-		Set Facing(Event Player, Event Player.Last_Position_Facing[1], To World);
-		Event Player.Last_Position_Facing[0] = Null;
-		Event Player.Last_Position_Facing[1] = Null;
+		If(Entity Exists(Event Player));
+			"Teleporting Players to last known position after assembling heroes"
+			Event Player.Last_Position_Facing[0] = Position Of(Event Player);
+			Event Player.Last_Position_Facing[1] = Facing Direction Of(Event Player);
+			Wait Until(Global.Skins_Check[1] == False && Has Spawned(Event Player) == True, 99999);
+			Teleport(Event Player, Event Player.Last_Position_Facing[0]);
+			Set Facing(Event Player, Event Player.Last_Position_Facing[1], To World);
+		End;
 	}
 }
 
@@ -9218,6 +9207,8 @@ rule("Moe Position")
 		Abort If(Not(Global.Moe_Force));
 		If(Current Map == Map(Kanezaka));
 			Global.Moe_Position = Vector(6.5, 6, 14);
+		Else If(Current Map == Map(Hanamura) || Current Map == Map(Hanamura Winter));
+			Global.Moe_Position = Vector(49.400, -1, -0.200);
 		Else If(Current Map == Map(King's Row) || Current Map == Map(King's Row Winter));
 			Global.Moe_Position = Vector(-76.8, 0.5, -37);
 		Else If(Current Map == Map(Dorado));
