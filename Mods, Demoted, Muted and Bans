@@ -22,12 +22,12 @@ rule("Listed_Player")
 			Custom String("Fenetre"), Custom String("Triin1ty"), Custom String("Lannaanna"), Custom String("XMightyOwlXx"), Custom String("BlueSky"),
 			Custom String("Netbrex"), Custom String("sushiii"), Custom String("RiwaChan"), Custom String("현대적인쌍봉낙타"), Custom String("jupiter"),
 			Custom String("NotForYou"), Custom String("fenmorre"), Custom String("Eosia"), Custom String("Stinky"), Custom String("Visual"),
-			Custom String("Hestia"), Custom String("NONE USER"), Custom String("Tedz"), Custom String("SpƐdy"), Custom String("Frost"), 
+			Custom String("Hestia"), Custom String("ĨŹĂŃĂMĨ"), Custom String("Tedz"), Custom String("SpƐdy"), Custom String("Frost"), 
 			Custom String("Kazuma"), Custom String("Jermuseppo"), Custom String("Ređacted"), Custom String("S0undw4v3"), Custom String("LƐafa"),
-			Custom String("mksvault"), Custom String("LightMist"), Custom String("Lunarion"), Custom String("Adiidas"), Custom String("gh0stface"),
+			Custom String("mksvault"), Custom String("LightMist"), Custom String("Lunarion"), Custom String("Adiidas"), Custom String("GHOSTIEǃ"),
 			Custom String("ByeFever"), Custom String("NightShield"), Custom String("Gerry"), Custom String("whoshotcupid"), Custom String("Ƒìşhy"),
 			Custom String("AngelicMinx"), Custom String("ImmaPenguin"), Custom String("MrCleanerrrr"), Custom String("SapphicWitch"), Custom String("VĬƗŌĿĖŦ"),
-			Custom String("ЈФҜЁЯ"), Custom String("Fragoso"), Custom String("Juuzo"), Custom String("Fearlxss"), 
+			Custom String("ĴŐĶĔŔ"), Custom String("Fragoso"), Custom String("Juuzo"), Custom String("Fearlxss"), 
 			Custom String("Eggman"), Custom String("Mirage"), Custom String("Bluroisa"), Custom String("Ėmber"), Custom String("godly"),
 			Custom String("BȂKƐDBȔŊŊYǃ"), Custom String("zovha"), Custom String("pancakes"), Custom String("emilie"), Custom String("Quartz"),
 			Custom String("Kuwai"), Custom String("PurpSkrrt"), Custom String("iXerethiel"), Custom String("Simba"), Custom String("NinjaNissen"),
@@ -48,7 +48,7 @@ rule("Listed_Player")
 			Custom String("Apotato2182"), Custom String("sherminator"), Custom String("Doom"), Custom String("dobarčovjek"), Custom String("SpongeBob"),
 			Custom String("Elpapu"), Custom String("Nezhant"), Custom String("pupi"), Custom String("Bee"), Custom String("ƁOOƁS69420"), 
 			Custom String("MERCYFEET"), Custom String("Jeanne"), Custom String("Coy"), Custom String("Locustgunner"), Custom String("junkcubus"),
-			Custom String("UwUkitten69"), Custom String("InkyCrane"));
+			Custom String("UwUkitten69"), Custom String("InkyCrane"), Custom String("Ginger"), Custom String("MochiBunnie"));
 
 		"Demoted List"
 		Global.Demoted_List = Array(
