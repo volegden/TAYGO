@@ -83,12 +83,12 @@ rule ("Custom nameplates list")
 			Array(Custom String("Lünår"),
                 Custom Color(41, 0, 5, 255),
                 Custom String("{0} 【Ｐｒｉｎｃｅｓｓ　ｏｆ　ｈａｒｍｏｎｙ】 {0}", Ability Icon String(Hero(Lifeweaver), Button(Primaryfire))),
-                Custom String("{0}【Ｆｏｕｌ　ｔａｒｎｉｓｈｅｄ】 {0}", Ability Icon String(Hero(D.Va), Button(Ultimate)))
+                Custom String("{0} 【Ｍｙ　Ｗｏｒｌｄ　Ｓｔａｒｔｓ　Ｗｉｔｈ　Ｙｏｕ】 {0}", Icon String(Heart))
 		),
 			Array(Custom String("Eosia"),
 				Custom String("Rainbow"),
-				Custom String("☆ dragon accro au sucre ☆"),
-				Custom String("{0} Kir's Dad {0}", Ability Icon String(Hero(Kiriko), Button(Ability 2)))
+				Custom String("☆ His lil catboy ☆"),
+				Custom String("♥ purple kitsune ♥")
 		),
 			Array(Custom String("Tedz"),
 				Custom Color(0,255,188, 255),
@@ -118,7 +118,7 @@ rule ("Custom nameplates list")
 			Array(Custom String("Slafii"),
 				Custom Color(46, 26, 71, 255),
 				Custom String("♡~ S  C  H  N  A  C  K ~♡"),
-				Custom String("{0}【Ｐｒｉｎｃｅ　ｏｆ　ｈａｒｍｏｎｙ】{0}", Ability Icon String(Hero(Lifeweaver), Button(Primaryfire)))
+				Custom String("{0}【﻿Ｐｒｉｎｃｅ　ｏｆ　ｈａｒｍｏｎｙ】{0}", Ability Icon String(Hero(Lifeweaver), Button(Primaryfire)))
 		),
 			Array(Custom String("ElDiablo"),
 				Color(Red),
@@ -160,7 +160,7 @@ rule ("Custom nameplates list")
 			Array(Custom String("Dubbie7"),
 				Custom String("Rainbow"),
 				Custom String("{0} ☆  D u b s t a r  ☆ {0}", Ability Icon String(Hero(Kiriko), Button(Ultimate))),
-				Custom String("♥ Ghostface es mi amor ♥")
+				Custom String("{0} Dubbie the dummie {0}", Ability Icon String(Hero(Mauga), Button(Ultimate)))
 		), 
 			Array(Custom String("Zxtyi"),
 				Color(Black),
@@ -179,7 +179,7 @@ rule ("Custom nameplates list")
 		),
 			Array(Custom String("fenmorre"),
 				Custom Color(255, 39, 12, 255),
-				Custom String("{0} ♡ ♬ Beloved Oomfie ♬ ♡ {0}", Ability Icon String(Hero(Mercy), Button(Ultimate))),
+				Custom String("{0} ♡ ♬ Phantom Thief ♬ ♡ {0}", Ability Icon String(Hero(Mercy), Button(Ultimate))),
 				Custom String("{0} Chronically Ill Artist, Writer & Hater {0}", Ability Icon String(Hero(Reaper), Button(Ultimate)))
 		),
 			Array(Custom String("ĨŹĂŃĂMĨ"),
@@ -188,14 +188,9 @@ rule ("Custom nameplates list")
 				Custom String("{0}    ＤＩＶＩＮＩＴＹ    {0}", Icon String(Moon))
 		),
 			Array(Custom String("Ɛthereal"),
-				Color(Red),
-				Custom String("{0} Sith Master Immortal {0}", Ability Icon String(Hero(Genji), Button(ULtimate))),
+				Custom String("Rainbow"),
+				Custom String("{0} Fürchtet euch, fürchtet euch nicht {0}", Ability Icon String(Hero(Reinhardt), Button(ULtimate))),
 				Custom String("{0} Sigma's Starlight {0}", Ability Icon String(Hero(Sigma), Button(Ultimate)))
-		),
-			Array(Custom String("Triin1ty"),
-				Color(White),
-				Custom String("little sh%t"),
-				Custom String("{0} Lyudmila {0}", Ability Icon String(Hero(Mei), Button(Ultimate)))
 		),
 			Array(Custom String("Lannaanna"),
 				Custom String("Rainbow"),
@@ -204,17 +199,18 @@ rule ("Custom nameplates list")
 		),
 			Array(Custom String("RiwaChan"),
 				Custom String("Rainbow"),
-				Custom String("☆ R i w a ☆"),
-				Custom String("♡ Тигр ♡")
+				Custom String("☆ His lil femboy ☆"),
+				Custom String("♥ white kitsune ♥")
 		),
 			Array(Custom String("ImmaPenguin"),
 				Custom Color(3, 4, 174, 255),
 				Custom String("Pengu"),
 				Custom String("{0} What's your favorite animal? {0}", Ability Icon String(Hero(D.va), Button(Ultimate)))
 		),
-			Array(Custom String("gh0stface"),
+			Array(Custom String("GHOSTIEǃ"),
 				Custom String("Rainbow"),
-				Custom String("♡ Lostshadow's big sister ♡")
+				Custom String("♡ Lostshadow's big sister ♡"),
+				Custom String("{0}『Hex: Unforgettαble』{0}", Ability Icon String(Hero(Reaper), Button(Ability 1)))
 		),
 			Array(Custom String("AngelicMinx"),
 				Custom Color(237, 27, 12, 255),
@@ -266,8 +262,8 @@ rule ("Custom nameplates list")
 		),
 			Array(Custom String("Fearlxss"),
 				Custom String("Rainbow"),
-				Custom String("♡ нєя ƒανσяιтє кιяιкσ мαιη ♡"),
-				Custom String("† яєqυιєѕ¢αт ιη ρα¢є †")
+				Custom String("{0} ―『 ★  F L O W E R  B O Y  ★ 』― {0}", Ability Icon String(Hero(Kiriko), Button(Ability 2))),
+				Custom String("{0} YOUR LOCAL INSOMNIA DUO {0}", Ability Icon String(Hero(Ana), Button(Ability 1)))
 		),
 			Array(Custom String("MOOOUSH"),
                 Color(Black),
@@ -289,12 +285,12 @@ rule ("Custom nameplates list")
 		),
 			Array(Custom String("BȂKƐDBȔŊŊYǃ"),
                 Custom String("Rainbow"),
-                Custom String("{0} ♡ Mantén La Calma, And Venture On ♡ {0}", Ability Icon String(Hero(Venture), Button(Ability 2))),
-				Custom String("♡ нιѕ ƒανσяιтє ∂να мαιη ♡")
+                Custom String("{0} ―『 ♥  F L O W E R  G I R L  ♥ 』― {0}", Ability Icon String(Hero(Kiriko), Button(Ability 2))),
+				Custom String("{0} YOUR LOCAL INSOMNIA DUO {0}", Ability Icon String(Hero(Ana), Button(Ability 1)))
 		),
 			Array(Custom String("Ėmber"),
 				Custom Color(0, 67, 74, 255),
-				Custom String("Fσliҽ à Dҽυx!"),
+				Custom String("{0} 〚  ΓHIS IS MУ DΞSIGИ 〛 {0}", Ability Icon String(Hero(Cassidy), Button(Ultimate))),
 				Custom String("{0} Ｓｌｅｅｐｙｈｅａｄ {0}", Ability Icon String(Hero(Ana), Button(Ability 1)))
 		),
 			Array(Custom String("zovha"),
@@ -335,7 +331,7 @@ rule ("Custom nameplates list")
         ),
             Array(Custom String("iXerethiel"),
                 Custom String("Rainbow"),
-				Custom String("{0} † Mêmêñ†ð Mðrï † {0}", Ability Icon String(Hero(Mercy), Button(Ultimate))),
+				Custom String("{0} † ｄｅａｔｈｃｏｒｅ ★ ａｎｇｅｌ† {0}", Ability Icon String(Hero(Cassidy), Button(Ultimate))),
 				Custom String("{0} Feed the flame cause we can't let go {0}", Icon String(Fire))
 		),
 		    Array(Custom String("Mogo"),
@@ -349,8 +345,8 @@ rule ("Custom nameplates list")
 	    ),
             Array(Custom String("PurpSkrrt"),
                 Custom Color(221, 175, 255, 255),
-                Custom String("{0}  ЅHΔDΘШ ШIZΔRD ΜΘNΣΨ GΔNG  {0}", Ability Icon String(Hero(Sombra), Button(Ultimate))),
-                Custom String("{0} * .˚ ♡『 PurpSkrrt™ 』♡ ˚. * {0}", Ability Icon String(Hero(Mercy), Button(Ultimate)))
+                Custom String("{0} * .˚ ♡『 PurpSkrrt™ 』♡ ˚. * {0}", Ability Icon String(Hero(Mercy), Button(Ultimate))),
+				Custom String("{0}《 ЅHΔDΘШ ΜΘNΣΨ ШIZΔRD GΔNG 》{0}", Ability Icon String(Hero(Sombra), Button(Ultimate)))
 		),
 			Array(Custom String("karlybarly"),
 			    Custom Color(153, 204, 255, 255),
@@ -358,9 +354,9 @@ rule ("Custom nameplates list")
 			    Custom String("{0} くそがき {0}", Ability Icon String(Hero(Kiriko), Button(Ability 2)))
 		),
 			Array(Custom String("Lunarion"),
-			    Custom Color(163, 144, 222, 255),
-			    Custom String("{0}  ЅHΔDΘШ ШIZΔRD ΜΘNΣΨ GΔNG  {0}", Ability Icon String(Hero(Sombra), Button(Ultimate))),
-				Custom String("{0} clarissima luna {0}", Icon String(Moon))
+			    Custom Color(245, 154, 196, 255),
+			    Custom String("{0} ☆ Miss Frieren ☆ {0}", Ability Icon String(Hero(Kiriko), Button(Ability 2))),
+				Custom String("{0}《 ЅHΔDΘШ ΜΘNΣΨ ШIZΔRD GΔNG 》{0}", Ability Icon String(Hero(Sombra), Button(Ultimate)))
 		),
 		    Array(Custom String("whoshotcupid"),
 			    Custom Color(64, 224, 208, 255),
@@ -388,39 +384,36 @@ rule ("Custom nameplates list")
 		),
 		    Array(Custom String("Bendude1000"),
 			    Custom Color(155, 1, 63, 255),
-				Custom String("{0} Mikhail {0}", Ability Icon String(Hero(Mei), Button(Ultimate)))
+				Custom String("")
 		),
-			Array(Custom String("Axem"),
+		    Array(Custom String("Axem"),
 			    Custom Color(100, 50, 255, 255),
                 Custom String("† TRUST ISSUES †"),
 				Custom String("{0} REVOLVER OCELOT {0}", Ability Icon String(Hero(Cassidy), Button(Primaryfire)))
 		),
-			Array(Custom String("Hestia"),
-			    Custom Color(193, 59, 120, 255),
-			    Custom String("♣ Ｍｕｓｔｉ＇ｓ  Ｍｏｔｈｅｒ ♣"),
-			    Custom String("⁂Ｓｕｎｌｉｇｈｔ⁂")
+		    Array(Custom String("Hestia"),
+				Custom Color(193, 59, 120, 255),
+				Custom String("♣ Ｍｕｓｔｉ＇ｓ  Ｍｏｔｈｅｒ ♣"),
+				Custom String("⁂Ｓｕｎｌｉｇｈｔ⁂")
 		),
-			Array(Custom String("Frost"),
-			    Custom Color(69, 255, 87, 255),
-			    Custom String("It is such a quiet thing, to fall"),
-			    Custom String("But far more terrible is to admit it")
+		    Array(Custom String("Frost"),
+				Custom Color(69, 255, 87, 255),
+				Custom String("It is such a quiet thing, to fall"),
+				Custom String("But far more terrible is to admit it")
 		),
-			Array(Custom String("Root"),
-			    Custom Color(5, 3, 13, 255),
-			    Custom String("Integra Hellsing")
+		    Array(Custom String("Root"),
+				Custom Color(5, 3, 13, 255),
+				Custom String("Integra Hellsing"),
+				Custom String("L'Homme à femmes")
 		),
-			Array(Custom String("foorelskett"),
-			    Custom Color(102, 205, 170, 255),
-			    Custom String("{0} ♥kiss of death♥ {0}", Icon String(Skull)),
-			    Custom String("{0} hamster boy {0}", Icon String(Dizzy))
+		    Array(Custom String("foorelskett"),
+				Custom Color(102, 205, 170, 255),
+				Custom String("{0} ♥kiss of death♥ {0}", Icon String(Skull)),
+				Custom String("{0} hamster boy {0}", Icon String(Dizzy))
 		),
-			Array(Custom String("Kazuma"),
-			    Color(Red),
-			    Custom String("{0} Jake's loving soldier {0}", Icon String(Heart))
-		),
-			Array(Custom String("Quartz"),
-			    Custom Color(6, 98, 70, 255),
-			    Custom String("{0} Solo ulting shy {0}", Ability Icon String(Hero(Bastion), Button(Ultimate)))
+		    Array(Custom String("Kazuma"),
+				Color(Red),
+				Custom String("{0} Jake's loving soldier {0}", Icon String(Heart))
 		)
 		);
 	}
