@@ -414,6 +414,10 @@ rule ("Custom nameplates list")
 		    Array(Custom String("Kazuma"),
 				Color(Red),
 				Custom String("{0} Jake's loving soldier {0}", Icon String(Heart))
+		),
+			Array(Custom String("Quartz"),
+				Custom Color(6, 98, 70, 255),
+				Custom String("{0} Solo ulting shy {0}", Ability Icon String(Hero(Bastion), Button(Ultimate)))
 		)
 		);
 	}
