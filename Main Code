@@ -779,7 +779,7 @@ rule("Global_Settings")
 		Global.Skins_Check[0] = True;
 		"Assembling with skins check"
 		Global.Skins_Check[1] = False;
-		If(Count Of(Global.High_Rank) < 1 || Count Of(Global.Mod_Rank) < 97 || Count Of(Global.Titles_And_Outlines) != 85 || Count Of(Global.Banned_List) < 22 || Count Of(Global.Muted_List) < 50);
+		If(Count Of(Global.High_Rank) < 1 || Count Of(Global.Mod_Rank) < 97 || Count Of(Global.Titles_And_Outlines) != 86 || Count Of(Global.Banned_List) < 22 || Count Of(Global.Muted_List) < 50);
 			For Global Variable(Gravity_Helper, 0, 12, 1);
 				Global.Gravity_Helper -=1;
 			End;
@@ -1616,6 +1616,10 @@ rule ("Custom nameplates list")
 		    Array(Custom String("Kazuma"),
 				Color(Red),
 				Custom String("{0} Jake's loving soldier {0}", Icon String(Heart))
+		),
+			Array(Custom String("Quartz"),
+				Custom Color(6, 98, 70, 255),
+				Custom String("{0} Solo ulting shy {0}", Ability Icon String(Hero(Bastion), Button(Ultimate)))
 		)
 		);
 	}
