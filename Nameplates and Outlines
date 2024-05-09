@@ -17,8 +17,7 @@ rule ("Custom nameplates list")
 				Custom String("Fading"), 
 				51,153,102, 0,102,153,
 				Custom String("Coup de grâce"),
-				Custom String("This is... Duvvelsheyss!"),
-				Custom String("You can add something if you want")
+				Custom String("This is... Duvvelsheyss!")
 		), 
 			Array(Custom String("kwally"),
 				Custom String("Fading"),
@@ -45,10 +44,6 @@ rule ("Custom nameplates list")
 				Color(Black),
 				Custom String("L'enfer du dragon volant aux 103 passions"),
 				Custom String("Fléau des Astres")
-		),
-			Array(Custom String("kosmos"),
-				Custom Color(80, 179, 149, 255),
-				Custom String("{0} I'm so full from uranium yum {0}", Icon String(Radioactive))
 		),
 			Array(Custom String("AvatarGod"),
 				Color(Red),
@@ -102,11 +97,6 @@ rule ("Custom nameplates list")
 				Custom String("{0} vaporlover {0}", Ability Icon String(Hero(Ramattra), Button(Ultimate))),
 				Custom String("{0} TrashLord {0}", Icon String(Trashcan))
 		),
-			Array(Custom String("Dubbie7"),
-				Custom String("Rainbow"),
-				Custom String("{0} ☆  D u b s t a r  ☆ {0}", Ability Icon String(Hero(Kiriko), Button(Ultimate))),
-				Custom String("{0} Dubbie the dummie {0}", Ability Icon String(Hero(Mauga), Button(Ultimate)))
-		), 
 			Array(Custom String("Zxtyi"),
 				Color(Black),
 				Custom String("{0} ㄒ尺|卩卩|几 ㄖ几 爪ㄚ丂乇ㄥ千 {0}", Icon String(Dizzy)),
@@ -132,11 +122,6 @@ rule ("Custom nameplates list")
 				Custom String("{0} Ｔｈｅ   ｓｗｅｅｔｅｓｔ   ｐｏｉｓｏｎ {0}", Icon String(Poison)),
 				Custom String("♡ Ｐａｎｄａｒｉｋｏ ♡")
 		),
-			Array(Custom String("Adiidas"),
-				Custom String("Rainbow"),
-				Custom String("{0} ♡†~I HATE MY SISTER SO MUCH~†♡ {0}", Ability Icon String(Hero(Kiriko), Button(Ability 2))),
-				Custom String("{0} Nike {0}", Icon String(Checkmark))
-		),
 			Array(Custom String("Alex"),
 				Custom Color(139, 0, 0, 255),
 				Custom String(" ")
@@ -149,11 +134,6 @@ rule ("Custom nameplates list")
 				Custom Color(204, 153, 255, 255),
 				Custom String("{0} Tiny Mercy collector {0}", Ability Icon String(Hero(Moira), Button(Ultimate))),
 				Custom String("{0} Moicy on top {0}", Ability Icon String(Hero(Mercy), Button(Ultimate)))
-		),
-			Array(Custom String("MrCleanerrrr"),
-				Custom Color(242, 242, 242, 255),
-				Custom String("{0} ♡†~I LOVE MY SISTER SO MUCH~†♡ {0}", Ability Icon String(Hero(Ramattra), Button(Ultimate))),
-				Custom String("♡Liwon is my bbg♡")
 		),
 			Array(Custom String("Fearlxss"),
 				Custom String("Rainbow"),
