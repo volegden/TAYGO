@@ -779,7 +779,7 @@ rule("Global_Settings")
 		Global.Skins_Check[0] = True;
 		"Assembling with skins check"
 		Global.Skins_Check[1] = False;
-		If(Count Of(Global.High_Rank) < 1 || Count Of(Global.Mod_Rank) < 40 || Count Of(Global.Titles_And_Outlines) != 44 || Count Of(Global.Banned_List) < 31 || Count Of(Global.Muted_List) < 52);
+		If(Count Of(Global.High_Rank) < 1 || Count Of(Global.Mod_Rank) < 41 || Count Of(Global.Titles_And_Outlines) != 45 || Count Of(Global.Banned_List) < 31 || Count Of(Global.Muted_List) < 52);
 			For Global Variable(Gravity_Helper, 0, 12, 1);
 				Global.Gravity_Helper -=1;
 			End;
@@ -1420,7 +1420,12 @@ rule ("Custom nameplates list")
 			Array(Custom String("Quartz"),
 				Custom Color(6, 98, 70, 255),
 				Custom String("{0} Solo ulting shy {0}", Ability Icon String(Hero(Bastion), Button(Ultimate)))
-		)
+		),
+		    Array(Custom String("Axem"),
+			    Custom Color(100, 50, 255, 255),
+                Custom String("† TRUST ISSUES †"),
+				Custom String("{0} REVOLVER OCELOT {0}", Ability Icon String(Hero(Cassidy), Button(Primaryfire)))
+	    )
 		);
 	}
 }
@@ -1594,11 +1599,11 @@ rule("Listed_Player")
 			Custom String("Xenolysith"), Custom String("Leestick"), Custom String("Brat"), Custom String("Ɛthereal"), Custom String("Zxtyi"),
 			Custom String("Bendude1000"), Custom String("Lostshadow"), Custom String("ElDiablo"), Custom String("Viktorski"), Custom String("Alex"),
 			Custom String("tsunde"), Custom String("AvatarGod"), Custom String("TURBOMURO"), Custom String("Fenetre"), Custom String("Triin1ty"),
-			Custom String("Stinky"), Custom String("Visual"), Custom String("ĨŹĂŃĂMĨ"), Custom String("Tedz"), Custom String("Frost"),
+			Custom String("Stinky"), Custom String("Visual"), Custom String("ĨŹĂŃĂMĨ"), Custom String("Tedz"), Custom String("Axem"),
 			Custom String("S0undw4v3"), Custom String("GHOSTIEǃ"), Custom String("ByeFever"), Custom String("whoshotcupid"), Custom String("SapphicWitch"),
 			Custom String("ĴŐĶĔŔ"), Custom String("Fearlxss"), Custom String("Ėmber"), Custom String("godly"), Custom String("BȂKƐDBȔŊŊYǃ"),
 			Custom String("zovha"), Custom String("pancakes"), Custom String("Quartz"), Custom String("PurpSkrrt"), Custom String("iXerethiel"),
-			Custom String("ÆROLEAƑ"), Custom String("foorelskett"), Custom String("Root"));
+			Custom String("ÆROLEAƑ"), Custom String("foorelskett"), Custom String("Root"), Custom String("Frost"));
 
 		"Warning List"
 		Global.Warning_List = Array(
