@@ -13,15 +13,14 @@ rule("Listed_Player")
 		"Automatic Mod"
 		Global.Mod_Rank = Array(
 			Custom String("Warloy"), Custom String("kwally"), Custom String("xskĳ"), Custom String("Toguro"), Custom String("MOOOUSH"),
-			Custom String("Xenolysith"), Custom String("Leestick"), Custom String("Brat"), Custom String("Dubbie7"), Custom String("Ɛthereal"),
-			Custom String("Zxtyi"), Custom String("Bendude1000"), Custom String("Lostshadow"), Custom String("ElDiablo"), Custom String("Viktorski"),
-			Custom String("kosmos"), Custom String("Alex"), Custom String("tsunde"), Custom String("AvatarGod"), Custom String("TURBOMURO"),
-			Custom String("Fenetre"), Custom String("Triin1ty"), Custom String("Stinky"), Custom String("Visual"), Custom String("ĨŹĂŃĂMĨ"),
-			Custom String("Tedz"), Custom String("Frost"), Custom String("S0undw4v3"), Custom String("Adiidas"), Custom String("GHOSTIEǃ"),
-			Custom String("ByeFever"), Custom String("whoshotcupid"), Custom String("MrCleanerrrr"), Custom String("SapphicWitch"), Custom String("ĴŐĶĔŔ"),
-			Custom String("Fearlxss"), Custom String("Ėmber"), Custom String("godly"), Custom String("BȂKƐDBȔŊŊYǃ"), Custom String("zovha"),
-			Custom String("pancakes"), Custom String("Quartz"), Custom String("PurpSkrrt"), Custom String("iXerethiel"), Custom String("ÆROLEAƑ"),
-			Custom String("foorelskett"), Custom String("Root"));
+			Custom String("Xenolysith"), Custom String("Leestick"), Custom String("Brat"), Custom String("Ɛthereal"), Custom String("Zxtyi"),
+			Custom String("Bendude1000"), Custom String("Lostshadow"), Custom String("ElDiablo"), Custom String("Viktorski"), Custom String("Alex"),
+			Custom String("tsunde"), Custom String("AvatarGod"), Custom String("TURBOMURO"), Custom String("Fenetre"), Custom String("Triin1ty"),
+			Custom String("Stinky"), Custom String("Visual"), Custom String("ĨŹĂŃĂMĨ"), Custom String("Tedz"), Custom String("Frost"),
+			Custom String("S0undw4v3"), Custom String("GHOSTIEǃ"), Custom String("ByeFever"), Custom String("whoshotcupid"), Custom String("SapphicWitch"),
+			Custom String("ĴŐĶĔŔ"), Custom String("Fearlxss"), Custom String("Ėmber"), Custom String("godly"), Custom String("BȂKƐDBȔŊŊYǃ"),
+			Custom String("zovha"), Custom String("pancakes"), Custom String("Quartz"), Custom String("PurpSkrrt"), Custom String("iXerethiel"),
+			Custom String("ÆROLEAƑ"), Custom String("foorelskett"), Custom String("Root"));
 
 		"Warning List"
 		Global.Warning_List = Array(
@@ -38,7 +37,8 @@ rule("Listed_Player")
 			Custom String("Apotato2182"), Custom String("sherminator"), Custom String("Doom"), Custom String("dobarčovjek"), Custom String("SpongeBob"),
 			Custom String("Elpapu"), Custom String("Nezhant"), Custom String("pupi"), Custom String("Bee"), Custom String("ƁOOƁS69420"), 
 			Custom String("MERCYFEET"), Custom String("Jeanne"), Custom String("Coy"), Custom String("Locustgunner"), Custom String("junkcubus"),
-			Custom String("UwUkitten69"), Custom String("InkyCrane"), Custom String("Ginger"), Custom String("MochiBunnie"), Custom String("Vi64na"));
+			Custom String("UwUkitten69"), Custom String("InkyCrane"), Custom String("Ginger"), Custom String("MochiBunnie"), Custom String("Vi64na"),
+			Custom String("CapengeR"), Custom String("ƑǾĊŬŜ"));
 
 		"Demoted List"
 		Global.Demoted_List = Array(
