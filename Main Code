@@ -1219,7 +1219,7 @@ rule ("Custom nameplates list")
 				Custom String("Fading"), 
 				51,153,102, 0,102,153,
 				Custom String("Coup de grâce"),
-				Custom String("This is... Duvvelsheyss!")
+				Custom String("Duvvelsheyss!")
 		), 
 			Array(Custom String("kwally"),
 				Custom String("Fading"),
@@ -6358,7 +6358,7 @@ rule("Mode_27 - Kick_&_Ban")
 		"Permission Check"
 		Event Player.Target_Lock = Player Closest To Reticle(Event Player, All Teams);
 		Abort If(Event Player.Target_Lock == Null);
-		Abort If(Not(Event Player.High_Rank || Event Player == Host Player));
+		Abort If(Not(Event Player.High_Rank || (Event Player.Mod_Rank && !Event Player.Promoted_Rank) || Event Player == Host Player));
 		If(Array Contains(Global.High_Rank, Custom String("{0}", Event Player.Target_Lock)) || (Event Player.High_Rank && Not(Event Player.Heaven_Strike_ID[2]) && Event Player != Host Player) ||
 			(Event Player == Host Player && Array Contains(Global.Mod_Rank, Custom String("{0}", Event Player.Target_Lock)) && Event Player.Promoted_Rank && 
 			Not(Event Player.Target_Lock.Promoted_Rank)));
@@ -6368,11 +6368,22 @@ rule("Mode_27 - Kick_&_Ban")
 		End;
 		"Authorization Accepted"
 		If(Is Button Held(Event Player, Button(Primary Fire)));
+			If((Event Player.Mod_Rank && !Event Player.Promoted_Rank) 
+				&& (Event Player.Target_Lock == Host Player 
+				&& Array Contains(Global.Mod_Rank, Custom String("{0}", Event Player.Target_Lock)) && Event Player.Target_Lock.Promoted_Rank));
+
+				Small Message(All Players(All Teams), Custom String("{0} is kicked by {1}", Event Player.Target_Lock, Event Player));
+				Wait(0.5, Ignore Condition);
+				Remove Player(Event Player.Target_Lock);
+			End;
+			Abort If(Not(Event Player.High_Rank || Event Player == Host Player));
 			Play Effect(All Players(All Teams), Bad Pickup Effect, Color(Red), Event Player.Target_Lock, 1);
 			Small Message(All Players(All Teams), Custom String("{0} is kicked by {1}", Event Player.Target_Lock, Event Player));
 			Wait(0.5, Ignore Condition);
 			Remove Player(Event Player.Target_Lock);
+			
 		Else If(Is Button Held(Event Player, Button(Secondary Fire)));
+			Abort If(Not(Event Player.High_Rank || Event Player == Host Player));
 			Play Effect(All Players(All Teams), Bad Pickup Effect, Color(Red), Player Closest To Reticle(Event Player, All Teams), 1);
 			Small Message(All Players(All Teams), Custom String("{0} is banned by {1}", Event Player.Target_Lock, Event Player));
 			Modify Global Variable(Temp_Banned, Append To Array, Custom String("{0}", Event Player.Target_Lock));
