@@ -932,7 +932,7 @@ rule("Default_Player_Settings")
 		Event Player.Slow_Projectile = False;
 		Event Player.Progress_Stop = False;
 		Event Player.Is_Crouch_On = False;
-		Event Player.in_1v1_Mode = False;
+		disabled Event Player.in_1v1_Mode = False;
 
 		Event Player.Modification_Mode_Selector = 1;
 		Event Player.Modification_Scalar_Selector = 2;
@@ -2033,7 +2033,7 @@ rule("Mod_Ability_ON")
 		Is Button Held(Event Player, Button(Crouch)) == True;
 		Event Player.Is_Menu_Active == True;
 		Event Player.Control_Active == False;
-		Event Player.in_1v1_Mode == False;
+		disabled Event Player.in_1v1_Mode == False;
 	}
 
 	actions
@@ -2071,7 +2071,7 @@ rule("Mod_Ability_OFF")
 	{
 		(Is Button Held(Event Player, Button(Crouch)) == False);
 		Event Player.Control_Active == False;
-		Event Player.in_1v1_Mode == False;		
+		disabled Event Player.in_1v1_Mode == False;		
 	}
 
 	actions
@@ -2108,7 +2108,7 @@ rule("Mode_Cycle")
 		(Is Button Held(Event Player, Button(Interact)) || Is Button Held(Event Player, Button(Jump))) == True;
 		Event Player.Is_Menu_Active == True;
 		Event Player.Is_Flying == False;
-		Event Player.in_1v1_Mode == False;
+		disabled Event Player.in_1v1_Mode == False;
 		Event Player.UNO_Ingame == False;
 		Event Player.Restricted[1] == False;
 		Event Player.Control_Active == False;
@@ -3361,13 +3361,13 @@ rule("1v1 Mode Trigger: ON")
 	{
 		(Event Player.Mode_Cycle == 0 || Event Player.Mode_Cycle_Default == 0) == True;
 		Is Button Held(Event Player, Button(Ability 1)) == True;
-		Event Player.in_1v1_Mode == False;
+		disabled Event Player.in_1v1_Mode == False;
 	}
 
 	actions
 	{
 		Wait(4, Abort When False);
-		Event Player.in_1v1_Mode = True;
+		disabled Event Player.in_1v1_Mode = True;
 	}
 }
 
@@ -3384,13 +3384,13 @@ rule("1v1 Mode Trigger: OFF")
 	{
 		(Event Player.Mode_Cycle == 0 || Event Player.Mode_Cycle_Default == 0) == True;
 		Is Button Held(Event Player, Button(Ability 1)) == True;
-		Event Player.in_1v1_Mode == True;
+		disabled Event Player.in_1v1_Mode == True;
 	}
 
 	actions
 	{
 		Wait(4, Abort When False);
-		Event Player.in_1v1_Mode = False;
+		disabled Event Player.in_1v1_Mode = False;
 	}
 }
 
