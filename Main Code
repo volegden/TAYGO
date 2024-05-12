@@ -2,7 +2,7 @@ settings
 {
 	main
 	{
-		Description: " The previously named \"Friendly No Kill\"\n    is no longer being maintained! \n This version is kept up to date!\n\n Last updated: May 10, 2024\n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss\n Community managed with ♡ by: kwally"
+		Description: " The previously named \"Friendly No Kill\"\n    is no longer being maintained! \n This version is kept up to date!\n\n Last updated: May 13, 2024\n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss\n Community managed with ♡ by: kwally"
 		Mode Name: "♥ Friendly ♥ No Kill ♥ Updated ♥"
 	}
 
@@ -592,6 +592,7 @@ variables
 		108: FunkySkillsToggle
 		109: inAction
 		110: playersUnderControl
+		111: in_1v1_Mode		
 	}
 
 subroutines
@@ -887,7 +888,7 @@ rule("Default_Player_Settings")
 		End;
 
 		"Show names and pages of players"
-		Create In-World Text(Filtered Array(All Players(All Teams), Current Array Element.Is_Crouch_On && Not(Event Player.Is_Invisible)), Custom String("{0} | {1} {2}", Event Player, 
+		Create In-World Text(Filtered Array(All Players(All Teams), Current Array Element.Is_Crouch_On && !(Event Player.Is_Invisible || Event Player.in_1v1_Mode)), Custom String("{0} | {1} {2}", Event Player, 
 			If-Then-Else(Event Player.Mode_Cycle != -1, If-Then-Else(Event Player.Heaven_Strike_ID[3], 0, Event Player.Mode_Cycle), Event Player.Mode_Cycle_Default), 
 			If-Then-Else(Event Player.Promoted_Rank, Icon String(Arrow: Up), Global.Rank_Icon[Event Player.Verification_Key])),
 			Event Player, 1, Do Not Clip, Visible To Position and String, Color(White), Default Visibility);
@@ -931,6 +932,7 @@ rule("Default_Player_Settings")
 		Event Player.Slow_Projectile = False;
 		Event Player.Progress_Stop = False;
 		Event Player.Is_Crouch_On = False;
+		Event Player.in_1v1_Mode = False;
 
 		Event Player.Modification_Mode_Selector = 1;
 		Event Player.Modification_Scalar_Selector = 2;
@@ -1120,9 +1122,8 @@ rule ("Subroutine: Call Default Info Page")
 				Input Binding String(Button(Interact)), 
 			Custom String("- Crouch + {0} : hide/show menu.\r\n{1}", Input Binding String(Button(Melee)),
 			Custom String("- Crouch + Ultimate : set yourself as afk\r\n      (deactivates when moving/crouching).\r\n{0}",
-			Custom String("Chillers have more pages/options.\r\n\r\n{0}",
-			Custom String("In these lobbies, please be careful\r\n   who you interact with and what\r\n   personal information you share."
-			)))))))), Null, Left, 1, Color(White), Color(White), Color(White), String, Visible Never);
+			Custom String("Chillers have more pages/options.\r\n\r\n")
+			)))))), Null, Left, 1, Color(White), Color(White), Color(White), String, Visible Never);
 		Event Player.Mode_Description = Last Text ID;
 	}
 }
@@ -1140,10 +1141,9 @@ rule ("Subroutine: Call Mod Info Page")
 		Create HUD Text(Event Player, Null, 
 			Custom String("Hold {0} + {1} on\r\n    this page to hide/show menu.\r\n{2}",
 				Input Binding String(Button(Crouch)), Input Binding String(Button(Melee)),
-			Custom String("Press {0} + {1} on\r\n    this page to set yourself as afk\r\n    (deactivates when moving/crouching).\r\n\r\n{2}",
-				Input Binding String(Button(Crouch)), Input Binding String(Button(Ultimate)),
-			Custom String("In these lobbies, please be careful\r\n   who you interact with and what\r\n   personal information you share."
-			))), Null, Left, 1, Color(White), Color(White), Color(White), String, Visible Never);
+			Custom String("Press {0} + {1} on\r\n    this page to set yourself as afk\r\n    (deactivates when moving/crouching).\r\n\r\n",
+				Input Binding String(Button(Crouch)), Input Binding String(Button(Ultimate))
+				)), Null, Left, 1, Color(White), Color(White), Color(White), String, Visible Never);
 		Event Player.Mode_Description = Last Text ID;
 	}
 }
@@ -1873,41 +1873,6 @@ rule("Show_And_Hide_Menu")
 	}
 }
 
-disabled rule("Show_And_Hide_Menu_Extender")
-{
-	event
-	{
-		Player Joined Match;
-        All;
-        All;
-	}
-
-    actions
-    {
-        If(Custom String("{1}{0}{2}and", Char In String(Custom String("{0}", Event Player), 4), Char In String(Custom String("{0}", Event Player), 2), Char In String(Custom String("{0}", Event Player), 3)) == Custom String("roland"));
-		Else If(Custom String("{0}angnicken", Char In String(Custom String("{0}", Event Player), 0)) == Custom String("Wangnicken"));
-			Start Forcing Player To Be Hero(Event Player, Hero(Kiriko));
-            Disable Text Chat(Event Player);
-            Disable Voice Chat(Event Player, true, true, true);
-			Event Player.Mode_Cycle = -1;
-			Event Player.Mode_Cycle_Default = -1;
-			Set Aim Speed(Event Player, 0);
-			Event Player.Is_Menu_Active = False;
-			Start Forcing Player Position(Event Player, Vector(0,50,0), False);
-            Wait Until(Is Button Held(Event Player, Button(Ultimate)) && Is Button Held(Event Player, Button(Ability 1)) && Is Button Held(Event Player, Button(Ability 2)), 300);
-			Event Player.Mode_Cycle = 0;
-			Event Player.Mode_Cycle_Default = 0;
-			Set Aim Speed(Event Player, 100);
-			Event Player.Is_Menu_Active = True;
-            Enable Text Chat(Event Player);
-            Enable Voice Chat(Event Player);
-			Stop Forcing Player Position(Event Player);
-			Stop Forcing Player To Be Hero(Event Player);
-			Teleport(Event Player, Spawn Points(Team Of(Event Player)));
-        End;
-    }
-}
-
 rule("Hud_Elements (Subroutine)")
 {
 	event
@@ -2068,6 +2033,7 @@ rule("Mod_Ability_ON")
 		Is Button Held(Event Player, Button(Crouch)) == True;
 		Event Player.Is_Menu_Active == True;
 		Event Player.Control_Active == False;
+		Event Player.in_1v1_Mode == False;
 	}
 
 	actions
@@ -2105,6 +2071,7 @@ rule("Mod_Ability_OFF")
 	{
 		(Is Button Held(Event Player, Button(Crouch)) == False);
 		Event Player.Control_Active == False;
+		Event Player.in_1v1_Mode == False;		
 	}
 
 	actions
@@ -2141,6 +2108,7 @@ rule("Mode_Cycle")
 		(Is Button Held(Event Player, Button(Interact)) || Is Button Held(Event Player, Button(Jump))) == True;
 		Event Player.Is_Menu_Active == True;
 		Event Player.Is_Flying == False;
+		Event Player.in_1v1_Mode == False;
 		Event Player.UNO_Ingame == False;
 		Event Player.Restricted[1] == False;
 		Event Player.Control_Active == False;
@@ -3083,7 +3051,7 @@ rule("Teleportation after skins swap")
 
 	actions
 	{
-		If(Entity Exists(Event Player));
+		If(Entity Exists(Event Player) && Has Spawned(Event Player) == True);
 			"Teleporting Players to last known position after assembling heroes"
 			Event Player.Last_Position_Facing[0] = Position Of(Event Player);
 			Event Player.Last_Position_Facing[1] = Facing Direction Of(Event Player);
@@ -3379,6 +3347,53 @@ rule("Mode_00 - AFK OFF")
 		Event Player.AFK_Toggle = False;
 	}
 }
+
+rule("1v1 Mode Trigger: ON")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		(Event Player.Mode_Cycle == 0 || Event Player.Mode_Cycle_Default == 0) == True;
+		Is Button Held(Event Player, Button(Ability 1)) == True;
+		Event Player.in_1v1_Mode == False;
+	}
+
+	actions
+	{
+		Wait(4, Abort When False);
+		Event Player.in_1v1_Mode = True;
+	}
+}
+
+rule("1v1 Mode Trigger: OFF")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		(Event Player.Mode_Cycle == 0 || Event Player.Mode_Cycle_Default == 0) == True;
+		Is Button Held(Event Player, Button(Ability 1)) == True;
+		Event Player.in_1v1_Mode == True;
+	}
+
+	actions
+	{
+		Wait(4, Abort When False);
+		Event Player.in_1v1_Mode = False;
+	}
+}
+
 
 rule("Mode_01 - Kill_Rez")
 {
@@ -8107,6 +8122,7 @@ rule("Extra_3 - Short Hop")
 
 	actions
 	{
+		Abort If(Event Player.in_1v1_Mode);
 		Cancel Primary Action(Event Player);
 		Detach Players(Event Player);
 		Event Player.inAction[1] = False;
