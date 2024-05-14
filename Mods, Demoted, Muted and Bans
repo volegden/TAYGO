@@ -18,7 +18,7 @@ rule("Listed_Player")
 			Custom String("tsunde"), Custom String("AvatarGod"), Custom String("TURBOMURO"), Custom String("Fenetre"), Custom String("Triin1ty"),
 			Custom String("Stinky"), Custom String("Visual"), Custom String("ĨŹĂŃĂMĨ"), Custom String("Tedz"), Custom String("Axem"),
 			Custom String("S0undw4v3"), Custom String("GHOSTIEǃ"), Custom String("ByeFever"), Custom String("whoshotcupid"), Custom String("SapphicWitch"),
-			Custom String("ĴŐĶĔŔ"), Custom String("Fearlxss"), Custom String("Ėmber"), Custom String("godly"), Custom String("BȂKƐDBȔŊŊYǃ"),
+			Custom String("ĴŐĶĔŔ"), Custom String("Fearlxss"), Custom String("Avaløn"), Custom String("godly"), Custom String("BȂKƐDBȔŊŊYǃ"),
 			Custom String("zovha"), Custom String("pancakes"), Custom String("Quartz"), Custom String("PurpSkrrt"), Custom String("iXerethiel"),
 			Custom String("ÆROLEAƑ"), Custom String("foorelskett"), Custom String("Root"), Custom String("Frost"));
 
@@ -51,6 +51,7 @@ rule("Listed_Player")
 			Custom String("ActiveShootr"), Custom String("HOÑEYBEE"), Custom String("Dead"), Custom String("chii"), Custom String("Valkyria"),
 			Custom String("WÃFFLĚS"), Custom String("CuddleBunny"), Custom String("MrMidnight"), Custom String("Her21YrOld"), Custom String("ImV"),
 			Custom String("Ƕ4ever"), Custom String("Kaz"), Custom String("PersianGoat"), Custom String("HostileDuck"), Custom String("Omosewa"),
-			Custom String("BingChiller"), Custom String("PersianGoat"), Custom String("Kanna"), Custom String("EGirlsDmMe"));
+			Custom String("BingChiller"), Custom String("PersianGoat"), Custom String("Kanna"), Custom String("EGirlsDmMe"), Custom String("SapengeR"),
+			Custom String("SuperMurloc"), Custom String("ЧУРК4ТИЛО"), Custom String("Idle"));
 	}
 }
