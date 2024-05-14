@@ -17,7 +17,7 @@ rule ("Custom nameplates list")
 				Custom String("Fading"), 
 				51,153,102, 0,102,153,
 				Custom String("Coup de grâce"),
-				Custom String("This is... Duvvelsheyss!")
+				Custom String("Duvvelsheyss!")
 		), 
 			Array(Custom String("kwally"),
 				Custom String("Fading"),
@@ -32,8 +32,8 @@ rule ("Custom nameplates list")
 		),
 			Array(Custom String("S0undw4v3"),
 				Custom Color(237, 26, 77, 255),
-				Custom String("{0} T H E C Y B E R T R O N I A N {0}", Ability Icon String(Hero(Bastion), Button(Ultimate))),
-				Custom String("{0} Sith Apprentice Soundwave {0}", Ability Icon String(Hero(Genji), Button(Ultimate)))
+				Custom String("{0} Arc Trooper Soundy {0}", Ability Icon String(Hero(Reaper), Button(Ability 2))),
+				Custom String("{0} Sith Master Soundwave {0}", Ability Icon String(Hero(Genji), Button(Ultimate)))
 		), 
 			Array(Custom String("Xenolysith"),
 				Custom Color(241, 196, 15, 255),
@@ -99,7 +99,7 @@ rule ("Custom nameplates list")
 		),
 			Array(Custom String("Zxtyi"),
 				Color(Black),
-				Custom String("{0} ㄒ尺|卩卩|几 ㄖ几 爪ㄚ丂乇ㄥ千 {0}", Icon String(Dizzy)),
+				Custom String("{0} FE!N {0}", Ability Icon String(Hero(Kiriko), Button(Ability 1))),
 				Custom String("{0} 乙乂ㄒㄚｉ {0}", Ability Icon String(Hero(Illari), Button(Ultimate)))
 		),
 			Array(Custom String("ĨŹĂŃĂMĨ"),
@@ -115,7 +115,7 @@ rule ("Custom nameplates list")
 			Array(Custom String("GHOSTIEǃ"),
 				Custom String("Rainbow"),
 				Custom String("♡ Lostshadow's big sister ♡"),
-				Custom String("{0}『Hex: Unforgettαble』{0}", Ability Icon String(Hero(Reaper), Button(Ability 1)))
+				Custom String("{0} HΣX: DΣVΘUR HΘPΣ シ {0}", Ability Icon String(Hero(D.Va), Button(Ultimate)))
 		),
 			Array(Custom String("ByeFever"),
 				Custom Color(157, 29, 16, 255),
@@ -137,7 +137,7 @@ rule ("Custom nameplates list")
 		),
 			Array(Custom String("Fearlxss"),
 				Custom String("Rainbow"),
-				Custom String("{0} ―『 ★  F L O W E R  B O Y  ★ 』― {0}", Ability Icon String(Hero(Kiriko), Button(Ability 2))),
+				Custom String("{0} ☆《  王 子  》☆ {0}", Ability Icon String(Hero(Reaper), Button(Ultimate))),
 				Custom String("{0} YOUR LOCAL INSOMNIA DUO {0}", Ability Icon String(Hero(Ana), Button(Ability 1)))
 		),
 			Array(Custom String("MOOOUSH"),
@@ -151,12 +151,12 @@ rule ("Custom nameplates list")
 		),
 			Array(Custom String("BȂKƐDBȔŊŊYǃ"),
                 Custom String("Rainbow"),
-                Custom String("{0} ―『 ♥  F L O W E R  G I R L  ♥ 』― {0}", Ability Icon String(Hero(Kiriko), Button(Ability 2))),
+                Custom String("{0} ☆《 お 姫 様 》☆ {0}", Ability Icon String(Hero(Reaper), Button(Ultimate))),
 				Custom String("{0} YOUR LOCAL INSOMNIA DUO {0}", Ability Icon String(Hero(Ana), Button(Ability 1)))
 		),
-			Array(Custom String("Ėmber"),
+			Array(Custom String("Avaløn"),
 				Custom Color(0, 67, 74, 255),
-				Custom String("{0} 〚  ΓHIS IS MУ DΞSIGИ 〛 {0}", Ability Icon String(Hero(Cassidy), Button(Ultimate))),
+				Custom String("{0} RYŪJIN NΘ KΣN WΘ KURΛΣ! {0}", Ability Icon String(Hero(Genji), Button(Ultimate))),
 				Custom String("{0} Ｓｌｅｅｐｙｈｅａｄ {0}", Ability Icon String(Hero(Ana), Button(Ability 1)))
 		),
 			Array(Custom String("zovha"),
@@ -175,12 +175,12 @@ rule ("Custom nameplates list")
             Array(Custom String("iXerethiel"),
                 Custom String("Rainbow"),
 				Custom String("{0} † ｄｅａｔｈｃｏｒｅ ★ ａｎｇｅｌ† {0}", Ability Icon String(Hero(Cassidy), Button(Ultimate))),
-				Custom String("{0} Feed the flame cause we can't let go {0}", Icon String(Fire))
+				Custom String("{0} BRΛNDΣD BY FIRΣ, BΘRN IN THΣ ΛBYSS {0}", Ability Icon String(Hero(Genji), Button(Ultimate)))
 		),
             Array(Custom String("PurpSkrrt"),
                 Custom Color(221, 175, 255, 255),
                 Custom String("{0} * .˚ ♡『 PurpSkrrt™ 』♡ ˚. * {0}", Ability Icon String(Hero(Mercy), Button(Ultimate))),
-				Custom String("{0}《 ЅHΔDΘШ ΜΘNΣΨ ШIZΔRD GΔNG 》{0}", Ability Icon String(Hero(Sombra), Button(Ultimate)))
+				Custom String("{0} * .˚ »〖 ƐÏ3 〗« ˚. * {0}", Ability Icon String(Hero(Lifeweaver), Button(Primaryfire)))
 		),
 		    Array(Custom String("whoshotcupid"),
 			    Custom Color(64, 224, 208, 255),
@@ -193,8 +193,8 @@ rule ("Custom nameplates list")
 		),
 		    Array(Custom String("ÆROLEAƑ"),
 			    Custom Color(153, 0, 0, 255),
-                Custom String("{0} WHΛT'S YOUR NΣXT MOVΣ? {0}", Ability Icon String(Hero(Genji), Button(Primaryfire))),
-				Custom String("{0} EƬHΣRΣΛL STΘRM {0}", Ability Icon String(Hero(Hanzo), Button(Ultimate)))
+                Custom String("{0} RYŪ GΛ WΛGΛ TΣKI WΘ KURΛU! {0}", Ability Icon String(Hero(Hanzo), Button(Ultimate))),
+				Custom String("{0} WHΛT'S YOUR NΣXT MOVΣ? {0}", Ability Icon String(Hero(Genji), Button(Primaryfire)))
 		),
 		    Array(Custom String("Bendude1000"),
 			    Custom Color(155, 1, 63, 255),
