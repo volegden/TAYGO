@@ -780,7 +780,7 @@ rule("Global_Settings")
 		Global.Skins_Check[0] = True;
 		"Assembling with skins check"
 		Global.Skins_Check[1] = False;
-		If(Count Of(Global.High_Rank) < 1 || Count Of(Global.Mod_Rank) < 41 || Count Of(Global.Titles_And_Outlines) != 45 || Count Of(Global.Banned_List) < 35 || Count Of(Global.Muted_List) < 52);
+		If(Count Of(Global.High_Rank) < 1 || Count Of(Global.Mod_Rank) < 41 || Count Of(Global.Titles_And_Outlines) != 45 || Count Of(Global.Banned_List) < 36 || Count Of(Global.Muted_List) < 53);
 			For Global Variable(Gravity_Helper, 0, 12, 1);
 				Global.Gravity_Helper -=1;
 			End;
@@ -1621,7 +1621,7 @@ rule("Listed_Player")
 			Custom String("Elpapu"), Custom String("Nezhant"), Custom String("pupi"), Custom String("Bee"), Custom String("ƁOOƁS69420"), 
 			Custom String("MERCYFEET"), Custom String("Jeanne"), Custom String("Coy"), Custom String("Locustgunner"), Custom String("junkcubus"),
 			Custom String("UwUkitten69"), Custom String("InkyCrane"), Custom String("Ginger"), Custom String("MochiBunnie"), Custom String("Vi64na"),
-			Custom String("CapengeR"), Custom String("ƑǾĊŬŜ"));
+			Custom String("CapengeR"), Custom String("ƑǾĊŬŜ"), Custom String("Idle"));
 
 		"Demoted List"
 		Global.Demoted_List = Array(
@@ -1635,7 +1635,7 @@ rule("Listed_Player")
 			Custom String("WÃFFLĚS"), Custom String("CuddleBunny"), Custom String("MrMidnight"), Custom String("Her21YrOld"), Custom String("ImV"),
 			Custom String("Ƕ4ever"), Custom String("Kaz"), Custom String("PersianGoat"), Custom String("HostileDuck"), Custom String("Omosewa"),
 			Custom String("BingChiller"), Custom String("PersianGoat"), Custom String("Kanna"), Custom String("EGirlsDmMe"), Custom String("SapengeR"),
-			Custom String("SuperMurloc"), Custom String("ЧУРК4ТИЛО"), Custom String("Idle"));
+			Custom String("SuperMurloc"), Custom String("ЧУРК4ТИЛО"), Custom String("ǮŴǢŽÐǾƓŖƗŹ"), Custom String("ȒƗŽȄ"));
 	}
 }
 
