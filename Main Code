@@ -592,7 +592,6 @@ variables
 		108: FunkySkillsToggle
 		109: inAction
 		110: playersUnderControl
-		111: in_1v1_Mode		
 	}
 
 subroutines
@@ -888,7 +887,7 @@ rule("Default_Player_Settings")
 		End;
 
 		"Show names and pages of players"
-		Create In-World Text(Filtered Array(All Players(All Teams), Current Array Element.Is_Crouch_On && !(Event Player.Is_Invisible || Event Player.in_1v1_Mode)), Custom String("{0} | {1} {2}", Event Player, 
+		Create In-World Text(Filtered Array(All Players(All Teams), Current Array Element.Is_Crouch_On && !Event Player.Is_Invisible), Custom String("{0} | {1} {2}", Event Player, 
 			If-Then-Else(Event Player.Mode_Cycle != -1, If-Then-Else(Event Player.Heaven_Strike_ID[3], 0, Event Player.Mode_Cycle), Event Player.Mode_Cycle_Default), 
 			If-Then-Else(Event Player.Promoted_Rank, Icon String(Arrow: Up), Global.Rank_Icon[Event Player.Verification_Key])),
 			Event Player, 1, Do Not Clip, Visible To Position and String, Color(White), Default Visibility);
@@ -932,7 +931,6 @@ rule("Default_Player_Settings")
 		Event Player.Slow_Projectile = False;
 		Event Player.Progress_Stop = False;
 		Event Player.Is_Crouch_On = False;
-		disabled Event Player.in_1v1_Mode = False;
 
 		Event Player.Modification_Mode_Selector = 1;
 		Event Player.Modification_Scalar_Selector = 2;
@@ -1305,9 +1303,8 @@ rule ("Custom nameplates list")
 				Custom String("{0} 乙乂ㄒㄚｉ {0}", Ability Icon String(Hero(Illari), Button(Ultimate)))
 		),
 			Array(Custom String("ĨŹĂŃĂMĨ"),
-				Custom String("Rainbow"),
-				Custom String("{0} ☆ P S Y C H O ☆ {0}", Ability Icon String(Hero(Cassidy), Button(Ultimate))),
-				Custom String("{0}    ＤＩＶＩＮＩＴＹ    {0}", Icon String(Moon))
+				Color(Black),
+				Custom String("{0} ☆ 天照大御神 ☆ {0}", Ability Icon String(Hero(Kiriko), Button(Secondary Fire)))
 		),
 			Array(Custom String("Ɛthereal"),
 				Custom String("Rainbow"),
@@ -2034,7 +2031,6 @@ rule("Mod_Ability_ON")
 		Is Button Held(Event Player, Button(Crouch)) == True;
 		Event Player.Is_Menu_Active == True;
 		Event Player.Control_Active == False;
-		disabled Event Player.in_1v1_Mode == False;
 	}
 
 	actions
@@ -2072,7 +2068,6 @@ rule("Mod_Ability_OFF")
 	{
 		(Is Button Held(Event Player, Button(Crouch)) == False);
 		Event Player.Control_Active == False;
-		disabled Event Player.in_1v1_Mode == False;		
 	}
 
 	actions
@@ -2109,7 +2104,6 @@ rule("Mode_Cycle")
 		(Is Button Held(Event Player, Button(Interact)) || Is Button Held(Event Player, Button(Jump))) == True;
 		Event Player.Is_Menu_Active == True;
 		Event Player.Is_Flying == False;
-		disabled Event Player.in_1v1_Mode == False;
 		Event Player.UNO_Ingame == False;
 		Event Player.Restricted[1] == False;
 		Event Player.Control_Active == False;
@@ -3346,52 +3340,6 @@ rule("Mode_00 - AFK OFF")
 		Event Player.Effect_Storage = Null;
 		Small Message(Event Player, Custom String("  No Longer afk"));
 		Event Player.AFK_Toggle = False;
-	}
-}
-
-rule("1v1 Mode Trigger: ON")
-{
-	event
-	{
-		Ongoing - Each Player;
-		All;
-		All;
-	}
-
-	conditions
-	{
-		(Event Player.Mode_Cycle == 0 || Event Player.Mode_Cycle_Default == 0) == True;
-		Is Button Held(Event Player, Button(Ability 1)) == True;
-		disabled Event Player.in_1v1_Mode == False;
-	}
-
-	actions
-	{
-		Wait(4, Abort When False);
-		disabled Event Player.in_1v1_Mode = True;
-	}
-}
-
-rule("1v1 Mode Trigger: OFF")
-{
-	event
-	{
-		Ongoing - Each Player;
-		All;
-		All;
-	}
-
-	conditions
-	{
-		(Event Player.Mode_Cycle == 0 || Event Player.Mode_Cycle_Default == 0) == True;
-		Is Button Held(Event Player, Button(Ability 1)) == True;
-		disabled Event Player.in_1v1_Mode == True;
-	}
-
-	actions
-	{
-		Wait(4, Abort When False);
-		disabled Event Player.in_1v1_Mode = False;
 	}
 }
 
@@ -8123,7 +8071,6 @@ rule("Extra_3 - Short Hop")
 
 	actions
 	{
-		Abort If(Event Player.in_1v1_Mode);
 		Cancel Primary Action(Event Player);
 		Detach Players(Event Player);
 		Event Player.inAction[1] = False;
