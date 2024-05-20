@@ -73,13 +73,8 @@ rule ("Custom nameplates list")
 				Custom String("{0} HIGHSPEED {0}", Ability Icon String(Hero(Genji), Button(Ability 1))),
 				Custom String("{0} ARMY OF TWO {0}", Ability Icon String(Hero(Ramattra), Button(Ability 1)))
 		),
-			Array(Custom String("ElDiablo"),
-				Color(Red),
-				Custom String("† Izanagi-no-Mikoto †"),
-				Custom String("† Kwally's Little Bottom †")
-		), 
 			Array(Custom String("Fenetre"),
-				Custom Color(0, 0, 0, 255),
+				Custom Color(255, 255, 255, 255),
 				Custom String("ω ι и d σ ω"),
 				Custom String("Potato Gremlin")
 		),
@@ -103,9 +98,8 @@ rule ("Custom nameplates list")
 				Custom String("{0} 乙乂ㄒㄚｉ {0}", Ability Icon String(Hero(Illari), Button(Ultimate)))
 		),
 			Array(Custom String("ĨŹĂŃĂMĨ"),
-				Custom String("Rainbow"),
-				Custom String("{0} ☆ P S Y C H O ☆ {0}", Ability Icon String(Hero(Cassidy), Button(Ultimate))),
-				Custom String("{0}    ＤＩＶＩＮＩＴＹ    {0}", Icon String(Moon))
+				Color(Black),
+				Custom String("{0} ☆ 天照大御神 ☆ {0}", Ability Icon String(Hero(Kiriko), Button(Secondary Fire)))
 		),
 			Array(Custom String("Ɛthereal"),
 				Custom String("Rainbow"),
@@ -174,7 +168,7 @@ rule ("Custom nameplates list")
 		),
             Array(Custom String("iXerethiel"),
                 Custom String("Rainbow"),
-				Custom String("{0} † ｄｅａｔｈｃｏｒｅ ★ ａｎｇｅｌ† {0}", Ability Icon String(Hero(Cassidy), Button(Ultimate))),
+				Custom String("{0} † ｄｅａｔｈｃｏｒｅ ★ ｄｅｖｉｌ† {0}", Ability Icon String(Hero(Cassidy), Button(Ultimate))),
 				Custom String("{0} BRΛNDΣD BY FIRΣ, BΘRN IN THΣ ΛBYSS {0}", Ability Icon String(Hero(Genji), Button(Ultimate)))
 		),
             Array(Custom String("PurpSkrrt"),
@@ -212,18 +206,13 @@ rule ("Custom nameplates list")
 		),
 		    Array(Custom String("foorelskett"),
 				Custom Color(102, 205, 170, 255),
-				Custom String("{0} ♥kiss of death♥ {0}", Icon String(Skull)),
+				Custom String("{0} ♡ DreamyDusts häst ♡ {0}", Icon String(Sad)),
 				Custom String("{0} hamster boy {0}", Icon String(Dizzy))
 		),
 			Array(Custom String("Quartz"),
 				Custom Color(6, 98, 70, 255),
 				Custom String("{0} Solo ulting shy {0}", Ability Icon String(Hero(Bastion), Button(Ultimate)))
-		),
-		    Array(Custom String("Axem"),
-			    Custom Color(100, 50, 255, 255),
-                Custom String("† TRUST ISSUES †"),
-				Custom String("{0} REVOLVER OCELOT {0}", Ability Icon String(Hero(Cassidy), Button(Primaryfire)))
-	    )
+		)
 		);
 	}
 }
