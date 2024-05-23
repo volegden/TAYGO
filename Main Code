@@ -2,7 +2,7 @@ settings
 {
 	main
 	{
-		Description: " The previously named \"Friendly No Kill\" (LƐafa)\n    is no longer being maintained! \n This version is kept up to date!\n\n Last updated: May 22, 2024\n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss\n Community managed with ♡ by: kwally"
+		Description: " The previously named \"Friendly No Kill\" (LƐafa)\n    is no longer being maintained! \n This version is kept up to date!\n\n Last updated: May 23, 2024\n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss\n Community managed with ♡ by: kwally"
 		Mode Name: "♥ Friendly ♥ No Kill ♥ Updated ♥"
 	}
 
@@ -74,6 +74,7 @@ settings
 				Esperança 972777519512068154
 				New Queen Street 972777519512068197
 				Suravasa
+				New Junk City
 			}
 		}
 
@@ -631,8 +632,6 @@ rule("Anti-Crash-ON")
 		Wait(3, Abort When False);
 		Small Message(All Players(All Teams), Custom String(" Anti Crash System Activated"));
 		Set Slow Motion(10);
-		Wait(3, Abort When False);
-
 	}
 }
 
@@ -781,7 +780,7 @@ rule("Global_Settings")
 		Global.Skins_Check[0] = True;
 		"Assembling with skins check"
 		Global.Skins_Check[1] = False;
-		If(Count Of(Global.High_Rank) < 1 || Count Of(Global.Mod_Rank) < 39 || Count Of(Global.Titles_And_Outlines) != 43 || Count Of(Global.Banned_List) < 40 || Count Of(Global.Muted_List) < 53);
+		If(Count Of(Global.High_Rank) < 1 || Count Of(Global.Mod_Rank) < 40 || Count Of(Global.Titles_And_Outlines) != 44 || Count Of(Global.Banned_List) < 39 || Count Of(Global.Muted_List) < 53);
 			For Global Variable(Gravity_Helper, 0, 12, 1);
 				Global.Gravity_Helper -=1;
 			End;
@@ -1414,6 +1413,11 @@ rule ("Custom nameplates list")
 			Array(Custom String("Quartz"),
 				Custom Color(6, 98, 70, 255),
 				Custom String("{0} Solo ulting shy {0}", Ability Icon String(Hero(Bastion), Button(Ultimate)))
+		),
+			Array(Custom String("Lünår"),
+                Custom Color(41, 0, 5, 255),
+                Custom String("{0} 【Ｐｒｉｎｃｅｓｓ　ｏｆ　ｈａｒｍｏｎｙ】 {0}", Ability Icon String(Hero(Lifeweaver), Button(Primaryfire))),
+                Custom String("{0} 【Ｍｙ　Ｗｏｒｌｄ　Ｓｔａｒｔｓ　Ｗｉｔｈ　Ｙｏｕ】 {0}", Icon String(Heart))
 		)
 		);
 	}
@@ -1592,7 +1596,7 @@ rule("Listed_Player")
 			Custom String("ByeFever"), Custom String("whoshotcupid"), Custom String("SapphicWitch"), Custom String("ĴŐĶĔŔ"), Custom String("Fearlxss"),
 			Custom String("Avaløn"), Custom String("godly"), Custom String("BȂKƐDBȔŊŊYǃ"), Custom String("zovha"), Custom String("pancakes"),
 			Custom String("Quartz"), Custom String("PurpSkrrt"), Custom String("iXerethiel"), Custom String("ÆROLEAƑ"), Custom String("foorelskett"),
-			Custom String("Root"), Custom String("Frost"));
+			Custom String("Root"), Custom String("Frost"), Custom String("Lünår"));
 
 		"Warning List"
 		Global.Warning_List = Array(
@@ -1625,7 +1629,7 @@ rule("Listed_Player")
 			Custom String("Ƕ4ever"), Custom String("Kaz"), Custom String("PersianGoat"), Custom String("HostileDuck"), Custom String("Omosewa"),
 			Custom String("BingChiller"), Custom String("PersianGoat"), Custom String("Kanna"), Custom String("EGirlsDmMe"), Custom String("SapengeR"),
 			Custom String("SuperMurloc"), Custom String("ЧУРК4ТИЛО"), Custom String("ǮŴǢŽÐǾƓŖƗŹ"), Custom String("ȒƗŽȄ"), Custom String("Rt10XD"),
-			Custom String("ǃSHAY"), Custom String("Axem"), Custom String("ElDiablo"));
+			Custom String("ǃSHAY"), Custom String("Axem"));
 	}
 }
 
