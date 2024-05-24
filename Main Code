@@ -1358,7 +1358,7 @@ rule ("Custom nameplates list")
 			Array(Custom String("Fearlxss"),
 				Custom Color(180, 126, 222, 255),
 				Custom String("{0} ☆《  王 子  》☆ {0}", Ability Icon String(Hero(Reaper), Button(Ultimate))),
-				Custom String("{0}  ƐÏ3 FLΘШƐR PΘШƐR ƐÏ3 〗 {0}", Icon String(Dizzy))
+				Custom String("{0} 〖 ƐÏ3 FLΘШƐR PΘШƐR ƐÏ3 〗 {0}", Icon String(Dizzy))
 		),
 			Array(Custom String("MOOOUSH"),
                 Color(Black),
