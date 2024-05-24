@@ -10,7 +10,7 @@ rule ("Custom nameplates list")
 		Global.Titles_And_Outlines = Array(
 			Array(Custom String("w4tchers"),
 			    Custom String("Fading"), 
-				0,28,87, 123,104,238,
+				240,235,219, 0,25,63,
 				Custom String("♡")
 		), 
 			Array(Custom String("Warloy"),
@@ -21,9 +21,9 @@ rule ("Custom nameplates list")
 		), 
 			Array(Custom String("kwally"),
 				Custom String("Fading"),
-				0,28,87, 123,104,238,
+				240,235,219, 0,25,63,
 				Custom String("† Izanami-no-Mikoto †"),
-				Custom String("嫌いなものはたくさんあるし、特に好きなものもありません。"),
+				Custom String("人々が愛を知る瞬間、憎しみを抱える危険を伴う。"),
 				Custom String("Tenebrae aeternae")
 		),
 			Array(Custom String("xskĳ"),
@@ -212,6 +212,11 @@ rule ("Custom nameplates list")
 			Array(Custom String("Quartz"),
 				Custom Color(6, 98, 70, 255),
 				Custom String("{0} Solo ulting shy {0}", Ability Icon String(Hero(Bastion), Button(Ultimate)))
+		),
+			Array(Custom String("Lünår"),
+                Custom Color(41, 0, 5, 255),
+                Custom String("{0} 【Ｐｒｉｎｃｅｓｓ　ｏｆ　ｈａｒｍｏｎｙ】 {0}", Ability Icon String(Hero(Lifeweaver), Button(Primaryfire))),
+                Custom String("{0} 【Ｍｙ　Ｗｏｒｌｄ　Ｓｔａｒｔｓ　Ｗｉｔｈ　Ｙｏｕ】 {0}", Icon String(Heart))
 		)
 		);
 	}
