@@ -43,21 +43,47 @@ settings
 			Limit Valid Control Points: Second
 			Score To Win: 1
 			Scoring Speed Modifier: 500%
+
+			enabled maps
+			{
+				Antarctic Peninsula 972777519512068153
+				Busan 972777519512068153
+				Ilios 972777519512068292
+				Lijiang Tower 972777519512068153
+				Nepal 972777519512068292
+				Oasis 972777519512068153
+				Samoa 972777519512068154
+			}
 		}
 
 		Escort
+		{
+			enabled maps
+			{
+				Circuit royal 972777519512068153
+				Dorado 972777519512068153
+				Havana 972777519512068153
+				Rialto 972777519512068292
+				Route 66 972777519512068153
+				Shambali Monastery 972777519512068153
+				Watchpoint: Gibraltar 972777519512068292
+			}
+		}
 
 		Hybrid
 		{
 			Capture Speed Modifier: 500%
 			Payload Speed Modifier: 250%
 
-			disabled maps
+			enabled maps
 			{
-				Blizzard World
-				Eichenwalde
-				Hollywood
-				King's Row
+				Blizzard World Winter 972777519512063901
+				Eichenwalde Halloween 972777519512063901
+				Hollywood Halloween 972777519512063901
+				King's Row Winter 972777519512063901
+				Midtown 972777519512068153
+				Numbani 972777519512068154
+				Paraíso 972777519512068292
 			}
 		}
 		
@@ -73,8 +99,8 @@ settings
 				Colosseo 972777519512068292
 				Esperança 972777519512068154
 				New Queen Street 972777519512068197
-				Suravasa
-				New Junk City
+				New Junk City 972777519512068154
+				Suravasa 972777519512068154
 			}
 		}
 
@@ -87,7 +113,7 @@ settings
 
 			enabled maps
 			{
-				Black Forest
+				Black Forest 972777519512063901
 				Castillo 972777519512063901
 				Château Guillard Halloween 972777519512063901
 				Ecopoint: Antarctica Winter 972777519512063901
