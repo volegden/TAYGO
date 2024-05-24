@@ -22,9 +22,9 @@ rule ("Custom nameplates list")
 			Array(Custom String("kwally"),
 				Custom String("Fading"),
 				240,235,219, 0,25,63,
-				Custom String("† Izanami-no-Mikoto †"),
+				Custom String("Ｔｓｕｋｉ"),
 				Custom String("人々が愛を知る瞬間、憎しみを抱える危険を伴う。"),
-				Custom String("Tenebrae aeternae")
+				Custom String("Nemo sum. Non volo esse quisquam.")
 		),
 			Array(Custom String("xskĳ"),
 				Custom String("Rainbow"),
