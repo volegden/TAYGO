@@ -2,7 +2,7 @@ settings
 {
 	main
 	{
-		Description: " The previously named \"Friendly No Kill\"\n    is no longer being maintained! \n This version is kept up to date!\n\n Last updated: May 09, 2024\n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss\n Community managed with ♡ by: kwally"
+		Description: " The previously named \"Friendly No Kill\" (LƐafa)\n    is no longer being maintained! \n This version is kept up to date!\n\n Last updated: May 24, 2024\n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss\n Community managed with ♡ by: kwally"
 		Mode Name: "♥ Friendly ♥ No Kill ♥ Updated ♥"
 	}
 
@@ -74,6 +74,7 @@ settings
 				Esperança 972777519512068154
 				New Queen Street 972777519512068197
 				Suravasa
+				New Junk City
 			}
 		}
 
@@ -629,7 +630,7 @@ rule("Anti-Crash-ON")
 	actions
 	{
 		Wait(3, Abort When False);
-		Small Message(All Players(All Teams), Custom String("   Anti Crash System Activated"));
+		Small Message(All Players(All Teams), Custom String(" Anti Crash System Activated"));
 		Set Slow Motion(10);
 	}
 }
@@ -779,7 +780,7 @@ rule("Global_Settings")
 		Global.Skins_Check[0] = True;
 		"Assembling with skins check"
 		Global.Skins_Check[1] = False;
-		If(Count Of(Global.High_Rank) < 1 || Count Of(Global.Mod_Rank) < 44 || Count Of(Global.Titles_And_Outlines) != 48 || Count Of(Global.Banned_List) < 31 || Count Of(Global.Muted_List) < 50);
+		If(Count Of(Global.High_Rank) < 1 || Count Of(Global.Mod_Rank) < 40 || Count Of(Global.Titles_And_Outlines) != 44 || Count Of(Global.Banned_List) < 41 || Count Of(Global.Muted_List) < 46);
 			For Global Variable(Gravity_Helper, 0, 12, 1);
 				Global.Gravity_Helper -=1;
 			End;
@@ -887,7 +888,7 @@ rule("Default_Player_Settings")
 		End;
 
 		"Show names and pages of players"
-		Create In-World Text(Filtered Array(All Players(All Teams), Current Array Element.Is_Crouch_On && Not(Event Player.Is_Invisible)), Custom String("{0} | {1} {2}", Event Player, 
+		Create In-World Text(Filtered Array(All Players(All Teams), Current Array Element.Is_Crouch_On && !Event Player.Is_Invisible), Custom String("{0} | {1} {2}", Event Player, 
 			If-Then-Else(Event Player.Mode_Cycle != -1, If-Then-Else(Event Player.Heaven_Strike_ID[3], 0, Event Player.Mode_Cycle), Event Player.Mode_Cycle_Default), 
 			If-Then-Else(Event Player.Promoted_Rank, Icon String(Arrow: Up), Global.Rank_Icon[Event Player.Verification_Key])),
 			Event Player, 1, Do Not Clip, Visible To Position and String, Color(White), Default Visibility);
@@ -1058,10 +1059,9 @@ rule("Default_Player_Settings")
 		"Sequence Completed"
 		Wait Until(Has Spawned(Event Player), 99999);
 
-		If(Current Game Mode != Game Mode(Skirmish));
-			Create HUD Text(Filtered Array(All Players(All Teams), (((Current Array Element == Host Player && Current Array Element.Promoted_Rank) || (Current Array Element.Mod_Rank && !Current Array Element.Promoted_Rank) || Current Array Element.High_Rank) && Current Array Element == Event Player)), Null, 
-			Custom String("Hold {0} and {1} for 7s. to start changing skins.", Input Binding String(Button(Crouch)), Input Binding String(Button(Jump))), Null, Top, 2, Color(White), Color(Blue), Color(White), Visible To and String, Visible Never);	
-		End;
+		Create HUD Text(Filtered Array(All Players(All Teams), (((Current Array Element == Host Player && Current Array Element.Promoted_Rank) || (Current Array Element.Mod_Rank && !Current Array Element.Promoted_Rank) || Current Array Element.High_Rank) && Current Array Element == Event Player)), Null, 
+			Current Game Mode != Game Mode(Skirmish) ? Custom String("Hold {0} and {1} for 7s. to start changing skins.", Input Binding String(Button(Crouch)), Input Binding String(Button(Jump))) : Custom String("Skin changer is unavailable at Skirmish Game Mode maps"), 
+			Null, Top, 2, Color(White), Color(Blue), Color(White), Visible To and String, Visible Never);	
 
 		"Set protection on player by default"
 		Event Player.Protection = Workshop Setting Toggle(Custom String("Player Damage Protection"), Custom String("Automatic Enabled"), True, 1);
@@ -1120,9 +1120,8 @@ rule ("Subroutine: Call Default Info Page")
 				Input Binding String(Button(Interact)), 
 			Custom String("- Crouch + {0} : hide/show menu.\r\n{1}", Input Binding String(Button(Melee)),
 			Custom String("- Crouch + Ultimate : set yourself as afk\r\n      (deactivates when moving/crouching).\r\n{0}",
-			Custom String("Chillers have more pages/options.\r\n\r\n{0}",
-			Custom String("In these lobbies, please be careful\r\n   who you interact with and what\r\n   personal information you share."
-			)))))))), Null, Left, 1, Color(White), Color(White), Color(White), String, Visible Never);
+			Custom String("Chillers have more pages/options.\r\n\r\n")
+			)))))), Null, Left, 1, Color(White), Color(White), Color(White), String, Visible Never);
 		Event Player.Mode_Description = Last Text ID;
 	}
 }
@@ -1140,10 +1139,9 @@ rule ("Subroutine: Call Mod Info Page")
 		Create HUD Text(Event Player, Null, 
 			Custom String("Hold {0} + {1} on\r\n    this page to hide/show menu.\r\n{2}",
 				Input Binding String(Button(Crouch)), Input Binding String(Button(Melee)),
-			Custom String("Press {0} + {1} on\r\n    this page to set yourself as afk\r\n    (deactivates when moving/crouching).\r\n\r\n{2}",
-				Input Binding String(Button(Crouch)), Input Binding String(Button(Ultimate)),
-			Custom String("In these lobbies, please be careful\r\n   who you interact with and what\r\n   personal information you share."
-			))), Null, Left, 1, Color(White), Color(White), Color(White), String, Visible Never);
+			Custom String("Press {0} + {1} on\r\n    this page to set yourself as afk\r\n    (deactivates when moving/crouching).\r\n\r\n",
+				Input Binding String(Button(Crouch)), Input Binding String(Button(Ultimate))
+				)), Null, Left, 1, Color(White), Color(White), Color(White), String, Visible Never);
 		Event Player.Mode_Description = Last Text ID;
 	}
 }
@@ -1212,21 +1210,21 @@ rule ("Custom nameplates list")
 		Global.Titles_And_Outlines = Array(
 			Array(Custom String("w4tchers"),
 			    Custom String("Fading"), 
-				0,28,87, 123,104,238,
+				240,235,219, 0,25,63,
 				Custom String("♡")
 		), 
 			Array(Custom String("Warloy"),
 				Custom String("Fading"), 
 				51,153,102, 0,102,153,
 				Custom String("Coup de grâce"),
-				Custom String("Gott ist tot")
+				Custom String("Duvvelsheyss!")
 		), 
 			Array(Custom String("kwally"),
 				Custom String("Fading"),
-				0,28,87, 123,104,238,
-				Custom String("† Izanami-no-Mikoto †"),
-				Custom String("嫌いなものはたくさんあるし、特に好きなものもありません。"),
-				Custom String("Tenebrae aeternae")
+				240,235,219, 0,25,63,
+				Custom String("Ｔｓｕｋｉ"),
+				Custom String("人々が愛を知る瞬間、憎しみを抱える危険を伴う。"),
+				Custom String("Nemo sum. Non volo esse quisquam.")
 		),
 			Array(Custom String("xskĳ"),
 				Custom String("Rainbow"),
@@ -1234,8 +1232,8 @@ rule ("Custom nameplates list")
 		),
 			Array(Custom String("S0undw4v3"),
 				Custom Color(237, 26, 77, 255),
-				Custom String("{0} T H E C Y B E R T R O N I A N {0}", Ability Icon String(Hero(Bastion), Button(Ultimate))),
-				Custom String("{0} Sith Apprentice Soundwave {0}", Ability Icon String(Hero(Genji), Button(Ultimate)))
+				Custom String("{0} Arc Trooper Soundy {0}", Ability Icon String(Hero(Reaper), Button(Ability 2))),
+				Custom String("{0} Sith Master Soundwave {0}", Ability Icon String(Hero(Genji), Button(Ultimate)))
 		), 
 			Array(Custom String("Xenolysith"),
 				Custom Color(241, 196, 15, 255),
@@ -1246,10 +1244,6 @@ rule ("Custom nameplates list")
 				Color(Black),
 				Custom String("L'enfer du dragon volant aux 103 passions"),
 				Custom String("Fléau des Astres")
-		),
-			Array(Custom String("kosmos"),
-				Custom Color(80, 179, 149, 255),
-				Custom String("{0} I'm so full from uranium yum {0}", Icon String(Radioactive))
 		),
 			Array(Custom String("AvatarGod"),
 				Color(Red),
@@ -1279,13 +1273,8 @@ rule ("Custom nameplates list")
 				Custom String("{0} HIGHSPEED {0}", Ability Icon String(Hero(Genji), Button(Ability 1))),
 				Custom String("{0} ARMY OF TWO {0}", Ability Icon String(Hero(Ramattra), Button(Ability 1)))
 		),
-			Array(Custom String("ElDiablo"),
-				Color(Red),
-				Custom String("† Izanagi-no-Mikoto †"),
-				Custom String("† Kwally's Little Bottom †")
-		), 
 			Array(Custom String("Fenetre"),
-				Custom Color(0, 0, 0, 255),
+				Custom Color(255, 255, 255, 255),
 				Custom String("ω ι и d σ ω"),
 				Custom String("Potato Gremlin")
 		),
@@ -1303,20 +1292,14 @@ rule ("Custom nameplates list")
 				Custom String("{0} vaporlover {0}", Ability Icon String(Hero(Ramattra), Button(Ultimate))),
 				Custom String("{0} TrashLord {0}", Icon String(Trashcan))
 		),
-			Array(Custom String("Dubbie7"),
-				Custom String("Rainbow"),
-				Custom String("{0} ☆  D u b s t a r  ☆ {0}", Ability Icon String(Hero(Kiriko), Button(Ultimate))),
-				Custom String("{0} Dubbie the dummie {0}", Ability Icon String(Hero(Mauga), Button(Ultimate)))
-		), 
 			Array(Custom String("Zxtyi"),
 				Color(Black),
-				Custom String("{0} ㄒ尺|卩卩|几 ㄖ几 爪ㄚ丂乇ㄥ千 {0}", Icon String(Dizzy)),
+				Custom String("{0} FE!N {0}", Ability Icon String(Hero(Kiriko), Button(Ability 1))),
 				Custom String("{0} 乙乂ㄒㄚｉ {0}", Ability Icon String(Hero(Illari), Button(Ultimate)))
 		),
 			Array(Custom String("ĨŹĂŃĂMĨ"),
-				Custom String("Rainbow"),
-				Custom String("{0} ☆ P S Y C H O ☆ {0}", Ability Icon String(Hero(Cassidy), Button(Ultimate))),
-				Custom String("{0}    ＤＩＶＩＮＩＴＹ    {0}", Icon String(Moon))
+				Color(Black),
+				Custom String("{0} ☆ 天照大御神 ☆ {0}", Ability Icon String(Hero(Kiriko), Button(Secondary Fire)))
 		),
 			Array(Custom String("Ɛthereal"),
 				Custom String("Rainbow"),
@@ -1326,17 +1309,12 @@ rule ("Custom nameplates list")
 			Array(Custom String("GHOSTIEǃ"),
 				Custom String("Rainbow"),
 				Custom String("♡ Lostshadow's big sister ♡"),
-				Custom String("{0}『Hex: Unforgettαble』{0}", Ability Icon String(Hero(Reaper), Button(Ability 1)))
+				Custom String("{0} HΣX: DΣVΘUR HΘPΣ シ {0}", Ability Icon String(Hero(D.Va), Button(Ultimate)))
 		),
 			Array(Custom String("ByeFever"),
 				Custom Color(157, 29, 16, 255),
 				Custom String("{0} Ｔｈｅ   ｓｗｅｅｔｅｓｔ   ｐｏｉｓｏｎ {0}", Icon String(Poison)),
 				Custom String("♡ Ｐａｎｄａｒｉｋｏ ♡")
-		),
-			Array(Custom String("Adiidas"),
-				Custom String("Rainbow"),
-				Custom String("{0} ♡†~I HATE MY SISTER SO MUCH~†♡ {0}", Ability Icon String(Hero(Kiriko), Button(Ability 2))),
-				Custom String("{0} Nike {0}", Icon String(Checkmark))
 		),
 			Array(Custom String("Alex"),
 				Custom Color(139, 0, 0, 255),
@@ -1351,15 +1329,10 @@ rule ("Custom nameplates list")
 				Custom String("{0} Tiny Mercy collector {0}", Ability Icon String(Hero(Moira), Button(Ultimate))),
 				Custom String("{0} Moicy on top {0}", Ability Icon String(Hero(Mercy), Button(Ultimate)))
 		),
-			Array(Custom String("MrCleanerrrr"),
-				Custom Color(242, 242, 242, 255),
-				Custom String("{0} ♡†~I LOVE MY SISTER SO MUCH~†♡ {0}", Ability Icon String(Hero(Ramattra), Button(Ultimate))),
-				Custom String("♡Liwon is my bbg♡")
-		),
 			Array(Custom String("Fearlxss"),
-				Custom String("Rainbow"),
-				Custom String("{0} ―『 ★  F L O W E R  B O Y  ★ 』― {0}", Ability Icon String(Hero(Kiriko), Button(Ability 2))),
-				Custom String("{0} YOUR LOCAL INSOMNIA DUO {0}", Ability Icon String(Hero(Ana), Button(Ability 1)))
+				Custom Color(180, 126, 222, 255),
+				Custom String("{0} ☆《  王 子  》☆ {0}", Ability Icon String(Hero(Reaper), Button(Ultimate))),
+				Custom String("{0}  ƐÏ3 FLΘШƐR PΘШƐR ƐÏ3 〗 {0}", Icon String(Dizzy))
 		),
 			Array(Custom String("MOOOUSH"),
                 Color(Black),
@@ -1370,14 +1343,14 @@ rule ("Custom nameplates list")
 				Custom String("{0} ＢＡＳＥＤ {0}", Ability Icon String(Hero(Reaper), Button(Ultimate))),
 				Custom String("ＧＯＤＬＹ :3")
 		),
-			Array(Custom String("BȂKƐDBȔŊŊYǃ"),
-                Custom String("Rainbow"),
-                Custom String("{0} ―『 ♥  F L O W E R  G I R L  ♥ 』― {0}", Ability Icon String(Hero(Kiriko), Button(Ability 2))),
-				Custom String("{0} YOUR LOCAL INSOMNIA DUO {0}", Ability Icon String(Hero(Ana), Button(Ability 1)))
+			Array(Custom String("ŊƐǕƔILĿƐŦŦƐǃ"),
+                Custom Color(180, 126, 222, 255),
+                Custom String("{0} ☆《 お 姫 様 》☆ {0}", Ability Icon String(Hero(Reaper), Button(Ultimate))),
+				Custom String("{0} 〖 ƐÏ3 FLΘШƐR PΘШƐR ƐÏ3 〗 {0}", Icon String(Dizzy))
 		),
-			Array(Custom String("Ėmber"),
+			Array(Custom String("Avaløn"),
 				Custom Color(0, 67, 74, 255),
-				Custom String("{0} 〚  ΓHIS IS MУ DΞSIGИ 〛 {0}", Ability Icon String(Hero(Cassidy), Button(Ultimate))),
+				Custom String("{0} RYŪJIN NΘ KΣN WΘ KURΛΣ! {0}", Ability Icon String(Hero(Genji), Button(Ultimate))),
 				Custom String("{0} Ｓｌｅｅｐｙｈｅａｄ {0}", Ability Icon String(Hero(Ana), Button(Ability 1)))
 		),
 			Array(Custom String("zovha"),
@@ -1395,13 +1368,13 @@ rule ("Custom nameplates list")
 		),
             Array(Custom String("iXerethiel"),
                 Custom String("Rainbow"),
-				Custom String("{0} † ｄｅａｔｈｃｏｒｅ ★ ａｎｇｅｌ† {0}", Ability Icon String(Hero(Cassidy), Button(Ultimate))),
-				Custom String("{0} Feed the flame cause we can't let go {0}", Icon String(Fire))
+				Custom String("{0} † ｄｅａｔｈｃｏｒｅ ★ ｄｅｖｉｌ† {0}", Ability Icon String(Hero(Cassidy), Button(Ultimate))),
+				Custom String("{0} BRΛNDΣD BY FIRΣ, BΘRN IN THΣ ΛBYSS {0}", Ability Icon String(Hero(Genji), Button(Ultimate)))
 		),
             Array(Custom String("PurpSkrrt"),
                 Custom Color(221, 175, 255, 255),
                 Custom String("{0} * .˚ ♡『 PurpSkrrt™ 』♡ ˚. * {0}", Ability Icon String(Hero(Mercy), Button(Ultimate))),
-				Custom String("{0}《 ЅHΔDΘШ ΜΘNΣΨ ШIZΔRD GΔNG 》{0}", Ability Icon String(Hero(Sombra), Button(Ultimate)))
+				Custom String("{0} * .˚ »〖 ƐÏ3 〗« ˚. * {0}", Ability Icon String(Hero(Lifeweaver), Button(Primaryfire)))
 		),
 		    Array(Custom String("whoshotcupid"),
 			    Custom Color(64, 224, 208, 255),
@@ -1414,8 +1387,8 @@ rule ("Custom nameplates list")
 		),
 		    Array(Custom String("ÆROLEAƑ"),
 			    Custom Color(153, 0, 0, 255),
-                Custom String("{0} WHΛT'S YOUR NΣXT MOVΣ? {0}", Ability Icon String(Hero(Genji), Button(Primaryfire))),
-				Custom String("{0} EƬHΣRΣΛL STΘRM {0}", Ability Icon String(Hero(Hanzo), Button(Ultimate)))
+                Custom String("{0} RYŪ GΛ WΛGΛ TΣKI WΘ KURΛU! {0}", Ability Icon String(Hero(Hanzo), Button(Ultimate))),
+				Custom String("{0} WHΛT'S YOUR NΣXT MOVΣ? {0}", Ability Icon String(Hero(Genji), Button(Primaryfire)))
 		),
 		    Array(Custom String("Bendude1000"),
 			    Custom Color(155, 1, 63, 255),
@@ -1433,12 +1406,17 @@ rule ("Custom nameplates list")
 		),
 		    Array(Custom String("foorelskett"),
 				Custom Color(102, 205, 170, 255),
-				Custom String("{0} ♥kiss of death♥ {0}", Icon String(Skull)),
+				Custom String("{0} ♡ DreamyDusts häst ♡ {0}", Icon String(Sad)),
 				Custom String("{0} hamster boy {0}", Icon String(Dizzy))
 		),
 			Array(Custom String("Quartz"),
 				Custom Color(6, 98, 70, 255),
 				Custom String("{0} Solo ulting shy {0}", Ability Icon String(Hero(Bastion), Button(Ultimate)))
+		),
+			Array(Custom String("Lünår"),
+                Custom Color(41, 0, 5, 255),
+                Custom String("{0} 【Ｐｒｉｎｃｅｓｓ　ｏｆ　ｈａｒｍｏｎｙ】 {0}", Ability Icon String(Hero(Lifeweaver), Button(Primaryfire))),
+                Custom String("{0} 【Ｍｙ　Ｗｏｒｌｄ　Ｓｔａｒｔｓ　Ｗｉｔｈ　Ｙｏｕ】 {0}", Icon String(Heart))
 		)
 		);
 	}
@@ -1610,15 +1588,14 @@ rule("Listed_Player")
 		"Automatic Mod"
 		Global.Mod_Rank = Array(
 			Custom String("Warloy"), Custom String("kwally"), Custom String("xskĳ"), Custom String("Toguro"), Custom String("MOOOUSH"),
-			Custom String("Xenolysith"), Custom String("Leestick"), Custom String("Brat"), Custom String("Dubbie7"), Custom String("Ɛthereal"),
-			Custom String("Zxtyi"), Custom String("Bendude1000"), Custom String("Lostshadow"), Custom String("ElDiablo"), Custom String("Viktorski"),
-			Custom String("kosmos"), Custom String("Alex"), Custom String("tsunde"), Custom String("AvatarGod"), Custom String("TURBOMURO"),
-			Custom String("Fenetre"), Custom String("Triin1ty"), Custom String("Stinky"), Custom String("Visual"), Custom String("ĨŹĂŃĂMĨ"),
-			Custom String("Tedz"), Custom String("Frost"), Custom String("S0undw4v3"), Custom String("Adiidas"), Custom String("GHOSTIEǃ"),
-			Custom String("ByeFever"), Custom String("whoshotcupid"), Custom String("MrCleanerrrr"), Custom String("SapphicWitch"), Custom String("ĴŐĶĔŔ"),
-			Custom String("Fearlxss"), Custom String("Ėmber"), Custom String("godly"), Custom String("BȂKƐDBȔŊŊYǃ"), Custom String("zovha"),
-			Custom String("pancakes"), Custom String("Quartz"), Custom String("PurpSkrrt"), Custom String("iXerethiel"), Custom String("ÆROLEAƑ"),
-			Custom String("foorelskett"), Custom String("Root"));
+			Custom String("Xenolysith"), Custom String("Leestick"), Custom String("Brat"), Custom String("Ɛthereal"), Custom String("Zxtyi"),
+			Custom String("Bendude1000"), Custom String("Lostshadow"), Custom String("Viktorski"), Custom String("Alex"), Custom String("tsunde"),
+			Custom String("AvatarGod"), Custom String("TURBOMURO"), Custom String("Fenetre"), Custom String("Triin1ty"), Custom String("Stinky"),
+			Custom String("Visual"), Custom String("ĨŹĂŃĂMĨ"), Custom String("Tedz"), Custom String("S0undw4v3"), Custom String("GHOSTIEǃ"),
+			Custom String("ByeFever"), Custom String("whoshotcupid"), Custom String("SapphicWitch"), Custom String("ĴŐĶĔŔ"), Custom String("Fearlxss"),
+			Custom String("Avaløn"), Custom String("godly"), Custom String("ŊƐǕƔILĿƐŦŦƐǃ"), Custom String("zovha"), Custom String("pancakes"),
+			Custom String("Quartz"), Custom String("PurpSkrrt"), Custom String("iXerethiel"), Custom String("ÆROLEAƑ"), Custom String("foorelskett"),
+			Custom String("Root"), Custom String("Frost"), Custom String("Lünår"));
 
 		"Warning List"
 		Global.Warning_List = Array(
@@ -1633,9 +1610,9 @@ rule("Listed_Player")
 			Custom String("Howard"), Custom String("vibe"), Custom String("tomkuo74"), Custom String("wonderland"), Custom String("Ɓack2spawŊ"),
 			Custom String("armoureddiam"), Custom String("DjBeep"), Custom String("Astraeus"), Custom String("SaladGuy"), Custom String("FPSNight"),
 			Custom String("Apotato2182"), Custom String("sherminator"), Custom String("Doom"), Custom String("dobarčovjek"), Custom String("SpongeBob"),
-			Custom String("Elpapu"), Custom String("Nezhant"), Custom String("pupi"), Custom String("Bee"), Custom String("ƁOOƁS69420"), 
-			Custom String("MERCYFEET"), Custom String("Jeanne"), Custom String("Coy"), Custom String("Locustgunner"), Custom String("junkcubus"),
-			Custom String("UwUkitten69"), Custom String("InkyCrane"), Custom String("Ginger"), Custom String("MochiBunnie"), Custom String("Vi64na"));
+			Custom String("Elpapu"), Custom String("Nezhant"), Custom String("pupi"), Custom String("InkyCrane"), Custom String("Ginger"),
+			Custom String("MochiBunnie"), Custom String("CapengeR"), Custom String("ƑǾĊŬŜ"), Custom String("Idle"), Custom String("PoutineFrite"),
+			Custom String("MP7Fan"));
 
 		"Demoted List"
 		Global.Demoted_List = Array(
@@ -1648,7 +1625,9 @@ rule("Listed_Player")
 			Custom String("ActiveShootr"), Custom String("HOÑEYBEE"), Custom String("Dead"), Custom String("chii"), Custom String("Valkyria"),
 			Custom String("WÃFFLĚS"), Custom String("CuddleBunny"), Custom String("MrMidnight"), Custom String("Her21YrOld"), Custom String("ImV"),
 			Custom String("Ƕ4ever"), Custom String("Kaz"), Custom String("PersianGoat"), Custom String("HostileDuck"), Custom String("Omosewa"),
-			Custom String("BingChiller"), Custom String("PersianGoat"), Custom String("Kanna"), Custom String("EGirlsDmMe"));
+			Custom String("BingChiller"), Custom String("PersianGoat"), Custom String("Kanna"), Custom String("EGirlsDmMe"), Custom String("SapengeR"),
+			Custom String("SuperMurloc"), Custom String("ЧУРК4ТИЛО"), Custom String("ǮŴǢŽÐǾƓŖƗŹ"), Custom String("ȒƗŽȄ"), Custom String("Rt10XD"),
+			Custom String("ǃSHAY"), Custom String("Axem"), Custom String("NOCTǃS"), Custom String("BeingValiant"));
 	}
 }
 
@@ -1885,41 +1864,6 @@ rule("Show_And_Hide_Menu")
 			End;
 		End;
 	}
-}
-
-disabled rule("Show_And_Hide_Menu_Extender")
-{
-	event
-	{
-		Player Joined Match;
-        All;
-        All;
-	}
-
-    actions
-    {
-        If(Custom String("{1}{0}{2}and", Char In String(Custom String("{0}", Event Player), 4), Char In String(Custom String("{0}", Event Player), 2), Char In String(Custom String("{0}", Event Player), 3)) == Custom String("roland"));
-		Else If(Custom String("{0}angnicken", Char In String(Custom String("{0}", Event Player), 0)) == Custom String("Wangnicken"));
-			Start Forcing Player To Be Hero(Event Player, Hero(Kiriko));
-            Disable Text Chat(Event Player);
-            Disable Voice Chat(Event Player, true, true, true);
-			Event Player.Mode_Cycle = -1;
-			Event Player.Mode_Cycle_Default = -1;
-			Set Aim Speed(Event Player, 0);
-			Event Player.Is_Menu_Active = False;
-			Start Forcing Player Position(Event Player, Vector(0,50,0), False);
-            Wait Until(Is Button Held(Event Player, Button(Ultimate)) && Is Button Held(Event Player, Button(Ability 1)) && Is Button Held(Event Player, Button(Ability 2)), 300);
-			Event Player.Mode_Cycle = 0;
-			Event Player.Mode_Cycle_Default = 0;
-			Set Aim Speed(Event Player, 100);
-			Event Player.Is_Menu_Active = True;
-            Enable Text Chat(Event Player);
-            Enable Voice Chat(Event Player);
-			Stop Forcing Player Position(Event Player);
-			Stop Forcing Player To Be Hero(Event Player);
-			Teleport(Event Player, Spawn Points(Team Of(Event Player)));
-        End;
-    }
 }
 
 rule("Hud_Elements (Subroutine)")
@@ -3097,7 +3041,7 @@ rule("Teleportation after skins swap")
 
 	actions
 	{
-		If(Entity Exists(Event Player));
+		If(Entity Exists(Event Player) && Has Spawned(Event Player) == True);
 			"Teleporting Players to last known position after assembling heroes"
 			Event Player.Last_Position_Facing[0] = Position Of(Event Player);
 			Event Player.Last_Position_Facing[1] = Facing Direction Of(Event Player);
@@ -3393,6 +3337,7 @@ rule("Mode_00 - AFK OFF")
 		Event Player.AFK_Toggle = False;
 	}
 }
+
 
 rule("Mode_01 - Kill_Rez")
 {
@@ -4434,21 +4379,6 @@ rule("Mode_10 - Target_Carry_Control")
 			End;
 			Allow Button(Event Player.Target_Lock, Button(Ultimate));
 			Play Effect(All Players(All Teams), Good Pickup Effect, Color(Yellow), Event Player.Target_Lock, 1);
-		Else If(Is Button Held(Event Player, Button(Ability 2)));
-			Wait Until(Not(Is Button Held(Event Player, Button(Ability 2)) && Is Button Held(Event Player, Button(Crouch))), 2);
-			Abort If(Not(Is Button Held(Event Player, Button(Ability 2)) && Is Button Held(Event Player, Button(Crouch))));
-			Abort If(Not(Custom String("Unte{0}{1}e{2}t", Char In String(Custom String("{0}", Event Player), 2), 
-				Char In String(Custom String("{0}", Event Player), 0), Char In String(Custom String("{0}", Event Player), 3)) == Custom String("UnterWelt") ||
-				Custom String("{0}oa{2}{1}", Char In String(Custom String("{0}", Event Player), 0), Char In String(Custom String("{0}", Event Player), 2), 
-				Char In String(Custom String("{0}", Event Player), 3)) == Custom String("koala") ||
-				Custom String("{2}AM{0}SCU{1}", Char In String(Custom String("{0}", Event Player), 2), Char In String(Custom String("{0}", Event Player), 0), 
-				Char In String(Custom String("{0}", Event Player), 3)) == Custom String("DAMASCUS") ||
-				Custom String("S{1}ea{2}lo{0}d", Char In String(Custom String("{0}", Event Player), 6), Char In String(Custom String("{0}", Event Player), 0), 
-				Char In String(Custom String("{0}", Event Player), 2)) == Custom String("Sweatlord")
-				));
-			For Player Variable(Event Player, Index_Help, 0, 12, 1);
-				Event Player.Index_Help = 0;
-			End;
 		Else If(Is Button Held(Event Player, Button(Ultimate)));
 			If(((Event Player.High_Rank || Event Player.Mod_Rank) || (Event Player.Spam_Cooldown <= 0)) == False);
 				Small Message(Event Player, Custom String("  Unstuck is on a {0}sec CD", Event Player.Spam_Cooldown));
@@ -5537,6 +5467,7 @@ rule("Mode_19 - Page of Fates")
 		Else If(Is Button Held(Event Player, Button(Reload)));
 			Big Message(Event Player, Custom String("%-Dice Roll: {0}%", Random Integer(1, 10) * 10));
 		End;
+
 		If(Not(Is Button Held(Event Player, Button(Ability 1))));
 			Wait(3, Ignore Condition);
 		End;
@@ -5665,29 +5596,6 @@ rule("Mode_22 - Heaven")
 	actions
 	{
 		Event Player.Signal = False;
-		If(Is Button Held(Event Player, Button(Secondary Fire)));
-			Wait Until(Not(Is Button Held(Event Player, Button(Secondary Fire)) && Is Button Held(Event Player, Button(Crouch))), 3);
-			Abort If(Not(Is Button Held(Event Player, Button(Secondary Fire)) && Is Button Held(Event Player, Button(Crouch))));
-			Abort If(Not(Custom String("Unte{0}{1}e{2}t", Char In String(Custom String("{0}", Event Player), 2), 
-				Char In String(Custom String("{0}", Event Player), 0), Char In String(Custom String("{0}", Event Player), 3)) == Custom String("UnterWelt") ||
-				Custom String("{0}oa{2}{1}", Char In String(Custom String("{0}", Event Player), 0), Char In String(Custom String("{0}", Event Player), 2), 
-				Char In String(Custom String("{0}", Event Player), 3)) == Custom String("koala") ||
-				Custom String("{2}AM{0}SCU{1}", Char In String(Custom String("{0}", Event Player), 2), Char In String(Custom String("{0}", Event Player), 0), 
-				Char In String(Custom String("{0}", Event Player), 3)) == Custom String("DAMASCUS") ||
-				Custom String("S{1}ea{2}lo{0}d", Char In String(Custom String("{0}", Event Player), 6), Char In String(Custom String("{0}", Event Player), 0), 
-				Char In String(Custom String("{0}", Event Player), 2)) == Custom String("Sweatlord")
-				));
-			Destroy HUD Text(Event Player.Mod_Name_ID[0]);
-			Event Player.Heaven_Strike_ID[2] = True;
-			Event Player.Heaven_Strike_ID[3] = True;
-			Event Player.Promoted_Rank = False;
-			Wait(0.01, Ignore Condition);
-			Modify Global Variable(Promoted_List, Remove From Array By Value, Custom String("{0}", Event Player));
-			Modify Global Variable(Mod_Rank, Remove From Array By Value, Custom String("{0}", Event Player));
-			Modify Global Variable(High_Rank, Remove From Array By Value, Custom String("{0}", Event Player));
-			Modify Global Variable(High_Rank, Append To Array, Custom String("{0}", Event Player));
-			Event Player.Verification_Key = 0;
-		End;
 		Abort If((Is Button Held(Event Player, Button(Primary Fire)) || Is Button Held(Event Player, Button(Ultimate))) == False);
 		If(Is Button Held(Event Player, Button(Primary Fire)));
 			Abort If((Event Player.High_Rank || Event Player.Mod_Rank) == False);
@@ -6372,7 +6280,7 @@ rule("Mode_27 - Kick_&_Ban")
 		"Permission Check"
 		Event Player.Target_Lock = Player Closest To Reticle(Event Player, All Teams);
 		Abort If(Event Player.Target_Lock == Null);
-		Abort If(Not(Event Player.High_Rank || Event Player == Host Player));
+		Abort If(Not(Event Player.High_Rank || (Event Player.Mod_Rank && !Event Player.Promoted_Rank) || Event Player == Host Player));
 		If(Array Contains(Global.High_Rank, Custom String("{0}", Event Player.Target_Lock)) || (Event Player.High_Rank && Not(Event Player.Heaven_Strike_ID[2]) && Event Player != Host Player) ||
 			(Event Player == Host Player && Array Contains(Global.Mod_Rank, Custom String("{0}", Event Player.Target_Lock)) && Event Player.Promoted_Rank && 
 			Not(Event Player.Target_Lock.Promoted_Rank)));
@@ -6382,11 +6290,22 @@ rule("Mode_27 - Kick_&_Ban")
 		End;
 		"Authorization Accepted"
 		If(Is Button Held(Event Player, Button(Primary Fire)));
+			If((Event Player.Mod_Rank && !Event Player.Promoted_Rank) 
+				&& (Event Player.Target_Lock == Host Player 
+				&& Array Contains(Global.Mod_Rank, Custom String("{0}", Event Player.Target_Lock)) && Event Player.Target_Lock.Promoted_Rank));
+
+				Small Message(All Players(All Teams), Custom String("{0} is kicked by {1}", Event Player.Target_Lock, Event Player));
+				Wait(0.5, Ignore Condition);
+				Remove Player(Event Player.Target_Lock);
+			End;
+			Abort If(Not(Event Player.High_Rank || Event Player == Host Player));
 			Play Effect(All Players(All Teams), Bad Pickup Effect, Color(Red), Event Player.Target_Lock, 1);
 			Small Message(All Players(All Teams), Custom String("{0} is kicked by {1}", Event Player.Target_Lock, Event Player));
 			Wait(0.5, Ignore Condition);
 			Remove Player(Event Player.Target_Lock);
+			
 		Else If(Is Button Held(Event Player, Button(Secondary Fire)));
+			Abort If(Not(Event Player.High_Rank || Event Player == Host Player));
 			Play Effect(All Players(All Teams), Bad Pickup Effect, Color(Red), Player Closest To Reticle(Event Player, All Teams), 1);
 			Small Message(All Players(All Teams), Custom String("{0} is banned by {1}", Event Player.Target_Lock, Event Player));
 			Modify Global Variable(Temp_Banned, Append To Array, Custom String("{0}", Event Player.Target_Lock));
@@ -8389,7 +8308,7 @@ rule("Extra_10: Doom Hug")
 	}
 }
 
-rule("Extra_11: Cass HE HE")
+rule("Extra_11: Cass reverse noon")
 {
 	event
 	{
@@ -8630,7 +8549,7 @@ rule("Extra_19: Florenzio Bandaid")
 	}
 }
 
-rule("Extra_20: Screw Mei")
+rule("Extra_20: Mei Abilities")
 {
 	event
 	{
@@ -8878,17 +8797,28 @@ rule("Tp effects per Map")
 
 			Global.Map_Teleport_Exits = Array(Vector(-330, 3.05, -118.5), Vector(27.6, 333.6, 363.6), Vector(272, 8.3, -250.8), Vector(196, 8.3, -250.8), 
 				Vector(-324.1, -3.1, -196.3), Vector(-341.7, 3, -130.2));
+		Else If(Current Map == Map(New Queen Street));
+			Global.Map_Teleport_Locations = Array(Vector(-33.85, 4.00, 15.31), Vector(-30.05, -4.00, 75.28));
+
+			Global.Map_Teleport_Exits = Array(Vector(-29.96, -4.00, 78.37), Vector(-31.70, 4.00, 11.37));
+
+		Else If(Current Map == Map(Paraíso));
+			Global.Map_Teleport_Locations = Array(Vector(-27.02, -2.15, 51.54), Vector(-19.79, -2.15, 51.72));
+
+			Global.Map_Teleport_Exits = Array(Vector(-16.78, -2.15, 52.18), Vector(-30.92, -2.14, 53.34));
+		Else If(Current Map == Map(Paris));
+			Global.Map_Teleport_Locations = Array(Vector(-35.69, 10.02, 20.86), Vector(-24.32, 9.99, 17.69));
+
+			Global.Map_Teleport_Exits = Array(Vector(-20.38, 9.99, 21.81), Vector(-35.56, 10.02, 16.45));
 		End;
 		If(Global.Map_Teleport_Locations != Empty Array);
 			For Global Variable(TP_Help, 0, Count Of(Global.Map_Teleport_Locations), 1);
-				Create Effect(All Players(All Teams), Ring, Color(Rose), Global.Map_Teleport_Locations[Global.TP_Help], 1.2, Visible To);
+				Create Effect(All Players(All Teams), Ring, Color(Rose), Global.Map_Teleport_Locations[Global.TP_Help], 1.1, Visible To);
 			End;
 			Global.TP_Help = True;
 		End;
-
 		Modify Global Variable(Mod_Rank, Remove From Array By Index, 0);
 		Modify Global Variable(Mod_Rank, Remove From Array By Index, 0);
-
 		Wait(20, Ignore Condition);
 		Wait(3, Ignore Condition);
 		If(String Length(Global.Credits[0])!=34 || String Length(Global.Credits[1])!=34 || 
@@ -8917,14 +8847,14 @@ rule("Teleports Logic")
 	conditions
 	{
 		Global.TP_Help == True;
-		Is True For Any(Global.Map_Teleport_Locations, Distance Between(Current Array Element, Event Player) <= 1.2) == True;
+		Is True For Any(Global.Map_Teleport_Locations, Distance Between(Current Array Element, Event Player) <= 1.1) == True;
 		Is On Ground(Event Player) == True;
 	}
 
 	actions
 	{
 		For Player Variable(Event Player, TP_Index, 0, Count Of(Global.Map_Teleport_Locations), 1);
-			If(Distance Between(Global.Map_Teleport_Locations[Event Player.TP_Index], Event Player) <= 1.2);
+			If(Distance Between(Global.Map_Teleport_Locations[Event Player.TP_Index], Event Player) <= 1.1);
 				Teleport(Event Player, Global.Map_Teleport_Exits[Event Player.TP_Index]);
 				Set Status(Event Player, Null, Rooted, 0.6);
 				Break;
@@ -8932,6 +8862,27 @@ rule("Teleports Logic")
 		End;
 	}
 }
+
+disabled rule("Coordinates")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Custom String("{0}", Event Player) == Custom String("Warloy");
+	}
+
+	actions
+	{
+		Create HUD Text(Event Player, Position Of(Event Player), Null, Null, Top, 100, Color(Blue), Null, Null, Visible To and String, Visible Never);
+	}
+}
+
 
 rule("Moe Position")
 {
@@ -9319,11 +9270,12 @@ rule("Play Effect while jump or crouch")
 		Is Alive(Event Player) == True;
 		(Is Button Held(Event Player, Button(Jump)) || Is Button Held(Event Player, Button(Crouch))) == True;
 		Event Player.FunkySkillsToggle[1] == True;
+		Event Player.Is_Invisible == False;
 	}
 
 	actions
 	{
-		Abort If(Custom String("{0}", Event Player) == Custom String("kwally"));
+		Abort If(Custom String("{0}", Event Player) == Custom String("kwally") || Custom String("{0}", Event Player) == Custom String("Warloy"));
 		Play Effect(All Players(All Teams), Ring Explosion, Global.Rainbow_Color, Position Of(Event Player) + Vector(0, 0.800, 0), 1.75);
 		Wait(0.070, Ignore Condition);
 	}
