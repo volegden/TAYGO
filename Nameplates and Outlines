@@ -130,9 +130,9 @@ rule ("Custom nameplates list")
 				Custom String("{0} Moicy on top {0}", Ability Icon String(Hero(Mercy), Button(Ultimate)))
 		),
 			Array(Custom String("Fearlxss"),
-				Custom String("Rainbow"),
+				Custom Color(180, 126, 222, 255),
 				Custom String("{0} ☆《  王 子  》☆ {0}", Ability Icon String(Hero(Reaper), Button(Ultimate))),
-				Custom String("{0} YOUR LOCAL INSOMNIA DUO {0}", Ability Icon String(Hero(Ana), Button(Ability 1)))
+				Custom String("{0}  ƐÏ3 FLΘШƐR PΘШƐR ƐÏ3 〗 {0}", Icon String(Dizzy))
 		),
 			Array(Custom String("MOOOUSH"),
                 Color(Black),
@@ -143,10 +143,10 @@ rule ("Custom nameplates list")
 				Custom String("{0} ＢＡＳＥＤ {0}", Ability Icon String(Hero(Reaper), Button(Ultimate))),
 				Custom String("ＧＯＤＬＹ :3")
 		),
-			Array(Custom String("BȂKƐDBȔŊŊYǃ"),
-                Custom String("Rainbow"),
+			Array(Custom String("ŊƐǕƔILĿƐŦŦƐǃ"),
+                Custom Color(180, 126, 222, 255),
                 Custom String("{0} ☆《 お 姫 様 》☆ {0}", Ability Icon String(Hero(Reaper), Button(Ultimate))),
-				Custom String("{0} YOUR LOCAL INSOMNIA DUO {0}", Ability Icon String(Hero(Ana), Button(Ability 1)))
+				Custom String("{0} 〖 ƐÏ3 FLΘШƐR PΘШƐR ƐÏ3 〗 {0}", Icon String(Dizzy))
 		),
 			Array(Custom String("Avaløn"),
 				Custom Color(0, 67, 74, 255),
