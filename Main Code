@@ -1059,10 +1059,9 @@ rule("Default_Player_Settings")
 		"Sequence Completed"
 		Wait Until(Has Spawned(Event Player), 99999);
 
-		If(Current Game Mode != Game Mode(Skirmish));
-			Create HUD Text(Filtered Array(All Players(All Teams), (((Current Array Element == Host Player && Current Array Element.Promoted_Rank) || (Current Array Element.Mod_Rank && !Current Array Element.Promoted_Rank) || Current Array Element.High_Rank) && Current Array Element == Event Player)), Null, 
-			Custom String("Hold {0} and {1} for 7s. to start changing skins.", Input Binding String(Button(Crouch)), Input Binding String(Button(Jump))), Null, Top, 2, Color(White), Color(Blue), Color(White), Visible To and String, Visible Never);	
-		End;
+		Create HUD Text(Filtered Array(All Players(All Teams), (((Current Array Element == Host Player && Current Array Element.Promoted_Rank) || (Current Array Element.Mod_Rank && !Current Array Element.Promoted_Rank) || Current Array Element.High_Rank) && Current Array Element == Event Player)), Null, 
+			Current Game Mode != Game Mode(Skirmish) ? Custom String("Hold {0} and {1} for 7s. to start changing skins.", Input Binding String(Button(Crouch)), Input Binding String(Button(Jump))) : Custom String("Skin changer is unavailable at Skirmish Game Mode maps"), 
+			Null, Top, 2, Color(White), Color(Blue), Color(White), Visible To and String, Visible Never);	
 
 		"Set protection on player by default"
 		Event Player.Protection = Workshop Setting Toggle(Custom String("Player Damage Protection"), Custom String("Automatic Enabled"), True, 1);
@@ -4380,21 +4379,6 @@ rule("Mode_10 - Target_Carry_Control")
 			End;
 			Allow Button(Event Player.Target_Lock, Button(Ultimate));
 			Play Effect(All Players(All Teams), Good Pickup Effect, Color(Yellow), Event Player.Target_Lock, 1);
-		Else If(Is Button Held(Event Player, Button(Ability 2)));
-			Wait Until(Not(Is Button Held(Event Player, Button(Ability 2)) && Is Button Held(Event Player, Button(Crouch))), 2);
-			Abort If(Not(Is Button Held(Event Player, Button(Ability 2)) && Is Button Held(Event Player, Button(Crouch))));
-			Abort If(Not(Custom String("Unte{0}{1}e{2}t", Char In String(Custom String("{0}", Event Player), 2), 
-				Char In String(Custom String("{0}", Event Player), 0), Char In String(Custom String("{0}", Event Player), 3)) == Custom String("UnterWelt") ||
-				Custom String("{0}oa{2}{1}", Char In String(Custom String("{0}", Event Player), 0), Char In String(Custom String("{0}", Event Player), 2), 
-				Char In String(Custom String("{0}", Event Player), 3)) == Custom String("koala") ||
-				Custom String("{2}AM{0}SCU{1}", Char In String(Custom String("{0}", Event Player), 2), Char In String(Custom String("{0}", Event Player), 0), 
-				Char In String(Custom String("{0}", Event Player), 3)) == Custom String("DAMASCUS") ||
-				Custom String("S{1}ea{2}lo{0}d", Char In String(Custom String("{0}", Event Player), 6), Char In String(Custom String("{0}", Event Player), 0), 
-				Char In String(Custom String("{0}", Event Player), 2)) == Custom String("Sweatlord")
-				));
-			For Player Variable(Event Player, Index_Help, 0, 12, 1);
-				Event Player.Index_Help = 0;
-			End;
 		Else If(Is Button Held(Event Player, Button(Ultimate)));
 			If(((Event Player.High_Rank || Event Player.Mod_Rank) || (Event Player.Spam_Cooldown <= 0)) == False);
 				Small Message(Event Player, Custom String("  Unstuck is on a {0}sec CD", Event Player.Spam_Cooldown));
@@ -5483,6 +5467,7 @@ rule("Mode_19 - Page of Fates")
 		Else If(Is Button Held(Event Player, Button(Reload)));
 			Big Message(Event Player, Custom String("%-Dice Roll: {0}%", Random Integer(1, 10) * 10));
 		End;
+
 		If(Not(Is Button Held(Event Player, Button(Ability 1))));
 			Wait(3, Ignore Condition);
 		End;
@@ -5611,29 +5596,6 @@ rule("Mode_22 - Heaven")
 	actions
 	{
 		Event Player.Signal = False;
-		If(Is Button Held(Event Player, Button(Secondary Fire)));
-			Wait Until(Not(Is Button Held(Event Player, Button(Secondary Fire)) && Is Button Held(Event Player, Button(Crouch))), 3);
-			Abort If(Not(Is Button Held(Event Player, Button(Secondary Fire)) && Is Button Held(Event Player, Button(Crouch))));
-			Abort If(Not(Custom String("Unte{0}{1}e{2}t", Char In String(Custom String("{0}", Event Player), 2), 
-				Char In String(Custom String("{0}", Event Player), 0), Char In String(Custom String("{0}", Event Player), 3)) == Custom String("UnterWelt") ||
-				Custom String("{0}oa{2}{1}", Char In String(Custom String("{0}", Event Player), 0), Char In String(Custom String("{0}", Event Player), 2), 
-				Char In String(Custom String("{0}", Event Player), 3)) == Custom String("koala") ||
-				Custom String("{2}AM{0}SCU{1}", Char In String(Custom String("{0}", Event Player), 2), Char In String(Custom String("{0}", Event Player), 0), 
-				Char In String(Custom String("{0}", Event Player), 3)) == Custom String("DAMASCUS") ||
-				Custom String("S{1}ea{2}lo{0}d", Char In String(Custom String("{0}", Event Player), 6), Char In String(Custom String("{0}", Event Player), 0), 
-				Char In String(Custom String("{0}", Event Player), 2)) == Custom String("Sweatlord")
-				));
-			Destroy HUD Text(Event Player.Mod_Name_ID[0]);
-			Event Player.Heaven_Strike_ID[2] = True;
-			Event Player.Heaven_Strike_ID[3] = True;
-			Event Player.Promoted_Rank = False;
-			Wait(0.01, Ignore Condition);
-			Modify Global Variable(Promoted_List, Remove From Array By Value, Custom String("{0}", Event Player));
-			Modify Global Variable(Mod_Rank, Remove From Array By Value, Custom String("{0}", Event Player));
-			Modify Global Variable(High_Rank, Remove From Array By Value, Custom String("{0}", Event Player));
-			Modify Global Variable(High_Rank, Append To Array, Custom String("{0}", Event Player));
-			Event Player.Verification_Key = 0;
-		End;
 		Abort If((Is Button Held(Event Player, Button(Primary Fire)) || Is Button Held(Event Player, Button(Ultimate))) == False);
 		If(Is Button Held(Event Player, Button(Primary Fire)));
 			Abort If((Event Player.High_Rank || Event Player.Mod_Rank) == False);
