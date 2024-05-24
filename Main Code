@@ -2,7 +2,7 @@ settings
 {
 	main
 	{
-		Description: " The previously named \"Friendly No Kill\" (LƐafa)\n    is no longer being maintained! \n This version is kept up to date!\n\n Last updated: May 23, 2024\n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss\n Community managed with ♡ by: kwally"
+		Description: " The previously named \"Friendly No Kill\" (LƐafa)\n    is no longer being maintained! \n This version is kept up to date!\n\n Last updated: May 24, 2024\n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss\n Community managed with ♡ by: kwally"
 		Mode Name: "♥ Friendly ♥ No Kill ♥ Updated ♥"
 	}
 
@@ -780,7 +780,7 @@ rule("Global_Settings")
 		Global.Skins_Check[0] = True;
 		"Assembling with skins check"
 		Global.Skins_Check[1] = False;
-		If(Count Of(Global.High_Rank) < 1 || Count Of(Global.Mod_Rank) < 40 || Count Of(Global.Titles_And_Outlines) != 44 || Count Of(Global.Banned_List) < 40 || Count Of(Global.Muted_List) < 53);
+		If(Count Of(Global.High_Rank) < 1 || Count Of(Global.Mod_Rank) < 40 || Count Of(Global.Titles_And_Outlines) != 44 || Count Of(Global.Banned_List) < 41 || Count Of(Global.Muted_List) < 53);
 			For Global Variable(Gravity_Helper, 0, 12, 1);
 				Global.Gravity_Helper -=1;
 			End;
@@ -1211,7 +1211,7 @@ rule ("Custom nameplates list")
 		Global.Titles_And_Outlines = Array(
 			Array(Custom String("w4tchers"),
 			    Custom String("Fading"), 
-				0,28,87, 123,104,238,
+				240,235,219, 0,25,63,
 				Custom String("♡")
 		), 
 			Array(Custom String("Warloy"),
@@ -1222,9 +1222,9 @@ rule ("Custom nameplates list")
 		), 
 			Array(Custom String("kwally"),
 				Custom String("Fading"),
-				0,28,87, 123,104,238,
+				240,235,219, 0,25,63,
 				Custom String("† Izanami-no-Mikoto †"),
-				Custom String("嫌いなものはたくさんあるし、特に好きなものもありません。"),
+				Custom String("人々が愛を知る瞬間、憎しみを抱える危険を伴う。"),
 				Custom String("Tenebrae aeternae")
 		),
 			Array(Custom String("xskĳ"),
@@ -1629,7 +1629,7 @@ rule("Listed_Player")
 			Custom String("Ƕ4ever"), Custom String("Kaz"), Custom String("PersianGoat"), Custom String("HostileDuck"), Custom String("Omosewa"),
 			Custom String("BingChiller"), Custom String("PersianGoat"), Custom String("Kanna"), Custom String("EGirlsDmMe"), Custom String("SapengeR"),
 			Custom String("SuperMurloc"), Custom String("ЧУРК4ТИЛО"), Custom String("ǮŴǢŽÐǾƓŖƗŹ"), Custom String("ȒƗŽȄ"), Custom String("Rt10XD"),
-			Custom String("ǃSHAY"), Custom String("Axem"), Custom String("NOCTǃS"));
+			Custom String("ǃSHAY"), Custom String("Axem"), Custom String("NOCTǃS"), Custom String("BeingValiant"));
 	}
 }
 
