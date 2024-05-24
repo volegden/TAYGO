@@ -780,7 +780,7 @@ rule("Global_Settings")
 		Global.Skins_Check[0] = True;
 		"Assembling with skins check"
 		Global.Skins_Check[1] = False;
-		If(Count Of(Global.High_Rank) < 1 || Count Of(Global.Mod_Rank) < 40 || Count Of(Global.Titles_And_Outlines) != 44 || Count Of(Global.Banned_List) < 41 || Count Of(Global.Muted_List) < 53);
+		If(Count Of(Global.High_Rank) < 1 || Count Of(Global.Mod_Rank) < 40 || Count Of(Global.Titles_And_Outlines) != 44 || Count Of(Global.Banned_List) < 41 || Count Of(Global.Muted_List) < 46);
 			For Global Variable(Gravity_Helper, 0, 12, 1);
 				Global.Gravity_Helper -=1;
 			End;
@@ -1611,10 +1611,9 @@ rule("Listed_Player")
 			Custom String("Howard"), Custom String("vibe"), Custom String("tomkuo74"), Custom String("wonderland"), Custom String("Ɓack2spawŊ"),
 			Custom String("armoureddiam"), Custom String("DjBeep"), Custom String("Astraeus"), Custom String("SaladGuy"), Custom String("FPSNight"),
 			Custom String("Apotato2182"), Custom String("sherminator"), Custom String("Doom"), Custom String("dobarčovjek"), Custom String("SpongeBob"),
-			Custom String("Elpapu"), Custom String("Nezhant"), Custom String("pupi"), Custom String("ƁOOƁS69420"),  Custom String("MERCYFEET"),
-			Custom String("Jeanne"), Custom String("Coy"), Custom String("Locustgunner"), Custom String("junkcubus"), Custom String("UwUkitten69"),
-			Custom String("InkyCrane"), Custom String("Ginger"), Custom String("MochiBunnie"), Custom String("CapengeR"), Custom String("ƑǾĊŬŜ"),
-			Custom String("Idle"), Custom String("PoutineFrite"), Custom String("MP7Fan"));
+			Custom String("Elpapu"), Custom String("Nezhant"), Custom String("pupi"), Custom String("InkyCrane"), Custom String("Ginger"),
+			Custom String("MochiBunnie"), Custom String("CapengeR"), Custom String("ƑǾĊŬŜ"), Custom String("Idle"), Custom String("PoutineFrite"),
+			Custom String("MP7Fan"));
 
 		"Demoted List"
 		Global.Demoted_List = Array(
