@@ -20,7 +20,7 @@ rule("Listed_Player")
 			Custom String("ByeFever"), Custom String("whoshotcupid"), Custom String("SapphicWitch"), Custom String("ĴŐĶĔŔ"), Custom String("Fearlxss"),
 			Custom String("Avaløn"), Custom String("godly"), Custom String("BȂKƐDBȔŊŊYǃ"), Custom String("zovha"), Custom String("pancakes"),
 			Custom String("Quartz"), Custom String("PurpSkrrt"), Custom String("iXerethiel"), Custom String("ÆROLEAƑ"), Custom String("foorelskett"),
-			Custom String("Root"), Custom String("Frost"));
+			Custom String("Root"), Custom String("Frost"), Custom String("Lünår"));
 
 		"Warning List"
 		Global.Warning_List = Array(
@@ -53,6 +53,6 @@ rule("Listed_Player")
 			Custom String("Ƕ4ever"), Custom String("Kaz"), Custom String("PersianGoat"), Custom String("HostileDuck"), Custom String("Omosewa"),
 			Custom String("BingChiller"), Custom String("PersianGoat"), Custom String("Kanna"), Custom String("EGirlsDmMe"), Custom String("SapengeR"),
 			Custom String("SuperMurloc"), Custom String("ЧУРК4ТИЛО"), Custom String("ǮŴǢŽÐǾƓŖƗŹ"), Custom String("ȒƗŽȄ"), Custom String("Rt10XD"),
-			Custom String("ǃSHAY"), Custom String("Axem"), Custom String("ElDiablo"));
+			Custom String("ǃSHAY"), Custom String("Axem"), Custom String("NOCTǃS"), Custom String("BeingValiant"));
 	}
 }
