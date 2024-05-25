@@ -2,7 +2,7 @@ settings
 {
 	main
 	{
-		Description: " The previously named \"Friendly No Kill\" (LƐafa)\n    is no longer being maintained! \n This version is kept up to date!\n\n Last updated: May 24, 2024\n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss\n Community managed with ♡ by: kwally"
+		Description: " The previously named \"Friendly No Kill\" (LƐafa)\n    is no longer being maintained! \n This version is kept up to date!\n\n Last updated: May 25, 2024\n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss\n Community managed with ♡ by: kwally"
 		Mode Name: "♥ Friendly ♥ No Kill ♥ Updated ♥"
 	}
 
@@ -9355,9 +9355,9 @@ rule("Play Effect while jump or crouch")
 	{
 		Filtered Array(
 			Players On Hero(Hero Of(Event Player), All Teams), 
-			Array Contains(Players Within Radius(Event Player, 12, All Teams, Off), Current Array Element) && 
+			Array Contains(Players Within Radius(Event Player, 8, All Teams, Off), Current Array Element) && 
 			Is Communicating Any Emote(Current Array Element) && !Current Array Element.Full_Protection).Is_Communicating = True;
-		Wait(0.250, Ignore Condition);
+		Wait(0.500, Ignore Condition);
 	}
 }
 
@@ -9381,7 +9381,7 @@ rule("Call Emote Sycronizing")
 		If(Event Player.Protection);
 			Clear Status(Event Player, Phased Out);
 		End;
-		Wait(0.100, Ignore Condition);
+		Wait(0.150, Ignore Condition);
 		If(Is Communicating(Event Player, Emote Up));
 			Set Status(Event Player, Null, Stunned, 0.036);
 			Communicate(Event Player, Emote Up);
