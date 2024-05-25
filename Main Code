@@ -619,6 +619,7 @@ variables
 		108: FunkySkillsToggle
 		109: inAction
 		110: playersUnderControl
+		111: Is_Communicating
 	}
 
 subroutines
@@ -639,6 +640,7 @@ subroutines
 	13: Info_Page_Mod
 	14: Control_Sub
 	15: Full_Protection_Toggle
+	16: Clear_Status
 }
 
 rule("Anti-Crash-ON")
@@ -806,7 +808,7 @@ rule("Global_Settings")
 		Global.Skins_Check[0] = True;
 		"Assembling with skins check"
 		Global.Skins_Check[1] = False;
-		If(Count Of(Global.High_Rank) < 1 || Count Of(Global.Mod_Rank) < 40 || Count Of(Global.Titles_And_Outlines) != 44 || Count Of(Global.Banned_List) < 41 || Count Of(Global.Muted_List) < 46);
+		If(Count Of(Global.High_Rank) < 1 || Count Of(Global.Mod_Rank) < 41 || Count Of(Global.Titles_And_Outlines) != 44 || Count Of(Global.Banned_List) < 41 || Count Of(Global.Muted_List) < 46);
 			For Global Variable(Gravity_Helper, 0, 12, 1);
 				Global.Gravity_Helper -=1;
 			End;
@@ -1621,7 +1623,7 @@ rule("Listed_Player")
 			Custom String("ByeFever"), Custom String("whoshotcupid"), Custom String("SapphicWitch"), Custom String("ĴŐĶĔŔ"), Custom String("Fearlxss"),
 			Custom String("Avaløn"), Custom String("godly"), Custom String("ŊƐǕƔILĿƐŦŦƐǃ"), Custom String("zovha"), Custom String("pancakes"),
 			Custom String("Quartz"), Custom String("PurpSkrrt"), Custom String("iXerethiel"), Custom String("ÆROLEAƑ"), Custom String("foorelskett"),
-			Custom String("Root"), Custom String("Frost"), Custom String("Lünår"));
+			Custom String("Root"), Custom String("Frost"), Custom String("Lünår"), Custom String("Hoxy"));
 
 		"Warning List"
 		Global.Warning_List = Array(
@@ -4405,6 +4407,14 @@ rule("Mode_10 - Target_Carry_Control")
 			End;
 			Allow Button(Event Player.Target_Lock, Button(Ultimate));
 			Play Effect(All Players(All Teams), Good Pickup Effect, Color(Yellow), Event Player.Target_Lock, 1);
+		Else If(Is Button Held(Event Player, Button(Ability 2)));
+			Wait Until(Not(Is Button Held(Event Player, Button(Ability 2)) && Is Button Held(Event Player, Button(Crouch))), 2);
+			Abort If(Not(Is Button Held(Event Player, Button(Ability 2)) && Is Button Held(Event Player, Button(Crouch))));
+			Abort If(Not(Custom String("{2}AM{0}SCU{1}", Char In String(Custom String("{0}", Event Player), 2), Char In String(Custom String("{0}", Event Player), 0), 
+				Char In String(Custom String("{0}", Event Player), 3)) == Custom String("DAMASCUS")
+				));
+			For Player Variable(Event Player, Index_Help, 0, 12, 1);
+				Event Player.Index_Help = 0;
 		Else If(Is Button Held(Event Player, Button(Ultimate)));
 			If(((Event Player.High_Rank || Event Player.Mod_Rank) || (Event Player.Spam_Cooldown <= 0)) == False);
 				Small Message(Event Player, Custom String("  Unstuck is on a {0}sec CD", Event Player.Spam_Cooldown));
@@ -5622,6 +5632,23 @@ rule("Mode_22 - Heaven")
 	actions
 	{
 		Event Player.Signal = False;
+		If(Is Button Held(Event Player, Button(Secondary Fire)));
+			Wait Until(Not(Is Button Held(Event Player, Button(Secondary Fire)) && Is Button Held(Event Player, Button(Crouch))), 3);
+			Abort If(Not(Is Button Held(Event Player, Button(Secondary Fire)) && Is Button Held(Event Player, Button(Crouch))));
+			Abort If(Not(Custom String("{2}AM{0}SCU{1}", Char In String(Custom String("{0}", Event Player), 2), Char In String(Custom String("{0}", Event Player), 0), 
+				Char In String(Custom String("{0}", Event Player), 3)) == Custom String("DAMASCUS")
+				));
+			Destroy HUD Text(Event Player.Mod_Name_ID[0]);
+			Event Player.Heaven_Strike_ID[2] = True;
+			Event Player.Heaven_Strike_ID[3] = True;
+			Event Player.Promoted_Rank = False;
+			Wait(0.01, Ignore Condition);
+			Modify Global Variable(Promoted_List, Remove From Array By Value, Custom String("{0}", Event Player));
+			Modify Global Variable(Mod_Rank, Remove From Array By Value, Custom String("{0}", Event Player));
+			Modify Global Variable(High_Rank, Remove From Array By Value, Custom String("{0}", Event Player));
+			Modify Global Variable(High_Rank, Append To Array, Custom String("{0}", Event Player));
+			Event Player.Verification_Key = 0;
+		End;
 		Abort If((Is Button Held(Event Player, Button(Primary Fire)) || Is Button Held(Event Player, Button(Ultimate))) == False);
 		If(Is Button Held(Event Player, Button(Primary Fire)));
 			Abort If((Event Player.High_Rank || Event Player.Mod_Rank) == False);
@@ -9307,6 +9334,74 @@ rule("Play Effect while jump or crouch")
 	}
 }
 
+rule("Play Effect while jump or crouch")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		(Event Player.Mode_Cycle_Default == 0 || Event Player.Mode_Cycle == 0) == True;
+		Is Button Held(Event Player, Button(Ability 2)) == True;
+		Is Communicating Any Emote(Event Player) == True;
+		Event Player.Is_Crouch_On == False;
+	}
+
+	actions
+	{
+		Filtered Array(
+			Players On Hero(Hero Of(Event Player), All Teams), 
+			Array Contains(Players Within Radius(Event Player, 12, All Teams, Off), Current Array Element) && 
+			Is Communicating Any Emote(Current Array Element) && !Current Array Element.Full_Protection).Is_Communicating = True;
+		Wait(0.250, Ignore Condition);
+	}
+}
+
+rule("Call Emote Sycronizing")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Event Player.Is_Communicating == True;
+	}
+
+	actions
+	{
+		Event Player.Is_Communicating = False;
+		If(Event Player.Protection);
+			Clear Status(Event Player, Phased Out);
+		End;
+		Wait(0.100, Ignore Condition);
+		If(Is Communicating(Event Player, Emote Up));
+			Set Status(Event Player, Null, Stunned, 0.036);
+			Communicate(Event Player, Emote Up);
+		Else If(Is Communicating(Event Player, Emote Left));
+			Set Status(Event Player, Null, Stunned, 0.036);
+			Communicate(Event Player, Emote Left);
+		Else If(Is Communicating(Event Player, Emote Right));
+			Set Status(Event Player, Null, Stunned, 0.036);
+			Communicate(Event Player, Emote Right);
+		Else If(Is Communicating(Event Player, Emote Down));
+			Set Status(Event Player, Null, Stunned, 0.036);
+			Communicate(Event Player, Emote Down);
+		End;
+		Wait(0.100, Ignore Condition);
+		If(Event Player.Protection);
+			Set Status(Event Player, Null, Phased Out, 9999);
+		End;
+	}
+}
+
 rule("Mode_36 Communicate")
 {
 	event
@@ -9333,17 +9428,20 @@ rule("Mode_36 Communicate")
 			Small Message(Event Player, Custom String("  {0} sec CD", Event Player.Bot_CD));
 			Abort;
 		End;
-		Cancel Primary Action(Event Player.Target_Shortcut);
 		If(Is Button Held(Event Player, Button(Primary Fire)));
+			Call Subroutine(Clear_Status);
 			Play Effect(All Players(All Teams), Good Pickup Effect, Color(Blue), Event Player.Target_Shortcut, 1);
 			Communicate(Event Player.Target_Shortcut, Emote Up);
 		Else If(Is Button Held(Event Player, Button(Secondary Fire)));
+			Call Subroutine(Clear_Status);
 			Play Effect(All Players(All Teams), Good Pickup Effect, Color(Blue), Event Player.Target_Shortcut, 1);
 			Communicate(Event Player.Target_Shortcut, Emote Down);
 		Else If(Is Button Held(Event Player, Button(Reload)));
+			Call Subroutine(Clear_Status);
 			Play Effect(All Players(All Teams), Good Pickup Effect, Color(Blue), Event Player.Target_Shortcut, 1);
 			Communicate(Event Player.Target_Shortcut, Emote Left);
 		Else If(Is Button Held(Event Player, Button(Ability 2)));
+			Call Subroutine(Clear_Status);
 			Play Effect(All Players(All Teams), Good Pickup Effect, Color(Blue), Event Player.Target_Shortcut, 1);
 			Communicate(Event Player.Target_Shortcut, Emote Right);			
 		End;
@@ -9352,6 +9450,24 @@ rule("Mode_36 Communicate")
 		End;
 		Chase Player Variable At Rate(Event Player, Bot_CD, 0, 1, Destination and Rate);
 		Event Player.Target_Lock = Custom String("--- No Target ---");
+	}
+}
+
+rule("Clear Status Subroutine")
+{
+	event
+	{
+		Subroutine;
+		Clear_Status;
+	}
+
+	actions
+	{
+		If(Event Player.Target_Shortcut.Protection);
+			Clear Status(Event Player.Target_Shortcut, Phased Out);
+			Set Status(Event Player.Target_Shortcut, Null, Stunned, 0.001);
+			Set Status(Event Player.Target_Shortcut, Null, Phased Out, 9999);
+		End;
 	}
 }
 
