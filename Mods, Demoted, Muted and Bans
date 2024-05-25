@@ -20,7 +20,7 @@ rule("Listed_Player")
 			Custom String("ByeFever"), Custom String("whoshotcupid"), Custom String("SapphicWitch"), Custom String("ĴŐĶĔŔ"), Custom String("Fearlxss"),
 			Custom String("Avaløn"), Custom String("godly"), Custom String("ŊƐǕƔILĿƐŦŦƐǃ"), Custom String("zovha"), Custom String("pancakes"),
 			Custom String("Quartz"), Custom String("PurpSkrrt"), Custom String("iXerethiel"), Custom String("ÆROLEAƑ"), Custom String("foorelskett"),
-			Custom String("Root"), Custom String("Frost"), Custom String("Lünår"));
+			Custom String("Root"), Custom String("Frost"), Custom String("Lünår"), Custom String("Hoxy"));
 
 		"Warning List"
 		Global.Warning_List = Array(
