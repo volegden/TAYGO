@@ -2,7 +2,7 @@ settings
 {
 	main
 	{
-		Description: " The previously named \"Friendly No Kill\" (LƐafa)\n    is no longer being maintained! \n This version is kept up to date!\n\n Last updated: May 25, 2024\n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss\n Community managed with ♡ by: kwally"
+		Description: " The previously named \"Friendly No Kill\" (LƐafa)\n    is no longer being maintained! \n This version is kept up to date!\n\n Last updated: May 26, 2024\n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss\n Community managed with ♡ by: kwally"
 		Mode Name: "♥ Friendly ♥ No Kill ♥ Updated ♥"
 	}
 
@@ -808,7 +808,7 @@ rule("Global_Settings")
 		Global.Skins_Check[0] = True;
 		"Assembling with skins check"
 		Global.Skins_Check[1] = False;
-		If(Count Of(Global.High_Rank) < 1 || Count Of(Global.Mod_Rank) < 41 || Count Of(Global.Titles_And_Outlines) != 44 || Count Of(Global.Banned_List) < 41 || Count Of(Global.Muted_List) < 46);
+		If(Count Of(Global.High_Rank) < 1 || Count Of(Global.Mod_Rank) < 41 || Count Of(Global.Titles_And_Outlines) != 44 || Count Of(Global.Banned_List) < 41 || Count Of(Global.Muted_List) < 50);
 			For Global Variable(Gravity_Helper, 0, 12, 1);
 				Global.Gravity_Helper -=1;
 			End;
@@ -1291,7 +1291,7 @@ rule ("Custom nameplates list")
 				Custom String("♡ TEDDY BEAR ♡"), 
 				Custom String("{0} Spark Gengu Squad {0}", Ability Icon String(Hero(Genji), Button(Ultimate)))
 		),
-			Array(Custom String("Brat"),
+			Array(Custom String("Bratty"),
 				Custom String("Rainbow"),
 				Custom String("{0} PARTNERS IN CRIME {0}", Icon String(Dizzy)),
 				Custom String("☆ BPD BADDIE ☆")
@@ -1616,7 +1616,7 @@ rule("Listed_Player")
 		"Automatic Mod"
 		Global.Mod_Rank = Array(
 			Custom String("Warloy"), Custom String("kwally"), Custom String("xskĳ"), Custom String("Toguro"), Custom String("MOOOUSH"),
-			Custom String("Xenolysith"), Custom String("Leestick"), Custom String("Brat"), Custom String("Ɛthereal"), Custom String("Zxtyi"),
+			Custom String("Xenolysith"), Custom String("Leestick"), Custom String("Bratty"), Custom String("Ɛthereal"), Custom String("Zxtyi"),
 			Custom String("Bendude1000"), Custom String("Lostshadow"), Custom String("Viktorski"), Custom String("Alex"), Custom String("tsunde"),
 			Custom String("AvatarGod"), Custom String("TURBOMURO"), Custom String("Fenetre"), Custom String("Triin1ty"), Custom String("Stinky"),
 			Custom String("Visual"), Custom String("ĨŹĂŃĂMĨ"), Custom String("Tedz"), Custom String("S0undw4v3"), Custom String("GHOSTIEǃ"),
@@ -1640,7 +1640,7 @@ rule("Listed_Player")
 			Custom String("Apotato2182"), Custom String("sherminator"), Custom String("Doom"), Custom String("dobarčovjek"), Custom String("SpongeBob"),
 			Custom String("Elpapu"), Custom String("Nezhant"), Custom String("pupi"), Custom String("InkyCrane"), Custom String("Ginger"),
 			Custom String("MochiBunnie"), Custom String("CapengeR"), Custom String("ƑǾĊŬŜ"), Custom String("Idle"), Custom String("PoutineFrite"),
-			Custom String("MP7Fan"));
+			Custom String("MP7Fan"), Custom String("Pissypie"), Custom String("LordHavMercy"), Custom String("Nikke6208"), Custom String("DrewAries"));
 
 		"Demoted List"
 		Global.Demoted_List = Array(
@@ -7865,6 +7865,81 @@ rule ("Subroutine: UNO_End")
 	}
 }
 
+rule("Emote Synchronizing")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		(Event Player.Mode_Cycle_Default == 0 || Event Player.Mode_Cycle == 0) == True;
+		Is Button Held(Event Player, Button(Ability 2)) == True;
+		Is Communicating Any Emote(Event Player) == True;
+		Event Player.Is_Crouch_On == False;
+	}
+
+	actions
+	{
+		If(Filtered Array(Players On Hero(Hero Of(Event Player), All Teams), Array Contains(Players Within Radius(Event Player, 8, All Teams, Off), Current Array Element) &&
+			Current Array Element.Bot_CD > 0));
+			Small Message(Event Player, Custom String(" Not ready"));
+			Abort;
+		End;
+
+		Filtered Array(
+			Players On Hero(Hero Of(Event Player), All Teams), 
+			Array Contains(Players Within Radius(Event Player, 8, All Teams, Off), Current Array Element) && 
+			Is Communicating Any Emote(Current Array Element) && !Current Array Element.Full_Protection).Is_Communicating = True;
+		Event Player.Bot_CD = 4;
+		Chase Player Variable At Rate(Event Player, Bot_CD, 0, 1, Destination and Rate);
+	}
+}
+
+rule("Call Emote Synchronizing")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Event Player.Is_Communicating == True;
+	}
+
+	actions
+	{
+		Event Player.Is_Communicating = False;
+		If(Event Player.Protection);
+			Clear Status(Event Player, Phased Out);
+		End;
+		Wait(0.150, Ignore Condition);
+		If(Is Communicating(Event Player, Emote Up));
+			Set Status(Event Player, Null, Stunned, 0.007);
+			Communicate(Event Player, Emote Up);
+		Else If(Is Communicating(Event Player, Emote Left));
+			Set Status(Event Player, Null, Stunned, 0.007);
+			Communicate(Event Player, Emote Left);
+		Else If(Is Communicating(Event Player, Emote Right));
+			Set Status(Event Player, Null, Stunned, 0.007);
+			Communicate(Event Player, Emote Right);
+		Else If(Is Communicating(Event Player, Emote Down));
+			Set Status(Event Player, Null, Stunned, 0.007);
+			Communicate(Event Player, Emote Down);
+		End;
+		Wait(0.100, Ignore Condition);
+		If(Event Player.Protection);
+			Set Status(Event Player, Null, Phased Out, 9999);
+		End;
+	}
+}
+
 rule("Mode_33 - Invisible")
 {
 	event
@@ -8870,8 +8945,8 @@ rule("Tp effects per Map")
 			End;
 			Global.TP_Help = True;
 		End;
-		Modify Global Variable(Mod_Rank, Remove From Array By Index, 0);
-		Modify Global Variable(Mod_Rank, Remove From Array By Index, 0);
+		disabled Modify Global Variable(Mod_Rank, Remove From Array By Index, 0);
+		disabled Modify Global Variable(Mod_Rank, Remove From Array By Index, 0);
 		Wait(20, Ignore Condition);
 		Wait(3, Ignore Condition);
 		If(String Length(Global.Credits[0])!=34 || String Length(Global.Credits[1])!=34 || 
@@ -9331,74 +9406,6 @@ rule("Play Effect while jump or crouch")
 		Abort If(Custom String("{0}", Event Player) == Custom String("kwally") || Custom String("{0}", Event Player) == Custom String("Warloy"));
 		Play Effect(All Players(All Teams), Ring Explosion, Global.Rainbow_Color, Position Of(Event Player) + Vector(0, 0.800, 0), 1.75);
 		Wait(0.070, Ignore Condition);
-	}
-}
-
-rule("Play Effect while jump or crouch")
-{
-	event
-	{
-		Ongoing - Each Player;
-		All;
-		All;
-	}
-
-	conditions
-	{
-		(Event Player.Mode_Cycle_Default == 0 || Event Player.Mode_Cycle == 0) == True;
-		Is Button Held(Event Player, Button(Ability 2)) == True;
-		Is Communicating Any Emote(Event Player) == True;
-		Event Player.Is_Crouch_On == False;
-	}
-
-	actions
-	{
-		Filtered Array(
-			Players On Hero(Hero Of(Event Player), All Teams), 
-			Array Contains(Players Within Radius(Event Player, 8, All Teams, Off), Current Array Element) && 
-			Is Communicating Any Emote(Current Array Element) && !Current Array Element.Full_Protection).Is_Communicating = True;
-		Wait(0.500, Ignore Condition);
-	}
-}
-
-rule("Call Emote Sycronizing")
-{
-	event
-	{
-		Ongoing - Each Player;
-		All;
-		All;
-	}
-
-	conditions
-	{
-		Event Player.Is_Communicating == True;
-	}
-
-	actions
-	{
-		Event Player.Is_Communicating = False;
-		If(Event Player.Protection);
-			Clear Status(Event Player, Phased Out);
-		End;
-		Wait(0.150, Ignore Condition);
-		If(Is Communicating(Event Player, Emote Up));
-			Set Status(Event Player, Null, Stunned, 0.036);
-			Communicate(Event Player, Emote Up);
-		Else If(Is Communicating(Event Player, Emote Left));
-			Set Status(Event Player, Null, Stunned, 0.036);
-			Communicate(Event Player, Emote Left);
-		Else If(Is Communicating(Event Player, Emote Right));
-			Set Status(Event Player, Null, Stunned, 0.036);
-			Communicate(Event Player, Emote Right);
-		Else If(Is Communicating(Event Player, Emote Down));
-			Set Status(Event Player, Null, Stunned, 0.036);
-			Communicate(Event Player, Emote Down);
-		End;
-		Wait(0.100, Ignore Condition);
-		If(Event Player.Protection);
-			Set Status(Event Player, Null, Phased Out, 9999);
-		End;
 	}
 }
 
