@@ -1908,7 +1908,7 @@ rule("Hud_Elements (Subroutine)")
 	{
 		Destroy HUD Text(Event Player.Mod_Name_ID[0]);
 		If(Entity Exists(Event Player));
-			Skip If(Event Player.Heaven_Strike_ID[2], 2);
+			Skip If(Event Player.Heaven_Strike_ID[2] || Event Player.Mod_Rank && !Event Player.Promoted_Rank, 2);
 			Create HUD Text(All Players(All Teams), Null, Null, Custom String("{0} {1} {2}",
 				Hero Icon String(Hero Of(Event Player)), Event Player, If-Then-Else(Event Player.Promoted_Rank, Custom String(""), 
 				Global.Rank_Icon[Event Player.Verification_Key])), 
