@@ -808,7 +808,7 @@ rule("Global_Settings")
 		Global.Skins_Check[0] = True;
 		"Assembling with skins check"
 		Global.Skins_Check[1] = False;
-		If(Count Of(Global.High_Rank) < 1 || Count Of(Global.Mod_Rank) < 41 || Count Of(Global.Titles_And_Outlines) != 44 || Count Of(Global.Banned_List) < 41 || Count Of(Global.Muted_List) < 52);
+		If(Count Of(Global.High_Rank) < 1 || Count Of(Global.Mod_Rank) < 41 || Count Of(Global.Titles_And_Outlines) != 44 || Count Of(Global.Banned_List) < 41 || Count Of(Global.Muted_List) < 56);
 			For Global Variable(Gravity_Helper, 0, 12, 1);
 				Global.Gravity_Helper -=1;
 			End;
@@ -1641,7 +1641,8 @@ rule("Listed_Player")
 			Custom String("Elpapu"), Custom String("Nezhant"), Custom String("pupi"), Custom String("InkyCrane"), Custom String("Ginger"),
 			Custom String("MochiBunnie"), Custom String("CapengeR"), Custom String("ƑǾĊŬŜ"), Custom String("Idle"), Custom String("PoutineFrite"),
 			Custom String("MP7Fan"), Custom String("Pissypie"), Custom String("LordHavMercy"), Custom String("Nikke6208"), Custom String("DrewAries"),
-			Custom String("JadeRogue"), Custom String("ǷR9Ƿ"));
+			Custom String("JadeRogue"), Custom String("ǷR9Ƿ"), Custom String("Muffin"), Custom String("Laybass"), Custom String("Ameer"), 
+			Custom String("far"));
 
 		"Demoted List"
 		Global.Demoted_List = Array(
