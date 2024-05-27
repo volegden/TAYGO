@@ -2,7 +2,7 @@ settings
 {
 	main
 	{
-		Description: " The previously named \"Friendly No Kill\" (LƐafa)\n    is no longer being maintained! \n This version is kept up to date!\n\n Last updated: May 26, 2024\n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss\n Community managed with ♡ by: kwally"
+		Description: " The previously named \"Friendly No Kill\" (LƐafa)\n    is no longer being maintained! \n This version is kept up to date!\n\n Last updated: May 27, 2024\n\n• Rules and infos on how to navigate the menu\r\n    and use other functions are written ingame.\n• Please contact our team before copying\r\n    or modifying our preset.\n\n Coded with ♡ by: Warloy & xMaxuss\n Community managed with ♡ by: kwally"
 		Mode Name: "♥ Friendly ♥ No Kill ♥ Updated ♥"
 	}
 
@@ -808,7 +808,7 @@ rule("Global_Settings")
 		Global.Skins_Check[0] = True;
 		"Assembling with skins check"
 		Global.Skins_Check[1] = False;
-		If(Count Of(Global.High_Rank) < 1 || Count Of(Global.Mod_Rank) < 41 || Count Of(Global.Titles_And_Outlines) != 44 || Count Of(Global.Banned_List) < 41 || Count Of(Global.Muted_List) < 55);
+		If(Count Of(Global.High_Rank) < 1 || Count Of(Global.Mod_Rank) < 41 || Count Of(Global.Titles_And_Outlines) != 44 || Count Of(Global.Banned_List) < 42 || Count Of(Global.Muted_List) < 55);
 			For Global Variable(Gravity_Helper, 0, 12, 1);
 				Global.Gravity_Helper -=1;
 			End;
@@ -1357,7 +1357,7 @@ rule ("Custom nameplates list")
 				Custom String("{0} Tiny Mercy collector {0}", Ability Icon String(Hero(Moira), Button(Ultimate))),
 				Custom String("{0} Moicy on top {0}", Ability Icon String(Hero(Mercy), Button(Ultimate)))
 		),
-			Array(Custom String("Fearlxss"),
+			Array(Custom String("ŴŖIǾŦHƐSĿƐYǃ"),
 				Custom Color(180, 126, 222, 255),
 				Custom String("{0} ☆《  王 子  》☆ {0}", Ability Icon String(Hero(Reaper), Button(Ultimate))),
 				Custom String("{0} 〖 ƐÏ3 FLΘШƐR PΘШƐR ƐÏ3 〗 {0}", Icon String(Dizzy))
@@ -1620,7 +1620,7 @@ rule("Listed_Player")
 			Custom String("Bendude1000"), Custom String("Lostshadow"), Custom String("Viktorski"), Custom String("Alex"), Custom String("tsunde"),
 			Custom String("AvatarGod"), Custom String("TURBOMURO"), Custom String("Fenetre"), Custom String("Triin1ty"), Custom String("Stinky"),
 			Custom String("Visual"), Custom String("ĨŹĂŃĂMĨ"), Custom String("Tedz"), Custom String("S0undw4v3"), Custom String("GHOSTIEǃ"),
-			Custom String("ByeFever"), Custom String("whoshotcupid"), Custom String("SapphicWitch"), Custom String("ĴŐĶĔŔ"), Custom String("Fearlxss"),
+			Custom String("ByeFever"), Custom String("whoshotcupid"), Custom String("SapphicWitch"), Custom String("ĴŐĶĔŔ"), Custom String("ŴŖIǾŦHƐSĿƐYǃ"),
 			Custom String("Avaløn"), Custom String("godly"), Custom String("ŊƐǕƔILĿƐŦŦƐǃ"), Custom String("zovha"), Custom String("pancakes"),
 			Custom String("Quartz"), Custom String("PurpSkrrt"), Custom String("iXerethiel"), Custom String("ÆROLEAƑ"), Custom String("foorelskett"),
 			Custom String("Root"), Custom String("Frost"), Custom String("Lünår"), Custom String("Hoxy"));
@@ -1656,7 +1656,7 @@ rule("Listed_Player")
 			Custom String("Ƕ4ever"), Custom String("Kaz"), Custom String("PersianGoat"), Custom String("HostileDuck"), Custom String("Omosewa"),
 			Custom String("BingChiller"), Custom String("PersianGoat"), Custom String("Kanna"), Custom String("EGirlsDmMe"), Custom String("SapengeR"),
 			Custom String("SuperMurloc"), Custom String("ЧУРК4ТИЛО"), Custom String("ǮŴǢŽÐǾƓŖƗŹ"), Custom String("ȒƗŽȄ"), Custom String("Rt10XD"),
-			Custom String("ǃSHAY"), Custom String("Axem"), Custom String("NOCTǃS"), Custom String("BeingValiant"));
+			Custom String("ǃSHAY"), Custom String("Axem"), Custom String("NOCTǃS"), Custom String("BeingValiant"), Custom String("KarinkaBTS"));
 	}
 }
 
