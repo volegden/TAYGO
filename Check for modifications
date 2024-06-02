@@ -12,8 +12,6 @@ settings
 		Map Rotation: After A Game
 		Match Voice Chat: Enabled
 		Max Spectators: 6
-		Max Team 1 Players: 6
-		Max Team 2 Players: 6
 		Return To Lobby: Never
 		Swap Teams After Match: No
 	}
@@ -21,12 +19,6 @@ settings
 	modes
 	{
 		Assault
-		{
-			enabled maps
-			{
-				Horizon Lunar Colony 972777519512068154
-			}
-		}
 
 		Capture the Flag
 		{
@@ -38,6 +30,7 @@ settings
 
 			enabled maps
 			{
+				Ayutthaya 972777519512063901
 			}
 		}
 
@@ -48,27 +41,21 @@ settings
 			Limit Valid Control Points: Second
 			Score To Win: 1
 			Scoring Speed Modifier: 500%
-
-			enabled maps
-			{
-			}
 		}
 
 		Escort
-		{
-			enabled maps
-			{
-			}
-		}
 
 		Hybrid
 		{
 			Capture Speed Modifier: 500%
 			Payload Speed Modifier: 250%
 
-			enabled maps
+			disabled maps
 			{
-				Eichenwalde 972777519512068154
+				Blizzard World
+				Eichenwalde
+				Hollywood
+				King's Row
 			}
 		}
 
@@ -78,6 +65,11 @@ settings
 
 			enabled maps
 			{
+				Colosseo 972777519512068292
+				Esperança 972777519512068154
+				New Junk City 972777519512068154
+				New Queen Street 972777519512068197
+				Suravasa 972777519512068154
 			}
 		}
 
@@ -87,6 +79,14 @@ settings
 
 			enabled maps
 			{
+				Black Forest 972777519512063901
+				Castillo 972777519512063901
+				Château Guillard Halloween 972777519512063901
+				Ecopoint: Antarctica Winter 972777519512063901
+				Kanezaka 972777519512063901
+				Malevento 972777519512063901
+				Necropolis 972777519512068153
+				Petra 972777519512068154
 			}
 		}
 
@@ -248,6 +248,7 @@ settings
 				Cardiac Overdrive Cooldown Time: 35%
 				Overrun Cooldown Time: 0%
 				Overrun Knockback: 150%
+				Ultimate Duration: 25%
 			}
 
 			Mei
