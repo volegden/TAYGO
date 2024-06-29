@@ -653,6 +653,7 @@ subroutines
 	13: Info_Page_Mod
 	15: Full_Protection_Toggle
 	16: Clear_Status
+	17: Set_Flying_At_Position
 }
 
 rule("Anti-Crash-ON")
@@ -1093,30 +1094,7 @@ rule("Default_Player_Settings")
 
 		Wait(0.200, Ignore Condition);
 		If(Event Player.Player_Title_And_Outline[0] == Global.Titles_And_Outlines[1][0] || Event Player.Player_Title_And_Outline[0] == Global.Titles_And_Outlines[2][0]);
-			Event Player.Restricted[1] = True;
-			Event Player.Bot_CD = 10;
-			Chase Player Variable At Rate(Event Player, Bot_CD, 0, 1, Destination and Rate);
-			Wait Until(Event Player.Bot_CD == 0, 9999);
-			Event Player.Bot_CD = 12;
-			Create HUD Text(Event Player, Null, Custom String("."), Null, Top, 100, Null, Color(Red), Null, Visible To and String, Visible Never);
-			Event Player.Mode_Headline[169] = Last Text ID;
-			Event Player.Restricted[1] = False;
-			Chase Player Variable At Rate(Event Player, Bot_CD, 0, 1, Destination and Rate);
-			Wait Until(Event Player.Bot_CD == 0, 9999);
-			If(Event Player.Heaven_Strike_ID[100]);
-				Enable Text Chat(Event Player);
-				Enable Voice Chat(Event Player);
-				Destroy HUD Text(Event Player.Mode_Headline[169]);
-			Else;
-				Event Player.Mode_Cycle = 0;
-				Event Player.Restricted[1] = True;
-				Event Player.Auto_Respawn = False;
-				Event Player.AddonSkillsToggle[0] = 0;
-				Event Player.Last_Position_Facing[0] = Evaluate Once(Position Of(Event Player));
-				Disable Built-In Game Mode Respawning(Event Player);
-				Destroy HUD Text(Event Player.Mode_Headline[169]);
-				Start Forcing Player Position(Event Player, Event Player.Last_Position_Facing[0], True);
-			End;
+			Call Subroutine(Set_Flying_At_Position);
 		End;
 	}
 }
@@ -1866,6 +1844,44 @@ rule("Show_And_Hide_Menu")
 			Else;
 				Call Subroutine(Info_Page_Mod);
 			End;
+		End;
+	}
+}
+
+rule("Subroutine: Set Flying (Ext)")
+{
+	event
+	{
+		Subroutine;
+		Set_Flying_At_Position;
+	}
+
+	actions 
+	{
+		Event Player.Restricted[1] = True;
+		Event Player.Bot_CD = 10;
+		Chase Player Variable At Rate(Event Player, Bot_CD, 0, 1, Destination and Rate);
+		Wait Until(Event Player.Bot_CD == 0, 9999);
+		Event Player.Bot_CD = 12;
+		Create HUD Text(Event Player, Null, Custom String("."), Null, Top, 100, Null, Color(Red), Null, Visible To and String, Visible Never);
+		Event Player.Mode_Headline[169] = Last Text ID;
+		Event Player.Restricted[1] = False;
+		Chase Player Variable At Rate(Event Player, Bot_CD, 0, 1, Destination and Rate);
+		Wait Until(Event Player.Bot_CD == 0, 9999);
+		If(Event Player.Heaven_Strike_ID[100]);
+			Enable Text Chat(Event Player);
+			Enable Voice Chat(Event Player);
+			Destroy HUD Text(Event Player.Mode_Headline[169]);
+		Else;
+			Event Player.Mode_Cycle = 0;
+			Event Player.Restricted[1] = True;
+			Event Player.Auto_Respawn = False;
+			Event Player.AddonSkillsToggle[0] = 0;
+			Event Player.Last_Position_Facing[0] = Evaluate Once(Position Of(Event Player));
+			Disable Built-In Game Mode Respawning(Event Player);
+			Destroy HUD Text(Event Player.Mode_Headline[169]);
+			Start Forcing Player Position(Event Player, Event Player.Last_Position_Facing[0], True);
+			Event Player.Player_Title_And_Outline = Empty Array;
 		End;
 	}
 }
