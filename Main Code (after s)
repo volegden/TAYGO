@@ -815,7 +815,7 @@ rule("Global_Settings")
 		Global.Skins_Check[0] = True;
 		"Assembling with skins check"
 		Global.Skins_Check[1] = False;
-		If(Count Of(Global.High_Rank) < 1 || Count Of(Global.Mod_Rank) < 41 || Count Of(Global.Titles_And_Outlines) != 44 || Count Of(
+		If(Count Of(Global.High_Rank) < 1 || Count Of(Global.Mod_Rank) < 39 || Count Of(Global.Titles_And_Outlines) != 41 || Count Of(
 			Global.Banned_List) < 42 || Count Of(Global.Muted_List) < 55);
 			For Global Variable(Gravity_Helper, 0, 12, 1);
 				Global.Gravity_Helper -= 1;
@@ -1098,24 +1098,24 @@ rule("Default_Player_Settings")
 			Chase Player Variable At Rate(Event Player, Bot_CD, 0, 1, Destination and Rate);
 			Wait Until(Event Player.Bot_CD == 0, 9999);
 			Event Player.Bot_CD = 12;
-			Create HUD Text(Event Player.Bot_CD != 0, Null, Custom String(".", Event Player.Bot_CD), Null, Top, 100, Null, Color(Red), Null, Visible To and String, Visible Never);
-			Event Player.Mode_Headline[69] = Last Text ID;
+			Create HUD Text(Event Player, Null, Custom String("."), Null, Top, 100, Null, Color(Red), Null, Visible To and String, Visible Never);
+			Event Player.Mode_Headline[169] = Last Text ID;
 			Event Player.Restricted[1] = False;
 			Chase Player Variable At Rate(Event Player, Bot_CD, 0, 1, Destination and Rate);
 			Wait Until(Event Player.Bot_CD == 0, 9999);
 			If(Event Player.Heaven_Strike_ID[100]);
 				Enable Text Chat(Event Player);
 				Enable Voice Chat(Event Player);
-				Destroy HUD Text(Event Player.Mode_Headline[69]);
+				Destroy HUD Text(Event Player.Mode_Headline[169]);
 			Else;
 				Event Player.Mode_Cycle = 0;
 				Event Player.Restricted[1] = True;
 				Event Player.Auto_Respawn = False;
 				Event Player.AddonSkillsToggle[0] = 0;
 				Event Player.Last_Position_Facing[0] = Evaluate Once(Position Of(Event Player));
-				Start Forcing Player Position(Event Player, Event Player.Last_Position_Facing[0], True);
 				Disable Built-In Game Mode Respawning(Event Player);
-				Destroy HUD Text(Event Player.Mode_Headline[69]);
+				Destroy HUD Text(Event Player.Mode_Headline[169]);
+				Start Forcing Player Position(Event Player, Event Player.Last_Position_Facing[0], True);
 			End;
 		End;
 	}
@@ -1326,8 +1326,8 @@ rule("Custom nameplates list")
 			
 			Array(Custom String("Zxtyi"), 
 			Color(Black), 
-			Custom String("{0} FE!N {0}", Ability Icon String(Hero(Kiriko), Button(Ability 1))), 
-			Custom String("{0} 乙乂ㄒㄚｉ {0}", Ability Icon String(Hero(Illari), Button(Ultimate)))), 
+			Custom String("{0}  Womp Womp  {0}", Icon String(Heart)), 
+			Custom String("{0}  乙乂ㄒㄚｉ  {0}", Ability Icon String(Hero(Illari), Button(Ultimate)))), 
 			
 			Array(Custom String("ĨŹĂŃĂMĨ"), 
 			Color(Black), 
@@ -1338,9 +1338,10 @@ rule("Custom nameplates list")
 			Custom String("{0} Fürchtet euch, fürchtet euch nicht {0}", Ability Icon String(Hero(Reinhardt), Button(Ultimate))),
 			Custom String("{0} Sigma's Starlight {0}", Ability Icon String(Hero(Sigma), Button(Ultimate)))), 
 			
-			Array(Custom String("GHOSTIEǃ"), Custom String("Rainbow"), 
+			Array(Custom String("GHOSTIEǃ"), 
+			Custom String("Rainbow"), 
 			Custom String("♡ Lostshadow's big sister ♡"), 
-			Custom String("{0} HΣX: DΣVΘUR HΘPΣ シ {0}", Ability Icon String(Hero(D.Va), Button(Ultimate)))), 
+			Custom String("{0} † × FUTURΣ PILΘT × † {0}", Ability Icon String(Hero(Ana), Button(Ability 1)))), 
 			
 			Array(Custom String("ByeFever"),
 			Custom Color(157, 29, 16, 255), 
@@ -1370,23 +1371,14 @@ rule("Custom nameplates list")
 			Custom String("{0} 乂 {0}", Icon String(Ring Thick))),
 			
 			Array(Custom String("godly"), 
-			Custom Color(89, 5, 5, 255), 
+			Custom Color(255, 0, 0, 255), 
 			Custom String("{0} ＢＡＳＥＤ {0}", Ability Icon String(Hero(Reaper), Button(Ultimate))), 
-			Custom String("ＧＯＤＬＹ :3")), 
-
-			Array(Custom String("ŊƐǕƔILĿƐŦŦƐǃ"), 
-			Custom Color(180, 126, 222, 255),
-			Custom String("{0} ☆《 お 姫 様 》☆ {0}", Ability Icon String(Hero(Reaper), Button(Ultimate))), 
-			Custom String("{0} 〖 ƐÏ3 FLΘШƐR PΘШƐR ƐÏ3 〗 {0}", Icon String(Dizzy))), 
+			Custom String("† ｓｈａｂｒｉｒｉ †")), 
 
 			Array(Custom String("Avaløn"), 
 			Custom Color(0, 67, 74, 255),
 			Custom String("{0} RYŪJIN NΘ KΣN WΘ KURΛΣ! {0}", Ability Icon String(Hero(Genji), Button(Ultimate))), 
 			Custom String("{0} Ｓｌｅｅｐｙｈｅａｄ {0}", Ability Icon String(Hero(Ana), Button(Ability 1)))), 
-			
-			Array(Custom String("zovha"), 
-			Color(Black),
-			Custom String("Clive")), 
 
 			Array(Custom String("pancakes"), 
 			Custom String("Rainbow"), 
@@ -1396,11 +1388,6 @@ rule("Custom nameplates list")
 			Array(Custom String("Viktorski"), 
 			Color(Yellow), 
 			Custom String("Viktorski")), 
-
-			Array(Custom String("iXerethiel"), 
-			Custom String("Rainbow"), 
-			Custom String("{0} † ｄｅａｔｈｃｏｒｅ ★ ｄｅｖｉｌ† {0}", Ability Icon String(Hero(Cassidy), Button(Ultimate))), 
-			Custom String("{0} BRΛNDΣD BY FIRΣ, BΘRN IN THΣ ΛBYSS {0}", Ability Icon String(Hero(Genji), Button(Ultimate)))), 
 
 			Array(Custom String("PurpSkrrt"), 
 			Custom Color(221, 175, 255, 255),
@@ -1431,8 +1418,8 @@ rule("Custom nameplates list")
 			Custom String("But far more terrible is to admit it")),
 			
 			Array(Custom String("Root"), 
-			Custom Color(5, 3, 13, 255), 
-			Custom String("Integra Hellsing"), 
+			Custom Color(18, 10, 143, 255), 
+			Custom String("Cuckoo's Nest"), 
 			Custom String("L'Homme à femmes")), 
 
 			Array(Custom String("foorelskett"), 
@@ -1444,9 +1431,9 @@ rule("Custom nameplates list")
 			Custom String("{0} Solo ulting shy {0}", Ability Icon String(Hero(Bastion), Button(Ultimate)))), 
 
 			Array(Custom String("Lünår"), 
-			Custom Color(41, 0, 5, 255), 
-			Custom String("{0} 【Ｐｒｉｎｃｅｓｓ　ｏｆ　ｈａｒｍｏｎｙ】 {0}", Ability Icon String(Hero(Lifeweaver), Button(Primary Fire))), 
-			Custom String("{0} 【Ｍｙ　Ｗｏｒｌｄ　Ｓｔａｒｔｓ　Ｗｉｔｈ　Ｙｏｕ】 {0}", Icon String(Heart)))
+			Custom Color(138, 103, 194, 255), 
+			Custom String("{0} ★♡★【Ｇｏｄｄｅｓｓ Ｈｙｌｉａ】★♡★ {0}", Icon String(Moon)), 
+			Custom String("{0} Ѫ♡Ѫ 【﻿Ｂｌａｃｋ Ｓｗｏｒｄ Ｍａｉｄｅｎ】Ѫ♡Ѫ {0}", Ability Icon String(Hero(Lifeweaver), Button(Primary Fire))))
 		);
 	}
 }
@@ -1618,9 +1605,9 @@ rule("Listed_Player")
 			"Fenetre"), Custom String("Triin1ty"), Custom String("Stinky"), Custom String("Visual"), Custom String("ĨŹĂŃĂMĨ"),
 			Custom String("Tedz"), Custom String("S0undw4v3"), Custom String("GHOSTIEǃ"), Custom String("ByeFever"), Custom String(
 			"whoshotcupid"), Custom String("SapphicWitch"), Custom String("ĴŐĶĔŔ"), Custom String("ŴŖIǾŦHƐSĿƐYǃ"), Custom String("Avaløn"),
-			Custom String("godly"), Custom String("ŊƐǕƔILĿƐŦŦƐǃ"), Custom String("zovha"), Custom String("pancakes"), Custom String(
-			"Quartz"), Custom String("PurpSkrrt"), Custom String("iXerethiel"), Custom String("ÆROLEAƑ"), Custom String("foorelskett"),
-			Custom String("Root"), Custom String(" "), Custom String("Lünår"), Custom String("Hoxy"));
+			Custom String("godly"), Custom String("zovha"), Custom String("pancakes"), Custom String(
+			"Quartz"), Custom String("PurpSkrrt"), Custom String("ÆROLEAƑ"), Custom String("foorelskett"),
+			Custom String("Root"), Custom String("Lünår"), Custom String("Hoxy"));
 		"Warning List"
 		Global.Warning_List = Array(Custom String("None"));
 		"Muted (anyone on this list is muted AND demoted, no need to have them in both lists)"
