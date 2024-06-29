@@ -9,49 +9,45 @@ rule("Listed_Player")
 	{
 		"Automatic High Rank"
 		Global.High_Rank = Array(Custom String("Moe Szyslak"));
-			
 		"Automatic Mod"
-		Global.Mod_Rank = Array(
-			Custom String("Warloy"), Custom String("kwally"), Custom String("xskĳ"), Custom String("Toguro"), Custom String("MOOOUSH"),
-			Custom String("Xenolysith"), Custom String("Leestick"), Custom String("Brat"), Custom String("Ɛthereal"), Custom String("Zxtyi"),
-			Custom String("Bendude1000"), Custom String("Lostshadow"), Custom String("Viktorski"), Custom String("Alex"), Custom String("tsunde"),
-			Custom String("AvatarGod"), Custom String("TURBOMURO"), Custom String("Fenetre"), Custom String("Triin1ty"), Custom String("Stinky"),
-			Custom String("Visual"), Custom String("ĨŹĂŃĂMĨ"), Custom String("Tedz"), Custom String("S0undw4v3"), Custom String("GHOSTIEǃ"),
-			Custom String("ByeFever"), Custom String("whoshotcupid"), Custom String("SapphicWitch"), Custom String("ĴŐĶĔŔ"), Custom String("Fearlxss"),
-			Custom String("Avaløn"), Custom String("godly"), Custom String("ŊƐǕƔILĿƐŦŦƐǃ"), Custom String("zovha"), Custom String("pancakes"),
-			Custom String("Quartz"), Custom String("PurpSkrrt"), Custom String("iXerethiel"), Custom String("ÆROLEAƑ"), Custom String("foorelskett"),
-			Custom String("Root"), Custom String("Frost"), Custom String("Lünår"), Custom String("Hoxy"));
-
+		Global.Mod_Rank = Array(Custom String("Warloy"), Custom String("kwally"), Custom String("xskĳ"), Custom String("Toguro"),
+			Custom String("MOOOUSH"), Custom String("Xenolysith"), Custom String("Leestick"), Custom String("Bratty"), Custom String(
+			"Ɛthereal"), Custom String("Zxtyi"), Custom String("Bendude1000"), Custom String("Lostshadow"), Custom String("Viktorski"),
+			Custom String("Alex"), Custom String("tsunde"), Custom String("AvatarGod"), Custom String("TURBOMURO"), Custom String(
+			"Fenetre"), Custom String("Triin1ty"), Custom String("Stinky"), Custom String("Visual"), Custom String("ĨŹĂŃĂMĨ"),
+			Custom String("Tedz"), Custom String("S0undw4v3"), Custom String("GHOSTIEǃ"), Custom String("ByeFever"), Custom String(
+			"whoshotcupid"), Custom String("SapphicWitch"), Custom String("ĴŐĶĔŔ"), Custom String("ŴŖIǾŦHƐSĿƐYǃ"), Custom String("Avaløn"),
+			Custom String("godly"), Custom String("zovha"), Custom String("pancakes"), Custom String(
+			"Quartz"), Custom String("PurpSkrrt"), Custom String("ÆROLEAƑ"), Custom String("foorelskett"),
+			Custom String("Root"), Custom String("Lünår"), Custom String("Hoxy"));
 		"Warning List"
-		Global.Warning_List = Array(
-			Custom String("None"));
-
+		Global.Warning_List = Array(Custom String("None"));
 		"Muted (anyone on this list is muted AND demoted, no need to have them in both lists)"
-		Global.Muted_List = Array(
-			Custom String("LemonMoose"), Custom String("FlaxKodo"), Custom String("CONTAMINAGOR"), Custom String("MrMorgan"), Custom String("Bleed"),
-			Custom String("TheBluestar"), Custom String("JLRazor"), Custom String("Valencia"), Custom String("Evalia"), Custom String("DBDZaza"),
-			Custom String("DeadObiWan"), Custom String("siegrich"), Custom String("TitanJolt"), Custom String("JoltWave"), Custom String("DJBASTIOON"),
-			Custom String("DJBastion"), Custom String("Djbastion"), Custom String("DJBASTION!"), Custom String("MrBastion"), Custom String("Dampoegood"),
-			Custom String("Howard"), Custom String("vibe"), Custom String("tomkuo74"), Custom String("wonderland"), Custom String("Ɓack2spawŊ"),
-			Custom String("armoureddiam"), Custom String("DjBeep"), Custom String("Astraeus"), Custom String("SaladGuy"), Custom String("FPSNight"),
-			Custom String("Apotato2182"), Custom String("sherminator"), Custom String("Doom"), Custom String("dobarčovjek"), Custom String("SpongeBob"),
+		Global.Muted_List = Array(Custom String("LemonMoose"), Custom String("FlaxKodo"), Custom String("CONTAMINAGOR"), Custom String(
+			"MrMorgan"), Custom String("Bleed"), Custom String("TheBluestar"), Custom String("JLRazor"), Custom String("Valencia"),
+			Custom String("Evalia"), Custom String("DBDZaza"), Custom String("DeadObiWan"), Custom String("siegrich"), Custom String(
+			"TitanJolt"), Custom String("JoltWave"), Custom String("DJBASTIOON"), Custom String("DJBastion"), Custom String("Djbastion"),
+			Custom String("DJBASTION!"), Custom String("MrBastion"), Custom String("Dampoegood"), Custom String("Howard"), Custom String(
+			"vibe"), Custom String("tomkuo74"), Custom String("wonderland"), Custom String("Ɓack2spawŊ"), Custom String("armoureddiam"),
+			Custom String("DjBeep"), Custom String("Astraeus"), Custom String("SaladGuy"), Custom String("FPSNight"), Custom String(
+			"Apotato2182"), Custom String("sherminator"), Custom String("Doom"), Custom String("dobarčovjek"), Custom String("SpongeBob"),
 			Custom String("Elpapu"), Custom String("Nezhant"), Custom String("pupi"), Custom String("InkyCrane"), Custom String("Ginger"),
-			Custom String("MochiBunnie"), Custom String("CapengeR"), Custom String("ƑǾĊŬŜ"), Custom String("Idle"), Custom String("PoutineFrite"),
-			Custom String("MP7Fan"));
-
+			Custom String("MochiBunnie"), Custom String("CapengeR"), Custom String("ƑǾĊŬŜ"), Custom String("Idle"), Custom String(
+			"PoutineFrite"), Custom String("MP7Fan"), Custom String("Pissypie"), Custom String("LordHavMercy"), Custom String("Nikke6208"),
+			Custom String("DrewAries"), Custom String("JadeRogue"), Custom String("ǷR9Ƿ"), Custom String("Laybass"), Custom String(
+			"Ameer"), Custom String("far"));
 		"Demoted List"
-		Global.Demoted_List = Array(
-			Custom String("Null User"));
-
+		Global.Demoted_List = Array(Custom String("Null User"));
 		"Automatic Ban"
-		Global.Banned_List = Array(
-			Custom String("xMaxuss"), Custom String("HYUA"), Custom String("BebeUwU"), Custom String("Fluttershy"), Custom String("SexiestBeast"), Custom String("BigBadBosses"), Custom String("Arthur"), 
-			Custom String("MrBalkanom"), Custom String("Partilazac11"), Custom String("Gn0mie"), Custom String("zanji3abd"), Custom String("FlameOwl"), 
-			Custom String("ActiveShootr"), Custom String("HOÑEYBEE"), Custom String("Dead"), Custom String("chii"), Custom String("Valkyria"),
-			Custom String("WÃFFLĚS"), Custom String("CuddleBunny"), Custom String("MrMidnight"), Custom String("Her21YrOld"), Custom String("ImV"),
-			Custom String("Ƕ4ever"), Custom String("Kaz"), Custom String("PersianGoat"), Custom String("HostileDuck"), Custom String("Omosewa"),
-			Custom String("BingChiller"), Custom String("PersianGoat"), Custom String("Kanna"), Custom String("EGirlsDmMe"), Custom String("SapengeR"),
-			Custom String("SuperMurloc"), Custom String("ЧУРК4ТИЛО"), Custom String("ǮŴǢŽÐǾƓŖƗŹ"), Custom String("ȒƗŽȄ"), Custom String("Rt10XD"),
-			Custom String("ǃSHAY"), Custom String("Axem"), Custom String("NOCTǃS"), Custom String("BeingValiant"));
+		Global.Banned_List = Array(Custom String("xMaxuss"), Custom String("HYUA"), Custom String("BebeUwU"), Custom String("Fluttershy"),
+			Custom String("SexiestBeast"), Custom String("BigBadBosses"), Custom String("Arthur"), Custom String("MrBalkanom"),
+			Custom String("Partilazac11"), Custom String("Gn0mie"), Custom String("zanji3abd"), Custom String("FlameOwl"), Custom String(
+			"ActiveShootr"), Custom String("HOÑEYBEE"), Custom String("Dead"), Custom String("chii"), Custom String("Valkyria"),
+			Custom String("WÃFFLĚS"), Custom String("CuddleBunny"), Custom String("MrMidnight"), Custom String("Her21YrOld"),
+			Custom String("ImV"), Custom String("Ƕ4ever"), Custom String("Kaz"), Custom String("PersianGoat"), Custom String(
+			"HostileDuck"), Custom String("Omosewa"), Custom String("BingChiller"), Custom String("PersianGoat"), Custom String("Kanna"),
+			Custom String("EGirlsDmMe"), Custom String("SapengeR"), Custom String("SuperMurloc"), Custom String("ЧУРК4ТИЛО"),
+			Custom String("ǮŴǢŽÐǾƓŖƗŹ"), Custom String("ȒƗŽȄ"), Custom String("Rt10XD"), Custom String("ǃSHAY"), Custom String("Axem"),
+			Custom String("NOCTǃS"), Custom String("BeingValiant"), Custom String("KarinkaBTS"));
 	}
 }
