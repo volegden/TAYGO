@@ -1,223 +1,207 @@
-rule ("Custom nameplates list") 
+rule("Custom nameplates list")
 {
-	event 
+	event
 	{
 		Ongoing - Global;
 	}
 
-	actions 
+	actions
 	{
 		Global.Titles_And_Outlines = Array(
-			Array(Custom String("w4tchers"),
-			    Custom String("Fading"), 
-				240,235,219, 0,25,63,
-				Custom String("♡")
-		), 
-			Array(Custom String("Warloy"),
-				Custom String("Fading"), 
-				51,153,102, 0,102,153,
-				Custom String("Coup de grâce"),
-				Custom String("Duvvelsheyss!")
-		), 
-			Array(Custom String("kwally"),
-				Custom String("Fading"),
-				240,235,219, 0,25,63,
-				Custom String("Ｔｓｕｋｉ"),
-				Custom String("人々が愛を知る瞬間、憎しみを抱える危険を伴う。"),
-				Custom String("Nemo sum. Non volo esse quisquam.")
-		),
-			Array(Custom String("xskĳ"),
-				Custom String("Rainbow"),
-				Custom String("ŠKÌJ")
-		),
-			Array(Custom String("S0undw4v3"),
-				Custom Color(237, 26, 77, 255),
-				Custom String("{0} Arc Trooper Soundy {0}", Ability Icon String(Hero(Reaper), Button(Ability 2))),
-				Custom String("{0} Sith Master Soundwave {0}", Ability Icon String(Hero(Genji), Button(Ultimate)))
-		), 
-			Array(Custom String("Xenolysith"),
-				Custom Color(241, 196, 15, 255),
-				Custom String("Stargazer"),
-				Custom String("Rattenkönig")
-		),
-			Array(Custom String("Toguro"),
-				Color(Black),
-				Custom String("L'enfer du dragon volant aux 103 passions"),
-				Custom String("Fléau des Astres")
-		),
-			Array(Custom String("AvatarGod"),
-				Color(Red),
-				Custom String("ＡｖａｔａｒＧｏｄ")
-		),
-			Array(Custom String("Moe Szyslak"),
-				Custom Color(161, 176, 236, 255),
-				Custom String("Moe Szyslak")
-		),
-			Array(Custom String("Lostshadow"),
-				Custom String("Rainbow"),
-				Custom String("♡ Gh0stface's little brother ♡"), 
-				Custom String("{0} ☆ * .˚ ♡ ㄥӨVΣㄥY ♡ ˚. * ☆ {0}", Ability Icon String(Hero(Illari), Button(Ultimate)))		
-		),
-			Array(Custom String("Tedz"),
-				Custom Color(0,255,188, 255),
-				Custom String("♡ TEDDY BEAR ♡"), 
-				Custom String("{0} Spark Gengu Squad {0}", Ability Icon String(Hero(Genji), Button(Ultimate)))
-		),
-			Array(Custom String("Brat"),
-				Custom String("Rainbow"),
-				Custom String("{0} PARTNERS IN CRIME {0}", Icon String(Dizzy)),
-				Custom String("☆ BPD BADDIE ☆")
-		),
-			Array(Custom String("TURBOMURO"),
-				Custom Color(255, 255, 255, 255),
-				Custom String("{0} HIGHSPEED {0}", Ability Icon String(Hero(Genji), Button(Ability 1))),
-				Custom String("{0} ARMY OF TWO {0}", Ability Icon String(Hero(Ramattra), Button(Ability 1)))
-		),
-			Array(Custom String("Fenetre"),
-				Custom Color(255, 255, 255, 255),
-				Custom String("ω ι и d σ ω"),
-				Custom String("Potato Gremlin")
-		),
-			Array(Custom String("Visual"),
-				Color(Black),
-				Custom String("† Kwally's kitten †")
-		), 
-			Array(Custom String("Stinky"),
-				Custom Color(62, 253, 255, 255),
-				Custom String("{0}  PARTNERS IN CRIME  {0}", Icon String(Dizzy)),
-				Custom String("{0}  ARMY OF TWO  {0}", Ability Icon String(Hero(Ramattra), Button(Ability 1)))
-		),
+			Array(Custom String("w4tchers"), 
+			Custom String("Fading"), 
+			240, 235, 219, 0, 25, 63,
+			Custom String("♡")), 
+
+			Array(Custom String("Warloy"), 
+			Custom String("Fading"), 
+			51, 153, 102, 0, 102, 153, 
+			Custom String("Coup de grâce"), 
+			Custom String("Duvvelsheyss!")), 
+			
+			Array(Custom String("kwally"), 
+			Custom String("Fading"), 
+			240, 235, 219, 0, 25, 63, 
+			Custom String("Ｔｓｕｋｉ"), 
+			Custom String("人々が愛を知る瞬間、憎しみを抱える危険を伴う。"), 
+			Custom String("Nemo sum. Non volo esse quisquam.")),
+			
+			Array(Custom String("xskĳ"), 
+			Custom String("Rainbow"), 
+			Custom String("ŠKÌJ")), 
+
+			Array(Custom String("S0undw4v3"), 
+			Custom Color(237, 26, 77, 255), 
+			Custom String("{0} Arc Trooper Soundy {0}", Ability Icon String(Hero(Reaper), Button(Ability 2))),
+			Custom String("{0} Sith Master Soundwave {0}", Ability Icon String(Hero(Genji), Button(Ultimate)))), 
+			
+			Array(Custom String("Xenolysith"), 
+			Custom Color(241, 196, 15, 255), 
+			Custom String("Stargazer"), 
+			Custom String("Rattenkönig")), 
+			
+			Array(Custom String("Toguro"), 
+			Color(Black), 
+			Custom String("L'enfer du dragon volant aux 103 passions"), 
+			Custom String("Fléau des Astres")), 
+			
+			Array(Custom String("AvatarGod"), 
+			Color(Red), 
+			Custom String("ＡｖａｔａｒＧｏｄ")), 
+			
+			Array(Custom String("Moe Szyslak"), 
+			Custom Color(161, 176, 236, 255), 
+			Custom String("Moe Szyslak")), 
+
+			Array(Custom String("Lostshadow"), 
+			Custom String("Rainbow"), 
+			Custom String("♡ Gh0stface's little brother ♡"), 
+			Custom String("{0} ☆ * .˚ ♡ ㄥӨVΣㄥY ♡ ˚. * ☆ {0}", Ability Icon String(Hero(Illari), Button(Ultimate)))), 
+
+			Array(Custom String("Tedz"), 
+			Custom Color(0, 255, 188, 255), 
+			Custom String("♡ TEDDY BEAR ♡"), 
+			Custom String("{0} Spark Gengu Squad {0}", Ability Icon String(Hero(Genji), Button(Ultimate)))), 
+			
+			Array(Custom String("Bratty"),
+			Custom String("Rainbow"), 
+			Custom String("{0} PARTNERS IN CRIME {0}", Icon String(Dizzy)), 
+			Custom String("☆ BPD BADDIE ☆")),
+			
+			Array(Custom String("TURBOMURO"), 
+			Custom Color(255, 255, 255, 255), 
+			Custom String("{0} HIGHSPEED {0}", Ability Icon String(Hero(Genji), Button(Ability 1))), 
+			Custom String("{0} ARMY OF TWO {0}", Ability Icon String(Hero(Ramattra), Button(Ability 1)))), 
+
+			Array(Custom String("Fenetre"), 
+			Custom Color(255, 255, 255, 255), 
+			Custom String("ω ι и d σ ω"), 
+			Custom String("Potato Gremlin")), 
+
+			Array(Custom String("Visual"), 
+			Color(Black), 
+			Custom String("† Kwally's kitten †")), 
+			
+			Array(Custom String("Stinky"), 
+			Custom Color(62, 253, 255, 255), 
+			Custom String("{0}  PARTNERS IN CRIME  {0}", Icon String(Dizzy)), 
+			Custom String("{0}  ARMY OF TWO  {0}", Ability Icon String(Hero(Ramattra), Button(Ability 1)))), 
+			
 			Array(Custom String("Leestick"),
-				Custom Color(160, 32, 240, 255),
-				Custom String("{0} vaporlover {0}", Ability Icon String(Hero(Ramattra), Button(Ultimate))),
-				Custom String("{0} TrashLord {0}", Icon String(Trashcan))
-		),
-			Array(Custom String("Zxtyi"),
-				Color(Black),
-				Custom String("{0} FE!N {0}", Ability Icon String(Hero(Kiriko), Button(Ability 1))),
-				Custom String("{0} 乙乂ㄒㄚｉ {0}", Ability Icon String(Hero(Illari), Button(Ultimate)))
-		),
-			Array(Custom String("ĨŹĂŃĂMĨ"),
-				Color(Black),
-				Custom String("{0} ☆ 天照大御神 ☆ {0}", Ability Icon String(Hero(Kiriko), Button(Secondary Fire)))
-		),
-			Array(Custom String("Ɛthereal"),
-				Custom String("Rainbow"),
-				Custom String("{0} Fürchtet euch, fürchtet euch nicht {0}", Ability Icon String(Hero(Reinhardt), Button(ULtimate))),
-				Custom String("{0} Sigma's Starlight {0}", Ability Icon String(Hero(Sigma), Button(Ultimate)))
-		),
-			Array(Custom String("GHOSTIEǃ"),
-				Custom String("Rainbow"),
-				Custom String("♡ Lostshadow's big sister ♡"),
-				Custom String("{0} HΣX: DΣVΘUR HΘPΣ シ {0}", Ability Icon String(Hero(D.Va), Button(Ultimate)))
-		),
+			Custom Color(160, 32, 240, 255), 
+			Custom String("{0} vaporlover {0}", Ability Icon String(Hero(Ramattra), Button(Ultimate))),
+			Custom String("{0} TrashLord {0}", Icon String(Trashcan))), 
+			
+			Array(Custom String("Zxtyi"), 
+			Color(Black), 
+			Custom String("{0}  Womp Womp  {0}", Icon String(Heart)), 
+			Custom String("{0}  乙乂ㄒㄚｉ  {0}", Ability Icon String(Hero(Illari), Button(Ultimate)))), 
+			
+			Array(Custom String("ĨŹĂŃĂMĨ"), 
+			Color(Black), 
+			Custom String("{0} ☆ 天照大御神 ☆ {0}", Ability Icon String(Hero(Kiriko), Button(Secondary Fire)))), 
+			
+			Array(Custom String("Ɛthereal"), 
+			Custom String("Rainbow"),
+			Custom String("{0} Fürchtet euch, fürchtet euch nicht {0}", Ability Icon String(Hero(Reinhardt), Button(Ultimate))),
+			Custom String("{0} Sigma's Starlight {0}", Ability Icon String(Hero(Sigma), Button(Ultimate)))), 
+			
+			Array(Custom String("GHOSTIEǃ"), 
+			Custom String("Rainbow"), 
+			Custom String("♡ Lostshadow's big sister ♡"), 
+			Custom String("{0} † × FUTURΣ PILΘT × † {0}", Ability Icon String(Hero(Ana), Button(Ability 1)))), 
+			
 			Array(Custom String("ByeFever"),
-				Custom Color(157, 29, 16, 255),
-				Custom String("{0} Ｔｈｅ   ｓｗｅｅｔｅｓｔ   ｐｏｉｓｏｎ {0}", Icon String(Poison)),
-				Custom String("♡ Ｐａｎｄａｒｉｋｏ ♡")
-		),
-			Array(Custom String("Alex"),
-				Custom Color(139, 0, 0, 255),
-				Custom String(" ")
-		),
-			Array(Custom String("ĴŐĶĔŔ"),
-				Color(Black),
-				Custom String("{0} ☆ おばけ ☆ {0}", Ability Icon String(Hero(Genji), Button(Ultimate)))
-		),
-			Array(Custom String("SapphicWitch"),
-				Custom Color(204, 153, 255, 255),
-				Custom String("{0} Tiny Mercy collector {0}", Ability Icon String(Hero(Moira), Button(Ultimate))),
-				Custom String("{0} Moicy on top {0}", Ability Icon String(Hero(Mercy), Button(Ultimate)))
-		),
-			Array(Custom String("Fearlxss"),
-				Custom Color(180, 126, 222, 255),
-				Custom String("{0} ☆《  王 子  》☆ {0}", Ability Icon String(Hero(Reaper), Button(Ultimate))),
-				Custom String("{0} 〖 ƐÏ3 FLΘШƐR PΘШƐR ƐÏ3 〗 {0}", Icon String(Dizzy))
-		),
-			Array(Custom String("MOOOUSH"),
-                Color(Black),
-                Custom String("{0} 乂 {0}", Icon String(Ring Thick))
-		),
-			Array(Custom String("godly"),
-				Custom Color(89, 5, 5, 255),
-				Custom String("{0} ＢＡＳＥＤ {0}", Ability Icon String(Hero(Reaper), Button(Ultimate))),
-				Custom String("ＧＯＤＬＹ :3")
-		),
-			Array(Custom String("ŊƐǕƔILĿƐŦŦƐǃ"),
-                Custom Color(180, 126, 222, 255),
-                Custom String("{0} ☆《 お 姫 様 》☆ {0}", Ability Icon String(Hero(Reaper), Button(Ultimate))),
-				Custom String("{0} 〖 ƐÏ3 FLΘШƐR PΘШƐR ƐÏ3 〗 {0}", Icon String(Dizzy))
-		),
-			Array(Custom String("Avaløn"),
-				Custom Color(0, 67, 74, 255),
-				Custom String("{0} RYŪJIN NΘ KΣN WΘ KURΛΣ! {0}", Ability Icon String(Hero(Genji), Button(Ultimate))),
-				Custom String("{0} Ｓｌｅｅｐｙｈｅａｄ {0}", Ability Icon String(Hero(Ana), Button(Ability 1)))
-		),
-			Array(Custom String("zovha"),
-				Color(Black),
-				Custom String("Clive")
-		),
-			Array(Custom String("pancakes"),
-				Custom String("Rainbow"),
-				Custom String("{0} heat + bread + time = toast {0}", Ability Icon String(Hero(Illari), Button(Ultimate))),
-				Custom String("{0} Ｗａｋｅ Ｕｐ {0}", Ability Icon String(Hero(Ana), Button(Ability 1)))
-		),
-			Array(Custom String("Viktorski"),
-				Color(Yellow),
-				Custom String("Viktorski")
-		),
-            Array(Custom String("iXerethiel"),
-                Custom String("Rainbow"),
-				Custom String("{0} † ｄｅａｔｈｃｏｒｅ ★ ｄｅｖｉｌ† {0}", Ability Icon String(Hero(Cassidy), Button(Ultimate))),
-				Custom String("{0} BRΛNDΣD BY FIRΣ, BΘRN IN THΣ ΛBYSS {0}", Ability Icon String(Hero(Genji), Button(Ultimate)))
-		),
-            Array(Custom String("PurpSkrrt"),
-                Custom Color(221, 175, 255, 255),
-                Custom String("{0} * .˚ ♡『 PurpSkrrt™ 』♡ ˚. * {0}", Ability Icon String(Hero(Mercy), Button(Ultimate))),
-				Custom String("{0} * .˚ »〖 ƐÏ3 〗« ˚. * {0}", Ability Icon String(Hero(Lifeweaver), Button(Primaryfire)))
-		),
-		    Array(Custom String("whoshotcupid"),
-			    Custom Color(64, 224, 208, 255),
-                Custom String("♡ 9 9 9 ♡")
-		),
-		    Array(Custom String("tsunde"),
-			    Custom String("Rainbow"),
-                Custom String("{0} Follow me ~ . ‧ ˚ ‧ {0}", Ability Icon String(Hero(Ana), Button(Ability 1))),
-				Custom String("{0} ŦØƤ500 ΛỮŦØ~ΛŇǤ€Ł Λ฿ỮŞ€Ř ツ {0}", Ability Icon String(Hero(Reinhardt), Button(Ultimate)))
-		),
-		    Array(Custom String("ÆROLEAƑ"),
-			    Custom Color(153, 0, 0, 255),
-                Custom String("{0} RYŪ GΛ WΛGΛ TΣKI WΘ KURΛU! {0}", Ability Icon String(Hero(Hanzo), Button(Ultimate))),
-				Custom String("{0} WHΛT'S YOUR NΣXT MOVΣ? {0}", Ability Icon String(Hero(Genji), Button(Primaryfire)))
-		),
-		    Array(Custom String("Bendude1000"),
-			    Custom Color(155, 1, 63, 255),
-				Custom String("")
-		),
-		    Array(Custom String("Frost"),
-				Custom Color(69, 255, 87, 255),
-				Custom String("It is such a quiet thing, to fall"),
-				Custom String("But far more terrible is to admit it")
-		),
-		    Array(Custom String("Root"),
-				Custom Color(5, 3, 13, 255),
-				Custom String("Integra Hellsing"),
-				Custom String("L'Homme à femmes")
-		),
-		    Array(Custom String("foorelskett"),
-				Custom Color(102, 205, 170, 255),
-				Custom String("{0} ♡ DreamyDusts häst ♡ {0}", Icon String(Sad)),
-				Custom String("{0} hamster boy {0}", Icon String(Dizzy))
-		),
-			Array(Custom String("Quartz"),
-				Custom Color(6, 98, 70, 255),
-				Custom String("{0} Solo ulting shy {0}", Ability Icon String(Hero(Bastion), Button(Ultimate)))
-		),
-			Array(Custom String("Lünår"),
-                Custom Color(41, 0, 5, 255),
-                Custom String("{0} 【Ｐｒｉｎｃｅｓｓ　ｏｆ　ｈａｒｍｏｎｙ】 {0}", Ability Icon String(Hero(Lifeweaver), Button(Primaryfire))),
-                Custom String("{0} 【Ｍｙ　Ｗｏｒｌｄ　Ｓｔａｒｔｓ　Ｗｉｔｈ　Ｙｏｕ】 {0}", Icon String(Heart))
-		)
+			Custom Color(157, 29, 16, 255), 
+			Custom String("{0} Ｔｈｅ   ｓｗｅｅｔｅｓｔ   ｐｏｉｓｏｎ {0}", Icon String(Poison)), 
+			Custom String("♡ Ｐａｎｄａｒｉｋｏ ♡")), 
+			
+			Array(Custom String("Alex"), 
+			Custom Color(139, 0, 0, 255), 
+			Custom String(" ")), 
+			
+			Array(Custom String("ĴŐĶĔŔ"), 
+			Color(Black), 
+			Custom String("{0} ☆ おばけ ☆ {0}", Ability Icon String(Hero(Genji), Button(Ultimate)))), 
+			
+			Array(Custom String("SapphicWitch"), 
+			Custom Color(204, 153, 255, 255), 
+			Custom String("{0} Tiny Mercy collector {0}", Ability Icon String(Hero(Moira), Button(Ultimate))), 
+			Custom String("{0} Moicy on top {0}", Ability Icon String(Hero(Mercy), Button(Ultimate)))), 
+			
+			Array(Custom String("ŴŖIǾŦHƐSĿƐYǃ"), 
+			Custom Color(180, 126, 222, 255), 
+			Custom String("{0} ☆《  王 子  》☆ {0}", Ability Icon String(Hero(Reaper), Button(Ultimate))), 
+			Custom String("{0} 〖 ƐÏ3 FLΘШƐR PΘШƐR ƐÏ3 〗 {0}", Icon String(Dizzy))), 
+			
+			Array(Custom String("MOOOUSH"), 
+			Color(Black), 
+			Custom String("{0} 乂 {0}", Icon String(Ring Thick))),
+			
+			Array(Custom String("godly"), 
+			Custom Color(255, 0, 0, 255), 
+			Custom String("{0} ＢＡＳＥＤ {0}", Ability Icon String(Hero(Reaper), Button(Ultimate))), 
+			Custom String("† ｓｈａｂｒｉｒｉ †")), 
+
+			Array(Custom String("Avaløn"), 
+			Custom Color(0, 67, 74, 255),
+			Custom String("{0} RYŪJIN NΘ KΣN WΘ KURΛΣ! {0}", Ability Icon String(Hero(Genji), Button(Ultimate))), 
+			Custom String("{0} Ｓｌｅｅｐｙｈｅａｄ {0}", Ability Icon String(Hero(Ana), Button(Ability 1)))), 
+
+			Array(Custom String("pancakes"), 
+			Custom String("Rainbow"), 
+			Custom String("{0} heat + bread + time = toast {0}", Ability Icon String(Hero(Illari), Button(Ultimate))), 
+			Custom String("{0} Ｗａｋｅ Ｕｐ {0}", Ability Icon String(Hero(Ana), Button(Ability 1)))), 
+			
+			Array(Custom String("Viktorski"), 
+			Color(Yellow), 
+			Custom String("Viktorski")), 
+
+			Array(Custom String("PurpSkrrt"), 
+			Custom Color(221, 175, 255, 255),
+			Custom String("{0} * .˚ ♡『 PurpSkrrt™ 』♡ ˚. * {0}", Ability Icon String(Hero(Mercy), Button(Ultimate))), 
+			Custom String("{0} * .˚ »〖 ƐÏ3 〗« ˚. * {0}", Ability Icon String(Hero(Lifeweaver), Button(Primary Fire)))), 
+			
+			Array(Custom String("whoshotcupid"), 
+			Custom Color(64, 224, 208, 255), 
+			Custom String("♡ 9 9 9 ♡")), 
+
+			Array(Custom String("tsunde"), 
+			Custom String("Rainbow"), 
+			Custom String("{0} Follow me ~ . ‧ ˚ ‧ {0}", Ability Icon String(Hero(Ana), Button(Ability 1))), 
+			Custom String("{0} ŦØƤ500 ΛỮŦØ~ΛŇǤ€Ł Λ฿ỮŞ€Ř ツ {0}", Ability Icon String(Hero(Reinhardt), Button(Ultimate)))), 
+
+			Array(Custom String("ÆROLEAƑ"),
+			Custom Color(153, 0, 0, 255), 
+			Custom String("{0} RYŪ GΛ WΛGΛ TΣKI WΘ KURΛU! {0}", Ability Icon String(Hero(Hanzo), Button(Ultimate))), 
+			Custom String("{0} WHΛT'S YOUR NΣXT MOVΣ? {0}", Ability Icon String(Hero(Genji), Button(Primary Fire)))), 
+			
+			Array(Custom String("Bendude1000"), 
+			Custom Color(155, 1, 63, 255), 
+			Custom String("")), 
+
+			Array(Custom String("Frost"), 
+			Custom Color(69, 255, 87, 255), 
+			Custom String("It is such a quiet thing, to fall"), 
+			Custom String("But far more terrible is to admit it")),
+			
+			Array(Custom String("Root"), 
+			Custom Color(18, 10, 143, 255), 
+			Custom String("Cuckoo's Nest"), 
+			Custom String("L'Homme à femmes")), 
+
+			Array(Custom String("foorelskett"), 
+			Custom Color(102, 205, 170, 255), 
+			Custom String("{0} hamster boy {0}", Icon String(Dizzy))),
+
+			Array(Custom String("Quartz"), 
+			Custom Color(6, 98, 70, 255), 
+			Custom String("{0} Solo ulting shy {0}", Ability Icon String(Hero(Bastion), Button(Ultimate)))), 
+
+			Array(Custom String("Lünår"), 
+			Custom Color(138, 103, 194, 255), 
+			Custom String("{0} ★♡★【Ｇｏｄｄｅｓｓ Ｈｙｌｉａ】★♡★ {0}", Icon String(Moon)), 
+			Custom String("{0} Ѫ♡Ѫ 【﻿Ｂｌａｃｋ Ｓｗｏｒｄ Ｍａｉｄｅｎ】Ѫ♡Ѫ {0}", Ability Icon String(Hero(Lifeweaver), Button(Primary Fire))))
 		);
 	}
 }
