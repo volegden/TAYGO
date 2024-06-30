@@ -737,8 +737,8 @@ rule("Game_Description_Rotate")
 		Global.Game_Description = Last Text ID;
 		Wait(14, Ignore Condition);
 		Destroy HUD Text(Global.Game_Description);
-		Create HUD Text(All Players(All Teams), Null, Custom String("{0} » Roles on the right - {1}", Icon String(Arrow: Right),
-			Custom String(" {0} : Angel  |  No Icon: Promoted « {1} - {2}", Icon String(Halo), Icon String(Arrow: Right),
+		Create HUD Text(All Players(All Teams), Null, Custom String("{0} » Roles near player names - {1}", Icon String(Arrow: Right),
+			Custom String(" {0} : Automod  |  No Icon: Promoted « {1} - {2}", Icon String(Halo), Icon String(Arrow: Right),
 			Global.Game_Timer)), Null, Top, -1, Color(White), Global.Rainbow_Color, Color(White), Visible To String and Color,
 			Default Visibility);
 		Global.Game_Description = Last Text ID;
@@ -1858,28 +1858,24 @@ rule("Subroutine: Set Flying (Ext)")
 
 	actions 
 	{
-		Event Player.Restricted[1] = True;
+		Event Player.Restricted[1] = 1;
 		Event Player.Bot_CD = 10;
 		Chase Player Variable At Rate(Event Player, Bot_CD, 0, 1, Destination and Rate);
 		Wait Until(Event Player.Bot_CD == 0, 9999);
 		Event Player.Bot_CD = 12;
-		Create HUD Text(Event Player, Null, Custom String("."), Null, Top, 100, Null, Color(Red), Null, Visible To and String, Visible Never);
-		Event Player.Mode_Headline[169] = Last Text ID;
-		Event Player.Restricted[1] = False;
+		Event Player.Restricted[1] = 0;
 		Chase Player Variable At Rate(Event Player, Bot_CD, 0, 1, Destination and Rate);
 		Wait Until(Event Player.Bot_CD == 0, 9999);
 		If(Event Player.Heaven_Strike_ID[100]);
 			Enable Text Chat(Event Player);
 			Enable Voice Chat(Event Player);
-			Destroy HUD Text(Event Player.Mode_Headline[169]);
 		Else;
 			Event Player.Mode_Cycle = 0;
-			Event Player.Restricted[1] = True;
-			Event Player.Auto_Respawn = False;
+			Event Player.Restricted[1] = 1;
+			Event Player.Auto_Respawn = 0;
 			Event Player.AddonSkillsToggle[0] = 0;
 			Event Player.Last_Position_Facing[0] = Evaluate Once(Position Of(Event Player));
 			Disable Built-In Game Mode Respawning(Event Player);
-			Destroy HUD Text(Event Player.Mode_Headline[169]);
 			Start Forcing Player Position(Event Player, Event Player.Last_Position_Facing[0], True);
 			Event Player.Player_Title_And_Outline = Empty Array;
 		End;
