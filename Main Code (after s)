@@ -1198,7 +1198,7 @@ rule("Data")
 
 	actions
 	{
-		Global.Credits = Array(Custom String("Coded with {0} by Warloy and xMaxuss", Icon String(Heart)), Custom String(
+		Global.Credits = Array(Custom String("Coded with {0} by Warloy et al", Icon String(Heart)), Custom String(
 			"Community managed with {0} by kwally", Icon String(Heart)));
 		Global.Rank_Icon = Array(Custom String(""), Icon String(Halo), Icon String(Heart), Custom String(""));
 		Global.OffOnString = Array(Custom String("Off"), Custom String("On"));
