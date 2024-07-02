@@ -2,7 +2,7 @@ settings
 {
 	main
 	{
-		Description: " Find friends and have fun!\n\n Contact us: bit.ly/ow2friendly \n\n Coded with ♡ by: Warloy & xMaxuss\n Community managed with ♡ by: kwally"
+		Description: " Find friends and have fun!\n\n Contact us: bit.ly/ow2friendly \n\n Made with ♡ by: Warloy et al.\n Community managed with ♡ by: kwally"
 		Mode Name: "♥ Friendly ♥ Updated ♥"
 	}
 
@@ -6905,8 +6905,8 @@ rule("Mode_32 - UNO_Main")
 
 	actions
 	{
+		"credit to: @xMaxuss"
 		Event Player.Signal = False;
-		"TODO: Ingame interaction with other functions"
 		If(Is Button Held(Event Player, Button(Primary Fire)));
 			If(Global.UNO_Started);
 				Small Message(Event Player, Custom String("  Game already in progress"));
@@ -6999,6 +6999,7 @@ rule("UNO_Game_Started")
 
 	actions
 	{
+		"credit to: @xMaxuss"
 		For Global Variable(UNO_Looper, 0, Count Of(Global.UNO_Players), 1);
 			Destroy Progress Bar HUD Text(Global.UNO_Players[Global.UNO_Looper].Scale_Hud_ID);
 			Destroy HUD Text(Global.UNO_Players[Global.UNO_Looper].Mode_Hud_ID);
@@ -7073,6 +7074,7 @@ rule("UNO_Play")
 
 	actions
 	{
+		"credit to: @xMaxuss"
 		Event Player.Signal = False;
 		If(Is Button Held(Event Player, Button(Primary Fire)));
 			Event Player.UNO_Info_Array[0] += 1;
@@ -7249,6 +7251,7 @@ rule("UNO_Black_Logic")
 
 	actions
 	{
+		"credit to: @xMaxuss"
 		Event Player.Signal = False;
 		If(Is Button Held(Event Player, Button(Ultimate)));
 			Event Player.UNO_Info_Array[2] += 1;
@@ -7319,6 +7322,7 @@ rule("UNO_Draw_Some")
 
 	actions
 	{
+		"credit to: @xMaxuss"
 		While(Event Player.UNO_Info_Array[1] > 0);
 			Call Subroutine(UNO_Draw);
 			Event Player.UNO_Info_Array[1] -= 1;
@@ -7344,6 +7348,7 @@ rule("UNO_Restore")
 
 	actions
 	{
+		"credit to: @xMaxuss"
 		For Player Variable(Event Player, UNO_Loop, 0, Count Of(Event Player.UNO_Hand), 1);
 			Destroy HUD Text(Event Player.UNO_Hand[Event Player.UNO_Loop][2]);
 		End;
@@ -7402,6 +7407,7 @@ rule("UNO_Timer")
 
 	actions
 	{
+		"credit to: @xMaxuss"
 		Global.UNO_Help = First Of(Global.UNO_Players);
 		Play Effect(Global.UNO_Help, Explosion Sound, Null, Global.UNO_Help, 30);
 		If(Global.UNO_Help.UNO_Info_Array[4]);
@@ -7440,6 +7446,7 @@ rule("Cards_Leaver_Handler")
 
 	actions
 	{
+		"credit to: @xMaxuss"
 		If(Global.UNO_Started && Array Contains(Global.UNO_Players, Event Player));
 			Modify Global Variable(UNO_Players, Remove From Array By Value, Event Player);
 			If(Count Of(Global.UNO_Players) == 1);
@@ -7495,6 +7502,7 @@ rule("Subroutine: UNO_Update_Hand")
 
 	actions
 	{
+		"credit to: @xMaxuss"
 		For Player Variable(Event Player, UNO_Loop, 0, Count Of(Event Player.UNO_Hand), 1);
 			Destroy HUD Text(Event Player.UNO_Hand[Event Player.UNO_Loop][2]);
 		End;
@@ -7563,6 +7571,7 @@ rule("Subroutine: UNO_Update_Deck")
 
 	actions
 	{
+		"credit to: @xMaxuss"
 		Destroy HUD Text(Global.UNO_Deck[2]);
 		If(Global.UNO_Inworld[0]);
 			Destroy In-World Text(Global.UNO_Inworld[2]);
@@ -7647,6 +7656,7 @@ rule("Subroutine: UNO_End")
 
 	actions
 	{
+		"credit to: @xMaxuss"
 		Destroy HUD Text(Global.UNO_Info);
 		Global.UNO_Started = False;
 		Destroy HUD Text(Global.UNO_Deck[2]);
