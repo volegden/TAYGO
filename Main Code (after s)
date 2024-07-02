@@ -3,7 +3,7 @@ settings
 	main
 	{
 		Description: " Find friends and have fun!\n\n Contact us: bit.ly/ow2friendly \n\n Coded with ♡ by: Warloy & xMaxuss\n Community managed with ♡ by: kwally"
-		Mode Name: "♥ Friendly ♥ No Kill ♥ Updated ♥"
+		Mode Name: "♥ Friendly ♥ Updated ♥"
 	}
 
 	lobby
@@ -20,8 +20,17 @@ settings
 
 	modes
 	{
+		disabled Runasapi
+		disabled Flashpoint
+		disabled Push
+		disabled Elimination
+		disabled Bounty Hunter
+		disabled Hero Mastery 
+		disabled Practice Range
+		
 		Assault
 		{
+			Enemy Health Bars: Off
 			Game Mode Start: Immediately
 			Health Pack Respawn Time Scalar: 10%
 			Hero Limit: Off
@@ -31,6 +40,12 @@ settings
 
 		Capture the Flag
 		{
+			Enemy Health Bars: Off
+			Game Mode Start: Immediately
+			Health Pack Respawn Time Scalar: 10%
+			Hero Limit: Off
+			Kill Cam: Off
+			Spawn Health Packs: Enabled
 			Flag Carrier Abilities: All
 			Flag Dropped Lock Time: 5.0
 			Flag Return Time: 4.0
@@ -43,47 +58,50 @@ settings
 			}
 		}
 
-		Control
+		disabled Control
 		{
+			Enemy Health Bars: Off
+			Game Mode Start: Immediately
+			Health Pack Respawn Time Scalar: 10%
+			Hero Limit: Off
+			Kill Cam: Off
+			Spawn Health Packs: Enabled
 			Capture Speed Modifier: 500%
-			Competitive Rules: On
 			Limit Valid Control Points: Second
 			Score To Win: 1
-			Scoring Speed Modifier: 500%
-
-			enabled maps
-			{
-				Lijiang Tower 972777519512068153
-                Samoa 972777519512068154
-			}			
+			Scoring Speed Modifier: 500%	
 		}
 
-		Escort
+		disabled Escort
 		{
-			enabled maps
-			{
-                Junkertown 972777519512068153
-				Route 66 972777519512068153
-			}			
+			Enemy Health Bars: Off
+			Game Mode Start: Immediately
+			Health Pack Respawn Time Scalar: 10%
+			Hero Limit: Off
+			Kill Cam: Off
+			Spawn Health Packs: Enabled	
 		}
 
-		Hybrid
+		disabled Hybrid
 		{
+			Enemy Health Bars: Off
+			Game Mode Start: Immediately
+			Health Pack Respawn Time Scalar: 10%
+			Hero Limit: Off
+			Kill Cam: Off
+			Spawn Health Packs: Enabled
 			Capture Speed Modifier: 500%
-			Payload Speed Modifier: 250%
-
-			enabled maps
-            {
-                King's Row 972777519512068153
-                Midtown 972777519512068153
-            }			
+			Payload Speed Modifier: 250%		
 		}
 
 		Skirmish
 		{
+			Enemy Health Bars: Off
 			Game Mode Start: Immediately
+			Health Pack Respawn Time Scalar: 10%
 			Hero Limit: Off
 			Kill Cam: Off
+			Spawn Health Packs: Enabled
 			Limit Valid Control Points: Second
 
 			enabled maps
@@ -111,12 +129,21 @@ settings
 				Runasapi 972777519512068154
 				Shambali Monastery 972777519512068153
 				Suravasa 972777519512068154
-				Watchpoint: Gibraltar 972777519512068292												
+				Watchpoint: Gibraltar 972777519512068292		
+				Lijiang Tower 972777519512068153
+                Samoa 972777519512068154
+                Junkertown 972777519512068153
+				Route 66 972777519512068153																		
 			}
 		}
 
 		Team Deathmatch
 		{
+			Enemy Health Bars: Off
+			Game Mode Start: Immediately
+			Health Pack Respawn Time Scalar: 10%
+			Spawn Health Packs: Enabled
+
 			Game Mode Start: Immediately
 			Hero Limit: Off
 			Kill Cam: Off
