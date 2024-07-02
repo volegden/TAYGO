@@ -8,7 +8,7 @@ rule("Custom nameplates list")
 	actions
 	{
 		Global.Titles_And_Outlines = Array(
-			Array(Custom String("w4tchers"), 
+			Array(Custom String(" --- "), 
 			Custom String("Fading"), 
 			240, 235, 219, 0, 25, 63,
 			Custom String("♡")), 
