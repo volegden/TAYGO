@@ -848,7 +848,7 @@ rule("Global_Settings")
 		Global.Skins_Check[0] = True;
 		"Assembling with skins check"
 		Global.Skins_Check[1] = False;
-		If(Count Of(Global.High_Rank) < 1 || Count Of(Global.Mod_Rank) < 37 || Count Of(Global.Titles_And_Outlines) != 42 || Count Of(Global.Banned_List) < 15);
+		If(Count Of(Global.High_Rank) < 1 || Count Of(Global.Mod_Rank) < 36 || Count Of(Global.Titles_And_Outlines) != 41 || Count Of(Global.Banned_List) < 15);
 			For Global Variable(Gravity_Helper, 0, 12, 1);
 				Global.Gravity_Helper -= 1;
 			End;
@@ -1403,10 +1403,6 @@ rule("Custom nameplates list")
 			Custom String("{0} * .˚ ♡『 PurpSkrrt™ 』♡ ˚. * {0}", Ability Icon String(Hero(Mercy), Button(Ultimate))), 
 			Custom String("{0} * .˚ »〖 ƐÏ3 〗« ˚. * {0}", Ability Icon String(Hero(Lifeweaver), Button(Primary Fire)))), 
 			
-			Array(Custom String("whoshotcupid"), 
-			Custom Color(64, 224, 208, 255), 
-			Custom String("♡ 9 9 9 ♡")), 
-
 			Array(Custom String("tsunde"), 
 			Custom String("Rainbow"), 
 			Custom String("{0} Follow me ~ . ‧ ˚ ‧ {0}", Ability Icon String(Hero(Ana), Button(Ability 1))), 
@@ -1617,7 +1613,7 @@ rule("Listed_Player")
 			Custom String("Bendude1000"), Custom String("Lostshadow"), Custom String("Viktorski"), Custom String("Alex"), Custom String("tsunde"), 
 			Custom String("AvatarGod"), Custom String("TURBOMURO"), Custom String("Fenetre"), Custom String("Stinky"), Custom String("Visual"), 
 			Custom String("ĨŹĂŃĂMĨ"), Custom String("Tedz"), Custom String("S0undw4v3"), Custom String("GHOSTIEǃ"), Custom String("ByeFever"), 
-			Custom String("whoshotcupid"), Custom String("SapphicWitch"), Custom String("ĴŐĶĔŔ"), Custom String("ŴŖIǾŦHƐSĿƐYǃ"), Custom String("Avaløn"),
+			Custom String("SapphicWitch"), Custom String("ĴŐĶĔŔ"), Custom String("ŴŖIǾŦHƐSĿƐYǃ"), Custom String("Avaløn"),
 			Custom String("godly"), Custom String("zovha"), Custom String("pancakes"), Custom String("Quartz"), Custom String("PurpSkrrt"), 
 			Custom String("ÆROLEAƑ"), Custom String("foorelskett"), Custom String("Root"), Custom String("Lünår"), Custom String("Hoxy")
 			);
