@@ -144,8 +144,8 @@ rule("Custom nameplates list")
 			Custom String("† ｓｈａｂｒｉｒｉ †")), 
 
 			Array(Custom String("Avaløn"), 
-			Custom Color(0, 67, 74, 255),
-			Custom String("{0} RYŪJIN NΘ KΣN WΘ KURΛΣ! {0}", Ability Icon String(Hero(Genji), Button(Ultimate))), 
+			Custom Color(26, 31, 51, 255),
+			Custom String("{0} ¢αη'т ѕтσρ ωση'т ѕтσρ! {0}", Ability Icon String(Hero(Genji), Button(Ultimate))), 
 			Custom String("{0} Ｓｌｅｅｐｙｈｅａｄ {0}", Ability Icon String(Hero(Ana), Button(Ability 1)))), 
 
 			Array(Custom String("pancakes"), 
@@ -162,10 +162,6 @@ rule("Custom nameplates list")
 			Custom String("{0} * .˚ ♡『 PurpSkrrt™ 』♡ ˚. * {0}", Ability Icon String(Hero(Mercy), Button(Ultimate))), 
 			Custom String("{0} * .˚ »〖 ƐÏ3 〗« ˚. * {0}", Ability Icon String(Hero(Lifeweaver), Button(Primary Fire)))), 
 			
-			Array(Custom String("whoshotcupid"), 
-			Custom Color(64, 224, 208, 255), 
-			Custom String("♡ 9 9 9 ♡")), 
-
 			Array(Custom String("tsunde"), 
 			Custom String("Rainbow"), 
 			Custom String("{0} Follow me ~ . ‧ ˚ ‧ {0}", Ability Icon String(Hero(Ana), Button(Ability 1))), 
@@ -197,6 +193,10 @@ rule("Custom nameplates list")
 			Array(Custom String("Quartz"), 
 			Custom Color(6, 98, 70, 255), 
 			Custom String("{0} Solo ulting shy {0}", Ability Icon String(Hero(Bastion), Button(Ultimate)))), 
+
+			Array(Custom String("zovha"), 
+			Custom String("Rainbow"), 
+			Custom String("zovha")), 			
 
 			Array(Custom String("Lünår"), 
 			Custom Color(138, 103, 194, 255), 
