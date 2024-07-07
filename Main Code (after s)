@@ -8791,117 +8791,87 @@ rule("Moe Position")
 
 	actions
 	{
-		Global.Moe_Position = Vector(0, 100, 0);
+		Global.Moe_Position[999] = Vector(0, 100, 0);
 		Global.Moe_Force = False;
-		If(Current Map == Map(Nepal Shrine));
-			Global.Moe_Position = Vector(-18.350, 13, 0);
-		Else If(Current Map == Map(Nepal Village));
-			Global.Moe_Position = Vector(-211.550, -88, -2.400);
-		Else If(Current Map == Map(Paris));
-			Global.Moe_Position = Vector(-36.900, 11.990, 26.200);
-		Else If(Current Map == Map(Blizzard World Winter));
-			Global.Moe_Position = Vector(-131.340, 1.740, 107.870);
-		Else If(Current Map == Map(Busan Downtown Lunar New Year));
-			Global.Moe_Position = Vector(51.900, 21.400, -127.300);
-		Else If(Current Map == Map(Busan Sanctuary Lunar New Year));
-			Global.Moe_Position = Vector(-328.900, 8.070, 179.330);
-		Else If(Current Map == Map(New Queen Street));
-			Global.Moe_Position = Vector(-53, 2, -5.250);
-		Else If(Current Map == Map(Esperança));
-			Global.Moe_Position = Vector(0, 0, 19.650);
-		Else If(Current Map == Map(Château Guillard) || Current Map == Map(Château Guillard Halloween));
-			Global.Moe_Position = Vector(206.500, 0.600, 89.700);
-		Else If(Current Map == Map(Black Forest) || Current Map == Map(Black Forest Winter));
-			Global.Moe_Position = Vector(3.700, 15.560, -10.070);
-		Else If(Current Map == Map(Castillo));
-			Global.Moe_Position = Vector(-121.140, 34.570, 71.820);
-		Else If(Current Map == Map(Watchpoint: Gibraltar));
-			Global.Moe_Position = Vector(57.870, 9.440, -117.950);
-		Else If(Current Map == Map(Malevento));
-			Global.Moe_Position = Vector(-34.360, -1, 25.200);
-		Else If(Current Map == Map(Necropolis));
-			Global.Moe_Position = Vector(2.750, 3, -26.850);
-		Else If(Current Map == Map(Petra));
-			Global.Moe_Position = Vector(-17.380, -8.080, 28.850);
-		Else If(Current Map == Map(Circuit royal));
-			Global.Moe_Position = Vector(15.780, 11.370, -43.460);
-		Else If(Current Map == Map(Hollywood));
-			Global.Moe_Position = Vector(-11.100, 0.010, 41);
-		Else If(Current Map == Map(Eichenwalde) || Current Map == Map(Eichenwalde Halloween));
-			Global.Moe_Position = Vector(125.600, 14.730, -18.600);
-		Else If(Current Map == Map(Ilios) || Current Map == Map(Ilios Lighthouse));
-			Global.Moe_Position = Vector(358.480, 23.410, -51.670);
-		Else If(Current Map == Map(Ilios Ruins));
-			Global.Moe_Position = Vector(41.600, 69, -163.700);
-		Else If(Current Map == Map(Ilios Well));
-			Global.Moe_Position = Vector(-184.300, 1, -22.650);
-		Else If(Current Map == Map(Oasis City Center));
-			Global.Moe_Position = Vector(114.040, 0.800, 218.040);
-		Else If(Current Map == Map(Oasis Gardens));
-			Global.Moe_Position = Vector(129.900, 15.300, -236.150);
-		Else If(Current Map == Map(Route 66));
-			Global.Moe_Position = Vector(-33.220, 3.210, -11.760);
-		Else If(Current Map == Map(Shambali Monastery));
-			Global.Moe_Position = Vector(-27.950, 73.790, 195.380);
-		Else If(Current Map == Map(Temple of Anubis));
-			Global.Moe_Position = Vector(15.860, 10.040, 11.820);
-		Else If(Current Map == Map(Lijiang Tower) || Current Map == Map(Lijiang Control Center) || Current Map == Map(
-				Lijiang Tower Lunar New Year) || Current Map == Map(Lijiang Control Center Lunar New Year));
-			Global.Moe_Position = Vector(-17.300, 270, 330.700);
-		Else If(Current Map == Map(Lijiang Night Market) || Current Map == Map(Lijiang Night Market Lunar New Year));
-			Global.Moe_Position = Vector(0, 95.300, 129.800);
-		Else If(Current Map == Map(Ayutthaya));
-			Global.Moe_Position = Vector(16, 1, 50.640);
-		Else If(Current Map == Map(Volskaya Industries));
-			Global.Moe_Position = Vector(-8.200, -4.230, 39.750);
-		Else If(Current Map == Map(Havana));
-			Global.Moe_Position = Vector(-58.300, 3.950, -30.860);
-		Else If(Current Map == Map(Suravasa));
-			Global.Moe_Position = Vector(182.180, 0.780, 63.410);
-		Else If(Current Map == Map(New Junk City));
-			Global.Moe_Position = Vector(4.780, 3.840, -67.620);
-		Else If(Current Map == Map(Midtown));
-			Global.Moe_Position = Vector(62, 8.110, 13.900);
-		Else If(Current Map == Map(Samoa));
-			Global.Moe_Position = Vector(257.500, 5.750, -283.800);
+
+		Global.Moe_Position = Array(
+			Map(Nepal Shrine), Vector(-18.350, 13, 0), 
+			Map(Nepal Village), Vector(-211.550, -88, -2.400),
+			Map(Paris), Vector(-36.900, 11.990, 26.200), 
+			Map(Blizzard World Winter), Vector(-131.340, 1.740, 107.870),
+			Map(Busan Downtown Lunar New Year), Vector(51.900, 21.400, -127.300),
+			Map(Busan Sanctuary Lunar New Year), Vector(-328.900, 8.070, 179.330),
+			Map(New Queen Street), Vector(-53, 2, -5.250),
+			Map(Esperança), Vector(0, 0, 19.650),
+			Map(Château Guillard), Vector(206.500, 0.600, 89.700),
+			Map(Château Guillard Halloween), Vector(206.500, 0.600, 89.700),
+			Map(Black Forest), Vector(3.700, 15.560, -10.070),
+			Map(Black Forest Winter), Vector(3.700, 15.560, -10.070),
+			Map(Castillo), Vector(-121.140, 34.570, 71.820),
+			Map(Watchpoint: Gibraltar), Vector(57.870, 9.440, -117.950),
+			Map(Malevento), Vector(-34.360, -1, 25.200), 
+			Map(Necropolis), Vector(2.750, 3, -26.850),
+			Map(Petra), Vector(-17.380, -8.080, 28.850),
+			Map(Circuit royal), Vector(15.780, 11.370, -43.460),
+			Map(Hollywood), Vector(-11.100, 0.010, 41),
+			Map(Eichenwalde), Vector(125.600, 14.730, -18.600),
+			Map(Eichenwalde Halloween), Vector(125.600, 14.730, -18.600), 
+			Map(Ilios), Vector(358.480, 23.410, -51.670),
+			Map(Ilios Lighthouse), Vector(358.480, 23.410, -51.670),
+			Map(Ilios Ruins), Vector(41.600, 69, -163.700),
+			Map(Ilios Well), Vector(-184.300, 1, -22.650),
+			Map(Oasis City Center), Vector(114.040, 0.800, 218.040),
+			Map(Oasis Gardens), Vector(129.900, 15.300, -236.150),
+			Map(Route 66), Vector(-33.220, 3.210, -11.760),
+			Map(Shambali Monastery), Vector(-27.950, 73.790, 195.380),
+			Map(Temple of Anubis), Vector(15.860, 10.040, 11.820),
+			Map(Lijiang Tower), Vector(-17.300, 270, 330.700),
+			Map(Lijiang Control Center), Vector(-17.300, 270, 330.700),
+			Map(Lijiang Tower Lunar New Year), Vector(-17.300, 270, 330.700),
+			Map(Lijiang Control Center Lunar New Year), Vector(-17.300, 270, 330.700),
+			Map(Lijiang Night Market), Vector(0, 95.300, 129.800),
+			Map(Lijiang Night Market Lunar New Year), Vector(0, 95.300, 129.800), 
+			Map(Ayutthaya), Vector(16, 1, 50.640),
+			Map(Volskaya Industries), Vector(-8.200, -4.230, 39.750),
+			Map(Havana), Vector(-58.300, 3.950, -30.860),
+			Map(Suravasa), Vector(182.180, 0.780, 63.410),
+			Map(New Junk City), Vector(4.780, 3.840, -67.620),
+			Map(Midtown), Vector(62, 8.110, 13.900),
+			Map(Samoa), Vector(257.500, 5.750, -283.800),
+
+			Map(Kanezaka), Vector(6.500, 6, 14),
+			Map(Hanamura), Vector(49.400, -1, -0.200),
+			Map(Hanamura Winter), Vector(49.400, -1, -0.200),
+			Map(King's Row), Vector(-76.800, 0.500, -37), 
+			Map(King's Row Winter), Vector(-76.800, 0.500, -37),
+			Map(Dorado), Vector(71.600, 7, -30.270),
+			Map(Nepal), Vector(72.200, 84, -11.260),
+			Map(Nepal Sanctum), Vector(89.900, 132.910, -45),
+			Map(Busan), Vector(223.500, 10, 211.500),
+			Map(Numbani), Vector(19.950, 0.250, 4.400), 
+			Map(Colosseo), Vector(-11.300, 2, -10.200),
+			Map(Ecopoint: Antarctica), Vector(26, 9.250, 0), 
+			Map(Ecopoint: Antarctica Winter), Vector(26, 9.250, 0), 
+			Map(Hollywood Halloween), Vector(0.400, 6.400, -104.920),
+			Map(Horizon Lunar Colony), Vector(86.300, 6.620, -60.850),
+			Map(Junkertown), Vector(-22.870, 4.760, -53.750),
+			Map(Oasis), Vector(-128, 11.100, 0), 
+			Map(Oasis University), Vector(-128, 11.100, 0), 
+			Map(Rialto), Vector(10.950, -0.450, -85.870), 
+			Map(Antarctic Peninsula), Vector(318.400, -27, -132.200), 
+			Map(Paraíso), Vector(-39.500, -2, 65.800),
+			Map(Runasapi), Vector(27.00, 0.00, 1.22)
+		);
+
+		"July 07 24 - Map(Samoa) is current 86 element. If you move maps around, don't forget to change indexes"
+		If(Array Contains(Array Slice(Global.Moe_Position, 0, 86), Current Map));
+			Global.Moe_Position[999] = Global.Moe_Position[Index Of Array Value(Global.Moe_Position, Current Map) + 1];
 		Else;
 			Global.Moe_Force = True;
 		End;
-		Abort If(!Global.Moe_Force);
-		If(Current Map == Map(Kanezaka));
-			Global.Moe_Position = Vector(6.500, 6, 14);
-		Else If(Current Map == Map(Hanamura) || Current Map == Map(Hanamura Winter));
-			Global.Moe_Position = Vector(49.400, -1, -0.200);
-		Else If(Current Map == Map(King's Row) || Current Map == Map(King's Row Winter));
-			Global.Moe_Position = Vector(-76.800, 0.500, -37);
-		Else If(Current Map == Map(Dorado));
-			Global.Moe_Position = Vector(71.600, 7, -30.270);
-		Else If(Current Map == Map(Nepal));
-			Global.Moe_Position = Vector(72.200, 84, -11.260);
-		Else If(Current Map == Map(Nepal Sanctum));
-			Global.Moe_Position = Vector(89.900, 132.910, -45);
-		Else If(Current Map == Map(Busan));
-			Global.Moe_Position = Vector(223.500, 10, 211.500);
-		Else If(Current Map == Map(Numbani));
-			Global.Moe_Position = Vector(19.950, 0.250, 4.400);
-		Else If(Current Map == Map(Colosseo));
-			Global.Moe_Position = Vector(-11.300, 2, -10.200);
-		Else If(Current Map == Map(Ecopoint: Antarctica) || Current Map == Map(Ecopoint: Antarctica Winter));
-			Global.Moe_Position = Vector(26, 9.250, 0);
-		Else If(Current Map == Map(Hollywood Halloween));
-			Global.Moe_Position = Vector(0.400, 6.400, -104.920);
-		Else If(Current Map == Map(Horizon Lunar Colony));
-			Global.Moe_Position = Vector(86.300, 6.620, -60.850);
-		Else If(Current Map == Map(Junkertown));
-			Global.Moe_Position = Vector(-22.870, 4.760, -53.750);
-		Else If(Current Map == Map(Oasis) || Current Map == Map(Oasis University));
-			Global.Moe_Position = Vector(-128, 11.100, 0);
-		Else If(Current Map == Map(Rialto));
-			Global.Moe_Position = Vector(10.950, -0.450, -85.870);
-		Else If(Current Map == Map(Antarctic Peninsula));
-			Global.Moe_Position = Vector(318.400, -27, -132.200);
-		Else If(Current Map == Map(Paraíso));
-			Global.Moe_Position = Vector(-39.500, -2, 65.800);
+		"July 07 24 - Map(Kanezaka) is the first after Samoa element. Map(Runasapi) is current last element of array, 129 in total"
+		If(Array Contains(Array Slice(Global.Moe_Position, 87, Count Of(Global.Moe_Position)), Current Map));
+			Global.Moe_Position[999] = Global.Moe_Position[Index Of Array Value(Global.Moe_Position, Current Map) + 1];
 		Else;
 			Global.Moe_Force = False;
 		End;
@@ -8961,17 +8931,17 @@ rule("Moe-Bot Behavior")
 		Set Knockback Received(Event Player, 0);
 		Start Heal Over Time(Event Player, Null, 9999, 500);
 		If(Global.Moe_Force);
-			Start Forcing Player Position(Event Player, Global.Moe_Position, False);
+			Start Forcing Player Position(Event Player, Global.Moe_Position[999], False);
 		End;
 		Event Player.Auto_Respawn = False;
 		Wait(0.100, Ignore Condition);
-		If(Current Map == Map(Colosseo));
+		If(Current Map == Map(Colosseo) || Current Map == Map(Runasapi));
 			Disable Movement Collision With Environment(Event Player, False);
 		Else If(Current Map == Map(Rialto));
 			Disable Movement Collision With Environment(Event Player, True);
 		End;
 		Wait(0.100, Ignore Condition);
-		Teleport(Event Player, Global.Moe_Position);
+		Teleport(Event Player, Global.Moe_Position[999]);
 	}
 }
 
@@ -8994,9 +8964,9 @@ rule("Moe-Bot Respawn")
 	{
 		Wait Until(Is Alive(Event Player), 9999);
 		Wait(1, Ignore Condition);
-		Teleport(Event Player, Global.Moe_Position);
+		Teleport(Event Player, Global.Moe_Position[999]);
 		If(Global.Moe_Force);
-			Start Forcing Player Position(Event Player, Global.Moe_Position, False);
+			Start Forcing Player Position(Event Player, Global.Moe_Position[999], False);
 		End;
 	}
 }
