@@ -30,6 +30,6 @@ rule("Listed_Player")
 		Global.Banned_List = Array(Custom String("xMaxuss"), Custom String("HYUA"), Custom String("BebeUwU"), Custom String("Fluttershy"),
 			Custom String("HOÑEYBEE"), Custom String("Dead"), Custom String("chii"), Custom String("WÃFFLĚS"), Custom String("CuddleBunny"), 
 			Custom String("ǃSHAY"), Custom String("Axem"), Custom String("BlueSky"), Custom String("Leafar"), Custom String("pupi"), 
-			Custom String("xhamelly"));
+			Custom String("xhamelly"), Custom String("ǁHafocfugelǁ"));
 	}
 }
