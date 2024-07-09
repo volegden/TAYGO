@@ -499,7 +499,7 @@ variables
 		8: Current_Host
 		9: Gravity_Helper
 		10: Gravity_Toggle
-		11: Map_Teleport_Locations
+		11: teleportsAndMoePosition
 		12: Drawing_Obj_Storage
 		13: Titles_And_Outlines
 		14: Jail_List
@@ -540,7 +540,7 @@ variables
 		49: Promoted_List
 		50: Credits
 		52: TP_Help
-		53: Map_Teleport_Exits
+		53: teleportsForCurrentMap
 		54: Muted_List
 		55: Moe_Force
 		56: Warning_List
@@ -550,7 +550,6 @@ variables
 		60: Main_Chaser
 		61: rainbowColoringList
 		62: matchTime
-		63: Keys
 
 	player:
 		0: High_Rank
@@ -8663,7 +8662,7 @@ rule("Extra_27: Illari Heart")
 	}
 }
 
-rule("Tp effects per Map")
+rule("Teleports and Moe Position")
 {
 	event
 	{
@@ -8672,216 +8671,246 @@ rule("Tp effects per Map")
 
 	actions
 	{
-		"July 07 24 - merge with moe positions"
-		Global.Map_Teleport_Locations = Empty Array;
+		Global.Moe_Position = Vector(0, 100, 0);
+		Global.Moe_Force = False;
 		Global.TP_Help = False;
-		If(Current Map == 
-		
-		Map(Havana));
-			Global.Map_Teleport_Locations = 
-			Array(
-				Vector(-39.470, 6, -28.170), 
-				Vector(-17.710, 5.950, -18.280), 
-				Vector(24.920, 5.950,-33.410));
 
-			Global.Map_Teleport_Exits = 
+		Global.teleportsAndMoePosition = Array(
+			Array(Map(Nepal Shrine), Vector(-18.350, 13, 0)), 
+			Array(Map(Nepal Village), Vector(-211.550, -88, -2.400)),
+			Array(Map(Paris), Vector(-36.900, 11.990, 26.200)), 
+			Array(Map(Blizzard World Winter), Vector(-131.340, 1.740, 107.870)),
+			Array(Map(Busan Downtown Lunar New Year), Vector(51.900, 21.400, -127.300)),
+			Array(Map(Busan Sanctuary Lunar New Year), Vector(-328.900, 8.070, 179.330)),
 			Array(
-				Vector(40.780, 8, 10.420), 
-				Vector(-34.180, 5.840, -33.220), 
-				Vector(-34.180, 5.840, -33.220));
-		
-		Else If(Current Map == 
-		
-		Map(Rialto));
-			Global.Map_Teleport_Locations = 
-			Array(
-				Vector(50.350, -1.250, 4.500), 
-				Vector(-11.920, -1.250, -21.900), 
-				Vector(0.750, -1.250,35.670), 
-				Vector(34, -1.250, 66.400), 
-				Vector(66.800, 50.450, 70.500));
+				Map(New Queen Street), 
+				Vector(-53, 2, -5.250),
 
-			Global.Map_Teleport_Exits = 
-			Array(
-				Vector(5.420, -1.250, 20.590), 
-				Vector(52.720, -1.250, -9.320), 
-				Vector(52.720, -1.250, -9.320),
-				Vector(63.700, 48.750, 66), 
-				Vector(35, -1.250, 70));
-		
-		Else If(Current Map == 
-		
-		Map(Lijiang Tower) || Current Map == Map(Lijiang Tower Lunar New Year));
+				Vector(-33.850, 4, 15.310), 
+				Vector(-30.050, -4, 75.280),
 
-			Global.Map_Teleport_Locations = 
+				Vector(-29.960, -4, 78.370), 
+				Vector(-31.700, 4, 11.370)
+				),
+			Array(Map(Esperança), Vector(0, 0, 19.650)),
+			Array(Map(Château Guillard), Vector(206.500, 0.600, 89.700)),
+			Array(Map(Château Guillard Halloween), Vector(206.500, 0.600, 89.700)),
+			Array(Map(Black Forest), Vector(3.700, 15.560, -10.070)),
+			Array(Map(Black Forest Winter), Vector(3.700, 15.560, -10.070)),
+			Array(Map(Castillo), Vector(-121.140, 34.570, 71.820)),
+			Array(Map(Watchpoint: Gibraltar), Vector(57.870, 9.440, -117.950)),
+			Array(Map(Malevento), Vector(-34.360, -1, 25.200)), 
+			Array(Map(Necropolis), Vector(2.750, 3, -26.850)),
+			Array(Map(Petra), Vector(-17.380, -8.080, 28.850)),
+			Array(Map(Circuit royal), Vector(15.780, 11.370, -43.460)),
+			Array(Map(Hollywood), Vector(-11.100, 0.010, 41)),
+			Array(Map(Eichenwalde), Vector(125.600, 14.730, -18.600)),
+			Array(Map(Eichenwalde Halloween), Vector(125.600, 14.730, -18.600)), 
 			Array(
-				Vector(2.700, 94, 187.800), 
-				Vector(-2.700, 94, 187.800), 
-				Vector(5, 0, -14), 
-				Vector(5.700, 267.170, 290));
+				Map(Ilios), 
+				Vector(358.480, 23.410, -51.670),
 
-			Global.Map_Teleport_Exits = 
-			Array(
-				Vector(1.100, 0, -14), 
-				Vector(5.700, 267.330, 285), 
-				Vector(2.700, 94, 184.800), 
-				Vector(-2.700, 94, 184.800));
-
-		Else If(Current Map == 
-		
-		Map(Busan));
-			Global.Map_Teleport_Locations = 
-			Array(
-				Vector(-331.900, 14.100, 176.800), 
-				Vector(-325.200, 14.100, 176.800), 
-				Vector(51.900, 6.050, -100.200), 
-				Vector(208.350, 17.200, 208.800));
-
-			Global.Map_Teleport_Exits = 
-			Array(
-				Vector(51.900, 6.050, -96.200), 
-				Vector(209.850, 17.200, 212.800), 
-				Vector(-331.900, 14.100, 179.800), 
-				Vector(-325.200, 14.100, 179.800));
-
-		Else If(Current Map == 
-		
-		Map(Oasis));
-			Global.Map_Teleport_Locations = 
-			Array(
-				Vector(128.850, 2.500, -207.500), 
-				Vector(101.600, 2.500, -235.450), 
-				Vector(120.700, 1, 230.700), 
-				Vector(-184.600, 9, 0));
-
-			Global.Map_Teleport_Exits = 
-			Array(
-				Vector(118.700, 1, 232.700), 
-				Vector(-181.900, 9.100, 0), 
-				Vector(126.850, 2.500, -205.500),
-				Vector(99.600, 2.500, -233.450));
-
-		Else If(Current Map == 
-		
-		Map(Ilios));
-			Global.Map_Teleport_Locations = 
-			Array(
 				Vector(-190, 1.050, -3.050), 
 				Vector(-195.100, 1.050, 2.050), 
 				Vector(20.100, 61.400, -142.500), 
-				Vector(316.600, -23.700, -38.200));
+				Vector(316.600, -23.700, -38.200),
 
-			Global.Map_Teleport_Exits = 
-			Array(
 				Vector(20.100, 61.400, -145.500), 
 				Vector(318.600, -23.700, -40.200), 
 				Vector(-192, 1.050, -5.050),
-				Vector(-197.100, 1.050, 0.050));
-
-		Else If(Current Map == 
-		
-		Map(Nepal));
-			Global.Map_Teleport_Locations = 
+				Vector(-197.100, 1.050, 0.050)
+				),
+			Array(Map(Ilios Lighthouse), Vector(358.480, 23.410, -51.670)),
+			Array(Map(Ilios Ruins), Vector(41.600, 69, -163.700)),
+			Array(Map(Ilios Well), Vector(-184.300, 1, -22.650)),
+			Array(Map(Oasis City Center), Vector(114.040, 0.800, 218.040)),
+			Array(Map(Oasis Gardens), Vector(129.900, 15.300, -236.150)),
+			Array(Map(Route 66), Vector(-33.220, 3.210, -11.760)),
+			Array(Map(Shambali Monastery), Vector(-27.950, 73.790, 195.380)),
+			Array(Map(Temple of Anubis), Vector(15.860, 10.040, 11.820)),
 			Array(
-				Vector(-20, 13, -2), 
-				Vector(-20, 13, 2), 
-				Vector(90, 128, -10), 
-				Vector(-209, -94.100, -16),
-				Vector(79, 84, 11), 
-				Vector(68.750, 128.530, -60.770));
+				Map(Lijiang Tower), 
+				Vector(-17.300, 270, 330.700),
 
-			Global.Map_Teleport_Exits = 
+				Vector(2.700, 94, 187.800), 
+				Vector(-2.700, 94, 187.800), 
+				Vector(5, 0, -14), 
+				Vector(5.700, 267.170, 290),
+
+				Vector(1.100, 0, -14), 
+				Vector(5.700, 267.330, 285), 
+				Vector(2.700, 94, 184.800), 
+				Vector(-2.700, 94, 184.800)
+				),				
+			Array(Map(Lijiang Control Center), Vector(-17.300, 270, 330.700)),
 			Array(
-				Vector(87, 128, -10), 
-				Vector(-209, -94.100, -13), 
-				Vector(-23, 13, -2), 
-				Vector(-23, 13, 2),
-				Vector(66.050, 127.800, -62.750), 
-				Vector(79.250, 84, 11));
+				Map(Lijiang Tower Lunar New Year), 
+				Vector(-17.300, 270, 330.700),
 
-		Else If(Current Map == 
-		
-		Map(Antarctic Peninsula));
-			Global.Map_Teleport_Locations = 
+				Vector(2.700, 94, 187.800), 
+				Vector(-2.700, 94, 187.800), 
+				Vector(5, 0, -14), 
+				Vector(5.700, 267.170, 290),
+
+				Vector(1.100, 0, -14), 
+				Vector(5.700, 267.330, 285), 
+				Vector(2.700, 94, 184.800), 
+				Vector(-2.700, 94, 184.800)
+				),
+			Array(Map(Lijiang Control Center Lunar New Year), Vector(-17.300, 270, 330.700)),
+			Array(Map(Lijiang Night Market), Vector(0, 95.300, 129.800)),
+			Array(Map(Lijiang Night Market Lunar New Year), Vector(0, 95.300, 129.800)), 
 			Array(
-				Vector(276.900, -10.950, -261), 
-				Vector(291.390, -10.950, -261), 
-				Vector(270, 41.300, 144.700),
-				Vector(-125.300, -152.500, 60));
+				Map(Ayutthaya), 
+				Vector(16, 1, 50.640),
 
-			Global.Map_Teleport_Exits = Array(
-				Vector(270, 41.300, 147.700), 
-				Vector(-125.300, -152.500, 56), 
-				Vector(280.900, -10.950, -261),
-				Vector(287.390, -10.950, -261));
-
-		Else If(Current Map == 
-		
-		Map(Ayutthaya));
-			Global.Map_Teleport_Locations = 
-			Array(
 				Vector(4.750, 21, 26.500), 
-				Vector(29.750, 0.110, -28));
-
-			Global.Map_Teleport_Exits = 
-			Array(
+				Vector(29.750, 0.110, -28),
+				
 				Vector(29.750, 0.110, -25), 
-				Vector(4.750, 21, 29.500));
-
-		Else If(Current Map == 
-		
-		Map(Samoa));
-			Global.Map_Teleport_Locations = 
+				Vector(4.750, 21, 29.500)
+				),
+			Array(Map(Volskaya Industries), Vector(-8.200, -4.230, 39.750)),
 			Array(
+				Map(Havana), 
+				Vector(-58.300, 3.950, -30.860),
+
+				Vector(-39.470, 6, -28.170), 
+				Vector(-17.710, 5.950, -18.280), 
+				Vector(24.920, 5.950,-33.410),
+
+				Vector(40.780, 8, 10.420), 
+				Vector(-34.180, 5.840, -33.220), 
+				Vector(-34.180, 5.840, -33.220)
+				), 
+			Array(Map(Suravasa), Vector(182.180, 0.780, 63.410)),
+			Array(Map(New Junk City), Vector(4.780, 3.840, -67.620)),
+			Array(Map(Midtown), Vector(62, 8.110, 13.900)),
+			Array(
+				Map(Samoa), 
+				Vector(257.500, 5.750, -283.800),
+
 				Vector(275, 8.300, -250.800), 
 				Vector(193, 8.300, -250.800), 
 				Vector(-328.200, 3.050, -121.300), 
 				Vector(27.600, 333.600, 366.600), 
 				Vector(-344.200, 3, -132.200), 
-				Vector(-322.500, -2.800, -189));
+				Vector(-322.500, -2.800, -189),
 
-			Global.Map_Teleport_Exits = 
-			Array(
 				Vector(-330, 3.050, -118.500), 
 				Vector(27.600, 333.600, 363.600), 
 				Vector(272, 8.300, -250.800), 
 				Vector(196, 8.300, -250.800), 
 				Vector(-324.100, -3.100, -196.300), 
-				Vector(-341.700, 3, -130.200));
-
-		Else If(Current Map == 
-		
-		Map(New Queen Street));
-			Global.Map_Teleport_Locations = 
+				Vector(-341.700, 3, -130.200)
+				),
+			Array(Map(Kanezaka), Vector(6.500, 6, 14)),
+			Array(Map(Hanamura), Vector(49.400, -1, -0.200)),
+			Array(Map(Hanamura Winter), Vector(49.400, -1, -0.200)),
+			Array(Map(King's Row), Vector(-76.800, 0.500, -37)), 
+			Array(Map(King's Row Winter), Vector(-76.800, 0.500, -37)),
+			Array(Map(Dorado), Vector(71.600, 7, -30.270)),
 			Array(
-				Vector(-33.850, 4, 15.310), 
-				Vector(-30.050, -4, 75.280));
+				Map(Nepal), 
+				Vector(72.200, 84, -11.260),
 
-			Global.Map_Teleport_Exits = 
+				Vector(-20, 13, -2), 
+				Vector(-20, 13, 2), 
+				Vector(90, 128, -10), 
+				Vector(-209, -94.100, -16),
+				Vector(79, 84, 11), 
+				Vector(68.750, 128.530, -60.770),
+
+				Vector(87, 128, -10), 
+				Vector(-209, -94.100, -13), 
+				Vector(-23, 13, -2), 
+				Vector(-23, 13, 2),
+				Vector(66.050, 127.800, -62.750), 
+				Vector(79.250, 84, 11)
+				),
+			Array(Map(Nepal Sanctum), Vector(89.900, 132.910, -45)),
 			Array(
-				Vector(-29.960, -4, 78.370), 
-				Vector(-31.700, 4, 11.370));
+				Map(Busan), 
+				Vector(223.500, 10, 211.500),
 
-		Else If(Current Map == 
+				Vector(-331.900, 14.100, 176.800), 
+				Vector(-325.200, 14.100, 176.800), 
+				Vector(51.900, 6.050, -100.200), 
+				Vector(208.350, 17.200, 208.800),
 
-		Map(Paraíso));
-			Global.Map_Teleport_Locations = 
+				Vector(51.900, 6.050, -96.200), 
+				Vector(209.850, 17.200, 212.800), 
+				Vector(-331.900, 14.100, 179.800), 
+				Vector(-325.200, 14.100, 179.800)
+				),
+			Array(Map(Numbani), Vector(19.950, 0.250, 4.400)), 
+			Array(Map(Colosseo), Vector(-11.300, 2, -10.200)),
+			Array(Map(Ecopoint: Antarctica), Vector(26, 9.250, 0)), 
+			Array(Map(Ecopoint: Antarctica Winter), Vector(26, 9.250, 0)), 
+			Array(Map(Hollywood Halloween), Vector(0.400, 6.400, -104.920)),
+			Array(Map(Horizon Lunar Colony), Vector(86.300, 6.620, -60.850)),
+			Array(Map(Junkertown), Vector(-22.870, 4.760, -53.750)),
 			Array(
+				Map(Oasis), 
+				Vector(-128, 11.100, 0), 
+
+				Vector(128.850, 2.500, -207.500), 
+				Vector(101.600, 2.500, -235.450), 
+				Vector(120.700, 1, 230.700), 
+				Vector(-184.600, 9, 0),
+
+				Vector(118.700, 1, 232.700), 
+				Vector(-181.900, 9.100, 0), 
+				Vector(126.850, 2.500, -205.500),
+				Vector(99.600, 2.500, -233.450)
+				),
+
+			Array(Map(Oasis University), Vector(-128, 11.100, 0)), 
+			Array(
+				Map(Rialto), 
+				Vector(10.950, -0.450, -85.870), 
+
+				Vector(50.350, -1.250, 4.500), 
+				Vector(-11.920, -1.250, -21.900), 
+				Vector(0.750, -1.250,35.670), 
+				Vector(34, -1.250, 66.400), 
+				Vector(66.800, 50.450, 70.500),
+
+				Vector(5.420, -1.250, 20.590), 
+				Vector(52.720, -1.250, -9.320), 
+				Vector(52.720, -1.250, -9.320),
+				Vector(63.700, 48.750, 66), 
+				Vector(35, -1.250, 70)
+				),
+			Array(
+				Map(Antarctic Peninsula), 
+				Vector(318.400, -27, -132.200), 
+
+				Vector(276.900, -10.950, -261), 
+				Vector(291.390, -10.950, -261), 
+				Vector(270, 41.300, 144.700),
+				Vector(-125.300, -152.500, 60),
+
+				Vector(270, 41.300, 147.700), 
+				Vector(-125.300, -152.500, 56), 
+				Vector(280.900, -10.950, -261),
+				Vector(287.390, -10.950, -261)				
+				),
+			Array(
+				Map(Paraíso), 
+				Vector(-39.500, -2, 65.800),
+
 				Vector(-27.020, -2.150, 51.540), 
-				Vector(-19.790, -2.150, 51.720));
+				Vector(-19.790, -2.150, 51.720),
 
-			Global.Map_Teleport_Exits = 
-			Array(
 				Vector(-16.780, -2.150, 52.180), 
-				Vector(-30.920, -2.140, 53.340));
+				Vector(-30.920, -2.140, 53.340)
+				),
+			Array(Map(Runasapi), Vector(27.00, 0.00, 1.22))
+		);
 
-		If(Global.Map_Teleport_Locations != Empty Array);
-			For Global Variable(TP_Help, 0, Count Of(Global.Map_Teleport_Locations), 1);
-				Create Effect(All Players(All Teams), Ring, Color(Rose), Global.Map_Teleport_Locations[Global.TP_Help], 1.100, Visible To);
-			End;
-			Global.TP_Help = True;
-		End;
-		Wait(20, Ignore Condition);
+		Wait(15, Ignore Condition);
+
 		If(String Length(Global.Credits[0]) != 28 || String Length(Global.Credits[1]) != 34 || Custom String("Ex{0}{1}t", Char In String(
 			Global.Credits[0], 20), Char In String(Global.Credits[0], 18)) != Custom String("Exort"));
 			For Global Variable(Drawing_Obj_Storage, 0, 128, 1);
@@ -8893,6 +8922,43 @@ rule("Tp effects per Map")
 			For Global Variable(Gravity_Helper, 0, 12, 1);
 				Global.Gravity_Helper -= 1;
 			End;
+		End;
+	}
+}
+
+rule("Teleports and Moe position getters")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	actions
+	{
+		Wait(0.250, Ignore Condition);
+		"It's better than creating hundreds of else ifs... right? Right?"
+        for Global Variable(TP_Help, 0, Count of(Global.teleportsAndMoePosition), 1);
+            If(Global.teleportsAndMoePosition[Global.TP_Help][0] == Current Map);
+				"Get teleport coordinates"
+                Global.teleportsForCurrentMap = Array(
+					Array Slice(Global.teleportsAndMoePosition[Global.TP_Help], 2, (Count Of(Global.teleportsAndMoePosition[Global.TP_Help]) - 2) / 2), 
+                	Array Slice(Global.teleportsAndMoePosition[Global.TP_Help], Count Of(Global.teleportsAndMoePosition[Global.TP_Help]) / 2 + 1, Count Of(Global.teleportsAndMoePosition[Global.TP_Help])));
+				Global.Moe_Position = Global.teleportsAndMoePosition[Global.TP_Help][1];
+				"Get position of the current Map and set Moe status to be forced"
+				If(Index Of Array Value(Global.teleportsAndMoePosition, Global.teleportsAndMoePosition[Global.TP_Help]) > 86);
+					Global.Moe_Force = True;
+				End;
+                Break;
+            End;
+			Wait(0.020, Ignore Condition);
+        End;
+
+		If(Global.teleportsForCurrentMap[1] != 0);
+			For Global Variable(TP_Help, 0, Count Of(Global.teleportsForCurrentMap[0]), 1);
+				Create Effect(All Players(All Teams), Ring, Color(Rose), Global.teleportsForCurrentMap[0][Global.TP_Help], 1.100, Visible To);
+				Wait(0.020, Ignore Condition);
+			End;
+			Global.TP_Help = True;
 		End;
 	}
 }
@@ -8909,112 +8975,19 @@ rule("Teleports Logic")
 	conditions
 	{
 		Global.TP_Help == True;
-		Is True For Any(Global.Map_Teleport_Locations, Distance Between(Current Array Element, Event Player) <= 1.100) == True;
+		Is True For Any(Global.teleportsForCurrentMap[0], Distance Between(Current Array Element, Event Player) <= 1.100) == True;
 		Is On Ground(Event Player) == True;
 	}
 
 	actions
 	{
-		For Player Variable(Event Player, TP_Index, 0, Count Of(Global.Map_Teleport_Locations), 1);
-			If(Distance Between(Global.Map_Teleport_Locations[Event Player.TP_Index], Event Player) <= 1.100);
-				Teleport(Event Player, Global.Map_Teleport_Exits[Event Player.TP_Index]);
+		For Player Variable(Event Player, TP_Index, 0, Count Of(Global.teleportsForCurrentMap[0]), 1);
+			If(Distance Between(Global.teleportsForCurrentMap[0][Event Player.TP_Index], Event Player) <= 1.100);
+				Teleport(Event Player, Global.teleportsForCurrentMap[1][Event Player.TP_Index]);
 				Set Status(Event Player, Null, Rooted, 0.600);
 				Break;
 			End;
 		End;
-	}
-}
-
-rule("Moe Position")
-{
-	event
-	{
-		Ongoing - Global;
-	}
-
-	actions
-	{
-		Global.Moe_Position = Vector(0, 100, 0);
-		Global.Moe_Force = False;
-
-		Global.Moe_Position = Array(
-			Map(Nepal Shrine), Vector(-18.350, 13, 0), 
-			Map(Nepal Village), Vector(-211.550, -88, -2.400),
-			Map(Paris), Vector(-36.900, 11.990, 26.200), 
-			Map(Blizzard World Winter), Vector(-131.340, 1.740, 107.870),
-			Map(Busan Downtown Lunar New Year), Vector(51.900, 21.400, -127.300),
-			Map(Busan Sanctuary Lunar New Year), Vector(-328.900, 8.070, 179.330),
-			Map(New Queen Street), Vector(-53, 2, -5.250),
-			Map(Esperança), Vector(0, 0, 19.650),
-			Map(Château Guillard), Vector(206.500, 0.600, 89.700),
-			Map(Château Guillard Halloween), Vector(206.500, 0.600, 89.700),
-			Map(Black Forest), Vector(3.700, 15.560, -10.070),
-			Map(Black Forest Winter), Vector(3.700, 15.560, -10.070),
-			Map(Castillo), Vector(-121.140, 34.570, 71.820),
-			Map(Watchpoint: Gibraltar), Vector(57.870, 9.440, -117.950),
-			Map(Malevento), Vector(-34.360, -1, 25.200), 
-			Map(Necropolis), Vector(2.750, 3, -26.850),
-			Map(Petra), Vector(-17.380, -8.080, 28.850),
-			Map(Circuit royal), Vector(15.780, 11.370, -43.460),
-			Map(Hollywood), Vector(-11.100, 0.010, 41),
-			Map(Eichenwalde), Vector(125.600, 14.730, -18.600),
-			Map(Eichenwalde Halloween), Vector(125.600, 14.730, -18.600), 
-			Map(Ilios), Vector(358.480, 23.410, -51.670),
-			Map(Ilios Lighthouse), Vector(358.480, 23.410, -51.670),
-			Map(Ilios Ruins), Vector(41.600, 69, -163.700),
-			Map(Ilios Well), Vector(-184.300, 1, -22.650),
-			Map(Oasis City Center), Vector(114.040, 0.800, 218.040),
-			Map(Oasis Gardens), Vector(129.900, 15.300, -236.150),
-			Map(Route 66), Vector(-33.220, 3.210, -11.760),
-			Map(Shambali Monastery), Vector(-27.950, 73.790, 195.380),
-			Map(Temple of Anubis), Vector(15.860, 10.040, 11.820),
-			Map(Lijiang Tower), Vector(-17.300, 270, 330.700),
-			Map(Lijiang Control Center), Vector(-17.300, 270, 330.700),
-			Map(Lijiang Tower Lunar New Year), Vector(-17.300, 270, 330.700),
-			Map(Lijiang Control Center Lunar New Year), Vector(-17.300, 270, 330.700),
-			Map(Lijiang Night Market), Vector(0, 95.300, 129.800),
-			Map(Lijiang Night Market Lunar New Year), Vector(0, 95.300, 129.800), 
-			Map(Ayutthaya), Vector(16, 1, 50.640),
-			Map(Volskaya Industries), Vector(-8.200, -4.230, 39.750),
-			Map(Havana), Vector(-58.300, 3.950, -30.860),
-			Map(Suravasa), Vector(182.180, 0.780, 63.410),
-			Map(New Junk City), Vector(4.780, 3.840, -67.620),
-			Map(Midtown), Vector(62, 8.110, 13.900),
-			Map(Samoa), Vector(257.500, 5.750, -283.800),
-
-			Map(Kanezaka), Vector(6.500, 6, 14),
-			Map(Hanamura), Vector(49.400, -1, -0.200),
-			Map(Hanamura Winter), Vector(49.400, -1, -0.200),
-			Map(King's Row), Vector(-76.800, 0.500, -37), 
-			Map(King's Row Winter), Vector(-76.800, 0.500, -37),
-			Map(Dorado), Vector(71.600, 7, -30.270),
-			Map(Nepal), Vector(72.200, 84, -11.260),
-			Map(Nepal Sanctum), Vector(89.900, 132.910, -45),
-			Map(Busan), Vector(223.500, 10, 211.500),
-			Map(Numbani), Vector(19.950, 0.250, 4.400), 
-			Map(Colosseo), Vector(-11.300, 2, -10.200),
-			Map(Ecopoint: Antarctica), Vector(26, 9.250, 0), 
-			Map(Ecopoint: Antarctica Winter), Vector(26, 9.250, 0), 
-			Map(Hollywood Halloween), Vector(0.400, 6.400, -104.920),
-			Map(Horizon Lunar Colony), Vector(86.300, 6.620, -60.850),
-			Map(Junkertown), Vector(-22.870, 4.760, -53.750),
-			Map(Oasis), Vector(-128, 11.100, 0), 
-			Map(Oasis University), Vector(-128, 11.100, 0), 
-			Map(Rialto), Vector(10.950, -0.450, -85.870), 
-			Map(Antarctic Peninsula), Vector(318.400, -27, -132.200), 
-			Map(Paraíso), Vector(-39.500, -2, 65.800),
-			Map(Runasapi), Vector(27.00, 0.00, 1.22)
-		);
-		
-		"July 07 24 - Map(Samoa) is current 86 element, Map(Kanezaka) is 87 and Moe position is not forced. If you move maps around, don't forget to change indexes"
-		If(Index Of Array Value(Global.Moe_Position, Current Map) > 86);
-			Global.Moe_Force = True;
-		End;
-
-		"The initial array is to be mutated, but it's doesn't matter, because it evaluates only once when match is started"
-		If(Array Contains(Global.Moe_Position, Current Map));
-			Global.Moe_Position = Global.Moe_Position[Index Of Array Value(Global.Moe_Position, Current Map) + 1];
-		End; 
 	}
 }
 
