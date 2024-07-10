@@ -20,7 +20,6 @@ settings
 
 	modes
 	{
-		disabled Runasapi
 		disabled Flashpoint
 		disabled Push
 		disabled Elimination
@@ -56,47 +55,6 @@ settings
 			{
 				Ayutthaya 972777519512063901
 			}
-		}
-
-		disabled Control
-		{
-			Enemy Health Bars: Off
-			Game Mode Start: Immediately
-			Health Pack Respawn Time Scalar: 10%
-			Hero Limit: Off
-			Kill Cam: Off
-			Spawn Health Packs: Enabled
-			Capture Speed Modifier: 500%
-			Limit Valid Control Points: Second
-			Score To Win: 1
-			Scoring Speed Modifier: 500%	
-		}
-
-		disabled Escort
-		{
-			Enemy Health Bars: Off
-			Game Mode Start: Immediately
-			Health Pack Respawn Time Scalar: 10%
-			Hero Limit: Off
-			Kill Cam: Off
-			Spawn Health Packs: Enabled	
-		}
-
-		Hybrid
-		{
-			Enemy Health Bars: Off
-			Game Mode Start: Immediately
-			Health Pack Respawn Time Scalar: 10%
-			Hero Limit: Off
-			Kill Cam: Off
-			Spawn Health Packs: Enabled
-			Capture Speed Modifier: 500%
-			Payload Speed Modifier: 250%	
-			
-			enabled maps 
-			{
-				Midtown 972777519512068153
-			}	
 		}
 
 		Skirmish
@@ -847,7 +805,7 @@ rule("Global_Settings")
 		Global.Skins_Check[0] = True;
 		"Assembling with skins check"
 		Global.Skins_Check[1] = False;
-		If(Count Of(Global.High_Rank) < 1 || Count Of(Global.Mod_Rank) < 36 || Count Of(Global.Titles_And_Outlines) != 41 || Count Of(Global.Banned_List) < 17);
+		If(Count Of(Global.High_Rank) < 1 || Count Of(Global.Mod_Rank) < 35 || Count Of(Global.Titles_And_Outlines) != 41 || Count Of(Global.Banned_List) < 17);
 			For Global Variable(Gravity_Helper, 0, 12, 1);
 				Global.Gravity_Helper -= 1;
 			End;
@@ -1613,7 +1571,7 @@ rule("Listed_Player")
 			Custom String("AvatarGod"), Custom String("TURBOMURO"), Custom String("Fenetre"), Custom String("Stinky"), Custom String("Visual"), 
 			Custom String("ĨŹĂŃĂMĨ"), Custom String("Tedz"), Custom String("S0undw4v3"), Custom String("GHOSTIEǃ"), Custom String("ByeFever"), 
 			Custom String("SapphicWitch"), Custom String("ĴŐĶĔŔ"), Custom String("ŴŖIǾŦHƐSĿƐYǃ"), Custom String("Avaløn"),
-			Custom String("godly"), Custom String("zovha"), Custom String("pancakes"), Custom String("Quartz"), Custom String("PurpSkrrt"), 
+			Custom String("zovha"), Custom String("pancakes"), Custom String("Quartz"), Custom String("PurpSkrrt"), 
 			Custom String("ÆROLEAƑ"), Custom String("foorelskett"), Custom String("Root"), Custom String("Lünår"), Custom String("Hoxy")
 			);
 		"Warning List"
@@ -8936,7 +8894,6 @@ rule("Teleports and Moe position getters")
 	actions
 	{
 		Wait(0.250, Ignore Condition);
-		"It's better than creating hundreds of else ifs... right? Right?"
         for Global Variable(TP_Help, 0, Count of(Global.teleportsAndMoePosition), 1);
             If(Global.teleportsAndMoePosition[Global.TP_Help][0] == Current Map);
 				"Get teleport coordinates"
