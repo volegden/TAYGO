@@ -1343,7 +1343,7 @@ rule("Custom nameplates list")
 
 			Array(Custom String("Avaløn"), 
 			Custom Color(26, 31, 51, 255),
-			Custom String("{0} ¢αη'т ѕтσρ ωση'т ѕтσρ! {0}", Ability Icon String(Hero(Genji), Button(Ultimate))), 
+			Custom String("{0} ¢αη'ƚ ѕƚσρ ωση'ƚ ѕƚσρ! {0}", Ability Icon String(Hero(Genji), Button(Ultimate))), 
 			Custom String("{0} Ｓｌｅｅｐｙｈｅａｄ {0}", Ability Icon String(Hero(Ana), Button(Ability 1)))), 
 
 			Array(Custom String("pancakes"), 
@@ -1893,18 +1893,22 @@ rule("Hero_Switch")
 		Is Button Held(Event Player, Button(Melee)) == True;
 		Has Spawned(Event Player) == True;
 		Event Player.Is_Crouch_On == False;
-		Event Player.Restricted[0] != True;
+		Event Player.Restricted[0] == False;
+		Event Player.Restricted[1] == False;
 		Is Alive(Event Player) == True;
-		Has Status(Event Player, Knocked Down) == False;
-		Has Status(Event Player, Hacked) == False;
-		Has Status(Event Player, Frozen) == False;
-		Has Status(Event Player, Burning) == False;
-		Has Status(Event Player, Stunned) == False;
 		Event Player.Is_Menu_Active == True;
 	}
 
 	actions
 	{
+		Abort If(Is True For Any(
+			Array(
+			Has Status(Event Player, Knocked Down),
+			Has Status(Event Player, Hacked), 
+			Has Status(Event Player, Frozen), 
+			Has Status(Event Player, Burning), 
+			Has Status(Event Player, Stunned)), Current Array Element == Event Player)
+			);
 		Wait(0.500, Abort When False);
 		Cancel Primary Action(Event Player);
 		Event Player.Last_Position_Facing[0] = Position Of(Event Player);
