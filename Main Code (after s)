@@ -8767,8 +8767,26 @@ rule("Teleports and Moe Position")
 				Vector(-341.700, 3, -130.200)
 				),
 			Array(Map(Kanezaka), Vector(6.500, 6, 14)),
-			Array(Map(Hanamura), Vector(49.400, -1, -0.200)),
-			Array(Map(Hanamura Winter), Vector(49.400, -1, -0.200)),
+			Array(
+				Map(Hanamura), 
+				Vector(49.400, -1, -0.200),
+
+				Vector(57.64, -1.87, 31.40),
+				Vector(62.50, -2.12, 42.77),
+
+				Vector(64.19, -2.30, 47.10),
+				Vector(63.86, -2.00, 30.32)
+				),
+			Array(
+				Map(Hanamura Winter), 
+				Vector(49.400, -1, -0.200),
+
+				Vector(57.64, -1.87, 31.40),
+				Vector(62.50, -2.12, 42.77),
+
+				Vector(64.19, -2.30, 47.10),
+				Vector(63.86, -2.00, 30.32)
+			),
 			Array(Map(King's Row), Vector(-76.800, 0.500, -37)), 
 			Array(Map(King's Row Winter), Vector(-76.800, 0.500, -37)),
 			Array(Map(Dorado), Vector(71.600, 7, -30.270)),
@@ -9272,6 +9290,29 @@ rule("Mode_36 Communicate")
 		End;
 		Chase Player Variable At Rate(Event Player, Bot_CD, 0, 1, Destination and Rate);
 		Event Player.Target_Lock = Custom String("--- No Target ---");
+	}
+}
+
+disabled rule("Local Player Event Repr")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	actions
+	{
+		"TBA move all menus from event player to global (Local Player)"
+		Create HUD Text(Host Player, 
+		Null, 
+		Custom String("———————————————————\nPrimary: {0}\nSecondary: {1}\n{2}", Is Button Held(Local Player, Button(Primary Fire)), Is Button Held(Local Player, Button(Secondary Fire)), 
+		Custom String("Ability 1: {0}\nAbility 2: {1}\n{2}", Is Button Held(Local Player, Button(Ability 1)), Is Button Held(Local Player, Button(Ability 2)), 
+		Custom String("Crouch: {0}\nJump: {1}\n{2}", Is Button Held(Local Player, Button(Crouch)), Is Button Held(Local Player, Button(Jump)),
+		Custom String("Ultimate: {0}\n\nEye Pos: {1}\n{2}", Is Button Held(Local Player, Button(Ultimate)), (Ray Cast Hit Position(Eye Position(Local Player), Eye Position(Local Player) + Facing Direction Of(Local Player) * 100, All Players(All Teams), Local Player, True)), 
+		Custom String("Player Pos: {0}\n———————————————————", Position Of(Local Player))
+		)))), 
+		Null, 
+		Right, 65535, Null, Color(Sky Blue), Null, Visible To and String, Default Visibility);
 	}
 }
 
