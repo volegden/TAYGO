@@ -805,7 +805,7 @@ rule("Global_Settings")
 		Global.Skins_Check[0] = True;
 		"Assembling with skins check"
 		Global.Skins_Check[1] = False;
-		If(Count Of(Global.High_Rank) < 1 || Count Of(Global.Mod_Rank) < 35 || Count Of(Global.Titles_And_Outlines) != 41 || Count Of(Global.Banned_List) < 17);
+		If(Count Of(Global.High_Rank) < 1 || Count Of(Global.Mod_Rank) < 34 || Count Of(Global.Titles_And_Outlines) != 40 || Count Of(Global.Banned_List) < 17);
 			For Global Variable(Gravity_Helper, 0, 12, 1);
 				Global.Gravity_Helper -= 1;
 			End;
@@ -1326,12 +1326,7 @@ rule("Custom nameplates list")
 			Custom Color(204, 153, 255, 255), 
 			Custom String("{0} Tiny Mercy collector {0}", Ability Icon String(Hero(Moira), Button(Ultimate))), 
 			Custom String("{0} Moicy on top {0}", Ability Icon String(Hero(Mercy), Button(Ultimate)))), 
-			
-			Array(Custom String("ŴŖIǾŦHƐSĿƐYǃ"), 
-			Custom Color(180, 126, 222, 255), 
-			Custom String("{0} ☆《  王 子  》☆ {0}", Ability Icon String(Hero(Reaper), Button(Ultimate))), 
-			Custom String("{0} 〖 ƐÏ3 FLΘШƐR PΘШƐR ƐÏ3 〗 {0}", Icon String(Dizzy))), 
-			
+
 			Array(Custom String("MOOOUSH"), 
 			Color(Black), 
 			Custom String("{0} 乂 {0}", Icon String(Ring Thick))),
@@ -1565,14 +1560,14 @@ rule("Listed_Player")
 		Global.High_Rank = Array(Custom String("Moe Szyslak"));
 		"Automatic Mod"
 		Global.Mod_Rank = Array(
-			Custom String("Warloy"), Custom String("kwally"), Custom String("xskĳ"), Custom String("Toguro"), Custom String("MOOOUSH"), 
-			Custom String("Xenolysith"), Custom String("Leestick"), Custom String("Bratty"), Custom String("Ɛthereal"),  
+			Custom String("Warloy"), Custom String("kwally"), Custom String("xskĳ"), Custom String("Toguro"), Custom String("Hoxy"), 
+			Custom String("MOOOUSH"), Custom String("Xenolysith"), Custom String("Leestick"), Custom String("Bratty"), Custom String("Ɛthereal"),  
 			Custom String("Bendude1000"), Custom String("Lostshadow"), Custom String("Viktorski"), Custom String("Alex"), Custom String("tsunde"), 
 			Custom String("AvatarGod"), Custom String("TURBOMURO"), Custom String("Fenetre"), Custom String("Stinky"), Custom String("Visual"), 
 			Custom String("ĨŹĂŃĂMĨ"), Custom String("Tedz"), Custom String("S0undw4v3"), Custom String("GHOSTIEǃ"), Custom String("ByeFever"), 
-			Custom String("SapphicWitch"), Custom String("ĴŐĶĔŔ"), Custom String("ŴŖIǾŦHƐSĿƐYǃ"), Custom String("Avaløn"),
-			Custom String("zovha"), Custom String("pancakes"), Custom String("Quartz"), Custom String("PurpSkrrt"), 
-			Custom String("ÆROLEAƑ"), Custom String("foorelskett"), Custom String("Root"), Custom String("Lünår"), Custom String("Hoxy")
+			Custom String("SapphicWitch"), Custom String("ĴŐĶĔŔ"), Custom String("Avaløn"), Custom String("zovha"), Custom String("pancakes"), 
+			Custom String("Quartz"), Custom String("PurpSkrrt"), Custom String("ÆROLEAƑ"), Custom String("foorelskett"), Custom String("Root"), 
+			Custom String("Lünår")
 			);
 		"Warning List"
 		Global.Warning_List = Array(Custom String(" --- "));
