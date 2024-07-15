@@ -805,7 +805,7 @@ rule("Global_Settings")
 		Global.Skins_Check[0] = True;
 		"Assembling with skins check"
 		Global.Skins_Check[1] = False;
-		If(Count Of(Global.High_Rank) < 1 || Count Of(Global.Mod_Rank) < 34 || Count Of(Global.Titles_And_Outlines) != 40 || Count Of(Global.Banned_List) < 17);
+		If(Count Of(Global.High_Rank) < 1 || Count Of(Global.Mod_Rank) < 33 || Count Of(Global.Titles_And_Outlines) != 40 || Count Of(Global.Banned_List) < 17);
 			For Global Variable(Gravity_Helper, 0, 12, 1);
 				Global.Gravity_Helper -= 1;
 			End;
@@ -1080,9 +1080,9 @@ rule("Default_Player_Settings")
 			Small Message(All Players(All Teams), Custom String(" Welcome {1} {0}", Event Player, Hero Icon String(Hero Of(Event Player))));
 		End;
 
-		Wait(0.200, Ignore Condition);
-		If(Event Player.Player_Title_And_Outline[0] == Global.Titles_And_Outlines[1][0] || Event Player.Player_Title_And_Outline[0] == Global.Titles_And_Outlines[2][0]);
-			Call Subroutine(Set_Flying_At_Position);
+		disabled Wait(0.200, Ignore Condition);
+		disabled If(Event Player.Player_Title_And_Outline[0] == Global.Titles_And_Outlines[1][0] || Event Player.Player_Title_And_Outline[0] == Global.Titles_And_Outlines[2][0]);
+			disabled Call Subroutine(Set_Flying_At_Position);
 		End;
 	}
 }
@@ -1564,7 +1564,7 @@ rule("Listed_Player")
 			Custom String("MOOOUSH"), Custom String("Xenolysith"), Custom String("Leestick"), Custom String("Bratty"), Custom String("Ɛthereal"),  
 			Custom String("Bendude1000"), Custom String("Lostshadow"), Custom String("Viktorski"), Custom String("Alex"), Custom String("tsunde"), 
 			Custom String("AvatarGod"), Custom String("TURBOMURO"), Custom String("Fenetre"), Custom String("Stinky"), Custom String("Visual"), 
-			Custom String("ĨŹĂŃĂMĨ"), Custom String("Tedz"), Custom String("S0undw4v3"), Custom String("GHOSTIEǃ"), Custom String("ByeFever"), 
+			Custom String("ĨŹĂŃĂMĨ"), Custom String("Tedz"), Custom String("S0undw4v3"), Custom String("GHOSTIEǃ"), 
 			Custom String("SapphicWitch"), Custom String("ĴŐĶĔŔ"), Custom String("Avaløn"), Custom String("zovha"), Custom String("pancakes"), 
 			Custom String("Quartz"), Custom String("PurpSkrrt"), Custom String("ÆROLEAƑ"), Custom String("foorelskett"), Custom String("Root"), 
 			Custom String("Lünår")
@@ -1602,7 +1602,7 @@ rule("Player_Rank_Execute")
 
 	actions
 	{
-		Wait(0.010, Ignore Condition);
+		Wait(0.01, Ignore Condition);
 		If(Array Contains(Global.High_Rank, Custom String("{0}", Event Player)));
 			Event Player.High_Rank = True;
 			Event Player.Verification_Key = 2;
@@ -1614,7 +1614,7 @@ rule("Player_Rank_Execute")
 			Event Player.Mod_Rank = True;
 			Event Player.Verification_Key = 1;
 			If(Event Player != Host Player);
-				Skip If(!Event Player.Promoted_Rank || Event Player.Restricted[0], 1);
+				Skip If(Not(Event Player.Promoted_Rank) || Event Player.Restricted[0], 1);
 				Big Message(All Players(All Teams), Custom String("{0} got promoted!", Event Player));
 				Call Subroutine(Hud_Elements);
 			End;
