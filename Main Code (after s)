@@ -1329,7 +1329,7 @@ rule("Custom nameplates list")
 
 			Array(Custom String("Avaløn"), 
 			Custom Color(26, 31, 51, 255),
-			Custom String("{0} ¢αη'ƚ ѕƚσρ ωση'ƚ ѕƚσρ! {0}", Ability Icon String(Hero(Avaløn), Button(Ability 1))), 
+			Custom String("{0} ¢αη'ƚ ѕƚσρ ωση'ƚ ѕƚσρ! {0}", Ability Icon String(Hero(Lúcio), Button(Ability 1))), 
 			Custom String("{0} Ｓｌｅｅｐｙｈｅａｄ {0}", Ability Icon String(Hero(Ana), Button(Ability 1)))), 
 
 			Array(Custom String("pancakes"), 
