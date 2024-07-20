@@ -1298,7 +1298,7 @@ rule("Custom nameplates list")
 			Array(Custom String("GHOSTIEǃ"), 
 			Custom String("Rainbow"), 
 			Custom String("♡ Lostshadow's big sister ♡"), 
-			Custom String("{0} † × FUTURΣ PILΘT × † {0}", Ability Icon String(Hero(Ana), Button(Ability 1)))), 
+			Custom String("{0} × RΛM & SIGMΛ ΣNJOYΣR × {0}", Ability Icon String(Hero(Sombra), Button(Ultimate)))), 
 			
 			Array(Custom String("ByeFever"),
 			Custom Color(157, 29, 16, 255), 
@@ -1329,7 +1329,7 @@ rule("Custom nameplates list")
 
 			Array(Custom String("Avaløn"), 
 			Custom Color(26, 31, 51, 255),
-			Custom String("{0} ¢αη'ƚ ѕƚσρ ωση'ƚ ѕƚσρ! {0}", Ability Icon String(Hero(Genji), Button(Ultimate))), 
+			Custom String("{0} ¢αη'ƚ ѕƚσρ ωση'ƚ ѕƚσρ! {0}", Ability Icon String(Hero(Avaløn), Button(Ability 1))), 
 			Custom String("{0} Ｓｌｅｅｐｙｈｅａｄ {0}", Ability Icon String(Hero(Ana), Button(Ability 1)))), 
 
 			Array(Custom String("pancakes"), 
