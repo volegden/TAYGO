@@ -8,11 +8,6 @@ rule("Custom nameplates list")
 	actions
 	{
 		Global.Titles_And_Outlines = Array(
-			Array(Custom String(" --- "), 
-			Custom String("Fading"), 
-			240, 235, 219, 0, 25, 63,
-			Custom String("♡")), 
-
 			Array(Custom String("Warloy"), 
 			Custom String("Fading"), 
 			51, 153, 102, 0, 102, 153, 
@@ -109,7 +104,7 @@ rule("Custom nameplates list")
 			Array(Custom String("GHOSTIEǃ"), 
 			Custom String("Rainbow"), 
 			Custom String("♡ Lostshadow's big sister ♡"), 
-			Custom String("{0} † × FUTURΣ PILΘT × † {0}", Ability Icon String(Hero(Ana), Button(Ability 1)))), 
+			Custom String("{0} × RΛM & SIGMΛ ΣNJOYΣR × {0}", Ability Icon String(Hero(Sombra), Button(Ultimate)))), 
 			
 			Array(Custom String("ByeFever"),
 			Custom Color(157, 29, 16, 255), 
@@ -128,12 +123,7 @@ rule("Custom nameplates list")
 			Custom Color(204, 153, 255, 255), 
 			Custom String("{0} Tiny Mercy collector {0}", Ability Icon String(Hero(Moira), Button(Ultimate))), 
 			Custom String("{0} Moicy on top {0}", Ability Icon String(Hero(Mercy), Button(Ultimate)))), 
-			
-			Array(Custom String("ŴŖIǾŦHƐSĿƐYǃ"), 
-			Custom Color(180, 126, 222, 255), 
-			Custom String("{0} ☆《  王 子  》☆ {0}", Ability Icon String(Hero(Reaper), Button(Ultimate))), 
-			Custom String("{0} 〖 ƐÏ3 FLΘШƐR PΘШƐR ƐÏ3 〗 {0}", Icon String(Dizzy))), 
-			
+
 			Array(Custom String("MOOOUSH"), 
 			Color(Black), 
 			Custom String("{0} 乂 {0}", Icon String(Ring Thick))),
@@ -145,7 +135,7 @@ rule("Custom nameplates list")
 
 			Array(Custom String("Avaløn"), 
 			Custom Color(26, 31, 51, 255),
-			Custom String("{0} ¢αη'т ѕтσρ ωση'т ѕтσρ! {0}", Ability Icon String(Hero(Genji), Button(Ultimate))), 
+			Custom String("{0} ¢αη'ƚ ѕƚσρ ωση'ƚ ѕƚσρ! {0}", Ability Icon String(Hero(Lúcio), Button(Ability 1))), 
 			Custom String("{0} Ｓｌｅｅｐｙｈｅａｄ {0}", Ability Icon String(Hero(Ana), Button(Ability 1)))), 
 
 			Array(Custom String("pancakes"), 
@@ -185,10 +175,6 @@ rule("Custom nameplates list")
 			Custom Color(18, 10, 143, 255), 
 			Custom String("Cuckoo's Nest"), 
 			Custom String("L'Homme à femmes")), 
-
-			Array(Custom String("foorelskett"), 
-			Custom Color(102, 205, 170, 255), 
-			Custom String("{0} hamster boy {0}", Icon String(Dizzy))),
 
 			Array(Custom String("Quartz"), 
 			Custom Color(6, 98, 70, 255), 
