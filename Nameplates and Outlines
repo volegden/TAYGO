@@ -71,7 +71,7 @@ rule("Custom nameplates list")
 			Array(Custom String("Fenetre"), 
 			Custom Color(255, 255, 255, 255), 
 			Custom String("ω ι и d σ ω"), 
-			Custom String("Potato Gremlin")), 
+			Custom String("Oui Oui Baguette Dude")), 
 
 			Array(Custom String("Visual"), 
 			Color(Black), 
@@ -180,9 +180,13 @@ rule("Custom nameplates list")
 			Custom Color(6, 98, 70, 255), 
 			Custom String("{0} Solo ulting shy {0}", Ability Icon String(Hero(Bastion), Button(Ultimate)))), 
 
-			Array(Custom String("zovha"), 
+			Array(Custom String("KittyLover"), 
 			Custom String("Rainbow"), 
-			Custom String("zovha")), 			
+			Custom String("zovha")),
+
+			Array(Custom String("Hoxy"), 
+			Custom String("Rainbow"), 
+			Custom String("AYAYA")), 		
 
 			Array(Custom String("Lünår"), 
 			Custom Color(138, 103, 194, 255), 
