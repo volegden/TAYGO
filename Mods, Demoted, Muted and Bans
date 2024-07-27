@@ -16,14 +16,14 @@ rule("Listed_Player")
 			Custom String("Bendude1000"), Custom String("Lostshadow"), Custom String("Viktorski"), Custom String("Alex"), Custom String("tsunde"), 
 			Custom String("AvatarGod"), Custom String("TURBOMURO"), Custom String("Fenetre"), Custom String("Stinky"), Custom String("Visual"), 
 			Custom String("ĨŹĂŃĂMĨ"), Custom String("Tedz"), Custom String("S0undw4v3"), Custom String("GHOSTIEǃ"), Custom String("ByeFever"),
-			Custom String("SapphicWitch"), Custom String("ĴŐĶĔŔ"), Custom String("Avaløn"), Custom String("zovha"), Custom String("pancakes"), 
+			Custom String("SapphicWitch"), Custom String("ĴŐĶĔŔ"), Custom String("Avaløn"), Custom String("KittyLover"), Custom String("pancakes"), 
 			Custom String("Quartz"), Custom String("PurpSkrrt"), Custom String("ÆROLEAƑ"), Custom String("Root"), Custom String("Lünår"),
 			Custom String("Frost"), Custom String("godly"), Custom String("Zxtyi")
 			);
 		"Warning List"
 		Global.Warning_List = Array(Custom String(" --- "));
 		"Muted List"
-		Global.Muted_List = Array(Custom String(" --- "));
+		Global.Muted_List = Array(Custom String("DJBASTIOON"), Custom String("DJBastion"), Custom String("Djbastion"), Custom String("DJBASTION!"), Custom String("MrBastion"));
 		"Demoted List"
 		Global.Demoted_List = Array(Custom String(" --- "));
 		"Automatic Ban"
