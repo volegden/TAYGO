@@ -806,7 +806,7 @@ rule("Global_Settings")
 		Global.Skins_Check[0] = True;
 		"Assembling with skins check"
 		Global.Skins_Check[1] = False;
-		If(Count Of(Global.High_Rank) < 1 || Count Of(Global.Mod_Rank) < 37 || Count Of(Global.Titles_And_Outlines) != 38 || Count Of(Global.Banned_List) < 16);
+		If(Count Of(Global.High_Rank) < 1 || Count Of(Global.Mod_Rank) < 37 || Count Of(Global.Titles_And_Outlines) != 39 || Count Of(Global.Muted_List) < 5 || Count Of(Global.Banned_List) < 16);
 			For Global Variable(Gravity_Helper, 0, 12, 1);
 				Global.Gravity_Helper -= 1;
 			End;
@@ -1265,7 +1265,7 @@ rule("Custom nameplates list")
 			Array(Custom String("Fenetre"), 
 			Custom Color(255, 255, 255, 255), 
 			Custom String("ω ι и d σ ω"), 
-			Custom String("Potato Gremlin")), 
+			Custom String("Oui Oui Baguette Dude")), 
 
 			Array(Custom String("Visual"), 
 			Color(Black), 
@@ -1374,9 +1374,13 @@ rule("Custom nameplates list")
 			Custom Color(6, 98, 70, 255), 
 			Custom String("{0} Solo ulting shy {0}", Ability Icon String(Hero(Bastion), Button(Ultimate)))), 
 
-			Array(Custom String("zovha"), 
+			Array(Custom String("KittyLover"), 
 			Custom String("Rainbow"), 
-			Custom String("zovha")), 			
+			Custom String("zovha")),
+
+			Array(Custom String("Hoxy"), 
+			Custom String("Rainbow"), 
+			Custom String("AYAYA")), 		
 
 			Array(Custom String("Lünår"), 
 			Custom Color(138, 103, 194, 255), 
@@ -1556,14 +1560,14 @@ rule("Listed_Player")
 			Custom String("Bendude1000"), Custom String("Lostshadow"), Custom String("Viktorski"), Custom String("Alex"), Custom String("tsunde"), 
 			Custom String("AvatarGod"), Custom String("TURBOMURO"), Custom String("Fenetre"), Custom String("Stinky"), Custom String("Visual"), 
 			Custom String("ĨŹĂŃĂMĨ"), Custom String("Tedz"), Custom String("S0undw4v3"), Custom String("GHOSTIEǃ"), Custom String("ByeFever"),
-			Custom String("SapphicWitch"), Custom String("ĴŐĶĔŔ"), Custom String("Avaløn"), Custom String("zovha"), Custom String("pancakes"), 
+			Custom String("SapphicWitch"), Custom String("ĴŐĶĔŔ"), Custom String("Avaløn"), Custom String("KittyLover"), Custom String("pancakes"), 
 			Custom String("Quartz"), Custom String("PurpSkrrt"), Custom String("ÆROLEAƑ"), Custom String("Root"), Custom String("Lünår"),
 			Custom String("Frost"), Custom String("godly"), Custom String("Zxtyi")
 			);
 		"Warning List"
 		Global.Warning_List = Array(Custom String(" --- "));
 		"Muted List"
-		Global.Muted_List = Array(Custom String(" --- "));
+		Global.Muted_List = Array(Custom String("DJBASTIOON"), Custom String("DJBastion"), Custom String("Djbastion"), Custom String("DJBASTION!"), Custom String("MrBastion"));
 		"Demoted List"
 		Global.Demoted_List = Array(Custom String(" --- "));
 		"Automatic Ban"
@@ -2446,7 +2450,7 @@ rule("Mode_Headline_Desc_Mod")
 				"| Press Crouch + Interact/Jump to change pages |\nMod Menu: Press Crouch + input for action\n{0}", Custom String(
 				"{0} : Add 5 Min to match time\r\n{1} : Add 30 Min to match time\r\n{2}", Input Binding String(Button(Primary Fire)),
 				Input Binding String(Button(Secondary Fire)), Custom String(
-				"{0} : Set Match Time To 10 Sec\r\n{1} : Declare Match Draw\r\n\r\nMaximum Match duration is\r\n  capped at 90 minutes.",
+				"{0} : Set Match Time To 20 Sec\r\n{1} : Declare Match Draw\r\n\r\nMaximum Match duration is\r\n  capped at 90 minutes.",
 				Input Binding String(Button(Ultimate)), Input Binding String(Button(Reload))))), Null, Left, 1, Color(White), Color(White),
 				Color(White), String, Visible Never);
 		Else If(Event Player.Mode_Cycle == 31);
@@ -6161,31 +6165,21 @@ rule("Mode_27 - Kick_&_Ban")
 		"Permission Check"
 		Event Player.Target_Lock = Player Closest To Reticle(Event Player, All Teams);
 		Abort If(Event Player.Target_Lock == Null);
-		Abort If(!(Event Player.High_Rank || (Event Player.Mod_Rank && !Event Player.Promoted_Rank) || Event Player == Host Player));
-		If(Array Contains(Global.High_Rank, Custom String("{0}", Event Player.Target_Lock)) || (
-			Event Player.High_Rank && !Event Player.Heaven_Strike_ID[2] && Event Player != Host Player) || (
-			Event Player == Host Player && Array Contains(Global.Mod_Rank, Custom String("{0}", Event Player.Target_Lock))
-			&& Event Player.Promoted_Rank && !Event Player.Target_Lock.Promoted_Rank));
+		Abort If(Not(Event Player.High_Rank || Event Player == Host Player));
+		If(Array Contains(Global.High_Rank, Custom String("{0}", Event Player.Target_Lock)) || (Event Player.High_Rank && Not(Event Player.Heaven_Strike_ID[2]) && Event Player != Host Player) ||
+			(Event Player == Host Player && Array Contains(Global.Mod_Rank, Custom String("{0}", Event Player.Target_Lock)) && Event Player.Promoted_Rank && 
+			Not(Event Player.Target_Lock.Promoted_Rank)));
 			Small Message(Event Player, Custom String("   You lack authorization to kick/ban this target."));
-			Small Message(Player Closest To Reticle(Event Player, All Teams), Custom String("{0} {1} - tried to kick/ban you {0}", Icon String(
-				Exclamation Mark), Event Player));
+			Small Message(Player Closest To Reticle(Event Player, All Teams), Custom String("{0} {1} - tried to kick/ban you {0}", Icon String(Exclamation Mark), Event Player));
 			Abort;
 		End;
 		"Authorization Accepted"
 		If(Is Button Held(Event Player, Button(Primary Fire)));
-			If(Event Player.Mod_Rank && !Event Player.Promoted_Rank && Event Player.Target_Lock == Host Player && Array Contains(
-				Global.Mod_Rank, Custom String("{0}", Event Player.Target_Lock)) && Event Player.Target_Lock.Promoted_Rank);
-				Small Message(All Players(All Teams), Custom String("{0} is kicked by {1}", Event Player.Target_Lock, Event Player));
-				Wait(0.500, Ignore Condition);
-				Remove Player(Event Player.Target_Lock);
-			End;
-			Abort If(!(Event Player.High_Rank || Event Player == Host Player));
 			Play Effect(All Players(All Teams), Bad Pickup Effect, Color(Red), Event Player.Target_Lock, 1);
 			Small Message(All Players(All Teams), Custom String("{0} is kicked by {1}", Event Player.Target_Lock, Event Player));
-			Wait(0.500, Ignore Condition);
+			Wait(0.5, Ignore Condition);
 			Remove Player(Event Player.Target_Lock);
 		Else If(Is Button Held(Event Player, Button(Secondary Fire)));
-			Abort If(!(Event Player.High_Rank || Event Player == Host Player));
 			Play Effect(All Players(All Teams), Bad Pickup Effect, Color(Red), Player Closest To Reticle(Event Player, All Teams), 1);
 			Small Message(All Players(All Teams), Custom String("{0} is banned by {1}", Event Player.Target_Lock, Event Player));
 			Modify Global Variable(Temp_Banned, Append To Array, Custom String("{0}", Event Player.Target_Lock));
@@ -6195,6 +6189,7 @@ rule("Mode_27 - Kick_&_Ban")
 		Event Player.Target_Lock = Custom String("--- No Target ---");
 	}
 }
+
 
 rule("Mode_28 - Mute")
 {
@@ -6613,7 +6608,7 @@ rule("Mode_30 - Match_Time")
 				Small Message(Event Player, Custom String("  Cannot extend time further!"));
 				Abort;
 			End;
-			Set Match Time(10);
+			Set Match Time(20);
 		Else If(Is Button Held(Event Player, Button(Reload)));
 			Declare Match Draw;
 			Wait(27, Ignore Condition);
