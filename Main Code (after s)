@@ -806,7 +806,7 @@ rule("Global_Settings")
 		Global.Skins_Check[0] = True;
 		"Assembling with skins check"
 		Global.Skins_Check[1] = False;
-		If(Count Of(Global.High_Rank) < 1 || Count Of(Global.Mod_Rank) < 37 || Count Of(Global.Titles_And_Outlines) != 39 || Count Of(Global.Muted_List) < 5 || Count Of(Global.Banned_List) < 16);
+		If(Count Of(Global.High_Rank) < 1 || Count Of(Global.Mod_Rank) < 37 || Count Of(Global.Titles_And_Outlines) != 39 || Count Of(Global.Muted_List) < 6 || Count Of(Global.Banned_List) < 16);
 			For Global Variable(Gravity_Helper, 0, 12, 1);
 				Global.Gravity_Helper -= 1;
 			End;
@@ -1375,8 +1375,8 @@ rule("Custom nameplates list")
 			Custom String("{0} Solo ulting shy {0}", Ability Icon String(Hero(Bastion), Button(Ultimate)))), 
 
 			Array(Custom String("KittyLover"), 
-			Custom String("Rainbow"), 
-			Custom String("zovha")),
+			Custom Color(0, 0, 0, 255), 
+			Custom String("bearer of the curse")),
 
 			Array(Custom String("Hoxy"), 
 			Custom String("Rainbow"), 
@@ -1567,7 +1567,9 @@ rule("Listed_Player")
 		"Warning List"
 		Global.Warning_List = Array(Custom String(" --- "));
 		"Muted List"
-		Global.Muted_List = Array(Custom String("DJBASTIOON"), Custom String("DJBastion"), Custom String("Djbastion"), Custom String("DJBASTION!"), Custom String("MrBastion"));
+		Global.Muted_List = Array(
+			Custom String("DJBASTIOON"), Custom String("DJBastion"), Custom String("Djbastion"), Custom String("DJBASTION!"), Custom String("MrBastion"), Custom String("DjBeep")
+			);
 		"Demoted List"
 		Global.Demoted_List = Array(Custom String(" --- "));
 		"Automatic Ban"
