@@ -806,7 +806,7 @@ rule("Global_Settings")
 		Global.Skins_Check[0] = True;
 		"Assembling with skins check"
 		Global.Skins_Check[1] = False;
-		If(Count Of(Global.High_Rank) < 1 || Count Of(Global.Mod_Rank) < 37 || Count Of(Global.Titles_And_Outlines) != 39 || Count Of(Global.Muted_List) < 6 || Count Of(Global.Banned_List) < 17);
+		If(Count Of(Global.High_Rank) < 1 || Count Of(Global.Mod_Rank) < 37 || Count Of(Global.Titles_And_Outlines) != 39 || Count Of(Global.Muted_List) < 6 || Count Of(Global.Banned_List) < 19);
 			For Global Variable(Gravity_Helper, 0, 12, 1);
 				Global.Gravity_Helper -= 1;
 			End;
@@ -1576,7 +1576,8 @@ rule("Listed_Player")
 		Global.Banned_List = Array(Custom String("xMaxuss"), Custom String("HYUA"), Custom String("BebeUwU"), 
 			Custom String("HOÑEYBEE"), Custom String("Dead"), Custom String("chii"), Custom String("WÃFFLĚS"), Custom String("CuddleBunny"), 
 			Custom String("ǃSHAY"), Custom String("Axem"), Custom String("BlueSky"), Custom String("Leafar"), Custom String("pupi"), 
-			Custom String("xhamelly"), Custom String("ǁHafocfugelǁ"), Custom String("NOCTǃS"), Custom String("dior"));
+			Custom String("xhamelly"), Custom String("ǁHafocfugelǁ"), Custom String("NOCTǃS"), Custom String("dior"), Custom String("pearls"),
+			Custom String("SKARAB"));
 	}
 }
 
