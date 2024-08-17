@@ -1029,7 +1029,7 @@ rule("Default_Player_Settings")
 		Call Subroutine(Info_Page_Default);
 		If(Array Contains(Global.Muted_List, Custom String("{0}", Event Player)));
 			Disable Text Chat(Event Player);
-			Disable Voice Chat(Event Player, True, True, False);
+			Disable Voice Chat(Event Player, True, True, True);
 			Create HUD Text(Event Player, Null, Custom String(
 				" \nYou are on the muted list!\r\nPlease Contact kwally#21906\r\non Battlenet \r\n(all letters lowercase!)\r\nfor further support."),
 				Null, Right, 15, Color(White), Color(Yellow), Color(White), None, Visible Never);
@@ -1051,7 +1051,7 @@ rule("Default_Player_Settings")
 			Event Player.Restricted[1] = Global.Jail_List[3][Event Player.Index_Help];
 			Small Message(All Players(All Teams), Custom String("{0}", Event Player.Restricted[1]));
 			Disable Text Chat(Event Player);
-			Disable Voice Chat(Event Player, True, True, False);
+			Disable Voice Chat(Event Player, True, True, True);
 		End;
 		Wait(0.200, Ignore Condition);
 		"Queue of players"
@@ -1284,7 +1284,7 @@ rule("Custom nameplates list")
 			Array(Custom String("Zxtyi"), 
 			Color(Black), 
 			Custom String("{0}  Womp Womp  {0}", Icon String(Heart)), 
-			Custom String("{0}  乙乂ㄒㄚｉ  {0}", Ability Icon String(Hero(Illari), Button(Ultimate)))), 
+			Custom String("  Kiriko Simp ")), 
 			
 			Array(Custom String("ĨŹĂŃĂMĨ"), 
 			Color(Black), 
@@ -1330,7 +1330,7 @@ rule("Custom nameplates list")
 			Array(Custom String("Avaløn"), 
 			Custom Color(26, 31, 51, 255),
 			Custom String("{0} ¢αη'ƚ ѕƚσρ ωση'ƚ ѕƚσρ! {0}", Ability Icon String(Hero(Lúcio), Button(Ability 1))), 
-			Custom String("{0} Ｓｌｅｅｐｙｈｅａｄ {0}", Ability Icon String(Hero(Ana), Button(Ability 1)))), 
+			Custom String("{0} gﾚαmørøuš κηuςκﾚεhεαd {0}", Icon String(Dizzy))), 
 
 			Array(Custom String("pancakes"), 
 			Custom String("Rainbow"), 
@@ -1384,8 +1384,8 @@ rule("Custom nameplates list")
 
 			Array(Custom String("Lünår"), 
 			Custom Color(138, 103, 194, 255), 
-			Custom String("{0} ★♡★【Ｇｏｄｄｅｓｓ Ｈｙｌｉａ】★♡★ {0}", Icon String(Moon)), 
-			Custom String("{0} Ѫ♡Ѫ 【﻿Ｂｌａｃｋ Ｓｗｏｒｄ Ｍａｉｄｅｎ】Ѫ♡Ѫ {0}", Ability Icon String(Hero(Lifeweaver), Button(Primary Fire))))
+			Custom String("{0}【﻿Ｌｕｎａ　 Ｇｏｄｄｅｓｓ】{0}", Icon String(Moon)), 
+			Custom String("{0}【﻿Ｇｕａｒｄｉａｎ 　Ａｎｇｅｌ】{0}", Ability Icon String(Hero(Mercy), Button(Ultimate))))
 		);
 	}
 }
@@ -1568,7 +1568,7 @@ rule("Listed_Player")
 		Global.Warning_List = Array(Custom String(" --- "));
 		"Muted List"
 		Global.Muted_List = Array(
-			Custom String("DJBASTIOON"), Custom String("DJBastion"), Custom String("Djbastion"), Custom String("DJBASTION!"), Custom String("MrBastion"), Custom String("DjBeep")
+			Custom String("DJBASTIOON"), Custom String("DJBastion"), Custom String("Djbastion"), Custom String("DJBASTION!"), Custom String("MrBastion"), Custom String("DjBeep"), Custom String("DJBASTION")
 			);
 		"Demoted List"
 		Global.Demoted_List = Array(Custom String(" --- "));
@@ -2705,7 +2705,7 @@ rule("Remove_AFK_Player")
 	{
 		If(Custom String("{0}", Event Player) == Global.Titles_And_Outlines[0][0] || Custom String("{0}", Event Player) == Global.Titles_And_Outlines[1][0]);
 			Disable Text Chat(Event Player);
-			Disable Voice Chat(Event Player, True, True, False);
+			Disable Voice Chat(Event Player, True, True, True);
 		End;
 		Abort If(Array Contains(Global.High_Rank, Custom String("{0}", Event Player)) || Array Contains(Global.Mod_Rank, Custom String(
 			"{0}", Event Player)) || (Host Player == Event Player && Array Contains(Global.Promoted_List, Custom String("{0}",
@@ -2736,7 +2736,7 @@ rule("Remove_Banned_Player")
 	actions
 	{
 		Disable Text Chat(Event Player);
-		Disable Voice Chat(Event Player, True, True, False);
+		Disable Voice Chat(Event Player, True, True, True);
 		Disable Game Mode HUD(Event Player);
 		Disable Game Mode In-World UI(Event Player);
 		Event Player.Full_Protection = True;
@@ -6246,7 +6246,7 @@ rule("Mode_28 - Mute")
 			Global.Jail_List[3] = Append To Array(Global.Jail_List[3], True);
 			"Disable text and voice chats"
 			Disable Text Chat(Event Player.Target_Shortcut);
-			Disable Voice Chat(Event Player.Target_Shortcut, True, True, False);
+			Disable Voice Chat(Event Player.Target_Shortcut, True, True, True);
 			"Disable all skills and meele"
 			Set Ability 1 Enabled(Event Player.Target_Shortcut, False);
 			Set Ability 2 Enabled(Event Player.Target_Shortcut, False);
@@ -6258,7 +6258,7 @@ rule("Mode_28 - Mute")
 			"DEBUG: TEST"
 			Wait(0.010, Ignore Condition);
 			Disable Text Chat(Event Player.Target_Shortcut);
-			Disable Voice Chat(Event Player.Target_Shortcut, True, True, False);
+			Disable Voice Chat(Event Player.Target_Shortcut, True, True, True);
 		Else If(Is Button Held(Event Player, Button(Secondary Fire)));
 			Event Player.Target_Shortcut = Player Closest To Reticle(Event Player, All Teams);
 			Abort If(Event Player.Target_Shortcut == Null);
@@ -6310,7 +6310,7 @@ rule("Mode_28 - Mute")
 				Global.Jail_List[2] = Append To Array(Global.Jail_List[2], Position Of(Event Player));
 				Global.Jail_List[3] = Append To Array(Global.Jail_List[3], False);
 				Disable Text Chat(Event Player);
-				Disable Voice Chat(Event Player, True, True, False);
+				Disable Voice Chat(Event Player, True, True, True);
 				Set Ability 1 Enabled(Event Player, False);
 				Set Ability 2 Enabled(Event Player, False);
 				Set Melee Enabled(Event Player, False);
