@@ -90,7 +90,7 @@ rule("Custom nameplates list")
 			Array(Custom String("Zxtyi"), 
 			Color(Black), 
 			Custom String("{0}  Womp Womp  {0}", Icon String(Heart)), 
-			Custom String("{0}  乙乂ㄒㄚｉ  {0}", Ability Icon String(Hero(Illari), Button(Ultimate)))), 
+			Custom String("  Kiriko Simp ")), 
 			
 			Array(Custom String("ĨŹĂŃĂMĨ"), 
 			Color(Black), 
@@ -136,7 +136,7 @@ rule("Custom nameplates list")
 			Array(Custom String("Avaløn"), 
 			Custom Color(26, 31, 51, 255),
 			Custom String("{0} ¢αη'ƚ ѕƚσρ ωση'ƚ ѕƚσρ! {0}", Ability Icon String(Hero(Lúcio), Button(Ability 1))), 
-			Custom String("{0} Ｓｌｅｅｐｙｈｅａｄ {0}", Ability Icon String(Hero(Ana), Button(Ability 1)))), 
+			Custom String("{0} gﾚαmørøuš κηuςκﾚεhεαd {0}", Icon String(Dizzy))), 
 
 			Array(Custom String("pancakes"), 
 			Custom String("Rainbow"), 
@@ -181,8 +181,8 @@ rule("Custom nameplates list")
 			Custom String("{0} Solo ulting shy {0}", Ability Icon String(Hero(Bastion), Button(Ultimate)))), 
 
 			Array(Custom String("KittyLover"), 
-			Custom String("Rainbow"), 
-			Custom String("zovha")),
+			Custom Color(0, 0, 0, 255), 
+			Custom String("bearer of the curse")),
 
 			Array(Custom String("Hoxy"), 
 			Custom String("Rainbow"), 
@@ -190,8 +190,8 @@ rule("Custom nameplates list")
 
 			Array(Custom String("Lünår"), 
 			Custom Color(138, 103, 194, 255), 
-			Custom String("{0} ★♡★【Ｇｏｄｄｅｓｓ Ｈｙｌｉａ】★♡★ {0}", Icon String(Moon)), 
-			Custom String("{0} Ѫ♡Ѫ 【﻿Ｂｌａｃｋ Ｓｗｏｒｄ Ｍａｉｄｅｎ】Ѫ♡Ѫ {0}", Ability Icon String(Hero(Lifeweaver), Button(Primary Fire))))
+			Custom String("{0}【﻿Ｌｕｎａ　 Ｇｏｄｄｅｓｓ】{0}", Icon String(Moon)), 
+			Custom String("{0}【﻿Ｇｕａｒｄｉａｎ 　Ａｎｇｅｌ】{0}", Ability Icon String(Hero(Mercy), Button(Ultimate))))
 		);
 	}
 }
