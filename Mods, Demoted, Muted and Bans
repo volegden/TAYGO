@@ -24,7 +24,7 @@ rule("Listed_Player")
 		Global.Warning_List = Array(Custom String(" --- "));
 		"Muted List"
 		Global.Muted_List = Array(
-			Custom String("DJBASTIOON"), Custom String("DJBastion"), Custom String("Djbastion"), Custom String("DJBASTION!"), Custom String("MrBastion"), Custom String("DjBeep")
+			Custom String("DJBASTIOON"), Custom String("DJBastion"), Custom String("Djbastion"), Custom String("DJBASTION!"), Custom String("MrBastion"), Custom String("DjBeep"), Custom String("DJBASTION")
 			);
 		"Demoted List"
 		Global.Demoted_List = Array(Custom String(" --- "));
