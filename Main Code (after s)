@@ -8648,6 +8648,14 @@ rule("Teleports and Moe Position")
 			Array(Map(Busan Downtown Lunar New Year), Vector(51.900, 21.400, -127.300)),
 			Array(Map(Busan Sanctuary Lunar New Year), Vector(-328.900, 8.070, 179.330)),
 			Array(
+				Map(Hanaoka), 
+				Vector(-57.07, 42.91, 107.97)
+				),
+			Array(
+				Map(Throne of Anubis), 
+				Vector(-1.03, 4.33, 89.10)
+				),
+			Array(
 				Map(New Queen Street), 
 				Vector(-53, 2, -5.250),
 
@@ -8889,7 +8897,10 @@ rule("Teleports and Moe Position")
 				Vector(-16.780, -2.150, 52.180), 
 				Vector(-30.920, -2.140, 53.340)
 				),
-			Array(Map(Runasapi), Vector(27.00, 0.00, 1.22))
+			Array(
+				Map(Runasapi), 
+				Vector(27.00, 0.00, 1.22)
+				)
 		);
 
 		Wait(15, Ignore Condition);
