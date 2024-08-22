@@ -815,7 +815,7 @@ rule("Global_Settings")
 		Global.Skins_Check[0] = True;
 		"Assembling with skins check"
 		Global.Skins_Check[1] = False;
-		If(Count Of(Global.High_Rank) < 1 || Count Of(Global.Mod_Rank) < 36 || Count Of(Global.Titles_And_Outlines) != 38 || Count Of(Global.Muted_List) < 6 || Count Of(Global.Banned_List) < 19);
+		If(Count Of(Global.High_Rank) < 1 || Count Of(Global.Mod_Rank) < 36 || Count Of(Global.Titles_And_Outlines) != 38 || Count Of(Global.Muted_List) < 10 || Count Of(Global.Banned_List) < 20);
 			For Global Variable(Gravity_Helper, 0, 12, 1);
 				Global.Gravity_Helper -= 1;
 			End;
@@ -1566,14 +1566,13 @@ rule("Listed_Player")
 			Custom String("ĨŹĂŃĂMĨ"), Custom String("Tedz"), Custom String("S0undw4v3"), Custom String("GHOSTIEǃ"), Custom String("ByeFever"),
 			Custom String("SapphicWitch"), Custom String("ĴŐĶĔŔ"), Custom String("Avaløn"), Custom String("KittyLover"), Custom String("pancakes"), 
 			Custom String("Quartz"), Custom String("PurpSkrrt"), Custom String("ÆROLEAƑ"), Custom String("Root"), Custom String("Lünår"),
-			Custom String("Frost"), Custom String("godly"), Custom String("Zxtyi")
-			);
+			Custom String("Frost"), Custom String("godly"), Custom String("Zxtyi"));
 		"Warning List"
 		Global.Warning_List = Array(Custom String(" --- "));
 		"Muted List"
 		Global.Muted_List = Array(
-			Custom String("DJBASTIOON"), Custom String("DJBastion"), Custom String("Djbastion"), Custom String("DJBASTION!"), Custom String("MrBastion"), Custom String("DjBeep"), Custom String("DJBASTION")
-			);
+			Custom String("DJBASTIOON"), Custom String("DJBastion"), Custom String("Djbastion"), Custom String("DJBASTION!"), Custom String("MrBastion"),
+			Custom String("DjBeep"), Custom String("DJBASTION"), Custom String("ĹȄȀƑ"), Custom String("Loxy"), Custom String("rƗkku"));
 		"Demoted List"
 		Global.Demoted_List = Array(Custom String(" --- "));
 		"Automatic Ban"
@@ -1581,7 +1580,7 @@ rule("Listed_Player")
 			Custom String("HOÑEYBEE"), Custom String("Dead"), Custom String("chii"), Custom String("WÃFFLĚS"), Custom String("CuddleBunny"), 
 			Custom String("ǃSHAY"), Custom String("Axem"), Custom String("BlueSky"), Custom String("Leafar"), Custom String("pupi"), 
 			Custom String("xhamelly"), Custom String("ǁHafocfugelǁ"), Custom String("NOCTǃS"), Custom String("dior"), Custom String("pearls"),
-			Custom String("SKARAB"));
+			Custom String("SKARAB"), Custom String("LUŊAƑREƔA"));
 	}
 }
 
