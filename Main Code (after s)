@@ -1271,11 +1271,6 @@ rule("Custom nameplates list")
 			Custom String("{0} HIGHSPEED {0}", Ability Icon String(Hero(Genji), Button(Ability 1))), 
 			Custom String("{0} ARMY OF TWO {0}", Ability Icon String(Hero(Ramattra), Button(Ability 1)))), 
 
-			Array(Custom String("Fenetre"), 
-			Custom Color(255, 255, 255, 255), 
-			Custom String("ω ι и d σ ω"), 
-			Custom String("Oui Oui Baguette Dude")), 
-
 			Array(Custom String("Visual"), 
 			Color(Black), 
 			Custom String("† Kwally's kitten †")), 
@@ -1567,7 +1562,7 @@ rule("Listed_Player")
 			Custom String("Warloy"), Custom String("kwally"), Custom String("xskĳ"), Custom String("Toguro"), Custom String("Hoxy"), 
 			Custom String("MOOOUSH"), Custom String("Xenolysith"), Custom String("Leestick"), Custom String("Bratty"), Custom String("Ɛthereal"),  
 			Custom String("Bendude1000"), Custom String("Lostshadow"), Custom String("Viktorski"), Custom String("Alex"), Custom String("tsunde"), 
-			Custom String("AvatarGod"), Custom String("TURBOMURO"), Custom String("Fenetre"), Custom String("Stinky"), Custom String("Visual"), 
+			Custom String("AvatarGod"), Custom String("TURBOMURO"), Custom String("Stinky"), Custom String("Visual"), 
 			Custom String("ĨŹĂŃĂMĨ"), Custom String("Tedz"), Custom String("S0undw4v3"), Custom String("GHOSTIEǃ"), Custom String("ByeFever"),
 			Custom String("SapphicWitch"), Custom String("ĴŐĶĔŔ"), Custom String("Avaløn"), Custom String("KittyLover"), Custom String("pancakes"), 
 			Custom String("Quartz"), Custom String("PurpSkrrt"), Custom String("ÆROLEAƑ"), Custom String("Root"), Custom String("Lünår"),
