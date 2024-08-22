@@ -68,11 +68,6 @@ rule("Custom nameplates list")
 			Custom String("{0} HIGHSPEED {0}", Ability Icon String(Hero(Genji), Button(Ability 1))), 
 			Custom String("{0} ARMY OF TWO {0}", Ability Icon String(Hero(Ramattra), Button(Ability 1)))), 
 
-			Array(Custom String("Fenetre"), 
-			Custom Color(255, 255, 255, 255), 
-			Custom String("ω ι и d σ ω"), 
-			Custom String("Oui Oui Baguette Dude")), 
-
 			Array(Custom String("Visual"), 
 			Color(Black), 
 			Custom String("† Kwally's kitten †")), 
