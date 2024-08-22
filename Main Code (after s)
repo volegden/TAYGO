@@ -815,7 +815,7 @@ rule("Global_Settings")
 		Global.Skins_Check[0] = True;
 		"Assembling with skins check"
 		Global.Skins_Check[1] = False;
-		If(Count Of(Global.High_Rank) < 1 || Count Of(Global.Mod_Rank) < 37 || Count Of(Global.Titles_And_Outlines) != 39 || Count Of(Global.Muted_List) < 6 || Count Of(Global.Banned_List) < 19);
+		If(Count Of(Global.High_Rank) < 1 || Count Of(Global.Mod_Rank) < 36 || Count Of(Global.Titles_And_Outlines) != 38 || Count Of(Global.Muted_List) < 6 || Count Of(Global.Banned_List) < 19);
 			For Global Variable(Gravity_Helper, 0, 12, 1);
 				Global.Gravity_Helper -= 1;
 			End;
