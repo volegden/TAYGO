@@ -18,7 +18,7 @@ rule("Listed_Player")
 			Custom String("ĨŹĂŃĂMĨ"), Custom String("Tedz"), Custom String("S0undw4v3"), Custom String("GHOSTIEǃ"), Custom String("ByeFever"),
 			Custom String("SapphicWitch"), Custom String("ĴŐĶĔŔ"), Custom String("Avaløn"), Custom String("KittyLover"), Custom String("pancakes"), 
 			Custom String("Quartz"), Custom String("PurpSkrrt"), Custom String("ÆROLEAƑ"), Custom String("Root"), Custom String("Lünår"),
-			Custom String("Frost"), Custom String("godly"), Custom String("Zxtyi"));
+			Custom String("Frost"), Custom String("godly"), Custom String("Zxtyi"), Custom String("Shady"));
 		"Warning List"
 		Global.Warning_List = Array(Custom String(" --- "));
 		"Muted List"
