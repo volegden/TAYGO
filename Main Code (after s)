@@ -815,7 +815,7 @@ rule("Global_Settings")
 		Global.Skins_Check[0] = True;
 		"Assembling with skins check"
 		Global.Skins_Check[1] = False;
-		If(Count Of(Global.High_Rank) < 1 || Count Of(Global.Mod_Rank) < 36 || Count Of(Global.Titles_And_Outlines) != 38 || Count Of(Global.Muted_List) < 10 || Count Of(Global.Banned_List) < 20);
+		If(Count Of(Global.High_Rank) < 1 || Count Of(Global.Mod_Rank) < 37 || Count Of(Global.Titles_And_Outlines) != 39 || Count Of(Global.Muted_List) < 10 || Count Of(Global.Banned_List) < 20);
 			For Global Variable(Gravity_Helper, 0, 12, 1);
 				Global.Gravity_Helper -= 1;
 			End;
@@ -1388,8 +1388,13 @@ rule("Custom nameplates list")
 
 			Array(Custom String("Lünår"), 
 			Custom Color(138, 103, 194, 255), 
-			Custom String("{0}【﻿Ｌｕｎａ　 Ｇｏｄｄｅｓｓ】{0}", Icon String(Moon)), 
-			Custom String("{0}【﻿Ｇｕａｒｄｉａｎ 　Ａｎｇｅｌ】{0}", Ability Icon String(Hero(Mercy), Button(Ultimate))))
+			Custom String("{0}【 Ｌｕｎａ　 Ｇｏｄｄｅｓｓ】{0}", Icon String(Moon)), 
+			Custom String("{0}【 Ｇｕａｒｄｉａｎ 　Ａｎｇｅｌ】{0}", Ability Icon String(Hero(Mercy), Button(Ultimate)))),
+			
+			Array(Custom String("Shady"),
+			Custom String("Rainbow"),
+            Custom String("{0} I love when you count me out {0}", Ability Icon String(Hero(Mercy), Button(Ultimate))),
+			Custom String("{0} You gon' think about me when i'm gone {0}", Icon String(Dizzy)))
 		);
 	}
 }
@@ -1566,7 +1571,7 @@ rule("Listed_Player")
 			Custom String("ĨŹĂŃĂMĨ"), Custom String("Tedz"), Custom String("S0undw4v3"), Custom String("GHOSTIEǃ"), Custom String("ByeFever"),
 			Custom String("SapphicWitch"), Custom String("ĴŐĶĔŔ"), Custom String("Avaløn"), Custom String("KittyLover"), Custom String("pancakes"), 
 			Custom String("Quartz"), Custom String("PurpSkrrt"), Custom String("ÆROLEAƑ"), Custom String("Root"), Custom String("Lünår"),
-			Custom String("Frost"), Custom String("godly"), Custom String("Zxtyi"));
+			Custom String("Frost"), Custom String("godly"), Custom String("Zxtyi"), Custom String("Shady"));
 		"Warning List"
 		Global.Warning_List = Array(Custom String(" --- "));
 		"Muted List"
