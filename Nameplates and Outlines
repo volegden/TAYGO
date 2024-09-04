@@ -185,8 +185,13 @@ rule("Custom nameplates list")
 
 			Array(Custom String("Lünår"), 
 			Custom Color(138, 103, 194, 255), 
-			Custom String("{0}【﻿Ｌｕｎａ　 Ｇｏｄｄｅｓｓ】{0}", Icon String(Moon)), 
-			Custom String("{0}【﻿Ｇｕａｒｄｉａｎ 　Ａｎｇｅｌ】{0}", Ability Icon String(Hero(Mercy), Button(Ultimate))))
+			Custom String("{0}【 Ｌｕｎａ　 Ｇｏｄｄｅｓｓ】{0}", Icon String(Moon)), 
+			Custom String("{0}【 Ｇｕａｒｄｉａｎ 　Ａｎｇｅｌ】{0}", Ability Icon String(Hero(Mercy), Button(Ultimate)))),
+			
+			Array(Custom String("Shady"),
+			Custom String("Rainbow"),
+            Custom String("{0} I love when you count me out {0}", Ability Icon String(Hero(Mercy), Button(Ultimate))),
+			Custom String("{0} You gon' think about me when i'm gone {0}", Icon String(Dizzy)))
 		);
 	}
 }
