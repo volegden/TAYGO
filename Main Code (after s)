@@ -815,7 +815,7 @@ rule("Global_Settings")
 		Global.Skins_Check[0] = True;
 		"Assembling with skins check"
 		Global.Skins_Check[1] = False;
-		If(Count Of(Global.High_Rank) < 1 || Count Of(Global.Mod_Rank) < 37 || Count Of(Global.Titles_And_Outlines) != 39 || Count Of(Global.Muted_List) < 10 || Count Of(Global.Banned_List) < 20);
+		If(Count Of(Global.High_Rank) < 1 || Count Of(Global.Mod_Rank) < 38 || Count Of(Global.Titles_And_Outlines) != 40 || Count Of(Global.Muted_List) < 10 || Count Of(Global.Banned_List) < 22);
 			For Global Variable(Gravity_Helper, 0, 12, 1);
 				Global.Gravity_Helper -= 1;
 			End;
@@ -1378,7 +1378,7 @@ rule("Custom nameplates list")
 			Custom Color(6, 98, 70, 255), 
 			Custom String("{0} Solo ulting shy {0}", Ability Icon String(Hero(Bastion), Button(Ultimate)))), 
 
-			Array(Custom String("KittyLover"), 
+			Array(Custom String("zovha"), 
 			Custom Color(0, 0, 0, 255), 
 			Custom String("bearer of the curse")),
 
@@ -1394,7 +1394,12 @@ rule("Custom nameplates list")
 			Array(Custom String("Shady"),
 			Custom String("Rainbow"),
             Custom String("{0} I love when you count me out {0}", Ability Icon String(Hero(Mercy), Button(Ultimate))),
-			Custom String("{0} You gon' think about me when i'm gone {0}", Icon String(Dizzy)))
+			Custom String("{0} You gon' think about me when i'm gone {0}", Icon String(Dizzy))),
+
+			Array(Custom String("Scooby"), 
+			Custom Color(255, 255, 255, 255), 
+			Custom String("{0} Scooby Dooby Doooo! {0}", Ability Icon String(Hero(Kiriko), Button(Ultimate))), 
+			Custom String("{0} Ultra Instinc Shaggy {0}", Ability Icon String(Hero(Reaper), Button(Ability 1))))
 		);
 	}
 }
@@ -1569,9 +1574,9 @@ rule("Listed_Player")
 			Custom String("Bendude1000"), Custom String("Lostshadow"), Custom String("Viktorski"), Custom String("Alex"), Custom String("tsunde"), 
 			Custom String("AvatarGod"), Custom String("TURBOMURO"), Custom String("Stinky"), Custom String("Visual"), 
 			Custom String("ĨŹĂŃĂMĨ"), Custom String("Tedz"), Custom String("S0undw4v3"), Custom String("GHOSTIEǃ"), Custom String("ByeFever"),
-			Custom String("SapphicWitch"), Custom String("ĴŐĶĔŔ"), Custom String("Avaløn"), Custom String("KittyLover"), Custom String("pancakes"), 
+			Custom String("SapphicWitch"), Custom String("ĴŐĶĔŔ"), Custom String("Avaløn"), Custom String("zovha"), Custom String("pancakes"), 
 			Custom String("Quartz"), Custom String("PurpSkrrt"), Custom String("ÆROLEAƑ"), Custom String("Root"), Custom String("Lünår"),
-			Custom String("Frost"), Custom String("godly"), Custom String("Zxtyi"), Custom String("Shady"));
+			Custom String("Frost"), Custom String("godly"), Custom String("Zxtyi"), Custom String("Shady"), Custom String("Scooby"));
 		"Warning List"
 		Global.Warning_List = Array(Custom String(" --- "));
 		"Muted List"
@@ -1585,7 +1590,7 @@ rule("Listed_Player")
 			Custom String("HOÑEYBEE"), Custom String("Dead"), Custom String("chii"), Custom String("WÃFFLĚS"), Custom String("CuddleBunny"), 
 			Custom String("ǃSHAY"), Custom String("Axem"), Custom String("BlueSky"), Custom String("Leafar"), Custom String("pupi"), 
 			Custom String("xhamelly"), Custom String("ǁHafocfugelǁ"), Custom String("NOCTǃS"), Custom String("dior"), Custom String("pearls"),
-			Custom String("SKARAB"), Custom String("LUŊAƑREƔA"));
+			Custom String("SKARAB"), Custom String("LUŊAƑREƔA"), Custom String("SĦĨŊSOȔǃ"), Custom String("Nÿx"));
 	}
 }
 
