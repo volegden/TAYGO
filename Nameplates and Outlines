@@ -175,7 +175,7 @@ rule("Custom nameplates list")
 			Custom Color(6, 98, 70, 255), 
 			Custom String("{0} Solo ulting shy {0}", Ability Icon String(Hero(Bastion), Button(Ultimate)))), 
 
-			Array(Custom String("KittyLover"), 
+			Array(Custom String("zovha"), 
 			Custom Color(0, 0, 0, 255), 
 			Custom String("bearer of the curse")),
 
@@ -191,7 +191,12 @@ rule("Custom nameplates list")
 			Array(Custom String("Shady"),
 			Custom String("Rainbow"),
             Custom String("{0} I love when you count me out {0}", Ability Icon String(Hero(Mercy), Button(Ultimate))),
-			Custom String("{0} You gon' think about me when i'm gone {0}", Icon String(Dizzy)))
+			Custom String("{0} You gon' think about me when i'm gone {0}", Icon String(Dizzy))),
+
+			Array(Custom String("Scooby"), 
+			Custom Color(255, 255, 255, 255), 
+			Custom String("{0} Scooby Dooby Doooo! {0}", Ability Icon String(Hero(Kiriko), Button(Ultimate))), 
+			Custom String("{0} Ultra Instinc Shaggy {0}", Ability Icon String(Hero(Reaper), Button(Ability 1))))
 		);
 	}
 }
