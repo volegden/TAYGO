@@ -16,9 +16,9 @@ rule("Listed_Player")
 			Custom String("Bendude1000"), Custom String("Lostshadow"), Custom String("Viktorski"), Custom String("Alex"), Custom String("tsunde"), 
 			Custom String("AvatarGod"), Custom String("TURBOMURO"), Custom String("Stinky"), Custom String("Visual"), 
 			Custom String("ĨŹĂŃĂMĨ"), Custom String("Tedz"), Custom String("S0undw4v3"), Custom String("GHOSTIEǃ"), Custom String("ByeFever"),
-			Custom String("SapphicWitch"), Custom String("ĴŐĶĔŔ"), Custom String("Avaløn"), Custom String("KittyLover"), Custom String("pancakes"), 
+			Custom String("SapphicWitch"), Custom String("ĴŐĶĔŔ"), Custom String("Avaløn"), Custom String("zovha"), Custom String("pancakes"), 
 			Custom String("Quartz"), Custom String("PurpSkrrt"), Custom String("ÆROLEAƑ"), Custom String("Root"), Custom String("Lünår"),
-			Custom String("Frost"), Custom String("godly"), Custom String("Zxtyi"), Custom String("Shady"));
+			Custom String("Frost"), Custom String("godly"), Custom String("Zxtyi"), Custom String("Shady"), Custom String("Scooby"));
 		"Warning List"
 		Global.Warning_List = Array(Custom String(" --- "));
 		"Muted List"
@@ -32,6 +32,6 @@ rule("Listed_Player")
 			Custom String("HOÑEYBEE"), Custom String("Dead"), Custom String("chii"), Custom String("WÃFFLĚS"), Custom String("CuddleBunny"), 
 			Custom String("ǃSHAY"), Custom String("Axem"), Custom String("BlueSky"), Custom String("Leafar"), Custom String("pupi"), 
 			Custom String("xhamelly"), Custom String("ǁHafocfugelǁ"), Custom String("NOCTǃS"), Custom String("dior"), Custom String("pearls"),
-			Custom String("SKARAB"), Custom String("LUŊAƑREƔA"));
+			Custom String("SKARAB"), Custom String("LUŊAƑREƔA"), Custom String("SĦĨŊSOȔǃ"), Custom String("Nÿx"));
 	}
 }
