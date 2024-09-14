@@ -815,7 +815,7 @@ rule("Global_Settings")
 		Global.Skins_Check[0] = True;
 		"Assembling with skins check"
 		Global.Skins_Check[1] = False;
-		If(Count Of(Global.High_Rank) < 1 || Count Of(Global.Mod_Rank) < 37 || Count Of(Global.Titles_And_Outlines) != 40 || Count Of(Global.Muted_List) < 10 || Count Of(Global.Banned_List) < 22);
+		If(Count Of(Global.High_Rank) < 1 || Count Of(Global.Mod_Rank) < 38 || Count Of(Global.Titles_And_Outlines) != 40 || Count Of(Global.Muted_List) < 10 || Count Of(Global.Banned_List) < 22);
 			For Global Variable(Gravity_Helper, 0, 12, 1);
 				Global.Gravity_Helper -= 1;
 			End;
@@ -1574,7 +1574,7 @@ rule("Listed_Player")
 			Custom String("ĨŹĂŃĂMĨ"), Custom String("Tedz"), Custom String("S0undw4v3"), Custom String("GHOSTIEǃ"), Custom String("ByeFever"),
 			Custom String("SapphicWitch"), Custom String("ĴŐĶĔŔ"), Custom String("Avaløn"), Custom String("zovha"), Custom String("pancakes"), 
 			Custom String("Quartz"), Custom String("PurpSkrrt"), Custom String("ÆROLEAƑ"), Custom String("Root"), Custom String("Lünår"),
-			Custom String("Frost"), Custom String("Zxtyi"), Custom String("Shady"), Custom String("Scooby"));
+			Custom String("Frost"), Custom String("godly"), Custom String("Zxtyi"), Custom String("Shady"), Custom String("Scooby"));
 		"Warning List"
 		Global.Warning_List = Array(Custom String(" --- "));
 		"Muted List"
