@@ -517,6 +517,8 @@ variables
 		60: Main_Chaser
 		61: rainbowColoringList
 		62: matchTime
+		63: actionsLog
+		64: actionsLogIndexer
 
 	player:
 		0: High_Rank
@@ -620,11 +622,6 @@ variables
 		98: safezone_Index
 		99: safezone_Helper
 		100: TP_Index
-		101: Control_Host
-		102: Control_Deny
-		103: Control_ID
-		104: Control_Active
-		105: Control_List
 		106: Target_Select
 		107: AFK_Toggle
 		108: AddonSkillsToggle
@@ -653,6 +650,7 @@ subroutines
 	16: Clear_Status
 	17: Set_Flying_At_Position
 	18: Shortener
+	19: ClearLog
 }
 
 rule("Anti-Crash-ON")
@@ -808,6 +806,8 @@ rule("Global_Settings")
 		Global.UNO_Info = Null;
 		Global.UNO_Timer = 0;
 		Global.Main_Chaser = 0;
+		Global.actionsLog = Empty Array;
+		Global.actionsLogIndexer = Empty Array;
 		Chase Global Variable At Rate(Main_Chaser, 99999, 0.200, None);
 		Global.Promoted_List = Empty Array;
 		Wait(5, Ignore Condition);
@@ -824,6 +824,7 @@ rule("Global_Settings")
 			Create HUD Text(All Players(All Teams), Null, Null, Custom String("This is a music lobby, so no talking in MVC!"), Top, 0, Color(
 				White), Color(White), Color(Sky Blue), Visible To, Default Visibility);
 		End;
+		Call Subroutine(ClearLog);
 	}
 }
 
@@ -991,9 +992,6 @@ rule("Default_Player_Settings")
 		Event Player.Camera_Target = Custom String("Currently No Target");
 		Event Player.Spam_Cooldown = 3;
 		Chase Player Variable At Rate(Event Player, Spam_Cooldown, 0, 1, None);
-		Event Player.Control_Deny = Empty Array;
-		Event Player.Control_List = Empty Array;
-		Event Player.Control_Active = False;
 		Event Player.UNO_Hand = Empty Array;
 		Event Player.UNO_Helper = Array(Null, Null, Null, Null);
 		Event Player.UNO_Loop = 0;
@@ -1026,7 +1024,7 @@ rule("Default_Player_Settings")
 		Create HUD Text(Filtered Array(All Players(All Teams), (
 			Current Array Element.inAction[0] == True || Current Array Element.inAction[1] == True || Current Array Element.inAction[2] == True)
 			&& Current Array Element == Event Player), Null, Custom String("Hold {0} to clear leash/grab/attach", Input Binding String(
-			Button(Ability 2))), Null, Right, 0, Null, Color(Blue), Null, Visible To String and Color, Default Visibility);
+			Button(Ability 2))), Null, Right, 0, Null, Color(Orange), Null, Visible To String and Color, Default Visibility);
 		"Is menu Active"
 		Event Player.Is_Menu_Active = True;
 		Event Player.Mode_Headline = Custom String("Info Page");
@@ -1084,7 +1082,7 @@ rule("Default_Player_Settings")
 		"Jail handler finds escaped prisoner"
 		Wait(0.010, Ignore Condition);
 		If(Event Player.Restricted[0]);
-			Big Message(All Players(All Teams), Custom String("{0} tried to escape the jail", Event Player));
+			Big Message(All Players(All Teams), Custom String("{0} tried to escape the restriction", Event Player));
 			Call Subroutine(Jail_Leaver);
 		Else;
 			Small Message(All Players(All Teams), Custom String(" Welcome {1} {0}", Event Player, Hero Icon String(Hero Of(Event Player))));
@@ -2024,7 +2022,6 @@ rule("Mod_Ability_ON")
 	{
 		Is Button Held(Event Player, Button(Crouch)) == True;
 		Event Player.Is_Menu_Active == True;
-		Event Player.Control_Active == False;
 	}
 
 	actions
@@ -2061,7 +2058,6 @@ rule("Mod_Ability_OFF")
 	conditions
 	{
 		Is Button Held(Event Player, Button(Crouch)) == False;
-		Event Player.Control_Active == False;
 	}
 
 	actions
@@ -2100,7 +2096,6 @@ rule("Mode_Cycle")
 		Event Player.Is_Flying == False;
 		Event Player.UNO_Ingame == False;
 		Event Player.Restricted[1] == False;
-		Event Player.Control_Active == False;
 	}
 
 	actions
@@ -2430,14 +2425,12 @@ rule("Mode_Headline_Desc_Mod")
 				Input Binding String(Button(Ultimate)), Event Player.Full_Protection ? Global.OffOnString[1] : Global.OffOnString[0])))))),
 				Null, Left, 1, Color(White), Color(White), Color(White), String, Visible Never);
 		Else If(Event Player.Mode_Cycle == 26);
-			Event Player.Mode_Headline = Custom String("Remote Control");
+			Event Player.Mode_Headline = Custom String("Logging page");
 			Create HUD Text(Event Player, Null, Custom String(
-				"| Press Crouch + Interact/Jump to change pages |\nMod Menu: Press Crouch + input for action\n{0}", Custom String(
-				"{0} : Send control request to target\r\n{1} : Stop Controlling Target\r\n{2}", Input Binding String(Button(Ultimate)),
-				Input Binding String(Button(Reload)), Custom String(
-				"{0} : Target Controlls you\r\n{1} : Teleport Controlled Players\r\n{2} : See controlled players", Input Binding String(Button(
-				Primary Fire)), Input Binding String(Button(Ability 2)), Input Binding String(Button(Secondary Fire))))), Null, Left, 1, Color(
-				White), Color(White), Color(White), String, Visible Never);
+				"| Press Crouch + Interact/Jump to change pages |\nMod Menu: Press Crouch + input for action\n\n{0}", Custom string(
+					"The oldest actions are displayed at the top, the newest at the bottom.\n"
+				)), 
+				Null, Left, 1, Null, Color(White), Null, String, Visible Never);
 		Else If(Event Player.Mode_Cycle == 27);
 			Event Player.Mode_Headline = Custom String("Kick/Ban (Only Owner)");
 			Create HUD Text(Event Player, Null, Custom String(
@@ -2445,10 +2438,10 @@ rule("Mode_Headline_Desc_Mod")
 				"{0} : Kick Target \r\n{1} : Ban Target Temporarily", Input Binding String(Button(Primary Fire)), Input Binding String(Button(
 				Secondary Fire)))), Null, Left, 1, Color(White), Color(White), Color(White), String, Visible Never);
 		Else If(Event Player.Mode_Cycle == 28);
-			Event Player.Mode_Headline = Custom String("Lock Up In Jail");
+			Event Player.Mode_Headline = Custom String("Restrict/Mute Player");
 			Create HUD Text(Event Player, Null, Custom String(
 				"| Press Crouch + Interact/Jump to change pages |\nMod Menu: Press Crouch + input for action\n{0}", Custom String(
-				"{0} : Lock target - Chat & Skills Disabled\r\n{1} : Unlock target - Chat & Skills Enabled\r\n{2} : Lock / Unlock Yourself",
+				"{0} : Restrict target - Chat & Skills Disabled\r\n{1} : Release target - Chat & Skills Enabled\r\n{2} : Lock / Unlock Yourself",
 				Input Binding String(Button(Primary Fire)), Input Binding String(Button(Secondary Fire)), Input Binding String(Button(
 				Ultimate)))), Null, Left, 1, Color(White), Color(White), Color(White), String, Visible Never);
 		Else If(Event Player.Mode_Cycle == 29);
@@ -5892,273 +5885,6 @@ rule("Mode_25 - Perks Toggle")
 	}
 }
 
-rule("Mode_26 - Mind Control - Send")
-{
-	event
-	{
-		Ongoing - Each Player;
-		All;
-		All;
-	}
-
-	conditions
-	{
-		Event Player.Mode_Cycle == 26;
-		Event Player.Signal == True;
-	}
-
-	actions
-	{
-		Event Player.Signal = False;
-		Event Player.Target_Shortcut = Player Closest To Reticle(Event Player, All Teams);
-		If(Is Button Held(Event Player, Button(Ultimate)));
-			Abort If((Event Player.Target_Shortcut.Full_Protection && !Is Dummy Bot(Event Player.Target_Shortcut)) || (
-				Event Player.Target_Shortcut == Null) || !Has Spawned(Event Player.Target_Shortcut));
-			If(Event Player.Target_Shortcut.Control_Host != Null);
-				Small Message(Event Player, Custom String("  {0} has a pending request or is being controlled", Event Player.Target_Shortcut));
-				Abort;
-			End;
-			If(Array Contains(Event Player.Target_Shortcut.Control_Deny, Event Player));
-				Small Message(Event Player, Custom String("  Cannot send more requests to {0}!", Event Player.Target_Shortcut));
-				Abort;
-			End;
-			Event Player.Target_Shortcut.Control_Host = Event Player;
-			Destroy HUD Text(Event Player.Target_Shortcut.Control_ID);
-			Create HUD Text(Event Player.Target_Shortcut, Custom String(
-				"{0} has requested\r\n to control you! Accept?\r\n {1} : Yes\r\n {2} : No", Event Player, Input Binding String(Button(Melee)),
-				Input Binding String(Button(Reload))), Null, Null, Right, 20, Color(Red), Color(White), Color(White), String, Visible Never);
-			Event Player.Target_Shortcut.Control_ID = Last Text ID;
-			Small Message(Event Player, Custom String("  Control request send to {0}", Event Player.Target_Shortcut));
-			Small Message(Event Player.Target_Shortcut, Custom String("  {0} send you a control request!", Event Player));
-		Else If(Is Button Held(Event Player, Button(Reload)));
-			Abort If(Event Player.Target_Shortcut.Control_Host != Event Player);
-			Modify Player Variable(Event Player, Control_List, Remove From Array By Value, Event Player.Target_Shortcut);
-			Allow Button(Event Player.Target_Shortcut, Button(Jump));
-			Allow Button(Event Player.Target_Shortcut, Button(Crouch));
-			Allow Button(Event Player.Target_Shortcut, Button(Melee));
-			Allow Button(Event Player.Target_Shortcut, Button(Primary Fire));
-			Allow Button(Event Player.Target_Shortcut, Button(Secondary Fire));
-			Stop Holding Button(Event Player.Target_Shortcut, Button(Jump));
-			Stop Holding Button(Event Player.Target_Shortcut, Button(Crouch));
-			Stop Holding Button(Event Player.Target_Shortcut, Button(Primary Fire));
-			Stop Holding Button(Event Player.Target_Shortcut, Button(Secondary Fire));
-			Stop Forcing Throttle(Event Player.Target_Shortcut);
-			Stop Throttle In Direction(Event Player.Target_Shortcut);
-			Stop Facing(Event Player.Target_Shortcut);
-			Small Message(Event Player, Custom String("  Stopped controlling {0}", Event Player.Target_Shortcut));
-			Small Message(Event Player.Target_Shortcut, Custom String("  {0} stopped controlling you", Event Player));
-			Destroy HUD Text(Event Player.Target_Shortcut.Control_ID);
-			Event Player.Target_Shortcut.Control_Active = False;
-			If(Is Dummy Bot(Event Player.Target_Shortcut));
-				Start Facing(Event Player.Target_Shortcut, Update Every Frame(Direction Towards(Eye Position(Evaluate Once(
-					Event Player.Target_Shortcut)), Eye Position(Closest Player To(Evaluate Once(Event Player.Target_Shortcut), All Teams)))), 300,
-					To World, Direction and Turn Rate);
-			End;
-			Wait(0.200, Ignore Condition);
-			Event Player.Target_Shortcut.Control_Host = Null;
-		Else If(Is Button Held(Event Player, Button(Primary Fire)));
-			Abort If(Event Player.Control_Host != Null);
-			Destroy HUD Text(Event Player.Control_ID);
-			Destroy Icon(Event Player.Target_Arrow_ID);
-			Destroy Effect(Event Player.Target_Effect);
-			Create HUD Text(Event Player, Custom String(" Press {0} to break link ", Input Binding String(Button(Reload))), Null, Null, Right,
-				20, Color(Red), Color(White), Color(White), String, Visible Never);
-			Event Player.Control_ID = Last Text ID;
-			Disallow Button(Event Player, Button(Jump));
-			Disallow Button(Event Player, Button(Crouch));
-			Disallow Button(Event Player, Button(Melee));
-			Disallow Button(Event Player, Button(Primary Fire));
-			Disallow Button(Event Player, Button(Secondary Fire));
-			Modify Player Variable(Event Player.Target_Shortcut, Control_List, Append To Array, Event Player);
-			Start Throttle In Direction(Event Player, Throttle Of(Evaluate Once(Event Player.Target_Shortcut)), 1, To Player,
-				Replace existing throttle, Direction and Magnitude);
-			Start Facing(Event Player, Update Every Frame(Facing Direction Of(Evaluate Once(Event Player.Target_Shortcut))), 1000, To World,
-				Direction and Turn Rate);
-			Event Player.Is_Crouch_On = False;
-			Event Player.Control_Host = Event Player.Target_Shortcut;
-			Event Player.Control_Active = True;
-		Else If(Is Button Held(Event Player, Button(Ability 2)));
-			If(Event Player.Control_List == Empty Array);
-				Small Message(Event Player, Custom String("  No player to teleport!"));
-				Abort;
-			End;
-			Teleport(Event Player.Control_List, Event Player);
-		Else If(Is Button Held(Event Player, Button(Secondary Fire)));
-			If(Event Player.Control_List == Empty Array);
-				Small Message(Event Player, Custom String("  Controlling No Players"));
-				Abort;
-			End;
-			Small Message(Event Player, Custom String("  Controlling these players:"));
-			For Player Variable(Event Player, Print, 0, Count Of(Event Player.Control_List), 1);
-				Small Message(Event Player, Custom String("  {0}: {1}", Event Player.Print + 1, Event Player.Control_List[Event Player.Print]));
-				Wait(0.100, Ignore Condition);
-			End;
-		End;
-		Wait(0.100, Ignore Condition);
-	}
-}
-
-rule("Mode_26 - Mind Control - Accept & Deny")
-{
-	event
-	{
-		Ongoing - Each Player;
-		All;
-		All;
-	}
-
-	conditions
-	{
-		Event Player.Control_Host != Null;
-		Event Player.Control_Active == False;
-		(Is Button Held(Event Player, Button(Reload)) || Is Button Held(Event Player, Button(Melee)) || Is Dummy Bot(Event Player))
-			== True;
-	}
-
-	actions
-	{
-		If(Is Button Held(Event Player, Button(Reload)));
-			Destroy HUD Text(Event Player.Control_ID);
-			Small Message(Event Player, Custom String("  Denied control request of {0}!", Event Player.Control_Host));
-			Small Message(Event Player.Control_Host, Custom String("  {0} denied your control request.", Event Player));
-			Modify Player Variable(Event Player, Control_Deny, Append To Array, Event Player.Control_Host);
-			Wait(0.200, Ignore Condition);
-			Event Player.Control_Host = Null;
-		Else If(Is Button Held(Event Player, Button(Melee)) || Is Dummy Bot(Event Player));
-			If(Is Dummy Bot(Event Player));
-				Wait(1, Abort When False);
-			End;
-			Destroy HUD Text(Event Player.Control_ID);
-			Destroy Icon(Event Player.Target_Arrow_ID);
-			Destroy Effect(Event Player.Target_Effect);
-			Create HUD Text(Event Player, Custom String(" Press {0} to break link ", Input Binding String(Button(Reload))), Null, Null, Right,
-				20, Color(Red), Color(White), Color(White), String, Visible Never);
-			Event Player.Control_ID = Last Text ID;
-			Disallow Button(Event Player, Button(Jump));
-			Disallow Button(Event Player, Button(Crouch));
-			Disallow Button(Event Player, Button(Melee));
-			Disallow Button(Event Player, Button(Primary Fire));
-			Disallow Button(Event Player, Button(Secondary Fire));
-			Modify Player Variable(Event Player.Control_Host, Control_List, Append To Array, Event Player);
-			Start Throttle In Direction(Event Player, Throttle Of(Event Player.Control_Host), 1, To Player, Replace existing throttle,
-				Direction and Magnitude);
-			Start Facing(Event Player, Update Every Frame(Facing Direction Of(Event Player.Control_Host)), 1000, To World,
-				Direction and Turn Rate);
-			Small Message(Event Player, Custom String("  Accpeted control request of {0}!", Event Player.Control_Host));
-			Small Message(Event Player.Control_Host, Custom String("  {0} accepted your control request!", Event Player));
-			Event Player.Control_Active = True;
-		End;
-	}
-}
-
-rule("Mode_26 - Mind Control - Break")
-{
-	event
-	{
-		Ongoing - Each Player;
-		All;
-		All;
-	}
-
-	conditions
-	{
-		Event Player.Control_Host != Null;
-		Event Player.Control_Active == True;
-		Is Button Held(Event Player, Button(Reload)) == True;
-	}
-
-	actions
-	{
-		Modify Player Variable(Event Player.Control_Host, Control_List, Remove From Array By Value, Event Player);
-		Allow Button(Event Player, Button(Jump));
-		Allow Button(Event Player, Button(Crouch));
-		Allow Button(Event Player, Button(Melee));
-		Allow Button(Event Player, Button(Primary Fire));
-		Allow Button(Event Player, Button(Secondary Fire));
-		Stop Holding Button(Event Player, Button(Jump));
-		Stop Holding Button(Event Player, Button(Crouch));
-		Stop Holding Button(Event Player, Button(Primary Fire));
-		Stop Holding Button(Event Player, Button(Secondary Fire));
-		Stop Forcing Throttle(Event Player);
-		Stop Throttle In Direction(Event Player);
-		Stop Facing(Event Player);
-		Small Message(Event Player, Custom String("  Control link broken!"));
-		Small Message(Event Player.Control_Host, Custom String("  {0} broke the control link!", Event Player));
-		Destroy HUD Text(Event Player.Control_ID);
-		Wait(0.200, Ignore Condition);
-		Event Player.Control_Host = Null;
-		Event Player.Control_Active = False;
-		Wait(0.100, Ignore Condition);
-	}
-}
-
-rule("Mode_26 - Mind Control - Remote 1")
-{
-	event
-	{
-		Ongoing - Each Player;
-		All;
-		All;
-	}
-
-	conditions
-	{
-		Event Player.Control_List != Empty Array;
-		(Is Button Held(Event Player, Button(Crouch)) || Is Button Held(Event Player, Button(Jump)) || Is Button Held(Event Player, Button(
-			Melee)) || Is Button Held(Event Player, Button(Secondary Fire))) == True;
-	}
-
-	actions
-	{
-		If(Is Button Held(Event Player, Button(Crouch)));
-			Start Holding Button(Event Player.Control_List, Button(Crouch));
-			Wait Until(!Is Button Held(Event Player, Button(Crouch)), 9999);
-			Stop Holding Button(Event Player.Control_List, Button(Crouch));
-		Else If(Is Button Held(Event Player, Button(Jump)));
-			Allow Button(Event Player.Control_List, Button(Jump));
-			Start Holding Button(Event Player.Control_List, Button(Jump));
-			Wait Until(!Is Button Held(Event Player, Button(Jump)), 9999);
-			Stop Holding Button(Event Player.Control_List, Button(Jump));
-			Disallow Button(Event Player.Control_List, Button(Jump));
-		Else If(Is Button Held(Event Player, Button(Secondary Fire)));
-			Allow Button(Event Player.Control_List, Button(Secondary Fire));
-			Start Holding Button(Event Player.Control_List, Button(Secondary Fire));
-			Wait Until(!Is Button Held(Event Player, Button(Secondary Fire)), 9999);
-			Stop Holding Button(Event Player.Control_List, Button(Secondary Fire));
-			Disallow Button(Event Player.Control_List, Button(Secondary Fire));
-		Else If(Is Button Held(Event Player, Button(Melee)));
-			Allow Button(Event Player.Control_List, Button(Melee));
-			Press Button(Event Player.Control_List, Button(Melee));
-			Disallow Button(Event Player.Control_List, Button(Melee));
-		End;
-	}
-}
-
-rule("Mode_26 - Mind Control - Remote 2")
-{
-	event
-	{
-		Ongoing - Each Player;
-		All;
-		All;
-	}
-
-	conditions
-	{
-		Event Player.Control_List != Empty Array;
-		Is Button Held(Event Player, Button(Primary Fire)) == True;
-	}
-
-	actions
-	{
-		Allow Button(Event Player.Control_List, Button(Primary Fire));
-		Start Holding Button(Event Player.Control_List, Button(Primary Fire));
-		Wait Until(!Is Button Held(Event Player, Button(Primary Fire)), 9999);
-		Stop Holding Button(Event Player.Control_List, Button(Primary Fire));
-		Disallow Button(Event Player.Control_List, Button(Primary Fire));
-	}
-}
-
 rule("Mode_27 - Kick_&_Ban")
 {
 	event
@@ -6181,7 +5907,7 @@ rule("Mode_27 - Kick_&_Ban")
 		"Permission Check"
 		Event Player.Target_Lock = Player Closest To Reticle(Event Player, All Teams);
 		Abort If(Event Player.Target_Lock == Null);
-		Abort If(Not(Event Player.High_Rank || Event Player == Host Player));
+		Abort If(!(Event Player.High_Rank || (Event Player.Mod_Rank && !Event Player.Promoted_Rank) || Event Player == Host Player));
 		If(Array Contains(Global.High_Rank, Custom String("{0}", Event Player.Target_Lock)) || (Event Player.High_Rank && Not(Event Player.Heaven_Strike_ID[2]) && Event Player != Host Player) ||
 			(Event Player == Host Player && Array Contains(Global.Mod_Rank, Custom String("{0}", Event Player.Target_Lock)) && Event Player.Promoted_Rank && 
 			Not(Event Player.Target_Lock.Promoted_Rank)));
@@ -6191,21 +5917,40 @@ rule("Mode_27 - Kick_&_Ban")
 		End;
 		"Authorization Accepted"
 		If(Is Button Held(Event Player, Button(Primary Fire)));
+			If(Event Player.Mod_Rank && !Event Player.Promoted_Rank && Event Player.Target_Lock == Host Player && Array Contains(
+				Global.Mod_Rank, Custom String("{0}", Event Player.Target_Lock)) && Event Player.Target_Lock.Promoted_Rank);
+				Small Message(All Players(All Teams), Custom String("{0} is kicked by {1}", Event Player.Target_Lock, Event Player));
+				Wait(0.500, Ignore Condition);
+				Remove Player(Event Player.Target_Lock);
+				Modify Global Variable(actionsLog, append to array, custom string("[!] {0} is kicked by {1} [page 27]", Evaluate Once(Event Player.Target_Lock), Event Player));
+				Create HUD Text(Filtered Array(All Players (All Teams), (Current Array Element == Host Player || (Current Array Element.Mod_Rank && !Current Array Element.Promoted_Rank)) && Current Array Element.Mode_Cycle == 26), Null, Custom String("{0}", Evaluate Once(Last Of(Global.actionsLog))),
+					Null, Left, Global.Main_Chaser + 2, Null, Color(Red), Null, Visible To, Visible Never);
+				Modify Global Variable(actionsLogIndexer, append to array, Last Text Id);
+			End;
+			Abort If(!(Event Player.High_Rank || Event Player == Host Player));
 			Play Effect(All Players(All Teams), Bad Pickup Effect, Color(Red), Event Player.Target_Lock, 1);
 			Small Message(All Players(All Teams), Custom String("{0} is kicked by {1}", Event Player.Target_Lock, Event Player));
 			Wait(0.5, Ignore Condition);
 			Remove Player(Event Player.Target_Lock);
+			Modify Global Variable(actionsLog, append to array, custom string("[!] {0} is kicked by {1} [page 27]", Evaluate Once(Event Player.Target_Lock), Event Player));
+			Create HUD Text(Filtered Array(All Players (All Teams), (Current Array Element == Host Player || (Current Array Element.Mod_Rank && !Current Array Element.Promoted_Rank)) && Current Array Element.Mode_Cycle == 26), Null, Custom String("{0}", Evaluate Once(Last Of(Global.actionsLog))),
+				Null, Left, Global.Main_Chaser + 2, Null, Color(Red), Null, Visible To, Visible Never);
+			Modify Global Variable(actionsLogIndexer, append to array, Last Text Id);
 		Else If(Is Button Held(Event Player, Button(Secondary Fire)));
+			Abort If(!(Event Player.High_Rank || Event Player == Host Player));
 			Play Effect(All Players(All Teams), Bad Pickup Effect, Color(Red), Player Closest To Reticle(Event Player, All Teams), 1);
 			Small Message(All Players(All Teams), Custom String("{0} is banned by {1}", Event Player.Target_Lock, Event Player));
 			Modify Global Variable(Temp_Banned, Append To Array, Custom String("{0}", Event Player.Target_Lock));
 			Remove Player(Event Player.Target_Lock);
+			Modify Global Variable(actionsLog, append to array, custom string("[!] {0} is banned by {1} [page 27]", Evaluate Once(Event Player.Target_Lock), Event Player));
+			Create HUD Text(Filtered Array(All Players (All Teams), (Current Array Element == Host Player || (Current Array Element.Mod_Rank && !Current Array Element.Promoted_Rank)) && Current Array Element.Mode_Cycle == 26), Null, Custom String("{0}", Evaluate Once(Last Of(Global.actionsLog))),
+				Null, Left, Global.Main_Chaser + 2, Null, Color(Red), Null, Visible To, Visible Never);
+			Modify Global Variable(actionsLogIndexer, append to array, Last Text Id);
 		End;
 		Wait(1, Ignore Condition);
 		Event Player.Target_Lock = Custom String("--- No Target ---");
 	}
 }
-
 
 rule("Mode_28 - Mute")
 {
@@ -6272,6 +6017,10 @@ rule("Mode_28 - Mute")
 			Wait(0.010, Ignore Condition);
 			Disable Text Chat(Event Player.Target_Shortcut);
 			Disable Voice Chat(Event Player.Target_Shortcut, True, True, True);
+			Modify Global Variable(actionsLog, append to array, custom string("[-] {0} is restricted by {1} [page 28]", Evaluate Once(Event Player.Target_Shortcut), Event Player));
+			Create HUD Text(Filtered Array(All Players (All Teams), (Current Array Element == Host Player || (Current Array Element.Mod_Rank && !Current Array Element.Promoted_Rank)) && Current Array Element.Mode_Cycle == 26), Null, Custom String("{0}", Evaluate Once(Last Of(Global.actionsLog))),
+				Null, Left, Global.Main_Chaser + 2, Null, Color(Orange), Null, Visible To, Visible Never);
+			Modify Global Variable(actionsLogIndexer, append to array, Last Text Id);
 		Else If(Is Button Held(Event Player, Button(Secondary Fire)));
 			Event Player.Target_Shortcut = Player Closest To Reticle(Event Player, All Teams);
 			Abort If(Event Player.Target_Shortcut == Null);
@@ -6309,6 +6058,10 @@ rule("Mode_28 - Mute")
 			Skip If(Array Contains(Global.Muted_List, Custom String("{0}", Event Player.Target_Shortcut)), 2);
 			Enable Text Chat(Event Player.Target_Shortcut);
 			Enable Voice Chat(Event Player.Target_Shortcut);
+			Modify Global Variable(actionsLog, append to array, custom string("[+] {0} is released by {1} [page 28]", Evaluate Once(Event Player.Target_Shortcut), Event Player));
+			Create HUD Text(Filtered Array(All Players (All Teams), (Current Array Element == Host Player || (Current Array Element.Mod_Rank && !Current Array Element.Promoted_Rank)) && Current Array Element.Mode_Cycle == 26), Null, Custom String("{0}", Evaluate Once(Last Of(Global.actionsLog))),
+				Null, Left, Global.Main_Chaser + 2, Null, Color(Orange), Null, Visible To, Visible Never);
+			Modify Global Variable(actionsLogIndexer, append to array, Last Text Id);
 		Else If(Is Button Held(Event Player, Button(Ultimate)));
 			If(Event Player.Restricted[0] == False);
 				Event Player.Restricted[0] = True;
@@ -6492,6 +6245,10 @@ rule("Mode_29 - Promote/Demote_And_Teamswap")
 			Modify Global Variable(Promoted_List, Append To Array, Custom String("{0}", Event Player.Target_Shortcut));
 			Modify Global Variable(Mod_Rank, Append To Array, Custom String("{0}", Event Player.Target_Shortcut));
 			Play Effect(All Players(All Teams), Good Pickup Effect, Color(Blue), Event Player.Target_Shortcut, 1);
+			Modify Global Variable(actionsLog, append to array, custom string("[+] {0} is promoted by {1} [page 29]", Evaluate Once(Event Player.Target_Shortcut), Event Player));
+			Create HUD Text(Filtered Array(All Players (All Teams), (Current Array Element == Host Player || (Current Array Element.Mod_Rank && !Current Array Element.Promoted_Rank)) && Current Array Element.Mode_Cycle == 26), Null, Custom String("{0}", Evaluate Once(Last Of(Global.actionsLog))),
+				Null, Left, Global.Main_Chaser + 2, Null, Color(Turquoise), Null, Visible To, Visible Never);
+			Modify Global Variable(actionsLogIndexer, append to array, Last Text Id);
 		Else If(Is Button Held(Event Player, Button(Secondary Fire)));
 			If(!(Event Player.High_Rank || Event Player == Host Player || (Event Player.Mod_Rank && !Event Player.Promoted_Rank)));
 				Small Message(Event Player, Custom String("  Available only to Host or Angels."));
@@ -6512,6 +6269,10 @@ rule("Mode_29 - Promote/Demote_And_Teamswap")
 			Modify Global Variable(Promoted_List, Remove From Array By Value, Custom String("{0}", Event Player.Target_Shortcut));
 			Modify Global Variable(Mod_Rank, Remove From Array By Value, Custom String("{0}", Event Player.Target_Shortcut));
 			Play Effect(All Players(All Teams), Bad Pickup Effect, Color(Red), Event Player.Target_Shortcut, 1);
+			Modify Global Variable(actionsLog, append to array, custom string("[-] {0} is demoted by {1} [page 29]", Evaluate Once(Event Player.Target_Shortcut), Event Player));
+			Create HUD Text(Filtered Array(All Players (All Teams), (Current Array Element == Host Player || (Current Array Element.Mod_Rank && !Current Array Element.Promoted_Rank)) && Current Array Element.Mode_Cycle == 26), Null, Custom String("{0}", Evaluate Once(Last Of(Global.actionsLog))),
+				Null, Left, Global.Main_Chaser + 2, Null, Color(Turquoise), Null, Visible To, Visible Never);
+			Modify Global Variable(actionsLogIndexer, append to array, Last Text Id);
 		Else If(Is Button Held(Event Player, Button(Ultimate)));
 			If(Team Of(Event Player) == Team 1);
 				If(Count Of(Filtered Array(All Players(Team 2), !Is Dummy Bot(Current Array Element))) <= 5);
@@ -7764,7 +7525,7 @@ rule("Mode_34 - Communication")
 	{
 		Event Player.Signal = False;
 		Event Player.Comms_Target = Player Closest To Reticle(Event Player, All Teams);
-		Abort If(!Is Dummy Bot(Event Player.Comms_Target) || Event Player.Comms_Target.Control_Active);
+		Abort If(!Is Dummy Bot(Event Player.Comms_Target));
 		If(Event Player.Comms_Target.Bot_CD > 0);
 			Small Message(Event Player, Custom String("  {0} sec CD", Event Player.Comms_Target.Bot_CD));
 			Abort;
@@ -7876,7 +7637,6 @@ rule("Extra_2 - Self Rez")
 	conditions
 	{
 		Event Player == Is Dead(Event Player);
-		(Event Player.High_Rank || Event Player.Mod_Rank) == True;
 		Is Button Held(Event Player, Button(Jump)) == True;
 	}
 
@@ -7926,10 +7686,6 @@ rule("Extra_3 - Short Hop")
 		Event Player.inAction[1] = False;
 		Play Effect(Event Player, Good Explosion, Global.Rainbow_Color, Position Of(Event Player), 0.750);
 		Teleport(Event Player, Position Of(Event Player) + Facing Direction Of(Event Player) * 12.500);
-		If(Event Player.Control_List != Empty Array);
-			Wait(0.010, Ignore Condition);
-			Teleport(Event Player.Control_List, Position Of(Event Player));
-		End;
 		Wait(0.100, Ignore Condition);
 		Play Effect(Event Player, Good Explosion, Global.Rainbow_Color, Position Of(Event Player), 0.750);
 		Apply Impulse(Event Player, Up, 2, To World, Cancel Contrary Motion);
@@ -9370,6 +9126,35 @@ rule("Clear Status Subroutine")
 			Set Status(Event Player.Target_Shortcut, Null, Stunned, 0.001);
 			Set Status(Event Player.Target_Shortcut, Null, Phased Out, 9999);
 		End;
+	}
+}
+
+rule("Clear Log")
+{
+	event
+	{
+		Subroutine;
+		ClearLog;
+	}
+
+	actions
+	{
+		If(Count of(Global.actionsLog) == 0);
+			Create HUD Text(Filtered Array(All Players (All Teams), (Current Array Element == Host Player || (Current Array Element.Mod_Rank && !Current Array Element.Promoted_Rank)) && Current Array Element.Mode_Cycle == 26), Null, Custom String("No logs here... yet."),
+				Null, Left, Global.Main_Chaser + 2, Null, Color(White), Null, Visible To, Visible Never);
+			Modify Global Variable(actionsLogIndexer, append to array, last text id);
+			Wait Until(Count of(Global.actionsLog) > 0, 9999);
+			Destroy Hud Text(Global.actionsLogIndexer[0]);
+			Modify Global Variable(actionsLogIndexer, remove from array by index, 0);
+		End;
+		If(Count of(Global.actionsLog) >= 20);
+			Destroy Hud Text(Global.actionsLogIndexer[0]);
+			Wait(0.1, Ignore Condition);
+			Modify Global Variable(actionsLog, remove from array by index, 0);
+			Modify Global Variable(actionsLogIndexer, remove from array by index, 0);
+		End;
+		Wait(1.2, Ignore Condition);
+		Loop;
 	}
 }
 
