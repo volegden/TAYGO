@@ -815,7 +815,7 @@ rule("Global_Settings")
 		Global.Skins_Check[0] = True;
 		"Assembling with skins check"
 		Global.Skins_Check[1] = False;
-		If(Count Of(Global.High_Rank) < 1 || Count Of(Global.Mod_Rank) < 38 || Count Of(Global.Titles_And_Outlines) != 40 || Count Of(Global.Muted_List) < 10 || Count Of(Global.Banned_List) < 22);
+		If(Count Of(Global.High_Rank) < 1 || Count Of(Global.Mod_Rank) < 38 || Count Of(Global.Titles_And_Outlines) != 40 || Count Of(Global.Muted_List) < 11 || Count Of(Global.Banned_List) < 22);
 			For Global Variable(Gravity_Helper, 0, 12, 1);
 				Global.Gravity_Helper -= 1;
 			End;
@@ -1580,7 +1580,7 @@ rule("Listed_Player")
 		"Muted List"
 		Global.Muted_List = Array(
 			Custom String("DJBASTIOON"), Custom String("DJBastion"), Custom String("Djbastion"), Custom String("DJBASTION!"), Custom String("MrBastion"),
-			Custom String("DjBeep"), Custom String("DJBASTION"), Custom String("ĹȄȀƑ"), Custom String("Loxy"), Custom String("rƗkku"));
+			Custom String("DjBeep"), Custom String("DJBASTION"), Custom String("ĹȄȀƑ"), Custom String("Loxy"), Custom String("rƗkku"), Custom String("DjBastion"));
 		"Demoted List"
 		Global.Demoted_List = Array(Custom String(" --- "));
 		"Automatic Ban"
