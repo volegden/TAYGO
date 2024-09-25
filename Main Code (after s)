@@ -5934,11 +5934,19 @@ rule("Mode_27 - Kick_&_Ban")
 			Small Message(All Players(All Teams), Custom String("{0} is kicked by {1}", Event Player.Target_Lock, Event Player));
 			Wait(0.5, Ignore Condition);
 			Remove Player(Event Player.Target_Lock);
+			Modify Global Variable(actionsLog, append to array, custom string("[!] {0} is kicked by {1} [page 27]", Evaluate Once(Event Player.Target_Lock), Event Player));
+			Create HUD Text(Filtered Array(All Players (All Teams), (Current Array Element == Host Player || (Current Array Element.Mod_Rank && !Current Array Element.Promoted_Rank)) && Current Array Element.Mode_Cycle == 26), Null, Custom String("{0}", Evaluate Once(Last Of(Global.actionsLog))),
+				Null, Left, Global.Main_Chaser + 2, Null, Color(Red), Null, Visible To, Visible Never);
+			Modify Global Variable(actionsLogIndexer, append to array, Last Text Id);
 		Else If(Is Button Held(Event Player, Button(Secondary Fire)));
 			Play Effect(All Players(All Teams), Bad Pickup Effect, Color(Red), Player Closest To Reticle(Event Player, All Teams), 1);
 			Small Message(All Players(All Teams), Custom String("{0} is banned by {1}", Event Player.Target_Lock, Event Player));
 			Modify Global Variable(Temp_Banned, Append To Array, Custom String("{0}", Event Player.Target_Lock));
 			Remove Player(Event Player.Target_Lock);
+			Modify Global Variable(actionsLog, append to array, custom string("[!] {0} is banned by {1} [page 27]", Evaluate Once(Event Player.Target_Lock), Event Player));
+			Create HUD Text(Filtered Array(All Players (All Teams), (Current Array Element == Host Player || (Current Array Element.Mod_Rank && !Current Array Element.Promoted_Rank)) && Current Array Element.Mode_Cycle == 26), Null, Custom String("{0}", Evaluate Once(Last Of(Global.actionsLog))),
+				Null, Left, Global.Main_Chaser + 2, Null, Color(Red), Null, Visible To, Visible Never);
+			Modify Global Variable(actionsLogIndexer, append to array, Last Text Id);
 		End;
 		Wait(1, Ignore Condition);
 		Event Player.Target_Lock = Custom String("--- No Target ---");
