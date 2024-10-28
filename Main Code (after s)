@@ -2,7 +2,7 @@ settings
 {
 	main
 	{
-		Description: " Find friends and have fun!\n Last version: oct092024.74\n\n Contact us: bit.ly/ow2friendly \n\n Made with ♡ by: Warloy et al.\n Community managed with ♡ by: kwally"
+		Description: " Find friends and have fun!\n Last version: oct282024.74\n\n Contact us: bit.ly/ow2friendly \n\n Made with ♡ by: Warloy et al.\n Community managed with ♡ by: kwally"
 		Mode Name: "♥ Friendly ♥ Updated ♥"
 	}
 
@@ -816,7 +816,7 @@ rule("Global_Settings")
 		Global.Skins_Check[0] = True;
 		"Assembling with skins check"
 		Global.Skins_Check[1] = False;
-		If(Count Of(Global.High_Rank) < 1 || Count Of(Global.Mod_Rank) < 37 || Count Of(Global.Titles_And_Outlines) != 39 || Count Of(Global.Muted_List) < 11 || Count Of(Global.Banned_List) < 22);
+		If(Count Of(Global.High_Rank) < 1 || Count Of(Global.Mod_Rank) < 38 || Count Of(Global.Titles_And_Outlines) != 40 || Count Of(Global.Muted_List) < 11 || Count Of(Global.Banned_List) < 23);
 			For Global Variable(Gravity_Helper, 0, 12, 1);
 				Global.Gravity_Helper -= 1;
 			End;
@@ -1219,9 +1219,9 @@ rule("Custom nameplates list")
 			
 			Array(Custom String("kwally"), 
 			Custom String("Fading"), 
-			240, 235, 219, 0, 25, 63, 
-			Custom String("Ｔｓｕｋｉ"), 
-			Custom String("人々が愛を知る瞬間、憎しみを抱える危険を伴う。"), 
+			80, 0, 0, 255, 0, 0, 
+			Custom String("Ａｋｕｍａ"), 
+			Custom String("ї ∂นҫӄїภғ Һαҭѡ ұσน"), 
 			Custom String("Nemo sum. Non volo esse quisquam.")),
 			
 			Array(Custom String("xskĳ"), 
@@ -1332,9 +1332,8 @@ rule("Custom nameplates list")
 			Custom String("† ｓｈａｂｒｉｒｉ †")), 
 
 			Array(Custom String("Avaløn"), 
-			Custom Color(26, 31, 51, 255),
-			Custom String("{0} ¢αη'ƚ ѕƚσρ ωση'ƚ ѕƚσρ! {0}", Ability Icon String(Hero(Lúcio), Button(Ability 1))), 
-			Custom String("{0} gﾚαmørøuš κηuςκﾚεhεαd {0}", Icon String(Dizzy))), 
+			Custom String("Rainbow"),
+			Custom String(" ")), 
 
 			Array(Custom String("pancakes"), 
 			Custom String("Rainbow"), 
@@ -1347,8 +1346,7 @@ rule("Custom nameplates list")
 
 			Array(Custom String("PurpSkrrt"), 
 			Custom Color(221, 175, 255, 255),
-			Custom String("{0} * .˚ ♡『 PurpSkrrt™ 』♡ ˚. * {0}", Ability Icon String(Hero(Mercy), Button(Ultimate))), 
-			Custom String("{0} * .˚ »〖 ƐÏ3 〗« ˚. * {0}", Ability Icon String(Hero(Lifeweaver), Button(Primary Fire)))), 
+			Custom String("【‧*.˚•☆『 PurpSkrrt™ 』☆•˚.*‧】")),
 			
 			Array(Custom String("tsunde"), 
 			Custom String("Rainbow"), 
@@ -1375,26 +1373,31 @@ rule("Custom nameplates list")
 
 			Array(Custom String("zovha"), 
 			Custom Color(0, 0, 0, 255), 
-			Custom String("bearer of the curse")),
+			Custom String("♡")),
 
 			Array(Custom String("Hoxy"), 
 			Custom String("Rainbow"), 
 			Custom String("AYAYA")), 		
 
-			Array(Custom String("Lünår"), 
+			Array(Custom String("ƑĿUƑƑƔMƐŴ"), 
 			Custom Color(138, 103, 194, 255), 
-			Custom String("{0}【 Ｌｕｎａ　 Ｇｏｄｄｅｓｓ】{0}", Icon String(Moon)), 
-			Custom String("{0}【 Ｇｕａｒｄｉａｎ 　Ａｎｇｅｌ】{0}", Ability Icon String(Hero(Mercy), Button(Ultimate)))),
+			Custom String("{0}【Ｍｕｒｄｅｒ Ｄｒｏｎｅ Ｌ】{0}", Icon String(X)), 
+			Custom String("{0}【Ｓｋｕｌｌ Ｋｉｄ】{0}", Ability Icon String(Hero(Lifeweaver), Button(Primary Fire)))),
 			
 			Array(Custom String("Shady"),
 			Custom String("Rainbow"),
             Custom String("{0} I love when you count me out {0}", Ability Icon String(Hero(Mercy), Button(Ultimate))),
 			Custom String("{0} You gon' think about me when i'm gone {0}", Icon String(Dizzy))),
 
-			Array(Custom String("Scooby"), 
+			Array(Custom String("Scooby"),
 			Custom Color(255, 255, 255, 255), 
 			Custom String("{0} Scooby Dooby Doooo! {0}", Ability Icon String(Hero(Kiriko), Button(Ultimate))), 
-			Custom String("{0} Ultra Instinc Shaggy {0}", Ability Icon String(Hero(Reaper), Button(Ability 1))))
+			Custom String("{0} Ultra Instinc Shaggy {0}", Ability Icon String(Hero(Reaper), Button(Ability 1)))),
+
+			Array(Custom String("cal"), 
+			Custom Color(128, 0, 0, 255),
+			Custom String("E-girl hunter"),
+			Custom String("Looking for a mercy pocket"))
 		);
 	}
 }
@@ -1570,8 +1573,8 @@ rule("Listed_Player")
 			Custom String("AvatarGod"), Custom String("TURBOMURO"), Custom String("Stinky"), Custom String("Visual"), 
 			Custom String("ĨŹĂŃĂMĨ"), Custom String("Tedz"), Custom String("S0undw4v3"), Custom String("GHOSTIEǃ"), Custom String("ByeFever"),
 			Custom String("SapphicWitch"), Custom String("ĴŐĶĔŔ"), Custom String("Avaløn"), Custom String("zovha"), Custom String("pancakes"), 
-			Custom String("Quartz"), Custom String("PurpSkrrt"), Custom String("ÆROLEAƑ"), Custom String("Root"), Custom String("Lünår"),
-			Custom String("godly"), Custom String("Zxtyi"), Custom String("Shady"), Custom String("Scooby"));
+			Custom String("Quartz"), Custom String("PurpSkrrt"), Custom String("ÆROLEAƑ"), Custom String("Root"), Custom String("ƑĿUƑƑƔMƐŴ"),
+			Custom String("godly"), Custom String("Zxtyi"), Custom String("Shady"), Custom String("Scooby"), Custom String("cal"));
 		"Warning List"
 		Global.Warning_List = Array(Custom String(" --- "));
 		"Muted List"
@@ -1586,7 +1589,7 @@ rule("Listed_Player")
 			Custom String("HOÑEYBEE"), Custom String("Dead"), Custom String("chii"), Custom String("WÃFFLĚS"), Custom String("CuddleBunny"), 
 			Custom String("ǃSHAY"), Custom String("Axem"), Custom String("BlueSky"), Custom String("Leafar"), Custom String("pupi"), 
 			Custom String("xhamelly"), Custom String("ǁHafocfugelǁ"), Custom String("NOCTǃS"), Custom String("dior"), Custom String("pearls"),
-			Custom String("SKARAB"), Custom String("LUŊAƑREƔA"), Custom String("SĦĨŊSOȔǃ"), Custom String("Nÿx"));
+			Custom String("SKARAB"), Custom String("LUŊAƑREƔA"), Custom String("SĦĨŊSOȔǃ"), Custom String("Nÿx"), Custom String("ŊǾCTIS"));
 	}
 }
 
