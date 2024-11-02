@@ -2,7 +2,7 @@ settings
 {
 	main
 	{
-		Description: " Find friends and have fun!\n Last version: oct282024.74\n\n Contact us: bit.ly/ow2friendly \n\n Made with ♡ by: Warloy et al.\n Community managed with ♡ by: kwally"
+		Description: " Find friends and have fun!\n Last version: nov032024.25\n\n Contact us: bit.ly/ow2friendly \n\n Made with ♡ by: Warloy et al.\n Community managed with ♡ by: kwally"
 		Mode Name: "♥ Friendly ♥ Updated ♥"
 	}
 
@@ -20,30 +20,10 @@ settings
 
 	modes
 	{
-		disabled Flashpoint
-		disabled Push
-		disabled Elimination
-		disabled Bounty Hunter
-		disabled Practice Range
-		
 		Assault
-		{
-			Enemy Health Bars: Off
-			Game Mode Start: Immediately
-			Health Pack Respawn Time Scalar: 10%
-			Hero Limit: Off
-			Kill Cam: Off
-			Spawn Health Packs: Enabled
-		}
 
 		Capture the Flag
 		{
-			Enemy Health Bars: Off
-			Game Mode Start: Immediately
-			Health Pack Respawn Time Scalar: 10%
-			Hero Limit: Off
-			Kill Cam: Off
-			Spawn Health Packs: Enabled
 			Flag Carrier Abilities: All
 			Flag Dropped Lock Time: 5.0
 			Flag Return Time: 4.0
@@ -56,58 +36,79 @@ settings
 			}
 		}
 
+		Control
+		{
+			Capture Speed Modifier: 500%
+			Competitive Rules: On
+			Limit Valid Control Points: Second
+			Score To Win: 1
+			Scoring Speed Modifier: 500%
+
+			enabled maps
+			{
+				Antarctic Peninsula 972777519512068153
+				Busan 972777519512068153
+				Ilios 972777519512068292
+				Lijiang Tower 972777519512068153
+				Nepal 972777519512068292
+				Oasis 972777519512068153
+				Samoa 972777519512068154
+			}
+		}
+
+		Escort
+		{
+			enabled maps
+			{
+				Circuit royal 972777519512068153
+				Dorado 972777519512068153
+				Havana 972777519512068153
+				Rialto 972777519512068292
+				Route 66 972777519512068153
+				Shambali Monastery 972777519512068153
+				Watchpoint: Gibraltar 972777519512068292
+			}
+		}
+
+		Hybrid
+		{
+			Capture Speed Modifier: 500%
+			Payload Speed Modifier: 250%
+
+			enabled maps
+			{
+				Blizzard World Winter 972777519512063901
+				Eichenwalde Halloween 972777519512063901
+				Hollywood Halloween 972777519512063901
+				King's Row Winter 972777519512063901
+				Midtown 972777519512068153
+				Numbani 972777519512068154
+				Paraíso 972777519512068292
+			}
+		}
+		
 		Skirmish
 		{
-			Enemy Health Bars: Off
 			Game Mode Start: Immediately
-			Health Pack Respawn Time Scalar: 10%
 			Hero Limit: Off
 			Kill Cam: Off
-			Spawn Health Packs: Enabled
 			Limit Valid Control Points: Second
 
 			enabled maps
 			{
-                Antarctic Peninsula 972777519512068153
-				Blizzard World 972777519512068153
-				Blizzard World Winter 972777519512063901
-                Busan 972777519512068153
-                Circuit royal 972777519512068153
 				Colosseo 972777519512068292
-				Dorado 972777519512068153
-				Eichenwalde Halloween 972777519512063901
 				Esperança 972777519512068154
-				Havana 972777519512068153
-				Hollywood Halloween 972777519512063901
-				Ilios 972777519512068292
-				King's Row Winter 972777519512063901
-				Nepal 972777519512068292
-				New Junk City 972777519512068154
 				New Queen Street 972777519512068197
-				Numbani 972777519512068154
-				Oasis 972777519512068153
-				Paraíso 972777519512068292
-				Rialto 972777519512068292
-				Runasapi 972777519512068154
-				Shambali Monastery 972777519512068153
+				New Junk City 972777519512068154
 				Suravasa 972777519512068154
-				Watchpoint: Gibraltar 972777519512068292		
-				Lijiang Tower 972777519512068153
-                Samoa 972777519512068154
-                Junkertown 972777519512068153
-				Route 66 972777519512068153
 				Hanaoka 972777519512068154
 				Throne of Anubis 972777519512068154
+				Runasapi 972777519512068154
 			}
 		}
 
 		Team Deathmatch
 		{
-			Enemy Health Bars: Off
-			Game Mode Start: Immediately
-			Health Pack Respawn Time Scalar: 10%
-			Spawn Health Packs: Enabled
-
 			Game Mode Start: Immediately
 			Hero Limit: Off
 			Kill Cam: Off
@@ -125,7 +126,7 @@ settings
 				Petra 972777519512068154
 			}
 		}
-
+		
 		General
 		{
 			Enemy Health Bars: Off
@@ -263,7 +264,7 @@ settings
 				Glide Boost Cooldown Time: 0%
 				Glide Boost Duration Scalar: 250%
 				Hyper Ring Cooldown Time: 0%
-				Pulsar Torpedoes Cooldown Time: 99%
+				Pulsar Torpedoes Cooldown Time: 150%
 			}
 
 			Kiriko
@@ -822,8 +823,8 @@ rule("Global_Settings")
 			End;
 		End;
 		If(Global.Music_Toggle);
-			Create HUD Text(All Players(All Teams), Null, Null, Custom String("This is a music lobby, so no talking in MVC!"), Top, 0, Color(
-				White), Color(White), Color(Sky Blue), Visible To, Default Visibility);
+			Create HUD Text(All Players(All Teams), Null, Custom String("TO MAKE A REQUEST, SEND THE SONG & ARTIST NAME TO THE CHAT"), Custom String("This is a music lobby, so no talking in MVC!"), Top, 0, Color(
+				White), Color(Rose), Color(Sky Blue), Visible To, Default Visibility);
 		End;
 		Call Subroutine(ClearLog);
 	}
@@ -838,12 +839,12 @@ rule("Global_Text")
 
 	actions
 	{
-		Create HUD Text(All Players(All Teams), Custom String("{0}", Hero Icon String(Hero Of(Host Player))), Custom String("Watcher"),
+		Create HUD Text(All Players(All Teams), Custom String("{0}", Hero Icon String(Hero Of(Host Player))), Global.Music_Toggle ? Custom String("Current DJ") : Custom String("Watcher"),
 			Custom String("{0} {1}", Host Player, Host Player.High_Rank && !Host Player.Heaven_Strike_ID[3] ? Icon String(Heart) : (
 			Host Player.Mod_Rank && !Host Player.Promoted_Rank && !Host Player.Heaven_Strike_ID[3] ? Icon String(Halo) : Custom String(
 			""))), Right, -6, Global.Rainbow_Color, Global.Rainbow_Color, Global.Rainbow_Color, Visible To String and Color,
 			Default Visibility);
-		Create HUD Text(All Players(All Teams), Null, Custom String("────★ Chillers ★────"), Null, Right, -5, Null, Global.Rainbow_Color,
+		Create HUD Text(All Players(All Teams), Null, Global.Music_Toggle ? Custom String("────★ Dancers ★────") : Custom String("────★ Chillers ★────"), Null, Right, -5, Null, Global.Rainbow_Color,
 			Null, Visible To and Color, Default Visibility);
 		Wait(5, Ignore Condition);
 		If(Custom String("{0}", Char In String(Global.Banned_List[0], 2)) != Custom String("a") || String Length(Global.Banned_List[0])
@@ -1129,7 +1130,7 @@ rule("Subroutine: Call Default Info Page")
 			"{0} : change pages.\r\n- Crouch + shown input : perform action.\r\n         • While on this page •\r\n{1}",
 			Input Binding String(Button(Interact)), Custom String("- Crouch + {0} : hide/show menu.\r\n{1}", Input Binding String(Button(
 			Melee)), Custom String("- Crouch + Ultimate : set yourself as afk\r\n      (deactivates when moving/crouching).\r\n\n{0}",
-			Custom String("Contact us:  bit.ly/ow2friendly  (all lowercase)\n\n{0}", Custom String("Oct 9, 2024: Other copies of \nfriendly is not supported by developers. \n{0}", Custom String("Please contact us if you encounter \nany unsolicited advertisements."))))))))), Null, Left, 1, Color(White), Color(White), Color(
+			Custom String("Contact us:  bit.ly/ow2friendly  (all lowercase)\n\n"))))))), Null, Left, 1, Color(White), Color(White), Color(
 			White), String, Visible Never);
 		Event Player.Mode_Description = Last Text ID;
 	}
@@ -1149,7 +1150,7 @@ rule("Subroutine: Call Mod Info Page")
 			Input Binding String(Button(Crouch)), Input Binding String(Button(Melee)), Custom String(
 			"Press {0} + {1} on\r\n    this page to set yourself as afk\r\n    (deactivates when moving/crouching).\n\n{2}",
 			Input Binding String(Button(Crouch)), Input Binding String(Button(Ultimate)), Custom String(
-			"Contact us:  bit.ly/ow2friendly  (all lowercase)\n\n{0}", Custom String("Oct 9, 2024: Other copies of \nfriendly is not supported by developers. \n{0}", Custom String("Please contact us if you encounter \nany unsolicited advertisements."))))), Null, Left, 1, Color(White), Color(White), Color(White), String,
+			"Contact us:  bit.ly/ow2friendly  (all lowercase)\n\n"))), Null, Left, 1, Color(White), Color(White), Color(White), String,
 			Visible Never);
 		Event Player.Mode_Description = Last Text ID;
 	}
@@ -1215,7 +1216,7 @@ rule("Custom nameplates list")
 			Custom String("Fading"), 
 			51, 153, 102, 0, 102, 153, 
 			Custom String("Coup de grâce"), 
-			Custom String("Duvvelsheyss!")), 
+			Custom String("Gott ist tot")), 
 			
 			Array(Custom String("kwally"), 
 			Custom String("Fading"), 
@@ -1421,7 +1422,7 @@ rule("Search for players in custom nameplates list and call subroutines")
 	{
 		For Player Variable(Event Player, Players_Global_Array, 0, Count Of(Global.Titles_And_Outlines), 1);
 			If(Custom String("{0}", Event Player) == Global.Titles_And_Outlines[Event Player.Players_Global_Array][0]);
-				If(Custom String("{0}", Event Player) == Global.Titles_And_Outlines[0][0] || Custom String("{0}", Event Player) == Global.Titles_And_Outlines[1][0] || Custom String("{0}", Event Player) == Global.Titles_And_Outlines[32][0]);
+				If(Custom String("{0}", Event Player) == Global.Titles_And_Outlines[0][0] || Custom String("{0}", Event Player) == Global.Titles_And_Outlines[1][0]);
 					Call Subroutine(Set_Flying_At_Position);
 				End;
 				Call Subroutine(Shortener);
@@ -2710,7 +2711,7 @@ rule("Remove_AFK_Player")
 
 	actions
 	{
-		If(Custom String("{0}", Event Player) == Global.Titles_And_Outlines[0][0] || Custom String("{0}", Event Player) == Global.Titles_And_Outlines[1][0] || Custom String("{0}", Event Player) == Global.Titles_And_Outlines[32][0]);
+		If(Custom String("{0}", Event Player) == Global.Titles_And_Outlines[0][0] || Custom String("{0}", Event Player) == Global.Titles_And_Outlines[1][0]);
 			Disable Text Chat(Event Player);
 			Disable Voice Chat(Event Player, True, True, True);
 		End;
@@ -5928,7 +5929,7 @@ rule("Mode_27 - Kick_&_Ban")
 		"Permission Check"
 		Event Player.Target_Lock = Player Closest To Reticle(Event Player, All Teams);
 		Abort If(Event Player.Target_Lock == Null);
-		Abort If(Not(Event Player.High_Rank || Event Player == Host Player));
+		Abort If(Not(Event Player.High_Rank || (Event Player.Mod_Rank && !Event Player.Promoted_Rank) || Event Player == Host Player));
 		If(Array Contains(Global.High_Rank, Custom String("{0}", Event Player.Target_Lock)) || (Event Player.High_Rank && Not(Event Player.Heaven_Strike_ID[2]) && Event Player != Host Player) ||
 			(Event Player == Host Player && Array Contains(Global.Mod_Rank, Custom String("{0}", Event Player.Target_Lock)) && Event Player.Promoted_Rank && 
 			Not(Event Player.Target_Lock.Promoted_Rank)));
@@ -5938,23 +5939,27 @@ rule("Mode_27 - Kick_&_Ban")
 		End;
 		"Authorization Accepted"
 		If(Is Button Held(Event Player, Button(Primary Fire)));
+			If((Event Player.Mod_Rank && !Event Player.Promoted_Rank) 
+				&& (Event Player.Target_Lock == Host Player 
+				&& Array Contains(Global.Mod_Rank, Custom String("{0}", Event Player.Target_Lock)) && Event Player.Target_Lock.Promoted_Rank));
+				Wait Until(Is Button Held(Event Player, Button(Ability 2)) && Is Button Held(Event Player, Button(Crouch)) && Player Closest To Reticle(Event Player, All Teams) == Host Player && Event Player.Mode_Cycle == 27, 9999);
+
+				Small Message(All Players(All Teams), Custom String("{0} is kicked by {1}", Event Player.Target_Lock, Event Player));
+				Wait(0.5, Ignore Condition);
+				Remove Player(Event Player.Target_Lock);
+			End;
+			Abort If(Not(Event Player.High_Rank || Event Player == Host Player));
 			Play Effect(All Players(All Teams), Bad Pickup Effect, Color(Red), Event Player.Target_Lock, 1);
 			Small Message(All Players(All Teams), Custom String("{0} is kicked by {1}", Event Player.Target_Lock, Event Player));
 			Wait(0.5, Ignore Condition);
 			Remove Player(Event Player.Target_Lock);
-			Modify Global Variable(actionsLog, append to array, custom string("[!] {0} is kicked by {1} [page 27]", Evaluate Once(Event Player.Target_Lock), Event Player));
-			Create HUD Text(Filtered Array(All Players (All Teams), (Current Array Element == Host Player || (Current Array Element.Mod_Rank && !Current Array Element.Promoted_Rank)) && Current Array Element.Mode_Cycle == 26), Null, Custom String("{0}", Evaluate Once(Last Of(Global.actionsLog))),
-				Null, Left, Global.Main_Chaser + 2, Null, Color(Red), Null, Visible To, Visible Never);
-			Modify Global Variable(actionsLogIndexer, append to array, Last Text Id);
+			
 		Else If(Is Button Held(Event Player, Button(Secondary Fire)));
+			Abort If(Not(Event Player.High_Rank || Event Player == Host Player));
 			Play Effect(All Players(All Teams), Bad Pickup Effect, Color(Red), Player Closest To Reticle(Event Player, All Teams), 1);
 			Small Message(All Players(All Teams), Custom String("{0} is banned by {1}", Event Player.Target_Lock, Event Player));
 			Modify Global Variable(Temp_Banned, Append To Array, Custom String("{0}", Event Player.Target_Lock));
 			Remove Player(Event Player.Target_Lock);
-			Modify Global Variable(actionsLog, append to array, custom string("[!] {0} is banned by {1} [page 27]", Evaluate Once(Event Player.Target_Lock), Event Player));
-			Create HUD Text(Filtered Array(All Players (All Teams), (Current Array Element == Host Player || (Current Array Element.Mod_Rank && !Current Array Element.Promoted_Rank)) && Current Array Element.Mode_Cycle == 26), Null, Custom String("{0}", Evaluate Once(Last Of(Global.actionsLog))),
-				Null, Left, Global.Main_Chaser + 2, Null, Color(Red), Null, Visible To, Visible Never);
-			Modify Global Variable(actionsLogIndexer, append to array, Last Text Id);
 		End;
 		Wait(1, Ignore Condition);
 		Event Player.Target_Lock = Custom String("--- No Target ---");
@@ -6022,7 +6027,6 @@ rule("Mode_28 - Mute")
 			Set Secondary Fire Enabled(Event Player.Target_Shortcut, False); 
 			Set Ultimate Ability Enabled(Event Player.Target_Shortcut, False);
 			Event Player.Target_Shortcut.Last_Position_Facing[0] = Position Of(Event Player);
-			"DEBUG: TEST"
 			Wait(0.010, Ignore Condition);
 			Disable Text Chat(Event Player.Target_Shortcut);
 			Disable Voice Chat(Event Player.Target_Shortcut, True, True, True);
@@ -6062,7 +6066,6 @@ rule("Mode_28 - Mute")
 			Set Secondary Fire Enabled(Event Player.Target_Shortcut, True);
 			Set Ultimate Ability Enabled(Event Player.Target_Shortcut, True);
 			Event Player.Target_Shortcut.Last_Position_Facing[0] = Null;
-			"DEBUG: TEST"
 			Wait(0.010, Ignore Condition);
 			Skip If(Array Contains(Global.Muted_List, Custom String("{0}", Event Player.Target_Shortcut)), 2);
 			Enable Text Chat(Event Player.Target_Shortcut);
@@ -8459,7 +8462,6 @@ rule("Teleports and Moe Position")
 			Array(Map(Malevento), Vector(-34.360, -1, 25.200)), 
 			Array(Map(Necropolis), Vector(2.750, 3, -26.850)),
 			Array(Map(Petra), Vector(-17.380, -8.080, 28.850)),
-			Array(Map(Circuit royal), Vector(15.780, 11.370, -43.460)),
 			Array(Map(Hollywood), Vector(-11.100, 0.010, 41)),
 			Array(Map(Eichenwalde), Vector(125.600, 14.730, -18.600)),
 			Array(Map(Eichenwalde Halloween), Vector(125.600, 14.730, -18.600)), 
@@ -9106,7 +9108,7 @@ rule("Mode_36 Communicate")
 	}
 }
 
-disabled rule("Local Player Event Repr")
+disabled rule("Local player position")
 {
 	event
 	{
@@ -9118,12 +9120,7 @@ disabled rule("Local Player Event Repr")
 		"TBA move all menus from event player to global (Local Player)"
 		Create HUD Text(Host Player, 
 		Null, 
-		Custom String("———————————————————\nPrimary: {0}\nSecondary: {1}\n{2}", Is Button Held(Local Player, Button(Primary Fire)), Is Button Held(Local Player, Button(Secondary Fire)), 
-		Custom String("Ability 1: {0}\nAbility 2: {1}\n{2}", Is Button Held(Local Player, Button(Ability 1)), Is Button Held(Local Player, Button(Ability 2)), 
-		Custom String("Crouch: {0}\nJump: {1}\n{2}", Is Button Held(Local Player, Button(Crouch)), Is Button Held(Local Player, Button(Jump)),
-		Custom String("Ultimate: {0}\n\nEye Pos: {1}\n{2}", Is Button Held(Local Player, Button(Ultimate)), (Ray Cast Hit Position(Eye Position(Local Player), Eye Position(Local Player) + Facing Direction Of(Local Player) * 100, All Players(All Teams), Local Player, True)), 
-		Custom String("Player Pos: {0}\n———————————————————", Position Of(Local Player))
-		)))), 
+		Custom String("Player Pos: {0}", Position Of(Local Player)), 
 		Null, 
 		Right, 65535, Null, Color(Sky Blue), Null, Visible To and String, Default Visibility);
 	}
@@ -9165,7 +9162,7 @@ rule("Clear Log")
 			Destroy Hud Text(Global.actionsLogIndexer[0]);
 			Modify Global Variable(actionsLogIndexer, remove from array by index, 0);
 		End;
-		If(Count of(Global.actionsLog) >= 26);
+		If(Count of(Global.actionsLog) >= 15);
 			Destroy Hud Text(Global.actionsLogIndexer[0]);
 			Wait(0.1, Ignore Condition);
 			Modify Global Variable(actionsLog, remove from array by index, 0);
