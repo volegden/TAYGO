@@ -9023,7 +9023,7 @@ rule("individual effect: kwally (is moving)")
 	actions
 	{
 		If(Custom String("{0}", Event Player) == Custom String("kwally"));
-			Play Effect(All Players(All Teams), Ring Explosion, Color(Blue), Position Of(Event Player) + Vector(X Component Of(Event Player),
+			Play Effect(All Players(All Teams), Ring Explosion, Color(Red), Position Of(Event Player) + Vector(X Component Of(Event Player),
 				0.022, Z Component Of(Event Player)), 1.300);
 			Wait(0.050, Ignore Condition);
 		End;
