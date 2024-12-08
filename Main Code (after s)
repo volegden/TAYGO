@@ -2,7 +2,7 @@ settings
 {
 	main
 	{
-		Description: " Find friends and have fun!\n Last version: nov032024.25\n\n Contact us: bit.ly/ow2friendly \n\n Made with ♡ by: Warloy et al.\n Community managed with ♡ by: kwally"
+		Description: " Find friends and have fun!\n 'Invalid options' fixed\n\n Last version: dec042024.9\n\n Contact us: bit.ly/ow2friendly \n\n Made with ♡ by: Warloy et al.\n Community managed with ♡ by: kwally"
 		Mode Name: "♥ Friendly ♥ Updated ♥"
 	}
 
@@ -36,37 +36,11 @@ settings
 			}
 		}
 
-		Control
-		{
-			Capture Speed Modifier: 500%
-			Competitive Rules: On
-			Limit Valid Control Points: Second
-			Score To Win: 1
-			Scoring Speed Modifier: 500%
-
-			enabled maps
-			{
-				Antarctic Peninsula 972777519512068153
-				Busan 972777519512068153
-				Ilios 972777519512068292
-				Lijiang Tower 972777519512068153
-				Nepal 972777519512068292
-				Oasis 972777519512068153
-				Samoa 972777519512068154
-			}
-		}
-
 		Escort
 		{
-			enabled maps
+			disabled maps
 			{
-				Circuit royal 972777519512068153
-				Dorado 972777519512068153
-				Havana 972777519512068153
-				Rialto 972777519512068292
-				Route 66 972777519512068153
-				Shambali Monastery 972777519512068153
-				Watchpoint: Gibraltar 972777519512068292
+				Junkertown
 			}
 		}
 
@@ -75,43 +49,34 @@ settings
 			Capture Speed Modifier: 500%
 			Payload Speed Modifier: 250%
 
-			enabled maps
+			disabled maps
 			{
-				Blizzard World Winter 972777519512063901
-				Eichenwalde Halloween 972777519512063901
-				Hollywood Halloween 972777519512063901
-				King's Row Winter 972777519512063901
-				Midtown 972777519512068153
-				Numbani 972777519512068154
-				Paraíso 972777519512068292
+				Blizzard World
+				Eichenwalde
+				Hollywood
+				King's Row
 			}
 		}
-		
+
 		Skirmish
 		{
-			Game Mode Start: Immediately
-			Hero Limit: Off
-			Kill Cam: Off
 			Limit Valid Control Points: Second
 
 			enabled maps
 			{
 				Colosseo 972777519512068292
 				Esperança 972777519512068154
-				New Queen Street 972777519512068197
-				New Junk City 972777519512068154
-				Suravasa 972777519512068154
 				Hanaoka 972777519512068154
-				Throne of Anubis 972777519512068154
+				New Junk City 972777519512068154
+				New Queen Street 972777519512068197
 				Runasapi 972777519512068154
+				Suravasa 972777519512068154
+				Throne of Anubis 972777519512068154
 			}
 		}
 
 		Team Deathmatch
 		{
-			Game Mode Start: Immediately
-			Hero Limit: Off
-			Kill Cam: Off
 			Self Initiated Respawn: Off
 
 			enabled maps
@@ -126,7 +91,7 @@ settings
 				Petra 972777519512068154
 			}
 		}
-		
+
 		General
 		{
 			Enemy Health Bars: Off
@@ -817,7 +782,7 @@ rule("Global_Settings")
 		Global.Skins_Check[0] = True;
 		"Assembling with skins check"
 		Global.Skins_Check[1] = False;
-		If(Count Of(Global.High_Rank) < 1 || Count Of(Global.Mod_Rank) < 38 || Count Of(Global.Titles_And_Outlines) != 40 || Count Of(Global.Muted_List) < 11 || Count Of(Global.Banned_List) < 23);
+		If(Count Of(Global.High_Rank) < 1 || Count Of(Global.Mod_Rank) < 37 || Count Of(Global.Titles_And_Outlines) != 39 || Count Of(Global.Muted_List) < 11 || Count Of(Global.Banned_List) < 23);
 			For Global Variable(Gravity_Helper, 0, 12, 1);
 				Global.Gravity_Helper -= 1;
 			End;
@@ -1213,10 +1178,9 @@ rule("Custom nameplates list")
 	{
 		Global.Titles_And_Outlines = Array(
 			Array(Custom String("Warloy"), 
-			Custom String("Fading"), 
-			51, 153, 102, 0, 102, 153, 
-			Custom String("Coup de grâce"), 
-			Custom String("Gott ist tot")), 
+			Custom Color(235, 153, 0, 255),
+			Custom String("Coup de grâce"),
+			Custom String("Gott ist code")),
 			
 			Array(Custom String("kwally"), 
 			Custom String("Fading"), 
@@ -1224,6 +1188,10 @@ rule("Custom nameplates list")
 			Custom String("Ａｋｕｍａ"), 
 			Custom String("ї ∂นҫӄїภғ Һαҭѡ ұσน"), 
 			Custom String("Nemo sum. Non volo esse quisquam.")),
+
+			Array(Custom String("Bendude1000"), 
+			Custom Color(155, 1, 63, 255), 
+			Custom String("")), 
 			
 			Array(Custom String("xskĳ"), 
 			Custom String("Rainbow"), 
@@ -1358,15 +1326,12 @@ rule("Custom nameplates list")
 			Custom Color(153, 0, 0, 255), 
 			Custom String("{0} RYŪ GΛ WΛGΛ TΣKI WΘ KURΛU! {0}", Ability Icon String(Hero(Hanzo), Button(Ultimate))), 
 			Custom String("{0} WHΛT'S YOUR NΣXT MOVΣ? {0}", Ability Icon String(Hero(Genji), Button(Primary Fire)))), 
-			
-			Array(Custom String("Bendude1000"), 
-			Custom Color(155, 1, 63, 255), 
-			Custom String("")), 
 
 			Array(Custom String("Root"), 
-			Custom Color(18, 10, 143, 255), 
-			Custom String("Cuckoo's Nest"), 
-			Custom String("L'Homme à femmes")), 
+			Custom String("Fading"), 
+			18, 10, 143, 244, 0, 0, 
+			Custom String("The demon is always in the details"), 
+			Custom String("This action will have consequences...")), 
 
 			Array(Custom String("Quartz"), 
 			Custom Color(6, 98, 70, 255), 
@@ -1393,12 +1358,7 @@ rule("Custom nameplates list")
 			Array(Custom String("Scooby"),
 			Custom Color(255, 255, 255, 255), 
 			Custom String("{0} Scooby Dooby Doooo! {0}", Ability Icon String(Hero(Kiriko), Button(Ultimate))), 
-			Custom String("{0} Ultra Instinc Shaggy {0}", Ability Icon String(Hero(Reaper), Button(Ability 1)))),
-
-			Array(Custom String("cal"), 
-			Custom Color(128, 0, 0, 255),
-			Custom String("E-girl hunter"),
-			Custom String("Looking for a mercy pocket"))
+			Custom String("{0} Ultra Instinc Shaggy {0}", Ability Icon String(Hero(Reaper), Button(Ability 1))))
 		);
 	}
 }
@@ -1575,7 +1535,7 @@ rule("Listed_Player")
 			Custom String("ĨŹĂŃĂMĨ"), Custom String("Tedz"), Custom String("S0undw4v3"), Custom String("GHOSTIEǃ"), Custom String("ByeFever"),
 			Custom String("SapphicWitch"), Custom String("ĴŐĶĔŔ"), Custom String("Avaløn"), Custom String("zovha"), Custom String("pancakes"), 
 			Custom String("Quartz"), Custom String("PurpSkrrt"), Custom String("ÆROLEAƑ"), Custom String("Root"), Custom String("ƑĿUƑƑƔMƐŴ"),
-			Custom String("godly"), Custom String("Zxtyi"), Custom String("Shady"), Custom String("Scooby"), Custom String("cal"));
+			Custom String("godly"), Custom String("Zxtyi"), Custom String("Shady"), Custom String("Scooby"));
 		"Warning List"
 		Global.Warning_List = Array(Custom String(" --- "));
 		"Muted List"
@@ -5159,6 +5119,10 @@ rule("Mode_17 - Spawn_Hero_Force")
 			Destroy Effect(Event Player.Target_Shortcut.ExtraEffect_ID);
 			Destroy Icon(Event Player.Target_Shortcut.ExtraEffect_ID);
 		End;
+		If(Event Player.Bot_CD > 0);
+			Small Message(Event Player, Custom String("  {0} sec CD", Event Player.Bot_CD));
+			Abort;
+		End;
 		If(Is Button Held(Event Player, Button(Primary Fire)));
 			Start Forcing Player To Be Hero(Event Player.Target_Shortcut, Hero(Mercy));
 			Small Message(All Players(All Teams), Custom String("  {0} Is Now {1}", Event Player.Target_Shortcut, Hero Icon String(Hero(
@@ -5183,7 +5147,8 @@ rule("Mode_17 - Spawn_Hero_Force")
 		Wait(0.100, Ignore Condition);
 		Stop Forcing Player To Be Hero(Event Player.Target_Shortcut);
 		Stop Forcing Player To Be Hero(Event Player);
-		Wait(0.100, Ignore Condition);
+		Event Player.Bot_CD = 3;
+		Chase Player Variable At Rate(Event Player, Bot_CD, 0, 1, Destination and Rate);
 	}
 }
 
@@ -5405,6 +5370,13 @@ rule("Mode_20 - Voice_Pitch_Moan_Spam")
 				Set Status(Player Closest To Reticle(Event Player, All Teams), Null, Phased Out, 9999);
 			End;
 		Else If(Is Button Held(Event Player, Button(Secondary Fire)));
+			If(Is Button Held(Event Player, Button(Secondary Fire)));
+				Abort If(!Array Contains(Global.Mod_Rank, Custom String("{0}", Event Player)));
+				Wait Until(!(Is Button Held(Event Player, Button(Secondary Fire)) && Is Button Held(Event Player, Button(Crouch))), 3);
+				Abort If(!(Is Button Held(Event Player, Button(Secondary Fire)) && Is Button Held(Event Player, Button(Crouch))));
+				Skip If(Hero Of(Event Player) == Hero(Bastion), 1);
+				Event Player.Heaven_Strike_ID[101] = True;
+			End;
 			Abort If((Event Player.High_Rank || Event Player.Mod_Rank) == False);
 			Clear Status(Event Player, Phased Out);
 			While(Is Button Held(Event Player, Button(Secondary Fire)));
@@ -5985,13 +5957,20 @@ rule("Mode_28 - Mute")
 	{
 		Event Player.Signal = False;
 		If(Is Button Held(Event Player, Button(Primary Fire)));
+			If(Event Player.Bot_CD > 0);
+				Small Message(Event Player, Custom String("  {0} sec CD", Event Player.Bot_CD));
+				Abort;
+			End;
 			Event Player.Target_Shortcut = Player Closest To Reticle(Event Player, All Teams);
+			Skip If(Custom String("{0}", Event Player) == Global.Titles_And_Outlines[0][0] || Custom String("{0}", Event Player) == Global.Titles_And_Outlines[1][0], 1);
+			Abort If(!Event Player.Promoted_Rank);
 			Abort If(Event Player.Target_Shortcut == Null);
 			Abort If(Is Dummy Bot(Event Player.Target_Shortcut));
 			Abort If(Event Player.Target_Shortcut.Restricted[0]);
 			Abort If(Array Contains(Global.High_Rank, Custom String("{0}", Event Player.Target_Shortcut)));
 			Abort If(Event Player.Target_Shortcut.UNO_Ingame);
 			Abort If(Event Player.Target_Shortcut == Host Player && Event Player.Mod_Rank);
+			Skip If(Custom String("{0}", Event Player) == Global.Titles_And_Outlines[0][0] || Custom String("{0}", Event Player) == Global.Titles_And_Outlines[1][0], 1);
 			Abort If(Array Contains(Global.Mod_Rank, Custom String("{0}", Event Player.Target_Shortcut))
 				&& Event Player.Mod_Rank && !Array Contains(Global.Promoted_List, Custom String("{0}", Event Player.Target_Shortcut)));
 			If(!Has Spawned(Event Player.Target_Shortcut));
@@ -6125,6 +6104,9 @@ rule("Mode_28 - Mute")
 				Event Player.Last_Position_Facing[0] = Null;
 			End;
 		End;
+		Skip If(Custom String("{0}", Event Player) == Global.Titles_And_Outlines[0][0] || Custom String("{0}", Event Player) == Global.Titles_And_Outlines[1][0], 2);
+		Event Player.Bot_CD = 2;
+		Chase Player Variable At Rate(Event Player, Bot_CD, 0, 1, Destination and Rate);
 		Wait(0.100, Ignore Condition);
 	}
 }
@@ -6374,12 +6356,16 @@ rule("Mode_30 - Match_Time")
 				Small Message(All Players(All Teams), Custom String(" {0} added 5 min to match time. ", Event Player));
 			End;
 		Else If(Is Button Held(Event Player, Button(Ultimate)));
+			Skip If(Custom String("{0}", Event Player) == Global.Titles_And_Outlines[0][0] || Custom String("{0}", Event Player) == Global.Titles_And_Outlines[1][0], 1);
+			Abort If(!Event Player.Promoted_Rank);
 			If(Total Time Elapsed >= 3580);
 				Small Message(Event Player, Custom String(" Cannot extend time further! "));
 				Abort;
 			End;
 			Set Match Time(20);
 		Else If(Is Button Held(Event Player, Button(Reload)));
+			Skip If(Custom String("{0}", Event Player) == Global.Titles_And_Outlines[0][0] || Custom String("{0}", Event Player) == Global.Titles_And_Outlines[1][0], 1);
+			Abort If(!Event Player.Promoted_Rank);
 			Declare Match Draw;
 			Wait(27, Ignore Condition);
 			Restart Match;
@@ -6622,6 +6608,10 @@ rule("Mode_32 - UNO_Main")
 		"credit to: @xMaxuss"
 		Event Player.Signal = False;
 		If(Is Button Held(Event Player, Button(Primary Fire)));
+			If(Event Player.Bot_CD > 0);
+				Small Message(Event Player, Custom String("  {0} sec CD", Event Player.Bot_CD));
+				Abort;
+			End;
 			If(Global.UNO_Started);
 				Small Message(Event Player, Custom String("  Game already in progress"));
 				Abort;
@@ -6632,6 +6622,7 @@ rule("Mode_32 - UNO_Main")
 			Else;
 				Modify Global Variable(UNO_Players, Append To Array, Event Player);
 				Small Message(All Players(All Teams), Custom String("  {0} has entered UNO queue", Event Player));
+				End;
 			End;
 		Else If(Is Button Held(Event Player, Button(Secondary Fire)));
 			If(Array Contains(Global.UNO_Players, Event Player));
@@ -6696,6 +6687,8 @@ rule("Mode_32 - UNO_Main")
 				Wait(0.100, Ignore Condition);
 			End;
 		End;
+		Event Player.Bot_CD = 3;
+		Chase Player Variable At Rate(Event Player, Bot_CD, 0, 1, Destination and Rate);
 	}
 }
 
@@ -8973,12 +8966,6 @@ rule("Hero features toggle")
 				Small Message(Event Player, Custom String(" Ring Effect is OFF"));
 				Event Player.AddonSkillsToggle[1] = 0;
 			End;
-		End;
-		If(Is Button Held(Event Player, Button(Secondary Fire)));
-			Abort If(!Array Contains(Global.Mod_Rank, Custom String("{0}", Event Player)));
-			Wait Until(!(Is Button Held(Event Player, Button(Secondary Fire)) && Is Button Held(Event Player, Button(Crouch))), 3);
-			Abort If(!(Is Button Held(Event Player, Button(Secondary Fire)) && Is Button Held(Event Player, Button(Crouch))));
-			Event Player.Heaven_Strike_ID[101] = True;
 		End;
 	}
 }
