@@ -2,7 +2,7 @@ settings
 {
 	main
 	{
-		Description: " Find friends and have fun!\n 'Invalid options' fixed\n\n Last version: dec042024.9\n\n Contact us: bit.ly/ow2friendly \n\n Made with ♡ by: Warloy et al.\n Community managed with ♡ by: kwally"
+		Description: " Find friends and have fun!\n 'Invalid options' fixed\n\n Last version: December 11th 2024.9\n\n Contact us: bit.ly/ow2friendly \n\n Made with ♡ by: Warloy et al.\n Community managed with ♡ by: kwally"
 		Mode Name: "♥ Friendly ♥ Updated ♥"
 	}
 
@@ -782,7 +782,7 @@ rule("Global_Settings")
 		Global.Skins_Check[0] = True;
 		"Assembling with skins check"
 		Global.Skins_Check[1] = False;
-		If(Count Of(Global.High_Rank) < 1 || Count Of(Global.Mod_Rank) < 37 || Count Of(Global.Titles_And_Outlines) != 39 || Count Of(Global.Muted_List) < 11 || Count Of(Global.Banned_List) < 23);
+		If(Count Of(Global.High_Rank) < 1 || Count Of(Global.Mod_Rank) < 40 || Count Of(Global.Titles_And_Outlines) != 41 || Count Of(Global.Muted_List) < 17 || Count Of(Global.Banned_List) < 23);
 			For Global Variable(Gravity_Helper, 0, 12, 1);
 				Global.Gravity_Helper -= 1;
 			End;
@@ -1282,7 +1282,7 @@ rule("Custom nameplates list")
 			Custom Color(139, 0, 0, 255), 
 			Custom String(" ")), 
 			
-			Array(Custom String("ĴŐĶĔŔ"), 
+			Array(Custom String("ĨŹĂŃĂGĨ"), 
 			Color(Black), 
 			Custom String("{0} ☆ おばけ ☆ {0}", Ability Icon String(Hero(Genji), Button(Ultimate)))), 
 			
@@ -1328,8 +1328,7 @@ rule("Custom nameplates list")
 			Custom String("{0} WHΛT'S YOUR NΣXT MOVΣ? {0}", Ability Icon String(Hero(Genji), Button(Primary Fire)))), 
 
 			Array(Custom String("Root"), 
-			Custom String("Fading"), 
-			18, 10, 143, 244, 0, 0, 
+			Custom Color(18, 10, 143, 255),
 			Custom String("The demon is always in the details"), 
 			Custom String("This action will have consequences...")), 
 
@@ -1358,7 +1357,16 @@ rule("Custom nameplates list")
 			Array(Custom String("Scooby"),
 			Custom Color(255, 255, 255, 255), 
 			Custom String("{0} Scooby Dooby Doooo! {0}", Ability Icon String(Hero(Kiriko), Button(Ultimate))), 
-			Custom String("{0} Ultra Instinc Shaggy {0}", Ability Icon String(Hero(Reaper), Button(Ability 1))))
+			Custom String("{0} Ultra Instinc Shaggy {0}", Ability Icon String(Hero(Reaper), Button(Ability 1)))),
+
+			Array(Custom String("cal"), 
+			Custom Color(128, 0, 0, 255),
+			Custom String("E-girl hunter"),
+			Custom String("Looking for a mercy pocket")),
+
+			Array(Custom String("NightShield"), 
+			Custom String("Rainbow"),
+			Custom String(" "))
 		);
 	}
 }
@@ -1531,20 +1539,24 @@ rule("Listed_Player")
 			Custom String("Warloy"), Custom String("kwally"), Custom String("xskĳ"), Custom String("Toguro"), Custom String("Hoxy"), 
 			Custom String("MOOOUSH"), Custom String("Xenolysith"), Custom String("Leestick"), Custom String("Bratty"), Custom String("Ɛthereal"),  
 			Custom String("Bendude1000"), Custom String("Lostshadow"), Custom String("Viktorski"), Custom String("Alex"), Custom String("tsunde"), 
-			Custom String("AvatarGod"), Custom String("TURBOMURO"), Custom String("Stinky"), Custom String("Visual"), 
-			Custom String("ĨŹĂŃĂMĨ"), Custom String("Tedz"), Custom String("S0undw4v3"), Custom String("GHOSTIEǃ"), Custom String("ByeFever"),
-			Custom String("SapphicWitch"), Custom String("ĴŐĶĔŔ"), Custom String("Avaløn"), Custom String("zovha"), Custom String("pancakes"), 
-			Custom String("Quartz"), Custom String("PurpSkrrt"), Custom String("ÆROLEAƑ"), Custom String("Root"), Custom String("ƑĿUƑƑƔMƐŴ"),
-			Custom String("godly"), Custom String("Zxtyi"), Custom String("Shady"), Custom String("Scooby"));
+			Custom String("AvatarGod"), Custom String("TURBOMURO"), Custom String("Stinky"), Custom String("Visual"), Custom String("ĨŹĂŃĂMĨ"),
+			Custom String("Tedz"), Custom String("S0undw4v3"), Custom String("GHOSTIEǃ"), Custom String("ByeFever"), Custom String("SapphicWitch"),
+			Custom String("ĨŹĂŃĂGĨ"), Custom String("Avaløn"), Custom String("zovha"), Custom String("pancakes"), Custom String("Quartz"),
+			Custom String("PurpSkrrt"), Custom String("ÆROLEAƑ"), Custom String("Root"), Custom String("ƑĿUƑƑƔMƐŴ"), Custom String("godly"),
+			Custom String("Zxtyi"), Custom String("Shady"), Custom String("Scooby"), Custom String("cal"), Custom String("NightShield"));
 		"Warning List"
 		Global.Warning_List = Array(Custom String(" --- "));
 		"Muted List"
 		Global.Muted_List = Array(
 			Custom String("DJBASTIOON"), Custom String("DJBastion"), Custom String("Djbastion"), Custom String("DJBASTION!"), Custom String("MrBastion"),
-			Custom String("DjBeep"), Custom String("DJBASTION"), Custom String("ĹȄȀƑ"), Custom String("Loxy"), Custom String("rƗkku"), Custom String("DjBastion"),
-			Custom String("BeepMatic"));
+			Custom String("DjBeep"), Custom String("DJBASTION"), Custom String("ĹȄȀƑ"), Custom String("Loxy"), Custom String("rƗkku"),
+			Custom String("DjBastion"), Custom String("BeepMatic"), Custom String("royalty"), Custom String("lila"), Custom String("YVL"),
+			Custom String("Ghost"), Custom String("NotToxic"), Custom String("River"));
 		"Demoted List"
-		Global.Demoted_List = Array(Custom String(" --- "));
+		Global.Demoted_List = Array(
+			Custom String("pudding!"), Custom String("iiMaya24k"), Custom String("StrxwberryBE"), Custom String("Axe"), Custom String("FURY"),
+			Custom String("MƐŎŎŎŎŴ"), Custom String("SPY"), Custom String("MetalCrusheR"), Custom String("LiLiTH"), Custom String("Peri"),
+			Custom String("theropy"), Custom String("MĔiǃ"));
 		"Automatic Ban"
 		Global.Banned_List = Array(Custom String("xMaxuss"), Custom String("HYUA"), Custom String("BebeUwU"), 
 			Custom String("HOÑEYBEE"), Custom String("Dead"), Custom String("chii"), Custom String("WÃFFLĚS"), Custom String("CuddleBunny"), 
