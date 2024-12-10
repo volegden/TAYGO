@@ -9,10 +9,9 @@ rule("Custom nameplates list")
 	{
 		Global.Titles_And_Outlines = Array(
 			Array(Custom String("Warloy"), 
-			Custom String("Fading"), 
-			51, 153, 102, 0, 102, 153, 
-			Custom String("Coup de grâce"), 
-			Custom String("Duvvelsheyss!")), 
+			Custom Color(235, 153, 0, 255),
+			Custom String("Coup de grâce"),
+			Custom String("Gott ist code")),
 			
 			Array(Custom String("kwally"), 
 			Custom String("Fading"), 
@@ -20,6 +19,10 @@ rule("Custom nameplates list")
 			Custom String("Ａｋｕｍａ"), 
 			Custom String("ї ∂นҫӄїภғ Һαҭѡ ұσน"), 
 			Custom String("Nemo sum. Non volo esse quisquam.")),
+
+			Array(Custom String("Bendude1000"), 
+			Custom Color(155, 1, 63, 255), 
+			Custom String("")), 
 			
 			Array(Custom String("xskĳ"), 
 			Custom String("Rainbow"), 
@@ -110,7 +113,7 @@ rule("Custom nameplates list")
 			Custom Color(139, 0, 0, 255), 
 			Custom String(" ")), 
 			
-			Array(Custom String("ĴŐĶĔŔ"), 
+			Array(Custom String("ĨŹĂŃĂGĨ"), 
 			Color(Black), 
 			Custom String("{0} ☆ おばけ ☆ {0}", Ability Icon String(Hero(Genji), Button(Ultimate)))), 
 			
@@ -154,15 +157,11 @@ rule("Custom nameplates list")
 			Custom Color(153, 0, 0, 255), 
 			Custom String("{0} RYŪ GΛ WΛGΛ TΣKI WΘ KURΛU! {0}", Ability Icon String(Hero(Hanzo), Button(Ultimate))), 
 			Custom String("{0} WHΛT'S YOUR NΣXT MOVΣ? {0}", Ability Icon String(Hero(Genji), Button(Primary Fire)))), 
-			
-			Array(Custom String("Bendude1000"), 
-			Custom Color(155, 1, 63, 255), 
-			Custom String("")), 
 
 			Array(Custom String("Root"), 
-			Custom Color(18, 10, 143, 255), 
-			Custom String("Cuckoo's Nest"), 
-			Custom String("L'Homme à femmes")), 
+			Custom Color(18, 10, 143, 255),
+			Custom String("The demon is always in the details"), 
+			Custom String("This action will have consequences...")), 
 
 			Array(Custom String("Quartz"), 
 			Custom Color(6, 98, 70, 255), 
@@ -194,7 +193,11 @@ rule("Custom nameplates list")
 			Array(Custom String("cal"), 
 			Custom Color(128, 0, 0, 255),
 			Custom String("E-girl hunter"),
-			Custom String("Looking for a mercy pocket"))
+			Custom String("Looking for a mercy pocket")),
+
+			Array(Custom String("NightShield"), 
+			Custom String("Rainbow"),
+			Custom String(" "))
 		);
 	}
 }
