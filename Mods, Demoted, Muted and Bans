@@ -16,7 +16,7 @@ rule("Listed_Player")
 			Custom String("Bendude1000"), Custom String("Lostshadow"), Custom String("Viktorski"), Custom String("Alex"), Custom String("tsunde"), 
 			Custom String("AvatarGod"), Custom String("TURBOMURO"), Custom String("Stinky"), Custom String("Visual"), 
 			Custom String("ĨŹĂŃĂMĨ"), Custom String("Tedz"), Custom String("S0undw4v3"), Custom String("GHOSTIEǃ"), Custom String("ByeFever"),
-			Custom String("SapphicWitch"), Custom String("ĴŐĶĔŔ"), Custom String("Avaløn"), Custom String("zovha"), Custom String("pancakes"), 
+			Custom String("SapphicWitch"), Custom String("ĨŹĂŃĂGĨ"), Custom String("Avaløn"), Custom String("zovha"), Custom String("pancakes"), 
 			Custom String("Quartz"), Custom String("PurpSkrrt"), Custom String("ÆROLEAƑ"), Custom String("Root"), Custom String("ƑĿUƑƑƔMƐŴ"),
 			Custom String("godly"), Custom String("Zxtyi"), Custom String("Shady"), Custom String("Scooby"), Custom String("cal"));
 		"Warning List"
@@ -24,10 +24,14 @@ rule("Listed_Player")
 		"Muted List"
 		Global.Muted_List = Array(
 			Custom String("DJBASTIOON"), Custom String("DJBastion"), Custom String("Djbastion"), Custom String("DJBASTION!"), Custom String("MrBastion"),
-			Custom String("DjBeep"), Custom String("DJBASTION"), Custom String("ĹȄȀƑ"), Custom String("Loxy"), Custom String("rƗkku"), Custom String("DjBastion"),
-			Custom String("BeepMatic"));
+			Custom String("DjBeep"), Custom String("DJBASTION"), Custom String("ĹȄȀƑ"), Custom String("Loxy"), Custom String("rƗkku"),
+			Custom String("DjBastion"), Custom String("BeepMatic"), Custom String("royalty"), Custom String("lila"), Custom String("YVL"),
+			Custom String("Ghost"), Custom String("NotToxic"), Custom String("River"));
 		"Demoted List"
-		Global.Demoted_List = Array(Custom String(" --- "));
+		Global.Demoted_List = Array(
+			Custom String("pudding!"), Custom String("iiMaya24k"), Custom String("StrxwberryBE"), Custom String("Axe"), Custom String("FURY"),
+			Custom String("MƐŎŎŎŎŴ"), Custom String("SPY"), Custom String("MetalCrusheR"), Custom String("LiLiTH"), Custom String("Peri"),
+			Custom String("theropy"), Custom String("MĔiǃ"));
 		"Automatic Ban"
 		Global.Banned_List = Array(Custom String("xMaxuss"), Custom String("HYUA"), Custom String("BebeUwU"), 
 			Custom String("HOÑEYBEE"), Custom String("Dead"), Custom String("chii"), Custom String("WÃFFLĚS"), Custom String("CuddleBunny"), 
