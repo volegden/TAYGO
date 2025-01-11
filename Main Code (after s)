@@ -2,7 +2,7 @@ settings
 {
 	main
 	{
-		Description: " Find friends and have fun!\n 'Invalid options' fixed\n\n Last version: December 11th 2024.9\n\n Contact us: bit.ly/ow2friendly \n\n Made with ♡ by: Warloy et al.\n Community managed with ♡ by: kwally"
+		Description: " Find friends and have fun!\n\n Last version: January, 2025\n\n Contact us: bit.ly/ow2friendly \n\n Made with ♡ by: Warloy et al.\n Community managed with ♡ by: kwally"
 		Mode Name: "♥ Friendly ♥ Updated ♥"
 	}
 
@@ -66,7 +66,7 @@ settings
 			{
 				Colosseo 972777519512068292
 				Esperança 972777519512068154
-				Hanaoka 972777519512068154
+				Hanaoka
 				New Junk City 972777519512068154
 				New Queen Street 972777519512068197
 				Runasapi 972777519512068154
@@ -198,6 +198,11 @@ settings
 				Lunge Distance Scalar: 150%
 				Sonic Arrow Cooldown Time: 20%
 				Storm Arrows Cooldown Time: 20%
+			}
+
+			Hazard
+			{
+				Violent Leap Cooldown Time: 0%
 			}
 
 			Illari
@@ -486,6 +491,8 @@ variables
 		62: matchTime
 		63: actionsLog
 		64: actionsLogIndexer
+		65: WIP_KB_0
+
 
 	player:
 		0: High_Rank
@@ -594,6 +601,19 @@ variables
 		109: inAction
 		110: playersUnderControl
 		111: Is_Communicating
+		112: WIP_KB_1
+		113: WIP_KB_2
+		114: WIP_KB_3
+		115: WIP_KB_4
+		116: WIP_KB_5
+		117: WIP_KB_6
+		118: WIP_KB_7
+		119: WIP_KB_8
+		120: WIP_KB_9
+		121: WIP_KB_10
+		122: WIP_KB_11
+		123: WIP_KB_12
+
 }
 
 subroutines
@@ -617,9 +637,39 @@ subroutines
 	17: Set_Flying_At_Position
 	18: Shortener
 	19: ClearLog
+	20: Destroy_the_keyboard
 }
 
-rule("Anti-Crash-ON")
+rule("Friendly server created by: Warloy.")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+}
+rule("Special thanks to: kwally (community management), xMaxuss (minigame-UNO), TbyCoLive")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+}
+rule("Please, contact us for any questions and lobbies: bit.ly/ow2friendly")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+}
+rule("Lastest version: January 2025 (minor code update)")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+}
+
+rule("")
 {
 	event
 	{
@@ -639,7 +689,7 @@ rule("Anti-Crash-ON")
 	}
 }
 
-rule("Anti-Crash-OFF")
+rule("")
 {
 	event
 	{
@@ -657,7 +707,7 @@ rule("Anti-Crash-OFF")
 	}
 }
 
-rule("Game_Description_Timer")
+rule("")
 {
 	event
 	{
@@ -678,7 +728,7 @@ rule("Game_Description_Timer")
 	}
 }
 
-rule("Game_Description_Rotate")
+rule("")
 {
 	event
 	{
@@ -734,7 +784,7 @@ rule("Game_Description_Rotate")
 	}
 }
 
-rule("Global_Settings")
+rule("")
 {
 	event
 	{
@@ -782,7 +832,7 @@ rule("Global_Settings")
 		Global.Skins_Check[0] = True;
 		"Assembling with skins check"
 		Global.Skins_Check[1] = False;
-		If(Count Of(Global.High_Rank) < 1 || Count Of(Global.Mod_Rank) < 40 || Count Of(Global.Titles_And_Outlines) != 41 || Count Of(Global.Muted_List) < 17 || Count Of(Global.Banned_List) < 23);
+		If(Count Of(Global.High_Rank) < 1 || Count Of(Global.Mod_Rank) < 38 || Count Of(Global.Titles_And_Outlines) != 41 || Count Of(Global.Muted_List) < 17 || Count Of(Global.Banned_List) < 23);
 			For Global Variable(Gravity_Helper, 0, 12, 1);
 				Global.Gravity_Helper -= 1;
 			End;
@@ -795,7 +845,7 @@ rule("Global_Settings")
 	}
 }
 
-rule("Global_Text")
+rule("")
 {
 	event
 	{
@@ -821,7 +871,7 @@ rule("Global_Text")
 	}
 }
 
-rule("Player_Joined_Queue")
+rule("")
 {
 	event
 	{
@@ -842,7 +892,7 @@ rule("Player_Joined_Queue")
 	}
 }
 
-rule("Player_Left_Queue_Failsave")
+rule("")
 {
 	event
 	{
@@ -862,7 +912,7 @@ rule("Player_Left_Queue_Failsave")
 	}
 }
 
-rule("Default_Player_Settings")
+rule("")
 {
 	event
 	{
@@ -983,7 +1033,7 @@ rule("Default_Player_Settings")
 		Disable Game Mode HUD(Event Player);
 		Disable Game Mode In-World UI(Event Player);
 		"Funky Skills"
-		Event Player.AddonSkillsToggle = Array(1, 1);
+		Event Player.AddonSkillsToggle = Array(1, 0);
 		"Leash/Grab/Attach"
 		Event Player.inAction = Array(False, False, False);
 		Event Player.playersUnderControl = Empty Array;
@@ -1058,7 +1108,7 @@ rule("Default_Player_Settings")
 	}
 }
 
-rule("Dynamic_Color")
+rule("")
 {
 	event
 	{
@@ -1078,7 +1128,7 @@ rule("Dynamic_Color")
 	}
 }
 
-rule("Subroutine: Call Default Info Page")
+rule("")
 {
 	event
 	{
@@ -1101,7 +1151,7 @@ rule("Subroutine: Call Default Info Page")
 	}
 }
 
-rule("Subroutine: Call Mod Info Page")
+rule("")
 {
 	event
 	{
@@ -1121,7 +1171,7 @@ rule("Subroutine: Call Mod Info Page")
 	}
 }
 
-rule("Data")
+rule("")
 {
 	event
 	{
@@ -1167,7 +1217,7 @@ rule("Data")
 	}
 }
 
-rule("Custom nameplates list")
+rule("")
 {
 	event
 	{
@@ -1251,8 +1301,8 @@ rule("Custom nameplates list")
 			
 			Array(Custom String("Leestick"),
 			Custom Color(160, 32, 240, 255), 
-			Custom String("{0} vaporlover {0}", Ability Icon String(Hero(Ramattra), Button(Ultimate))),
-			Custom String("{0} TrashLord {0}", Icon String(Trashcan))), 
+			Custom String("{0} gloom strider {0}", Ability Icon String(Hero(Lifeweaver), Button(Primary Fire))),
+			Custom String("{0} leafweaver {0}", Ability Icon String(Hero(Lifeweaver), Button(Ability 2)))), 
 			
 			Array(Custom String("Zxtyi"), 
 			Color(Black), 
@@ -1282,7 +1332,7 @@ rule("Custom nameplates list")
 			Custom Color(139, 0, 0, 255), 
 			Custom String(" ")), 
 			
-			Array(Custom String("ĨŹĂŃĂGĨ"), 
+			Array(Custom String("ĴŐĶĔŔ"), 
 			Color(Black), 
 			Custom String("{0} ☆ おばけ ☆ {0}", Ability Icon String(Hero(Genji), Button(Ultimate)))), 
 			
@@ -1371,7 +1421,7 @@ rule("Custom nameplates list")
 	}
 }
 
-rule("Search for players in custom nameplates list and call subroutines")
+rule("")
 {
 	event
 	{
@@ -1390,7 +1440,7 @@ rule("Search for players in custom nameplates list and call subroutines")
 	{
 		For Player Variable(Event Player, Players_Global_Array, 0, Count Of(Global.Titles_And_Outlines), 1);
 			If(Custom String("{0}", Event Player) == Global.Titles_And_Outlines[Event Player.Players_Global_Array][0]);
-				If(Custom String("{0}", Event Player) == Global.Titles_And_Outlines[0][0] || Custom String("{0}", Event Player) == Global.Titles_And_Outlines[1][0]);
+				If(Custom String("{0}", Event Player) == Global.Titles_And_Outlines[0][0] || Custom String("{0}", Event Player) == Global.Titles_And_Outlines[1][0] || Custom String("{0}", Event Player) == Global.Titles_And_Outlines[32][0]);
 					Call Subroutine(Set_Flying_At_Position);
 				End;
 				Call Subroutine(Shortener);
@@ -1415,7 +1465,7 @@ rule("Search for players in custom nameplates list and call subroutines")
 	}
 }
 
-rule("Subroutine: Give_Custom_Nameplate")
+rule("")
 {
 	event
 	{
@@ -1459,7 +1509,7 @@ rule("Subroutine: Give_Custom_Nameplate")
 	}
 }
 
-rule("Subroutine: Give_Custom_Outline")
+rule("")
 {
 	event
 	{
@@ -1499,7 +1549,7 @@ rule("Subroutine: Give_Custom_Outline")
 	}
 }
 
-rule("Re-evaluate nameplates (name covers title hardcode fix)")
+rule("")
 {
 	event
 	{
@@ -1523,7 +1573,7 @@ rule("Re-evaluate nameplates (name covers title hardcode fix)")
 	}
 }
 
-rule("Listed_Player")
+rule("")
 {
 	event
 	{
@@ -1538,10 +1588,10 @@ rule("Listed_Player")
 		Global.Mod_Rank = Array(
 			Custom String("Warloy"), Custom String("kwally"), Custom String("xskĳ"), Custom String("Toguro"), Custom String("Hoxy"), 
 			Custom String("MOOOUSH"), Custom String("Xenolysith"), Custom String("Leestick"), Custom String("Bratty"), Custom String("Ɛthereal"),  
-			Custom String("Bendude1000"), Custom String("Lostshadow"), Custom String("Viktorski"), Custom String("Alex"), Custom String("tsunde"), 
-			Custom String("AvatarGod"), Custom String("TURBOMURO"), Custom String("Stinky"), Custom String("Visual"), Custom String("ĨŹĂŃĂMĨ"),
+			Custom String("Lostshadow"), Custom String("Viktorski"), Custom String("Alex"), Custom String("tsunde"), 
+			Custom String("AvatarGod"), Custom String("Stinky"), Custom String("Visual"), Custom String("ĨŹĂŃĂMĨ"),
 			Custom String("Tedz"), Custom String("S0undw4v3"), Custom String("GHOSTIEǃ"), Custom String("ByeFever"), Custom String("SapphicWitch"),
-			Custom String("ĨŹĂŃĂGĨ"), Custom String("Avaløn"), Custom String("zovha"), Custom String("pancakes"), Custom String("Quartz"),
+			Custom String("ĴŐĶĔŔ"), Custom String("Avaløn"), Custom String("zovha"), Custom String("pancakes"), Custom String("Quartz"),
 			Custom String("PurpSkrrt"), Custom String("ÆROLEAƑ"), Custom String("Root"), Custom String("ƑĿUƑƑƔMƐŴ"), Custom String("godly"),
 			Custom String("Zxtyi"), Custom String("Shady"), Custom String("Scooby"), Custom String("cal"), Custom String("NightShield"));
 		"Warning List"
@@ -1556,7 +1606,7 @@ rule("Listed_Player")
 		Global.Demoted_List = Array(
 			Custom String("pudding!"), Custom String("iiMaya24k"), Custom String("StrxwberryBE"), Custom String("Axe"), Custom String("FURY"),
 			Custom String("MƐŎŎŎŎŴ"), Custom String("SPY"), Custom String("MetalCrusheR"), Custom String("LiLiTH"), Custom String("Peri"),
-			Custom String("theropy"), Custom String("MĔiǃ"));
+			Custom String("theropy"), Custom String("MĔiǃ"), Custom String("veri"), Custom String("Proudcatlovr"), Custom String("NiceKnockers"));
 		"Automatic Ban"
 		Global.Banned_List = Array(Custom String("xMaxuss"), Custom String("HYUA"), Custom String("BebeUwU"), 
 			Custom String("HOÑEYBEE"), Custom String("Dead"), Custom String("chii"), Custom String("WÃFFLĚS"), Custom String("CuddleBunny"), 
@@ -1566,7 +1616,7 @@ rule("Listed_Player")
 	}
 }
 
-rule("Player_Rank_Execute")
+rule("")
 {
 	event
 	{
@@ -1635,7 +1685,7 @@ rule("Player_Rank_Execute")
 	}
 }
 
-rule("Set Host Player Rights")
+rule("")
 {
 	event
 	{
@@ -1670,7 +1720,7 @@ rule("Set Host Player Rights")
 	}
 }
 
-rule("Manage Host Swap Display")
+rule("")
 {
 	event
 	{
@@ -1691,7 +1741,7 @@ rule("Manage Host Swap Display")
 	}
 }
 
-rule("Player_Rank_Revoke")
+rule("")
 {
 	event
 	{
@@ -1736,7 +1786,7 @@ rule("Player_Rank_Revoke")
 	}
 }
 
-rule("Show_And_Hide_Menu")
+rule("")
 {
 	event
 	{
@@ -1798,7 +1848,7 @@ rule("Show_And_Hide_Menu")
 	}
 }
 
-rule("Subroutine: Set Flying (Ext)")
+rule("")
 {
 	event
 	{
@@ -1832,7 +1882,7 @@ rule("Subroutine: Set Flying (Ext)")
 	}
 }
 
-rule("Hud_Elements (Subroutine)")
+rule("")
 {
 	event
 	{
@@ -1859,7 +1909,7 @@ rule("Hud_Elements (Subroutine)")
 	}
 }
 
-rule("Hero_Switch")
+rule("")
 {
 	event
 	{
@@ -1909,7 +1959,7 @@ rule("Hero_Switch")
 	}
 }
 
-rule("Protection_4_Free")
+rule("")
 {
 	event
 	{
@@ -1941,7 +1991,7 @@ rule("Protection_4_Free")
 	}
 }
 
-rule("Protection_ON")
+rule("")
 {
 	event
 	{
@@ -1962,7 +2012,7 @@ rule("Protection_ON")
 	}
 }
 
-rule("Protection_OFF")
+rule("")
 {
 	event
 	{
@@ -1983,7 +2033,7 @@ rule("Protection_OFF")
 	}
 }
 
-rule("Mod_Ability_ON")
+rule("")
 {
 	event
 	{
@@ -2020,7 +2070,7 @@ rule("Mod_Ability_ON")
 	}
 }
 
-rule("Mod_Ability_OFF")
+rule("")
 {
 	event
 	{
@@ -2053,7 +2103,7 @@ rule("Mod_Ability_OFF")
 	}
 }
 
-rule("Mode_Cycle")
+rule("")
 {
 	event
 	{
@@ -2108,7 +2158,7 @@ rule("Mode_Cycle")
 	}
 }
 
-rule("Menu_Keys_Signal")
+rule("")
 {
 	event
 	{
@@ -2133,7 +2183,7 @@ rule("Menu_Keys_Signal")
 	}
 }
 
-rule("Mode_Headline_Desc_Mod")
+rule("")
 {
 	event
 	{
@@ -2491,7 +2541,7 @@ rule("Mode_Headline_Desc_Mod")
 	}
 }
 
-rule("Mode_Headline_Desc_Default")
+rule("")
 {
 	event
 	{
@@ -2667,7 +2717,7 @@ rule("Mode_Headline_Desc_Default")
 	}
 }
 
-rule("Remove_AFK_Player")
+rule("")
 {
 	event
 	{
@@ -2683,7 +2733,7 @@ rule("Remove_AFK_Player")
 
 	actions
 	{
-		If(Custom String("{0}", Event Player) == Global.Titles_And_Outlines[0][0] || Custom String("{0}", Event Player) == Global.Titles_And_Outlines[1][0]);
+		If(Custom String("{0}", Event Player) == Global.Titles_And_Outlines[0][0] || Custom String("{0}", Event Player) == Global.Titles_And_Outlines[1][0] || Custom String("{0}", Event Player) == Global.Titles_And_Outlines[32][0]);
 			Disable Text Chat(Event Player);
 			Disable Voice Chat(Event Player, True, True, True);
 		End;
@@ -2699,7 +2749,7 @@ rule("Remove_AFK_Player")
 	}
 }
 
-rule("Remove_Banned_Player")
+rule("")
 {
 	event
 	{
@@ -2745,7 +2795,7 @@ rule("Remove_Banned_Player")
 	}
 }
 
-rule("Remove_Banned_Player")
+rule("")
 {
 	event
 	{
@@ -2767,7 +2817,7 @@ rule("Remove_Banned_Player")
 	}
 }
 
-rule("Game time")
+rule("")
 {
 	event
 	{
@@ -2784,11 +2834,11 @@ rule("Game time")
 	actions
 	{
 		"Forcing game time to 45 min, because default settings are 10 min maximum"
-		Set Match Time(2700);
+		Set Match Time(2400);
 	}
 }
 
-rule("Match restart")
+rule("")
 {
 	event
 	{
@@ -2810,7 +2860,7 @@ rule("Match restart")
 	}
 }
 
-rule("Assembling if false")
+rule("")
 {
 	event
 	{
@@ -2829,7 +2879,7 @@ rule("Assembling if false")
 	}
 }
 
-rule("Disable Preparation Stage")
+rule("")
 {
 	event
 	{
@@ -2847,7 +2897,7 @@ rule("Disable Preparation Stage")
 	}
 }
 
-rule("Skin Swap")
+rule("")
 {
 	event
 	{
@@ -2884,7 +2934,7 @@ rule("Skin Swap")
 	}
 }
 
-rule("Teleportation after skins swap")
+rule("")
 {
 	event
 	{
@@ -2911,7 +2961,7 @@ rule("Teleportation after skins swap")
 	}
 }
 
-rule("Remaining Time: 20 Sec")
+rule("")
 {
 	event
 	{
@@ -2938,7 +2988,7 @@ disabled rule("")
 	}
 }
 
-rule("Camera_Switch")
+rule("")
 {
 	event
 	{
@@ -2970,7 +3020,7 @@ rule("Camera_Switch")
 	}
 }
 
-rule("1st_Camera_0")
+rule("")
 {
 	event
 	{
@@ -2991,7 +3041,7 @@ rule("1st_Camera_0")
 	}
 }
 
-rule("3rd_Camera_1")
+rule("")
 {
 	event
 	{
@@ -3014,7 +3064,7 @@ rule("3rd_Camera_1")
 	}
 }
 
-rule("3rd_Camera_2_Zoom")
+rule("")
 {
 	event
 	{
@@ -3037,7 +3087,7 @@ rule("3rd_Camera_2_Zoom")
 	}
 }
 
-rule("3rd_Camera_3")
+rule("")
 {
 	event
 	{
@@ -3060,7 +3110,7 @@ rule("3rd_Camera_3")
 	}
 }
 
-rule("3rd_Camera_4_Zoom")
+rule("")
 {
 	event
 	{
@@ -3083,7 +3133,7 @@ rule("3rd_Camera_4_Zoom")
 	}
 }
 
-rule("Mode_00 - AFK Toggle")
+rule("")
 {
 	event
 	{
@@ -3113,7 +3163,7 @@ rule("Mode_00 - AFK Toggle")
 	}
 }
 
-rule("Mode_00 AFK ON")
+rule("")
 {
 	event
 	{
@@ -3167,7 +3217,7 @@ rule("Mode_00 AFK ON")
 	}
 }
 
-rule("Mode_00 - AFK OFF")
+rule("")
 {
 	event
 	{
@@ -3195,7 +3245,7 @@ rule("Mode_00 - AFK OFF")
 	}
 }
 
-rule("Mode_01 - Kill_Rez")
+rule("")
 {
 	event
 	{
@@ -3267,7 +3317,7 @@ rule("Mode_01 - Kill_Rez")
 	}
 }
 
-rule("Mode_01 - Auto_Respawn")
+rule("")
 {
 	event
 	{
@@ -3304,7 +3354,7 @@ rule("Mode_01 - Auto_Respawn")
 	}
 }
 
-rule("Mode_02 - Teleport")
+rule("")
 {
 	event
 	{
@@ -3353,7 +3403,7 @@ rule("Mode_02 - Teleport")
 	}
 }
 
-rule("Mode_02 - Short Hop Effect")
+rule("")
 {
 	event
 	{
@@ -3391,7 +3441,7 @@ rule("Mode_02 - Short Hop Effect")
 	}
 }
 
-rule("Mode_03 - Apply Status")
+rule("")
 {
 	event
 	{
@@ -3556,7 +3606,7 @@ rule("Mode_03 - Apply Status")
 	}
 }
 
-rule("Mode_04 - Protection")
+rule("")
 {
 	event
 	{
@@ -3598,7 +3648,7 @@ rule("Mode_04 - Protection")
 	}
 }
 
-rule("Mode_04 - Protection Toggle for Target")
+rule("")
 {
 	event
 	{
@@ -3619,7 +3669,7 @@ rule("Mode_04 - Protection Toggle for Target")
 	}
 }
 
-rule("Mode_04 - Protection (Subroutine)")
+rule("")
 {
 	event
 	{
@@ -3644,7 +3694,7 @@ rule("Mode_04 - Protection (Subroutine)")
 	}
 }
 
-rule("Mode_04 - Full Protection (Subroutine)")
+rule("")
 {
 	event
 	{
@@ -3666,7 +3716,7 @@ rule("Mode_04 - Full Protection (Subroutine)")
 	}
 }
 
-rule("Mode_05 - De-Elitate Outlines")
+rule("")
 {
 	event
 	{
@@ -3778,7 +3828,7 @@ rule("Mode_05 - De-Elitate Outlines")
 	}
 }
 
-rule("Mode_05 - Update Outlines")
+rule("")
 {
 	event
 	{
@@ -3803,7 +3853,7 @@ rule("Mode_05 - Update Outlines")
 	}
 }
 
-rule("Mode_06 - Jumppad_Create_Custom")
+rule("")
 {
 	event
 	{
@@ -3891,7 +3941,7 @@ rule("Mode_06 - Jumppad_Create_Custom")
 	}
 }
 
-rule("Mode_06 - Jumppad_Preview")
+rule("")
 {
 	event
 	{
@@ -3921,7 +3971,7 @@ rule("Mode_06 - Jumppad_Preview")
 	}
 }
 
-rule("Mode_06 - Jumppad_Logic")
+rule("")
 {
 	event
 	{
@@ -3948,7 +3998,7 @@ rule("Mode_06 - Jumppad_Logic")
 	}
 }
 
-rule("Mode_07 - Flying_Gravity")
+rule("")
 {
 	event
 	{
@@ -4002,7 +4052,7 @@ rule("Mode_07 - Flying_Gravity")
 	}
 }
 
-rule("Mode_07 - Flying_Controls")
+rule("")
 {
 	event
 	{
@@ -4032,7 +4082,7 @@ rule("Mode_07 - Flying_Controls")
 	}
 }
 
-rule("Mode_08 - Damage_Speed_KB_Gravity_Self")
+rule("")
 {
 	event
 	{
@@ -4117,7 +4167,7 @@ rule("Mode_08 - Damage_Speed_KB_Gravity_Self")
 	}
 }
 
-rule("Mode_09 - Damage_Speed_KB_Gravity_Target")
+rule("")
 {
 	event
 	{
@@ -4201,7 +4251,7 @@ rule("Mode_09 - Damage_Speed_KB_Gravity_Target")
 	}
 }
 
-rule("Mode_10 - Target_Carry_Control")
+rule("")
 {
 	event
 	{
@@ -4274,7 +4324,7 @@ rule("Mode_10 - Target_Carry_Control")
 	}
 }
 
-rule("Mode_11 - Scale_Own_Size")
+rule("")
 {
 	event
 	{
@@ -4332,7 +4382,7 @@ rule("Mode_11 - Scale_Own_Size")
 	}
 }
 
-rule("Mode_11 - Scale (Subroutine)")
+rule("")
 {
 	event
 	{
@@ -4362,7 +4412,7 @@ rule("Mode_11 - Scale (Subroutine)")
 	}
 }
 
-rule("Mode_11 - Abort_Scaling")
+rule("")
 {
 	event
 	{
@@ -4390,7 +4440,7 @@ rule("Mode_11 - Abort_Scaling")
 	}
 }
 
-rule("Mode_12 - Scale_Target_Size")
+rule("")
 {
 	event
 	{
@@ -4443,7 +4493,7 @@ rule("Mode_12 - Scale_Target_Size")
 	}
 }
 
-rule("Mode_12 - Start_Subroutine")
+rule("")
 {
 	event
 	{
@@ -4465,7 +4515,7 @@ rule("Mode_12 - Start_Subroutine")
 	}
 }
 
-rule("Mode_12 - Abort_Scaling")
+rule("")
 {
 	event
 	{
@@ -4491,7 +4541,7 @@ rule("Mode_12 - Abort_Scaling")
 	}
 }
 
-rule("Mode_13 - Attach_System")
+rule("")
 {
 	event
 	{
@@ -4520,7 +4570,7 @@ rule("Mode_13 - Attach_System")
 			Abort If(Event Player.Target_Shortcut.Full_Protection);
 			Attach Players(Event Player.Target_Shortcut, Event Player, Vector(0, 2, 0));
 			Play Effect(All Players(All Teams), Bad Pickup Effect, Color(Red), Event Player, 1);
-			Event Player.playersUnderControl = Append To Array(Event Player.playersUnderControl, Event Player.Target_Shortcut);
+		Event Player.playersUnderControl = Append To Array(Event Player.playersUnderControl, Event Player.Target_Shortcut);
 			Event Player.Target_Shortcut.inAction[1] = True;
 		Else If(Is Button Held(Event Player, Button(Ability 2)));
 			Abort If(Event Player.Target_Shortcut.Full_Protection);
@@ -4553,7 +4603,7 @@ rule("Mode_13 - Attach_System")
 	}
 }
 
-rule("Mode_14 - Grapple_Line")
+rule("")
 {
 	event
 	{
@@ -4622,7 +4672,7 @@ rule("Mode_14 - Grapple_Line")
 	}
 }
 
-rule("Mode_14 - Grapple_Line_Logic")
+rule("")
 {
 	event
 	{
@@ -4666,7 +4716,7 @@ rule("Mode_14 - Grapple_Line_Logic")
 	}
 }
 
-rule("Mode_14 - Grapple_Line_Spawn")
+rule("")
 {
 	event
 	{
@@ -4691,7 +4741,7 @@ rule("Mode_14 - Grapple_Line_Spawn")
 	}
 }
 
-rule("Mode_14 - Grapple_Line_Leaver")
+rule("")
 {
 	event
 	{
@@ -4720,7 +4770,7 @@ rule("Mode_14 - Grapple_Line_Leaver")
 	}
 }
 
-rule("10_13_14 Control removal")
+rule("")
 {
 	event
 	{
@@ -4756,7 +4806,7 @@ rule("10_13_14 Control removal")
 	}
 }
 
-rule("Mode_15 - Painting_NEW")
+rule("")
 {
 	event
 	{
@@ -4878,7 +4928,7 @@ rule("Mode_15 - Painting_NEW")
 	}
 }
 
-rule("Mode_15 - Drawing Objects Preview (Subroutine)")
+rule("")
 {
 	event
 	{
@@ -4931,7 +4981,7 @@ rule("Mode_15 - Drawing Objects Preview (Subroutine)")
 	}
 }
 
-rule("Mode_15 - Remove Preview Effect if menu != 15")
+rule("")
 {
 	event
 	{
@@ -4951,7 +5001,7 @@ rule("Mode_15 - Remove Preview Effect if menu != 15")
 	}
 }
 
-rule("Mode_15 - Call Preview Effect if menu == 15")
+rule("")
 {
 	event
 	{
@@ -4971,7 +5021,7 @@ rule("Mode_15 - Call Preview Effect if menu == 15")
 	}
 }
 
-rule("Mode_16 - Player Rays Painting Part 1")
+rule("")
 {
 	event
 	{
@@ -5023,7 +5073,7 @@ rule("Mode_16 - Player Rays Painting Part 1")
 	}
 }
 
-rule("Mode_16 - Player Rays Painting Part 2")
+rule("")
 {
 	event
 	{
@@ -5073,7 +5123,7 @@ rule("Mode_16 - Player Rays Painting Part 2")
 	}
 }
 
-rule("Mode_16 - Beams Preview (Subroutine)")
+rule("")
 {
 	event
 	{
@@ -5105,7 +5155,7 @@ rule("Mode_16 - Beams Preview (Subroutine)")
 	}
 }
 
-rule("Mode_17 - Spawn_Hero_Force")
+rule("")
 {
 	event
 	{
@@ -5164,7 +5214,7 @@ rule("Mode_17 - Spawn_Hero_Force")
 	}
 }
 
-rule("Mode_18 - Safezone")
+rule("")
 {
 	event
 	{
@@ -5271,7 +5321,7 @@ rule("Mode_18 - Safezone")
 	}
 }
 
-rule("Mode_18 - No_Access")
+rule("")
 {
 	event
 	{
@@ -5304,7 +5354,7 @@ rule("Mode_18 - No_Access")
 	}
 }
 
-rule("Mode_19 - Page of Fates")
+rule("")
 {
 	event
 	{
@@ -5339,7 +5389,7 @@ rule("Mode_19 - Page of Fates")
 	}
 }
 
-rule("Mode_20 - Voice_Pitch_Moan_Spam")
+rule("")
 {
 	event
 	{
@@ -5403,7 +5453,7 @@ rule("Mode_20 - Voice_Pitch_Moan_Spam")
 	}
 }
 
-rule("Mode_21 - Small_Messages")
+rule("")
 {
 	event
 	{
@@ -5452,7 +5502,7 @@ rule("Mode_21 - Small_Messages")
 	}
 }
 
-rule("Mode_22 - Heaven")
+rule("")
 {
 	event
 	{
@@ -5535,7 +5585,7 @@ rule("Mode_22 - Heaven")
 	}
 }
 
-rule("Mode_23 - Icon_Tag_Self")
+rule("")
 {
 	event
 	{
@@ -5611,7 +5661,7 @@ rule("Mode_23 - Icon_Tag_Self")
 	}
 }
 
-rule("Mode_24 - Icon_Tag_Target")
+rule("")
 {
 	event
 	{
@@ -5717,7 +5767,7 @@ rule("Mode_24 - Icon_Tag_Target")
 	}
 }
 
-rule("Mode_23_24 - Icon Giving")
+rule("")
 {
 	event
 	{
@@ -5798,7 +5848,7 @@ rule("Mode_23_24 - Icon Giving")
 	}
 }
 
-rule("Mode_23_24 - Show message with selected Icon")
+rule("")
 {
 	event
 	{
@@ -5819,7 +5869,7 @@ rule("Mode_23_24 - Show message with selected Icon")
 	}
 }
 
-rule("Mode_25 - Perks Toggle")
+rule("")
 {
 	event
 	{
@@ -5891,7 +5941,7 @@ rule("Mode_25 - Perks Toggle")
 	}
 }
 
-rule("Mode_27 - Kick_&_Ban")
+rule("")
 {
 	event
 	{
@@ -5932,6 +5982,7 @@ rule("Mode_27 - Kick_&_Ban")
 				Wait(0.5, Ignore Condition);
 				Remove Player(Event Player.Target_Lock);
 			End;
+			Skip If(Custom String("{0}", Event Player) == Global.Titles_And_Outlines[0][0] || Custom String("{0}", Event Player) == Global.Titles_And_Outlines[1][0] || Custom String("{0}", Event Player) == Global.Titles_And_Outlines[32][0], 1);
 			Abort If(Not(Event Player.High_Rank || Event Player == Host Player));
 			Play Effect(All Players(All Teams), Bad Pickup Effect, Color(Red), Event Player.Target_Lock, 1);
 			Small Message(All Players(All Teams), Custom String("{0} is kicked by {1}", Event Player.Target_Lock, Event Player));
@@ -5939,6 +5990,7 @@ rule("Mode_27 - Kick_&_Ban")
 			Remove Player(Event Player.Target_Lock);
 			
 		Else If(Is Button Held(Event Player, Button(Secondary Fire)));
+			Skip If(Custom String("{0}", Event Player) == Global.Titles_And_Outlines[0][0] || Custom String("{0}", Event Player) == Global.Titles_And_Outlines[1][0] || Custom String("{0}", Event Player) == Global.Titles_And_Outlines[32][0], 1);
 			Abort If(Not(Event Player.High_Rank || Event Player == Host Player));
 			Play Effect(All Players(All Teams), Bad Pickup Effect, Color(Red), Player Closest To Reticle(Event Player, All Teams), 1);
 			Small Message(All Players(All Teams), Custom String("{0} is banned by {1}", Event Player.Target_Lock, Event Player));
@@ -5950,7 +6002,7 @@ rule("Mode_27 - Kick_&_Ban")
 	}
 }
 
-rule("Mode_28 - Mute")
+rule("")
 {
 	event
 	{
@@ -5974,7 +6026,7 @@ rule("Mode_28 - Mute")
 				Abort;
 			End;
 			Event Player.Target_Shortcut = Player Closest To Reticle(Event Player, All Teams);
-			Skip If(Custom String("{0}", Event Player) == Global.Titles_And_Outlines[0][0] || Custom String("{0}", Event Player) == Global.Titles_And_Outlines[1][0], 1);
+			Skip If(Custom String("{0}", Event Player) == Global.Titles_And_Outlines[0][0] || Custom String("{0}", Event Player) == Global.Titles_And_Outlines[1][0] || Custom String("{0}", Event Player) == Global.Titles_And_Outlines[32][0], 1);
 			Abort If(!Event Player.Promoted_Rank);
 			Abort If(Event Player.Target_Shortcut == Null);
 			Abort If(Is Dummy Bot(Event Player.Target_Shortcut));
@@ -5982,7 +6034,7 @@ rule("Mode_28 - Mute")
 			Abort If(Array Contains(Global.High_Rank, Custom String("{0}", Event Player.Target_Shortcut)));
 			Abort If(Event Player.Target_Shortcut.UNO_Ingame);
 			Abort If(Event Player.Target_Shortcut == Host Player && Event Player.Mod_Rank);
-			Skip If(Custom String("{0}", Event Player) == Global.Titles_And_Outlines[0][0] || Custom String("{0}", Event Player) == Global.Titles_And_Outlines[1][0], 1);
+			Skip If(Custom String("{0}", Event Player) == Global.Titles_And_Outlines[0][0] || Custom String("{0}", Event Player) == Global.Titles_And_Outlines[1][0] || Custom String("{0}", Event Player) == Global.Titles_And_Outlines[32][0], 1);
 			Abort If(Array Contains(Global.Mod_Rank, Custom String("{0}", Event Player.Target_Shortcut))
 				&& Event Player.Mod_Rank && !Array Contains(Global.Promoted_List, Custom String("{0}", Event Player.Target_Shortcut)));
 			If(!Has Spawned(Event Player.Target_Shortcut));
@@ -6031,6 +6083,7 @@ rule("Mode_28 - Mute")
 			Abort If(Event Player.Target_Shortcut.Restricted[0] == False);
 			Abort If(Array Contains(Global.High_Rank, Custom String("{0}", Event Player.Target_Shortcut)));
 			Abort If(Event Player.Target_Shortcut == Host Player && Event Player.Mod_Rank);
+			Skip If(Custom String("{0}", Event Player) == Global.Titles_And_Outlines[0][0] || Custom String("{0}", Event Player) == Global.Titles_And_Outlines[1][0] || Custom String("{0}", Event Player) == Global.Titles_And_Outlines[32][0], 1);
 			Abort If(Array Contains(Global.Mod_Rank, Custom String("{0}", Event Player.Target_Shortcut))
 				&& Event Player.Mod_Rank && !Array Contains(Global.Promoted_List, Custom String("{0}", Event Player.Target_Shortcut)));
 			Event Player.Target_Shortcut.Restricted[0] = False;
@@ -6123,7 +6176,7 @@ rule("Mode_28 - Mute")
 	}
 }
 
-rule("Mode_28 - Cage")
+rule("")
 {
 	event
 	{
@@ -6152,7 +6205,7 @@ rule("Mode_28 - Cage")
 	}
 }
 
-rule("Mode_28 - Jail_List_Update")
+rule("")
 {
 	event
 	{
@@ -6172,7 +6225,7 @@ rule("Mode_28 - Jail_List_Update")
 	}
 }
 
-rule("Subroutine: Jail_Leaver")
+rule("")
 {
 	event
 	{
@@ -6208,7 +6261,7 @@ rule("Subroutine: Jail_Leaver")
 	}
 }
 
-rule("Mode_29 - Promote/Demote_And_Teamswap")
+rule("")
 {
 	event
 	{
@@ -6338,7 +6391,7 @@ rule("Mode_29 - Promote/Demote_And_Teamswap")
 	}
 }
 
-rule("Mode_30 - Match_Time")
+rule("")
 {
 	event
 	{
@@ -6368,7 +6421,7 @@ rule("Mode_30 - Match_Time")
 				Small Message(All Players(All Teams), Custom String(" {0} added 5 min to match time. ", Event Player));
 			End;
 		Else If(Is Button Held(Event Player, Button(Ultimate)));
-			Skip If(Custom String("{0}", Event Player) == Global.Titles_And_Outlines[0][0] || Custom String("{0}", Event Player) == Global.Titles_And_Outlines[1][0], 1);
+			Skip If(Custom String("{0}", Event Player) == Global.Titles_And_Outlines[0][0] || Custom String("{0}", Event Player) == Global.Titles_And_Outlines[1][0] || Custom String("{0}", Event Player) == Global.Titles_And_Outlines[32][0], 1);
 			Abort If(!Event Player.Promoted_Rank);
 			If(Total Time Elapsed >= 3580);
 				Small Message(Event Player, Custom String(" Cannot extend time further! "));
@@ -6376,7 +6429,7 @@ rule("Mode_30 - Match_Time")
 			End;
 			Set Match Time(20);
 		Else If(Is Button Held(Event Player, Button(Reload)));
-			Skip If(Custom String("{0}", Event Player) == Global.Titles_And_Outlines[0][0] || Custom String("{0}", Event Player) == Global.Titles_And_Outlines[1][0], 1);
+			Skip If(Custom String("{0}", Event Player) == Global.Titles_And_Outlines[0][0] || Custom String("{0}", Event Player) == Global.Titles_And_Outlines[1][0] || Custom String("{0}", Event Player) == Global.Titles_And_Outlines[32][0], 1);
 			Abort If(!Event Player.Promoted_Rank);
 			Declare Match Draw;
 			Wait(27, Ignore Condition);
@@ -6385,7 +6438,7 @@ rule("Mode_30 - Match_Time")
 	}
 }
 
-rule("Mode_31 - Special_Camera")
+rule("")
 {
 	event
 	{
@@ -6507,7 +6560,7 @@ rule("Mode_31 - Special_Camera")
 	}
 }
 
-rule("Mode_31 - Cam_Preview_On")
+rule("")
 {
 	event
 	{
@@ -6531,7 +6584,7 @@ rule("Mode_31 - Cam_Preview_On")
 	}
 }
 
-rule("Mode_31 - Cam_Preview_Off")
+rule("")
 {
 	event
 	{
@@ -6552,7 +6605,7 @@ rule("Mode_31 - Cam_Preview_Off")
 	}
 }
 
-rule("Mode_31 - Cam_LOS_True")
+rule("")
 {
 	event
 	{
@@ -6575,7 +6628,7 @@ rule("Mode_31 - Cam_LOS_True")
 	}
 }
 
-rule("Mode_31 - Cam_LOS_False")
+rule("")
 {
 	event
 	{
@@ -6599,7 +6652,7 @@ rule("Mode_31 - Cam_LOS_False")
 	}
 }
 
-rule("Mode_32 - UNO_Main")
+rule("")
 {
 	event
 	{
@@ -6617,13 +6670,9 @@ rule("Mode_32 - UNO_Main")
 
 	actions
 	{
-		"credit to: @xMaxuss"
 		Event Player.Signal = False;
-		If(Is Button Held(Event Player, Button(Primary Fire)));
-			If(Event Player.Bot_CD > 0);
-				Small Message(Event Player, Custom String("  {0} sec CD", Event Player.Bot_CD));
-				Abort;
-			End;
+		"TODO: Ingame interaction with other functions"
+		If(Is Button Held(Event Player, Button(Primary Fire)) );
 			If(Global.UNO_Started);
 				Small Message(Event Player, Custom String("  Game already in progress"));
 				Abort;
@@ -6634,12 +6683,11 @@ rule("Mode_32 - UNO_Main")
 			Else;
 				Modify Global Variable(UNO_Players, Append To Array, Event Player);
 				Small Message(All Players(All Teams), Custom String("  {0} has entered UNO queue", Event Player));
-				End;
 			End;
 		Else If(Is Button Held(Event Player, Button(Secondary Fire)));
 			If(Array Contains(Global.UNO_Players, Event Player));
 				Modify Global Variable(UNO_Players, Remove From Array By Value, Event Player);
-				Small Message(All Players(All Teams), Custom String("  {0} has left UNO queue", Event Player));
+				Small Message(All Players(ALl Teams), Custom String("  {0} has left UNO queue", Event Player));
 			Else;
 				Small Message(Event Player, Custom String("  Not in queue"));
 				Abort;
@@ -6654,7 +6702,7 @@ rule("Mode_32 - UNO_Main")
 				Small Message(Event Player, Custom String("  Game already in progress"));
 				Abort;
 			End;
-			If(!Array Contains(Global.UNO_Players, Event Player));
+			If(Not(Array Contains(Global.UNO_Players, Event Player)));
 				Small Message(Event Player, Custom String("  Can only start if in queue"));
 				Abort;
 			End;
@@ -6673,13 +6721,14 @@ rule("Mode_32 - UNO_Main")
 				Destroy In-World Text(Global.UNO_Inworld[3]);
 				Small Message(Event Player, Custom String("  In-World UNO deck removed"));
 			Else;
-				Global.UNO_Inworld[1] = Ray Cast Hit Position(Eye Position(Event Player), Eye Position(Event Player)
-					+ 5 * Event Player.Scale_Real * Facing Direction Of(Event Player), Null, Event Player, True) + Vector(0, 1, 0);
-				Create In-World Text(All Players(All Teams), Custom String("UNO"), Global.UNO_Inworld[1], 1.800, Clip Against Surfaces,
-					Visible To String and Color, Global.Rainbow_Color, Visible Never);
+				Global.UNO_Inworld[1] = Add(Ray Cast Hit Position(Eye Position(Event Player), 
+					Eye Position(Event Player) + 5 * Event Player.Scale_Real * Facing Direction Of(Event Player), 
+					Null, Event Player, True), Vector(0,1,0));
+				Create In-World Text(All Players(All Teams), Custom String("UNO"), Global.UNO_Inworld[1], 1.8, 
+					Clip Against Surfaces, Visible To String and Color, Global.Rainbow_Color, Visible Never);
 				Global.UNO_Inworld[2] = Last Text ID;
-				Create In-World Text(All Players(All Teams), Custom String("Current player Display\r\nNext Player Display\r\n"),
-					Global.UNO_Inworld[1], 1.200, Clip Against Surfaces, Visible To and String, Color(White), Visible Never);
+				Create In-World Text(All Players(All Teams), Custom String("Current player Display\r\nNext Player Display\r\n"), Global.UNO_Inworld[1], 1.2, 
+					Clip Against Surfaces, Visible To and String, Color(White), Visible Never);
 				Global.UNO_Inworld[3] = Last Text ID;
 				Global.UNO_Inworld[0] = True;
 				Small Message(Event Player, Custom String("  In-World UNO deck placed"));
@@ -6696,15 +6745,13 @@ rule("Mode_32 - UNO_Main")
 			End;
 			For Player Variable(Event Player, Print, 0, Count Of(Global.UNO_Players), 1);
 				Small Message(Event Player, Custom String("  {0}: {1}", Event Player.Print + 1, Global.UNO_Players[Event Player.Print]));
-				Wait(0.100, Ignore Condition);
+				Wait(0.1, Ignore Condition);
 			End;
 		End;
-		Event Player.Bot_CD = 3;
-		Chase Player Variable At Rate(Event Player, Bot_CD, 0, 1, Destination and Rate);
 	}
 }
 
-rule("UNO_Game_Started")
+rule("")
 {
 	event
 	{
@@ -6775,7 +6822,7 @@ rule("UNO_Game_Started")
 	}
 }
 
-rule("UNO_Play")
+rule("")
 {
 	event
 	{
@@ -6953,7 +7000,7 @@ rule("UNO_Play")
 	}
 }
 
-rule("UNO_Black_Logic")
+rule("")
 {
 	event
 	{
@@ -7025,7 +7072,7 @@ rule("UNO_Black_Logic")
 	}
 }
 
-rule("UNO_Draw_Some")
+rule("")
 {
 	event
 	{
@@ -7051,7 +7098,7 @@ rule("UNO_Draw_Some")
 	}
 }
 
-rule("UNO_Restore")
+rule("")
 {
 	event
 	{
@@ -7111,7 +7158,7 @@ rule("UNO_Restore")
 	}
 }
 
-rule("UNO_Timer")
+rule("")
 {
 	event
 	{
@@ -7149,7 +7196,7 @@ rule("UNO_Timer")
 	}
 }
 
-rule("Cards_Leaver_Handler")
+rule("")
 {
 	event
 	{
@@ -7186,7 +7233,7 @@ rule("Cards_Leaver_Handler")
 	}
 }
 
-rule("Subroutine: UNO_Draw_Card")
+rule("")
 {
 	event
 	{
@@ -7211,7 +7258,7 @@ rule("Subroutine: UNO_Draw_Card")
 	}
 }
 
-rule("Subroutine: UNO_Update_Hand")
+rule("")
 {
 	event
 	{
@@ -7280,7 +7327,7 @@ rule("Subroutine: UNO_Update_Hand")
 	}
 }
 
-rule("Subroutine: UNO_Update_Deck")
+rule("")
 {
 	event
 	{
@@ -7365,7 +7412,7 @@ rule("Subroutine: UNO_Update_Deck")
 	}
 }
 
-rule("Subroutine: UNO_End")
+rule("")
 {
 	event
 	{
@@ -7398,7 +7445,7 @@ rule("Subroutine: UNO_End")
 	}
 }
 
-rule("Match time extender if UNO is in progress.") 
+rule("") 
 {
 	event
 	{
@@ -7426,7 +7473,7 @@ rule("Match time extender if UNO is in progress.")
 	}
 }
 
-rule("Emote Synchronizing")
+rule("")
 {
 	event
 	{
@@ -7458,7 +7505,7 @@ rule("Emote Synchronizing")
 	}
 }
 
-rule("Call Emote Synchronizing")
+rule("")
 {
 	event
 	{
@@ -7499,7 +7546,7 @@ rule("Call Emote Synchronizing")
 	}
 }
 
-rule("Mode_33 - Invisible")
+rule("")
 {
 	event
 	{
@@ -7532,7 +7579,7 @@ rule("Mode_33 - Invisible")
 	}
 }
 
-rule("Mode_34 - Communication")
+rule("")
 {
 	event
 	{
@@ -7625,7 +7672,7 @@ disabled rule("")
 	}
 }
 
-rule("Extra_1 - Zen Kick")
+rule("")
 {
 	event
 	{
@@ -7651,7 +7698,7 @@ rule("Extra_1 - Zen Kick")
 	}
 }
 
-rule("Extra_2 - Self Rez")
+rule("")
 {
 	event
 	{
@@ -7686,7 +7733,7 @@ rule("Extra_2 - Self Rez")
 	}
 }
 
-rule("Extra_3 - Short Hop")
+rule("")
 {
 	event
 	{
@@ -7718,7 +7765,7 @@ rule("Extra_3 - Short Hop")
 	}
 }
 
-rule("Extra_4 - Mercy sleep darts")
+rule("")
 {
 	event
 	{
@@ -7742,7 +7789,7 @@ rule("Extra_4 - Mercy sleep darts")
 	}
 }
 
-rule("Extra_5 - Ultimate reset for mods+")
+rule("")
 {
 	event
 	{
@@ -7767,7 +7814,7 @@ rule("Extra_5 - Ultimate reset for mods+")
 	}
 }
 
-rule("Extra_6 - Mercy Movement Collision")
+rule("")
 {
 	event
 	{
@@ -7798,7 +7845,7 @@ rule("Extra_6 - Mercy Movement Collision")
 	}
 }
 
-rule("Extra_7 - No Cooldowns")
+rule("")
 {
 	event
 	{
@@ -7900,7 +7947,7 @@ rule("Extra_7 - No Cooldowns")
 	}
 }
 
-rule("Extra_9 - GIVE PETS")
+rule("")
 {
 	event
 	{
@@ -7930,7 +7977,7 @@ rule("Extra_9 - GIVE PETS")
 	}
 }
 
-rule("Extra_10: Doom Hug")
+rule("")
 {
 	event
 	{
@@ -7984,7 +8031,7 @@ rule("Extra_10: Doom Hug")
 	}
 }
 
-rule("Extra_11: Cass reverse noon")
+rule("")
 {
 	event
 	{
@@ -8009,7 +8056,7 @@ rule("Extra_11: Cass reverse noon")
 	}
 }
 
-rule("Extra_12: Ashe Low Bob")
+rule("")
 {
 	event
 	{
@@ -8044,7 +8091,7 @@ rule("Extra_12: Ashe Low Bob")
 	}
 }
 
-rule("Extra_13: Widow Laserpointer")
+rule("")
 {
 	event
 	{
@@ -8076,7 +8123,7 @@ rule("Extra_13: Widow Laserpointer")
 	}
 }
 
-rule("Extra_14: Broccoli Shield")
+rule("")
 {
 	event
 	{
@@ -8099,7 +8146,7 @@ rule("Extra_14: Broccoli Shield")
 	}
 }
 
-rule("Extra_15: Spider Hog")
+rule("")
 {
 	event
 	{
@@ -8126,7 +8173,7 @@ rule("Extra_15: Spider Hog")
 	}
 }
 
-rule("Extra_16: Pharah Float")
+rule("")
 {
 	event
 	{
@@ -8151,7 +8198,7 @@ rule("Extra_16: Pharah Float")
 	}
 }
 
-rule("Extra_17: Orisacopter")
+rule("")
 {
 	event
 	{
@@ -8177,7 +8224,7 @@ rule("Extra_17: Orisacopter")
 	}
 }
 
-rule("Extra_18: Reaper Ghost")
+rule("")
 {
 	event
 	{
@@ -8202,7 +8249,7 @@ rule("Extra_18: Reaper Ghost")
 	}
 }
 
-rule("Extra_19: Florenzio Bandaid")
+rule("")
 {
 	event
 	{
@@ -8228,7 +8275,7 @@ rule("Extra_19: Florenzio Bandaid")
 	}
 }
 
-rule("Extra_20: Mei Abilities")
+rule("")
 {
 	event
 	{
@@ -8254,7 +8301,7 @@ rule("Extra_20: Mei Abilities")
 	}
 }
 
-rule("Extra_22: Ball Bounce")
+rule("")
 {
 	event
 	{
@@ -8277,7 +8324,7 @@ rule("Extra_22: Ball Bounce")
 	}
 }
 
-rule("Extra_23: Moira Ghost")
+rule("")
 {
 	event
 	{
@@ -8301,7 +8348,7 @@ rule("Extra_23: Moira Ghost")
 	}
 }
 
-rule("Extra_24: Echo Heart")
+rule("")
 {
 	event
 	{
@@ -8331,7 +8378,7 @@ rule("Extra_24: Echo Heart")
 	}
 }
 
-rule("Extra_25: Soldier Heart")
+rule("")
 {
 	event
 	{
@@ -8363,7 +8410,7 @@ rule("Extra_25: Soldier Heart")
 	}
 }
 
-rule("Extra_26: Laser Heart")
+rule("")
 {
 	event
 	{
@@ -8392,7 +8439,7 @@ rule("Extra_26: Laser Heart")
 	}
 }
 
-rule("Extra_27: Illari Heart")
+rule("")
 {
 	event
 	{
@@ -8419,7 +8466,7 @@ rule("Extra_27: Illari Heart")
 	}
 }
 
-rule("Teleports and Moe Position")
+rule("")
 {
 	event
 	{
@@ -8711,7 +8758,7 @@ rule("Teleports and Moe Position")
 	}
 }
 
-rule("Teleports and Moe position getters")
+rule("")
 {
 	event
 	{
@@ -8747,7 +8794,7 @@ rule("Teleports and Moe position getters")
 	}
 }
 
-rule("Teleports Logic")
+rule("")
 {
 	event
 	{
@@ -8775,7 +8822,7 @@ rule("Teleports Logic")
 	}
 }
 
-rule("Spawn Moe-Bot")
+rule("")
 {
 	event
 	{
@@ -8801,7 +8848,7 @@ rule("Spawn Moe-Bot")
 	}
 }
 
-rule("Moe-Bot Behavior")
+rule("")
 {
 	event
 	{
@@ -8842,7 +8889,7 @@ rule("Moe-Bot Behavior")
 	}
 }
 
-rule("Moe-Bot Respawn")
+rule("")
 {
 	event
 	{
@@ -8868,7 +8915,7 @@ rule("Moe-Bot Respawn")
 	}
 }
 
-rule("Moe-Bot Aggro")
+rule("")
 {
 	event
 	{
@@ -8918,7 +8965,7 @@ rule("Moe-Bot Aggro")
 	}
 }
 
-rule("Midtown Bonus")
+rule("")
 {
 	event
 	{
@@ -8943,7 +8990,7 @@ rule("Midtown Bonus")
 	}
 }
 
-rule("Hero features toggle")
+rule("")
 {
 	event
 	{
@@ -8982,7 +9029,7 @@ rule("Hero features toggle")
 	}
 }
 
-rule("Ray Cast Shortener Subr")
+rule("")
 {
 	event
 	{
@@ -9003,7 +9050,7 @@ rule("Ray Cast Shortener Subr")
 	}
 }
 
-rule("individual effect: kwally (is moving)")
+rule("")
 {
 	event
 	{
@@ -9030,7 +9077,7 @@ rule("individual effect: kwally (is moving)")
 	}
 }
 
-rule("Play Effect while jump or crouch")
+rule("")
 {
 	event
 	{
@@ -9056,7 +9103,7 @@ rule("Play Effect while jump or crouch")
 	}
 }
 
-rule("Mode_36 Communicate")
+rule("")
 {
 	event
 	{
@@ -9107,7 +9154,7 @@ rule("Mode_36 Communicate")
 	}
 }
 
-disabled rule("Local player position")
+disabled rule("")
 {
 	event
 	{
@@ -9125,7 +9172,7 @@ disabled rule("Local player position")
 	}
 }
 
-rule("Clear Status Subroutine")
+rule("")
 {
 	event
 	{
@@ -9143,7 +9190,7 @@ rule("Clear Status Subroutine")
 	}
 }
 
-rule("Clear Log")
+rule("")
 {
 	event
 	{
@@ -9172,7 +9219,7 @@ rule("Clear Log")
 	}
 }
 
-rule("Signal Catch Failsave")
+rule("")
 {
 	event
 	{
@@ -9192,7 +9239,7 @@ rule("Signal Catch Failsave")
 	}
 }
 
-rule("Teleport player to point after spawn (skirmish, assault game modes)")
+rule("")
 {
 	event
 	{
@@ -9218,7 +9265,7 @@ rule("Teleport player to point after spawn (skirmish, assault game modes)")
 	}
 }
 
-rule("Small message to other players team (communicate)")
+rule("")
 {
 	event
 	{
