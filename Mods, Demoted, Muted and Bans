@@ -25,13 +25,10 @@ rule("")
 		Global.Muted_List = Array(
 			Custom String("DJBASTIOON"), Custom String("DJBastion"), Custom String("Djbastion"), Custom String("DJBASTION!"), Custom String("MrBastion"),
 			Custom String("DjBeep"), Custom String("DJBASTION"), Custom String("ĹȄȀƑ"), Custom String("Loxy"), Custom String("rƗkku"),
-			Custom String("DjBastion"), Custom String("BeepMatic"), Custom String("royalty"), Custom String("lila"), Custom String("YVL"),
-			Custom String("Ghost"), Custom String("NotToxic"), Custom String("River"));
+			Custom String("DjBastion"), Custom String("BeepMatic"));
 		"Demoted List"
 		Global.Demoted_List = Array(
-			Custom String("pudding!"), Custom String("iiMaya24k"), Custom String("StrxwberryBE"), Custom String("Axe"), Custom String("FURY"),
-			Custom String("MƐŎŎŎŎŴ"), Custom String("SPY"), Custom String("MetalCrusheR"), Custom String("LiLiTH"), Custom String("Peri"),
-			Custom String("theropy"), Custom String("MĔiǃ"), Custom String("veri"), Custom String("Proudcatlovr"), Custom String("NiceKnockers"));
+			Custom String("veri"), Custom String("Proudcatlovr"), Custom String("NiceKnockers"));
 		"Automatic Ban"
 		Global.Banned_List = Array(Custom String("xMaxuss"), Custom String("HYUA"), Custom String("BebeUwU"), 
 			Custom String("HOÑEYBEE"), Custom String("Dead"), Custom String("chii"), Custom String("WÃFFLĚS"), Custom String("CuddleBunny"), 
