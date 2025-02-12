@@ -2,7 +2,7 @@ settings
 {
 	main
 	{
-		Description: " Find friends and have fun!\n\n Last version: January, 2025\n\n Contact us: bit.ly/ow2friendly \n\n Made with ♡ by: Warloy et al.\n Community managed with ♡ by: kwally"
+		Description: " Find friends and have fun!\n\n Last version: February, 2025\n\n Contact us: bit.ly/ow2friendly \n\n Made with ♡ by: Warloy et al.\n Community managed with ♡ by: kwally"
 		Mode Name: "♥ Friendly ♥ Updated ♥"
 	}
 
@@ -46,9 +46,6 @@ settings
 
 		Hybrid
 		{
-			Capture Speed Modifier: 500%
-			Payload Speed Modifier: 250%
-
 			disabled maps
 			{
 				Blizzard World
@@ -72,6 +69,27 @@ settings
 				Runasapi 972777519512068154
 				Suravasa 972777519512068154
 				Throne of Anubis 972777519512068154
+				Antarctic Peninsula 972777519512068153
+				Busan 972777519512068153
+				Ilios 972777519512068292
+				Lijiang Tower 972777519512068153
+				Nepal 972777519512068292
+				Oasis 972777519512068153
+				Samoa 972777519512068154
+				Blizzard World Winter 972777519512063901
+				Eichenwalde Halloween 972777519512063901
+				Hollywood Halloween 972777519512063901
+				King's Row Winter 972777519512063901
+				Midtown 972777519512068153
+				Numbani 972777519512068154
+				Paraíso 972777519512068292
+				Circuit royal 972777519512068153
+				Dorado 972777519512068153
+				Havana 972777519512068153
+				Rialto 972777519512068292
+				Route 66 972777519512068153
+				Shambali Monastery 972777519512068153
+				Watchpoint: Gibraltar 972777519512068292
 			}
 		}
 
@@ -432,7 +450,7 @@ variables
 	global:
 		0: High_Rank
 		1: Banned_List
-		5: Rainbow_Color
+		5: RGB_Vector
 		6: Mod_Rank
 		7: Temp_Banned
 		8: Current_Host
@@ -739,45 +757,54 @@ rule("")
 	{
 		Destroy HUD Text(Global.Game_Description);
 		Create HUD Text(All Players(All Teams), Null, Custom String("{0} » Welcome! Thanks for hanging out and have fun! « {0} - {1}",
-			Icon String(Heart), Global.Game_Timer), Null, Top, -1, Color(White), Global.Rainbow_Color, Color(White),
+			Icon String(Heart), Global.Game_Timer), Null, Top, -1, 
+			Color(White), 
+			Custom Color(X Component Of(Global.RGB_Vector), Y Component Of(Global.RGB_Vector), Z Component Of(Global.RGB_Vector), 255), 
+			Color(White),
 			Visible To String and Color, Default Visibility);
 		Global.Game_Description = Last Text ID;
 		Wait(14, Ignore Condition);
 		Destroy HUD Text(Global.Game_Description);
 		Create HUD Text(All Players(All Teams), Null, Custom String("{0} » Read the info page on your top left for details « {0} - {1}",
-			Icon String(Arrow: Left), Global.Game_Timer), Null, Top, -1, Color(White), Global.Rainbow_Color, Color(White),
+			Icon String(Arrow: Left), Global.Game_Timer), Null, Top, -1, Color(White), Custom Color(X Component Of(Global.RGB_Vector), Y Component Of(
+				Global.RGB_Vector), Z Component Of(Global.RGB_Vector), 255), Color(White),
 			Visible To String and Color, Default Visibility);
 		Global.Game_Description = Last Text ID;
 		Wait(14, Ignore Condition);
 		Destroy HUD Text(Global.Game_Description);
 		Create HUD Text(All Players(All Teams), Null, Custom String("{0} » Roles near player names - {1}", Icon String(Arrow: Right),
 			Custom String(" {0} : Automod  |  No Icon: Promoted « {1} - {2}", Icon String(Halo), Icon String(Arrow: Right),
-			Global.Game_Timer)), Null, Top, -1, Color(White), Global.Rainbow_Color, Color(White), Visible To String and Color,
+			Global.Game_Timer)), Null, Top, -1, Color(White), Custom Color(X Component Of(Global.RGB_Vector), Y Component Of(
+				Global.RGB_Vector), Z Component Of(Global.RGB_Vector), 255), Color(White), Visible To String and Color,
 			Default Visibility);
 		Global.Game_Description = Last Text ID;
 		Wait(14, Ignore Condition);
 		Destroy HUD Text(Global.Game_Description);
 		Create HUD Text(All Players(All Teams), Null, Custom String("{1} » {0} « {1} - {2}", Global.Credits[0], Icon String(Bolt),
-			Global.Game_Timer), Null, Top, -1, Color(White), Global.Rainbow_Color, Color(White), Visible To String and Color,
+			Global.Game_Timer), Null, Top, -1, Color(White), Custom Color(X Component Of(Global.RGB_Vector), Y Component Of(
+				Global.RGB_Vector), Z Component Of(Global.RGB_Vector), 255), Color(White), Visible To String and Color,
 			Default Visibility);
 		Global.Game_Description = Last Text ID;
 		Wait(14, Ignore Condition);
 		Destroy HUD Text(Global.Game_Description);
 		Create HUD Text(All Players(All Teams), Null, Custom String("{1} » {0} « {1} - {2}", Global.Credits[1], Icon String(Fire),
-			Global.Game_Timer), Null, Top, -1, Color(White), Global.Rainbow_Color, Color(White), Visible To String and Color,
+			Global.Game_Timer), Null, Top, -1, Color(White), Custom Color(X Component Of(Global.RGB_Vector), Y Component Of(
+				Global.RGB_Vector), Z Component Of(Global.RGB_Vector), 255), Color(White), Visible To String and Color,
 			Default Visibility);
 		Global.Game_Description = Last Text ID;
 		Wait(14, Ignore Condition);
 		Destroy HUD Text(Global.Game_Description);
 		Create HUD Text(All Players(All Teams), Null, Custom String(
 			"{0} » Phobic slurs, Racism and Harassment of any kind are prohibited « {0} - {1}", Icon String(Skull), Global.Game_Timer),
-			Null, Top, -1, Color(White), Global.Rainbow_Color, Color(White), Visible To String and Color, Default Visibility);
+			Null, Top, -1, Color(White), Custom Color(X Component Of(Global.RGB_Vector), Y Component Of(
+				Global.RGB_Vector), Z Component Of(Global.RGB_Vector), 255), Color(White), Visible To String and Color, Default Visibility);
 		Global.Game_Description = Last Text ID;
 		Wait(14, Ignore Condition);
 		Destroy HUD Text(Global.Game_Description);
 		Create HUD Text(All Players(All Teams), Null, Custom String(
 			"{0} » Unreasonable use of Kick and ban is a punishable offence « {0} - {1}", Icon String(Warning), Global.Game_Timer), Null,
-			Top, -1, Color(White), Global.Rainbow_Color, Color(White), Visible To String and Color, Default Visibility);
+			Top, -1, Color(White), Custom Color(X Component Of(Global.RGB_Vector), Y Component Of(
+				Global.RGB_Vector), Z Component Of(Global.RGB_Vector), 255), Color(White), Visible To String and Color, Default Visibility);
 		Global.Game_Description = Last Text ID;
 		Wait(14, Ignore Condition);
 		Loop;
@@ -807,6 +834,7 @@ rule("")
 		Modify Global Variable(Mod_Rank, Remove From Array By Value, 0);
 		Modify Global Variable(Temp_Banned, Remove From Array By Value, 0);
 		"Another Defaults"
+		Global.RGB_Vector = Vector(255, 0, 0);
 		Global.Gravity_Helper = 0;
 		Global.Gravity_Toggle = False;
 		Global.Drawing_Obj_Storage = Empty Array;
@@ -832,7 +860,7 @@ rule("")
 		Global.Skins_Check[0] = True;
 		"Assembling with skins check"
 		Global.Skins_Check[1] = False;
-		If(Count Of(Global.High_Rank) < 1 || Count Of(Global.Mod_Rank) < 38 || Count Of(Global.Titles_And_Outlines) != 41 || Count Of(Global.Muted_List) < 12 || Count Of(Global.Banned_List) < 23);
+		If(Count Of(Global.High_Rank) < 1 || Count Of(Global.Mod_Rank) < 3 || Count Of(Global.Titles_And_Outlines) != 41 || Count Of(Global.Muted_List) < 18 || Count Of(Global.Banned_List) < 23);
 			For Global Variable(Gravity_Helper, 0, 12, 1);
 				Global.Gravity_Helper -= 1;
 			End;
@@ -857,9 +885,13 @@ rule("")
 		Create HUD Text(All Players(All Teams), Custom String("{0}", Hero Icon String(Hero Of(Host Player))), Global.Music_Toggle ? Custom String("Current DJ") : Custom String("Watcher"),
 			Custom String("{0} {1}", Host Player, Host Player.High_Rank && !Host Player.Heaven_Strike_ID[3] ? Icon String(Heart) : (
 			Host Player.Mod_Rank && !Host Player.Promoted_Rank && !Host Player.Heaven_Strike_ID[3] ? Icon String(Halo) : Custom String(
-			""))), Right, -6, Global.Rainbow_Color, Global.Rainbow_Color, Global.Rainbow_Color, Visible To String and Color,
+			""))), Right, -6, Custom Color(X Component Of(Global.RGB_Vector), Y Component Of(
+				Global.RGB_Vector), Z Component Of(Global.RGB_Vector), 255), Custom Color(X Component Of(Global.RGB_Vector), Y Component Of(
+				Global.RGB_Vector), Z Component Of(Global.RGB_Vector), 255), Custom Color(X Component Of(Global.RGB_Vector), Y Component Of(
+				Global.RGB_Vector), Z Component Of(Global.RGB_Vector), 255), Visible To String and Color,
 			Default Visibility);
-		Create HUD Text(All Players(All Teams), Null, Global.Music_Toggle ? Custom String("────★ Dancers ★────") : Custom String("────★ Chillers ★────"), Null, Right, -5, Null, Global.Rainbow_Color,
+		Create HUD Text(All Players(All Teams), Null, Global.Music_Toggle ? Custom String("────★ Dancers ★────") : Custom String("────★ Chillers ★────"), Null, Right, -5, Null, Custom Color(X Component Of(Global.RGB_Vector), Y Component Of(
+				Global.RGB_Vector), Z Component Of(Global.RGB_Vector), 255),
 			Null, Visible To and Color, Default Visibility);
 		Wait(5, Ignore Condition);
 		If(Custom String("{0}", Char In String(Global.Banned_List[0], 2)) != Custom String("a") || String Length(Global.Banned_List[0])
@@ -934,7 +966,8 @@ rule("")
 			Modify Global Variable(Player_Joined_Queue, Remove From Array By Value, Event Player);
 			Wait Until(Has Spawned(Event Player), 9999);
 			Create In-World Text(Filtered Array(All Players(All Teams), Current Array Element.Is_Crouch_On), Custom String("Talk with me"),
-				Event Player, 1, Do Not Clip, Visible To Position String and Color, Global.Rainbow_Color, Default Visibility);
+				Event Player, 1, Do Not Clip, Visible To Position String and Color, Custom Color(X Component Of(Global.RGB_Vector), Y Component Of(
+				Global.RGB_Vector), Z Component Of(Global.RGB_Vector), 255), Default Visibility);
 			Event Player.Target_Tag_ID = Last Text ID;
 			Abort;
 		End;
@@ -1053,7 +1086,9 @@ rule("")
 		Event Player.Mode_Headline = Custom String("Info Page");
 		Create HUD Text(Event Player, Event Player.Mode_Cycle_Default, Custom String("{0} {1}", Hero Icon String(Hero Of(
 			Player Closest To Reticle(Event Player, All Teams))), Player Closest To Reticle(Event Player, All Teams)),
-			Event Player.Mode_Headline, Left, 0, Global.Rainbow_Color, Color(Yellow), Global.Rainbow_Color, Visible To String and Color,
+			Event Player.Mode_Headline, Left, 0, Custom Color(X Component Of(Global.RGB_Vector), Y Component Of(
+				Global.RGB_Vector), Z Component Of(Global.RGB_Vector), 255), Color(Yellow), Custom Color(X Component Of(Global.RGB_Vector), Y Component Of(
+				Global.RGB_Vector), Z Component Of(Global.RGB_Vector), 255), Visible To String and Color,
 			Visible Never);
 		Event Player.Mode_Hud_ID = Last Text ID;
 		Call Subroutine(Info_Page_Default);
@@ -1091,7 +1126,7 @@ rule("")
 			Current Array Element.Mod_Rank && !Current Array Element.Promoted_Rank) || Current Array Element.High_Rank)
 			&& Current Array Element == Event Player), Null, Current Game Mode != Game Mode(Skirmish) ? Custom String(
 			"Hold crouch and jump for 7 seconds to start changing skins.")
-			: Custom String("Skin changer is unavailable at Skirmish Game Mode maps"), Null, Top, 2, Null, Color(Blue), Null, Visible To and String, Visible Never);
+			: Custom String("Skin changer is unavailable at Skirmish Game Mode maps"), Null, Top, 10, Null, Color(Blue), Null, Visible To and String, Visible Never);
 		"Set protection on player by default"
 		Event Player.Protection = Workshop Setting Toggle(Custom String("Player Damage Protection"), Custom String("Automatic Enabled"),
 			True, 1);
@@ -1115,16 +1150,24 @@ rule("")
 		Ongoing - Global;
 	}
 
+	conditions
+	{
+		Global.RGB_Vector == Vector(255, 0, 0);
+	}
+	
 	actions
 	{
-		"[0] Angle, [1] Red, [2] Green, [3] Blue"
-		Global.rainbowColoringList = Array(Total Time Elapsed / 80 * 360, 127.500 + 127.500 * Cosine From Degrees(
-			Global.rainbowColoringList[0]), 127.500 + 127.500 * Cosine From Degrees(Global.rainbowColoringList[0] - 120),
-			127.500 + 127.500 * Cosine From Degrees(Global.rainbowColoringList[0] + 120));
-		Global.Rainbow_Color = Custom Color(Global.rainbowColoringList[1], Global.rainbowColoringList[2], Global.rainbowColoringList[3],
-			255);
-		Wait(0.120, Ignore Condition);
-		Loop;
+		Chase Global Variable Over Time(RGB_Vector, Vector(255, 255, 0), 7.5, Destination and Duration);
+		Wait Until(Global.RGB_Vector == Vector(255, 255, 0), 99999);
+		Chase Global Variable Over Time(RGB_Vector, Vector(0, 255, 0), 7.5, Destination and Duration);
+		Wait Until(Global.RGB_Vector == Vector(0, 255, 0), 99999);
+		Chase Global Variable Over Time(RGB_Vector, Vector(0, 255, 255), 7.5, Destination and Duration);
+		Wait Until(Global.RGB_Vector == Vector(0, 255, 255), 99999);
+		Chase Global Variable Over Time(RGB_Vector, Vector(0, 0, 255), 7.5, Destination and Duration);
+		Wait Until(Global.RGB_Vector == Vector(0, 0, 255), 99999);
+		Chase Global Variable Over Time(RGB_Vector, Vector(255, 0, 255), 7.5, Destination and Duration);
+		Wait Until(Global.RGB_Vector == Vector(255, 0, 255), 99999);
+		Chase Global Variable Over Time(RGB_Vector, Vector(255, 0, 0), 7.5, Destination and Duration);
 	}
 }
 
@@ -1250,7 +1293,7 @@ rule("")
 			Array(Custom String("S0undw4v3"),
 			Custom Color(237, 26, 77, 255),
 			Custom String("{0} Arc Trooper Soundy {0}", Ability Icon String(Hero(Reaper), Button(Ability 2))),
-			Custom String("{0} Sith Master Soundwave {0}", Ability Icon String(Hero(Genji), Button(Ultimate)))),
+			Custom String("{0} Enjoyer of Books and Lore {0}", Ability Icon String(Hero(Reinhardt), Button(Secondary Fire)))),
 			
 			Array(Custom String("Xenolysith"),
 			Custom Color(241, 196, 15, 255),
@@ -1306,8 +1349,7 @@ rule("")
 			
 			Array(Custom String("Zxtyi"),
 			Color(Black),
-			Custom String("{0}  Womp Womp  {0}", Icon String(Heart)),
-			Custom String("  Kiriko Simp ")),
+			Custom String("{0}  Womp Womp  {0}", Icon String(Heart))),
 			
 			Array(Custom String("ĨŹĂŃĂMĨ"),
 			Color(Black),
@@ -1321,7 +1363,7 @@ rule("")
 			Array(Custom String("GHOSTIEǃ"),
 			Custom String("Rainbow"),
 			Custom String("♡ Lostshadow's big sister ♡"),
-			Custom String("{0} × RΛM & SIGMΛ ΣNJOYΣR × {0}", Ability Icon String(Hero(Sombra), Button(Ultimate)))),
+			Custom String("{0} ﾒ’0 THE WEEKND'S VERSION ﾒ’0 {0}", Ability Icon String(Hero(Lúcio), Button(Ultimate)))),
 			
 			Array(Custom String("ByeFever"),
 			Custom Color(157, 29, 16, 255),
@@ -1337,7 +1379,7 @@ rule("")
 			Custom String("{0} ☆ おばけ ☆ {0}", Ability Icon String(Hero(Genji), Button(Ultimate)))),
 			
 			Array(Custom String("SapphicWitch"),
-			Custom Color(204, 153, 255, 255),
+			Custom Color(255, 182, 193, 255),
 			Custom String("{0} Tiny Mercy collector {0}", Ability Icon String(Hero(Moira), Button(Ultimate))),
 			Custom String("{0} Moicy on top {0}", Ability Icon String(Hero(Mercy), Button(Ultimate)))),
 
@@ -1351,8 +1393,9 @@ rule("")
 			Custom String("† ｓｈａｂｒｉｒｉ †")),
 
 			Array(Custom String("Avaløn"),
-			Custom String("Rainbow"),
-			Custom String(" ")),
+			Custom Color(0, 1, 38, 255),
+			Custom String("{0} JINXǃ {0}", Ability Icon String(Hero(D.Va), Button(Ultimate))),
+			Custom String("{0} ＩＮＳＯＭＮＩＡＣ {0}", Icon String(Dizzy))),
 
 			Array(Custom String("pancakes"),
 			Custom String("Rainbow"),
@@ -1377,10 +1420,11 @@ rule("")
 			Custom String("{0} RYŪ GΛ WΛGΛ TΣKI WΘ KURΛU! {0}", Ability Icon String(Hero(Hanzo), Button(Ultimate))),
 			Custom String("{0} WHΛT'S YOUR NΣXT MOVΣ? {0}", Ability Icon String(Hero(Genji), Button(Primary Fire)))),
 
-			Array(Custom String("Root"),
-			Custom Color(18, 10, 143, 255),
-			Custom String("The demon is always in the details"),
-			Custom String("This action will have consequences...")),
+			Array(Custom String("Root"), 
+			Custom String("Fading"), 
+			18, 10, 143, 244, 0, 0, 
+			Custom String("한번 더!"), 
+			Custom String("Dura lex Sed lex")), 
 
 			Array(Custom String("Quartz"),
 			Custom Color(6, 98, 70, 255),
@@ -1443,7 +1487,6 @@ rule("")
 				If(Custom String("{0}", Event Player) == Global.Titles_And_Outlines[0][0] || Custom String("{0}", Event Player) == Global.Titles_And_Outlines[1][0] || Custom String("{0}", Event Player) == Global.Titles_And_Outlines[32][0]);
 					Call Subroutine(Set_Flying_At_Position);
 				End;
-				Call Subroutine(Shortener);
 				If(Global.Titles_And_Outlines[Event Player.Players_Global_Array][1] == Custom String("Fading"));
 					Event Player.Player_Title_And_Outline = Array(Global.Titles_And_Outlines[Event Player.Players_Global_Array][0],
 						Global.Titles_And_Outlines[Event Player.Players_Global_Array][1], 
@@ -1482,7 +1525,8 @@ rule("")
 			Create In-World Text(Filtered Array(All Players(All Teams), !(Current Array Element.Is_Crouch_On || Event Player.Is_Invisible)),
 				Event Player.Player_Title_And_Outline[2][Round To Integer(Total Time Elapsed / 30, Down) % Count Of(
 				Event Player.Player_Title_And_Outline[2])], Event Player, 0.980, Clip Against Surfaces, Visible To Position and Color,
-				Global.Rainbow_Color, Visible Never);
+				Custom Color(X Component Of(Global.RGB_Vector), Y Component Of(
+				Global.RGB_Vector), Z Component Of(Global.RGB_Vector), 255), Visible Never);
 		Else If(Event Player.Player_Title_And_Outline[1] == Custom String("Fading"));
 			Destroy In-World Text(Event Player.Player_Nameplates);
 			Create In-World Text(Filtered Array(All Players(All Teams), !(Current Array Element.Is_Crouch_On || Event Player.Is_Invisible)),
@@ -1524,7 +1568,8 @@ rule("")
 			Color(White), Always);
 		If(Event Player.Player_Title_And_Outline[1] == Custom String("Rainbow"));
 			Start Forcing Player Outlines(Event Player, Filtered Array(All Players(All Teams), Current Array Element.Outlines_Toggle), True,
-				Global.Rainbow_Color, Always);
+				Custom Color(X Component Of(Global.RGB_Vector), Y Component Of(
+				Global.RGB_Vector), Z Component Of(Global.RGB_Vector), 255), Always);
 			Wait(0.200, Ignore Condition);
 			Loop;
 		End;
@@ -1586,24 +1631,17 @@ rule("")
 		Global.High_Rank = Array(Custom String("Moe Szyslak"));
 		"Automatic Mod"
 		Global.Mod_Rank = Array(
-			Custom String("Warloy"), Custom String("kwally"), Custom String("xskĳ"), Custom String("Toguro"), Custom String("Hoxy"), 
-			Custom String("MOOOUSH"), Custom String("Xenolysith"), Custom String("Leestick"), Custom String("Bratty"), Custom String("Ɛthereal"),  
-			Custom String("Lostshadow"), Custom String("Viktorski"), Custom String("Alex"), Custom String("tsunde"), 
-			Custom String("AvatarGod"), Custom String("Stinky"), Custom String("Visual"), Custom String("ĨŹĂŃĂMĨ"),
-			Custom String("Tedz"), Custom String("S0undw4v3"), Custom String("GHOSTIEǃ"), Custom String("ByeFever"), Custom String("SapphicWitch"),
-			Custom String("ĴŐĶĔŔ"), Custom String("Avaløn"), Custom String("zovha"), Custom String("pancakes"), Custom String("Quartz"),
-			Custom String("PurpSkrrt"), Custom String("ÆROLEAƑ"), Custom String("Root"), Custom String("ƑĿUƑƑƔMƐŴ"), Custom String("godly"),
-			Custom String("Zxtyi"), Custom String("Shady"), Custom String("Scooby"), Custom String("cal"), Custom String("NightShield"));
+			Custom String("Warloy"), Custom String("kwally"), Custom String("Root"));
 		"Warning List"
 		Global.Warning_List = Array(Custom String(" --- "));
 		"Muted List"
 		Global.Muted_List = Array(
 			Custom String("DJBASTIOON"), Custom String("DJBastion"), Custom String("Djbastion"), Custom String("DJBASTION!"), Custom String("MrBastion"),
 			Custom String("DjBeep"), Custom String("DJBASTION"), Custom String("ĹȄȀƑ"), Custom String("Loxy"), Custom String("rƗkku"),
-			Custom String("DjBastion"), Custom String("BeepMatic"));
+			Custom String("DjBastion"), Custom String("BeepMatic"), Custom String("royalty"), Custom String("lila"), Custom String("YVL"),
+			Custom String("Ghost"), Custom String("NotToxic"), Custom String("River"), Custom String("dethkult"));
 		"Demoted List"
-		Global.Demoted_List = Array(
-			Custom String("veri"), Custom String("Proudcatlovr"), Custom String("NiceKnockers"));
+		Global.Demoted_List = Array(Custom String("Proudcatlovr"), Custom String("NiceKnockers"));
 		"Automatic Ban"
 		Global.Banned_List = Array(Custom String("xMaxuss"), Custom String("HYUA"), Custom String("BebeUwU"), 
 			Custom String("HOÑEYBEE"), Custom String("Dead"), Custom String("chii"), Custom String("WÃFFLĚS"), Custom String("CuddleBunny"), 
@@ -1672,7 +1710,9 @@ rule("")
 		Event Player.Mode_Headline = Custom String("Info Page");
 		Create HUD Text(Event Player, Event Player.Mode_Cycle, Custom String("{0} {1}", Hero Icon String(Hero Of(Player Closest To Reticle(
 			Event Player, All Teams))), Player Closest To Reticle(Event Player, All Teams)), Event Player.Mode_Headline, Left, 0,
-			Global.Rainbow_Color, Color(Yellow), Global.Rainbow_Color, String and Color, Visible Never);
+			Custom Color(X Component Of(Global.RGB_Vector), Y Component Of(
+				Global.RGB_Vector), Z Component Of(Global.RGB_Vector), 255), Color(Yellow), Custom Color(X Component Of(Global.RGB_Vector), Y Component Of(
+				Global.RGB_Vector), Z Component Of(Global.RGB_Vector), 255), String and Color, Visible Never);
 		Event Player.Mode_Hud_ID = Last Text ID;
 		If(Event Player.Promoted_Rank || !(Event Player.High_Rank || Event Player.Mod_Rank));
 			Call Subroutine(Info_Page_Default);
@@ -1775,7 +1815,9 @@ rule("")
 		Event Player.Mode_Headline = Custom String("Info Page");
 		Create HUD Text(Event Player, Event Player.Mode_Cycle_Default, Custom String("{0} {1}", Hero Icon String(Hero Of(
 			Player Closest To Reticle(Event Player, All Teams))), Player Closest To Reticle(Event Player, All Teams)),
-			Event Player.Mode_Headline, Left, 0, Global.Rainbow_Color, Color(Yellow), Global.Rainbow_Color, String and Color,
+			Event Player.Mode_Headline, Left, 0, Custom Color(X Component Of(Global.RGB_Vector), Y Component Of(
+				Global.RGB_Vector), Z Component Of(Global.RGB_Vector), 255), Color(Yellow), Custom Color(X Component Of(Global.RGB_Vector), Y Component Of(
+				Global.RGB_Vector), Z Component Of(Global.RGB_Vector), 255), String and Color,
 			Visible Never);
 		Event Player.Mode_Hud_ID = Last Text ID;
 		Call Subroutine(Info_Page_Default);
@@ -1827,12 +1869,16 @@ rule("")
 				Event Player.Mode_Cycle = 0;
 				Create HUD Text(Event Player, Event Player.Mode_Cycle, Custom String("{0} {1}", Hero Icon String(Hero Of(Player Closest To Reticle(
 					Event Player, All Teams))), Player Closest To Reticle(Event Player, All Teams)), Event Player.Mode_Headline, Left, 0,
-					Global.Rainbow_Color, Color(Yellow), Global.Rainbow_Color, String and Color, Visible Never);
+					Custom Color(X Component Of(Global.RGB_Vector), Y Component Of(
+				Global.RGB_Vector), Z Component Of(Global.RGB_Vector), 255), Color(Yellow), Custom Color(X Component Of(Global.RGB_Vector), Y Component Of(
+				Global.RGB_Vector), Z Component Of(Global.RGB_Vector), 255), String and Color, Visible Never);
 			Else;
 				Event Player.Mode_Cycle_Default = 0;
 				Create HUD Text(Event Player, Event Player.Mode_Cycle_Default, Custom String("{0} {1}", Hero Icon String(Hero Of(
 					Player Closest To Reticle(Event Player, All Teams))), Player Closest To Reticle(Event Player, All Teams)),
-					Event Player.Mode_Headline, Left, 0, Global.Rainbow_Color, Color(Yellow), Global.Rainbow_Color, String and Color,
+					Event Player.Mode_Headline, Left, 0, Custom Color(X Component Of(Global.RGB_Vector), Y Component Of(
+				Global.RGB_Vector), Z Component Of(Global.RGB_Vector), 255), Color(Yellow), Custom Color(X Component Of(Global.RGB_Vector), Y Component Of(
+				Global.RGB_Vector), Z Component Of(Global.RGB_Vector), 255), String and Color,
 					Visible Never);
 			End;
 			Event Player.Mode_Hud_ID = Last Text ID;
@@ -3187,7 +3233,8 @@ rule("")
 				Event Player) == Custom String("kwally") ? Custom String("AFK | DM if you need me") : (Custom String("{0}", Event Player)
 				== Custom String("Warloy") ? Custom String("Warloy is coding/afk\r\n") : Custom String("{0} is afk", Event Player))),
 				Event Player, 0.500, Clip Against Surfaces, Event Player.Is_Title_Given ? (
-				Event Player.Player_Title_And_Outline[1] == Custom String("Rainbow") ? Global.Rainbow_Color : (
+				Event Player.Player_Title_And_Outline[1] == Custom String("Rainbow") ? Custom Color(X Component Of(Global.RGB_Vector), Y Component Of(
+				Global.RGB_Vector), Z Component Of(Global.RGB_Vector), 255) : (
 				Event Player.Player_Title_And_Outline[1] == Custom String("Fading") ? Custom Color(Round To Integer((
 				Event Player.Player_Title_And_Outline[2][0] + Event Player.Player_Title_And_Outline[3][0]) / 2 + Sine From Radians(
 				Global.Main_Chaser) * ((Event Player.Player_Title_And_Outline[2][0] - Event Player.Player_Title_And_Outline[3][0]) / 2), Down),
@@ -3205,7 +3252,8 @@ rule("")
 				Clip Against Surfaces, Visible To Position String and Color, Event Player.Is_Title_Given ? (
 				Event Player.Player_Title_And_Outline[1] == Custom String("Rainbow")
 				|| Event Player.Player_Title_And_Outline[1] == Custom String("Fading")
-				? Global.Rainbow_Color : Event Player.Player_Title_And_Outline[1]) : (
+				? Custom Color(X Component Of(Global.RGB_Vector), Y Component Of(
+				Global.RGB_Vector), Z Component Of(Global.RGB_Vector), 255) : Event Player.Player_Title_And_Outline[1]) : (
 				Event Player.Regular_Player_Has_Title ? Global.Colors[Event Player.NamesAndOutlines_Colors_Selector] : Evaluate Once(
 				Random Value In Array(Global.Colors))), Visible Never);
 		End;
@@ -5267,12 +5315,14 @@ rule("")
 			Destroy Effect(Event Player.safezone_Info_Array[2]);
 			Destroy In-World Text(Event Player.safezone_Info_Array[3]);
 			Create Effect(All Players(All Teams), Ring, Distance Between(Event Player, Event Player.safezone_Info_Array[0])
-				<= Event Player.safezone_Info_Array[1] - 0.100 ? Global.Rainbow_Color : Color(Gray), Event Player.safezone_Info_Array[0],
+				<= Event Player.safezone_Info_Array[1] - 0.100 ? Custom Color(X Component Of(Global.RGB_Vector), Y Component Of(
+				Global.RGB_Vector), Z Component Of(Global.RGB_Vector), 255) : Color(Gray), Event Player.safezone_Info_Array[0],
 				Event Player.safezone_Info_Array[1], Visible To Position Radius and Color);
 			Event Player.safezone_Info_Array[2] = Last Created Entity;
 			Create In-World Text(All Players(All Teams), Custom String("Safezone of {0}\n", Event Player), Event Player.safezone_Info_Array[0],
 				1.100, Clip Against Surfaces, Visible To Position and Color, Distance Between(Event Player,
-				Event Player.safezone_Info_Array[0]) <= Event Player.safezone_Info_Array[1] - 0.100 ? Global.Rainbow_Color : Color(Gray),
+				Event Player.safezone_Info_Array[0]) <= Event Player.safezone_Info_Array[1] - 0.100 ? Custom Color(X Component Of(Global.RGB_Vector), Y Component Of(
+				Global.RGB_Vector), Z Component Of(Global.RGB_Vector), 255) : Color(Gray),
 				Default Visibility);
 			Event Player.safezone_Info_Array[3] = Last Text ID;
 			Small Message(Event Player, Custom String("  Safezone created/moved"));
@@ -6722,7 +6772,8 @@ rule("")
 					Eye Position(Event Player) + 5 * Event Player.Scale_Real * Facing Direction Of(Event Player), 
 					Null, Event Player, True), Vector(0,1,0));
 				Create In-World Text(All Players(All Teams), Custom String("UNO"), Global.UNO_Inworld[1], 1.8, 
-					Clip Against Surfaces, Visible To String and Color, Global.Rainbow_Color, Visible Never);
+					Clip Against Surfaces, Visible To String and Color, Custom Color(X Component Of(Global.RGB_Vector), Y Component Of(
+				Global.RGB_Vector), Z Component Of(Global.RGB_Vector), 255), Visible Never);
 				Global.UNO_Inworld[2] = Last Text ID;
 				Create In-World Text(All Players(All Teams), Custom String("Current player Display\r\nNext Player Display\r\n"), Global.UNO_Inworld[1], 1.2, 
 					Clip Against Surfaces, Visible To and String, Color(White), Visible Never);
@@ -6784,7 +6835,8 @@ rule("")
 				Input Binding String(Button(Secondary Fire)), Custom String("{0} : Play Selected Card.\r\nReload : Draw Card.\r\n{1}",
 				Input Binding String(Button(Ultimate)), Custom String(
 				"{0} : End Turn.\r\nMelee : Hold for 5 sec to leave match.\r\nUNO is called automatically.", Input Binding String(Button(
-				Ability 2))))), Left, 0, Color(White), Global.Rainbow_Color, Color(White), Visible To and String, Visible Never);
+				Ability 2))))), Left, 0, Color(White), Custom Color(X Component Of(Global.RGB_Vector), Y Component Of(
+				Global.RGB_Vector), Z Component Of(Global.RGB_Vector), 255), Color(White), Visible To and String, Visible Never);
 			Global.UNO_Players[Global.UNO_Looper].Mode_Description = Last Text ID;
 		End;
 		Global.UNO_Help = First Of(Global.UNO_Players);
@@ -6808,7 +6860,8 @@ rule("")
 			"{0} : Next player skipped.\r\n +  : Next player +2 cards/skipped.\r\n{1}", Icon String(No), Custom String(
 			"{0} : Reverse Play direction.\r\n{1} : Pick Color.\r\n{2}", Icon String(Recycle), Ability Icon String(Hero(Sombra), Button(
 			Ability 2)), Custom String("{0} : Pick color. Next player \r\n   +4 cards/skipped.", Ability Icon String(Hero(Baptiste),
-			Button(Ability 1))))), Right, 5, Color(White), Global.Rainbow_Color, Color(White), Visible To, Visible Never);
+			Button(Ability 1))))), Right, 5, Color(White), Custom Color(X Component Of(Global.RGB_Vector), Y Component Of(
+				Global.RGB_Vector), Z Component Of(Global.RGB_Vector), 255), Color(White), Visible To, Visible Never);
 		Global.UNO_Info = Last Text ID;
 		Global.UNO_Deck[0] = Random Integer(1, 4);
 		Global.UNO_Deck[1] = Random Integer(0, 9);
@@ -7126,7 +7179,9 @@ rule("")
 			Event Player.Mode_Cycle = 32;
 			Create HUD Text(Event Player, Event Player.Mode_Cycle, Custom String("{0} {1}", Hero Icon String(Hero Of(Player Closest To Reticle(
 				Event Player, All Teams))), Player Closest To Reticle(Event Player, All Teams)), Event Player.Mode_Headline, Left, 0,
-				Global.Rainbow_Color, Color(Yellow), Global.Rainbow_Color, String and Color, Visible Never);
+				Custom Color(X Component Of(Global.RGB_Vector), Y Component Of(
+				Global.RGB_Vector), Z Component Of(Global.RGB_Vector), 255), Color(Yellow), Custom Color(X Component Of(Global.RGB_Vector), Y Component Of(
+				Global.RGB_Vector), Z Component Of(Global.RGB_Vector), 255), String and Color, Visible Never);
 			Event Player.Mode_Hud_ID = Last Text ID;
 			Create HUD Text(Event Player, Null, Custom String(
 				"| Press Crouch + Interact/Jump to change pages |\nMod Menu: Press Crouch + input for action\n{0}", Custom String(
@@ -7139,7 +7194,9 @@ rule("")
 			Event Player.Mode_Cycle_Default = 13;
 			Create HUD Text(Event Player, Event Player.Mode_Cycle_Default, Custom String("{0} {1}", Hero Icon String(Hero Of(
 				Player Closest To Reticle(Event Player, All Teams))), Player Closest To Reticle(Event Player, All Teams)),
-				Event Player.Mode_Headline, Left, 0, Global.Rainbow_Color, Color(Yellow), Global.Rainbow_Color, String and Color,
+				Event Player.Mode_Headline, Left, 0, Custom Color(X Component Of(Global.RGB_Vector), Y Component Of(
+				Global.RGB_Vector), Z Component Of(Global.RGB_Vector), 255), Color(Yellow), Custom Color(X Component Of(Global.RGB_Vector), Y Component Of(
+				Global.RGB_Vector), Z Component Of(Global.RGB_Vector), 255), String and Color,
 				Visible Never);
 			Event Player.Mode_Hud_ID = Last Text ID;
 			Create HUD Text(Event Player, Null, Custom String(
@@ -7428,7 +7485,8 @@ rule("")
 			Destroy In-World Text(Global.UNO_Inworld[2]);
 			Destroy In-World Text(Global.UNO_Inworld[3]);
 			Create In-World Text(All Players(All Teams), Custom String("UNO"), Global.UNO_Inworld[1], 1.800, Clip Against Surfaces,
-				Visible To String and Color, Global.Rainbow_Color, Visible Never);
+				Visible To String and Color, Custom Color(X Component Of(Global.RGB_Vector), Y Component Of(
+				Global.RGB_Vector), Z Component Of(Global.RGB_Vector), 255), Visible Never);
 			Global.UNO_Inworld[2] = Last Text ID;
 			Create In-World Text(All Players(All Teams), Custom String("Current player Display\r\nNext Player Display\r\n"),
 				Global.UNO_Inworld[1], 1.200, Clip Against Surfaces, Visible To String and Color, Color(White), Visible Never);
@@ -7754,10 +7812,12 @@ rule("")
 		Cancel Primary Action(Event Player);
 		Detach Players(Event Player);
 		Event Player.inAction[1] = False;
-		Play Effect(Event Player, Good Explosion, Global.Rainbow_Color, Position Of(Event Player), 0.750);
+		Play Effect(Event Player, Good Explosion, Custom Color(X Component Of(Global.RGB_Vector), Y Component Of(
+				Global.RGB_Vector), Z Component Of(Global.RGB_Vector), 255), Position Of(Event Player), 0.750);
 		Teleport(Event Player, Position Of(Event Player) + Facing Direction Of(Event Player) * 12.500);
 		Wait(0.100, Ignore Condition);
-		Play Effect(Event Player, Good Explosion, Global.Rainbow_Color, Position Of(Event Player), 0.750);
+		Play Effect(Event Player, Good Explosion, Custom Color(X Component Of(Global.RGB_Vector), Y Component Of(
+				Global.RGB_Vector), Z Component Of(Global.RGB_Vector), 255), Position Of(Event Player), 0.750);
 		Apply Impulse(Event Player, Up, 2, To World, Cancel Contrary Motion);
 	}
 }
@@ -8980,7 +9040,8 @@ rule("")
 	{
 		Create Icon(All Players(All Teams), Eye Position(Event Player) + Vector(0.500 * Cosine From Degrees(Total Time Elapsed * 30),
 			0.200 * Sine From Radians(Total Time Elapsed * 0.500) - 0.500, 0.500 * Sine From Degrees(Total Time Elapsed * 30)), Heart,
-			Visible To Position and Color, Global.Rainbow_Color, False);
+			Visible To Position and Color, Custom Color(X Component Of(Global.RGB_Vector), Y Component Of(
+				Global.RGB_Vector), Z Component Of(Global.RGB_Vector), 255), False);
 		Event Player.Midtown_Bonus = Last Created Entity;
 		Wait Until(!Is On Objective(Event Player), 9999);
 		Destroy Icon(Event Player.Midtown_Bonus);
@@ -9095,7 +9156,8 @@ rule("")
 	{
 		Abort If(Custom String("{0}", Event Player) == Custom String("kwally") || Custom String("{0}", Event Player) == Custom String(
 			"Warloy"));
-		Play Effect(All Players(All Teams), Ring Explosion, Global.Rainbow_Color, Position Of(Event Player) + Vector(0, 0.800, 0), 1.750);
+		Play Effect(All Players(All Teams), Ring Explosion, Custom Color(X Component Of(Global.RGB_Vector), Y Component Of(
+				Global.RGB_Vector), Z Component Of(Global.RGB_Vector), 255), Position Of(Event Player) + Vector(0, 0.800, 0), 1.750);
 		Wait(0.070, Ignore Condition);
 	}
 }
@@ -9148,24 +9210,6 @@ rule("")
 		End;
 		Chase Player Variable At Rate(Event Player, Bot_CD, 0, 1, Destination and Rate);
 		Event Player.Target_Lock = Custom String("--- No Target ---");
-	}
-}
-
-disabled rule("")
-{
-	event
-	{
-		Ongoing - Global;
-	}
-
-	actions
-	{
-		"TBA move all menus from event player to global (Local Player)"
-		Create HUD Text(Host Player, 
-		Null, 
-		Custom String("Player Pos: {0}", Position Of(Local Player)), 
-		Null, 
-		Right, 65535, Null, Color(Sky Blue), Null, Visible To and String, Default Visibility);
 	}
 }
 
@@ -9304,5 +9348,27 @@ rule("")
 			Small Message(Player Closest To Reticle(Event Player, All Teams), Custom String(" {0} {1}: Ready!", Hero Icon String(Hero Of(Event Player)), Event Player));
 			Wait(4, Ignore Condition);
 		End;
+	}
+}
+
+rule("")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		(Hero Of(Event Player) == Hero(Mei) || Hero Of(Event Player) == Hero(Hazard)) == True;
+		!(Event Player.Mod_Rank && !Event Player.Promoted_Rank) == True;
+		Has Spawned(Event Player) == True;
+	}
+
+	actions
+	{
+		Set Ability Cooldown(Event Player, Button(Ability 2), 90);
 	}
 }
