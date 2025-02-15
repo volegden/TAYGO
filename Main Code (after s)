@@ -1641,7 +1641,7 @@ rule("")
 			Custom String("DjBastion"), Custom String("BeepMatic"), Custom String("royalty"), Custom String("lila"), Custom String("YVL"),
 			Custom String("Ghost"), Custom String("NotToxic"), Custom String("River"), Custom String("dethkult"));
 		"Demoted List"
-		Global.Demoted_List = Array(Custom String("Proudcatlovr"), Custom String("NiceKnockers"));
+		Global.Demoted_List = Array(Custom String("Proudcatlovr"), Custom String("NiceKnockers"), Custom String("Coy"), Custom String("stealthyy"));
 		"Automatic Ban"
 		Global.Banned_List = Array(Custom String("xMaxuss"), Custom String("HYUA"), Custom String("BebeUwU"), 
 			Custom String("HOÑEYBEE"), Custom String("Dead"), Custom String("chii"), Custom String("WÃFFLĚS"), Custom String("CuddleBunny"), 
