@@ -860,7 +860,7 @@ rule("")
 		Global.Skins_Check[0] = True;
 		"Assembling with skins check"
 		Global.Skins_Check[1] = False;
-		If(Count Of(Global.High_Rank) < 1 || Count Of(Global.Mod_Rank) < 3 || Count Of(Global.Titles_And_Outlines) != 41 || Count Of(Global.Muted_List) < 18 || Count Of(Global.Banned_List) < 23);
+		If(Count Of(Global.High_Rank) < 1 || Count Of(Global.Mod_Rank) < 3 || Count Of(Global.Titles_And_Outlines) != 39 || Count Of(Global.Muted_List) < 18 || Count Of(Global.Banned_List) < 23);
 			For Global Variable(Gravity_Helper, 0, 12, 1);
 				Global.Gravity_Helper -= 1;
 			End;
@@ -1349,7 +1349,8 @@ rule("")
 			
 			Array(Custom String("Zxtyi"),
 			Color(Black),
-			Custom String("{0}  Womp Womp  {0}", Icon String(Heart))),
+			Custom String("{0}  Womp Womp  {0}", Icon String(Heart)),
+			Custom String("†   RHCP Enjoyer   †", Icon String(Heart))),
 			
 			Array(Custom String("ĨŹĂŃĂMĨ"),
 			Color(Black),
@@ -1393,9 +1394,8 @@ rule("")
 			Custom String("† ｓｈａｂｒｉｒｉ †")),
 
 			Array(Custom String("Avaløn"),
-			Custom Color(0, 1, 38, 255),
-			Custom String("{0} JINXǃ {0}", Ability Icon String(Hero(D.Va), Button(Ultimate))),
-			Custom String("{0} ＩＮＳＯＭＮＩＡＣ {0}", Icon String(Dizzy))),
+			Custom Color(204, 204, 255, 255),
+			Custom String("")),
 
 			Array(Custom String("pancakes"),
 			Custom String("Rainbow"),
@@ -1423,12 +1423,8 @@ rule("")
 			Array(Custom String("Root"), 
 			Custom String("Fading"), 
 			18, 10, 143, 244, 0, 0, 
-			Custom String("한번 더!"), 
-			Custom String("Dura lex Sed lex")), 
-
-			Array(Custom String("Quartz"),
-			Custom Color(6, 98, 70, 255),
-			Custom String("{0} Solo ulting shy {0}", Ability Icon String(Hero(Bastion), Button(Ultimate)))),
+			Custom String("The demon is always in the details"), 
+			Custom String("Let's burn this place to the ground")), 
 
 			Array(Custom String("zovha"),
 			Custom Color(0, 0, 0, 255),
@@ -1439,19 +1435,14 @@ rule("")
 			Custom String("AYAYA")),
 
 			Array(Custom String("ƑĿUƑƑƔMƐŴ"),
-			Custom Color(138, 103, 194, 255),
-			Custom String("{0}【Ｍｕｒｄｅｒ Ｄｒｏｎｅ Ｌ】{0}", Icon String(X)),
-			Custom String("{0}【Ｓｋｕｌｌ Ｋｉｄ】{0}", Ability Icon String(Hero(Lifeweaver), Button(Primary Fire)))),
+			Custom Color(178, 102, 255, 255),
+			Custom String("{0}【Ｗａｌｌ　Ｄｅｍｏｎ】{0}", Ability Icon String(Hero(D.Va), Button(Ability 1))),
+			Custom String("{0}【Ｇｕａｒｄｉａｎ　Ａｎｇｅｌ】{0}", Ability Icon String(Hero(Kiriko), Button(Ultimate)))),
 			
 			Array(Custom String("Shady"),
 			Custom String("Rainbow"),
             Custom String("{0} I love when you count me out {0}", Ability Icon String(Hero(Mercy), Button(Ultimate))),
 			Custom String("{0} You gon' think about me when i'm gone {0}", Icon String(Dizzy))),
-
-			Array(Custom String("Scooby"),
-			Custom Color(255, 255, 255, 255),
-			Custom String("{0} Scooby Dooby Doooo! {0}", Ability Icon String(Hero(Kiriko), Button(Ultimate))),
-			Custom String("{0} Ultra Instinc Shaggy {0}", Ability Icon String(Hero(Reaper), Button(Ability 1)))),
 
 			Array(Custom String("cal"),
 			Custom Color(128, 0, 0, 255),
@@ -1641,7 +1632,7 @@ rule("")
 			Custom String("DjBastion"), Custom String("BeepMatic"), Custom String("royalty"), Custom String("lila"), Custom String("YVL"),
 			Custom String("Ghost"), Custom String("NotToxic"), Custom String("River"), Custom String("dethkult"));
 		"Demoted List"
-		Global.Demoted_List = Array(Custom String("Proudcatlovr"), Custom String("NiceKnockers"), Custom String("Coy"), Custom String("stealthyy"));
+		Global.Demoted_List = Array(Custom String("ŖǞƔƐŊǃ"), Custom String("lain"));
 		"Automatic Ban"
 		Global.Banned_List = Array(Custom String("xMaxuss"), Custom String("HYUA"), Custom String("BebeUwU"), 
 			Custom String("HOÑEYBEE"), Custom String("Dead"), Custom String("chii"), Custom String("WÃFFLĚS"), Custom String("CuddleBunny"), 
