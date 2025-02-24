@@ -31,7 +31,7 @@ rule("")
 			Array(Custom String("S0undw4v3"),
 			Custom Color(237, 26, 77, 255),
 			Custom String("{0} Arc Trooper Soundy {0}", Ability Icon String(Hero(Reaper), Button(Ability 2))),
-			Custom String("{0} Sith Master Soundwave {0}", Ability Icon String(Hero(Genji), Button(Ultimate)))),
+			Custom String("{0} Enjoyer of Books and Lore {0}", Ability Icon String(Hero(Reinhardt), Button(Secondary Fire)))),
 			
 			Array(Custom String("Xenolysith"),
 			Custom Color(241, 196, 15, 255),
@@ -88,7 +88,7 @@ rule("")
 			Array(Custom String("Zxtyi"),
 			Color(Black),
 			Custom String("{0}  Womp Womp  {0}", Icon String(Heart)),
-			Custom String("  Kiriko Simp ")),
+			Custom String("†   RHCP Enjoyer   †", Icon String(Heart))),
 			
 			Array(Custom String("ĨŹĂŃĂMĨ"),
 			Color(Black),
@@ -102,7 +102,7 @@ rule("")
 			Array(Custom String("GHOSTIEǃ"),
 			Custom String("Rainbow"),
 			Custom String("♡ Lostshadow's big sister ♡"),
-			Custom String("{0} × RΛM & SIGMΛ ΣNJOYΣR × {0}", Ability Icon String(Hero(Sombra), Button(Ultimate)))),
+			Custom String("{0} ﾒ’0 THE WEEKND'S VERSION ﾒ’0 {0}", Ability Icon String(Hero(Lúcio), Button(Ultimate)))),
 			
 			Array(Custom String("ByeFever"),
 			Custom Color(157, 29, 16, 255),
@@ -118,7 +118,7 @@ rule("")
 			Custom String("{0} ☆ おばけ ☆ {0}", Ability Icon String(Hero(Genji), Button(Ultimate)))),
 			
 			Array(Custom String("SapphicWitch"),
-			Custom Color(204, 153, 255, 255),
+			Custom Color(255, 182, 193, 255),
 			Custom String("{0} Tiny Mercy collector {0}", Ability Icon String(Hero(Moira), Button(Ultimate))),
 			Custom String("{0} Moicy on top {0}", Ability Icon String(Hero(Mercy), Button(Ultimate)))),
 
@@ -132,8 +132,8 @@ rule("")
 			Custom String("† ｓｈａｂｒｉｒｉ †")),
 
 			Array(Custom String("Avaløn"),
-			Custom String("Rainbow"),
-			Custom String(" ")),
+			Custom Color(204, 204, 255, 255),
+			Custom String("")),
 
 			Array(Custom String("pancakes"),
 			Custom String("Rainbow"),
@@ -158,14 +158,11 @@ rule("")
 			Custom String("{0} RYŪ GΛ WΛGΛ TΣKI WΘ KURΛU! {0}", Ability Icon String(Hero(Hanzo), Button(Ultimate))),
 			Custom String("{0} WHΛT'S YOUR NΣXT MOVΣ? {0}", Ability Icon String(Hero(Genji), Button(Primary Fire)))),
 
-			Array(Custom String("Root"),
-			Custom Color(18, 10, 143, 255),
-			Custom String("The demon is always in the details"),
-			Custom String("This action will have consequences...")),
-
-			Array(Custom String("Quartz"),
-			Custom Color(6, 98, 70, 255),
-			Custom String("{0} Solo ulting shy {0}", Ability Icon String(Hero(Bastion), Button(Ultimate)))),
+			Array(Custom String("Root"), 
+			Custom String("Fading"), 
+			18, 10, 143, 244, 0, 0, 
+			Custom String("The demon is always in the details"), 
+			Custom String("Let's burn this place to the ground")), 
 
 			Array(Custom String("zovha"),
 			Custom Color(0, 0, 0, 255),
@@ -176,19 +173,14 @@ rule("")
 			Custom String("AYAYA")),
 
 			Array(Custom String("ƑĿUƑƑƔMƐŴ"),
-			Custom Color(138, 103, 194, 255),
-			Custom String("{0}【Ｍｕｒｄｅｒ Ｄｒｏｎｅ Ｌ】{0}", Icon String(X)),
-			Custom String("{0}【Ｓｋｕｌｌ Ｋｉｄ】{0}", Ability Icon String(Hero(Lifeweaver), Button(Primary Fire)))),
+			Custom Color(178, 102, 255, 255),
+			Custom String("{0}【Ｗａｌｌ　Ｄｅｍｏｎ】{0}", Ability Icon String(Hero(D.Va), Button(Ability 1))),
+			Custom String("{0}【Ｇｕａｒｄｉａｎ　Ａｎｇｅｌ】{0}", Ability Icon String(Hero(Kiriko), Button(Ultimate)))),
 			
 			Array(Custom String("Shady"),
 			Custom String("Rainbow"),
             Custom String("{0} I love when you count me out {0}", Ability Icon String(Hero(Mercy), Button(Ultimate))),
 			Custom String("{0} You gon' think about me when i'm gone {0}", Icon String(Dizzy))),
-
-			Array(Custom String("Scooby"),
-			Custom Color(255, 255, 255, 255),
-			Custom String("{0} Scooby Dooby Doooo! {0}", Ability Icon String(Hero(Kiriko), Button(Ultimate))),
-			Custom String("{0} Ultra Instinc Shaggy {0}", Ability Icon String(Hero(Reaper), Button(Ability 1)))),
 
 			Array(Custom String("cal"),
 			Custom Color(128, 0, 0, 255),
